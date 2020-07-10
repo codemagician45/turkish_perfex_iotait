@@ -458,7 +458,7 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_setup_children_item('warehouse', [
                 'slug'     => 'warehouses',
                 'name'     => _l('warehouses'),
-                'href'     => admin_url('warehouses'),
+                'href'     => admin_url('warehouses/warehouse'),
                 'position' => 5,
         ]);
 
@@ -470,9 +470,9 @@ function app_init_admin_sidebar_menu_items()
         ]);
 
         $CI->app_menu->add_setup_children_item('warehouse', [
-                'slug'     => 'units',
-                'name'     => _l('units'),
-                'href'     => admin_url('warehouses/units'),
+                'slug'     => 'stock_units',
+                'name'     => _l('stock_units'),
+                'href'     => admin_url('warehouses/stock_units'),
                 'position' => 15,
         ]);   
     }

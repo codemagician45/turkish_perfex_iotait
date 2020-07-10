@@ -7,40 +7,39 @@
 				<div class="panel_s">
 					<div class="panel-body">
 						<div class="_buttons">
-							<a href="#" class="btn btn-info pull-left" data-toggle="modal" data-target="#warehouse_modal"><?php echo _l('new_warehouse'); ?></a>
+							<a href="#" class="btn btn-info pull-left" data-toggle="modal" data-target="#stock_unit_modal"><?php echo _l('new_stock_unit'); ?></a>
 						</div>
 						<div class="clearfix"></div>
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
-							_l('order_no'),
 							_l('name'),
 							_l('options'),
-						),'warehouses'); ?>
+							_l('unit_active'),
+						),'stock_unit'); ?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="modal fade" id="warehouse_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="stock_unit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">
-					<span class="edit-title"><?php echo _l('edit_warehouse'); ?></span>
-					<span class="add-title"><?php echo _l('add_new_warehouse'); ?></span>
+					<span class="edit-title"><?php echo _l('edit_stock_unit'); ?></span>
+					<span class="add-title"><?php echo _l('add_new_stock_unit'); ?></span>
 				</h4>
 			</div>
-			<?php echo form_open('admin/warehouses/warehouse_manage',array('id'=>'warehouse_form')); ?>
-			<?php echo form_hidden('warehouseid'); ?>
+			<?php echo form_open('admin/warehouses/stock_unit_manage',array('id'=>'stock_unit_form')); ?>
+			<?php echo form_hidden('stock_unit_id'); ?>
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-12">
 <!--						<div class="alert alert-warning">--><?php ////echo _l('currency_valid_code_help'); ?><!--</div>-->
-						<?php echo render_input('order_no',_l('order_no'),'','number'); ?>
-						<?php echo render_input('warehouse_name',_l('warehouse_name'),'','text'); ?>
+						<?php echo render_input('name',_l('stock_unit_name'),'','text'); ?>
 					</div>
 				</div>
 			</div>
@@ -56,48 +55,44 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-warehouses', window.location.href, [2], [2]);
+		initDataTable('.table-stock_unit', window.location.href, [2], [2]);
 
 		appValidateForm($('form'), {
-			warehouse_name: 'required',
-			order_no: 'required',
-		}, manage_warehouses);
+			name: 'required',
+		}, manage_stock_unit);
 
-		$('#warehouse_modal').on('show.bs.modal', function(event) {
+		$('#stock_unit_modal').on('show.bs.modal', function(event) {
 
 			var button = $(event.relatedTarget)
 			var id = button.data('id');
 
-			$('#warehouse_modal input[name="warehouse_name"]').val('');
-			$('#warehouse_modal input[name="order_no"]').val('');
-			$('#warehouse_modal input[name="warehouseid"]').val('');
+			$('#stock_unit_modal input[name="name"]').val('');
+			$('#stock_unit_modal input[name="stock_unit_id"]').val('');
 
-			$('#warehouse_modal .add-title').removeClass('hide');
-			$('#warehouse_modal .edit-title').addClass('hide');
+			$('#stock_unit_modal .add-title').removeClass('hide');
+			$('#stock_unit_modal .edit-title').addClass('hide');
 
 			if (typeof(id) !== 'undefined') {
-				$('input[name="warehouseid"]').val(id);
-				var orderNo = $(button).parents('tr').find('td').eq(0).text();
-				var warehouseName = $(button).parents('tr').find('td').eq(1).find('span.name').text();
-				$('#warehouse_modal .add-title').addClass('hide');
-				$('#warehouse_modal .edit-title').removeClass('hide');
-				$('#warehouse_modal input[name="warehouse_name"]').val(warehouseName);
-				$('#warehouse_modal input[name="order_no"]').val(orderNo);
+				$('input[name="stock_unit_id"]').val(id);
+				var name = $(button).parents('tr').find('td').eq(0).text();
+				$('#stock_unit_modal .add-title').addClass('hide');
+				$('#stock_unit_modal .edit-title').removeClass('hide');
+				$('#stock_unit_modal input[name="name"]').val(name);
 
 			}
 		});
 	});
 	/* CURRENCY MANAGE FUNCTIONS */
-	function manage_warehouses(form) {
+	function manage_stock_unit(form) {
 		var data = $(form).serialize();
 		var url = form.action;
 		$.post(url, data).done(function(response) {
 			response = JSON.parse(response);
 			if (response.success == true) {
-				$('.table-warehouses').DataTable().ajax.reload();
+				$('.table-stock_unit').DataTable().ajax.reload();
 				alert_float('success', response.message);
 			}
-			$('#warehouse_modal').modal('hide');
+			$('#stock_unit_modal').modal('hide');
 		});
 		return false;
 	}

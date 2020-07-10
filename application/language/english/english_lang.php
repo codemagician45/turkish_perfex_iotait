@@ -3646,8 +3646,22 @@ $lang['stock_list'] = 'Stock List';
 $lang['warehouse_material'] = 'Warehouse Material';
 $lang['warehouses'] = 'Warehouses';
 $lang['stock_categories'] = 'Stock Categories';
-$lang['units'] = 'Units';
+$lang['units'] = 'Stock Units';
 
 $lang['warehouse_name'] = 'Warehouse Name';
 $lang['order_no'] = 'Order No';
+$lang['new_warehouse'] = 'New Warehouse';
+$lang['edit_warehouse'] = 'Edit Warehouse';
+$lang['add_new_warehouse'] = 'Add New Warehouse';
 
+$lang['stock_category'] = 'Stock Category';
+$lang['order_no'] = 'Order No';
+$lang['new_stock_category'] = 'New Stock Category';
+$lang['edit_stock_category'] = 'Edit Stock Category';
+$lang['add_new_stock_category'] = 'Add New Stock Category';
+
+$lang['stock_units'] = 'Stock Units';
+$lang['stock_unit_name'] = 'Name';
+$lang['edit_stock_unit'] = 'Edit Stock Unit';
+$lang['new_stock_unit'] = 'New Stock Unit';
+$lang['unit_active'] = 'Active';

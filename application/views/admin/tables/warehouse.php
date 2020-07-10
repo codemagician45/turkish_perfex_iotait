@@ -2,8 +2,8 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
-    'warehouse_name',
     'order_no',
+    'warehouse_name',
     ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'warehouses';
@@ -29,6 +29,7 @@ foreach ($rResult as $aRow) {
         $row[] = $_data;
     }
     $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
-    $row[] = $options .= icon_btn('warehouses/warehouse_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    // $row[] = $options .= icon_btn('warehouses/warehouse_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    $row[] = $options;
     $output['aaData'][] = $row;
 }
