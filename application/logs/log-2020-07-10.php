@@ -1,0 +1,31 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-07-10 05:37:41 --> Severity: error --> Exception: syntax error, unexpected ')', expecting ';' or ',' C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses_material\warehouses.php 42
+ERROR - 2020-07-10 05:37:53 --> Could not find the language line "New Warehouse"
+ERROR - 2020-07-10 05:37:53 --> Could not find the language line "Name"
+ERROR - 2020-07-10 05:37:53 --> Could not find the language line "Order No"
+ERROR - 2020-07-10 05:37:53 --> Could not find the language line "Edit Warehouse"
+ERROR - 2020-07-10 05:37:53 --> Could not find the language line "Add New Warehouse"
+ERROR - 2020-07-10 05:38:38 --> Could not find the language line "New Warehouse"
+ERROR - 2020-07-10 05:38:38 --> Could not find the language line "Name"
+ERROR - 2020-07-10 05:38:38 --> Could not find the language line "Order No"
+ERROR - 2020-07-10 05:38:38 --> Could not find the language line "Edit Warehouse"
+ERROR - 2020-07-10 05:38:38 --> Could not find the language line "Add New Warehouse"
+ERROR - 2020-07-10 05:38:56 --> 404 Page Not Found: admin/Warehouses/delete
+ERROR - 2020-07-10 05:43:55 --> Could not find the language line "New Warehouse"
+ERROR - 2020-07-10 05:43:55 --> Could not find the language line "Name"
+ERROR - 2020-07-10 05:43:55 --> Could not find the language line "Order No"
+ERROR - 2020-07-10 05:43:55 --> Could not find the language line "Edit Warehouse"
+ERROR - 2020-07-10 05:43:55 --> Could not find the language line "Add New Warehouse"
+ERROR - 2020-07-10 05:46:43 --> 404 Page Not Found: admin/Warehouses/delete
+ERROR - 2020-07-10 05:49:52 --> Could not find the language line "New Warehouse"
+ERROR - 2020-07-10 05:49:52 --> Could not find the language line "Name"
+ERROR - 2020-07-10 05:49:52 --> Could not find the language line "Order No"
+ERROR - 2020-07-10 05:49:52 --> Could not find the language line "Edit Warehouse"
+ERROR - 2020-07-10 05:49:52 --> Could not find the language line "Add New Warehouse"
+ERROR - 2020-07-10 05:49:58 --> Could not find the language line "Warehouse"
+ERROR - 2020-07-10 05:49:59 --> Could not find the language line "New Warehouse"
+ERROR - 2020-07-10 05:49:59 --> Could not find the language line "Name"
+ERROR - 2020-07-10 05:49:59 --> Could not find the language line "Order No"
+ERROR - 2020-07-10 05:49:59 --> Could not find the language line "Edit Warehouse"
+ERROR - 2020-07-10 05:49:59 --> Could not find the language line "Add New Warehouse"
