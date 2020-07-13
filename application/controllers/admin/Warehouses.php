@@ -290,8 +290,7 @@ class Warehouses extends AdminController
                     $allocation_data['wo_no'] = $data['wo_no'];
                     $allocation_data['created_user'] = $data['created_user'];
                     $allocation_id = $this->warehouses_model->add_allocated_items($allocation_data); 
-                    $data['allocation_id'] = $allocation_id;
-                    $this->warehouses_model->update_transfer($data, $id);
+                    $this->db->query('UPDATE tbltransfer_lists SET allocation_id = '.$allocation_id.' WHERE `id` ='.$id);
                 }
                 
                 if ($id) {

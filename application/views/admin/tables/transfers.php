@@ -33,11 +33,10 @@ $additionalSelect = [
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
     
-    $subjectOutput = '<a href="' . admin_url('warehouses/transfer_manage/' . $aRow['id']) . '" target="_blank">' . $aRow['p_code'] . '</a>';
+    $subjectOutput = $aRow['p_code'];
     $subjectOutput .= '<div class="row-options">';
 
     $subjectOutput .= '<a href="' . admin_url('warehouses/transfers_manage/' . $aRow['id']) . '">' . _l('edit') . '</a>';
@@ -49,6 +48,7 @@ foreach ($rResult as $aRow) {
 
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
+
     $row[] = $aRow['t_from'];
 
     $t_to = @$this->ci->db->query('select * from tblwarehouses where `id`='.$aRow['transaction_to'])->row()->warehouse_name;
@@ -64,7 +64,13 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['firstname']. ' '. $aRow['lastname'] . '</a>';
 
-    $row[] = $aRow['updated_user'];
-
+    if(!empty($aRow['updated_user']))
+    {
+        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
+        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+    }
+    else
+        $row[] = '';
     $output['aaData'][] = $row;
 }

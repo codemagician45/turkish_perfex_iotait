@@ -239,10 +239,10 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
-        // print_r($data); exit();
+        
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
-
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {

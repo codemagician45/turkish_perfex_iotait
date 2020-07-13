@@ -33,24 +33,41 @@ $output  = $result['output'];
 $rResult = $result['rResult'];
 
 foreach ($rResult as $aRow) {
+    
     $row = [];
-    for ($i = 0; $i < count($aColumns); $i++) {
-        $_data = $aRow[$aColumns[$i]];
 
-        $attributes = [
-            'data-toggle'             => 'modal',
-            'data-target'             => '#mould_suitability',
-            'data-id'                 => $aRow['id'],
-        ];
+    $subjectOutput = $aRow['packing_type'];
+    $subjectOutput .= '<div class="row-options">';
 
-        if ($aColumns[$i] == 'stock_product_code') {
-            $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
-        }
-        $row[] = $_data;
-    }
-    $options = icon_btn('list_of_packaging/update/' . $aRow['id'], 'pencil-square-o', 'btn-default');
+    $subjectOutput .= '<a href="' . admin_url('warehouses/packing_list_manage/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+  
+    // if (has_permission('contracts', '', 'delete')) {
+        $subjectOutput .= ' | <a href="' . admin_url('warehouses/packing_list_manage/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+    // }
+
+    $subjectOutput .= '</div>';
+    $row[] = $subjectOutput;
+
+    $row[] = $aRow['pack_capacity'];
+
+    $row[] = $aRow['box_quality'];
+
+    $row[] = $aRow['box_type'];
+
+    $row[] = $aRow['l_size'];
+
+    $row[] = $aRow['w_size'];
+
+    $row[] = $aRow['h_size'];
+    
+    $row[] = $aRow['volume'];
+
+    $row[] = $aRow['pack_price'];
+
+    $row[] = $aRow['price_per_item'];
+
+    $row[] = $aRow['stock_qty'];
 
 
-    $row[]              = $options .= icon_btn('list_of_packaging/delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
     $output['aaData'][] = $row;
 }
