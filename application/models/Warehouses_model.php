@@ -422,4 +422,41 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function update_packing_list($data,$id)
+    {
+        // $data['user_id'] = get_staff_user_id();
+        $data['updated_at']=date('Y-m-d h:i:s');
+        $this->db->where('id',$id);
+        $this->db->update(db_prefix() . 'pack_list', $data);
+        if ($this->db->affected_rows() > 0) {
+            log_activity('Packing List Updated [' . $id . ']');
+            return true;
+        }
+        return false;
+    }
+
+    public function get_packing_list($id)
+    {
+        $this->db->from(db_prefix() . 'pack_list');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'pack_list.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function delete_packing_list($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete(db_prefix() . 'pack_list');
+        if ($this->db->affected_rows() > 0) {
+
+            log_activity('Pack List Deleted [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
 }

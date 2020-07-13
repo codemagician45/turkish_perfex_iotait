@@ -9,42 +9,64 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <?php echo render_input('packing_type', _l('packing_type'), '', 'text', array('placeholder' => _l(_l('packing_type')))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->packing_type : '');
+                                echo render_input('packing_type', _l('packing_type'), $value, 'text', array('placeholder' => _l(_l('packing_type')))); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('pack_capacity', _l('pack_capacity'), '', 'number', array('placeholder' => _l('pack_capacity'))); ?>
+                                <?php
+                                $value = (isset($packing_list) ? $packing_list->pack_capacity : ''); 
+                                echo render_input('pack_capacity', _l('pack_capacity'), $value, 'number', array('placeholder' => _l('pack_capacity'))); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('box_quality', _l('box_quality'), '', 'text', array('placeholder' => _l('box_quality'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->box_quality : '');
+                                echo render_input('box_quality', _l('box_quality'), $value, 'text', array('placeholder' => _l('box_quality'))); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('box_type', _l('box_type'), '', 'text', array('placeholder' => _l('box_type'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->box_type : '');
+                                echo render_input('box_type', _l('box_type'), $value, 'text', array('placeholder' => _l('box_type'))); ?>
                             </div>
 
                             <div class="col-md-6">
-                                <?php echo render_input('l_size', _l('l_size'), '', 'number', array('placeholder' => _l('l_size'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->l_size : '');
+                                echo render_input('l_size', _l('l_size'), $value, 'number', array('placeholder' => _l('l_size'))); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('w_size', _l('w_size'), '', 'number', array('placeholder' => _l('w_size'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->w_size : '');
+                                echo render_input('w_size', _l('w_size'), $value, 'number', array('placeholder' => _l('w_size'))); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('h_size', _l('h_size'), '', 'number', array('placeholder' => _l('h_size'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->h_size : '');
+                                echo render_input('h_size', _l('h_size'), $value, 'number', array('placeholder' => _l('h_size'))); ?>
                             </div>
                             <!-- <div class="col-md-6">
                                 <?php echo render_input('volume', _l('volume_m3'), '', 'number', '', '', '', 'volume_m3', array('placeholder' => _l('volume_m3'))); ?>
                             </div> -->
                             <div class="col-md-6">
-                                <?php echo render_input('volume', _l('volume_m3'), '', 'number', array('placeholder' => _l('volume_m3'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->volume : '');
+                                echo render_input('volume', _l('volume_m3'), $value, 'number', array('placeholder' => _l('volume_m3'),'readonly'=>true)); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('pack_price', _l('pack_price'), '', 'number', array('placeholder' => _l('pack_price'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->pack_price : '');
+                                echo render_input('pack_price', _l('pack_price'), $value, 'number', array('placeholder' => _l('pack_price'))); ?>
                             </div>
 
                             <div class="col-md-6">
-                                <?php echo render_input('price_per_item', _l('price_per_item'), '', 'number', array('placeholder' => _l('price_per_item'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->price_per_item : '');
+                                echo render_input('price_per_item', _l('price_per_item'), $value, 'number', array('placeholder' => _l('price_per_item'),'readonly'=>true)); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php echo render_input('stock_qty', _l('stock_qty'), '', 'number', array('placeholder' => _l('stock_qty'))); ?>
+                                <?php 
+                                $value = (isset($packing_list) ? $packing_list->stock_qty : '');
+                                echo render_input('stock_qty', _l('stock_qty'), $value, 'number', array('placeholder' => _l('stock_qty'))); ?>
 
                             </div>
                         </div>

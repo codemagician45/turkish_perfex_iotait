@@ -1267,3 +1267,67 @@ ERROR - 2020-07-13 17:39:12 --> Could not find the language line "purchase_recei
 ERROR - 2020-07-13 17:39:12 --> Could not find the language line "transfer"
 ERROR - 2020-07-13 17:39:13 --> Could not find the language line "purchase_receiving_bay"
 ERROR - 2020-07-13 17:39:14 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:41:38 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:41:38 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 17:41:40 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:41:41 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:41:41 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:41:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:41:41 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:41:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:44:43 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:44:48 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:44:48 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 17:44:49 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:44:50 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:46:18 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:46:19 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:46:19 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:46:19 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:46:19 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:47:36 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:47:36 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:47:36 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:47:36 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:47:36 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:49:01 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:49:01 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:49:01 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:49:01 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:49:01 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:51:28 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:51:28 --> Severity: error --> Exception: syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ')' C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 51
+ERROR - 2020-07-13 17:51:52 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:51:52 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:51:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:51:52 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:51:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:53:49 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:53:49 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:53:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:53:49 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:53:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:53:58 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:53:58 --> Severity: error --> Exception: Call to undefined method Warehouses_model::update_packing_list() C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 488
+ERROR - 2020-07-13 17:57:20 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:57:21 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:57:21 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 17:57:22 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:59:22 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:59:22 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 17:59:23 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:59:26 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:59:26 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 17:59:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 17:59:26 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 17:59:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 17:59:30 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 17:59:30 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 17:59:31 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:00:03 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:00:03 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:00:05 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:00:07 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:00:07 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:00:07 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:00:08 --> Could not find the language line "purchase_receiving_bay"

@@ -496,8 +496,24 @@ class Warehouses extends AdminController
             $title = _l('add_new', _l('packing_list'));
         } else {
             $title = _l('edit', _l('packing_list'));
+            $data['packing_list'] = $this->warehouses_model->get_packing_list($id);
         }
         $data['title']         = $title;
+        // print_r($data); exit();
         $this->load->view('admin/warehouses/packing_list/packing_list', $data);
+    }
+
+    public function delete_packing_list($id)
+    {
+        if (!$id) {
+            redirect(admin_url('warehouses/packing_list'));
+        }
+        $response = $this->warehouses_model->delete_packing_list($id);
+        if ($response == true) {
+            set_alert('success', _l('deleted', _l('packing_list')));
+        } else {
+            set_alert('warning', _l('problem_deleting', _l('packing_list')));
+        }
+        redirect(admin_url('warehouses/packing_list'));
     }
 }
