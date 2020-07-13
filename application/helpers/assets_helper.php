@@ -78,7 +78,8 @@ function _init_admin_assets()
         $CI->app_css->add('bootstrap-rtl-css', 'assets/plugins/bootstrap-arabic/css/bootstrap-arabic.min.css');
     }
 
-    $CI->app_css->add('app-css', base_url($CI->app_css->core_file('assets/css', 'style.css')) . '?v=' . $CI->app_css->core_version());
+    // $CI->app_css->add('app-css', base_url($CI->app_css->core_file('assets/css', 'style.css')) . '?v=' . $CI->app_css->core_version());
+    $CI->app_css->add('app-css', base_url('assets/css/style.css'));
 
     if (file_exists(FCPATH . 'assets/css/custom.css')) {
         $CI->app_css->add('custom-css', base_url('assets/css/custom.css'), 'admin', ['app-css']);

@@ -426,3 +426,102 @@ ERROR - 2020-07-10 13:08:25 --> Could not find the language line "add_new_stock_
 ERROR - 2020-07-10 13:08:34 --> Could not find the language line "add_new_stock_unit"
 ERROR - 2020-07-10 16:22:42 --> Could not find the language line "add_new_category"
 ERROR - 2020-07-10 16:22:50 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 16:42:21 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:03:13 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:03:45 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:04:39 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:05:32 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:07:18 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:09:38 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:10:18 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:10:45 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 18:12:03 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 19:01:44 --> Severity: Notice --> Undefined property: Warehouses::$stock_lists_model C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 179
+ERROR - 2020-07-10 19:01:44 --> Severity: error --> Exception: Call to a member function get_warehouses() on null C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 179
+ERROR - 2020-07-10 19:12:31 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "New Item"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "product_code"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "product_photo"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "product_name"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "category"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "price"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "price"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "currency_id"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "Edit Item"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "Add New Item"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "product code"
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "product name code"
+ERROR - 2020-07-10 19:14:43 --> Severity: Notice --> Undefined variable: stock_units C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\stock_lists\manage.php 57
+ERROR - 2020-07-10 19:14:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-07-10 19:14:43 --> Severity: Notice --> Undefined variable: stock_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\stock_lists\manage.php 59
+ERROR - 2020-07-10 19:14:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-07-10 19:14:43 --> Could not find the language line "price here"
+ERROR - 2020-07-10 19:14:43 --> Severity: Notice --> Undefined variable: currency_exchange C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\stock_lists\manage.php 62
+ERROR - 2020-07-10 19:14:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-07-10 19:14:43 --> Severity: Warning --> include_once(stock_lists.php): failed to open stream: No such file or directory C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 213
+ERROR - 2020-07-10 19:14:44 --> Severity: Warning --> include_once(): Failed opening 'stock_lists.php' for inclusion (include_path='C:\xampp\php\PEAR') C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 213
+ERROR - 2020-07-10 19:14:44 --> Severity: Notice --> Undefined variable: output C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 215
+ERROR - 2020-07-10 19:24:35 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:24:36 --> Severity: Warning --> include_once(stock_lists.php): failed to open stream: No such file or directory C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 213
+ERROR - 2020-07-10 19:24:36 --> Severity: Warning --> include_once(): Failed opening 'stock_lists.php' for inclusion (include_path='C:\xampp\php\PEAR') C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 213
+ERROR - 2020-07-10 19:24:36 --> Severity: Notice --> Undefined variable: output C:\xampp\htdocs\turkish_perfex\application\libraries\App.php 215
+ERROR - 2020-07-10 19:28:50 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:28:54 --> Severity: error --> Exception: Call to undefined function get_login_user_id() C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\stock_lists.php 26
+ERROR - 2020-07-10 19:29:36 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:29:37 --> Severity: Notice --> Undefined offset: 3 C:\xampp\htdocs\turkish_perfex\application\helpers\datatables_helper.php 162
+ERROR - 2020-07-10 19:29:37 --> Severity: Notice --> Undefined offset: 4 C:\xampp\htdocs\turkish_perfex\application\helpers\datatables_helper.php 162
+ERROR - 2020-07-10 19:30:04 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:30:05 --> Severity: Notice --> Undefined offset: 3 C:\xampp\htdocs\turkish_perfex\application\helpers\datatables_helper.php 162
+ERROR - 2020-07-10 19:30:05 --> Severity: Notice --> Undefined offset: 4 C:\xampp\htdocs\turkish_perfex\application\helpers\datatables_helper.php 162
+ERROR - 2020-07-10 19:31:09 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:31:48 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:32:48 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "product_code"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "product_photo"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "product_name"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "category"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "price"
+ERROR - 2020-07-10 19:40:40 --> Could not find the language line "current_id"
+ERROR - 2020-07-10 19:40:41 --> Query error: Unknown column 'tblunits.name' in 'field list' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS product_code, product_photo, product_name, `tblunits`.`name` AS `tblunits.name`, `tblstock_categories`.`name` AS `tblstock_categories.name`, price, current_id ,id
+    FROM tblstock_lists
+    
+    
+    
+    
+    ORDER BY product_code ASC
+    LIMIT 0, 25
+    
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "product_code"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "product_photo"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "product_name"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "category"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "price"
+ERROR - 2020-07-10 19:46:37 --> Could not find the language line "current_id"
+ERROR - 2020-07-10 19:46:39 --> Query error: Unknown column 'current_id' in 'field list' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS product_code, product_photo, product_name, `tblunits`.`name` AS `tblunits.name`, `tblstock_categories`.`name` AS `tblstock_categories.name`, price, current_id ,tblstock_lists.id,unit,category
+    FROM tblstock_lists
+    LEFT JOIN tblunits ON tblunits.id = tblstock_lists.unit LEFT JOIN tblstock_categories ON tblstock_categories.id = tblstock_lists.category
+    
+    WHERE  tblstock_lists.created_by = 1
+    
+    ORDER BY product_code ASC
+    LIMIT 0, 25
+    
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "product_code"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "product_photo"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "product_name"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "category"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "price"
+ERROR - 2020-07-10 19:47:17 --> Could not find the language line "current_id"
+ERROR - 2020-07-10 19:50:39 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 19:50:39 --> Could not find the language line "current_id"
+ERROR - 2020-07-10 19:50:49 --> Could not find the language line "stock_lists"
+ERROR - 2020-07-10 20:00:40 --> Could not find the language line "add_new_stock_unit"
+ERROR - 2020-07-10 20:00:58 --> Could not find the language line "stock_unit"
+ERROR - 2020-07-10 20:07:40 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-10 20:08:02 --> Could not find the language line "add_new_category"

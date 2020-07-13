@@ -9,7 +9,7 @@ ob_start();
    </ul>
 </li>
 <li id="top_search_button">
-   <button class="btn"><i class="fa fa-search"></i></button>
+   <button class="btn"><i class="fa fa-search" style="color: #008dd2"></i></button>
 </li>
 <?php
 $top_search_area = ob_get_contents();
@@ -96,17 +96,17 @@ ob_end_clean();
    </li>
    <?php if(is_staff_member()){ ?>
       <li class="icon header-newsfeed">
-         <a href="#" class="open_newsfeed desktop" data-toggle="tooltip" title="<?php echo _l('whats_on_your_mind'); ?>" data-placement="bottom"><i class="fa fa-share fa-fw fa-lg" aria-hidden="true"></i></a>
+         <a href="#" class="open_newsfeed desktop" data-toggle="tooltip" title="<?php echo _l('whats_on_your_mind'); ?>" data-placement="bottom"><i class="fa fa-share fa-fw fa-lg" aria-hidden="true" style="color: #008dd2"></i></a>
       </li>
    <?php } ?>
    <li class="icon header-todo">
-      <a href="<?php echo admin_url('todo'); ?>" data-toggle="tooltip" title="<?php echo _l('nav_todo_items'); ?>" data-placement="bottom"><i class="fa fa-check-square-o fa-fw fa-lg"></i>
+      <a href="<?php echo admin_url('todo'); ?>" data-toggle="tooltip" title="<?php echo _l('nav_todo_items'); ?>" data-placement="bottom"><i class="fa fa-check-square-o fa-fw fa-lg" style="color: #008dd2"></i>
          <span class="label bg-warning icon-total-indicator nav-total-todos<?php if($current_user->total_unfinished_todos == 0){echo ' hide';} ?>"><?php echo $current_user->total_unfinished_todos; ?></span>
       </a>
    </li>
    <li class="icon header-timers timer-button" data-placement="bottom" data-toggle="tooltip" data-title="<?php echo _l('my_timesheets'); ?>">
       <a href="#" id="top-timers" class="dropdown-toggle top-timers" data-toggle="dropdown">
-         <i class="fa fa-clock-o fa-fw fa-lg" aria-hidden="true"></i>
+         <i class="fa fa-clock-o fa-fw fa-lg" style="color: #008dd2" aria-hidden="true"></i>
          <span class="label bg-success icon-total-indicator icon-started-timers<?php if ($totalTimers = count($startedTimers) == 0){ echo ' hide'; }?>">
             <?php echo count($startedTimers); ?>
          </span>

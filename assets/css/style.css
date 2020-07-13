@@ -576,7 +576,8 @@ fieldset[disabled] .btn-danger.active {
 body {
     font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: #fff;
-    background: #626f80;
+    /*background: #626f80;*/
+    background:white;
     font-size: 13px;
     color: #323a45;
 }
@@ -1147,7 +1148,8 @@ body.page-small.show-sidebar #wrapper {
 }
 
 #header {
-    background: #415165;
+    /*background: #415165;*/
+    background:white !important;
     /* Old browsers */
     /* FF3.6-15 */
     /* Chrome10-25,Safari5.1-6 */
@@ -1473,10 +1475,12 @@ a.notification-top {
     top: 63px;
     -webkit-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
+    background: white;
 }
 
 #side-menu {
-    background: #626f80;
+    /*background: #626f80;*/
+    background: white;
 }
 
 #side-menu .dashboard {
@@ -1484,7 +1488,8 @@ a.notification-top {
 }
 
 #side-menu li a {
-    color: #fff;
+    /*color: #fff;*/
+    color: #008dd2;
     text-transform: uppercase;
     padding: 11px 20px 11px 16px;
     font-size: 13px;
@@ -1560,7 +1565,8 @@ li .nav-second-level li {
 
 #side-menu li.dashboard_user {
     padding: 11px 10px 11px 40px;
-    color: #fff;
+    /*color: #fff;*/
+    color: #008dd2;
     font-size: 14px;
     font-weight: 500;
 }
@@ -1648,7 +1654,8 @@ li .nav-second-level li {
 }
 
 #setup-menu-wrapper {
-    background-color: #626f80;
+    /*background-color: #626f80;*/
+    background-color: white;
     position: absolute;
     top: 63px;
     width: 210px !important;
@@ -1667,7 +1674,7 @@ li .nav-second-level li {
 }
 
 #setup-menu li:first-child {
-    border-bottom: 1px solid #626e7b;
+    /*border-bottom: 1px solid #626e7b;*/
     color: #fff;
 }
 
@@ -1682,7 +1689,8 @@ li .nav-second-level li {
 }
 
 #setup-menu>li>a {
-    color: #fff;
+    /*color: #fff;*/
+    color: #008dd2;
     font-size: 14px;
     font-family: 'Roboto';
     text-transform: uppercase;

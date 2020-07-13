@@ -26,6 +26,41 @@ function app_init_admin_sidebar_menu_items()
         'position' => 5,
     ]);
 
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'transfers',
+        'name'     => _l('transfers'),
+        'href'     => admin_url('warehouses/transfers'),
+        'position' => 10,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'allocated_items',
+        'name'     => _l('allocated_items'),
+        'href'     => admin_url('warehouses/allocated_items'),
+        'position' => 15,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'packing_list',
+        'name'     => _l('packing_list'),
+        'href'     => admin_url('warehouses/packing_list'),
+        'position' => 20,
+    ]); 
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'purchase_receiving_bay',
+        'name'     => _l('purchase_receiving_bay'),
+        'href'     => admin_url('warehouses/purchase_receiving_bay'),
+        'position' => 25,
+    ]); 
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'barcode_list',
+        'name'     => _l('barcode_list'),
+        'href'     => admin_url('warehouses/barcode_list'),
+        'position' => 25,
+    ]); 
+
     // if (has_permission('customers', '', 'view')
     //     || (have_assigned_customers()
     //     || (!have_assigned_customers() && has_permission('customers', '', 'create')))) {
@@ -451,7 +486,7 @@ function app_init_admin_sidebar_menu_items()
         // Warehouse Material
         $CI->app_menu->add_setup_menu_item('warehouse', [
             'collapse' => true,
-            'name'     => _l('warehouse_material'),
+            'name'     => _l('warehouse_tunning'),
             'position' => 60,
         ]);
 

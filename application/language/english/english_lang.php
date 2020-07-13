@@ -3641,9 +3641,9 @@ $lang['gantt_view_year'] = 'Years View';
 //  By Raf
 
 $lang['warehouse'] = 'Warehouse';
-$lang['stock_list'] = 'Stock List';
 
-$lang['warehouse_material'] = 'Warehouse Material';
+
+$lang['warehouse_tunning'] = 'Warehouse Tunning';
 $lang['warehouses'] = 'Warehouses';
 $lang['stock_categories'] = 'Stock Categories';
 $lang['units'] = 'Stock Units';
@@ -3664,4 +3664,65 @@ $lang['stock_units'] = 'Stock Units';
 $lang['stock_unit_name'] = 'Name';
 $lang['edit_stock_unit'] = 'Edit Stock Unit';
 $lang['new_stock_unit'] = 'New Stock Unit';
+$lang['add_new_stock_unit'] = 'Add Stock Unit';
 $lang['unit_active'] = 'Active';
+
+$lang['stock_list'] = 'Stock List';
+$lang['product_code'] = 'Product Code';
+$lang['product_photo'] = 'Product Photo';
+$lang['product_name'] = 'Product Name';
+$lang['category'] = 'Category';
+$lang['price'] = 'Price';
+$lang['currency_id'] = 'Currency Id';
+$lang['stock_level'] = 'Stock Level';
+$lang['new_stock_list'] = 'New Stock List';
+$lang['edit_stock_list'] = 'Edit Stock List';
+$lang['add_stock_list'] = 'Add Stock List';
+
+$lang['transfers'] = 'Transfers';
+$lang['new_transfer'] = 'New Transfer';
+$lang['transaction_from'] = 'Transaction From';
+$lang['transaction_to'] = 'Transaction To';
+$lang['transaction_notes'] = 'Transaction Notes';
+$lang['transaction_qty'] = 'Transaction Qty';
+$lang['allocation_enable'] = 'Allocation Enable';
+$lang['allocation_reason'] = 'Allocation Reason';
+$lang['wo_no'] = 'Wo No';
+$lang['description'] = 'Description';
+$lang['purchase_id'] = 'Purchase Id';
+$lang['date_time'] = 'Date and Time';
+$lang['created_user'] = 'Created User';
+$lang['updated_user'] = 'Updated User';
+
+$lang['allocated_items'] = 'Allocated Items';
+$lang['current_location'] = 'Current Location';
+$lang['stock_quantity'] = 'Stock Quantity';
+
+$lang['barcode_list'] = 'Barcode List';
+$lang['new_barcode'] = 'New Barcode';
+$lang['barcode_id'] = 'Barcode Id';
+$lang['products_code'] = 'Product Code';
+$lang['product_name'] = 'Product Name';
+$lang['barcode_price'] = 'Barcode Price';
+$lang['edit_barcode'] = 'Edit Barcode';
+$lang['add_barcode'] = 'Add Barcode';
+
+$lang['packing_list'] = 'Packing List';
+$lang['packing_type'] = 'Packing Type';
+$lang['pack_capacity'] = 'Pack Capacity';
+$lang['pack_price'] = 'Pack Price';
+$lang['box_quality'] = 'Box Quantity';
+$lang['box_type'] = 'Box Type';
+$lang['l_size'] = 'L Size';
+$lang['w_size'] = 'W Size';
+$lang['h_size'] = 'H Size';
+$lang['volume_m3'] = 'Volumn_m3';
+$lang['price_per_item'] = 'Price Per Item';
+$lang['new_packing_list'] = 'New Packing list';
+$lang['stock_qty'] = 'Stock Qty';
+
+
+
+
+
+

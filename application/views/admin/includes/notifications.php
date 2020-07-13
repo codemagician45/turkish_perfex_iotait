@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <a href="#" class="dropdown-toggle notifications-icon" data-toggle="dropdown" aria-expanded="false">
-  <i class="fa fa-bell-o fa-fw fa-lg"></i>
+  <i class="fa fa-bell-o fa-fw fa-lg" style="color: #008dd2"></i>
   <?php if($current_user->total_unread_notifications > 0){ ?>
     <span class="label icon-total-indicator bg-warning icon-notifications"><?php echo $current_user->total_unread_notifications; ?></span>
   <?php } ?>
