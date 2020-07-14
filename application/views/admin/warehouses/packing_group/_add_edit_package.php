@@ -48,11 +48,11 @@
                     }
                     ?> -->
                     <button type="button"
-                            onclick="add_item_to_table2('undefined','undefined',<?php echo $new_item; ?>); return false;"
+                            onclick="add_item_to_table_pack_group('undefined','undefined',<?php echo $new_item; ?>); return false;"
                             class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
                 </td>
             </tr>
-            <!-- <?php if (isset($estimate) || isset($add_items)) {
+            <?php if (isset($estimate) || isset($add_items)) {
                 $i = 1;
                 $items_indicator = 'newitems';
                 if (isset($estimate)) {
@@ -90,7 +90,7 @@
                     $i++;
                 }
             }
-            ?> -->
+            ?>
             </tbody>
         </table>
     </div>

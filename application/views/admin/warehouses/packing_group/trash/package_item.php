@@ -224,51 +224,9 @@
 
             clear_item_preview_values();
 
-            $('.main textarea[name="product_name"]').val(response.product_name);
-            $('.main textarea[name="product_code"]').val(response.product_code);
+            $('.main input[name="product_name"]').val(response.product_name);
+            $('.main input[name="product_code"]').val(response.product_code);
             $('.main input[name="product_id"]').val(response.id);
-
-            // requestGetJSON('stock_lists/get_unit_by_id/' + response.unit).done(function(unitresponse) {
-            //
-            //     // console.log(unitresponse);
-            //     $('.main input[name="unit"]').val(unitresponse.name);
-            //
-            // });
-
-
-
-            // $('.main textarea[name="notes"]').val(response.long_description.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, " "));
-
-            // _set_item_preview_custom_fields_array(response.custom_fields);
-
-            // $('.main input[name="quantity"]').val(1);
-
-            // var taxSelectedArray = [];
-            // if (response.taxname && response.taxrate) {
-            //     taxSelectedArray.push(response.taxname + '|' + response.taxrate);
-            // }
-            // if (response.taxname_2 && response.taxrate_2) {
-            //     taxSelectedArray.push(response.taxname_2 + '|' + response.taxrate_2);
-            // }
-
-            // $('.main select.tax').selectpicker('val', taxSelectedArray);
-            // $('.main input[name="unit"]').val(response.unit);
-
-            // var $currency = $("body").find('.accounting-template select[name="currency"]');
-            // var baseCurency = $currency.attr('data-base');
-            // var selectedCurrency = $currency.find('option:selected').val();
-            // var $rateInputPreview = $('.main input[name="rate"]');
-
-            // if (baseCurency == selectedCurrency) {
-            //     $rateInputPreview.val(response.rate);
-            // } else {
-            //     var itemCurrencyRate = response['rate_currency_' + selectedCurrency];
-            //     if (!itemCurrencyRate || parseFloat(itemCurrencyRate) === 0) {
-            //         $rateInputPreview.val(response.rate);
-            //     } else {
-            //         $rateInputPreview.val(itemCurrencyRate);
-            //     }
-            // }
 
             init_selectpicker();
             init_color_pickers();

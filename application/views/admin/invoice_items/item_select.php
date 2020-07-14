@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
+<?php echo $ajaxItems; exit;?>
 <div class="form-group mbot25 items-wrapper select-placeholder<?php if(has_permission('items','','create')){ echo ' input-group-select'; } ?>">
   <div class="<?php if(has_permission('items','','create')){ echo 'input-group input-group-select'; } ?>">
     <div class="items-select-wrapper">

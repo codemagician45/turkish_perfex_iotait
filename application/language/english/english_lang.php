@@ -3642,7 +3642,6 @@ $lang['gantt_view_year'] = 'Years View';
 
 $lang['warehouse'] = 'Warehouse';
 
-
 $lang['warehouse_tunning'] = 'Warehouse Tunning';
 $lang['warehouses'] = 'Warehouses';
 $lang['stock_categories'] = 'Stock Categories';
@@ -3675,9 +3674,9 @@ $lang['category'] = 'Category';
 $lang['price'] = 'Price';
 $lang['currency_id'] = 'Currency Id';
 $lang['stock_level'] = 'Stock Level';
-$lang['new_stock_list'] = 'New Stock List';
-$lang['edit_stock_list'] = 'Edit Stock List';
-$lang['add_stock_list'] = 'Add Stock List';
+$lang['new_stock_list'] = 'New Item';
+$lang['edit_stock_list'] = 'Edit Item';
+$lang['add_stock_list'] = 'Add Item';
 
 $lang['transfers'] = 'Transfers';
 $lang['new_transfer'] = 'New Transfer';

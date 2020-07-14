@@ -5899,7 +5899,7 @@ function add_item_to_table(data, itemid, merge_invoice, bill_expense) {
         $('body').find('#items-warning').remove();
         $("body").find('.dt-loader').remove();
         $('#item_select').selectpicker('val', '');
-
+        console.log(1111111111)
         if (cf_has_required && $('.invoice-form').length) {
             validate_invoice_form();
         } else if (cf_has_required && $('.estimate-form').length) {
