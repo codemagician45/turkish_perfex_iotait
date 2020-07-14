@@ -45,20 +45,34 @@ function app_init_admin_sidebar_menu_items()
         'name'     => _l('packing_list'),
         'href'     => admin_url('warehouses/packing_list'),
         'position' => 20,
-    ]); 
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'packing_group',
+        'name'     => _l('packing_group'),
+        'href'     => admin_url('warehouses/packing_group'),
+        'position' => 25,
+    ]);  
 
     $CI->app_menu->add_sidebar_children_item('warehouse', [
         'slug'     => 'purchase_receiving_bay',
         'name'     => _l('purchase_receiving_bay'),
         'href'     => admin_url('warehouses/purchase_receiving_bay'),
-        'position' => 25,
-    ]); 
+        'position' => 30,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('warehouse', [
+        'slug'     => 'purchase_request',
+        'name'     => _l('purchase_request'),
+        'href'     => admin_url('warehouses/purchase_request'),
+        'position' => 35,
+    ]);  
 
     $CI->app_menu->add_sidebar_children_item('warehouse', [
         'slug'     => 'barcode_list',
         'name'     => _l('barcode_list'),
         'href'     => admin_url('warehouses/barcode_list'),
-        'position' => 25,
+        'position' => 40,
     ]); 
 
     // if (has_permission('customers', '', 'view')

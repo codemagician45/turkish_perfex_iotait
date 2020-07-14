@@ -63,10 +63,22 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function get_warehouse($id)
+    {
+        $this->db->from(db_prefix() . 'warehouses');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'warehouses.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
     /* Begin of Stock Category */
     public function stock_category_add($data)
     {
         unset($data['stockId']);
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'stock_categories', $data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
@@ -242,9 +254,18 @@ class Warehouses_model extends App_Model
         
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
-        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
         $insert_id = $this->db->insert_id();
+
+        $this->db->from(db_prefix() . 'transfer_lists');
+        $this->db->where('stock_product_code',$data['stock_product_code']);
+        $qty = $this->db->get()->result_array();
+        $total_qty = 0;
+        foreach ($qty as $val) {
+            $total_qty = $total_qty + $val['transaction_qty'];
+        }
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
+
         if ($insert_id) {
             log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
 
@@ -262,6 +283,16 @@ class Warehouses_model extends App_Model
         $data['updated_at'] = date('Y-m-d h:i:s');
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
+
+        $this->db->from(db_prefix() . 'transfer_lists');
+        $this->db->where('stock_product_code',$data['stock_product_code']);
+        $qty = $this->db->get()->result_array();
+        $total_qty = 0;
+        foreach ($qty as $val) {
+            $total_qty = $total_qty + $val['transaction_qty'];
+        }
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
+
         if ($this->db->affected_rows() > 0) {
             log_activity('Tansfer Updated [' . $transfer_id . ']');
 
@@ -458,5 +489,35 @@ class Warehouses_model extends App_Model
         }
 
         return false;
+    }
+
+    public function get_grouped()
+    {
+        $items = [];
+
+        $this->db->order_by('name', 'asc');
+        $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
+
+        array_unshift($groups, [
+            'id' => 0,
+            'name' => '',
+        ]);
+
+        foreach ($groups as $group) {
+            $this->db->select('*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id');
+            $this->db->where('category', $group['id']);
+            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+            $this->db->order_by('product_name', 'asc');
+            $this->db->where('created_by', get_staff_user_id());
+            $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
+            if (count($_items) > 0) {
+                $items[$group['id']] = [];
+                foreach ($_items as $i) {
+                    array_push($items[$group['id']], $i);
+                }
+            }
+        }
+
+        return $items;
     }
 }

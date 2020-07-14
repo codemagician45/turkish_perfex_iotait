@@ -1331,3 +1331,145 @@ ERROR - 2020-07-13 18:00:07 --> Could not find the language line "purchase_recei
 ERROR - 2020-07-13 18:00:07 --> Could not find the language line "purchase_receiving_bay"
 ERROR - 2020-07-13 18:00:07 --> Could not find the language line "default_pack"
 ERROR - 2020-07-13 18:00:08 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:09:58 --> Could not find the language line "packing_groups"
+ERROR - 2020-07-13 18:09:58 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:09:58 --> Could not find the language line "purchase_request"
+ERROR - 2020-07-13 18:09:58 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:10:00 --> Could not find the language line "packing_groups"
+ERROR - 2020-07-13 18:10:00 --> Could not find the language line "purchase_receiving_bay"
+ERROR - 2020-07-13 18:10:00 --> Could not find the language line "purchase_request"
+ERROR - 2020-07-13 18:11:29 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:12:17 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:12:19 --> 404 Page Not Found: admin/Warehouses/packing_groups
+ERROR - 2020-07-13 18:12:21 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:16:32 --> 404 Page Not Found: admin/Warehouses/packing_groups
+ERROR - 2020-07-13 18:16:38 --> Could not find the language line "default_pack"
+ERROR - 2020-07-13 18:17:52 --> Could not find the language line "new_packing_group"
+ERROR - 2020-07-13 18:18:15 --> Could not find the language line "new_packing_group"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "Default"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:55:15 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 18:55:53 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 18:55:53 --> Severity: Notice --> Undefined variable: items C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 7
+ERROR - 2020-07-13 18:55:53 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 7
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "Default"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:55:53 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 18:58:12 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "Default"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:58:12 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 18:59:02 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 18:59:02 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:59:02 --> Could not find the language line "Default"
+ERROR - 2020-07-13 18:59:02 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:59:02 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:59:02 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 18:59:57 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 18:59:57 --> Could not find the language line "default"
+ERROR - 2020-07-13 18:59:57 --> Could not find the language line "product name"
+ERROR - 2020-07-13 18:59:57 --> Could not find the language line "product code"
+ERROR - 2020-07-13 18:59:57 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 19:01:38 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:01:38 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:01:38 --> Could not find the language line "product name"
+ERROR - 2020-07-13 19:01:38 --> Could not find the language line "product code"
+ERROR - 2020-07-13 19:01:38 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 19:01:59 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:01:59 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:01:59 --> Could not find the language line "product name"
+ERROR - 2020-07-13 19:01:59 --> Could not find the language line "product code"
+ERROR - 2020-07-13 19:01:59 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 19:02:43 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:02:43 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:02:43 --> Could not find the language line "Default pack"
+ERROR - 2020-07-13 19:11:41 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:11:41 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:12:36 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:12:36 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:14:16 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 19:14:16 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:30:18 --> Severity: error --> Exception: syntax error, unexpected 'if' (T_IF) C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 251
+ERROR - 2020-07-13 19:30:26 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:33:26 --> Query error: Unknown column 'transaction_qty' in 'field list' - Invalid query: SELECT `transaction_qty`
+WHERE `stock_product_code` = '55'
+ERROR - 2020-07-13 19:35:03 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:35:12 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Undefined variable: total_qty C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:24 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 252
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:37:52 --> Severity: Notice --> Trying to get property 'transaction_qty' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 253
+ERROR - 2020-07-13 19:40:13 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:40:37 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:40:41 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 285
+ERROR - 2020-07-13 19:40:41 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:41:08 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:44:34 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 19:44:34 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 19:44:34 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 19:44:34 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 19:45:26 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-13 19:48:01 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:48:06 --> 404 Page Not Found: admin/Warehouses/purchase_receiving_bay
+ERROR - 2020-07-13 19:48:08 --> Could not find the language line "default"
+ERROR - 2020-07-13 19:48:53 --> Could not find the language line "add_new_category"
+ERROR - 2020-07-13 19:54:32 --> Could not find the language line "stock_unit"
+ERROR - 2020-07-13 19:54:38 --> Could not find the language line "stock_unit"
+ERROR - 2020-07-13 19:55:47 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:56:04 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 19:56:41 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 19:56:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 19:56:41 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 19:56:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 19:59:23 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:05:22 --> Severity: error --> Exception: Call to undefined method CI_DB_mysqli_driver::get_warehouse() C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 287
+ERROR - 2020-07-13 20:05:45 --> Severity: Notice --> Undefined property: CI_DB_mysqli_driver::$warehouses_model C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 287
+ERROR - 2020-07-13 20:05:45 --> Severity: error --> Exception: Call to a member function get_warehouse() on null C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 287
+ERROR - 2020-07-13 20:09:16 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:11:18 --> Could not find the language line "stock_unit"
+ERROR - 2020-07-13 20:12:07 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:12:35 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:12:58 --> Could not find the language line "Item"
+ERROR - 2020-07-13 20:13:07 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:13:14 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:13:35 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:14:10 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:14:26 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:14:40 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 20:14:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 20:14:40 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 20:14:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 20:15:08 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 20:15:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 20:15:08 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 20:15:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 20:15:23 --> Severity: Notice --> Undefined variable: ajaxItems C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_group\select_package.php 5
+ERROR - 2020-07-13 20:15:23 --> Could not find the language line "default"
+ERROR - 2020-07-13 20:15:40 --> Could not find the language line "Barcode"
+ERROR - 2020-07-13 20:52:44 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 20:59:07 --> Could not find the language line "Packing Type"
+ERROR - 2020-07-13 20:59:07 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-07-13 20:59:07 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-07-13 20:59:07 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-07-13 21:00:49 --> Could not find the language line "transfer"
+ERROR - 2020-07-13 21:19:05 --> Could not find the language line "transfer"

@@ -30,7 +30,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">
                     <span class="edit-title"><?php echo _l('edit_stock_category'); ?></span>
-                    <span class="add-title"><?php echo _l('add_new_category'); ?></span>
+                    <span class="add-title"><?php echo _l('new_stock_category'); ?></span>
                 </h4>
             </div>
             <?php echo form_open('admin/warehouses/stock_categories_manage',array('id'=>'stockId')); ?>

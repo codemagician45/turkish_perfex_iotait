@@ -279,16 +279,17 @@ class Warehouses extends AdminController
                 $id = $this->warehouses_model->add_transfer($data);
                 if($data['allocation'] == 1)
                 {
-                    // print_r($data); exit();
                     $allocation_data['transfer_id'] = $id;
                     $allocation_data['allocation_product_code'] = $data['stock_product_code'];
                     $stock_list = $this->warehouses_model->stock_list_get($allocation_data['allocation_product_code']);
                     $allocation_data['product_name'] = $stock_list->product_name;
                     $allocation_data['stock_category'] = $stock_list->category;
-                    $allocation_data['current_location'] = '';
+                    $location = $this->warehouses_model->get_warehouse($data['transaction_from'])->warehouse_name;
+                    $allocation_data['current_location'] = $location;
                     $allocation_data['stock_quantity'] = $data['transaction_qty'];
                     $allocation_data['wo_no'] = $data['wo_no'];
-                    $allocation_data['created_user'] = $data['created_user'];
+                    $user = $this->staff_model->get(get_staff_user_id());
+                    $allocation_data['created_user'] = $user->firstname.' '. $user->lastname;
                     $allocation_id = $this->warehouses_model->add_allocated_items($allocation_data); 
                     $this->db->query('UPDATE tbltransfer_lists SET allocation_id = '.$allocation_id.' WHERE `id` ='.$id);
                 }
@@ -307,10 +308,12 @@ class Warehouses extends AdminController
                     $stock_list = $this->warehouses_model->stock_list_get($allocation_data['allocation_product_code']);
                     $allocation_data['product_name'] = $stock_list->product_name;
                     $allocation_data['stock_category'] = $stock_list->category;
-                    $allocation_data['current_location'] = '';
+                    $location = $this->warehouses_model->get_warehouse($data['transaction_from'])->warehouse_name;
+                    $allocation_data['current_location'] = $location;
                     $allocation_data['stock_quantity'] = $data['transaction_qty'];
                     $allocation_data['wo_no'] = $data['wo_no'];
-                    $allocation_data['created_user'] = $data['created_user'];
+                    $user = $this->staff_model->get(get_staff_user_id());
+                    $allocation_data['created_user'] = $user->firstname.' '. $user->lastname;
     
                     if($allocation_id != 0)
                     {
@@ -499,7 +502,6 @@ class Warehouses extends AdminController
             $data['packing_list'] = $this->warehouses_model->get_packing_list($id);
         }
         $data['title']         = $title;
-        // print_r($data); exit();
         $this->load->view('admin/warehouses/packing_list/packing_list', $data);
     }
 
@@ -515,5 +517,51 @@ class Warehouses extends AdminController
             set_alert('warning', _l('problem_deleting', _l('packing_list')));
         }
         redirect(admin_url('warehouses/packing_list'));
+    }
+
+    public function packing_group()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('packing_group');
+        }
+        $data['title'] = _l('packing_group');
+        $this->load->view('admin/warehouses/packing_group/manage', $data);
+    }
+
+    public function packing_group_manage($id = '')
+    {
+        if ($this->input->post()) {
+            $data = $this->input->post();
+            if ($id == '') {
+                $id = $this->warehouses_model->add_packing_group($data);
+                
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('packing_group')));
+                    redirect(admin_url('warehouses/packing_group'));
+                }
+            } else {
+                $success = $this->warehouses_model->update_packing_group($data, $id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('packing_group')));
+                }
+                redirect(admin_url('warehouses/packing_group'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('add_new', _l('packing_group'));
+        } else {
+            $title = _l('edit', _l('packing_group'));
+            $data['packing_group'] = $this->warehouses_model->get_packing_group($id);
+        }
+        $data['title']         = $title;
+
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+
+        $this->load->view('admin/warehouses/packing_group/packing_group', $data);
     }
 }

@@ -3721,6 +3721,21 @@ $lang['price_per_item'] = 'Price Per Item';
 $lang['new_packing_list'] = 'New Packing list';
 $lang['stock_qty'] = 'Stock Qty';
 
+$lang['packing_group'] = 'Packing Group';
+$lang['default_pack'] = 'Default Pack';
+$lang['new_packing_group'] = 'New Packing Group';
+// $lang['packing_group'] = 'Packing Group';
+
+
+
+$lang['purchase_receiving_bay'] = 'Purchase Receiving Bay';
+
+
+
+$lang['purchase_request'] = 'Purchase Request';
+
+
+
 
 
 
