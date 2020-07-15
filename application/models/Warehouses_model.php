@@ -285,6 +285,12 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
+        // print_r($data); exit();
+        $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        if($first_transfer_check == 1)
+        {
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$data['transaction_qty'].' WHERE `id` ='.$data['stock_product_code']);
+        }
         unset($data['created_user']);
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
@@ -299,7 +305,7 @@ class Warehouses_model extends App_Model
         foreach ($qty as $val) {
             $total_qty = $total_qty + $val['transaction_qty'];
         }
-        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
+        // $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
 
         if ($this->db->affected_rows() > 0) {
             log_activity('Tansfer Updated [' . $transfer_id . ']');
@@ -390,6 +396,9 @@ class Warehouses_model extends App_Model
 
     public function add_allocated_items($data)
     {
+        $current_stock_level = $this->db->query('SELECT stock_level FROM '.db_prefix().'stock_lists WHERE id='.$data['allocation_product_code'])->row()->stock_level;
+        $stock_level_minus = $current_stock_level - $data['stock_quantity'];
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$stock_level_minus.' WHERE `id` ='.$data['allocation_product_code']);
 
         $data['created_at']=date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'allocated_items', $data);
@@ -402,6 +411,12 @@ class Warehouses_model extends App_Model
     }
 
     public function update_allocated_items($data, $id){
+        
+        $current_stock_level = $this->db->query('SELECT stock_level FROM '.db_prefix().'stock_lists WHERE id='.$data['allocation_product_code'])->row()->stock_level;
+        $last_allocated_qty = $this->db->query('SELECT stock_quantity FROM '.db_prefix().'allocated_items WHERE id='.$id)->row()->stock_quantity;
+        $stock_level_minus = $current_stock_level - $data['stock_quantity'] + $last_allocated_qty;
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$stock_level_minus.' WHERE `id` ='.$data['allocation_product_code']);
+
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'allocated_items', $data);
         if ($this->db->affected_rows() > 0) {
@@ -413,6 +428,12 @@ class Warehouses_model extends App_Model
 
     public function delete_allocated_items($id)
     {
+        $last_allocated_qty = $this->db->query('SELECT * FROM '.db_prefix().'allocated_items WHERE id='.$id)->row()->stock_quantity;
+        $last_allocation_product_code = $this->db->query('SELECT * FROM '.db_prefix().'allocated_items WHERE id='.$id)->row()->allocation_product_code;
+        
+        $current_stock_level = $this->db->query('SELECT stock_level FROM '.db_prefix().'stock_lists WHERE id='.$last_allocation_product_code)->row()->stock_level;
+        $stock_level_recover = $current_stock_level  + $last_allocated_qty;
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$stock_level_recover.' WHERE `id` ='.$last_allocation_product_code);
         $this->db->where('id', $id);
         $this->db->delete(db_prefix() . 'allocated_items');
         if ($this->db->affected_rows() > 0) {

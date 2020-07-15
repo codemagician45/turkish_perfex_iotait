@@ -216,3 +216,43 @@ ERROR - 2020-07-15 05:12:39 --> Severity: Warning --> Illegal string offset 'app
 ERROR - 2020-07-15 05:12:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
 ERROR - 2020-07-15 05:12:39 --> Could not find the language line "default"
 ERROR - 2020-07-15 05:13:39 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:18:36 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:22:17 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:22:24 --> Severity: Notice --> Undefined variable: allocateItem_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 408
+ERROR - 2020-07-15 05:22:24 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 305
+ERROR - 2020-07-15 05:22:24 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:24:14 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:24:20 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 305
+ERROR - 2020-07-15 05:24:20 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:25:29 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:26:38 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 314
+ERROR - 2020-07-15 05:26:38 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:27:30 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:35:27 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 318
+ERROR - 2020-07-15 05:35:27 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:40:23 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:41:52 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
+ERROR - 2020-07-15 05:41:52 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:46:49 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:46:52 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
+ERROR - 2020-07-15 05:46:52 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:47:06 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:47:13 --> Severity: Notice --> Undefined variable: allocateItem_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 420
+ERROR - 2020-07-15 05:47:13 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
+ERROR - 2020-07-15 05:47:14 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:48:07 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:48:26 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:50:34 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:50:40 --> Severity: Notice --> Undefined variable: data C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 432
+ERROR - 2020-07-15 05:50:40 --> Severity: Notice --> Trying to access array offset on value of type null C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 432
+ERROR - 2020-07-15 05:50:40 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: SELECT stock_level FROM tblstock_lists WHERE id=
+ERROR - 2020-07-15 05:51:01 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:51:15 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:52:40 --> Severity: Notice --> Undefined variable: data C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 436
+ERROR - 2020-07-15 05:52:40 --> Severity: Notice --> Trying to access array offset on value of type null C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 436
+ERROR - 2020-07-15 05:52:40 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 - Invalid query: UPDATE tblstock_lists SET stock_level = 1020 WHERE `id` =
+ERROR - 2020-07-15 05:52:43 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:52:45 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:53:05 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 05:53:08 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
+ERROR - 2020-07-15 05:53:08 --> Could not find the language line "transfer"
