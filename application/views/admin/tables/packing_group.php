@@ -33,14 +33,14 @@ foreach ($rResult as $aRow) {
             'data-id'                 => $aRow['id'],
         ];
 
-        if ($aColumns[$i] == 'stock_product_code') {
-            $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
-        }
+        // if ($aColumns[$i] == 'stock_product_code') {
+        //     $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
+        // }
         $row[] = $_data;
     }
-    $options = icon_btn('list_of_packaging/update/' . $aRow['id'], 'pencil-square-o', 'btn-default');
+    // $options = icon_btn('list_of_packaging/update/' . $aRow['id'], 'pencil-square-o', 'btn-default');
 
 
-    $row[]              = $options .= icon_btn('list_of_packaging/delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    // $row[]              = $options .= icon_btn('list_of_packaging/delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
     $output['aaData'][] = $row;
 }

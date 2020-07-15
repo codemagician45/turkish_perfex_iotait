@@ -4,6 +4,20 @@
     <div class="content">
         <div class="row">
             <?php echo form_open($this->uri->uri_string(),array('id'=>'packing_list')); ?>
+            <!-- <?php
+            $tras_id = 0;
+            if (isset($transfer->id)) {
+                $trans_id = (int)$transfer->id;
+                ?>
+                <input type="hidden" name="packId" value="<?= $trans_id; ?>">
+                <?php
+            } else {
+                $trans_empty_id = '';
+                ?>
+                <input type="hidden" name="packId" value="<?= $trans_empty_id; ?>">
+                <?php
+            }
+            ?> -->
             <div class="col-md-12 transfers">
                 <div class="panel_s">
                     <div class="panel-body">
@@ -81,7 +95,9 @@
                         <div class="panel_s">
                             <?php $this->load->view('admin/warehouses/packing_group/_add_edit_package'); ?>
                         </div>
-                        <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
+                        <div class="btn-bottom-toolbar text-right">
+                            <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
+                        </div>
                     </div>
                 </div>
 
@@ -156,7 +172,7 @@
             });
         });
     }
-    
+
     // Append the added items to the preview to the table as items
     function add_item_to_table_pack_group(data, itemid, merge_invoice, bill_expense) {
         // If not custom data passed get from the preview
@@ -187,7 +203,7 @@
         }
         else if(checks.prop("checked") == false) {
 
-            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox"  name="newitems[' + item_key + '][default_pack]"  value="1" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="' + data.product_id + '"></td>';
+            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox"  name="newitems[' + item_key + '][default_pack]"  value="0" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="' + data.product_id + '"></td>';
         }
         
         table_row += '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
@@ -239,6 +255,57 @@
         previewArea.find('input[name="product_id"]').val('');
         previewArea.find('input[name="default_pack"]').val('');
     }
+
+    function delete_package_item(row, itemid) {
+        $(row).parents('tr').addClass('animated fadeOut', function() {
+            setTimeout(function() {
+                $(row).parents('tr').remove();
+                calculate_total();
+            }, 50);
+        });
+        
+        $('#removed-items').append(hidden_input('removed_items[]', itemid));
+    }
+
+    // var checkboxDiv = $('body').find('.sortable');
+    // console.log(checkboxDiv)
+    // checkboxDiv.change(function(){
+    //     console.log('aaa')
+    //     for(let i=0; i<checkboxDiv.length; i++)
+    //     {
+    //         console.log(checkboxDiv[i].querySelectorAll('input[type="checkbox"]')[0].checked)
+    //         if(checkboxDiv[i].querySelectorAll('input[type="checkbox"]')[0].checked == true)
+    //             checkboxDiv[i].firstChild.value = 1;
+    //         else
+    //             checkboxDiv[i].firstChild.value = 0;
+    //     }
+    // })
+
+    $('#packing_list').submit(function(e){
+        e.preventDefault();
+        var rows = $('body').find('.sortable');
+        var cnt = 0;
+        for(let k=0; k<rows.length; k++)
+        {
+
+            if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
+            {
+                rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
+                cnt++;
+            }
+            else
+                rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
+        }
+        console.log(cnt)
+        if(cnt>1)
+        {
+            alert('You Must Set Default Pack to One Item');
+            return false;
+        }
+        document.getElementById("packing_list").submit();
+    })
+
+
 </script>
 
 </body>

@@ -41,26 +41,24 @@
 
 
                 <td>
-                    <!-- <?php
-                    $new_item = 'undefined';
-                    if (isset($estimate)) {
-                        $new_item = true;
-                    }
-                    ?> -->
-                    <button type="button"
-                            onclick="add_item_to_table_pack_group('undefined','undefined',<?php echo $new_item; ?>); return false;"
-                            class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
+                    <?php
+                        $new_item = 'undefined';
+                        if (isset($packing_group)) {
+                            $new_item = true;
+                        }
+                    ?>
+                    <button type="button" onclick="add_item_to_table_pack_group('undefined','undefined',<?php echo $new_item; ?>); return false;" class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
                 </td>
             </tr>
-            <?php if (isset($estimate) || isset($add_items)) {
+            <?php if (isset($packing_group)) {
                 $i = 1;
                 $items_indicator = 'newitems';
-                if (isset($estimate)) {
-                    $add_items = $estimate->items;
+
+                if (isset($packing_group)) {
                     $items_indicator = 'items';
                 }
 
-                foreach ($estimate as $item) {
+                foreach ($packing_group as $item) {
                     $manual = false;
                     $table_row = '<tr class="sortable item">';
                     $table_row .= '<td class="dragger">';
@@ -72,18 +70,19 @@
                     // order input
                     $table_row .= '<input type="hidden" class="order" name="' . $items_indicator . '[' . $i . '][order]">';
                     $table_row .= '</td>';
-                    $table_row .= '<td class="bold description"><textarea name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" rows="5">' . clear_textarea_breaks($item['product_name']) . '</textarea></td>';
-                    $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" rows="5">' . clear_textarea_breaks($item['product_code']) . '</textarea></td>';
+                    $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"></td>';
+                    $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" value="' . $item['product_code'] . '"></td>';
                     $table_row .= render_custom_fields_items_table_in($item, $items_indicator . '[' . $i . ']');
                     if ($item['default_pack'] == 1) {
 
-                        $table_row .= '<td><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> Default pack</label><input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
+
+                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
                     } else {
-                        $table_row .= '<td><input type="checkbox"  name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> Default pack</label><input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
+                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
 
                     }
-
-
                     $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_package_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
                     $table_row .= '</tr>';
                     echo $table_row;

@@ -371,6 +371,15 @@ class Warehouses extends AdminController
         redirect(admin_url('warehouses/transfers'));
     }
 
+    public function get_transfers_by_product_code($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            $transfer = $this->warehouses_model->get_transfer_by_code($id);
+            // print_r($transfer); exit();
+            echo json_encode($transfer);
+        }
+    }
+
     public function allocated_items()
     {
         if ($this->input->is_ajax_request()) {
@@ -482,13 +491,23 @@ class Warehouses extends AdminController
             $data = $this->input->post();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
-                
+                $group_data = $data['newitems'];
+                $group_data['packing_id'] = $id;
+                $this->warehouses_model->add_packing_group($group_data);
                 if ($id) {
-                    set_alert('success', _l('added_successfully', _l('packing_list')));
+                    set_alert('success', _l('added_successfully', _l('packing_list and packing_group')));
                     redirect(admin_url('warehouses/packing_list'));
                 }
             } else {
                 $success = $this->warehouses_model->update_packing_list($data, $id);
+                if(isset($data['newitems']))
+                    $group_data['newitems'] = $data['newitems'];
+                if(isset($data['removed_items']))
+                    $group_data['removed_items'] = $data['removed_items'];
+                if(isset($data['items']))
+                    $group_data['items'] = $data['items'];
+                $group_data['packing_id'] = $id;
+                $this->warehouses_model->update_packing_group($group_data);
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('packing_list')));
                 }
@@ -511,7 +530,9 @@ class Warehouses extends AdminController
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
-        
+        if(isset($data['packing_list']))
+            $data['packing_group'] = $this->warehouses_model->get_packing_group($data['packing_list']->id);
+        // print_r($data); exit();
         $data['title']         = $title;
         $this->load->view('admin/warehouses/packing_list/packing_list', $data);
     }
@@ -538,45 +559,6 @@ class Warehouses extends AdminController
         $data['title'] = _l('packing_group');
         $this->load->view('admin/warehouses/packing_group/manage', $data);
     }
-
-    // public function packing_group_manage($id = '')
-    // {
-    //     if ($this->input->post()) {
-    //         $data = $this->input->post();
-    //         print_r($data);exit();
-    //         if ($id == '') {
-    //             $id = $this->warehouses_model->add_packing_group($data);
-                
-    //             if ($id) {
-    //                 set_alert('success', _l('added_successfully', _l('packing_group')));
-    //                 redirect(admin_url('warehouses/packing_group'));
-    //             }
-    //         } else {
-    //             $success = $this->warehouses_model->update_packing_group($data, $id);
-    //             if ($success) {
-    //                 set_alert('success', _l('updated_successfully', _l('packing_group')));
-    //             }
-    //             redirect(admin_url('warehouses/packing_group'));
-    //         }
-    //     }
-    //     if ($id == '') {
-    //         $title = _l('add_new', _l('packing_group'));
-    //     } else {
-    //         $title = _l('edit', _l('packing_group'));
-    //         $data['packing_group'] = $this->warehouses_model->get_packing_group($id);
-    //     }
-    //     $data['title']         = $title;
-
-    //     $data['ajaxItems'] = false;
-    //     if (total_rows(db_prefix() . 'stock_lists') > 0) {
-    //         $data['items'] = $this->warehouses_model->get_grouped();
-    //     } else {
-    //         $data['items']     = [];
-    //         $data['ajaxItems'] = true;
-    //     }
-    //     $this->load->view('admin/warehouses/packing_group/packing_group', $data);
-    // }
-
     /* Get stock item by id in packing group/ ajax */
     public function get_item_by_id($id)
     {

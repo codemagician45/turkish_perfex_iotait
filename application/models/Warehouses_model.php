@@ -251,7 +251,15 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
-        
+        // print_r($data); exit();
+
+        $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        if($first_transfer_check == 1)
+        {
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$data['transaction_qty'].' WHERE `id` ='.$data['stock_product_code']);
+        }
+        // print_r($first_transfer_check); exit();
+
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
@@ -264,7 +272,7 @@ class Warehouses_model extends App_Model
         foreach ($qty as $val) {
             $total_qty = $total_qty + $val['transaction_qty'];
         }
-        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
+        // $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
 
         if ($insert_id) {
             log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
@@ -309,6 +317,44 @@ class Warehouses_model extends App_Model
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'transfer_lists.id', $id);
             return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function get_transfer_by_code($id)
+    {
+        $this->db->from(db_prefix() . 'transfer_lists');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
+            $res =  $this->db->get()->result_array();
+
+            $from_warehouse_arr = [];
+            foreach ($res as $key => $value) {
+                array_push($from_warehouse_arr, $value['transaction_from']);
+            }
+            $to_warehouse_arr = [];
+            foreach ($res as $key => $value) {
+                array_push($from_warehouse_arr, $value['transaction_to']);
+            }
+            $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
+            $res = [];
+            // $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`=14')->result();
+            foreach ($warehouse_arr as $key => $value) {
+                $name = $this->db->query('SELECT warehouse_name FROM tblwarehouses WHERE `id`='.$value)->row()->warehouse_name;
+                $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value)->row();
+                $from = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_from`='.$value)->row();
+                if(empty($to)) $to = 0;
+                if(empty($from)) $from = 0;
+
+                $diff = $to->to_sum - $from->to_sum;
+                $obj = (object)[
+                    'warehouse' => $name,
+                    'qty' => $diff
+                ];
+                array_push($res, $obj);
+            }
+            return $res;
         }
         return $this->db->get()->result_array();
     }
@@ -442,6 +488,13 @@ class Warehouses_model extends App_Model
 
     public function add_packing_list($data)
     {
+        unset($data['item_select']);
+        unset($data['item_id']);
+        unset($data['product_name']);
+        unset($data['product_code']);
+        unset($data['default_pack']);
+        unset($data['product_id']);
+        unset($data['newitems']);
         $data['user_id'] = get_staff_user_id();
         $data['created_at']=date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'pack_list', $data);
@@ -456,6 +509,16 @@ class Warehouses_model extends App_Model
     public function update_packing_list($data,$id)
     {
         // $data['user_id'] = get_staff_user_id();
+        unset($data['item_select']);
+        unset($data['item_id']);
+        unset($data['product_name']);
+        unset($data['product_code']);
+        unset($data['default_pack']);
+        unset($data['product_id']);
+        unset($data['newitems']);
+        unset($data['removed_items']);
+        unset($data['items']);
+
         $data['updated_at']=date('Y-m-d h:i:s');
         $this->db->where('id',$id);
         $this->db->update(db_prefix() . 'pack_list', $data);
@@ -519,5 +582,68 @@ class Warehouses_model extends App_Model
         }
 
         return $items;
+    }
+
+    public function add_packing_group($data)
+    {
+        $pack_id = $data['packing_id'];
+        unset($data['packing_id']);
+        foreach ($data as $val) {
+            
+            $val['packing_id'] = $pack_id;
+            unset($val['item_id']);
+            $this->db->insert(db_prefix() . 'package_group', $val);
+            $insert_id = $this->db->insert_id();
+        }
+    }
+
+    public function update_packing_group($data)
+    {
+        // print_r($data); exit();
+        $pack_id = $data['packing_id'];
+        
+        if(isset($data['newitems']))
+        {
+            $newitems = $data['newitems'];
+            foreach ($newitems as $val) {
+                $val['packing_id'] = $pack_id;
+                unset($val['item_id']);
+                $this->db->insert(db_prefix() . 'package_group', $val);
+                $insert_id = $this->db->insert_id();
+            }
+        }
+        
+        if(isset($data['items'])){
+            $items = $data['items'];
+            // print_r($items); exit();
+            foreach ($items as $key => $value) {
+                $id = $value['itemid'];
+                unset($value['itemid']);
+                if(!isset($value['default_pack']))
+                    $value['default_pack'] = 0;
+                $this->db->where('id',$id);
+                $this->db->update(db_prefix() . 'package_group', $value);
+            }
+        }
+        
+
+        if(isset($data['removed_items'])){
+            $removed_items = $data['removed_items'];
+            foreach ($removed_items as $val) {
+                $this->db->where('id',$val);
+                $this->db->delete(db_prefix() . 'package_group');
+            }
+        }
+        
+    }
+
+    public function get_packing_group($packing_id)
+    {
+        $this->db->from(db_prefix() . 'package_group');
+
+        if (is_numeric($packing_id)) {
+            $this->db->where(db_prefix() . 'package_group.packing_id', $packing_id);
+            return $this->db->get()->result_array();
+        }
     }
 }

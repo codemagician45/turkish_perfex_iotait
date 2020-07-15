@@ -3692,6 +3692,10 @@ $lang['purchase_id'] = 'Purchase Id';
 $lang['date_time'] = 'Date and Time';
 $lang['created_user'] = 'Created User';
 $lang['updated_user'] = 'Updated User';
+$lang['stock_by_warehouse'] = 'Stock By Warehouse';
+$lang['warehouse_name'] = 'Warehouse Name';
+$lang['qty'] = 'Quantity';
+
 
 $lang['allocated_items'] = 'Allocated Items';
 $lang['current_location'] = 'Current Location';

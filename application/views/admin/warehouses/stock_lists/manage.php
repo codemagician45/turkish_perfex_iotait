@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
+<style type="text/css">
+	.ware-trans-th
+	{
+		font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;
+	}
+</style>
 <div id="wrapper">
 	<div class="content">
 		<div class="row">
@@ -53,7 +59,24 @@
 						<?php echo render_select('currency_id',$currency_exchange,array('id','name'),_l('currency_id')); ?>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="warehouse_qty">
+							<!-- <label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label>
+							<table width="100%" style="border:1px solid;">
+								<thead style="border:1px solid;">
+									<th width="60%" class="ware-trans-th"><?php echo _l('warehouse_name')?></th>
+									<th width="40%" class="ware-trans-th"><?php echo _l('transaction_qty')?></th>
+								</thead>
+								<tbody style="border:1px solid #bfcbd9;">
+
+								</tbody>
+							</table> -->
+						</div>
+					</div>
+				</div>
 			</div>
+
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _l('close'); ?></button>
 				<button type="submit" class="btn btn-info"><?php echo _l('submit'); ?></button>
@@ -100,7 +123,6 @@
 
 				var $stockListModal = $('#stock_lists_modal');
                 requestGetJSON('warehouses/get_stock_list_by_id/' + id).done(function (response) {
-                	console.log(response);
                     $stockListModal.find('#product_code').val(response.product_code);
                     $stockListModal.find('#product_name').val(response.product_name);
                     $stockListModal.find('#stock_level').val(response.stock_level);
@@ -112,6 +134,24 @@
                     }
                     $stockListModal.find('#currency_id').selectpicker('val', response.currency_id);
                     init_selectpicker();
+                });
+
+                //Apeending Warehouse and transaction qty from transfer..
+                var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
+                requestGetJSON(tranferReqUrl).done(function (results) {
+                	console.log(results);
+                	if(results.length > 0)
+                	{
+                		var data_row = '';
+                		data_row += '<label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label><table width="100%" style="border:1px solid;"><thead style="border:1px solid;"><th width="60%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('warehouse_name')?></th><th width="40%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('qty')?></th></thead><tbody style="border:1px solid #bfcbd9;">';
+
+                		results.forEach( e => {
+                			console.log(e)
+                			data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'</td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td></tr>';
+                		})
+                		data_row += '</tbody></table>';
+                		$('.warehouse_qty').append(data_row);
+                	}
                 });
 
 			}
