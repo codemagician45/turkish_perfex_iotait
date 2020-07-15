@@ -140,6 +140,7 @@
                 var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
                 requestGetJSON(tranferReqUrl).done(function (results) {
                 	console.log(results);
+                	$('.warehouse_qty').empty();
                 	if(results.length > 0)
                 	{
                 		var data_row = '';

@@ -256,3 +256,7 @@ ERROR - 2020-07-15 05:52:45 --> Could not find the language line "transfer"
 ERROR - 2020-07-15 05:53:05 --> Could not find the language line "transfer"
 ERROR - 2020-07-15 05:53:08 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
 ERROR - 2020-07-15 05:53:08 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 06:07:35 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`allocation`= 0' at line 1 - Invalid query: SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`=13AND `allocation`= 0
+ERROR - 2020-07-15 06:11:54 --> Could not find the language line "transfer"
+ERROR - 2020-07-15 06:11:59 --> Severity: Notice --> Undefined variable: transfer_id C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 311
+ERROR - 2020-07-15 06:11:59 --> Could not find the language line "transfer"

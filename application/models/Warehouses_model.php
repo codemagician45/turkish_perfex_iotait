@@ -332,7 +332,9 @@ class Warehouses_model extends App_Model
         $this->db->from(db_prefix() . 'transfer_lists');
 
         if (is_numeric($id)) {
+            // For unallocated Items
             $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
+            // $this->db->where(db_prefix() . 'transfer_lists.allocation',0)
             $res =  $this->db->get()->result_array();
 
             $from_warehouse_arr = [];
@@ -345,10 +347,10 @@ class Warehouses_model extends App_Model
             }
             $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
             $res = [];
-            // $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`=14')->result();
+            
             foreach ($warehouse_arr as $key => $value) {
                 $name = $this->db->query('SELECT warehouse_name FROM tblwarehouses WHERE `id`='.$value)->row()->warehouse_name;
-                $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value)->row();
+                $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value.' AND `allocation`=0')->row();
                 $from = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_from`='.$value)->row();
                 if(empty($to)) $to = 0;
                 if(empty($from)) $from = 0;
@@ -430,7 +432,7 @@ class Warehouses_model extends App_Model
     {
         $last_allocated_qty = $this->db->query('SELECT * FROM '.db_prefix().'allocated_items WHERE id='.$id)->row()->stock_quantity;
         $last_allocation_product_code = $this->db->query('SELECT * FROM '.db_prefix().'allocated_items WHERE id='.$id)->row()->allocation_product_code;
-        
+
         $current_stock_level = $this->db->query('SELECT stock_level FROM '.db_prefix().'stock_lists WHERE id='.$last_allocation_product_code)->row()->stock_level;
         $stock_level_recover = $current_stock_level  + $last_allocated_qty;
         $this->db->query('UPDATE tblstock_lists SET stock_level = '.$stock_level_recover.' WHERE `id` ='.$last_allocation_product_code);
