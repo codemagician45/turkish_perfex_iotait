@@ -251,14 +251,11 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
-        // print_r($data); exit();
-
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         if($first_transfer_check == 1)
         {
             $this->db->query('UPDATE tblstock_lists SET stock_level = '.$data['transaction_qty'].' WHERE `id` ='.$data['stock_product_code']);
         }
-        // print_r($first_transfer_check); exit();
 
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
@@ -272,7 +269,6 @@ class Warehouses_model extends App_Model
         foreach ($qty as $val) {
             $total_qty = $total_qty + $val['transaction_qty'];
         }
-        // $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
 
         if ($insert_id) {
             log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
@@ -285,7 +281,6 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
-        // print_r($data); exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         if($first_transfer_check == 1)
         {
@@ -305,7 +300,6 @@ class Warehouses_model extends App_Model
         foreach ($qty as $val) {
             $total_qty = $total_qty + $val['transaction_qty'];
         }
-        // $this->db->query('UPDATE tblstock_lists SET stock_level = '.$total_qty.' WHERE `id` ='.$data['stock_product_code']);
 
         if ($this->db->affected_rows() > 0) {
             log_activity('Tansfer Updated [' . $transfer_id . ']');
@@ -357,6 +351,7 @@ class Warehouses_model extends App_Model
 
                 $diff = $to->to_sum - $from->to_sum;
                 $obj = (object)[
+                    'warehouse_id' => $value,
                     'warehouse' => $name,
                     'qty' => $diff
                 ];
@@ -450,15 +445,11 @@ class Warehouses_model extends App_Model
 
     public function get_barcode($id = '')
     {
-
         $this->db->from(db_prefix() . 'barcode_list');
-
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'barcode_list.id', $id);
-
             return $this->db->get()->row();
         }
-
         return $this->db->get()->result_array();
     }
 
@@ -471,10 +462,8 @@ class Warehouses_model extends App_Model
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
            log_activity('Barcode Added [ID: ' . $data['barcode_id'] . ']');
-
             return true;
         }
-
         return false;
     }
 

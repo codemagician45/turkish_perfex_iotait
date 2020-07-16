@@ -103,7 +103,6 @@
 		$('#stock_lists_modal').on('show.bs.modal', function(event) {
 			var button = $(event.relatedTarget)
 			var id = button.data('id');
-
 			$('#stock_lists_modal input[name="product_code"]').val('');
 			$('#stock_lists_modal input[name="product_photo"]').val('');
 			$('#stock_lists_modal input[name="product_name"]').val('');

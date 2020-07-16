@@ -86,10 +86,9 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <div class="col-md-12 transfers">
+            <div class="col-md-12">
                 <div class="panel_s">
                     <div class="panel-body">
                         <div class="panel_s">
@@ -100,7 +99,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <?php echo form_close(); ?>
         </div>

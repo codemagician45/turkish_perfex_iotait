@@ -102,9 +102,6 @@
 
     <script>
         $(function(){
-
-            //initDataTable('.table-transfer', window.location.href, [1], [1]);
-
             appValidateForm($('form'), {
                 stock_product_code: 'required',
                 transaction_from: 'required',
@@ -116,7 +113,46 @@
             });
         });
 
+        var id;
+        var warehouses = [];
+        var currentWarehouseQty = 0;
+        $('#stock_product_code').change(function(){
+            id = $(this).val()
+            var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
+            requestGetJSON(tranferReqUrl).done(function (results) {
+                warehouses = results;
+                var wId = $('#transaction_from').val();
+                if(warehouses.length > 0)
+                {
+                    var currentWarehouse = warehouses.filter(e => {
+                        return e.warehouse_id == wId;
+                    })
+                    currentWarehouseQty = currentWarehouse[0].qty;
+                }
+            });
+        })
+        
+        $('#transaction_from').change(function(){
+            var wId = $(this).val();
+            if(warehouses.length > 0)
+            {
+                var currentWarehouse = warehouses.filter(e => {
+                    return e.warehouse_id == wId;
+                })
+                currentWarehouseQty = currentWarehouse[0].qty;
+            }
+            
+        })
 
+        $('#transaction_qty').keyup(function(){
+            console.log(currentWarehouseQty)
+            if($(this).val() > currentWarehouseQty)
+            {
+                alert('Overflowed Quantity from this Warehouse');
+                $(this).val('');
+            }
+        })
+        
     </script>
 
     </body>

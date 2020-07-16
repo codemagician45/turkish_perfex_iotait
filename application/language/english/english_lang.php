@@ -3640,31 +3640,7 @@ $lang['gantt_view_year'] = 'Years View';
 
 //  By Raf
 
-$lang['warehouse'] = 'Warehouse';
-
-$lang['warehouse_tunning'] = 'Warehouse Tunning';
-$lang['warehouses'] = 'Warehouses';
-$lang['stock_categories'] = 'Stock Categories';
-$lang['units'] = 'Stock Units';
-
-$lang['warehouse_name'] = 'Warehouse Name';
-$lang['order_no'] = 'Order No';
-$lang['new_warehouse'] = 'New Warehouse';
-$lang['edit_warehouse'] = 'Edit Warehouse';
-$lang['add_new_warehouse'] = 'Add New Warehouse';
-
-$lang['stock_category'] = 'Stock Category';
-$lang['order_no'] = 'Order No';
-$lang['new_stock_category'] = 'New Stock Category';
-$lang['edit_stock_category'] = 'Edit Stock Category';
-$lang['add_new_stock_category'] = 'Add New Stock Category';
-
-$lang['stock_units'] = 'Stock Units';
-$lang['stock_unit_name'] = 'Name';
-$lang['edit_stock_unit'] = 'Edit Stock Unit';
-$lang['new_stock_unit'] = 'New Stock Unit';
-$lang['add_new_stock_unit'] = 'Add Stock Unit';
-$lang['unit_active'] = 'Active';
+/*Warehouses*/
 
 $lang['stock_list'] = 'Stock List';
 $lang['product_code'] = 'Product Code';
@@ -3725,9 +3701,9 @@ $lang['new_packing_list'] = 'New Packing list';
 $lang['stock_qty'] = 'Stock Qty';
 
 $lang['packing_group'] = 'Packing Group';
+$lang['default'] = 'Default';
 $lang['default_pack'] = 'Default Pack';
 $lang['new_packing_group'] = 'New Packing Group';
-// $lang['packing_group'] = 'Packing Group';
 
 
 
@@ -3738,9 +3714,99 @@ $lang['purchase_receiving_bay'] = 'Purchase Receiving Bay';
 $lang['purchase_request'] = 'Purchase Request';
 
 
+/*purchase*/
+$lang['purchase'] = 'Purchase';
+$lang['purchase_orders'] = 'Purchase Orders';
+$lang['purchase_order'] = 'Purchase Order';
+$lang['new_purchase_order'] = 'New Purchase Order';
+$lang['purchase_phase_id'] = 'Purchase Phase ID';
+$lang['approval'] = 'Approval';
+$lang['bought_company_name'] = 'Bought Company Name';
+$lang['notes'] = 'Notes';
+$lang['note'] = 'Note';
+$lang['created_user'] = 'Created User';
+$lang['created_date_time'] = 'Created Date Time';
+$lang['last_updated_user'] = 'Last Updated User';
+
+$lang['pending_purchase_requests'] = 'Pending Purchase Requests';
+
+$lang['purchase_tunning'] = 'Purchase Tunning';
+$lang['purchase_orders_phases'] = 'Purchase Orders Phases';
+$lang['new_purchase_phase'] = 'New Purchase Phase';
+$lang['purchase_phase'] = 'Purchase Phase';
+$lang['edit_purchase_phase'] = 'Edit Purchase Phase';
+$lang['add_purchase_phase'] = 'Add Purchase Phase';
+
+/*finance*/
+$lang['currency_exchange_rate'] = 'Currency / Exchange Rate';
+$lang['currency_name'] = 'Currency Name';
+$lang['symbol'] = 'Symbol';
+$lang['currency_rate'] = 'Currency Rate';
+
+$lang['ready_to_invoice'] = 'Ready to Invoice';
 
 
+/*Settings*/
+$lang['accounts'] = 'Accounts';
+$lang['account_type'] = 'Account Type';
+
+$lang['production'] = 'Production';
+$lang['work_order_phases'] = 'Work Order Phases';
+$lang['work_order_phase'] = 'Work Order Phase';
+$lang['new_work_order_phase'] = 'New Work Order Phase';
+$lang['edit_work_order_phase'] = 'Edit Work Order Phase';
+$lang['add_work_order_phase'] = 'Add Work Order Phase';
+
+$lang['purchase'] = 'Purchase';
+$lang['purchase_orders_phases'] = 'Purchase Orders Phases';
+
+$lang['warehouse'] = 'Warehouse';
+$lang['warehouses'] = 'Warehouses';
+$lang['stock_categories'] = 'Stock Categories';
+$lang['units'] = 'Stock Units';
+
+$lang['warehouse_name'] = 'Warehouse Name';
+$lang['order_no'] = 'Order No';
+$lang['new_warehouse'] = 'New Warehouse';
+$lang['edit_warehouse'] = 'Edit Warehouse';
+$lang['add_new_warehouse'] = 'Add New Warehouse';
+
+$lang['stock_category'] = 'Stock Category';
+$lang['order_no'] = 'Order No';
+$lang['new_stock_category'] = 'New Stock Category';
+$lang['edit_stock_category'] = 'Edit Stock Category';
+$lang['add_new_stock_category'] = 'Add New Stock Category';
+
+$lang['stock_units'] = 'Stock Units';
+$lang['stock_unit'] = 'Stock Unit';
+$lang['stock_unit_name'] = 'Name';
+$lang['edit_stock_unit'] = 'Edit Stock Unit';
+$lang['new_stock_unit'] = 'New Stock Unit';
+$lang['add_new_stock_unit'] = 'Add Stock Unit';
+$lang['unit_active'] = 'Active';
+
+$lang['sale'] = 'Sale';
+$lang['pricing_categories'] = 'Pricing Categories';
+$lang['pricing_category'] = 'Pricing Category';
+$lang['sale_phases'] = 'Sale Phases';
+$lang['quote_phases'] = 'Quote Phases';
+$lang['new_pricing_category'] = 'New Pricing Category';
+$lang['cal_value1'] = 'Calc_Value1';
+$lang['cal_value2'] = 'Calc_Value2';
+$lang['default_currency'] = 'Default Currency';
+$lang['edit_pricing_category'] = 'Edit Pricing Category';
+$lang['add_pricing_category'] = 'Add Pricing Category';
+
+$lang['new_sale_phase'] = 'New Sale Phase';
+$lang['edit_sale_phase'] = 'Edit Sale Phase';
+$lang['add_sale_phase'] = 'Add Sale Phase';
+$lang['sale_phase'] = 'Sale Phase';
+
+$lang['quote_phase'] = 'Quote Phase';
+$lang['new_quote_phase'] = 'New Quote Phase';
+$lang['edit_quote_phase'] = 'Edit Quote Phase';
+$lang['add_quote_phase'] = 'Add Quote Phase';
 
 
-
+$lang['user_logs'] = 'User Logs';
 

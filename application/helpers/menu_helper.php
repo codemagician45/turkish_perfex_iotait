@@ -75,6 +75,55 @@ function app_init_admin_sidebar_menu_items()
         'position' => 40,
     ]); 
 
+    /*Purchase*/
+    $CI->app_menu->add_sidebar_menu_item('purchase', [
+            'collapse' => true,
+            'name'     => _l('purchase'),
+            'position' => 10,
+            'icon'     => 'fa fa-shopping-bag',
+        ]);
+
+    $CI->app_menu->add_sidebar_children_item('purchase', [
+        'slug'     => 'purchase_orders',
+        'name'     => _l('purchase_orders'),
+        'href'     => admin_url('purchases/purchase_orders'),
+        'position' => 5,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('purchase', [
+        'slug'     => 'pending_purchase_requests',
+        'name'     => _l('pending_purchase_requests'),
+        'href'     => admin_url('purchases/pending_purchase_requests'),
+        'position' => 10,
+    ]);
+
+
+    /*Finance*/
+    $CI->app_menu->add_sidebar_menu_item('finance', [
+            'collapse' => true,
+            'name'     => _l('finance'),
+            'position' => 15,
+            'icon'     => 'fa fa-money',
+        ]);
+
+    $CI->app_menu->add_sidebar_children_item('finance', [
+        'slug'     => 'currency_exchange_rate',
+        'name'     => _l('currency_exchange_rate'),
+        'href'     => admin_url('finances/currency_exchange_rate'),
+        'position' => 5,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('finance', [
+        'slug'     => 'ready_to_invoice',
+        'name'     => _l('ready_to_invoice'),
+        'href'     => admin_url('finances/ready_to_invoice'),
+        'position' => 10,
+    ]);
+
+    
+
+
+
     // if (has_permission('customers', '', 'view')
     //     || (have_assigned_customers()
     //     || (!have_assigned_customers() && has_permission('customers', '', 'create')))) {
@@ -86,12 +135,12 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
-    $CI->app_menu->add_sidebar_menu_item('sales', [
-            'collapse' => true,
-            'name'     => _l('als_sales'),
-            'position' => 10,
-            'icon'     => 'fa fa-balance-scale',
-        ]);
+    // $CI->app_menu->add_sidebar_menu_item('sales', [
+    //         'collapse' => true,
+    //         'name'     => _l('als_sales'),
+    //         'position' => 10,
+    //         'icon'     => 'fa fa-balance-scale',
+    //     ]);
 
     // if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own'))
     //     || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
@@ -113,15 +162,15 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
-    if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own'))
-         || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1)) {
-        $CI->app_menu->add_sidebar_children_item('sales', [
-                'slug'     => 'invoices',
-                'name'     => _l('invoices'),
-                'href'     => admin_url('invoices'),
-                'position' => 15,
-        ]);
-    }
+    // if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own'))
+    //      || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1)) {
+    //     $CI->app_menu->add_sidebar_children_item('sales', [
+    //             'slug'     => 'invoices',
+    //             'name'     => _l('invoices'),
+    //             'href'     => admin_url('invoices'),
+    //             'position' => 15,
+    //     ]);
+    // }
 
     // if (has_permission('payments', '', 'view') || has_permission('invoices', '', 'view_own')
     //        || (get_option('allow_staff_view_invoices_assigned') == 1 && staff_has_assigned_invoices())) {
@@ -142,14 +191,14 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
-    if (has_permission('items', '', 'view')) {
-        $CI->app_menu->add_sidebar_children_item('sales', [
-                'slug'     => 'items',
-                'name'     => _l('items'),
-                'href'     => admin_url('invoice_items'),
-                'position' => 30,
-        ]);
-    }
+    // if (has_permission('items', '', 'view')) {
+    //     $CI->app_menu->add_sidebar_children_item('sales', [
+    //             'slug'     => 'items',
+    //             'name'     => _l('items'),
+    //             'href'     => admin_url('invoice_items'),
+    //             'position' => 30,
+    //     ]);
+    // }
 
     // if (has_permission('subscriptions', '', 'view') || has_permission('subscriptions', '', 'view_own')) {
     //     $CI->app_menu->add_sidebar_menu_item('subscriptions', [
@@ -334,18 +383,18 @@ function app_init_admin_sidebar_menu_items()
     }
 
     if (is_admin()) {
-        $CI->app_menu->add_setup_menu_item('customers', [
-                    'collapse' => true,
-                    'name'     => _l('clients'),
-                    'position' => 10,
-            ]);
+        // $CI->app_menu->add_setup_menu_item('customers', [
+        //             'collapse' => true,
+        //             'name'     => _l('clients'),
+        //             'position' => 10,
+        //     ]);
 
-        $CI->app_menu->add_setup_children_item('customers', [
-                    'slug'     => 'customer-groups',
-                    'name'     => _l('customer_groups'),
-                    'href'     => admin_url('clients/groups'),
-                    'position' => 5,
-            ]);
+        // $CI->app_menu->add_setup_children_item('customers', [
+        //             'slug'     => 'customer-groups',
+        //             'name'     => _l('customer_groups'),
+        //             'href'     => admin_url('clients/groups'),
+        //             'position' => 5,
+        //     ]);
         $CI->app_menu->add_setup_menu_item('support', [
                     'collapse' => true,
                     'name'     => _l('support'),
@@ -497,11 +546,54 @@ function app_init_admin_sidebar_menu_items()
                           'name'     => 'API',
                           'position' => 65,
                   ]);*/
+
+        //Accounts
+        $CI->app_menu->add_setup_menu_item('accounts', [
+            'collapse' => true,
+            'name'     => _l('accounts'),
+            'position' => 70,
+        ]);          
+
+        $CI->app_menu->add_setup_children_item('accounts', [
+                'slug'     => 'account_type',
+                'name'     => _l('account_type'),
+                'href'     => admin_url('clients/groups'),
+                'position' => 5,
+        ]);   
+
+        //Production
+        $CI->app_menu->add_setup_menu_item('production', [
+            'collapse' => true,
+            'name'     => _l('production'),
+            'position' => 75,
+        ]);
+
+        $CI->app_menu->add_setup_children_item('production', [
+                'slug'     => 'work_order_phases',
+                'name'     => _l('work_order_phases'),
+                'href'     => admin_url('production/work_order_phases'),
+                'position' => 5,
+        ]);    
+
+        // Purchase
+        $CI->app_menu->add_setup_menu_item('purchase', [
+            'collapse' => true,
+            'name'     => _l('purchase'),
+            'position' => 80,
+        ]);
+
+        $CI->app_menu->add_setup_children_item('purchase', [
+                'slug'     => 'purchase_orders_phases',
+                'name'     => _l('purchase_orders_phases'),
+                'href'     => admin_url('purchases/purchase_orders_phases'),
+                'position' => 5,
+        ]);   
+
         // Warehouse Material
         $CI->app_menu->add_setup_menu_item('warehouse', [
             'collapse' => true,
-            'name'     => _l('warehouse_tunning'),
-            'position' => 60,
+            'name'     => _l('warehouse'),
+            'position' => 85,
         ]);
 
         $CI->app_menu->add_setup_children_item('warehouse', [
@@ -523,7 +615,41 @@ function app_init_admin_sidebar_menu_items()
                 'name'     => _l('stock_units'),
                 'href'     => admin_url('warehouses/stock_units'),
                 'position' => 15,
-        ]);   
+        ]);
+
+        // Sale
+        $CI->app_menu->add_setup_menu_item('sale', [
+            'collapse' => true,
+            'name'     => _l('sale'),
+            'position' => 90,
+        ]);
+
+        $CI->app_menu->add_setup_children_item('sale', [
+                'slug'     => 'sale',
+                'name'     => _l('pricing_categories'),
+                'href'     => admin_url('sale/pricing_categories'),
+                'position' => 5,
+        ]);
+
+        $CI->app_menu->add_setup_children_item('sale', [
+                'slug'     => 'sale',
+                'name'     => _l('sale_phases'),
+                'href'     => admin_url('sale/sale_phases'),
+                'position' => 10,
+        ]);
+        $CI->app_menu->add_setup_children_item('sale', [
+                'slug'     => 'sale',
+                'name'     => _l('quote_phases'),
+                'href'     => admin_url('sale/quote_phases'),
+                'position' => 15,
+        ]);
+        // User log
+        $CI->app_menu->add_setup_menu_item('user_logs', [
+            'name'     => _l('user_logs'),
+            'href'     => admin_url('utilities/activity_log'),
+            'position' => 90,
+        ]);
+        
     }
 
     if (has_permission('settings', '', 'view')) {
