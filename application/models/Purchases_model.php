@@ -119,6 +119,14 @@ class Purchases_model extends App_Model
 
     }
 
+    public function get_purchase_id_by_order_no($order_no = 3)
+    {
+        $this->db->order_by('id', 'asc');
+        $this->db->where('order_no',$order_no);
+        return $this->db->get(db_prefix() . 'purchase_order_phases')->result_array();
+
+    }
+
     public function get_product_code()
     {
         $this->db->order_by('product_code', 'asc');

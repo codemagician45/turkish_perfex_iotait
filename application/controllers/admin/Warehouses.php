@@ -10,6 +10,7 @@ class Warehouses extends AdminController
         parent::__construct();
         $this->load->model('warehouses_model');
         $this->load->model('staff_model');
+        $this->load->model('purchases_model');
     }
 
     /* Warehouse Material */
@@ -23,7 +24,7 @@ class Warehouses extends AdminController
             $this->app->get_table_data('warehouse');
         }
         $data['title'] = _l('warehouses');
-        $this->load->view('admin/warehouses_material/warehouses', $data);
+        $this->load->view('admin/warehouses/settings/warehouses', $data);
     }
 
     public function warehouse_manage()
@@ -78,7 +79,7 @@ class Warehouses extends AdminController
         }
 
         $data['title'] = _l('stock_category');
-        $this->load->view('admin/warehouses_material/stock_categories', $data);
+        $this->load->view('admin/warehouses/settings/stock_categories', $data);
     }
 
     public function stock_categories_manage()
@@ -132,7 +133,7 @@ class Warehouses extends AdminController
             $this->app->get_table_data('stock_units');
         }
         $data['title'] = _l('stock_units');
-        $this->load->view('admin/warehouses_material/stock_units', $data);
+        $this->load->view('admin/warehouses/settings/stock_units', $data);
     }
 
     public function stock_unit_manage()
@@ -580,5 +581,121 @@ class Warehouses extends AdminController
             $item = $this->warehouses_model->stock_list_get($id);
             echo json_encode($item);
         }
+    }
+
+    public function purchase_receiving_bay()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('purchase_receiving_bay');
+        }
+        $data['title'] = _l('purchase_receiving_bay');
+        $this->load->view('admin/warehouses/purchase_receiving_bay_manage', $data);
+    }
+
+    public function purchase_request()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('purchase_request');
+        }
+        $data['title'] = _l('purchase_request');
+        $this->load->view('admin/warehouses/purchase_request/manage', $data);
+    }
+
+    public function manage_purchase_request($id = '')
+    {
+        if ($this->input->post()) {
+            $data = $this->input->post();
+            // print_r($data); exit();
+            if ($id == '') {
+
+                $id = $this->purchases_model->add_purchase_order($data);
+
+                if(isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item);
+                }
+
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('purchase_order')));
+                    redirect(admin_url('warehouses/purchase_request'));
+                }
+            } else {
+                
+                $success = $this->purchases_model->update_purchase_order($data, $id);
+
+                $current_purchase_item = $this->purchases_model->get_purchase_order_item($id);
+                if(empty($current_purchase_item) && isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item);
+                }
+                else {
+                    if(isset($data['newitems']))
+                    $purchase_order_item['newitems'] = $data['newitems'];
+                    if(isset($data['removed_items']))
+                        $purchase_order_item['removed_items'] = $data['removed_items'];
+                    if(isset($data['items']))
+                        $purchase_order_item['items'] = $data['items'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->update_purchase_order_item($purchase_order_item);
+
+                }
+                
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('purchase_order')));
+                }
+                redirect(admin_url('warehouses/purchase_request'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('add_new', _l('purchase_order'));
+        } else {
+            $data['purchase_order'] = $this->purchases_model->get_purchase_order($id);
+
+            $created_user = $this->staff_model->get($data['purchase_order']->created_user);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($data['purchase_order']->updated_user)){
+               $updated_user = $this->staff_model->get($data['purchase_order']->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
+            $title = _l('edit', _l('purchase_order'));
+      
+        }
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+
+        if(isset($data['purchase_order']))
+            $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
+        // print_r($data['purchase_order_item']); exit();
+        $data['acc_list'] = $this->purchases_model->get_acc_list();
+        $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no();
+        $data['product_code'] = $this->purchases_model->get_product_code();
+        $data['title']         = $title;
+        $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
+    }
+
+    public function delete_purchase_request($id)
+    {
+        if (!$id) {
+            redirect(admin_url('warehouses/purchase_request'));
+        }
+        $response = $this->purchases_model->delete_purchase_order($id);
+        if ($response == true) {
+            set_alert('success', _l('deleted', _l('purchase_request')));
+        } else {
+            set_alert('warning', _l('problem_deleting', _l('purchase_request')));
+        }
+        redirect(admin_url('warehouses/purchase_request'));
     }
 }

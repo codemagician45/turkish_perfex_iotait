@@ -91,9 +91,9 @@ function app_init_admin_sidebar_menu_items()
     ]);
 
     $CI->app_menu->add_sidebar_children_item('purchase', [
-        'slug'     => 'pending_purchase_requests',
-        'name'     => _l('pending_purchase_requests'),
-        'href'     => admin_url('purchases/pending_purchase_requests'),
+        'slug'     => 'pending_purchase_request',
+        'name'     => _l('pending_purchase_request'),
+        'href'     => admin_url('purchases/pending_purchase_request'),
         'position' => 10,
     ]);
 

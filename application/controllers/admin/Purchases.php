@@ -18,7 +18,7 @@ class Purchases extends AdminController
             $this->app->get_table_data('purchase_order_phases');
         }
         $data['title'] = _l('purchase_order_phases');
-        $this->load->view('admin/purchase_tunning/purchase_orders_phases', $data);
+        $this->load->view('admin/purchases/settings/purchase_orders_phases', $data);
     }
 
     public function manage_purchase_orders_phases()

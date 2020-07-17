@@ -6,6 +6,9 @@
             <div class="col-md-12">
                 <div class="panel_s">
                     <div class="panel-body">
+                        <div class="_buttons">
+                            <a href="<?php echo admin_url('warehouses/manage_purchase_request'); ?>" class="btn btn-info pull-left" ><?php echo _l('new_purchase_request'); ?></a>
+                        </div>
                         <div class="clearfix"></div>
                         <hr class="hr-panel-heading" />
                         <div class="clearfix"></div>
@@ -17,7 +20,7 @@
                             _l('created_user'),
                             _l('created_date_time'),
                             _l('last_updated_user'),
-                        ),'pending_purchase_request'); ?>
+                        ),'purchase_request'); ?>
                     </div>
                 </div>
             </div>
@@ -32,7 +35,7 @@
 <?php init_tail(); ?>
 <script>
     $(function(){
-        initDataTable('.table-pending_purchase_request', window.location.href, [1], [1]);
+        initDataTable('.table-purchase_request', window.location.href, [1], [1]);
     });
 
 </script>

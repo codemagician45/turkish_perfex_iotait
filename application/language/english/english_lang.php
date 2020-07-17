@@ -3734,7 +3734,8 @@ $lang['item_order'] = 'Item Order';
 $lang['approval_need'] = 'Approval Need';
 $lang['approval_not_need'] = 'Not Approval Need';
 
-$lang['pending_purchase_requests'] = 'Pending Purchase Requests';
+$lang['pending_purchase_request'] = 'Pending Purchase Request';
+$lang['new_purchase_request'] = 'New Purchase Request';
 
 $lang['purchase_tunning'] = 'Purchase Tunning';
 $lang['purchase_orders_phases'] = 'Purchase Orders Phases';
@@ -3750,6 +3751,9 @@ $lang['symbol'] = 'Symbol';
 $lang['currency_rate'] = 'Currency Rate';
 
 $lang['ready_to_invoice'] = 'Ready to Invoice';
+
+
+
 
 
 /*Settings*/

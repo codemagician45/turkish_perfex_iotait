@@ -14,7 +14,7 @@ $aColumns = [
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'purchase_order';
 
-$where  = ['AND '.db_prefix() . 'purchase_order.approval = 1'];
+$where  = ['AND '.db_prefix() . 'purchase_order_phases.order_no = 1'];
 
 $join = [
    'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'purchase_order.created_user',
