@@ -43,7 +43,7 @@ foreach ($rResult as $aRow) {
   
 
     // if (has_permission('contracts', '', 'delete')) {
-        $subjectOutput .= ' | <a href="' . admin_url('warehouses/transfer_delete/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+    $subjectOutput .= ' | <a href="' . admin_url('warehouses/transfer_delete/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
     // }
 
     $subjectOutput .= '</div>';

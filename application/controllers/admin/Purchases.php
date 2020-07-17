@@ -21,7 +21,7 @@ class Purchases extends AdminController
         $this->load->view('admin/purchase_tunning/purchase_orders_phases', $data);
     }
 
-    public function purchase_orders_phases_manage()
+    public function manage_purchase_orders_phases()
     {
         if ($this->input->post()) {
             $data = $this->input->post();
@@ -59,19 +59,51 @@ class Purchases extends AdminController
         $this->load->view('admin/purchases/purchase_order/manage', $data);
     }
 
-    public function purchase_order_manage($id = '')
+    public function manage_purchase_order($id = '')
     {
     	if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);
+
+                if(isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item);
+                }
+
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('purchase_order')));
                     redirect(admin_url('purchases/purchase_orders'));
                 }
             } else {
+                
                 $success = $this->purchases_model->update_purchase_order($data, $id);
+
+                $current_purchase_item = $this->purchases_model->get_purchase_order_item($id);
+                if(empty($current_purchase_item) && isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item);
+                }
+                else {
+                    if(isset($data['newitems']))
+                    $purchase_order_item['newitems'] = $data['newitems'];
+                    if(isset($data['removed_items']))
+                        $purchase_order_item['removed_items'] = $data['removed_items'];
+                    if(isset($data['items']))
+                        $purchase_order_item['items'] = $data['items'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+
+                    $this->purchases_model->update_purchase_order_item($purchase_order_item);
+
+                }
                 
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('purchase_order')));
@@ -82,6 +114,14 @@ class Purchases extends AdminController
         if ($id == '') {
             $title = _l('add_new', _l('purchase_order'));
         } else {
+            $data['purchase_order'] = $this->purchases_model->get_purchase_order($id);
+
+            $created_user = $this->staff_model->get($data['purchase_order']->created_user);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($data['purchase_order']->updated_user)){
+               $updated_user = $this->staff_model->get($data['purchase_order']->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
             $title = _l('edit', _l('purchase_order'));
       
         }
@@ -93,10 +133,36 @@ class Purchases extends AdminController
             $data['ajaxItems'] = true;
         }
 
+        if(isset($data['purchase_order']))
+            $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
+        // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
         $data['title']         = $title;
         $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
+    }
+
+    public function delete_purchase_order($id)
+    {
+        if (!$id) {
+            redirect(admin_url('purchases/purchase_orders'));
+        }
+        $response = $this->purchases_model->delete_purchase_order($id);
+        if ($response == true) {
+            set_alert('success', _l('deleted', _l('purchase_order')));
+        } else {
+            set_alert('warning', _l('problem_deleting', _l('purchase_order')));
+        }
+        redirect(admin_url('purchases/purchase_orders'));
+    }
+
+    public function pending_purchase_request()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('pending_purchase_request');
+        }
+        $data['title'] = _l('pending_purchase_request');
+        $this->load->view('admin/purchases/pending_purchase_request_manage', $data);
     }
 }

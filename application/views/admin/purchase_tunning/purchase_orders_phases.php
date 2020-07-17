@@ -33,7 +33,7 @@
 					<span class="add-title"><?php echo _l('add_purchase_phase'); ?></span>
 				</h4>
 			</div>
-			<?php echo form_open('admin/purchases/purchase_orders_phases_manage',array('id'=>'purchase_order_phase_form')); ?>
+			<?php echo form_open('admin/purchases/manage_purchase_orders_phases',array('id'=>'purchase_order_phase_form')); ?>
 			<?php echo form_hidden('purchaseOrderPhaseid'); ?>
 			<div class="modal-body">
 				<div class="row">

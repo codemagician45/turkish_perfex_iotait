@@ -491,23 +491,37 @@ class Warehouses extends AdminController
             $data = $this->input->post();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
-                $group_data = $data['newitems'];
-                $group_data['packing_id'] = $id;
-                $this->warehouses_model->add_packing_group($group_data);
+                if(isset($data['newitems']))
+                {
+                    $group_data = $data['newitems'];
+                    $group_data['packing_id'] = $id;
+                    $this->warehouses_model->add_packing_group($group_data);
+                }
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('packing_list and packing_group')));
                     redirect(admin_url('warehouses/packing_list'));
                 }
             } else {
                 $success = $this->warehouses_model->update_packing_list($data, $id);
-                if(isset($data['newitems']))
+                $current_packing_group = $this->warehouses_model->get_packing_group($id);
+
+                if(empty($current_packing_group) && isset($data['newitems']))
+                {
+                    $group_data = $data['newitems'];
+                    $group_data['packing_id'] = $id;
+                    $this->warehouses_model->add_packing_group($group_data);
+                }
+                else {
+                    if(isset($data['newitems']))
                     $group_data['newitems'] = $data['newitems'];
-                if(isset($data['removed_items']))
-                    $group_data['removed_items'] = $data['removed_items'];
-                if(isset($data['items']))
-                    $group_data['items'] = $data['items'];
-                $group_data['packing_id'] = $id;
-                $this->warehouses_model->update_packing_group($group_data);
+                    if(isset($data['removed_items']))
+                        $group_data['removed_items'] = $data['removed_items'];
+                    if(isset($data['items']))
+                        $group_data['items'] = $data['items'];
+                    $group_data['packing_id'] = $id;
+                    $this->warehouses_model->update_packing_group($group_data);
+                }
+                
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('packing_list')));
                 }

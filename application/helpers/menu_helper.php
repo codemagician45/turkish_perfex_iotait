@@ -120,20 +120,17 @@ function app_init_admin_sidebar_menu_items()
         'position' => 10,
     ]);
 
-    
 
-
-
-    // if (has_permission('customers', '', 'view')
-    //     || (have_assigned_customers()
-    //     || (!have_assigned_customers() && has_permission('customers', '', 'create')))) {
-    //     $CI->app_menu->add_sidebar_menu_item('customers', [
-    //         'name'     => _l('als_clients'),
-    //         'href'     => admin_url('clients'),
-    //         'position' => 5,
-    //         'icon'     => 'fa fa-user-o',
-    //     ]);
-    // }
+    if (has_permission('customers', '', 'view')
+        || (have_assigned_customers()
+        || (!have_assigned_customers() && has_permission('customers', '', 'create')))) {
+        $CI->app_menu->add_sidebar_menu_item('customers', [
+            'name'     => _l('accounts'),
+            'href'     => admin_url('clients'),
+            'position' => 25,
+            'icon'     => 'fa fa-user-o',
+        ]);
+    }
 
     // $CI->app_menu->add_sidebar_menu_item('sales', [
     //         'collapse' => true,

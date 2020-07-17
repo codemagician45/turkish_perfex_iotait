@@ -3731,6 +3731,8 @@ $lang['last_updated_user'] = 'Last Updated User';
 $lang['ordered_qty'] = 'Ordered Qty';
 $lang['received_qty'] = 'Received Qty';
 $lang['item_order'] = 'Item Order';
+$lang['approval_need'] = 'Approval Need';
+$lang['approval_not_need'] = 'Not Approval Need';
 
 $lang['pending_purchase_requests'] = 'Pending Purchase Requests';
 
@@ -3814,8 +3816,4 @@ $lang['add_quote_phase'] = 'Add Quote Phase';
 
 $lang['user_logs'] = 'User Logs';
 
-$lang['menu_setup'] = 'Menu Setup';
-$lang['main_menu'] = 'Main Menu';
-$lang['setup_menu'] = 'Setup Menu';
-$lang['theme_style'] = 'Theme Style';
 

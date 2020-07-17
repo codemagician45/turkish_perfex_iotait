@@ -20,7 +20,7 @@
                             _l('created_user'),
                             _l('created_date_time'),
                             _l('last_updated_user'),
-                        ),'purchase_order'); ?>
+                        ),'pending_purchase_request'); ?>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
 <?php init_tail(); ?>
 <script>
     $(function(){
-        initDataTable('.table-purchase_order', window.location.href, [1], [1]);
+        initDataTable('.table-pending_purchase_request', window.location.href, [1], [1]);
     });
 
 </script>

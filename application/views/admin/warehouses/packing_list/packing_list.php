@@ -251,7 +251,7 @@
         previewArea.find('input[name="product_name"]').val('');
         previewArea.find('input[name="product_code"]').val('');
         previewArea.find('input[name="product_id"]').val('');
-        previewArea.find('input[name="default_pack"]').val('');
+        previewArea.find('input[name="default_pack"]').prop('checked',false);
     }
 
     function delete_package_item(row, itemid) {
