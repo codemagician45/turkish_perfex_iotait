@@ -6,16 +6,16 @@
   <?php } ?>
 </p>
 <ul class="nav nav-tabs" role="tablist">
-  <li role="presentation" class="active">
+  <!-- <li role="presentation" class="active">
     <a href="#set_invoice" aria-controls="set_invoice" role="tab" data-toggle="tab"><?php echo _l('settings_sales_cron_invoice_heading'); ?></a>
   </li>
   <li role="presentation">
     <a href="#estimates" aria-controls="estimates" role="tab" data-toggle="tab"><?php echo _l('estimates'); ?></a>
-  </li>
+  </li> -->
   <li role="presentation">
     <a href="#proposals" aria-controls="proposals" role="tab" data-toggle="tab"><?php echo _l('proposals'); ?></a>
   </li>
-   <li role="presentation">
+   <!-- <li role="presentation">
     <a href="#expenses" aria-controls="expenses" role="tab" data-toggle="tab"><?php echo _l('expenses'); ?></a>
   </li>
   <li role="presentation">
@@ -26,14 +26,14 @@
   </li>
   <li role="presentation">
     <a href="#tickets" aria-controls="tickets" role="tab" data-toggle="tab"><?php echo _l('tickets'); ?></a>
-  </li>
+  </li> -->
 
   <?php hooks()->do_action('after_cron_settings_last_tab'); ?>
 
 </ul>
 
 <div class="tab-content">
-  <div role="tabpanel" class="tab-pane active" id="set_invoice">
+  <div role="tabpanel" class="tab-pane " id="set_invoice">
     <?php if(!is_invoices_overdue_reminders_enabled()){ ?>
     <div class="alert alert-warning">
       The system was not able to find sources to send overdue notices, if you want overdue notices to be sent, make sure that in <a href="<?php echo admin_url('emails'); ?>">email templates</a> the overdue notice email for invoices is enabled or at least you have configured <a href="<?php echo admin_url('settings?group=sms'); ?>">SMS</a> overdue notice. If you don't need to send overdue notices for invoices, simply ignore this message.
@@ -91,7 +91,7 @@
    <hr />
  <?php echo render_input('settings[send_estimate_expiry_reminder_before]','send_expiry_reminder_before',get_option('send_estimate_expiry_reminder_before'),'number'); ?>
 </div>
-<div role="tabpanel" class="tab-pane" id="proposals">
+<div role="tabpanel" class="tab-pane active" id="proposals">
     <?php if(!is_proposals_expiry_reminders_enabled()){ ?>
     <div class="alert alert-warning">
       The system was not able to find sources to send expiry reminders, if you want expiry reminders to be sent, make sure that in <a href="<?php echo admin_url('emails'); ?>">email templates</a> the expiry reminder email for proposals is enabled or at least you have configured <a href="<?php echo admin_url('settings?group=sms'); ?>">SMS</a> expiry reminder.

@@ -8,7 +8,7 @@
          <li role="presentation" class="active">
             <a href="#general" aria-controls="general" role="tab" data-toggle="tab"><?php echo _l('settings_sales_heading_general'); ?></a>
          </li>
-         <li role="presentation">
+         <!-- <li role="presentation">
             <a href="#invoice" aria-controls="invoice" role="tab" data-toggle="tab"><?php echo _l('invoices'); ?></a>
          </li>
          <li role="presentation">
@@ -16,7 +16,7 @@
          </li>
          <li role="presentation">
             <a href="#estimates" aria-controls="estimates" role="tab" data-toggle="tab"><?php echo _l('settings_sales_heading_estimates'); ?></a>
-         </li>
+         </li> -->
          <li role="presentation">
             <a href="#proposals" aria-controls="proposals" role="tab" data-toggle="tab"><?php echo _l('proposals'); ?></a>
          </li>

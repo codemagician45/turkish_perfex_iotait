@@ -3728,6 +3728,10 @@ $lang['created_user'] = 'Created User';
 $lang['created_date_time'] = 'Created Date Time';
 $lang['last_updated_user'] = 'Last Updated User';
 
+$lang['ordered_qty'] = 'Ordered Qty';
+$lang['received_qty'] = 'Received Qty';
+$lang['item_order'] = 'Item Order';
+
 $lang['pending_purchase_requests'] = 'Pending Purchase Requests';
 
 $lang['purchase_tunning'] = 'Purchase Tunning';
@@ -3809,4 +3813,9 @@ $lang['add_quote_phase'] = 'Add Quote Phase';
 
 
 $lang['user_logs'] = 'User Logs';
+
+$lang['menu_setup'] = 'Menu Setup';
+$lang['main_menu'] = 'Main Menu';
+$lang['setup_menu'] = 'Setup Menu';
+$lang['theme_style'] = 'Theme Style';
 

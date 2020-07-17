@@ -157,13 +157,16 @@ $autoload['helper'] = [
         'widgets',
         'sms',
         'deprecated',
-        'purchase'
+        'purchase',
     ];
-
+// echo (APP_BASE_URL . 'modules/theme_style/helpers/theme_style_helper.php'); exit();
 if (file_exists(APPPATH . 'helpers/my_functions_helper.php')) {
     array_push($autoload['helper'], 'my_functions');
 }
-
+// if (file_exists(APP_BASE_URL . 'modules/theme_style/helpers/theme_style_helper.php')) {
+//     echo 1; exit();
+//     array_push($autoload['helper'], 'theme_style');
+// }
 /*
 | -------------------------------------------------------------------
 |  Auto-load Config files

@@ -9,6 +9,7 @@ class Purchases extends AdminController
     {
         parent::__construct();
         $this->load->model('purchases_model');
+        $this->load->model('warehouses_model');
     }
 
     public function purchase_orders_phases()
@@ -84,6 +85,14 @@ class Purchases extends AdminController
             $title = _l('edit', _l('purchase_order'));
       
         }
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();

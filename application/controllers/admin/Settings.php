@@ -90,6 +90,12 @@ class Settings extends AdminController
         }
 
         $data['tabs'] = $this->app_tabs->get_settings_tabs();
+        unset($data['tabs']['subscriptions']);
+        unset($data['tabs']['payment_gateways']);
+        unset($data['tabs']['tasks']);
+        unset($data['tabs']['support']);
+        unset($data['tabs']['leads']);
+        unset($data['tabs']['pusher']);
         if (!in_array($tab, $data['admin_tabs'])) {
             $data['tab'] = $this->app_tabs->filter_tab($data['tabs'], $tab);
         } else {

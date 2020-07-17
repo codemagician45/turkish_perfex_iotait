@@ -49,7 +49,7 @@
                 <div class="panel_s">
                     <div class="panel-body">
                         <div class="panel_s">
-                            <?php //$this->load->view('admin/warehouses/packing_group/_add_edit_package'); ?>
+                            <?php $this->load->view('admin/purchases/purchase_order/_add_edit_package'); ?>
                         </div>
                         <div class="btn-bottom-toolbar text-right">
                             <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
@@ -64,14 +64,41 @@
 <?php init_tail(); ?>
 
 
-    <script>
-        $(function(){
-            appValidateForm($('form'), {
-                // purchase_phase_id: 'required',
-                // acc_list: 'required',
+<script>
+    $(function(){
+        appValidateForm($('form'), {
+            // purchase_phase_id: 'required',
+            // acc_list: 'required',
+        });
+    });
+
+    $("body").on('change', 'select[name="item_select"]', function () {
+        var itemid = $(this).selectpicker('val');
+        if (itemid != '') {
+            add_item_to_preview_purchase_item(itemid);
+        }
+    });
+
+    function add_item_to_preview_purchase_item(id) {
+        requestGetJSON('warehouses/get_item_by_id/' + id).done(function(response) {
+            clear_item_preview_values();
+
+            $('input[name="product_name"]').val(response.product_name);
+            $('input[name="product_code"]').val(response.product_code);
+            $('input[name="product_id"]').val(response.id);
+
+            init_selectpicker();
+            init_color_pickers();
+            init_datepicker();
+
+            $(document).trigger({
+                type: "item-added-to-preview",
+                item: response,
+                item_type: 'item',
             });
         });
-    </script>
+    } 
+</script>
 
-    </body>
-    </html>
+</body>
+</html>

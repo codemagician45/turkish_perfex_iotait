@@ -17,6 +17,7 @@ $CI = &get_instance();
  * Load the module helper
  */
 $CI->load->helper(THEME_STYLE_MODULE_NAME . '/theme_style');
+// $CI->load->helper(THEME_STYLE_MODULE_NAME . '/helper/theme_style');
 
 /**
  * Register activation module hook

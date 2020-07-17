@@ -13,14 +13,5 @@
                 <?php } ?>
             </select>
         </div>
-
-        <!-- Applied Css to display none this bottom section... -->
-        <?php if(has_permission('items','','create')){ ?>
-            <div class="input-group-addon" style="display: none;">
-                <a href="#" data-toggle="modal" data-target="#sales_item_modal">
-                    <i class="fa fa-plus"></i>
-                </a>
-            </div>
-        <?php } ?>
     </div>
 </div>
