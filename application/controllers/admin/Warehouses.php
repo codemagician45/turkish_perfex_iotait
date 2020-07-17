@@ -327,9 +327,10 @@ class Warehouses extends AdminController
                 }
                 if($data['allocation'] == 0)
                 {
-                    // print_r($allocation_id); exit();
-                    $this->warehouses_model->delete_allocated_items($allocation_id);
-                    $data['allocation_id'] = 0; 
+                    if($allocation_id != 0){
+                        $this->warehouses_model->delete_allocated_items($allocation_id);
+                        $data['allocation_id'] = 0; 
+                    }
                 }
                 $success = $this->warehouses_model->update_transfer($data, $id);
                 if ($success) {
@@ -381,6 +382,13 @@ class Warehouses extends AdminController
         }
     }
 
+    public function get_current_warehouse($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            $warehouse = $this->warehouses_model->get_warehouse($id);
+            echo json_encode($warehouse);
+        }
+    }
     public function allocated_items()
     {
         if ($this->input->is_ajax_request()) {

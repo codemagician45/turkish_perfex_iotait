@@ -3655,6 +3655,7 @@ $lang['edit_stock_list'] = 'Edit Item';
 $lang['add_stock_list'] = 'Add Item';
 
 $lang['transfers'] = 'Transfers';
+$lang['transfer'] = 'Transfer';
 $lang['new_transfer'] = 'New Transfer';
 $lang['transaction_from'] = 'Transaction From';
 $lang['transaction_to'] = 'Transaction To';

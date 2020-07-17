@@ -121,13 +121,14 @@
             var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
             requestGetJSON(tranferReqUrl).done(function (results) {
                 warehouses = results;
+                console.log(results)
                 var wId = $('#transaction_from').val();
-                if(warehouses.length > 0)
+                if(warehouses.length > 0 && !wId)
                 {
                     var currentWarehouse = warehouses.filter(e => {
                         return e.warehouse_id == wId;
                     })
-                    currentWarehouseQty = currentWarehouse[0].qty;
+                    currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
                 }
             });
         })
@@ -139,18 +140,52 @@
                 var currentWarehouse = warehouses.filter(e => {
                     return e.warehouse_id == wId;
                 })
-                currentWarehouseQty = currentWarehouse[0].qty;
+                currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
             }
             
         })
 
         $('#transaction_qty').keyup(function(){
-            console.log(currentWarehouseQty)
-            if($(this).val() > currentWarehouseQty)
-            {
-                alert('Overflowed Quantity from this Warehouse');
+            var wId = $('#transaction_from').val();
+            if($('#stock_product_code').val()){
+               var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + $('#stock_product_code').val() ;
+                requestGetJSON(tranferReqUrl).done(function (results) {
+                    warehouses = results;
+                    if(warehouses.length > 0)
+                    {
+                        var currentWarehouse = warehouses.filter(e => {
+                            return e.warehouse_id == wId;
+                        })
+                        currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
+                    }
+                }); 
+            }
+            else {
+                alert('Please Select Product code');
                 $(this).val('');
             }
+
+            if(!wId){
+                alert('Please Select Warehouse');
+                $(this).val('');
+            }
+            else{
+                var url = admin_url +'warehouses/get_current_warehouse/' + wId ;
+                requestGetJSON(url).done(function (result) {
+                    // console.log(result)
+                    if(result.order_no != 1)
+                    {
+                        // console.log($('#transaction_qty').val(),currentWarehouseQty)
+                        // console.log('aaa')
+                        if($('#transaction_qty').val() > currentWarehouseQty)
+                        {
+                            alert('Overflowed Quantity from this Warehouse');
+                            $('#transaction_qty').val('');
+                        } 
+                    }
+                });
+            }
+            
         })
         
     </script>

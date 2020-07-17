@@ -37,7 +37,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <?php echo render_input('phase',_l('phase_name'),'','text',array('placeholder'=>_l('phase_name'))); ?>
+                        <?php echo render_input('phase',_l('name'),'','text',array('placeholder'=>_l('phase_name'))); ?>
                     </div>
                 </div>
             </div>

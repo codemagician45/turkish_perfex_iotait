@@ -330,7 +330,7 @@ class Warehouses_model extends App_Model
             $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
             // $this->db->where(db_prefix() . 'transfer_lists.allocation',0)
             $res =  $this->db->get()->result_array();
-
+            // print_r($res); exit();
             $from_warehouse_arr = [];
             foreach ($res as $key => $value) {
                 array_push($from_warehouse_arr, $value['transaction_from']);
@@ -339,13 +339,18 @@ class Warehouses_model extends App_Model
             foreach ($res as $key => $value) {
                 array_push($from_warehouse_arr, $value['transaction_to']);
             }
-            $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
+            // $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
+            $warehouses = $this->db->query('SELECT id FROM tblwarehouses')->result_array();
+            $warehouse_arr = [];
+            foreach ($warehouses as $key => $value) {
+                array_push($warehouse_arr, $value['id']);
+            }
             $res = [];
             
             foreach ($warehouse_arr as $key => $value) {
                 $name = $this->db->query('SELECT warehouse_name FROM tblwarehouses WHERE `id`='.$value)->row()->warehouse_name;
-                $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value.' AND `allocation`=0')->row();
-                $from = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_from`='.$value)->row();
+                $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value.' AND `allocation`=0 AND `stock_product_code`='.$id)->row();
+                $from = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_from`='.$value.' AND `stock_product_code`='.$id)->row();
                 if(empty($to)) $to = 0;
                 if(empty($from)) $from = 0;
 
@@ -378,6 +383,13 @@ class Warehouses_model extends App_Model
 
     public function delete_transfer($id)
     {
+        
+        $transfer = $this->get_transfer($id);
+        $first_transfer_check = $this->get_warehouse($transfer->transaction_from)->order_no;
+        if($first_transfer_check == 1)
+        {
+            $this->db->query('UPDATE tblstock_lists SET stock_level = 0 WHERE `id` ='.$transfer->stock_product_code);
+        }
         $this->db->where('id', $id);
         $this->db->delete(db_prefix() . 'transfer_lists');
         if ($this->db->affected_rows() > 0) {
