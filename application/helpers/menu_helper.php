@@ -131,6 +131,27 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-user-o',
         ]);
     }
+    // product
+    $CI->app_menu->add_sidebar_menu_item('products', [
+            'collapse' => true,
+            'name'     => _l('products'),
+            'position' => 20,
+            'icon'     => 'fa fa-product-hunt',
+        ]);
+
+    $CI->app_menu->add_sidebar_children_item('products', [
+        'slug'     => 'product_list',
+        'name'     => _l('product_list'),
+        'href'     => admin_url('products/product_list'),
+        'position' => 5,
+    ]);
+
+    $CI->app_menu->add_sidebar_children_item('products', [
+        'slug'     => 'product_receips',
+        'name'     => _l('product_receips'),
+        'href'     => admin_url('products/product_receips'),
+        'position' => 10,
+    ]);
 
     // $CI->app_menu->add_sidebar_menu_item('sales', [
     //         'collapse' => true,

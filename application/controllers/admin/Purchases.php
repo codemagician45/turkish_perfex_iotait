@@ -63,7 +63,6 @@ class Purchases extends AdminController
     {
     	if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);

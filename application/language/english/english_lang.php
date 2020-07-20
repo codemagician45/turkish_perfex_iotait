@@ -3754,6 +3754,11 @@ $lang['currency_rate'] = 'Currency Rate';
 $lang['ready_to_invoice'] = 'Ready to Invoice';
 
 
+/*product*/
+$lang['product_list'] = 'Product List';
+$lang['product_receips'] = 'Product Receips';
+
+
 
 
 

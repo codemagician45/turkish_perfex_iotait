@@ -52,6 +52,7 @@ class Purchases_model extends App_Model
         unset($data['item_order']);
         unset($data['newitems']);
         unset($data['notes']);
+        unset($data['description']);
 
     	$data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
@@ -81,6 +82,7 @@ class Purchases_model extends App_Model
         unset($data['removed_items']);
         unset($data['items']);
         unset($data['notes']);
+        unset($data['description']);
         unset($data['created_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
@@ -187,8 +189,8 @@ class Purchases_model extends App_Model
                 unset($value['itemid']);
                 $val['order'] = $val['item_order'];
                 unset($val['item_order']);
-                if(!isset($value['description']))
-                    $value['description'] = 0;
+                // if(!isset($value['description']))
+                //     $value['description'] = 0;
                 $this->db->where('id',$id);
                 $this->db->update(db_prefix() . 'purchase_order_item', $value);
             }

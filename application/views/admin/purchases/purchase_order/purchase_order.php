@@ -121,15 +121,17 @@
 
         table_row += '<input type="hidden" name="newitems[' + item_key + '][item_id]" value = "' + data.item_id + '"><td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
 
-        var checks = $('input[name="description"]');
-        if(checks.prop("checked") == true) {
+        table_row += '<td><textarea name="newitems[' + item_key + '][description]" class="form-control" rows="5">'+data.description+'</textarea></td>';
 
-            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][description]"  value="1" ><label></label></div>';
-        }
-        else if(checks.prop("checked") == false) {
+        // var checks = $('input[name="description"]');
+        // if(checks.prop("checked") == true) {
 
-            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]"  value="0" ><label></label></div></td>';
-        }
+        //     table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][description]"  value="1" ><label></label></div>';
+        // }
+        // else if(checks.prop("checked") == false) {
+
+        //     table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]"  value="0" ><label></label></div></td>';
+        // }
 
         // table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]" ><label for="newitems[' + item_key + '][description]"></label></div></td>';
 
@@ -178,7 +180,7 @@
         response.item_id = $('input[name="item_id"]').val();
         response.product_id = $('input[name="product_id"]').val();
         response.product_name = $('input[name="product_name"]').val();
-        response.description = $('input[name="description"]').val();
+        response.description = $('textarea[name="description"]').val();
         response.ordered_qty = $('input[name="ordered_qty"]').val();
         response.received_qty = $('input[name="received_qty"]').val();
         response.unit = $('input[name="unit"]').val();
@@ -186,13 +188,15 @@
         response.volume = $('input[name="volume"]').val();
         response.notes = $('input[name="notes"]').val();
         response.item_order = $('input[name="item_order"]').val();
+        // console.log(response);
         return response;
     }
 
     function clear_item_preview_values_purchase_order(default_taxes) {
         var previewArea = $('.main');
         previewArea.find('input[name="product_name"]').val('');
-        previewArea.find('input[name="description"]').prop('checked',false);
+        // previewArea.find('input[name="description"]').prop('checked',false);
+        previewArea.find('input[name="description"]').val('');
         previewArea.find('input[name="ordered_qty"]').val('');
         previewArea.find('input[name="received_qty"]').val('');
         previewArea.find('input[name="unit"]').val('');
@@ -213,21 +217,21 @@
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
 
-    $('#purchase').submit(function(e){
-        e.preventDefault();
-        var rows = $('body').find('.sortable');
-        for(let k=0; k<rows.length; k++)
-        {
+    // $('#purchase').submit(function(e){
+    //     e.preventDefault();
+    //     var rows = $('body').find('.sortable');
+    //     for(let k=0; k<rows.length; k++)
+    //     {
 
-            if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
-            {
-                rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
-            }
-            else
-                rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
-        }
-        document.getElementById("purchase").submit();
-    })
+    //         if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
+    //         {
+    //             rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
+    //         }
+    //         else
+    //             rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
+    //     }
+    //     document.getElementById("purchase").submit();
+    // })
 
 </script>
 

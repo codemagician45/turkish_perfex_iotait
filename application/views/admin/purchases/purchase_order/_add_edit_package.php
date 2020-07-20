@@ -33,10 +33,11 @@
                 </td>
 
                 <td>
-                    <div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%">
+                    <!-- <div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%">
                         <input type="checkbox" id="description" name="description" >
                         <label for="description"></label>
-                    </div>
+                    </div> -->
+                    <textarea name="description" class="form-control" rows="2" placeholder="<?php echo _l('description'); ?>"></textarea>
                 </td>
 
                 <td>
@@ -96,16 +97,18 @@
 
                     $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"></td>';
 
-                    if ($item['description'] == 1) {
+                    // if ($item['description'] == 1) {
 
-                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
+                    //     $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
 
-                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
-                    } else {
-                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
-                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                    //     <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                    // } else {
+                    //     $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
+                    //     <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
 
-                    }
+                    // }
+
+                    $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][description]" class="form-control" rows="2">' . clear_textarea_breaks($item['description']) . '</textarea></td>';
                     
                     $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][ordered_qty]" class="form-control" value="'.$item['ordered_qty'].'"></td>';
 
