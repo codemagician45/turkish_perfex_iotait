@@ -3760,7 +3760,25 @@ $lang['product_receips'] = 'Product Receips';
 
 
 
+/*manufacturing settings*/
+$lang['manufacturing_settings'] = 'Manufacturing Settings';
+$lang['list_of_machinery'] = 'List of Marchinery';
+$lang['machine'] = 'Machine';
+$lang['new_marchine'] = 'New Marchine';
+$lang['edit_marchine'] = 'Edit Marchine';
+$lang['add_marchine'] = 'Add Marchine';
+$lang['machine_name'] = 'Marchine Name';
+$lang['power_usage'] = 'Power Usage';
+$lang['profit_expectation'] = 'Profit Expectation';
+$lang['take_from'] = 'Take From';
+$lang['export_to'] = 'Export To';
 
+
+$lang['list_of_moulds'] = 'List of Moulds';
+$lang['moulds_of_suitability'] = 'Moulds of Suitability';
+$lang['energy_prices'] = 'Energy Prices';
+$lang['work_hours_capacity'] = 'Work Hours Capacity';
+$lang['installation'] = 'Installation';
 
 /*Settings*/
 $lang['accounts'] = 'Accounts';

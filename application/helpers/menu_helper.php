@@ -19,61 +19,61 @@ function app_init_admin_sidebar_menu_items()
         'icon'     => 'fa fa-hdd-o',
     ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'stock_list',
-        'name'     => _l('stock_list'),
-        'href'     => admin_url('warehouses/stock_lists'),
-        'position' => 5,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'stock_list',
+            'name'     => _l('stock_list'),
+            'href'     => admin_url('warehouses/stock_lists'),
+            'position' => 5,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'transfers',
-        'name'     => _l('transfers'),
-        'href'     => admin_url('warehouses/transfers'),
-        'position' => 10,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'transfers',
+            'name'     => _l('transfers'),
+            'href'     => admin_url('warehouses/transfers'),
+            'position' => 10,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'allocated_items',
-        'name'     => _l('allocated_items'),
-        'href'     => admin_url('warehouses/allocated_items'),
-        'position' => 15,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'allocated_items',
+            'name'     => _l('allocated_items'),
+            'href'     => admin_url('warehouses/allocated_items'),
+            'position' => 15,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'packing_list',
-        'name'     => _l('packing_list'),
-        'href'     => admin_url('warehouses/packing_list'),
-        'position' => 20,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'packing_list',
+            'name'     => _l('packing_list'),
+            'href'     => admin_url('warehouses/packing_list'),
+            'position' => 20,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'packing_group',
-        'name'     => _l('packing_group'),
-        'href'     => admin_url('warehouses/packing_group'),
-        'position' => 25,
-    ]);  
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'packing_group',
+            'name'     => _l('packing_group'),
+            'href'     => admin_url('warehouses/packing_group'),
+            'position' => 25,
+        ]);  
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'purchase_receiving_bay',
-        'name'     => _l('purchase_receiving_bay'),
-        'href'     => admin_url('warehouses/purchase_receiving_bay'),
-        'position' => 30,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'purchase_receiving_bay',
+            'name'     => _l('purchase_receiving_bay'),
+            'href'     => admin_url('warehouses/purchase_receiving_bay'),
+            'position' => 30,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'purchase_request',
-        'name'     => _l('purchase_request'),
-        'href'     => admin_url('warehouses/purchase_request'),
-        'position' => 35,
-    ]);  
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'purchase_request',
+            'name'     => _l('purchase_request'),
+            'href'     => admin_url('warehouses/purchase_request'),
+            'position' => 35,
+        ]);  
 
-    $CI->app_menu->add_sidebar_children_item('warehouse', [
-        'slug'     => 'barcode_list',
-        'name'     => _l('barcode_list'),
-        'href'     => admin_url('warehouses/barcode_list'),
-        'position' => 40,
-    ]); 
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'barcode_list',
+            'name'     => _l('barcode_list'),
+            'href'     => admin_url('warehouses/barcode_list'),
+            'position' => 40,
+        ]); 
 
     /*Purchase*/
     $CI->app_menu->add_sidebar_menu_item('purchase', [
@@ -83,19 +83,19 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-shopping-bag',
         ]);
 
-    $CI->app_menu->add_sidebar_children_item('purchase', [
-        'slug'     => 'purchase_orders',
-        'name'     => _l('purchase_orders'),
-        'href'     => admin_url('purchases/purchase_orders'),
-        'position' => 5,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('purchase', [
+            'slug'     => 'purchase_orders',
+            'name'     => _l('purchase_orders'),
+            'href'     => admin_url('purchases/purchase_orders'),
+            'position' => 5,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('purchase', [
-        'slug'     => 'pending_purchase_request',
-        'name'     => _l('pending_purchase_request'),
-        'href'     => admin_url('purchases/pending_purchase_request'),
-        'position' => 10,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('purchase', [
+            'slug'     => 'pending_purchase_request',
+            'name'     => _l('pending_purchase_request'),
+            'href'     => admin_url('purchases/pending_purchase_request'),
+            'position' => 10,
+        ]);
 
 
     /*Finance*/
@@ -106,19 +106,19 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-money',
         ]);
 
-    $CI->app_menu->add_sidebar_children_item('finance', [
-        'slug'     => 'currency_exchange_rate',
-        'name'     => _l('currency_exchange_rate'),
-        'href'     => admin_url('finances/currency_exchange_rate'),
-        'position' => 5,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('finance', [
+            'slug'     => 'currency_exchange_rate',
+            'name'     => _l('currency_exchange_rate'),
+            'href'     => admin_url('finances/currency_exchange_rate'),
+            'position' => 5,
+        ]);
 
-    $CI->app_menu->add_sidebar_children_item('finance', [
-        'slug'     => 'ready_to_invoice',
-        'name'     => _l('ready_to_invoice'),
-        'href'     => admin_url('finances/ready_to_invoice'),
-        'position' => 10,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('finance', [
+            'slug'     => 'ready_to_invoice',
+            'name'     => _l('ready_to_invoice'),
+            'href'     => admin_url('finances/ready_to_invoice'),
+            'position' => 10,
+        ]);
 
 
     if (has_permission('customers', '', 'view')
@@ -139,19 +139,68 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-product-hunt',
         ]);
 
-    $CI->app_menu->add_sidebar_children_item('products', [
-        'slug'     => 'product_list',
-        'name'     => _l('product_list'),
-        'href'     => admin_url('products/product_list'),
-        'position' => 5,
+        $CI->app_menu->add_sidebar_children_item('products', [
+            'slug'     => 'product_list',
+            'name'     => _l('product_list'),
+            'href'     => admin_url('products/product_list'),
+            'position' => 5,
+        ]);
+
+        $CI->app_menu->add_sidebar_children_item('products', [
+            'slug'     => 'product_receips',
+            'name'     => _l('product_receips'),
+            'href'     => admin_url('products/product_receips'),
+            'position' => 10,
+        ]);
+
+    // manufacturing settings
+        $CI->app_menu->add_sidebar_menu_item('manufacturing_settings', [
+        'name'     => _l('manufacturing_settings'),
+        'position' => 25,
+        'icon'     => 'fa fa-cogs',
     ]);
 
-    $CI->app_menu->add_sidebar_children_item('products', [
-        'slug'     => 'product_receips',
-        'name'     => _l('product_receips'),
-        'href'     => admin_url('products/product_receips'),
-        'position' => 10,
-    ]);
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'list_of_machinery',
+            'name'     => _l('list_of_machinery'),
+            'href'     => admin_url('manufacturing_settings/list_of_machinery'),
+            'position' => 2,
+        ]);
+
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'list_of_moulds',
+            'name'     => _l('list_of_moulds'),
+            'href'     => admin_url('manufacturing_settings/list_of_moulds'),
+            'position' => 7,
+        ]);
+
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'moulds_suitability',
+            'name'     => _l('moulds_of_suitability'),
+            'href'     => admin_url('manufacturing_settings/moulds_suitability'),
+            'position' => 10,
+        ]);
+
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'energy_prices',
+            'name'     => _l('energy_prices'),
+            'href'     => admin_url('manufacturing_settings/energy_prices'),
+            'position' => 15,
+        ]);
+
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'work_hours_capacity',
+            'name'     => _l('work_hours_capacity'),
+            'href'     => admin_url('manufacturing_settings/work_hours_capacity'),
+            'position' => 20,
+        ]); 
+
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'installation',
+            'name'     => _l('installation'),
+            'href'     => admin_url('manufacturing_settings/installation_process'),
+            'position' => 25,
+        ]); 
 
     // $CI->app_menu->add_sidebar_menu_item('sales', [
     //         'collapse' => true,

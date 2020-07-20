@@ -73,7 +73,7 @@ class Warehouses_model extends App_Model
         }
         return $this->db->get()->result_array();
     }
-
+    
     /* Begin of Stock Category */
     public function stock_category_add($data)
     {
