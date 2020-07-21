@@ -267,6 +267,7 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($data); exit();
             if(isset($data['allocation']) && $data['allocation'] == 'on')
             {
                 $data['allocation'] = 1;
@@ -286,6 +287,7 @@ class Warehouses extends AdminController
                     $allocation_data['product_name'] = $stock_list->product_name;
                     $allocation_data['stock_category'] = $stock_list->category;
                     $location = $this->warehouses_model->get_warehouse($data['transaction_from'])->warehouse_name;
+                    $allocation_data['allocation_reason'] = $data['allocation_reason'];
                     $allocation_data['current_location'] = $location;
                     $allocation_data['stock_quantity'] = $data['transaction_qty'];
                     $allocation_data['wo_no'] = $data['wo_no'];
@@ -310,6 +312,7 @@ class Warehouses extends AdminController
                     $allocation_data['product_name'] = $stock_list->product_name;
                     $allocation_data['stock_category'] = $stock_list->category;
                     $location = $this->warehouses_model->get_warehouse($data['transaction_from'])->warehouse_name;
+                    $allocation_data['allocation_reason'] = $data['allocation_reason'];
                     $allocation_data['current_location'] = $location;
                     $allocation_data['stock_quantity'] = $data['transaction_qty'];
                     $allocation_data['wo_no'] = $data['wo_no'];
@@ -364,7 +367,10 @@ class Warehouses extends AdminController
         if (!$id) {
             redirect(admin_url('warehouses/transfers'));
         }
+        $allocated_item_id = $this->warehouses_model->get_transfer($id)->allocation_id;
         $response = $this->warehouses_model->delete_transfer($id);
+        if(!empty($allocated_item_id))
+            $this->warehouses_model->delete_allocated_items($allocated_item_id);
         if ($response == true) {
             set_alert('success', _l('deleted', _l('transfer')));
         } else {

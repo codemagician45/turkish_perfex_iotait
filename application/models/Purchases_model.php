@@ -149,21 +149,15 @@ class Purchases_model extends App_Model
 
     public function add_purchase_order_item($data, $transfer_data = [])
     {
-        // print_r($this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id);
-        // print_r($data);
-        // print_r($transfer_data);
-        // exit();
         $rel_purchase_id = $data['rel_purchase_id'];
-        $product_id = $data['product_id'];
         unset($data['rel_purchase_id']);
-        unset($data['product_id']);
         foreach ($data as $val) {
 
             if(!empty($val['received_qty']))
             {
                 $transfer = [];
-                $transfer['stock_product_code'] = $transfer_data['product_id'];
-                $transfer['purchase_id'] = $transfer_data['purchase_id'];
+                $transfer['stock_product_code'] = $val['product_id'];
+                $transfer['purchase_id'] = $rel_purchase_id;
                 $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
                 $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
                 $transfer['transaction_notes'] = $val['notes'];
@@ -176,7 +170,6 @@ class Purchases_model extends App_Model
             if(isset($transfer_id))
                     $val['transfer_id'] = $transfer_id;
             $val['rel_purchase_id'] = $rel_purchase_id;
-            $val['product_id'] = $product_id;
             unset($val['item_id']);
             $this->db->insert(db_prefix() . 'purchase_order_item', $val);
             $insert_id = $this->db->insert_id();

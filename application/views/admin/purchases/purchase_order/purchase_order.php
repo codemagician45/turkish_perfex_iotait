@@ -100,7 +100,7 @@
     function add_item_to_preview_purchase_item(id) {
         requestGetJSON('warehouses/get_item_by_id/' + id).done(function(response) {
             clear_item_preview_values();
-            console.log(response)
+            // console.log(response)
             $('input[name="product_name"]').val(response.product_name);
             $('input[name="price"]').val(response.price);
             $('input[name="product_id"]').val(response.id);
@@ -121,7 +121,7 @@
         // If not custom data passed get from the preview
         data = typeof(data) == 'undefined' || data == 'undefined' ? get_item_preview_values_purchase_order() : data;
         if (data.item_id === "" && data.product_name === "") { return; }
-        console.log(data)
+        console.log('data',data)
         var table_row = '';
         var item_key = $("body").find('tbody .item').length + 1;
 
@@ -155,7 +155,7 @@
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][received_qty]" class="form-control" value="'+data.received_qty+'"></td>';
 
-        table_row +='<td><input type="number" name="newitems[' + item_key + '][unit]" class="form-control" value="'+data.unit+'"><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.id+'"></td>';
+        table_row +='<td><input type="number" name="newitems[' + item_key + '][unit]" class="form-control" value="'+data.unit+'"><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.product_id+'"></td>';
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][price]" class="form-control" value="'+data.price+'"></td>';
 
