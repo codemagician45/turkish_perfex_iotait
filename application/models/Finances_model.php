@@ -63,4 +63,9 @@ class Finances_model extends App_Model
 
         return false;
     }
+
+    public function get_currency_exchange()
+    {
+        
+    }
 }

@@ -45,7 +45,7 @@
 
 						<?php echo render_select('products_code',$products,array('id','product_code'),_l('product_code')); ?>
 
-                        <?php echo render_input('product_name',_l('product_name'),'','text',array('placeholder'=>_l('product_name'))); ?>
+                        <?php echo render_input('product_name',_l('product_name'),'','text',array('placeholder'=>_l('product_name'),'readonly' => true)); ?>
 
                         <?php echo render_input('barcode_price',_l('barcode_price'),'','number',array('placeholder'=>_l('barcode_price'))); ?>
 
@@ -90,12 +90,12 @@
 				$('#barocde_modal .add-title').addClass('hide');
 				$('#barocde_modal .edit-title').removeClass('hide');
 
-                var $barcodeModal = $('#barocde_modal');
+                var barcodeModal = $('#barocde_modal');
                 requestGetJSON('warehouses/get_barcode_list_by_id/' + id).done(function (response) {
-                    $barcodeModal.find('#barcode_id').val(response.barcode_id);
-                    $barcodeModal.find('#products_code').selectpicker('val', response.products_code);
-                    $barcodeModal.find('#product_name').val(response.product_name);
-                    $barcodeModal.find('#barcode_price').val(response.barcode_price);
+                    barcodeModal.find('#barcode_id').val(response.barcode_id);
+                    barcodeModal.find('#products_code').selectpicker('val', response.products_code);
+                    barcodeModal.find('#product_name').val(response.product_name);
+                    barcodeModal.find('#barcode_price').val(response.barcode_price);
                     // console.log(response);
                     init_selectpicker();
                 });

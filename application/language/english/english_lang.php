@@ -3677,6 +3677,7 @@ $lang['qty'] = 'Quantity';
 $lang['allocated_items'] = 'Allocated Items';
 $lang['current_location'] = 'Current Location';
 $lang['stock_quantity'] = 'Stock Quantity';
+$lang['release'] = 'Release';
 
 $lang['barcode_list'] = 'Barcode List';
 $lang['new_barcode'] = 'New Barcode';
@@ -3704,21 +3705,19 @@ $lang['stock_qty'] = 'Stock Qty';
 $lang['packing_group'] = 'Packing Group';
 $lang['default'] = 'Default';
 $lang['default_pack'] = 'Default Pack';
+$lang['pack_size'] = 'Pack Size';
 $lang['new_packing_group'] = 'New Packing Group';
 
-
-
 $lang['purchase_receiving_bay'] = 'Purchase Receiving Bay';
-
-
+$lang['item_received'] = 'Item Received';
 
 $lang['purchase_request'] = 'Purchase Request';
-
 
 /*purchase*/
 $lang['purchase'] = 'Purchase';
 $lang['purchase_orders'] = 'Purchase Orders';
 $lang['purchase_order'] = 'Purchase Order';
+$lang['purchase_no'] = 'Purchase No';
 $lang['new_purchase_order'] = 'New Purchase Order';
 $lang['purchase_phase_id'] = 'Purchase Phase ID';
 $lang['approval'] = 'Approval';

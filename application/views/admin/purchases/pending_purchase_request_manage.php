@@ -32,7 +32,7 @@
 <?php init_tail(); ?>
 <script>
     $(function(){
-        initDataTable('.table-pending_purchase_request', window.location.href, [1], [1]);
+        initDataTable('.table-pending_purchase_request', window.location.href);
     });
 
 </script>

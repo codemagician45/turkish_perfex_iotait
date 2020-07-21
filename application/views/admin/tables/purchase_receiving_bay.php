@@ -14,7 +14,7 @@ $aColumns = [
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'purchase_order';
 
-$where  = ['AND '.db_prefix() . 'purchase_order_phases.order_no = 1'];
+$where  = ['AND '.db_prefix() . 'purchase_order_phases.order_no = 1 AND '.db_prefix() . 'purchase_order.approval = 0'];
 
 $join = [
    'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'purchase_order.created_user',
@@ -37,7 +37,7 @@ foreach ($rResult as $aRow) {
     $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
     $subjectOutput .= '<div class="row-options">';
 
-    // $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    $subjectOutput .= '<a href="' . admin_url('warehouses/manage_purchase_receiving_bay/' . $aRow['id']) . '">' . _l('item_received') . '</a>';
     // $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
 
     $subjectOutput .= '</div>';

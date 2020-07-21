@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-md-6">
                                 <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php echo render_date_input('date_and_time','proposal_date',$value); ?>
+                                <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
@@ -187,6 +187,25 @@
             }
             
         })
+
+        $('#allocation').change(function(){
+            
+            if($(this).prop('checked') == true)
+            {
+                $('#transaction_to').selectpicker('val', '');
+                $('#transaction_to').prop('disabled', true);
+            }
+            else
+            {
+                $('#transaction_to').prop('disabled', false);
+            }
+        })
+
+        if($('#allocation').prop('checked') == true)
+        {
+            $('#transaction_to').selectpicker('val', '');
+            $('#transaction_to').prop('disabled', true);
+        }
         
     </script>
 

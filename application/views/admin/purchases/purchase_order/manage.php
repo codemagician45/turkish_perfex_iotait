@@ -13,7 +13,8 @@
                         <hr class="hr-panel-heading" />
                         <div class="clearfix"></div>
                         <?php render_datatable(array(
-                            _l('purchase_phase_id'),
+                            _l('purchase_no'),
+                            _l('purchase_phase'),
                             _l('approval'),
                             _l('bought_company_name'),
                             _l('notes'),
@@ -35,7 +36,7 @@
 <?php init_tail(); ?>
 <script>
     $(function(){
-        initDataTable('.table-purchase_order', window.location.href, [1], [1]);
+        initDataTable('.table-purchase_order', window.location.href);
     });
 
 </script>

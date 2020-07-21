@@ -18,8 +18,19 @@
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                    $value = (isset($purchase_order) ? $purchase_order->approval : '1');  
-                                    echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''),'readonly' => true)); ?>
+                                    // $value = (isset($purchase_order) ? $purchase_order->approval : '1');  
+                                    // echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''),'readonly' => true)); 
+                                    ?>
+                                    <div class="form-group">
+                                    <label for="approval" class="control-label" style="margin-bottom:9px;"><?php echo _l('approval');?></label>
+                                      <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                                        <select data-fieldto="approval" data-fieldid="approval" name="approval" id="approval" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                                          <option value=""></option>
+                                          <option <?php if(isset($purchase_order) && $purchase_order->approval == '1') echo 'selected';?> value="1"><?php echo _l('approval_need');?></option>
+                                          <option <?php if(isset($purchase_order) && $purchase_order->approval == '0') echo 'selected';?> value="0"><?php echo _l('approval_not_need');?></option>
+                                        </select>
+                                      </div>
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <?php 
@@ -41,7 +52,7 @@
                             </div>
                             <div class="col-md-6">
                                 <?php $value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php echo render_date_input('date_and_time','proposal_date',$value); ?>
+                                <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
                             </div>
 
                         </div>

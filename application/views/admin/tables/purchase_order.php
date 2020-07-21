@@ -33,8 +33,9 @@ $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
     $row = [];
-
-    $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
+    $row[] = $aRow['id'];
+    $subjectOutput = $aRow['phase'];
+    // $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
     $subjectOutput .= '<div class="row-options">';
 
     $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
@@ -43,7 +44,8 @@ foreach ($rResult as $aRow) {
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
-    $row[] = format_approval_status($aRow['approval']);
+    $row[] = $aRow['approval'];
+    // $row[] = format_approval_status($aRow['approval']);
 
     $row[] = $aRow['company'];
 

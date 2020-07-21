@@ -251,14 +251,20 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
+        // print_r($data); exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
+        $updated_stock_level = $last_stock_level + $data['transaction_qty'];
+        // print_r($updated_stock_level); exit();
+
         if($first_transfer_check == 1)
         {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$data['transaction_qty'].' WHERE `id` ='.$data['stock_product_code']);
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
         }
 
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
         $insert_id = $this->db->insert_id();
 
@@ -281,15 +287,26 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
+
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
+        $updated_transfer = $data['transaction_qty'];
+        
+        if(isset($data['delta']))
+        {
+            $updated_transfer = $last_stock_level + $data['delta'];
+            unset($data['delta']);
+        }
+        // print_r($updated_transfer); exit();
         if($first_transfer_check == 1)
         {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$data['transaction_qty'].' WHERE `id` ='.$data['stock_product_code']);
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
         }
         unset($data['created_user']);
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
+        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
@@ -377,7 +394,7 @@ class Warehouses_model extends App_Model
     public function get_warehouse_list()
     {
         // $this->db->select('warehouse_name');
-        $this->db->order_by('warehouse_name', 'asc');
+        $this->db->order_by('order_no', 'asc');
         return $this->db->get(db_prefix() . 'warehouses')->result_array();
     }
 

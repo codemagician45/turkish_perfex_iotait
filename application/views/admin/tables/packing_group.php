@@ -4,43 +4,34 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
 
     'product_code',
-    'default_pack'
+    'tblpack_list.l_size,tblpack_list.w_size,tblpack_list.h_size',
+    'default_pack',
+    db_prefix() . 'pack_list.pack_capacity as pack_capacity'
 
 ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'package_group';
 
 $join = [
-//    'LEFT JOIN ' . db_prefix() . 'stock_lists ON ' . db_prefix() . 'stock_lists.id = ' . db_prefix() . 'transfer_lists.stock_product_code',
+   'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.id = ' . db_prefix() . 'package_group.packing_id',
 ];
 
 $additionalSelect = [
-    db_prefix() . 'package_group.id'
-
+    db_prefix() . 'package_group.id',
+    'packing_id'
 ];
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
+// print_r($rResult);
 foreach ($rResult as $aRow) {
     $row = [];
-    for ($i = 0; $i < count($aColumns); $i++) {
-        $_data = $aRow[$aColumns[$i]];
+    $row[] = $aRow['product_code'];
 
-        $attributes = [
-            'data-toggle'             => 'modal',
-            'data-target'             => '#mould_suitability',
-            'data-id'                 => $aRow['id'],
-        ];
+    $row[] = $aRow['l_size'].'*'.$aRow['w_size'].'*'.$aRow['h_size'];
 
-        // if ($aColumns[$i] == 'stock_product_code') {
-        //     $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
-        // }
-        $row[] = $_data;
-    }
-    // $options = icon_btn('list_of_packaging/update/' . $aRow['id'], 'pencil-square-o', 'btn-default');
-
-
-    // $row[]              = $options .= icon_btn('list_of_packaging/delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    $row[] = $aRow['default_pack'];
+    $row[] = $aRow['pack_capacity'];
     $output['aaData'][] = $row;
 }

@@ -597,7 +597,100 @@ class Warehouses extends AdminController
             $this->app->get_table_data('purchase_receiving_bay');
         }
         $data['title'] = _l('purchase_receiving_bay');
-        $this->load->view('admin/warehouses/purchase_receiving_bay_manage', $data);
+        $this->load->view('admin/warehouses/purchase_receiving_bay/manage', $data);
+    }
+
+    public function manage_purchase_receiving_bay($id = '')
+    {
+        if ($this->input->post()) {
+            $data = $this->input->post();
+            // print_r($data); exit();
+            if ($id == '') {
+
+                $id = $this->purchases_model->add_purchase_order($data);
+
+                if(isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+                    $purchase_order_item['product_id'] = $data['product_id'];
+                    $transfer_on_received['purchase_id'] = $data['purchase_phase_id'];
+                    $transfer_on_received['product_id'] = $data['product_id']; 
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item,$transfer_on_received);
+                }
+
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('purchase_order')));
+                    redirect(admin_url('warehouses/purchase_receiving_bay'));
+                }
+            } else {
+                
+                $success = $this->purchases_model->update_purchase_order($data, $id);
+
+                $current_purchase_item = $this->purchases_model->get_purchase_order_item($id);
+                if(empty($current_purchase_item) && isset($data['newitems']))
+                {
+                    $purchase_order_item = $data['newitems'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+                    $purchase_order_item['product_id'] = $data['product_id'];
+                    $transfer_on_received['purchase_id'] = $data['purchase_phase_id'];
+                    $transfer_on_received['product_id'] = $data['product_id'];
+                    // print_r($purchase_order_item); exit();
+                    $this->purchases_model->add_purchase_order_item($purchase_order_item,$transfer_on_received);
+                }
+                else {
+                    if(isset($data['newitems']))
+                    $purchase_order_item['newitems'] = $data['newitems'];
+                    if(isset($data['removed_items']))
+                        $purchase_order_item['removed_items'] = $data['removed_items'];
+                    if(isset($data['items']))
+                        $purchase_order_item['items'] = $data['items'];
+                    $purchase_order_item['rel_purchase_id'] = $id;
+                    $transfer_on_received['purchase_id'] = $data['purchase_phase_id'];
+                    $transfer_on_received['product_id'] = $data['product_id'];
+                    $this->purchases_model->update_purchase_order_item($purchase_order_item,$transfer_on_received);
+
+                }
+                
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('purchase_order')));
+                }
+                redirect(admin_url('warehouses/purchase_receiving_bay'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('add_new', _l('purchase_order'));
+        } else {
+            $data['purchase_order'] = $this->purchases_model->get_purchase_order($id);
+
+            $created_user = $this->staff_model->get($data['purchase_order']->created_user);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($data['purchase_order']->updated_user)){
+               $updated_user = $this->staff_model->get($data['purchase_order']->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
+            $title = _l('edit', _l('purchase_order'));
+      
+        }
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+
+        if(isset($data['purchase_order']))
+            $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
+        // print_r($data['purchase_order_item']); exit();
+        $data['acc_list'] = $this->purchases_model->get_acc_list();
+        // $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(2);
+        $data['purchase_id'] = $this->purchases_model->get_purchase_id();
+        $data['product_code'] = $this->purchases_model->get_product_code();
+        $data['title']         = $title;
+        // $this->load->view('admin/warehouses/purchase_receiving_bay/purchase_receiving_bay', $data);
+        // print_r($data); exit();
+        $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
     public function purchase_request()
@@ -613,7 +706,7 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
+            print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);
@@ -622,7 +715,6 @@ class Warehouses extends AdminController
                 {
                     $purchase_order_item = $data['newitems'];
                     $purchase_order_item['rel_purchase_id'] = $id;
-
                     $this->purchases_model->add_purchase_order_item($purchase_order_item);
                 }
 
@@ -639,7 +731,6 @@ class Warehouses extends AdminController
                 {
                     $purchase_order_item = $data['newitems'];
                     $purchase_order_item['rel_purchase_id'] = $id;
-
                     $this->purchases_model->add_purchase_order_item($purchase_order_item);
                 }
                 else {
@@ -687,10 +778,12 @@ class Warehouses extends AdminController
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
         // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
-        $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no();
+        // $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(3);
+        $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
         $data['title']         = $title;
-        $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
+        // $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
+        $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
     public function delete_purchase_request($id)

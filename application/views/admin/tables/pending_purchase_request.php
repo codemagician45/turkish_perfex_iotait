@@ -37,8 +37,8 @@ foreach ($rResult as $aRow) {
     $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
     $subjectOutput .= '<div class="row-options">';
 
-    // $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-    // $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+    $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
 
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;

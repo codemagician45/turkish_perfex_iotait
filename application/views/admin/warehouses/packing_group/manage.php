@@ -14,7 +14,9 @@
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('product_code'),
+							_l('pack_size'),
 							_l('default_pack'),
+							_l('pack_capacity'),
 							// _('option')
 						),'packing_group'); ?>
 					</div>

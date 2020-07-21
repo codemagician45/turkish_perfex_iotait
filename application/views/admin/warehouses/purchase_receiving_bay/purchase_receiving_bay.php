@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head();
-// print_r($purchase_order); exit();
+// print_r($purchase_id); exit();
  ?>
 <div id="wrapper">
     <div class="content">
@@ -9,32 +9,28 @@
             <div class="col-md-12">
                 <div class="panel_s">
                     <div class="panel-body">
-                        <?php if (isset($purchase_order)){?>
-                        <div class="row">
-                            <div class="col-md-6"><h4>S.AL-<?php echo $purchase_order->id;?></h4></div>
-                        </div>
-                        <?php }?>
                         <div class="row">
                             <div class="col-md-6">
                                 <?php
-                                    $selected = (isset($purchase_order) ? $purchase_order->purchase_phase_id : ''); 
+                                    // $selected = (isset($purchase_order) ? $purchase_order->purchase_phase_id : ''); 
+                                    $selected = $purchase_id[0]['id']; 
                                     echo render_select('purchase_phase_id',$purchase_id,array('id','phase'),_l('purchase_phase_id'),$selected); ?>
                             </div>
                             <div class="col-md-6">
                                 <?php
-                                    // $selected = (isset($purchase_order) ? $purchase_order->approval : '1');
-                                    // echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''))); 
+                                    // $value = (isset($purchase_order) ? $purchase_order->approval : '1');  
+                                    // echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''),'readonly' => true)); 
                                     ?>
-                                <div class="form-group">
-                                    <label for="approval" class="control-label" style="margin-bottom:9px;"><?php echo _l('approval');?></label>
-                                  <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                                    <select data-fieldto="approval" data-fieldid="approval" name="approval" id="approval" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
-                                      <option value=""></option>
-                                      <option <?php if(isset($purchase_order) && $purchase_order->approval == '1') echo 'selected';?> value="1"><?php echo _l('approval_need');?></option>
-                                      <option <?php if(isset($purchase_order) && $purchase_order->approval == '0') echo 'selected';?> value="0"><?php echo _l('approval_not_need');?></option>
-                                    </select>
-                                  </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="approval" class="control-label" style="margin-bottom:9px;"><?php echo _l('approval');?></label>
+                                      <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                                        <select data-fieldto="approval" data-fieldid="approval" name="approval" id="approval" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                                          <option value=""></option>
+                                          <option <?php if(isset($purchase_order) && $purchase_order->approval == '1') echo 'selected';?> value="1"><?php echo _l('approval_need');?></option>
+                                          <option <?php if(isset($purchase_order) && $purchase_order->approval == '0') echo 'selected';?> value="0"><?php echo _l('approval_not_need');?></option>
+                                        </select>
+                                      </div>
+                                    </div>
                             </div>
                             <div class="col-md-6">
                                 <?php 
@@ -67,7 +63,7 @@
                 <div class="panel_s">
                     <div class="panel-body">
                         <div class="panel_s">
-                            <?php $this->load->view('admin/purchases/purchase_order/_add_edit_package'); ?>
+                            <?php $this->load->view('admin/warehouses/purchase_receiving_bay/_add_edit_package'); ?>
                         </div>
                         <div class="btn-bottom-toolbar text-right">
                             <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
@@ -102,7 +98,7 @@
             clear_item_preview_values();
             console.log(response)
             $('input[name="product_name"]').val(response.product_name);
-            $('input[name="price"]').val(response.price);
+            $('input[name="unit"]').val(response.unit);
             $('input[name="product_id"]').val(response.id);
 
             init_selectpicker();
@@ -137,17 +133,15 @@
 
         table_row += '<input type="hidden" name="newitems[' + item_key + '][item_id]" value = "' + data.item_id + '"><td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
 
-        table_row += '<td><textarea name="newitems[' + item_key + '][description]" class="form-control" rows="2">'+data.description+'</textarea></td>';
+        var checks = $('input[name="description"]');
+        if(checks.prop("checked") == true) {
 
-        // var checks = $('input[name="description"]');
-        // if(checks.prop("checked") == true) {
+            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][description]"  value="1" ><label></label></div>';
+        }
+        else if(checks.prop("checked") == false) {
 
-        //     table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][description]"  value="1" ><label></label></div>';
-        // }
-        // else if(checks.prop("checked") == false) {
-
-        //     table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]"  value="0" ><label></label></div></td>';
-        // }
+            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]"  value="0" ><label></label></div></td>';
+        }
 
         // table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][description]" ><label for="newitems[' + item_key + '][description]"></label></div></td>';
 
@@ -155,15 +149,15 @@
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][received_qty]" class="form-control" value="'+data.received_qty+'"></td>';
 
-        table_row +='<td><input type="number" name="newitems[' + item_key + '][unit]" class="form-control" value="'+data.unit+'"><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.id+'"></td>';
+        table_row +='<td><input type="number" name="newitems[' + item_key + '][unit]" class="form-control" value="'+data.unit+'"></td>';
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][price]" class="form-control" value="'+data.price+'"></td>';
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][volume]" class="form-control" value="'+data.volume+'"></td>';
         table_row +='<td><input type="text" name="newitems[' + item_key + '][notes]" class="form-control" value="'+data.notes+'"></td>';
 
-        // table_row +='<td><input type="number" name="newitems[' + item_key + '][item_order]" class="form-control" value="'+data.item_order+'"></td>';
-        table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
+        table_row +='<td><input type="number" name="newitems[' + item_key + '][item_order]" class="form-control" value="'+data.item_order+'"></td>';
+        table_row += '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
         table_row += '</tr>';
 
@@ -196,7 +190,7 @@
         response.item_id = $('input[name="item_id"]').val();
         response.product_id = $('input[name="product_id"]').val();
         response.product_name = $('input[name="product_name"]').val();
-        response.description = $('textarea[name="description"]').val();
+        response.description = $('input[name="description"]').val();
         response.ordered_qty = $('input[name="ordered_qty"]').val();
         response.received_qty = $('input[name="received_qty"]').val();
         response.unit = $('input[name="unit"]').val();
@@ -204,15 +198,13 @@
         response.volume = $('input[name="volume"]').val();
         response.notes = $('input[name="notes"]').val();
         response.item_order = $('input[name="item_order"]').val();
-        // console.log(response);
         return response;
     }
 
     function clear_item_preview_values_purchase_order(default_taxes) {
         var previewArea = $('.main');
         previewArea.find('input[name="product_name"]').val('');
-        // previewArea.find('input[name="description"]').prop('checked',false);
-        previewArea.find('input[name="description"]').val('');
+        previewArea.find('input[name="description"]').prop('checked',false);
         previewArea.find('input[name="ordered_qty"]').val('');
         previewArea.find('input[name="received_qty"]').val('');
         previewArea.find('input[name="unit"]').val('');
@@ -233,21 +225,21 @@
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
 
-    // $('#purchase').submit(function(e){
-    //     e.preventDefault();
-    //     var rows = $('body').find('.sortable');
-    //     for(let k=0; k<rows.length; k++)
-    //     {
+    $('#purchase').submit(function(e){
+        e.preventDefault();
+        var rows = $('body').find('.sortable');
+        for(let k=0; k<rows.length; k++)
+        {
 
-    //         if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
-    //         {
-    //             rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
-    //         }
-    //         else
-    //             rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
-    //     }
-    //     document.getElementById("purchase").submit();
-    // })
+            if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
+            {
+                rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
+            }
+            else
+                rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
+        }
+        document.getElementById("purchase").submit();
+    })
 
 </script>
 
