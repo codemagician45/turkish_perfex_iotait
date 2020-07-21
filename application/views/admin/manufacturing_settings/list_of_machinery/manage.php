@@ -87,8 +87,10 @@
 
             $('#list_machine_modal input[name="name"]').val('');
             $('#list_machine_modal input[name="order_no"]').val('');
-            $('#list_machine_modal input[name="take_from"]').val('');
-            $('#list_machine_modal input[name="export_to"]').val('');
+            // $('#list_machine_modal input[name="take_from"]').val('');
+            // $('#list_machine_modal input[name="export_to"]').val('');
+            $('#list_machine_modal').find('#take_from').selectpicker('val', '');
+            $('#list_machine_modal').find('#export_to').selectpicker('val', '');
 
             $('#list_machine_modal input[name="profit_expectation"]').val('');
             $('#list_machine_modal input[name="power_usage"]').val('');
@@ -111,10 +113,10 @@
                 $('#list_machine_modal input[name="profit_expectation"]').val(profit_expectation);
                 $('#list_machine_modal input[name="power_usage"]').val(power_usage);
 
-                var $modal = $('#list_machine_modal');
+                var modal = $('#list_machine_modal');
                 requestGetJSON('manufacturing_settings/get_list_machine_by_id/' + id).done(function (response) {
-                    $modal.find('#take_from').selectpicker('val', response.take_from);
-                    $modal.find('#export_to').selectpicker('val', response.export_to);
+                    modal.find('#take_from').selectpicker('val', response.take_from);
+                    modal.find('#export_to').selectpicker('val', response.export_to);
                     init_selectpicker();
                 });
 

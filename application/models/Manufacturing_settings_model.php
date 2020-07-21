@@ -80,4 +80,157 @@ class Manufacturing_settings_model extends App_Model
         return false;
     }
 
+    public function add_mould($data)
+    {
+        unset($data['mouldid']);
+        $this->db->insert(db_prefix() . 'moulds', $data);
+        $insert_id = $this->db->insert_id();
+        if ($insert_id) {
+           log_activity('New Mould Added [ID: ' . $data['mould_cavity'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function edit_mould($data)
+    {
+        $mould_id = $data['mouldid'];
+        unset($data['mouldid']);
+        $this->db->where('id', $mould_id);
+        $this->db->update(db_prefix() . 'moulds', $data);
+        if ($this->db->affected_rows() > 0) {
+           log_activity('Mould Updated [' . $data['mould_cavity'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function get_mould_activity_status($id)
+    {
+        $this->db->from(db_prefix() . 'moulds');
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'moulds.id', $id);
+
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function change_mould_status($id, $status)
+    {
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'moulds', [
+            'active' => $status,
+        ]);
+        if ($this->db->affected_rows() > 0) {
+            hooks()->do_action('moulds_status_changed', [
+                'id'     => $id,
+                'status' => $status,
+            ]);
+            log_activity('Moulds Status Changed [ID: ' . $id . ' Status(Active/Inactive): ' . $status . ']');
+            return true;
+        }
+        return false;
+    }
+
+    public function get_machine_list()
+    {
+        $this->db->order_by('name', 'asc');
+        return $this->db->get(db_prefix() . 'machines_list')->result_array();
+
+    }
+    public function get_mould_list()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get(db_prefix() . 'moulds')->result_array();
+    }
+
+    public function add_moulds_suitability($data)
+    {
+        unset($data['mouldID']);
+        $data['user_id']=get_staff_user_id();
+        $data['created_at']=date('Y-m-d h:i:s');
+        if (isset($data['default_machine'])) {
+            $data['default_machine'] = 1;
+        } else {
+            $data['default_machine'] = 0;
+        }
+        $this->db->insert(db_prefix() . 'mould_suitability', $data);
+        $insert_id = $this->db->insert_id();
+        if ($insert_id) {
+            log_activity('New mould_suitability Added');
+            return true;
+        }
+        return false;
+    }
+
+    public function edit_moulds_suitability($data)
+    {
+        $mouldSuitableId = $data['mouldID'];
+        unset($data['mouldID']);
+        $data['updated_at']=date('Y-m-d h:i:s');
+        if (isset($data['default_machine'])) {
+            $data['default_machine'] = 1;
+        } else {
+            $data['default_machine'] = 0;
+        }
+        $this->db->where('id', $mouldSuitableId);
+        $this->db->update(db_prefix() . 'mould_suitability', $data);
+        if ($this->db->affected_rows() > 0) {
+            log_activity('mould_suitability Updated');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function delete_moulds_suitability($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete(db_prefix() . 'mould_suitability');
+        if ($this->db->affected_rows() > 0) {
+
+            log_activity('moulds_suitability Deleted [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function get_mould_suitability($id){
+        $this->db->from(db_prefix() . 'mould_suitability');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'mould_suitability.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function get_mould_cavity_id($id){
+        $this->db->from(db_prefix() . 'mould_suitability');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'mould_suitability.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function get_default_machine_status_by_id($id){
+        $this->db->from(db_prefix() . 'mould_suitability');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'mould_suitability.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
 }

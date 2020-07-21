@@ -3772,11 +3772,25 @@ $lang['power_usage'] = 'Power Usage';
 $lang['profit_expectation'] = 'Profit Expectation';
 $lang['take_from'] = 'Take From';
 $lang['export_to'] = 'Export To';
-
+$lang['active'] = 'Active';
 
 $lang['list_of_moulds'] = 'List of Moulds';
+$lang['new_mould'] = 'New Mould';
+$lang['add_mould'] = 'Add Mould';
+$lang['edit_mould'] = 'Edit Mould';
+$lang['mould_name'] = 'Mould Name';
+$lang['mould_cavity'] = 'Mould Cavity';
+
 $lang['moulds_of_suitability'] = 'Moulds of Suitability';
+$lang['new_mould_suitability'] = 'New Mould Suitability';
+$lang['add_mould_suitability'] = 'Add Mould Suitability';
+$lang['edit_mould_suitability'] = 'Edit Mould Suitability';
+$lang['machine_id'] = 'Machine Id';
+$lang['mould_id'] = 'Mould Id';
+$lang['default_machine'] = 'Default Machine';
+
 $lang['energy_prices'] = 'Energy Prices';
+
 $lang['work_hours_capacity'] = 'Work Hours Capacity';
 $lang['installation'] = 'Installation';
 
