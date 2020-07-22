@@ -319,7 +319,7 @@ class Warehouses_model extends App_Model
         }
 
         if ($this->db->affected_rows() > 0) {
-            log_activity('Tansfer Updated [' . $transfer_id . ']');
+            log_activity('Tansfer Updated [' . $id . ']');
 
             return true;
         }

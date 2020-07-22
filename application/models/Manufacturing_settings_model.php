@@ -233,4 +233,149 @@ class Manufacturing_settings_model extends App_Model
         return $this->db->get()->result_array();
     }
 
+    public function add_energy_prices($data)
+    {
+        unset($data['enerypriceid']);
+        $this->db->insert(db_prefix() . 'energy_prices', $data);
+        $insert_id = $this->db->insert_id();
+        if ($insert_id) {
+           log_activity('New Energy Price Added [ID: ' . $data['energy_price'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function edit_energy_prices($data)
+    {
+        $enery_price_id = $data['enerypriceid'];
+        unset($data['enerypriceid']);
+        $this->db->where('id', $enery_price_id);
+        $this->db->update(db_prefix() . 'energy_prices', $data);
+        if ($this->db->affected_rows() > 0) {
+           log_activity('Energy Price Updated [' . $data['energy_price'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function delete_energy_prices($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete(db_prefix() . 'energy_prices');
+        if ($this->db->affected_rows() > 0) {
+
+           log_activity('Energy Price Deleted [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function add_work_hours_capacity($data)
+    {
+        unset($data['workhoursid']);
+        $this->db->insert(db_prefix() . 'work_hours', $data);
+        $insert_id = $this->db->insert_id();
+        if ($insert_id) {
+           log_activity('New Work Hours Added [ID: ' . $data['capacity_hours'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function edit_work_hours_capacity($data)
+    {
+        $work_hours_id = $data['workhoursid'];
+        unset($data['workhoursid']);
+        $this->db->where('id', $work_hours_id);
+        $this->db->update(db_prefix() . 'work_hours', $data);
+        if ($this->db->affected_rows() > 0) {
+           log_activity('Work Hours Updated [' . $data['capacity_hours'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function delete_work_hours_capacity($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete(db_prefix() . 'work_hours');
+        if ($this->db->affected_rows() > 0) {
+
+           log_activity('Work Hours Deleted [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function add_installation_process($data)
+    {
+        unset($data['installationId']);
+        $data['user_id']=get_staff_user_id();
+        $data['created_at']=date('Y-m-d h:i:s');
+        $this->db->insert(db_prefix() . 'installation', $data);
+        $insert_id = $this->db->insert_id();
+        if ($insert_id) {
+           log_activity('Installation Added [ID: ' . $data['name'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function edit_installation_process($data)
+    {
+        $installation_id = $data['installationId'];
+        unset($data['installationId']);
+        $data['updated_at']=date('Y-m-d h:i:s');
+        $this->db->where('id', $installation_id);
+        $this->db->update(db_prefix() . 'installation', $data);
+        if ($this->db->affected_rows() > 0) {
+           log_activity('Installation Updated [' . $data['name'] . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function delete_installation_process($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete(db_prefix() . 'installation');
+        if ($this->db->affected_rows() > 0) {
+
+           log_activity('Installation Deleted [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public function get_installation_by_id($id = '')
+    {
+
+        $this->db->from(db_prefix() . 'installation');
+
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'installation.id', $id);
+
+            return $this->db->get()->row();
+        }
+
+        return $this->db->get()->result_array();
+    }
 }

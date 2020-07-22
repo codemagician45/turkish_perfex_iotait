@@ -135,9 +135,10 @@
 
         table_row += '</td>';
 
-        table_row += '<input type="hidden" name="newitems[' + item_key + '][item_id]" value = "' + data.item_id + '"><td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
+        table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
+        // table_row += '<input type="hidden" name="newitems[' + item_key + '][item_id]" value = "' + data.item_id + '"><td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
 
-        table_row += '<td><textarea name="newitems[' + item_key + '][description]" class="form-control" rows="2">'+data.description+'</textarea></td>';
+        table_row += '<td><textarea name="newitems[' + item_key + '][description]" class="form-control" style="height: 36px" rows="2">'+data.description+'</textarea></td>';
 
         // var checks = $('input[name="description"]');
         // if(checks.prop("checked") == true) {

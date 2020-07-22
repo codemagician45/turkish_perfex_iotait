@@ -33,7 +33,7 @@ $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
     $row = [];
-
+    $row[] = $aRow['id'];
     $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
     $subjectOutput .= '<div class="row-options">';
 

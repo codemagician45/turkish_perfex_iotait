@@ -38,6 +38,7 @@
         initDataTable('.table-purchase_request', window.location.href);
     });
 
+    
 </script>
 </body>
 </html>

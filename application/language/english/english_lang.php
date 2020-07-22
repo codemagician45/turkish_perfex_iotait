@@ -3789,9 +3789,24 @@ $lang['mould_id'] = 'Mould Id';
 $lang['default_machine'] = 'Default Machine';
 
 $lang['energy_prices'] = 'Energy Prices';
+$lang['energy_price'] = 'Energy Price';
+$lang['new_enery_price'] = 'New Energy Price';
+$lang['edit_enery_price'] = 'Edit Energy Price';
+$lang['add_enery_price'] = 'Add Energy Price';
 
 $lang['work_hours_capacity'] = 'Work Hours Capacity';
+$lang['new_work_hours'] = 'New Work Hours Capacity';
+$lang['edit_work_hour_capacity'] = 'Edit Work Hour Capacity';
+$lang['edit_work_hour_capacity'] = 'Add Work Hour Capacity';
+$lang['capacity_hours'] = 'Capacity Hours';
+
 $lang['installation'] = 'Installation';
+$lang['installation_name'] = 'Installation Name';
+$lang['new_installation'] = 'New Installation';
+$lang['edit_installation'] = 'Edit Installation';
+$lang['add_installation'] = 'Add Installation';
+$lang['take_from'] = 'Take From';
+$lang['export_to'] = 'Export To';
 
 /*Settings*/
 $lang['accounts'] = 'Accounts';

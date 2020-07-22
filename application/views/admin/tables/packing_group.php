@@ -29,7 +29,7 @@ foreach ($rResult as $aRow) {
     $row = [];
     $row[] = $aRow['product_code'];
 
-    $row[] = $aRow['l_size'].'*'.$aRow['w_size'].'*'.$aRow['h_size'];
+    $row[] = $aRow['l_size'].'X'.$aRow['w_size'].'X'.$aRow['h_size'];
 
     $row[] = $aRow['default_pack'];
     $row[] = $aRow['pack_capacity'];

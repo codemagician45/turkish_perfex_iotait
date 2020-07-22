@@ -13,7 +13,7 @@
             <tr>
                 <th></th>
                 <th width="10%" align="center"><?php echo _l('product_name'); ?></th>
-                <th width="10%" align="center"><?php echo _l('description'); ?></th>
+                <th width="30%" align="center"><?php echo _l('description'); ?></th>
                 <th width="10%" align="center"><?php echo _l('ordered_qty'); ?></th>
                 <th width="10%"  align="center"><?php echo _l('received_qty')?></th>
                 <th width="10%"  align="center"><?php echo _l('unit') ?></th>
@@ -28,7 +28,7 @@
             <tr class="main">
                 <td></td>
                 <td>
-                    <input type="hidden" name="item_id">
+                    <!-- <input type="hidden" name="item_id"> -->
                     <input type="text" name="product_name" class="form-control" placeholder="<?php echo _l('product_name'); ?>">
                 </td>
 
@@ -37,7 +37,7 @@
                         <input type="checkbox" id="description" name="description" >
                         <label for="description"></label>
                     </div> -->
-                    <textarea name="description" class="form-control" rows="2" placeholder="<?php echo _l('description'); ?>"></textarea>
+                    <textarea name="description" class="form-control" style="height: 36px" rows="2" placeholder="<?php echo _l('description'); ?>"></textarea>
                 </td>
 
                 <td>
@@ -110,7 +110,7 @@
 
                     // }
 
-                    $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][description]" class="form-control" rows="2">' . clear_textarea_breaks($item['description']) . '</textarea></td>';
+                    $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][description]" class="form-control" style="height: 36px" rows="2">' . clear_textarea_breaks($item['description']) . '</textarea></td>';
                     
                     $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][ordered_qty]" class="form-control" value="'.$item['ordered_qty'].'"></td>';
 
