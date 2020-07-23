@@ -561,7 +561,7 @@ class Warehouses extends AdminController
         }
         if(isset($data['packing_list']))
             $data['packing_group'] = $this->warehouses_model->get_packing_group($data['packing_list']->id);
-        // print_r($data); exit();
+        $data['product_code'] = $this->warehouses_model->get_product_code();
         $data['title']         = $title;
         $this->load->view('admin/warehouses/packing_list/packing_list', $data);
     }
@@ -592,7 +592,7 @@ class Warehouses extends AdminController
     public function get_item_by_id($id)
     {
         if ($this->input->is_ajax_request()) {
-            $item = $this->warehouses_model->stock_list_get($id);
+            $item = $this->warehouses_model->get_stocks_with_unit($id);
             echo json_encode($item);
         }
     }

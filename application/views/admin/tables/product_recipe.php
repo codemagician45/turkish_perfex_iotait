@@ -5,9 +5,7 @@ $aColumns = [
     'product_code',
     'product_photo',
     db_prefix() .'stock_lists.product_name as product_name',
-    db_prefix() . 'barcode_list.barcode_id as barcode_no',
     db_prefix() .'pack_list.pack_capacity as pack_capacity,'. db_prefix() .'pack_list.packing_type as packing_type,'. db_prefix() .'pack_list.volume as volume',
-    'stock_level',
     'price'
 
 ];
@@ -15,7 +13,6 @@ $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'stock_lists';
 
 $join = [
-   'LEFT JOIN ' . db_prefix() . 'barcode_list ON ' . db_prefix() . 'barcode_list.products_code = ' . db_prefix() . 'stock_lists.id',
    'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.stock_product_code = ' . db_prefix() . 'stock_lists.id',
 ];
 
@@ -34,7 +31,14 @@ foreach ($rResult as $aRow) {
     $row = [];
     for ($i = 0; $i < count($aColumns); $i++) {
 
-        $row[] = $aRow['product_code'];
+        $subjectOutput = $aRow['product_code'];
+        $subjectOutput .= '<div class="row-options">';
+
+        $subjectOutput .= '<a href="' . admin_url('products/manage_product_recipe/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        // $subjectOutput .= ' | <a href="' . admin_url('products/delete_product_recipe/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+
+        $subjectOutput .= '</div>';
+        $row[] = $subjectOutput;
 
         if($aRow['product_photo'] != '')
             $row[] = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
@@ -42,12 +46,12 @@ foreach ($rResult as $aRow) {
             $row[] = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small"></a>';
         
         $row[] = $aRow['product_name'];
-        $row[] = $aRow['barcode_no'];
         $row[] = $aRow['pack_capacity'];
         $row[] = $aRow['packing_type'];
         $row[] = $aRow['volume'];
-        $row[] = $aRow['stock_level'];
         $row[] = $aRow['price'];
     }
+
+
     $output['aaData'][] = $row;
 }

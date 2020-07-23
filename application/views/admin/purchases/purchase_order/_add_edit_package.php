@@ -49,7 +49,17 @@
                 </td>
 
                 <td>
-                    <input type="text" name="unit" class="form-control" placeholder="<?php echo _l('unit'); ?>">
+                    <!-- <input type="text" name="unit" class="form-control" placeholder="<?php echo _l('unit'); ?>"> -->
+                   
+                    <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                        <select data-fieldto="unit" data-fieldid="unit" name="unit" id="unit" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                            <option value=""></option>
+                          <?php foreach ($units as $key => $unit) {?>
+                            <option value="<?php echo $unit['id'];?>"><?php echo $unit['name'];?></option>
+                          <?php } ?>
+                        </select>
+                    </div>
+
                     <input type="hidden" name="product_id" class="form-control" >
                 </td>
 
@@ -116,7 +126,9 @@
 
                     $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][received_qty]" class="form-control" value="'.$item['received_qty'].'"></td>';
 
-                    $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][unit]" class="form-control" value="'.$item['unit'].'"><input type="hidden"  name="'.$items_indicator.'['.$i.'][product_id]" class="form-control input-transparent text-right" value="'.$item['product_id'].'"></td>';
+                    $table_row .= '<td>
+                    <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98"><option value="'.$item['unit'].'">'.$item['name'].'</option></select></div>
+                    <input type="hidden"  name="'.$items_indicator.'['.$i.'][product_id]" class="form-control input-transparent text-right" value="'.$item['product_id'].'"></td>';
 
                     $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][price]" class="form-control" value="'.$item['price'].'"></td>';
 

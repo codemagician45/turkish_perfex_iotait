@@ -255,7 +255,7 @@
                      if(isset($member)) {
                         $permissionsData['member'] = $member;
                      }
-                     $this->load->view('admin/staff/permissions', $permissionsData);
+                     $this->load->view('admin/staff/permissions1', $permissionsData);
                      ?>
                   </div>
                </div>
@@ -547,6 +547,23 @@
        });
    });
 
+   var pcp = '<?php echo $pricing_category_permission?>';
+   if(pcp != '')
+      var pricing_category_permission = JSON.parse(pcp);
+   else
+      var pricing_category_permission = [];
+   var permission_checkbox = $('.price_cateogry');
+   for(let i=0; i < permission_checkbox.length; i++){
+      var tmp = pricing_category_permission.filter(e => {
+         return permission_checkbox[i].value == e
+      })
+      tmp.forEach(e => {
+         $('#pricing_category_'+e).prop('checked',true);
+      })
+   }
+
+
+</script>
 </script>
 </body>
 </html>

@@ -100,7 +100,12 @@ class Staff extends AdminController
         $data['user_notes']    = $this->misc_model->get_notes($id, 'staff');
         $data['departments']   = $this->departments_model->get();
         $data['title']         = $title;
-
+        $this->load->model('sale_model');
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
+        if(!empty($this->sale_model->get_pricing_category_permission($id)))
+            $data['pricing_category_permission'] =$this->sale_model->get_pricing_category_permission($id)->price_category_id;
+        else
+            $data['pricing_category_permission'] = '';
         $this->load->view('admin/staff/member', $data);
     }
 

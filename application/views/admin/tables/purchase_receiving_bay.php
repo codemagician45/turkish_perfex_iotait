@@ -7,7 +7,7 @@ $aColumns = [
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
     'note',
     db_prefix() . 'staff.firstname, tblstaff.lastname',
-    'date_and_time',
+    'updated_at',
     'updated_user',
 
 ];
@@ -34,15 +34,17 @@ $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
     $row = [];
 
-    $subjectOutput = format_purchase_phase($aRow['order_no'],$aRow['phase']);
+    $subjectOutput = $aRow['id'];    
     $subjectOutput .= '<div class="row-options">';
-
-    $subjectOutput .= '<a href="' . admin_url('warehouses/manage_purchase_receiving_bay/' . $aRow['id']) . '">' . _l('item_received') . '</a>';
-    // $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
-
+    $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
+    $row[] = $aRow['updated_at'];
+
+    $row[] = format_purchase_phase($aRow['order_no'],$aRow['phase']);
+    
     $row[] = format_approval_status($aRow['approval']);
 
     $row[] = $aRow['company'];
@@ -51,7 +53,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['firstname']. ' '. $aRow['lastname'] . '</a>';
 
-    $row[] = $aRow['date_and_time'];
 
    if(!empty($aRow['updated_user']))
     {

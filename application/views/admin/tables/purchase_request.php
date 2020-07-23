@@ -7,7 +7,7 @@ $aColumns = [
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
     'note',
     db_prefix() . 'staff.firstname, tblstaff.lastname',
-    'date_and_time',
+    'updated_at',
     'updated_user',
 
 ];
@@ -53,7 +53,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['firstname']. ' '. $aRow['lastname'] . '</a>';
 
-    $row[] = $aRow['date_and_time'];
+    $row[] = $aRow['updated_at'];
 
    if(!empty($aRow['updated_user']))
     {

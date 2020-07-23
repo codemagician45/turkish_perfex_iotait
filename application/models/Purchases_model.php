@@ -256,7 +256,7 @@ class Purchases_model extends App_Model
     public function get_purchase_order_item($id)
     {
         $this->db->from(db_prefix() . 'purchase_order_item');
-
+        $this->db->join(db_prefix() .'units',db_prefix() .'units.id = '. db_prefix() . 'purchase_order_item.unit','left');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'purchase_order_item.rel_purchase_id', $id);
             return $this->db->get()->result_array();

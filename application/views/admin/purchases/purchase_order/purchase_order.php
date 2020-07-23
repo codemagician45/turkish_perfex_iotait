@@ -31,7 +31,7 @@
                                     <select data-fieldto="approval" data-fieldid="approval" name="approval" id="approval" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
                                       <option value=""></option>
                                       <option <?php if(isset($purchase_order) && $purchase_order->approval == '1') echo 'selected';?> value="1"><?php echo _l('approval_need');?></option>
-                                      <option <?php if(isset($purchase_order) && $purchase_order->approval == '0') echo 'selected';?> value="0"><?php echo _l('approval_not_need');?></option>
+                                      <option <?php if((isset($purchase_order) && $purchase_order->approval == '0')||!isset($purchase_order)) echo 'selected';?> value="0"><?php echo _l('approval_not_need');?></option>
                                     </select>
                                   </div>
                                 </div>
@@ -48,16 +48,16 @@
                             </div>
                             <div class="col-md-6">
                                 <?php $createdUserNameValue = (isset($created_user_name) ? $created_user_name : "");?>
-                                <?php echo render_input('created_user',_l('created_user'),$createdUserNameValue,'text',array('placeholder'=>_l('created_user'),'readonly'    => 'readonly')); ?>
+                                <?php echo render_input('created_user',_l('created_user'),$createdUserNameValue,'text',array('placeholder'=>_l('created_user'),'readonly' => 'readonly')); ?>
                             </div>
                             <div class="col-md-6">
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('last_updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('last_updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
-                            <div class="col-md-6">
+                           <!--  <div class="col-md-6">
                                 <?php $value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
                                 <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>
@@ -85,7 +85,7 @@
 <script>
     $(function(){
         appValidateForm($('form'), {
-            // purchase_phase_id: 'required',
+            purchase_phase_id: 'required',
             // acc_list: 'required',
         });
     });
@@ -100,8 +100,10 @@
     function add_item_to_preview_purchase_item(id) {
         requestGetJSON('warehouses/get_item_by_id/' + id).done(function(response) {
             clear_item_preview_values();
-            // console.log(response)
+            console.log(response)
             $('input[name="product_name"]').val(response.product_name);
+            $('select[name="unit"]').selectpicker('val', response.unit);
+            $('select[name="unit"]').prop('disabled',true)
             $('input[name="price"]').val(response.price);
             $('input[name="product_id"]').val(response.id);
 
@@ -156,7 +158,7 @@
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][received_qty]" class="form-control" value="'+data.received_qty+'"></td>';
 
-        table_row +='<td><input type="number" name="newitems[' + item_key + '][unit]" class="form-control" value="'+data.unit+'"><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.product_id+'"></td>';
+        table_row +='<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98"><option value="'+data.unitid+'">'+data.unitname+'</option></select></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.product_id+'"></td>';
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][price]" class="form-control" value="'+data.price+'"></td>';
 
@@ -200,7 +202,8 @@
         response.description = $('textarea[name="description"]').val();
         response.ordered_qty = $('input[name="ordered_qty"]').val();
         response.received_qty = $('input[name="received_qty"]').val();
-        response.unit = $('input[name="unit"]').val();
+        response.unitid = $('select[name="unit"]').val();
+        response.unitname = $('select[name="unit"] option:selected').text();
         response.price = $('input[name="price"]').val();
         response.volume = $('input[name="volume"]').val();
         response.notes = $('input[name="notes"]').val();
@@ -249,6 +252,7 @@
     //     }
     //     document.getElementById("purchase").submit();
     // })
+
 
 </script>
 

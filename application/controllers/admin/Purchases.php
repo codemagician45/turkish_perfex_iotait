@@ -139,6 +139,7 @@ class Purchases extends AdminController
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
+        $data['units'] = $this->warehouses_model->get_units();
         $data['title']         = $title;
         $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }

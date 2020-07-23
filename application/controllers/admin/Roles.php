@@ -24,11 +24,14 @@ class Roles extends AdminController
             access_denied('roles');
         }
         if ($this->input->post()) {
+            $data = $this->input->post();
+            $price_category_permission = $data['pricing_category'];
+            unset($data['pricing_category']);
             if ($id == '') {
                 if (!has_permission('roles', '', 'create')) {
                     access_denied('roles');
                 }
-                $id = $this->roles_model->add($this->input->post());
+                $id = $this->roles_model->add($data);
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('role')));
                     redirect(admin_url('roles/role/' . $id));
@@ -37,7 +40,7 @@ class Roles extends AdminController
                 if (!has_permission('roles', '', 'edit')) {
                     access_denied('roles');
                 }
-                $success = $this->roles_model->update($this->input->post(), $id);
+                $success = $this->roles_model->update($data, $id);
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('role')));
                 }
@@ -53,6 +56,8 @@ class Roles extends AdminController
             $title              = _l('edit', _l('role_lowercase')) . ' ' . $role->name;
         }
         $data['title'] = $title;
+        $this->load->model('sale_model');
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
         $this->load->view('admin/roles/role', $data);
     }
 

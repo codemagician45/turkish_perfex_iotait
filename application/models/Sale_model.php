@@ -63,6 +63,21 @@ class Sale_model extends App_Model
         return $this->db->get()->result_array();
     }
 
+    public function get_pricing_category_list()
+    {
+        $this->db->from(db_prefix() . 'pricing_categories');
+        return $this->db->get()->result_array();
+    }
+
+    public function get_pricing_category_permission($id)
+    {
+        $this->db->from(db_prefix() . 'price_category_permission');
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'price_category_permission.staff_id', $id);
+            return $this->db->get()->row();
+        }
+    }
+
     /*---------Sale Phases-----------*/
     public function add_sale_phases($data)
     {

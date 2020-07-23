@@ -234,6 +234,16 @@ class Warehouses_model extends App_Model
         return $this->db->get()->result_array();
     }
 
+    public function get_stocks_with_unit($id = '')
+    {
+        $this->db->from(db_prefix() . 'stock_lists');
+        $this->db->join(db_prefix() .'units',db_prefix() .'units.id = '. db_prefix() . 'stock_lists.unit','left');
+        if (is_numeric($id)) {
+            $this->db->where(db_prefix() . 'stock_lists.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
     
     public function stock_list_delete($id)
     {

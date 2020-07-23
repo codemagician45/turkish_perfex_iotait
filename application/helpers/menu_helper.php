@@ -147,9 +147,9 @@ function app_init_admin_sidebar_menu_items()
         ]);
 
         $CI->app_menu->add_sidebar_children_item('products', [
-            'slug'     => 'product_receips',
-            'name'     => _l('product_receips'),
-            'href'     => admin_url('products/product_receips'),
+            'slug'     => 'product_recipe',
+            'name'     => _l('product_recipe'),
+            'href'     => admin_url('products/product_recipe'),
             'position' => 10,
         ]);
 

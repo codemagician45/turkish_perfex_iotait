@@ -359,6 +359,7 @@ class Staff_model extends App_Model
      */
     public function add($data)
     {
+
         if (isset($data['fakeusernameremembered'])) {
             unset($data['fakeusernameremembered']);
         }
@@ -409,9 +410,20 @@ class Staff_model extends App_Model
             $data['is_not_staff'] = 0;
         }
 
+        $pricing_category_permission = [];
+        if(isset($data['pricing_category_permission'])){
+            $pricing_category_permission = $data['pricing_category_permission'];
+            unset($data['pricing_category_permission']);
+        }
+        
         $this->db->insert(db_prefix() . 'staff', $data);
         $staffid = $this->db->insert_id();
         if ($staffid) {
+
+            $temp['staff_id'] = $staffid;
+            $temp['price_category_id'] = json_encode($pricing_category_permission);
+            $this->db->insert(db_prefix().'price_category_permission',$temp);
+            
             $slug = $data['firstname'] . ' ' . $data['lastname'];
 
             if ($slug == ' ') {
@@ -513,6 +525,19 @@ class Staff_model extends App_Model
             unset($data['permissions']);
         }
 
+        $pricing_category_permission = [];
+        if(isset($data['pricing_category_permission'])){
+            $pricing_category_permission = $data['pricing_category_permission'];
+            unset($data['pricing_category_permission']);
+        }
+
+        if(isset($pricing_category_permission))
+        {
+            $temp = [];
+            $temp['price_category_id'] = json_encode($pricing_category_permission);
+            $this->db->where('staff_id',$id);
+            $this->db->update(db_prefix().'price_category_permission',$temp);
+        }
         if (isset($data['custom_fields'])) {
             $custom_fields = $data['custom_fields'];
             if (handle_custom_fields_post($id, $custom_fields)) {

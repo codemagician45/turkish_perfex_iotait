@@ -8,7 +8,7 @@ $aColumns = [
     'transaction_to',
     'transaction_notes',
     'transaction_qty',
-    'date_and_time',
+    db_prefix() . 'transfer_lists.updated_at',
     'description',
     db_prefix() . 'staff.firstname, tblstaff.lastname',
     'updated_user'
@@ -49,6 +49,8 @@ foreach ($rResult as $aRow) {
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
+    $row[] = $aRow['tbltransfer_lists.updated_at'];
+
     $row[] = $aRow['t_from'];
 
      if(!empty($aRow['transaction_to'])){
@@ -62,7 +64,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['transaction_qty'];
 
-    $row[] = $aRow['date_and_time'];
+    
 
     $row[] = $aRow['description'];
 

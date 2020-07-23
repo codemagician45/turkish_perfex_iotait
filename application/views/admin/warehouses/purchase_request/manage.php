@@ -18,7 +18,7 @@
                             _l('bought_company_name'),
                             _l('notes'),
                             _l('created_user'),
-                            _l('created_date_time'),
+                            _l('updated_at'),
                             _l('last_updated_user'),
                         ),'purchase_request'); ?>
                     </div>

@@ -76,10 +76,10 @@
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
-                            <div class="col-md-6">
+                            <!-- <div class="col-md-6">
                                 <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
                                 <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
-                            </div>
+                            </div> -->
                             <div class="col-md-6">
                                 <?php
                                     $value = (isset($transfer) ? $transfer->description : ''); 

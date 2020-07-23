@@ -4,23 +4,17 @@
     <div class="content">
         <div class="row">
             <?php echo form_open($this->uri->uri_string(),array('id'=>'packing_list')); ?>
-            <!-- <?php
-            $tras_id = 0;
-            if (isset($transfer->id)) {
-                $trans_id = (int)$transfer->id;
-                ?>
-                <input type="hidden" name="packId" value="<?= $trans_id; ?>">
-                <?php
-            } else {
-                $trans_empty_id = '';
-                ?>
-                <input type="hidden" name="packId" value="<?= $trans_empty_id; ?>">
-                <?php
-            }
-            ?> -->
             <div class="col-md-12 transfers">
                 <div class="panel_s">
                     <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <?php 
+                                    $selected = (isset($packing_list) ? $packing_list->stock_product_code : '');
+                                    echo render_select('stock_product_code',$product_code,array('id','product_code'),_l('product_code'),$selected); 
+                                ?>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <?php 

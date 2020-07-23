@@ -14,11 +14,11 @@
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('product_code'),
+							_l('updated_date_time'),
 							_l('transaction_from'),
 							_l('transaction_to'),
 							_l('transaction_notes'),
 							_l('transaction_qty'),
-							_l('date_time'),
 							_l('description'),
 							_l('created_user'),
 							_l('updated_user'),

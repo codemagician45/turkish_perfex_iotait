@@ -3667,8 +3667,8 @@ $lang['wo_no'] = 'Wo No';
 $lang['description'] = 'Description';
 $lang['purchase_id'] = 'Purchase Id';
 $lang['date_time'] = 'Date and Time';
-$lang['created_user'] = 'Created User';
-$lang['updated_user'] = 'Updated User';
+$lang['created_user'] = 'Created By';
+$lang['updated_user'] = 'Updated By';
 $lang['stock_by_warehouse'] = 'Stock By Warehouse';
 $lang['warehouse_name'] = 'Warehouse Name';
 $lang['qty'] = 'Quantity';
@@ -3724,9 +3724,10 @@ $lang['approval'] = 'Approval';
 $lang['bought_company_name'] = 'Bought Company Name';
 $lang['notes'] = 'Notes';
 $lang['note'] = 'Note';
-$lang['created_user'] = 'Created User';
+$lang['created_user'] = 'Created By';
 $lang['created_date_time'] = 'Created Date Time';
-$lang['last_updated_user'] = 'Last Updated User';
+$lang['updated_at'] = 'Updated At';
+$lang['last_updated_user'] = 'Last Updated By';
 
 $lang['ordered_qty'] = 'Ordered Qty';
 $lang['received_qty'] = 'Received Qty';
@@ -3755,7 +3756,11 @@ $lang['ready_to_invoice'] = 'Ready to Invoice';
 
 /*product*/
 $lang['product_list'] = 'Product List';
-$lang['product_receips'] = 'Product Receips';
+$lang['product_recipe'] = 'Product Recipe';
+$lang['other_cost_details'] = 'Other Cost Details';
+$lang['other_cost'] = 'Other Cost';
+$lang['op_cost_per_sec'] = 'Operatoer Cost Per Sec';
+$lang['installation_consumed_time'] = 'Installation Consumed Time';
 
 
 
@@ -3869,7 +3874,9 @@ $lang['new_quote_phase'] = 'New Quote Phase';
 $lang['edit_quote_phase'] = 'Edit Quote Phase';
 $lang['add_quote_phase'] = 'Add Quote Phase';
 
-
 $lang['user_logs'] = 'User Logs';
+
+$lang['extra_permission'] = 'Extra Permission';
+$lang['content'] = 'Content';
 
 
