@@ -14,7 +14,7 @@
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('product_code'),
-							_l('updated_date_time'),
+							_l('updated_at'),
 							_l('transaction_from'),
 							_l('transaction_to'),
 							_l('transaction_notes'),

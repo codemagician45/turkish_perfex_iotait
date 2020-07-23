@@ -172,7 +172,7 @@ class Purchases_model extends App_Model
             if(isset($transfer_id) && !is_null($transfer_id))
                     $temp['transfer_id'] = $transfer_id;
             $temp['rel_purchase_id'] = $rel_purchase_id;
-
+            unset($temp['item_id']);
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
             // print_r($this->db->last_query()); exit();
             $insert_id = $this->db->insert_id();
@@ -200,7 +200,7 @@ class Purchases_model extends App_Model
                     $this->load->model('warehouses_model');
                     $transfer_id = $this->warehouses_model->add_transfer($transfer);
                 }
-                // unset($val['item_id']);
+                unset($val['item_id']);
                 $val['rel_purchase_id'] = $rel_purchase_id;
                 
                 if(isset($transfer_id))
@@ -220,24 +220,42 @@ class Purchases_model extends App_Model
             foreach ($items as $key => $val) {
                 $id = $val['itemid'];
                 unset($val['itemid']);
-                $transfer_id = $this->db->query('SELECT transfer_id FROM tblpurchase_order_item WHERE `id`='.$id)->row()->transfer_id;
-                $last_qty = $this->db->query('SELECT received_qty FROM tblpurchase_order_item WHERE `id`='.$id)->row()->received_qty;
                 if(!empty($val['received_qty']))
                 {
-                    $transfer = [];
-                    $transfer['stock_product_code'] = $val['product_id'];
-                    $transfer['purchase_id'] = $rel_purchase_id;
-                    $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
-                    $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                    $transfer['transaction_notes'] = $val['notes'];
-                    $transfer['transaction_qty'] = $val['received_qty'];
-                    $transfer['date_and_time'] = date('Y-m-d h:i:s');
-                    $transfer['delta'] = $val['received_qty']-$last_qty;
-                    // print_r($transfer); exit();
-                    $this->load->model('warehouses_model');
-                    $this->warehouses_model->update_transfer($transfer,$transfer_id);
+                    if(empty($val['transfer_id']))
+                    {
+                        $transfer = [];
+                        $transfer['stock_product_code'] = $val['product_id'];
+                        $transfer['purchase_id'] = $rel_purchase_id;
+                        $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
+                        $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
+                        $transfer['transaction_notes'] = $val['notes'];
+                        $transfer['transaction_qty'] = $val['received_qty'];
+                        $transfer['date_and_time'] = date('Y-m-d h:i:s');
+                        $this->load->model('warehouses_model');
+                        $transfer_id = $this->warehouses_model->add_transfer($transfer);
+                    }
+                    else
+                    {
+                        $transfer_id = $this->db->query('SELECT transfer_id FROM tblpurchase_order_item WHERE `id`='.$id)->row()->transfer_id;
+                        $last_qty = $this->db->query('SELECT received_qty FROM tblpurchase_order_item WHERE `id`='.$id)->row()->received_qty;
+                        $transfer = [];
+                        $transfer['stock_product_code'] = $val['product_id'];
+                        $transfer['purchase_id'] = $rel_purchase_id;
+                        $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
+                        $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
+                        $transfer['transaction_notes'] = $val['notes'];
+                        $transfer['transaction_qty'] = $val['received_qty'];
+                        $transfer['date_and_time'] = date('Y-m-d h:i:s');
+                        $transfer['delta'] = $val['received_qty']-$last_qty;
+                        // print_r($transfer); exit();
+                        $this->load->model('warehouses_model');
+                        $this->warehouses_model->update_transfer($transfer,$transfer_id);
+                    }
+                    
                 }
                 $this->db->where('id',$id);
+                // print_r($val); exit();
                 $this->db->update(db_prefix() . 'purchase_order_item', $val);
             }
         }
@@ -256,7 +274,7 @@ class Purchases_model extends App_Model
     public function get_purchase_order_item($id)
     {
         $this->db->from(db_prefix() . 'purchase_order_item');
-        $this->db->join(db_prefix() .'units',db_prefix() .'units.id = '. db_prefix() . 'purchase_order_item.unit','left');
+        $this->db->join(db_prefix() .'units',db_prefix() .'units.unitid = '. db_prefix() . 'purchase_order_item.unit','left');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'purchase_order_item.rel_purchase_id', $id);
             return $this->db->get()->result_array();

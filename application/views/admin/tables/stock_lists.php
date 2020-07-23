@@ -17,7 +17,7 @@ $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'stock_lists';
 
 $join = [
-     'LEFT JOIN ' . db_prefix() . 'units ON ' . db_prefix() . 'units.id = ' . db_prefix() . 'stock_lists.unit',
+     'LEFT JOIN ' . db_prefix() . 'units ON ' . db_prefix() . 'units.unitid = ' . db_prefix() . 'stock_lists.unit',
      'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category',
      'LEFT JOIN ' . db_prefix() . 'currencies_exchange ON ' . db_prefix() . 'currencies_exchange.id = ' . db_prefix() . 'stock_lists.currency_id',
      ];

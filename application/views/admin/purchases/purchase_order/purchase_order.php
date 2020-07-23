@@ -1,7 +1,5 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
-<?php init_head();
-// print_r($purchase_order); exit();
- ?>
+<?php init_head();?>
 <div id="wrapper">
     <div class="content">
         <div class="row">
@@ -55,8 +53,8 @@
                                 <?php echo render_input('updated_user',_l('last_updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('last_updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
                            <!--  <div class="col-md-6">
-                                <?php $value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
+                                <?php //$value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
+                                <?php //echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
                             </div> -->
 
                         </div>
@@ -156,7 +154,7 @@
 
         table_row +='<td><input type="number" name="newitems[' + item_key + '][ordered_qty]" class="form-control" value="'+data.ordered_qty+'"></td>';
 
-        table_row +='<td><input type="number" name="newitems[' + item_key + '][received_qty]" class="form-control" value="'+data.received_qty+'"></td>';
+        table_row +='<td><input type="number" name="newitems[' + item_key + '][received_qty]" class="form-control" readonly value="'+data.received_qty+'"></td>';
 
         table_row +='<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98"><option value="'+data.unitid+'">'+data.unitname+'</option></select></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="'+data.product_id+'"></td>';
 
@@ -165,7 +163,6 @@
         table_row +='<td><input type="number" name="newitems[' + item_key + '][volume]" class="form-control" value="'+data.volume+'"></td>';
         table_row +='<td><input type="text" name="newitems[' + item_key + '][notes]" class="form-control" value="'+data.notes+'"></td>';
 
-        // table_row +='<td><input type="number" name="newitems[' + item_key + '][item_order]" class="form-control" value="'+data.item_order+'"></td>';
         table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
         table_row += '</tr>';
@@ -219,7 +216,7 @@
         previewArea.find('input[name="description"]').val('');
         previewArea.find('input[name="ordered_qty"]').val('');
         previewArea.find('input[name="received_qty"]').val('');
-        previewArea.find('input[name="unit"]').val('');
+        previewArea.find('select[name="unit"]').selectpicker('val', '');
         previewArea.find('input[name="price"]').val('');
         previewArea.find('input[name="volume"]').val('');
         previewArea.find('input[name="notes"]').val('');

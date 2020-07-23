@@ -335,6 +335,8 @@ class Warehouses extends AdminController
                         $data['allocation_id'] = 0; 
                     }
                 }
+                $last_transaction_qty = $this->warehouses_model->get_transfer($id)->transaction_qty;
+                $data['delta'] = $data['transaction_qty'] - $last_transaction_qty;
                 $success = $this->warehouses_model->update_transfer($data, $id);
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('transfer')));
@@ -646,7 +648,7 @@ class Warehouses extends AdminController
                 }
                 else {
                     if(isset($data['newitems']))
-                    $purchase_order_item['newitems'] = $data['newitems'];
+                        $purchase_order_item['newitems'] = $data['newitems'];
                     if(isset($data['removed_items']))
                         $purchase_order_item['removed_items'] = $data['removed_items'];
                     if(isset($data['items']))
@@ -694,9 +696,10 @@ class Warehouses extends AdminController
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
         $data['title']         = $title;
-        // $this->load->view('admin/warehouses/purchase_receiving_bay/purchase_receiving_bay', $data);
+        $data['units'] = $this->warehouses_model->get_units();
+        $this->load->view('admin/warehouses/purchase_receiving_bay/purchase_receiving_bay', $data);
         // print_r($data); exit();
-        $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
+        // $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
     public function purchase_request()
@@ -712,7 +715,7 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            print_r($data); exit();
+            // print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);
@@ -784,12 +787,13 @@ class Warehouses extends AdminController
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
         // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
-        // $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(3);
-        $data['purchase_id'] = $this->purchases_model->get_purchase_id();
+        $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(3);
+        // $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
+        $data['units'] = $this->warehouses_model->get_units();
         $data['title']         = $title;
-        // $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
-        $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
+        $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
+        // $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
     public function delete_purchase_request($id)

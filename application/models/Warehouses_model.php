@@ -139,7 +139,7 @@ class Warehouses_model extends App_Model
     {
         $installation_id = $data['stock_unit_id'];
         unset($data['stock_unit_id']);
-        $this->db->where('id', $installation_id);
+        $this->db->where('unitid', $installation_id);
         $this->db->update(db_prefix() . 'units', $data);
         if ($this->db->affected_rows() > 0) {
             log_activity('Installation Updated [' . $data['name'] . ']');
@@ -152,7 +152,7 @@ class Warehouses_model extends App_Model
 
     public function change_unit_status($id, $status)
     {
-        $this->db->where('id', $id);
+        $this->db->where('unitid', $id);
         $this->db->update(db_prefix() . 'units', [
             'active' => $status,
         ]);
@@ -237,7 +237,7 @@ class Warehouses_model extends App_Model
     public function get_stocks_with_unit($id = '')
     {
         $this->db->from(db_prefix() . 'stock_lists');
-        $this->db->join(db_prefix() .'units',db_prefix() .'units.id = '. db_prefix() . 'stock_lists.unit','left');
+        $this->db->join(db_prefix() .'units',db_prefix() .'units.unitid = '. db_prefix() . 'stock_lists.unit','left');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'stock_lists.id', $id);
             return $this->db->get()->row();
@@ -307,7 +307,7 @@ class Warehouses_model extends App_Model
             $updated_transfer = $last_stock_level + $data['delta'];
             unset($data['delta']);
         }
-        // print_r($updated_transfer); exit();
+        
         if($first_transfer_check == 1)
         {
             $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
@@ -415,7 +415,9 @@ class Warehouses_model extends App_Model
         $first_transfer_check = $this->get_warehouse($transfer->transaction_from)->order_no;
         if($first_transfer_check == 1)
         {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = 0 WHERE `id` ='.$transfer->stock_product_code);
+            $current_stock_level = $this->db->query('SELECT stock_level FROM '.db_prefix().'stock_lists WHERE id='.$transfer->stock_product_code)->row()->stock_level;
+            $updated_stock_level = $current_stock_level - $transfer->transaction_qty;
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$transfer->stock_product_code);
         }
         $this->db->where('id', $id);
         $this->db->delete(db_prefix() . 'transfer_lists');

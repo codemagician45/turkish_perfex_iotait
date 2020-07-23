@@ -4,8 +4,6 @@
         <div class="col-md-6">
             <?php $this->load->view('admin/purchases/purchase_order/purchase_item_select'); ?>
         </div>
-        <div class="col-md-6">
-        </div>
     </div>
     <div class="table-responsive s_table">
         <table class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
@@ -45,7 +43,7 @@
                 </td>
 
                 <td>
-                    <input type="number" name="received_qty" class="form-control" placeholder="<?php echo _l('received_qty'); ?>">
+                    <input type="number" name="received_qty" class="form-control" readonly placeholder="<?php echo _l('received_qty'); ?>">
                 </td>
 
                 <td>
@@ -55,7 +53,7 @@
                         <select data-fieldto="unit" data-fieldid="unit" name="unit" id="unit" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
                             <option value=""></option>
                           <?php foreach ($units as $key => $unit) {?>
-                            <option value="<?php echo $unit['id'];?>"><?php echo $unit['name'];?></option>
+                            <option value="<?php echo $unit['unitid'];?>"><?php echo $unit['name'];?></option>
                           <?php } ?>
                         </select>
                     </div>
@@ -124,7 +122,7 @@
                     
                     $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][ordered_qty]" class="form-control" value="'.$item['ordered_qty'].'"></td>';
 
-                    $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][received_qty]" class="form-control" value="'.$item['received_qty'].'"></td>';
+                    $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][received_qty]" readonly class="form-control" value="'.$item['received_qty'].'"></td>';
 
                     $table_row .= '<td>
                     <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98"><option value="'.$item['unit'].'">'.$item['name'].'</option></select></div>
@@ -136,19 +134,8 @@
 
                     $table_row .= '<td><input type="text"  name="'.$items_indicator.'['.$i.'][notes]" class="form-control" value="'.$item['notes'].'"></td>';
 
-                    // $table_row .= '<td><input type="number" class="form-control" name="' . $items_indicator . '[' . $i . '][order]" value="'.$item['order'].'"></td>';
-                    // $table_row .= '</td>';
-                    // $table_row .= '<td class="bold description"><textarea name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" rows="5">' . clear_textarea_breaks($item['product_name']) . '</textarea></td>';
-                    // $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" rows="5">' . clear_textarea_breaks($item['notes']) . '</textarea></td>';
-                    // $table_row .= render_custom_fields_items_table_in($item,$items_indicator.'['.$i.']');
-
-                    // $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][unit]" class="form-control" value="'.$item['unit'].'"><input type="hidden"  name="'.$items_indicator.'['.$i.'][product_id]" class="form-control input-transparent text-right" value="'.$item['product_id'].'"></td>';
-                    // $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][ordered_qty]" class="form-control" value="'.$item['ordered_qty'].'"></td>';
-                    // $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][received_qty]" class="form-control" value="'.$item['received_qty'].'"></td>';
-                    // $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][price]" class="form-control" value="'.$item['price'].'"></td>';
-                    // $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][volume]" class="form-control" value="'.$item['volume'].'"></td>';
-
                     $table_row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_purchase_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+
                     $table_row .= '</tr>';
                     echo $table_row;
                     $i++;

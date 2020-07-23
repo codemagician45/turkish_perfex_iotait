@@ -53,7 +53,7 @@
 						<?php echo render_input('product_code',_l('product_code'),'','text'); ?>
 						<?php echo render_input('product_photo',_l('product_photo'),'','file'); ?>
 						<?php echo render_input('product_name',_l('product_name'),'','text'); ?>
-						<?php echo render_select('unit',$stock_units,array('id','name'),_l('unit')); ?>
+						<?php echo render_select('unit',$stock_units,array('unitid','name'),_l('unit')); ?>
 						<?php echo render_select('category',$stock_categories,array('id','name'),_l('category')); ?>
 						<?php echo render_input('price',_l('price'),'','number'); ?>
 						<?php echo render_select('currency_id',$currency_exchange,array('id','name'),_l('currency_id')); ?>
@@ -97,7 +97,7 @@
 			unit: 'required',
 			category: 'required',
 			price: 'required',
-			// currency_id: 'required',
+			currency_id: 'required',
 		}, manage_stock_lists);
 
 		$('#stock_lists_modal').on('show.bs.modal', function(event) {
