@@ -360,4 +360,28 @@ class Manufacturing_settings extends AdminController
             echo json_encode($installationByid);
         }
     }
+
+    public function get_default_machine()
+    {
+        if ($this->input->is_ajax_request()) {
+            $default_machine = $this->manufacturing_settings_model->get_default_machine();
+            echo json_encode($default_machine);
+        }
+    }
+    
+    public function get_work_hour()
+    {
+        if ($this->input->is_ajax_request()) {
+            $work_hour = $this->manufacturing_settings_model->get_work_hour();
+            echo json_encode($work_hour);
+        }
+    }
+
+    public function get_energy_price()
+    {
+        if ($this->input->is_ajax_request()) {
+            $energy_price = $this->manufacturing_settings_model->get_energy_price();
+            echo json_encode($energy_price);
+        }
+    }
 }

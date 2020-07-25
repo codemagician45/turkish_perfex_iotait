@@ -148,9 +148,9 @@ class Manufacturing_settings_model extends App_Model
         $this->db->order_by('id', 'asc');
         return $this->db->get(db_prefix() . 'moulds')->result_array();
     }
-
     public function add_moulds_suitability($data)
     {
+        
         unset($data['mouldID']);
         $data['user_id']=get_staff_user_id();
         $data['created_at']=date('Y-m-d h:i:s');
@@ -159,8 +159,10 @@ class Manufacturing_settings_model extends App_Model
         } else {
             $data['default_machine'] = 0;
         }
+        
         $this->db->insert(db_prefix() . 'mould_suitability', $data);
         $insert_id = $this->db->insert_id();
+        // print_r($insert_id ); exit();
         if ($insert_id) {
             log_activity('New mould_suitability Added');
             return true;
@@ -276,6 +278,12 @@ class Manufacturing_settings_model extends App_Model
         return false;
     }
 
+    public function get_energy_price()
+    {
+        $this->db->from(db_prefix() . 'energy_prices');
+        return $this->db->get()->row();
+    }
+
     public function add_work_hours_capacity($data)
     {
         unset($data['workhoursid']);
@@ -317,6 +325,12 @@ class Manufacturing_settings_model extends App_Model
         }
 
         return false;
+    }
+
+    public function get_work_hour()
+    {
+        $this->db->from(db_prefix() . 'work_hours');
+        return $this->db->get()->row();
     }
 
     public function add_installation_process($data)
@@ -377,5 +391,15 @@ class Manufacturing_settings_model extends App_Model
         }
 
         return $this->db->get()->result_array();
+    }
+
+    public function get_default_machine()
+    {
+        $this->db->from(db_prefix() . 'mould_suitability');
+        $this->db->where(db_prefix() . 'mould_suitability.default_machine', 1);
+        $default_suitability =  $this->db->get()->row();
+        if(isset($default_suitability))
+            $default_machine_id = $default_suitability->machine_id;
+        return $this->get_machine($default_machine_id);
     }
 }

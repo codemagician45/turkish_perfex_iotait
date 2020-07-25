@@ -244,6 +244,11 @@ class Warehouses_model extends App_Model
         }
         return $this->db->get()->result_array();
     }
+
+    public function get_stocks_with_currency($id = '')
+    {
+        return $this->db->query('SELECT tblstock_lists.*, tblcurrencies_exchange.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies_exchange ON tblcurrencies_exchange.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row();
+    }
     
     public function stock_list_delete($id)
     {
@@ -261,11 +266,9 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
-        // print_r($data); exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_stock_level = $last_stock_level + $data['transaction_qty'];
-        // print_r($updated_stock_level); exit();
 
         if($first_transfer_check == 1)
         {
@@ -274,7 +277,6 @@ class Warehouses_model extends App_Model
 
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
-        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
         $insert_id = $this->db->insert_id();
 
@@ -316,7 +318,6 @@ class Warehouses_model extends App_Model
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
-        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
@@ -357,7 +358,6 @@ class Warehouses_model extends App_Model
             $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
             // $this->db->where(db_prefix() . 'transfer_lists.allocation',0)
             $res =  $this->db->get()->result_array();
-            // print_r($res); exit();
             $from_warehouse_arr = [];
             foreach ($res as $key => $value) {
                 array_push($from_warehouse_arr, $value['transaction_from']);
@@ -561,7 +561,6 @@ class Warehouses_model extends App_Model
 
     public function update_packing_list($data,$id)
     {
-        // $data['user_id'] = get_staff_user_id();
         unset($data['item_select']);
         unset($data['item_id']);
         unset($data['product_name']);
@@ -652,7 +651,6 @@ class Warehouses_model extends App_Model
 
     public function update_packing_group($data)
     {
-        // print_r($data); exit();
         $pack_id = $data['packing_id'];
         
         if(isset($data['newitems']))
@@ -668,7 +666,6 @@ class Warehouses_model extends App_Model
         
         if(isset($data['items'])){
             $items = $data['items'];
-            // print_r($items); exit();
             foreach ($items as $key => $value) {
                 $id = $value['itemid'];
                 unset($value['itemid']);

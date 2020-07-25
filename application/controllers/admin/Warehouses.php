@@ -191,8 +191,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($_FILES);
-            // print_r($_POST); exit();
             $folderPath = "uploads/stock_lists/";
             if (move_uploaded_file($_FILES["product_photo"]["tmp_name"], $folderPath . $_FILES["product_photo"]["name"])) {
                 $data['product_photo'] = $folderPath . $_FILES["product_photo"]["name"];
@@ -267,7 +265,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if(isset($data['allocation']) && $data['allocation'] == 'on')
             {
                 $data['allocation'] = 1;
@@ -303,7 +300,6 @@ class Warehouses extends AdminController
                 }
             } else {
                 $allocation_id = $this->warehouses_model->get_transfer($id)->allocation_id;
-                // print_r($allocation_id); exit();
                 if($data['allocation'] == 1)
                 {
                     $allocation_data['transfer_id'] = $id;
@@ -385,7 +381,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->is_ajax_request()) {
             $transfer = $this->warehouses_model->get_transfer_by_code($id);
-            // print_r($transfer); exit();
             echo json_encode($transfer);
         }
     }
@@ -599,6 +594,14 @@ class Warehouses extends AdminController
         }
     }
 
+    public function get_item_by_id_with_currency($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            $item = $this->warehouses_model->get_stocks_with_currency($id);
+            echo json_encode($item);
+        }
+    }
+
     public function purchase_receiving_bay()
     {
         if ($this->input->is_ajax_request()) {
@@ -612,7 +615,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);
@@ -643,7 +645,6 @@ class Warehouses extends AdminController
                     $purchase_order_item['product_id'] = $data['product_id'];
                     $transfer_on_received['purchase_id'] = $data['purchase_phase_id'];
                     $transfer_on_received['product_id'] = $data['product_id'];
-                    // print_r($purchase_order_item); exit();
                     $this->purchases_model->add_purchase_order_item($purchase_order_item,$transfer_on_received);
                 }
                 else {
@@ -690,7 +691,6 @@ class Warehouses extends AdminController
 
         if(isset($data['purchase_order']))
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
-        // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         // $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(2);
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
@@ -698,7 +698,6 @@ class Warehouses extends AdminController
         $data['title']         = $title;
         $data['units'] = $this->warehouses_model->get_units();
         $this->load->view('admin/warehouses/purchase_receiving_bay/purchase_receiving_bay', $data);
-        // print_r($data); exit();
         // $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
@@ -715,7 +714,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if ($id == '') {
 
                 $id = $this->purchases_model->add_purchase_order($data);
@@ -785,7 +783,6 @@ class Warehouses extends AdminController
 
         if(isset($data['purchase_order']))
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
-        // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(3);
         // $data['purchase_id'] = $this->purchases_model->get_purchase_id();

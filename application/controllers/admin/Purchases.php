@@ -94,7 +94,7 @@ class Purchases extends AdminController
                 }
                 else {
                     if(isset($data['newitems']))
-                    $purchase_order_item['newitems'] = $data['newitems'];
+                        $purchase_order_item['newitems'] = $data['newitems'];
                     if(isset($data['removed_items']))
                         $purchase_order_item['removed_items'] = $data['removed_items'];
                     if(isset($data['items']))

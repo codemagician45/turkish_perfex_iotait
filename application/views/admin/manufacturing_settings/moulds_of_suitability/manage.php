@@ -74,7 +74,7 @@
 
             var button = $(event.relatedTarget)
             var id = button.data('id');
-
+            console.log(id)
             $('#mould_suitability').find('#machine_id').selectpicker('val', '');
             $('#mould_suitability').find('#mould_id').selectpicker('val', '');
             $('input[name="default_machine"]').prop('checked',false);

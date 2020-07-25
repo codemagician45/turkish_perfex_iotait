@@ -248,14 +248,12 @@ class Purchases_model extends App_Model
                         $transfer['transaction_qty'] = $val['received_qty'];
                         $transfer['date_and_time'] = date('Y-m-d h:i:s');
                         $transfer['delta'] = $val['received_qty']-$last_qty;
-                        // print_r($transfer); exit();
                         $this->load->model('warehouses_model');
                         $this->warehouses_model->update_transfer($transfer,$transfer_id);
                     }
                     
                 }
                 $this->db->where('id',$id);
-                // print_r($val); exit();
                 $this->db->update(db_prefix() . 'purchase_order_item', $val);
             }
         }

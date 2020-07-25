@@ -10,6 +10,7 @@ class Products extends AdminController
         $this->load->model('products_model');
         $this->load->model('sale_model');
         $this->load->model('warehouses_model');
+        $this->load->model('manufacturing_settings_model');
     }
 
     public function product_list()
@@ -20,7 +21,6 @@ class Products extends AdminController
 
         $data['title'] = _l('product_list');
         $data['price_cat'] = $this->products_model->get_pricing_category_by_permission(get_staff_user_id());
-        // print_r($data); exit();
         $this->load->view('admin/products/product_list/manage', $data);
     }
 
@@ -46,27 +46,85 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
-            if ($id == '') {
-                $id = $this->products_model->add_product_recipe($data);
+            // print_r($data);exit();
+            $pricing_calc_data = [];
+            $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
+            $pricing_calc_data['other_cost'] = $data['other_cost'];
+            $pricing_calc_data['op_cost_per_sec'] = $data['op_cost_per_sec'];
+            $pricing_calc_data['price'] = $data['total_value'];
+            $pricing_calc_data['last_calc_date'] = date('Y-m-d h:i:s');
+            $pricing_calc_data['rel_product_id'] = $id;
+            $current_pricing_calc_data = $this->products_model->get_pricing_calc($id);
+
+            if(empty($current_pricing_calc_data)){
+                $id = $this->products_model->add_pricing_calc($pricing_calc_data);
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('pricing_calculation')));
+                }
+            }
+            else{
+                $success = $this->products_model->update_pricing_calc($pricing_calc_data,$current_pricing_calc_data->id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('pricing_calculation')));
+                }
+            }
+
+            $install_time = [];
+            $install_time['rel_product_id'] = $id;
+            $install_time['consumed_time'] = $data['consumed_time'];
+            $current_install_time = $this->products_model->get_install_time($id);
+            if(empty($current_install_time)){
+
+                $id = $this->products_model->add_install_time($install_time);
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('installation_time')));
+                }
+            }
+            else{
+                $success = $this->products_model->update_install_time($install_time,$current_install_time->id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('installation_time')));
+                }
+            }
+                
+            if(isset($data['newitems'])){
+                $recipe_data = $data['newitems'];
+                $recipe_data['rel_product_id'] = $id;
+                $id = $this->products_model->add_product_recipe_item($recipe_data);
+
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('product_recipe')));
-                    redirect(admin_url('products/product_recipes'));
+                    redirect(admin_url('products/product_recipe'));
+                }
+            }
+
+            $current_recipe_data = $this->products_model->get_product_receipe_item($id);
+            if(empty($current_recipe_data) && isset($data['newitems']))
+            {
+                $recipe_data = $data['newitems'];
+                $recipe_data['rel_product_id'] = $id;
+                $id = $this->products_model->add_product_recipe_item($recipe_data);
+
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('product_recipe')));
+                    redirect(admin_url('products/product_recipe'));
                 }
             } else {
-                $success = $this->products_model->update_product_recipe($data, $id);
-                if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('product_recipe')));
-                }
-                redirect(admin_url('products/product_recipes'));
+                if(isset($data['newitems']))
+                    $recipe_data['newitems'] = $data['newitems'];
+                if(isset($data['removed_items']))
+                    $recipe_data['removed_items'] = $data['removed_items'];
+                if(isset($data['items']))
+                    $recipe_data['items'] = $data['items'];
+
+                $recipe_data['rel_product_id'] = $id;
+                $this->products_model->update_product_recipe_item($recipe_data);
+                set_alert('success', _l('added_successfully', _l('product_recipe')));
+                redirect(admin_url('products/product_recipe'));
             }
         }
-        if ($id == '') {
-            $title = _l('add_new', _l('product_recipe'));
-        } else {
-            $title = _l('edit', _l('product_recipe'));
-        }
-        $data['title']         = $title;
+        
+        $data['title']         = _l('product_recipe');
         $data['product'] = $this->warehouses_model->stock_list_get($id);
         $data['pack'] = $this->products_model->get_pack_by_product_code($id);
 
@@ -77,8 +135,18 @@ class Products extends AdminController
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
-        // print_r($data); exit();
-
+        $data['pricing_calc_data'] = $this->products_model->get_pricing_calc($id);
+        $data['install_time'] = $this->products_model->get_install_time($id);
+        $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
+        $data['product_receipe_item'] = $this->products_model->get_product_receipe_item($id);
         $this->load->view('admin/products/product_recipe/product_recipe', $data);
+    }
+
+    public function get_moulds_by_ajax()
+    {
+        if ($this->input->is_ajax_request()) {
+            $moulds = $this->manufacturing_settings_model->get_mould_list();
+            echo json_encode($moulds);
+        }
     }
 }

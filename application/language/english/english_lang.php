@@ -3759,8 +3759,16 @@ $lang['product_list'] = 'Product List';
 $lang['product_recipe'] = 'Product Recipe';
 $lang['other_cost_details'] = 'Other Cost Details';
 $lang['other_cost'] = 'Other Cost';
-$lang['op_cost_per_sec'] = 'Operatoer Cost Per Sec';
+$lang['op_cost_per_sec'] = 'Operator Cost Per Sec';
 $lang['installation_consumed_time'] = 'Installation Consumed Time';
+$lang['pre_produced'] = 'Pre-Produced';
+$lang['used_qty'] = 'Used Qty';
+$lang['rate_of_waste'] = 'Rate of Waste';
+$lang['cycle_time'] = 'Cycle Time';
+$lang['material_cost'] = 'Material Cost';
+$lang['production_cost'] = 'Production Cost';
+$lang['expected_profit'] = 'Expected Profit';
+$lang['installation_cost'] = 'Installation Cost';
 
 
 
