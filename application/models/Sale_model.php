@@ -117,6 +117,12 @@ class Sale_model extends App_Model
         return false;
     }
 
+    public function get_sale_phases()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get(db_prefix() . 'sale_phases')->result_array();
+    }
+
     /*----------Quote Phases------*/
     public function add_quote_phases($data)
     {
@@ -156,5 +162,11 @@ class Sale_model extends App_Model
             return true;
         }
         return false;
+    }
+
+    public function get_quote_phases()
+    {
+        $this->db->from(db_prefix() . 'quote_phase');
+        return $this->db->get()->result_array();
     }
 }

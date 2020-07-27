@@ -581,12 +581,23 @@ class Warehouses_model extends App_Model
         return false;
     }
 
-    public function get_packing_list($id)
+    public function get_packing_list($id = '')
     {
         $this->db->from(db_prefix() . 'pack_list');
 
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'pack_list.id', $id);
+            return $this->db->get()->row();
+        }
+        return $this->db->get()->result_array();
+    }
+
+    public function get_pack_by_capacity($capacity = '')
+    {
+        $this->db->from(db_prefix() . 'pack_list');
+
+        if (is_numeric($capacity)) {
+            $this->db->where(db_prefix() . 'pack_list.pack_capacity', $capacity);
             return $this->db->get()->row();
         }
         return $this->db->get()->result_array();

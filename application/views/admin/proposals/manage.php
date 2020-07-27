@@ -28,7 +28,7 @@
                <div class="panel-body _buttons">
                   <?php if(has_permission('proposals','','create')){ ?>
                   <a href="<?php echo admin_url('proposals/proposal'); ?>" class="btn btn-info pull-left display-block">
-                  <?php echo _l('new_proposal'); ?>
+                  <?php echo _l('new_quote'); ?>
                   </a>
                   <?php } ?>
                   <a href="<?php echo admin_url('proposals/pipeline/'.$switch_pipeline); ?>" class="btn btn-default mleft5 pull-left hidden-xs"><?php echo _l('switch_to_pipeline'); ?></a>
@@ -105,15 +105,30 @@
                         <!-- if invoiceid found in url -->
                         <?php echo form_hidden('proposal_id',$proposal_id); ?>
                         <?php
+                           // $table_data = array(
+                           //    _l('proposal') . ' #',
+                           //    _l('proposal_subject'),
+                           //    _l('proposal_to'),
+                           //    _l('proposal_total'),
+                           //    _l('proposal_date'),
+                           //    _l('proposal_open_till'),
+                           //    _l('tags'),
+                           //    _l('proposal_date_created'),
+                           //    _l('proposal_status'),
+                           //  );
+
                            $table_data = array(
-                              _l('proposal') . ' #',
-                              _l('proposal_subject'),
-                              _l('proposal_to'),
-                              _l('proposal_total'),
-                              _l('proposal_date'),
-                              _l('proposal_open_till'),
+                              _l('quote') . ' #',
+                              _l('quote_phase'),
+                              _l('client'),
+                              _l('pricing_category'),
                               _l('tags'),
+                              _l('sum_volume_m3'),
+                              _l('discount'),
+                              _l('proposal_total'),
+                              _l('created_user'),
                               _l('proposal_date_created'),
+                              _l('updated_by'),
                               _l('proposal_status'),
                             );
 

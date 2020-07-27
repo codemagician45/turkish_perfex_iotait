@@ -171,6 +171,13 @@ class Warehouses extends AdminController
         }
     }
 
+    public function get_units()
+    {
+        if ($this->input->is_ajax_request()) {
+            $units = $this->warehouses_model->get_units();
+            echo json_encode($units);
+        }
+    }
     /* End Warehouse Material */
 
     /*-------------------------Stock List---------------------------*/
@@ -575,6 +582,14 @@ class Warehouses extends AdminController
             set_alert('warning', _l('problem_deleting', _l('packing_list')));
         }
         redirect(admin_url('warehouses/packing_list'));
+    }
+
+    public function get_pack_by_capacity($capacity = '')
+    {
+        if ($this->input->is_ajax_request()) {
+            $pack = $this->warehouses_model->get_pack_by_capacity($capacity);
+            echo json_encode($pack);
+        }
     }
 
     public function packing_group()

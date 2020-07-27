@@ -79,14 +79,15 @@
                   <button type="button" onclick="add_item_to_table_quote('undefined','undefined',<?php echo $new_item; ?>); return false;" class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
               </td>
             </tr>
-            <?php if (isset($quote_items)) {
+            <?php if (isset($estimate)) {
                $i               = 1;
                $items_indicator = 'newitems';
-               if (isset($quote_items)) {
+               if (isset($estimate)) {
+                 $add_items       = $estimate->items;
                  $items_indicator = 'items';
                }
-                // print_r($quote_items); exit();
-               foreach ($quote_items as $item) {
+                // print_r($estimate->items); exit();
+               foreach ($add_items as $item) {
                  $manual    = false;
 
                  $capacity_option = '<option></option>';

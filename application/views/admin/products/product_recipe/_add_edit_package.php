@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->other_cost_details : ''); 
-                echo render_input('other_cost_details', _l('other_cost_details'), $value, 'number', array('placeholder' => _l('other_cost_details'))); ?>
+                echo render_input('other_cost_details', _l('other_cost_details'), $value, 'text', array('placeholder' => _l('other_cost_details'))); ?>
         </div>
         <div class="col-md-6">
             <?php 

@@ -111,6 +111,13 @@ class Estimates extends AdminController
             $data['estimate'] = $estimate;
             $data['edit']     = true;
             $title            = _l('edit', _l('estimate_lowercase'));
+
+            $created_user = $this->staff_model->get($estimate->created_user);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($estimate->updated_user)){
+               $updated_user = $this->staff_model->get($estimate->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
         }
         if ($this->input->get('customer_id')) {
             $data['customer_id'] = $this->input->get('customer_id');
@@ -124,13 +131,30 @@ class Estimates extends AdminController
 
         $this->load->model('invoice_items_model');
 
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix().'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+
+        $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
-        if (total_rows(db_prefix().'items') <= ajax_on_total_items()) {
-            $data['items'] = $this->invoice_items_model->get_grouped();
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('sale_model');
+        $data['sale_phase'] = $this->sale_model->get_sale_phases();
+
+        $data['quote_items'] = $this->estimates_model->get_quote_items($id);
+
         $data['items_groups'] = $this->invoice_items_model->get_groups();
 
         $data['staff']             = $this->staff_model->get('', ['active' => 1]);

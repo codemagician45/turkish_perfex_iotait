@@ -564,9 +564,12 @@ class Estimates_model extends App_Model
         }
 
         $data = $this->map_shipping_columns($data);
-
-        $data['billing_street'] = trim($data['billing_street']);
-        $data['billing_street'] = nl2br($data['billing_street']);
+        if(isset($data['billing_street']))
+        {
+            $data['billing_street'] = trim($data['billing_street']);
+            $data['billing_street'] = nl2br($data['billing_street']);
+        }
+        
 
         if (isset($data['shipping_street'])) {
             $data['shipping_street'] = trim($data['shipping_street']);
@@ -580,7 +583,9 @@ class Estimates_model extends App_Model
 
         $data  = $hook['data'];
         $items = $hook['items'];
-
+        
+        $data['created_user'] = get_staff_user_id();
+        
         $this->db->insert(db_prefix() . 'estimates', $data);
         $insert_id = $this->db->insert_id();
 
@@ -710,6 +715,8 @@ class Estimates_model extends App_Model
 
         unset($data['removed_items']);
 
+        $data['created_user'] = get_staff_user_id();
+        
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'estimates', $data);
 
@@ -1401,5 +1408,18 @@ class Estimates_model extends App_Model
         }
 
         return $data;
+    }
+
+    public function get_quote_items($id = '')
+    {
+        $this->db->where('id',$id);
+        $rel_quote_id = $this->db->get(db_prefix() . 'estimates')->row()->rel_quote_id;
+        $this->db->where('rel_id',$rel_quote_id);
+        return $this->db->get(db_prefix() . 'itemable')->result_array();
+        // $this->db->where('rel_id', $id);
+        // $this->db->where('rel_type', 'estimate');
+        // $this->db->order_by('date', 'asc');
+
+        // return $this->db->get(db_prefix() . 'sales_activity')->result_array();
     }
 }

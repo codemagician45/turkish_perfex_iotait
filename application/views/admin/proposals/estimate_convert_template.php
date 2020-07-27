@@ -14,7 +14,8 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <?php $this->load->view('admin/estimates/estimate_template'); ?>
+                        <?php //$this->load->view('admin/estimates/estimate_template'); ?>
+                        <?php $this->load->view('admin/proposals/estimate_template'); ?>
                     </div>
                 </div>
             </div>

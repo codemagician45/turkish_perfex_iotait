@@ -132,6 +132,7 @@ class Proposals extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
+            // print_r($proposal_data);exit();
             if ($id == '') {
                 if (!has_permission('proposals', '', 'create')) {
                     access_denied('proposals');
@@ -170,20 +171,36 @@ class Proposals extends AdminController
             }
 
             $data['estimate']    = $data['proposal'];
+            // $data['quote_items'] = $this->proposals_model->get_quote_items($id);
             $data['is_proposal'] = true;
             $title               = _l('edit', _l('proposal_lowercase'));
         }
 
+        $this->load->model('sale_model');
+        $data['quote_phases'] = $this->sale_model->get_quote_phases();
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
+
         $this->load->model('taxes_model');
         $data['taxes'] = $this->taxes_model->get();
+
         $this->load->model('invoice_items_model');
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+        $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
-        if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-            $data['items'] = $this->invoice_items_model->get_grouped();
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
         $data['items_groups'] = $this->invoice_items_model->get_groups();
 
         $data['statuses']      = $this->proposals_model->get_statuses();
@@ -339,8 +356,22 @@ class Proposals extends AdminController
             access_denied('estimates');
         }
         if ($this->input->post()) {
+            $data = $this->input->post();
             $this->load->model('estimates_model');
-            $estimate_id = $this->estimates_model->add($this->input->post());
+            unset($data['item_select']);
+            unset($data['product_name']);
+            unset($data['rel_product_id']);
+            unset($data['pack_capacity']);
+            unset($data['qty']);
+            unset($data['unit']);
+            unset($data['original_price']);
+            unset($data['sale_price']);
+            unset($data['volume_m3']);
+            unset($data['notes']);
+            unset($data['items']);
+            unset($data['sum_volume_m3']);
+            $data['rel_quote_id'] = $id;
+            $estimate_id = $this->estimates_model->add($data);
             if ($estimate_id) {
                 set_alert('success', _l('proposal_converted_to_estimate_success'));
                 $this->db->where('id', $id);
@@ -449,6 +480,7 @@ class Proposals extends AdminController
 
         $data['staff']     = $this->staff_model->get('', ['active' => 1]);
         $data['proposal']  = $this->proposals_model->get($id);
+        $data['estimate']    = $data['proposal'];
         $data['add_items'] = $this->_parse_items($data['proposal']);
 
         $this->load->model('estimates_model');
@@ -465,6 +497,21 @@ class Proposals extends AdminController
             'rel_id'     => $id,
         ];
 
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('sale_model');
+        $data['sale_phase'] = $this->sale_model->get_sale_phases();
+
+        // $data['quote_items'] = $this->estimates_model->get_quote_items($id);
         $this->load->view('admin/proposals/estimate_convert_template', $data);
     }
 

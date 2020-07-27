@@ -216,7 +216,6 @@ class Purchases_model extends App_Model
         
         if(isset($data['items'])){
             $items = $data['items'];
-            // print_r($items); exit();
             foreach ($items as $key => $val) {
                 $id = $val['itemid'];
                 unset($val['itemid']);

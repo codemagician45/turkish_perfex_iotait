@@ -3697,7 +3697,7 @@ $lang['box_type'] = 'Box Type';
 $lang['l_size'] = 'L Size';
 $lang['w_size'] = 'W Size';
 $lang['h_size'] = 'H Size';
-$lang['volume_m3'] = 'Volumn_m3';
+$lang['volume_m3'] = 'Volume_m3';
 $lang['price_per_item'] = 'Price Per Item';
 $lang['new_packing_list'] = 'New Packing list';
 $lang['stock_qty'] = 'Stock Qty';
@@ -3820,6 +3820,20 @@ $lang['edit_installation'] = 'Edit Installation';
 $lang['add_installation'] = 'Add Installation';
 $lang['take_from'] = 'Take From';
 $lang['export_to'] = 'Export To';
+
+/* Sales */
+$lang['quotation/offer'] = 'Quotation/Offer';
+$lang['new_quote'] = 'New Quote';
+$lang['nothing_selected'] = 'New Quote';
+$lang['original_price'] = 'Original Price';
+$lang['sale_price'] = 'Sale Price';
+
+$lang['sale_order'] = 'Sale Order';
+$lang['quote'] = 'Quote';
+$lang['sum_volume_m3'] = 'Sum of Volume_m3';
+$lang['discount'] = 'Discount';
+$lang['updated_by'] = 'Updated By';
+
 
 /*Settings*/
 $lang['accounts'] = 'Accounts';

@@ -9,10 +9,7 @@
          
 
           <div class="col-md-6">
-              <?php 
-                $selected = (isset($estimate) ? $estimate->sale_phase_id : '');
-                echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase',$selected);
-                 ?>
+              <?php echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase'); ?>
           </div>
           <!-- <div class="col-md-6">
               <?php echo render_select('rel_quote_id',$acc_list,array('id','subject'),'Quote'); ?>
@@ -66,23 +63,17 @@
           </div>
 
           <div class="col-md-6">
-              <?php 
-                $value = (isset($estimate) ? $estimate->general_notes : '');
-                echo render_input('general_notes',_l('general_notes'),$value,'text',array('placeholder'=>_l('general_notes'))); ?>
+              <?php echo render_input('general_notes',_l('general_notes'),'','text',array('placeholder'=>_l('general_notes'))); ?>
           </div>
           <div class="col-md-6">
-              <?php
-                $value = (isset($estimate) ? $estimate->shipping_type : ''); 
-                echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('placeholder'=>_l('shipping_type'))); ?>
+              <?php echo render_input('shipping_type',_l('shipping_type'),'','text',array('placeholder'=>_l('shipping_type'))); ?>
           </div>
           <div class="col-md-6">
-              <?php $value = (isset($estimate) ? _d($estimate->req_shipping_date) : _d(date('Y-m-d h:i:s'))) ?>
+              <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
               <?php echo render_date_input('req_shipping_date',_l('req_shipping_date'),$value); ?>
           </div>
           <div class="col-md-6">
-              <?php 
-                $value = (isset($estimate) ? $estimate->total_price : ''); 
-                echo render_input('total_price',_l('total_price'),$value,'text',array('placeholder'=>_l(''),'readonly'=>'readonly')); ?>
+              <?php echo render_input('total_price',_l('total_price'),'','text',array('placeholder'=>_l(''),'readonly'=>'readonly')); ?>
           </div>
 
           <div class="col-md-6">
@@ -95,19 +86,8 @@
           </div>    
       </div>
 
+
    </div>
-   <?php $this->load->view('admin/estimates/_add_edit_items'); ?>
-   <div class="row">
-      <div class="col-md-12 mtop15">
-          <div class="btn-bottom-toolbar text-right">
-            <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit save-and-send transaction-submit">
-            <?php echo _l('save_and_send'); ?>
-            </button>
-            <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit transaction-submit">
-            <?php echo _l('submit'); ?>
-            </button>
-          </div>
-          <div class="btn-bottom-pusher"></div>
-      </div>
-   </div>
+   <?php $this->load->view('admin/proposals/_add_edit_items'); ?>
+   
 </div>

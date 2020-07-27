@@ -6,14 +6,20 @@ $baseCurrency = get_base_currency();
 
 $aColumns = [
     db_prefix() . 'proposals.id',
-    'subject',
+    // 'subject',
+    db_prefix() . 'quote_phase.phase',
     'proposal_to',
     'total',
-    'date',
-    'open_till',
+    db_prefix() . 'pricing_categories.name',
+    // 'date',
+    // 'open_till',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'proposals.id and rel_type="proposal" ORDER by tag_order ASC) as tags',
     'datecreated',
     'status',
+    'sum_volume_m3',
+    'discount_total',
+    'addedfrom',
+    'updated_user'
 ];
 
 $sIndexColumn = 'id';
@@ -74,7 +80,12 @@ if (!has_permission('proposals', '', 'view')) {
     array_push($where, 'AND ' . get_proposals_sql_where_staff(get_staff_user_id()));
 }
 
-$join          = [];
+$join          = [
+    'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.id',
+    'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.id',
+
+    // 'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'proposals.addedfrom',
+];
 $custom_fields = get_table_custom_fields('proposal');
 
 foreach ($custom_fields as $key => $field) {
@@ -102,7 +113,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-
+// print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
 
@@ -118,7 +129,9 @@ foreach ($rResult as $aRow) {
 
     $row[] = $numberOutput;
 
-    $row[] = '<a href="' . admin_url('proposals/list_proposals/' . $aRow[db_prefix() . 'proposals.id']) . '" onclick="init_proposal(' . $aRow[db_prefix() . 'proposals.id'] . '); return false;">' . $aRow['subject'] . '</a>';
+    // $row[] = '<a href="' . admin_url('proposals/list_proposals/' . $aRow[db_prefix() . 'proposals.id']) . '" onclick="init_proposal(' . $aRow[db_prefix() . 'proposals.id'] . '); return false;">' . $aRow['subject'] . '</a>';
+
+    $row[] = $aRow[db_prefix() . 'quote_phase.phase'];
 
     if ($aRow['rel_type'] == 'lead') {
         $toOutput = '<a href="#" onclick="init_lead(' . $aRow['rel_id'] . ');return false;" target="_blank" data-toggle="tooltip" data-title="' . _l('lead') . '">' . $aRow['proposal_to'] . '</a>';
@@ -134,16 +147,35 @@ foreach ($rResult as $aRow) {
         $amount .= '<br /> <span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
     }
 
-    $row[] = $amount;
-
-
-    $row[] = _d($aRow['date']);
-
-    $row[] = _d($aRow['open_till']);
+    $row[] = $aRow[db_prefix() . 'pricing_categories.name'];
+    
 
     $row[] = render_tags($aRow['tags']);
 
+    $row[] = $aRow['sum_volume_m3'];
+
+    $row[] = $aRow['discount_total'];
+
+    // $row[] = _d($aRow['open_till']);
+
+    $row[] = $amount;
+
+    // $row[] = _d($aRow['date']);
+    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['addedfrom'])->row();
+    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $c_user_name . '</a>';
+
     $row[] = _d($aRow['datecreated']);
+
+    if(!empty($aRow['updated_user']))
+    {
+        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
+        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+    }
+    else
+        $row[] = '';
+
 
     $row[] = format_proposal_status($aRow['status']);
 

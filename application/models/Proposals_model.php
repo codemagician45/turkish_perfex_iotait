@@ -161,6 +161,21 @@ class Proposals_model extends App_Model
         $data  = $hook['data'];
         $items = $hook['items'];
 
+        unset($data['product_name']);
+
+        if(isset($data['rel_product_id'])){
+            $rel_product_id = $data['rel_product_id'];
+            unset($data['rel_product_id']);
+        }
+        
+        unset($data['pack_capacity']);
+        unset($data['qty']);
+        unset($data['original_price']);
+        unset($data['sale_price']);
+        unset($data['volume_m3']);
+        unset($data['notes']);
+        $data['updated_user'] = get_staff_user_id();
+        // print_r($items); exit();
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();
 
@@ -168,14 +183,26 @@ class Proposals_model extends App_Model
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
             }
-
-            handle_tags_save($tags, $insert_id, 'proposal');
-
-            foreach ($items as $key => $item) {
-                if ($itemid = add_new_sales_item_post($item, $insert_id, 'proposal')) {
-                    _maybe_insert_post_item_tax($itemid, $item, $insert_id, 'proposal');
-                }
+            
+            foreach ($items as $val) {
+                unset($val['itemid']);
+                $val['rel_product_id'] = $rel_product_id;
+                $val['rel_id'] = $insert_id;
+                $val['rel_type'] = 'proposal';
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->insert(db_prefix() . 'itemable', $val);
+                $insert_id = $this->db->insert_id();
             }
+            // return $insert_id;
+
+            // handle_tags_save($tags, $insert_id, 'proposal');
+
+            // foreach ($items as $key => $item) {
+            //     if ($itemid = add_new_sales_item_post($item, $insert_id, 'proposal')) {
+            //         _maybe_insert_post_item_tax($itemid, $item, $insert_id, 'proposal');
+            //     }
+            // }
 
             $proposal = $this->get($insert_id);
             if ($proposal->assigned != 0) {
@@ -294,73 +321,122 @@ class Proposals_model extends App_Model
 
         unset($data['removed_items']);
 
+        unset($data['product_name']);
+        if(isset($data['rel_product_id'])){
+            $rel_product_id = $data['rel_product_id'];
+            unset($data['rel_product_id']);
+        }
+        
+        unset($data['pack_capacity']);
+        unset($data['qty']);
+        unset($data['original_price']);
+        unset($data['sale_price']);
+        unset($data['volume_m3']);
+        unset($data['notes']);
+
+        if(isset($data['rel_product_id'])){
+            $rel_product_id = $data['rel_product_id'];
+            unset($data['rel_product_id']);
+        }
+        $data['updated_user'] = get_staff_user_id();
+        print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'proposals', $data);
-        if ($this->db->affected_rows() > 0) {
-            $affectedRows++;
-            $proposal_now = $this->get($id);
-            if ($current_proposal->assigned != $proposal_now->assigned) {
-                if ($proposal_now->assigned != get_staff_user_id()) {
-                    $notified = add_notification([
-                        'description'     => 'not_proposal_assigned_to_you',
-                        'touserid'        => $proposal_now->assigned,
-                        'fromuserid'      => get_staff_user_id(),
-                        'link'            => 'proposals/list_proposals/' . $id,
-                        'additional_data' => serialize([
-                            $proposal_now->subject,
-                        ]),
-                    ]);
-                    if ($notified) {
-                        pusher_trigger_notification([$proposal_now->assigned]);
-                    }
-                }
-            }
-        }
 
-        foreach ($items as $key => $item) {
-            if (update_sales_item_post($item['itemid'], $item)) {
-                $affectedRows++;
+        if(isset($newitems))
+            foreach ($newitems as $val) {
+                unset($val['itemid']);
+                $val['rel_product_id'] = $rel_product_id;
+                $val['rel_id'] = $id;
+                $val['rel_type'] = 'proposal';
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->insert(db_prefix() . 'itemable', $val);
+                $insert_id = $this->db->insert_id();
+            }
+        if(isset($items))
+            foreach ($items as $val) {
+                $id = $val['itemid'];
+                unset($val['itemid']);
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->where('id',$id);
+                $this->db->update(db_prefix() . 'itemable', $val);
             }
 
-            if (isset($item['custom_fields'])) {
-                if (handle_custom_fields_post($item['itemid'], $item['custom_fields'])) {
-                    $affectedRows++;
-                }
+        if(isset($data['removed_items'])){
+            $removed_items = $data['removed_items'];
+            foreach ($removed_items as $val) {
+                $this->db->where('id',$val);
+                $this->db->delete(db_prefix() . 'itemable');
             }
+        }    
+        
+        // if ($this->db->affected_rows() > 0) {
+        //     $affectedRows++;
+        //     $proposal_now = $this->get($id);
+        //     if ($current_proposal->assigned != $proposal_now->assigned) {
+        //         if ($proposal_now->assigned != get_staff_user_id()) {
+        //             $notified = add_notification([
+        //                 'description'     => 'not_proposal_assigned_to_you',
+        //                 'touserid'        => $proposal_now->assigned,
+        //                 'fromuserid'      => get_staff_user_id(),
+        //                 'link'            => 'proposals/list_proposals/' . $id,
+        //                 'additional_data' => serialize([
+        //                     $proposal_now->subject,
+        //                 ]),
+        //             ]);
+        //             if ($notified) {
+        //                 pusher_trigger_notification([$proposal_now->assigned]);
+        //             }
+        //         }
+        //     }
+        // }
 
-            if (!isset($item['taxname']) || (isset($item['taxname']) && count($item['taxname']) == 0)) {
-                if (delete_taxes_from_item($item['itemid'], 'proposal')) {
-                    $affectedRows++;
-                }
-            } else {
-                $item_taxes        = get_proposal_item_taxes($item['itemid']);
-                $_item_taxes_names = [];
-                foreach ($item_taxes as $_item_tax) {
-                    array_push($_item_taxes_names, $_item_tax['taxname']);
-                }
-                $i = 0;
-                foreach ($_item_taxes_names as $_item_tax) {
-                    if (!in_array($_item_tax, $item['taxname'])) {
-                        $this->db->where('id', $item_taxes[$i]['id'])
-                        ->delete(db_prefix() . 'item_tax');
-                        if ($this->db->affected_rows() > 0) {
-                            $affectedRows++;
-                        }
-                    }
-                    $i++;
-                }
-                if (_maybe_insert_post_item_tax($item['itemid'], $item, $id, 'proposal')) {
-                    $affectedRows++;
-                }
-            }
-        }
+        // foreach ($items as $key => $item) {
+        //     if (update_sales_item_post($item['itemid'], $item)) {
+        //         $affectedRows++;
+        //     }
 
-        foreach ($newitems as $key => $item) {
-            if ($new_item_added = add_new_sales_item_post($item, $id, 'proposal')) {
-                _maybe_insert_post_item_tax($new_item_added, $item, $id, 'proposal');
-                $affectedRows++;
-            }
-        }
+        //     if (isset($item['custom_fields'])) {
+        //         if (handle_custom_fields_post($item['itemid'], $item['custom_fields'])) {
+        //             $affectedRows++;
+        //         }
+        //     }
+
+        //     if (!isset($item['taxname']) || (isset($item['taxname']) && count($item['taxname']) == 0)) {
+        //         if (delete_taxes_from_item($item['itemid'], 'proposal')) {
+        //             $affectedRows++;
+        //         }
+        //     } else {
+        //         $item_taxes        = get_proposal_item_taxes($item['itemid']);
+        //         $_item_taxes_names = [];
+        //         foreach ($item_taxes as $_item_tax) {
+        //             array_push($_item_taxes_names, $_item_tax['taxname']);
+        //         }
+        //         $i = 0;
+        //         foreach ($_item_taxes_names as $_item_tax) {
+        //             if (!in_array($_item_tax, $item['taxname'])) {
+        //                 $this->db->where('id', $item_taxes[$i]['id'])
+        //                 ->delete(db_prefix() . 'item_tax');
+        //                 if ($this->db->affected_rows() > 0) {
+        //                     $affectedRows++;
+        //                 }
+        //             }
+        //             $i++;
+        //         }
+        //         if (_maybe_insert_post_item_tax($item['itemid'], $item, $id, 'proposal')) {
+        //             $affectedRows++;
+        //         }
+        //     }
+        // }
+
+        // foreach ($newitems as $key => $item) {
+        //     if ($new_item_added = add_new_sales_item_post($item, $id, 'proposal')) {
+        //         _maybe_insert_post_item_tax($new_item_added, $item, $id, 'proposal');
+        //         $affectedRows++;
+        //     }
+        // }
 
         if ($affectedRows > 0) {
             update_sales_total_tax_column($id, 'proposal', db_prefix() . 'proposals');
@@ -378,6 +454,13 @@ class Proposals_model extends App_Model
         }
 
         return false;
+    }
+
+    public function get_quote_items($quoteid)
+    {
+        $this->db->from(db_prefix().'itemable');
+        $this->db->where('rel_id',$quoteid);
+        return $this->db->get()->result_array();
     }
 
     /**

@@ -6,22 +6,31 @@ $project_id = $this->ci->input->post('project_id');
 
 $aColumns = [
     'number',
+    db_prefix() . 'sale_phases.phase',
     'total',
-    'total_tax',
-    'YEAR(date) as year',
+    // 'total_tax',
+    // 'YEAR(date) as year',
+    'rel_quote_id',
+    'shipping_type',
     get_sql_select_client_company(),
-    db_prefix() . 'projects.name as project_name',
-    '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'estimates.id and rel_type="estimate" ORDER by tag_order ASC) as tags',
-    'date',
-    'expirydate',
-    'reference_no',
-    db_prefix() . 'estimates.status',
+    // db_prefix() . 'projects.name as project_name',
+    // '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'estimates.id and rel_type="estimate" ORDER by tag_order ASC) as tags',
+    'req_shipping_date',
+    'general_notes',
+    // 'date',
+    // 'expirydate',
+    // 'reference_no',
+    db_prefix() . 'estimates.datecreated',
+    // db_prefix() . 'estimates.status',
+    db_prefix() . 'estimates.addedfrom',
+    'updated_user'
     ];
 
 $join = [
     'LEFT JOIN ' . db_prefix() . 'clients ON ' . db_prefix() . 'clients.userid = ' . db_prefix() . 'estimates.clientid',
     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'estimates.currency',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'estimates.project_id',
+    'LEFT JOIN ' . db_prefix() . 'sale_phases ON ' . db_prefix() . 'sale_phases.id = ' . db_prefix() . 'estimates.sale_phase_id',
 ];
 
 $sIndexColumn = 'id';
@@ -146,11 +155,8 @@ foreach ($rResult as $aRow) {
         $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
     }
 
-    $row[] = $amount;
-
-    $row[] = app_format_money($aRow['total_tax'], $aRow['currency_name']);
-
-    $row[] = $aRow['year'];
+    // $row[] = $amount;
+    $row[] = $aRow[db_prefix() . 'sale_phases.phase'];
 
     if (empty($aRow['deleted_customer_name'])) {
         $row[] = '<a href="' . admin_url('clients/client/' . $aRow['clientid']) . '">' . $aRow['company'] . '</a>';
@@ -158,17 +164,37 @@ foreach ($rResult as $aRow) {
         $row[] = $aRow['deleted_customer_name'];
     }
 
-    $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
+    $numberOutput = '<a>' . format_proposal_number($aRow['rel_quote_id']) . '</a>';
 
-    $row[] = render_tags($aRow['tags']);
 
-    $row[] = _d($aRow['date']);
+    $row[] = $numberOutput;
 
-    $row[] = _d($aRow['expirydate']);
 
-    $row[] = $aRow['reference_no'];
+    // $row[] = app_format_money($aRow['total_tax'], $aRow['currency_name']);
+    $row[] = $aRow['shipping_type'];
 
-    $row[] = format_estimate_status($aRow[db_prefix() . 'estimates.status']);
+    $row[] = $aRow['req_shipping_date'];
+
+    $row[] = $aRow['general_notes'];
+
+    $row[] = $amount;
+
+    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow[db_prefix() . 'estimates.addedfrom'])->row();
+    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow[db_prefix() . 'estimates.addedfrom']) . '">' . $c_user_name . '</a>';
+
+    $row[] = _d($aRow[db_prefix() . 'estimates.datecreated']);
+
+    if(!empty($aRow['updated_user']))
+    {
+        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
+        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+    }
+    else
+        $row[] = '';
+
+    // $row[] = format_estimate_status($aRow[db_prefix() . 'estimates.status']);
 
     // Custom fields add values
     foreach ($customFieldsColumns as $customFieldColumn) {
