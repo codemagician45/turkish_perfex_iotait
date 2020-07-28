@@ -324,6 +324,8 @@
 
 	    $(document).trigger('sales-total-calculated');
 	}
+
+	
 </script>
 </body>
 </html>

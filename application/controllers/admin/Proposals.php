@@ -435,17 +435,34 @@ class Proposals extends AdminController
         $data['currencies']    = $this->currencies_model->get();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
         $this->load->model('invoice_items_model');
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+        // $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
-        if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-            $data['items'] = $this->invoice_items_model->get_grouped();
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
-        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('production_model');
+
+        $data['work_order_phase'] = $this->production_model->get_wo_phases();
 
         $data['staff']          = $this->staff_model->get('', ['active' => 1]);
         $data['proposal']       = $this->proposals_model->get($id);
+        $data['estimate']       = $data['proposal'] ;
         $data['billable_tasks'] = [];
         $data['add_items']      = $this->_parse_items($data['proposal']);
 
@@ -459,6 +476,7 @@ class Proposals extends AdminController
             'belongs_to' => 'proposal',
             'rel_id'     => $id,
         ];
+        // print_r($data['estimate']); exit;
         $this->load->view('admin/proposals/invoice_convert_template', $data);
     }
 

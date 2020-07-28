@@ -176,15 +176,19 @@
                   <?php if(has_permission('invoices','','create') && !empty($estimate->clientid)){ ?>
                   <div class="btn-group pull-right mleft5">
                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <?php echo _l('estimate_convert_to_invoice'); ?> <span class="caret"></span>
+                     <?php echo _l('convert'); ?> <span class="caret"></span>
                      </button>
                      <ul class="dropdown-menu">
-                        <li><a href="<?php echo admin_url('estimates/convert_to_invoice/'.$estimate->id.'?save_as_draft=true'); ?>"><?php echo _l('convert_and_save_as_draft'); ?></a></li>
+                        <!-- <li><a href="<?php echo admin_url('estimates/convert_to_invoice/'.$estimate->id.'?save_as_draft=true'); ?>"><?php echo _l('convert_and_save_as_draft'); ?></a></li>
                         <li class="divider">
                         <li><a href="<?php echo admin_url('estimates/convert_to_invoice/'.$estimate->id); ?>"><?php echo _l('convert'); ?></a></li>
-                        </li>
+                        </li> -->
+                        <?php if(has_permission('invoices','','create')){ ?>
+                           <li><a href="#"  onclick="estimate_convert_template(this); return false;"><?php echo _l('convert_to_work_order'); ?></a></li>
+                           <?php } ?>
                      </ul>
                   </div>
+                  
                   <?php } ?>
                   <?php } else { ?>
                   <a href="<?php echo admin_url('invoices/list_invoices/'.$estimate->invoice->id); ?>" data-placement="bottom" data-toggle="tooltip" title="<?php echo _l('estimate_invoiced_date',_dt($estimate->invoiced_date)); ?>"class="btn mleft10 btn-info"><?php echo format_invoice_number($estimate->invoice->id); ?></a>
@@ -513,5 +517,22 @@
    init_selectpicker();
    init_form_reminder();
    init_tabs_scrollable();
+
+   function estimate_convert_template(invoker) {
+
+      var proposal_id = '<?php echo $estimate->rel_quote_id?>';
+       html_helper_selector = 'invoice';
+       console.log(proposal_id,html_helper_selector);
+       requestGet('estimates/get_' + html_helper_selector + '_convert_data/' + proposal_id).done(function(data) {
+            console.log(data);
+           if ($('.proposal-pipeline-modal').is(':visible')) {
+               $('.proposal-pipeline-modal').modal('hide');
+           }
+           $('#convert_helper').html(data);
+           $('#convert_to_' + html_helper_selector).modal({ show: true, backdrop: 'static' });
+           reorder_items();
+       });
+
+   }
 </script>
 <?php $this->load->view('admin/estimates/estimate_send_to_client'); ?>

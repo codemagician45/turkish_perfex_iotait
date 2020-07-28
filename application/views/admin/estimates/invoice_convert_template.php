@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="modal fade proposal-convert-modal" id="convert_to_invoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-xxl" role="document">
-        <?php echo form_open('admin/proposals/convert_to_invoice/'.$proposal->id,array('id'=>'proposal_convert_to_invoice_form','class'=>'_transaction_form invoice-form')); ?>
+        <?php echo form_open('admin/estimates/convert_to_invoice/'.$sale_id,array('id'=>'proposal_convert_to_invoice_form','class'=>'_transaction_form invoice-form')); ?>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" onclick="close_modal_manually('#convert_to_invoice')" aria-label="Close">
@@ -14,7 +14,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <?php $this->load->view('admin/invoices/invoice_template'); ?>
+                        <?php $this->load->view('admin/estimates/invoice_template_modal'); ?>
                     </div>
                 </div>
             </div>

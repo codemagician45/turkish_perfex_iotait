@@ -269,6 +269,33 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
+    // Planing
+
+    $CI->app_menu->add_sidebar_menu_item('planing', [
+            'collapse' => true,
+            'name'     => _l('als_planing'),
+            'position' => 35,
+            'icon'     => 'fa fa-tasks',
+        ]);
+
+    
+        $CI->app_menu->add_sidebar_children_item('planing', [
+                'slug'     => 'pending_sale_order',
+                'name'     => _l('pending_sale_order'),
+                'href'     => admin_url('estimates/pending_sale_order'),
+                'position' => 5,
+        ]);
+    
+
+    
+        $CI->app_menu->add_sidebar_children_item('planing', [
+                'slug'     => 'work_orders',
+                'name'     => _l('work_orders'),
+                'href'     => admin_url('invoices'),
+                'position' => 10,
+        ]);
+
+
     // if (has_permission('subscriptions', '', 'view') || has_permission('subscriptions', '', 'view_own')) {
     //     $CI->app_menu->add_sidebar_menu_item('subscriptions', [
     //             'name'     => _l('subscriptions'),

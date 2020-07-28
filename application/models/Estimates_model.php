@@ -278,6 +278,7 @@ class Estimates_model extends App_Model
             $key++;
         }
         $this->load->model('invoices_model');
+        print_r($new_invoice_data); exit;
         $id = $this->invoices_model->add($new_invoice_data);
         if ($id) {
             // Customer accepted the estimate and is auto converted to invoice

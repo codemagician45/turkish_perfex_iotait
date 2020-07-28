@@ -39,4 +39,11 @@ class Production_model extends App_Model
         return false;
     }
 
+    public function get_wo_phases()
+    {
+        $this->db->order_by('id', 'asc');
+        return $this->db->get(db_prefix() . 'work_order_phases')->result_array();
+    }
+
+
 }

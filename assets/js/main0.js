@@ -1682,8 +1682,8 @@ $(function() {
         if (!not_href[1]) { window.location.href = link; }
     });
 
-    /* Custom notifications links */
-    $("body").on('click' + (navigator.userAgent.match(/iPad/i) != null ? ' touchstart' : ''),
+    /* Custom notifications links, NOTE: touchstart listener is for iOS davices */
+    $("body").on('click' + ('ontouchstart' in window ? ' touchstart' : ''),
         '.notifications a.notification-top, .notification_link',
         function(e) {
             e.preventDefault();
@@ -2256,7 +2256,7 @@ $(function() {
         !$.isNumeric($(this).val()) ? $notRedirect.removeClass('hide') : $notRedirect.addClass('hide');
     });
 
-    $("body").on('change', '.f_client_id select[name="clientid"]', function() {
+    $("body").on('change', '.f_client_id #clientid', function() {
         var val = $(this).val();
         var projectAjax = $('select[name="project_id"]');
         var clonedProjectsAjaxSearchSelect = projectAjax.html('').clone();
@@ -2342,7 +2342,7 @@ $(function() {
             include_shipping.prop('checked', true);
             $('#shipping_details').removeClass('hide');
         }
-        var clientid = $('select[name="clientid"]').val();
+        var clientid = $('#clientid').val();
         if (clientid === '') { return; }
         requestGetJSON('clients/get_customer_billing_and_shipping_details/' + clientid).done(function(response) {
             $('textarea[name="shipping_street"]').val(response[0]['shipping_street']);
@@ -3172,6 +3172,7 @@ function init_editor(selector, settings) {
         ],
         toolbar1: 'fontselect fontsizeselect | forecolor backcolor | bold italic | alignleft aligncenter alignright alignjustify | image link | bullist numlist | restoredraft',
         file_browser_callback: elFinderBrowser,
+        contextmenu: "link image inserttable | cell row column deletetable | paste",
     };
 
     // Add the rtl to the settings if is true
@@ -4586,7 +4587,6 @@ function toggle_proposal_comment_edit(id) {
 }
 
 function proposal_convert_template(invoker) {
-
     var template = $(invoker).data('template');
     var html_helper_selector;
     if (template == 'estimate') {
@@ -4596,7 +4596,7 @@ function proposal_convert_template(invoker) {
     } else {
         return false;
     }
-    console.log(proposal_id,html_helper_selector);
+
     requestGet('proposals/get_' + html_helper_selector + '_convert_data/' + proposal_id).done(function(data) {
         if ($('.proposal-pipeline-modal').is(':visible')) {
             $('.proposal-pipeline-modal').modal('hide');
@@ -4715,11 +4715,9 @@ function do_task_checklist_items_height(task_checklist_items) {
         var val = $(this).val();
         if ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
             $(this).height(0).height(this.scrollHeight);
-            $(this).parents('.checklist').height(this.scrollHeight);
         }
         if (val === '') {
             $(this).removeAttr('style');
-            $(this).parents('.checklist').removeAttr('style');
         }
     });
 }
@@ -5429,6 +5427,7 @@ function edit_task_inline_description(e, id) {
         skin: 'perfex',
         auto_focus: "task_view_description",
         plugins: 'table link paste contextmenu textpattern',
+        contextmenu: "link table paste pastetext",
         insert_toolbar: 'quicktable',
         selection_toolbar: 'bold italic | quicklink h2 h3 blockquote',
         inline: true,
@@ -5900,7 +5899,7 @@ function add_item_to_table(data, itemid, merge_invoice, bill_expense) {
         $('body').find('#items-warning').remove();
         $("body").find('.dt-loader').remove();
         $('#item_select').selectpicker('val', '');
-
+        console.log(1111111111)
         if (cf_has_required && $('.invoice-form').length) {
             validate_invoice_form();
         } else if (cf_has_required && $('.estimate-form').length) {
@@ -5946,7 +5945,7 @@ function init_ajax_project_search_by_customer_id(selector) {
     selector = typeof(selector) == 'undefined' ? '#project_id.ajax-search' : selector;
     init_ajax_search('project', selector, {
         customer_id: function() {
-            return $('select[name="clientid"]').val();
+            return $('#clientid').val();
         }
     });
 }
@@ -6189,7 +6188,6 @@ function init_currency(id) {
     var $accountingTemplate = $("body").find('.accounting-template');
 
     if ($accountingTemplate.length || id) {
-
         var selectedCurrencyId = !id ? $accountingTemplate.find('select[name="currency"]').val() : id;
 
         requestGetJSON('misc/get_currency/' + selectedCurrencyId)

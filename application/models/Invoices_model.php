@@ -328,8 +328,11 @@ class Invoices_model extends App_Model
             $data['shipping_street'] = nl2br($data['shipping_street']);
         }
 
-        $data['billing_street'] = trim($data['billing_street']);
-        $data['billing_street'] = nl2br($data['billing_street']);
+        if(isset($data['billing_street']))
+        {
+            $data['billing_street'] = trim($data['billing_street']);
+            $data['billing_street'] = nl2br($data['billing_street']);
+        }
 
         $hook = hooks()->apply_filters('before_invoice_added', [
             'data'  => $data,
@@ -338,6 +341,18 @@ class Invoices_model extends App_Model
 
         $data  = $hook['data'];
         $items = $hook['items'];
+        unset($data['created_user']);
+        unset($data['product_name']);
+        unset($data['rel_product_id']);
+        unset($data['pack_capacity']);
+        unset($data['qty']);
+        unset($data['original_price']);
+        unset($data['sale_price']);
+        unset($data['volume_m3']);
+        unset($data['notes']);
+        unset($data['items']);
+
+        // print_r($data); exit();
 
         $this->db->insert(db_prefix() . 'invoices', $data);
         $insert_id = $this->db->insert_id();

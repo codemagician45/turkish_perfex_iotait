@@ -6,8 +6,6 @@
       <hr class="hr-panel-heading" />
       <?php } ?>
       <div class="row">
-         
-
           <div class="col-md-6">
               <?php 
                 $selected = (isset($estimate) ? $estimate->sale_phase_id : '');

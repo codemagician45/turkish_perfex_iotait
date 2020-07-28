@@ -55,6 +55,16 @@ class Estimates extends AdminController
         }
     }
 
+    public function pending_sale_order($id = '')
+    {
+       if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('pending_estimates');
+        }
+
+        $data['title'] = _l('pending_sale_order');
+        $this->load->view('admin/planing/pending_sale_order_mange', $data);
+    }
+
     public function table($clientid = '')
     {
         if (!has_permission('estimates', '', 'view') && !has_permission('estimates', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == '0') {
@@ -112,7 +122,7 @@ class Estimates extends AdminController
             $data['edit']     = true;
             $title            = _l('edit', _l('estimate_lowercase'));
 
-            $created_user = $this->staff_model->get($estimate->created_user);
+            $created_user = $this->staff_model->get($estimate->addedfrom);
             $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
             if(!empty($estimate->updated_user)){
                $updated_user = $this->staff_model->get($estimate->updated_user);
@@ -401,59 +411,150 @@ class Estimates extends AdminController
         }
     }
 
-    /* Convert estimate to invoice */
+
+    public function get_invoice_convert_data($proposal_id)
+    {
+        $this->load->model('payment_modes_model');
+        $data['payment_modes'] = $this->payment_modes_model->get('', [
+            'expenses_only !=' => 1,
+        ]);
+        $this->load->model('taxes_model');
+        $this->load->model('currencies_model');
+        $data['taxes']         = $this->taxes_model->get();
+        $data['currencies']    = $this->currencies_model->get();
+        $data['base_currency'] = $this->currencies_model->get_base_currency();
+        $this->load->model('invoice_items_model');
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+        // $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('production_model');
+        $this->load->model('proposals_model');
+
+        $data['work_order_phase'] = $this->production_model->get_wo_phases();
+
+        $data['staff']          = $this->staff_model->get('', ['active' => 1]);
+        $data['proposal']       = $this->proposals_model->get($proposal_id);
+        
+        $data['estimate']       = $data['proposal'] ;
+        $data['quote_items'] = $data['proposal']->items;;
+        $data['billable_tasks'] = [];
+        // print_r($data['add_items']); exit;
+        if ($data['proposal']->rel_type == 'lead') {
+            $this->db->where('leadid', $data['proposal']->rel_id);
+            $data['customer_id'] = $this->db->get(db_prefix() . 'clients')->row()->userid;
+        } else {
+            $data['customer_id'] = $data['proposal']->rel_id;
+        }
+        $data['custom_fields_rel_transfer'] = [
+            'belongs_to' => 'proposal',
+            'rel_id'     => $proposal_id,
+        ];
+        $data['sale_id'] = $this->db->query('SELECT id FROM tblestimates WHERE rel_quote_id ='.$proposal_id)->row()->id;
+        $this->load->view('admin/estimates/invoice_convert_template', $data);
+    }
+
     public function convert_to_invoice($id)
     {
         if (!has_permission('invoices', '', 'create')) {
             access_denied('invoices');
         }
-        if (!$id) {
-            die('No estimate found');
-        }
-        $draft_invoice = false;
-        if ($this->input->get('save_as_draft')) {
-            $draft_invoice = true;
-        }
-        $invoiceid = $this->estimates_model->convert_to_invoice($id, false, $draft_invoice);
-        if ($invoiceid) {
-            set_alert('success', _l('estimate_convert_to_invoice_successfully'));
-            redirect(admin_url('invoices/list_invoices/' . $invoiceid));
-        } else {
-            if ($this->session->has_userdata('estimate_pipeline') && $this->session->userdata('estimate_pipeline') == 'true') {
-                $this->session->set_flashdata('estimateid', $id);
-            }
-            if ($this->set_estimate_pipeline_autoload($id)) {
-                redirect($_SERVER['HTTP_REFERER']);
+        if ($this->input->post()) {
+            $data = $this->input->post();
+            $data['rel_sale_id'] = $id;
+            $this->load->model('invoices_model');
+            $invoice_id = $this->invoices_model->add($data);
+            if ($invoice_id) {
+                set_alert('success', _l('proposal_converted_to_invoice_success'));
+                // $this->db->where('id', $id);
+                // $this->db->update(db_prefix() . 'proposals', [
+                //     'invoice_id' => $invoice_id,
+                //     'status'     => 3,
+                // ]);
+                // log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
+                // hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
+                // redirect(admin_url('invoices/invoice/' . $invoice_id));
             } else {
-                redirect(admin_url('estimates/list_estimates/' . $id));
+                set_alert('danger', _l('proposal_converted_to_invoice_fail'));
+            }
+            if ($this->set_proposal_pipeline_autoload($id)) {
+                redirect(admin_url('proposals'));
+            } else {
+                redirect(admin_url('proposals/list_proposals/' . $id));
             }
         }
     }
 
-    public function copy($id)
-    {
-        if (!has_permission('estimates', '', 'create')) {
-            access_denied('estimates');
-        }
-        if (!$id) {
-            die('No estimate found');
-        }
-        $new_id = $this->estimates_model->copy($id);
-        if ($new_id) {
-            set_alert('success', _l('estimate_copied_successfully'));
-            if ($this->set_estimate_pipeline_autoload($new_id)) {
-                redirect($_SERVER['HTTP_REFERER']);
-            } else {
-                redirect(admin_url('estimates/estimate/' . $new_id));
-            }
-        }
-        set_alert('danger', _l('estimate_copied_fail'));
-        if ($this->set_estimate_pipeline_autoload($id)) {
-            redirect($_SERVER['HTTP_REFERER']);
-        } else {
-            redirect(admin_url('estimates/estimate/' . $id));
-        }
-    }
+    /* Convert estimate to invoice */
+    // public function convert_to_invoice($id)
+    // {
+    //     if (!has_permission('invoices', '', 'create')) {
+    //         access_denied('invoices');
+    //     }
+    //     if (!$id) {
+    //         die('No estimate found');
+    //     }
+    //     $draft_invoice = false;
+    //     if ($this->input->get('save_as_draft')) {
+    //         $draft_invoice = true;
+    //     }
+    //     $invoiceid = $this->estimates_model->convert_to_invoice($id, false, $draft_invoice);
+    //     if ($invoiceid) {
+    //         set_alert('success', _l('estimate_convert_to_invoice_successfully'));
+    //         redirect(admin_url('invoices/list_invoices/' . $invoiceid));
+    //     } else {
+    //         if ($this->session->has_userdata('estimate_pipeline') && $this->session->userdata('estimate_pipeline') == 'true') {
+    //             $this->session->set_flashdata('estimateid', $id);
+    //         }
+    //         if ($this->set_estimate_pipeline_autoload($id)) {
+    //             redirect($_SERVER['HTTP_REFERER']);
+    //         } else {
+    //             redirect(admin_url('estimates/list_estimates/' . $id));
+    //         }
+    //     }
+    // }
+
+    // public function copy($id)
+    // {
+    //     if (!has_permission('estimates', '', 'create')) {
+    //         access_denied('estimates');
+    //     }
+    //     if (!$id) {
+    //         die('No estimate found');
+    //     }
+    //     $new_id = $this->estimates_model->copy($id);
+    //     if ($new_id) {
+    //         set_alert('success', _l('estimate_copied_successfully'));
+    //         if ($this->set_estimate_pipeline_autoload($new_id)) {
+    //             redirect($_SERVER['HTTP_REFERER']);
+    //         } else {
+    //             redirect(admin_url('estimates/estimate/' . $new_id));
+    //         }
+    //     }
+    //     set_alert('danger', _l('estimate_copied_fail'));
+    //     if ($this->set_estimate_pipeline_autoload($id)) {
+    //         redirect($_SERVER['HTTP_REFERER']);
+    //     } else {
+    //         redirect(admin_url('estimates/estimate/' . $id));
+    //     }
+    // }
 
     /* Delete estimate */
     public function delete($id)

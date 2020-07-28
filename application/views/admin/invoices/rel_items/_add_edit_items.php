@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel-body mtop10">
+  <h3><?php echo _l('rel_wo_items')?></h3>
    <div class="row">
       <div class="col-md-4">
           <?php //$this->load->view('admin/invoice_items/item_select'); ?>
@@ -72,21 +73,21 @@
               <td>
                   <?php
                      $new_item = 'undefined';
-                     if(isset($estimate)){
+                     if(isset($invoice)){
                        $new_item = true;
                      }
                      ?>
                   <button type="button" onclick="add_item_to_table_quote('undefined','undefined',<?php echo $new_item; ?>); return false;" class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
               </td>
             </tr>
-            <?php if (isset($estimate)) {
+            <?php if (isset($inv_items)) {
                $i               = 1;
                $items_indicator = 'newitems';
-               if (isset($estimate)) {
-                 $add_items       = $estimate->items;
+               if (isset($inv_items)) {
                  $items_indicator = 'items';
                }
-               foreach ($add_items as $item) {
+                // print_r($inv_items); exit();
+               foreach ($inv_items as $item) {
                  $manual    = false;
 
                  $capacity_option = '<option></option>';
@@ -145,18 +146,13 @@
          </tbody>
       </table>
    </div>
-   <div class="col-md-8 col-md-offset-4">
+   <!-- <div class="col-md-8 col-md-offset-4">
       <table class="table text-right">
          <tbody>
             <tr id="subtotal">
                <td><span class="bold"><?php echo _l('estimate_subtotal'); ?> :</span>
                </td>
                <td class="subtotal">
-               <!-- <td>
-                  <?php 
-                    if(isset($estimate)) echo $estimate->subtotal;
-                    else echo '';
-                ?>  -->
                </td>
             </tr>
             <tr id="discount_area">
@@ -220,11 +216,6 @@
                <td><span class="bold"><?php echo _l('estimate_total'); ?> :</span>
                </td>
                <td class="total">
-                <!-- <td>
-                  <?php 
-                    if(isset($estimate)) echo $estimate->total;
-                    else echo '';
-                ?>  -->
                </td>
                <input type="hidden" name="subtotal">
                <input type="hidden" name="sum_volume_m3">
@@ -235,6 +226,6 @@
             </tr>
          </tbody>
       </table>
-   </div>
+   </div> -->
    <div id="removed-items"></div>
 </div>

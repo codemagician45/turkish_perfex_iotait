@@ -339,6 +339,13 @@ class Invoices extends AdminController
             $data['edit']           = true;
             $data['billable_tasks'] = $this->tasks_model->get_billable_tasks($invoice->clientid, !empty($invoice->project_id) ? $invoice->project_id : '');
 
+            $created_user = $this->staff_model->get($invoice->addedfrom);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($invoice->updated_user)){
+               $updated_user = $this->staff_model->get($invoice->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
+
             $title = _l('edit', _l('invoice_lowercase')) . ' - ' . format_invoice_number($invoice->id);
         }
 
@@ -355,15 +362,36 @@ class Invoices extends AdminController
         $data['taxes'] = $this->taxes_model->get();
         $this->load->model('invoice_items_model');
 
-        $data['ajaxItems'] = false;
+        // $data['ajaxItems'] = false;
 
-        if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-            $data['items'] = $this->invoice_items_model->get_grouped();
+        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+        // $data['items_groups'] = $this->invoice_items_model->get_groups();
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
         }
-        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('production_model');
+
+        $data['work_order_phase'] = $this->production_model->get_wo_phases();
+
+        $sale_id = $this->db->query('SELECT rel_sale_id FROM tblinvoices WHERE id ='.$id)->row()->rel_sale_id;
+        
+        $this->load->model('estimates_model');
+        $data['inv_items'] = $this->estimates_model->get_quote_items($sale_id);
+
 
         $this->load->model('currencies_model');
         $data['currencies'] = $this->currencies_model->get();

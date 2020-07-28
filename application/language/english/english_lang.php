@@ -3835,6 +3835,12 @@ $lang['discount'] = 'Discount';
 $lang['updated_by'] = 'Updated By';
 
 
+/*Planing*/
+$lang['convert_to_work_order'] = 'Convert to Work Order';
+$lang['als_planing'] = 'Planing';
+$lang['pending_sale_order'] = 'Pending Sale Order';
+$lang['work_orders'] = 'Work Orders';
+
 /*Settings*/
 $lang['accounts'] = 'Accounts';
 $lang['account_type'] = 'Account Type';

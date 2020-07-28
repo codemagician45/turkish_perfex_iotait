@@ -74,8 +74,7 @@
           </div>
       </div>
    </div>
-   <?php $this->load->view('admin/invoices/rel_items/_add_edit_items'); ?>
-   <?php $this->load->view('admin/invoices/rel_recipes/_add_edit_recipes'); ?>
+   <?php $this->load->view('admin/estimates/_add_edit_items'); ?>
    <div class="row">
       <div class="col-md-12 mtop15">
          <!-- <div class="panel-body bottom-transaction"> -->
