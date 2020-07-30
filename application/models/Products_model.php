@@ -46,6 +46,7 @@ class Products_model extends App_Model
 
     public function update_product_recipe_item($data)
     {
+        // print_r($data); exit;
         $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
 
@@ -55,7 +56,7 @@ class Products_model extends App_Model
             foreach ($newitems as $key => $item) {
                 unset($item['item_id']);
                 $item['rel_product_id'] = $rel_product_id;
-                $this->db->insert(db_prefix() . 'product_recipe', $val);
+                $this->db->insert(db_prefix() . 'product_recipe', $item);
                 $insert_id = $this->db->insert_id();
             }
         }

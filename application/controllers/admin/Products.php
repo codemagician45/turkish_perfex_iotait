@@ -46,11 +46,12 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+        
             $pricing_calc_data = [];
             $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
             $pricing_calc_data['other_cost'] = $data['other_cost'];
             $pricing_calc_data['op_cost_per_sec'] = $data['op_cost_per_sec'];
-            $pricing_calc_data['price'] = $data['total_value'];
+            $pricing_calc_data['price'] = $data['total'];
             $pricing_calc_data['last_calc_date'] = date('Y-m-d h:i:s');
             $pricing_calc_data['rel_product_id'] = $id;
             $current_pricing_calc_data = $this->products_model->get_pricing_calc($id);
@@ -86,16 +87,16 @@ class Products extends AdminController
                 }
             }
                 
-            if(isset($data['newitems'])){
-                $recipe_data = $data['newitems'];
-                $recipe_data['rel_product_id'] = $id;
-                $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
+            // if(isset($data['newitems'])){
+            //     $recipe_data = $data['newitems'];
+            //     $recipe_data['rel_product_id'] = $id;
+            //     $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
 
-                if ($recipe_id) {
-                    set_alert('success', _l('added_successfully', _l('product_recipe')));
-                    redirect(admin_url('products/product_recipe'));
-                }
-            }
+            //     if ($recipe_id) {
+            //         set_alert('success', _l('added_successfully', _l('product_recipe')));
+            //         // redirect(admin_url('products/product_recipe'));
+            //     }
+            // }
 
             $current_recipe_data = $this->products_model->get_product_receipe_item($id);
             if(empty($current_recipe_data) && isset($data['newitems']))
