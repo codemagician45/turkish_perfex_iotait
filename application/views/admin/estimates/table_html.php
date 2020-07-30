@@ -20,7 +20,7 @@
 //    _l('estimate_dt_table_heading_status'));
 
 $table_data = array(
-   _l('estimate_dt_table_heading_number'),
+   _l('sale_order_dt_table_heading_number'),
    _l('sale_phase'),
 
    array(
@@ -30,7 +30,7 @@ $table_data = array(
 
    _l('quote'),
    _l('shipping_type'),
-   _l('req_shiping_date'),
+   _l('req_shipping_date'),
    _l('general_notes'),
    _l('total_price'),
    _l('created_user'),

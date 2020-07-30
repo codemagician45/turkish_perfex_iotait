@@ -46,7 +46,6 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data);exit();
             $pricing_calc_data = [];
             $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
             $pricing_calc_data['other_cost'] = $data['other_cost'];
@@ -57,8 +56,8 @@ class Products extends AdminController
             $current_pricing_calc_data = $this->products_model->get_pricing_calc($id);
 
             if(empty($current_pricing_calc_data)){
-                $id = $this->products_model->add_pricing_calc($pricing_calc_data);
-                if ($id) {
+                $cal_id = $this->products_model->add_pricing_calc($pricing_calc_data);
+                if ($cal_id) {
                     set_alert('success', _l('added_successfully', _l('pricing_calculation')));
                 }
             }
@@ -75,8 +74,8 @@ class Products extends AdminController
             $current_install_time = $this->products_model->get_install_time($id);
             if(empty($current_install_time)){
 
-                $id = $this->products_model->add_install_time($install_time);
-                if ($id) {
+                $install_id = $this->products_model->add_install_time($install_time);
+                if ($install_id) {
                     set_alert('success', _l('added_successfully', _l('installation_time')));
                 }
             }
@@ -90,9 +89,9 @@ class Products extends AdminController
             if(isset($data['newitems'])){
                 $recipe_data = $data['newitems'];
                 $recipe_data['rel_product_id'] = $id;
-                $id = $this->products_model->add_product_recipe_item($recipe_data);
+                $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
 
-                if ($id) {
+                if ($recipe_id) {
                     set_alert('success', _l('added_successfully', _l('product_recipe')));
                     redirect(admin_url('products/product_recipe'));
                 }
@@ -103,9 +102,9 @@ class Products extends AdminController
             {
                 $recipe_data = $data['newitems'];
                 $recipe_data['rel_product_id'] = $id;
-                $id = $this->products_model->add_product_recipe_item($recipe_data);
+                $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
 
-                if ($id) {
+                if ($recipe_id) {
                     set_alert('success', _l('added_successfully', _l('product_recipe')));
                     redirect(admin_url('products/product_recipe'));
                 }
@@ -119,7 +118,7 @@ class Products extends AdminController
 
                 $recipe_data['rel_product_id'] = $id;
                 $this->products_model->update_product_recipe_item($recipe_data);
-                set_alert('success', _l('added_successfully', _l('product_recipe')));
+                set_alert('success', _l('updated_successfully', _l('product_recipe')));
                 redirect(admin_url('products/product_recipe'));
             }
         }
@@ -147,6 +146,14 @@ class Products extends AdminController
         if ($this->input->is_ajax_request()) {
             $moulds = $this->manufacturing_settings_model->get_mould_list();
             echo json_encode($moulds);
+        }
+    }
+
+    public function get_recipes_by_product($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            $recipes = $this->products_model->get_product_receipe_item($id);
+            echo json_encode($recipes);
         }
     }
 }

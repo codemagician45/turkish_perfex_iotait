@@ -62,7 +62,7 @@ function _init_admin_assets()
     $CI->app_scripts->add('main-js', 'assets/js/main.js');
     $CI->app_scripts->add(
         'app-js',
-        '',
+        'assets/js/app.js',
         // base_url($CI->app_scripts->core_file('assets/js', 'main.js')) . '?v=' . $CI->app_css->core_version(),
         'admin',
         ['vendor-js', 'datatables-js', 'bootstrap-select-js', 'tinymce-js', 'jquery-migrate-js', 'jquery-validation-js', 'moment-js', 'common-js']

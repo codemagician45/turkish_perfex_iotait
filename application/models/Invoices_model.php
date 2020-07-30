@@ -363,6 +363,8 @@ class Invoices_model extends App_Model
             $this->db->set('value', 'value+1', false);
             $this->db->update(db_prefix() . 'options');
 
+            $this->db->query('UPDATE tblinvoices SET `number` = '.$insert_id.' WHERE id='.$insert_id);
+
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
             }
@@ -504,7 +506,6 @@ class Invoices_model extends App_Model
 
             return $insert_id;
         }
-
         return false;
     }
 
@@ -691,7 +692,8 @@ class Invoices_model extends App_Model
         $original_invoice = $this->get($id);
         $affectedRows     = 0;
 
-        $data['number'] = trim($data['number']);
+        // $data['number'] = trim($data['number']);
+        $data['number'] = trim($id);
 
         $original_number_formatted = format_invoice_number($id);
 
@@ -762,12 +764,15 @@ class Invoices_model extends App_Model
         }
 
         $data = $this->map_shipping_columns($data);
+        if(isset($data['billing_street']) && isset($data['shipping_street']))
+        {
+             $data['billing_street']  = trim($data['billing_street']);
+             $data['shipping_street'] = trim($data['shipping_street']);
 
-        $data['billing_street']  = trim($data['billing_street']);
-        $data['shipping_street'] = trim($data['shipping_street']);
-
-        $data['billing_street']  = nl2br($data['billing_street']);
-        $data['shipping_street'] = nl2br($data['shipping_street']);
+             $data['billing_street']  = nl2br($data['billing_street']);
+             $data['shipping_street'] = nl2br($data['shipping_street']);
+        }
+       
 
         $hook = hooks()->apply_filters('before_invoice_updated', [
             'data'          => $data,
@@ -841,7 +846,10 @@ class Invoices_model extends App_Model
         }
 
         unset($data['removed_items']);
-
+        unset($data['created_user']);
+        unset($data['item_select_recipe']);
+        $data['updated_user'] = get_staff_user_id();
+        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'invoices', $data);
 
@@ -1571,5 +1579,160 @@ class Invoices_model extends App_Model
         }
 
         return $data;
+    }
+
+    public function event($data)
+    {
+        // print_r($data); exit();
+        $data['userid'] = get_staff_user_id();
+        $data['start']  = to_sql_date($data['start'], true);
+        if ($data['end'] == '') {
+            unset($data['end']);
+        } else {
+            $data['end'] = to_sql_date($data['end'], true);
+        }
+        if (isset($data['public'])) {
+            $data['public'] = 1;
+        } else {
+            $data['public'] = 0;
+        }
+        // $data['description'] = nl2br($data['description']);
+        if (isset($data['eventid'])) {
+            unset($data['userid']);
+            $this->db->where('eventid', $data['eventid']);
+            $event = $this->db->get(db_prefix() . 'events')->row();
+            if (!$event) {
+                return false;
+            }
+            if ($event->isstartnotified == 1) {
+                if ($data['start'] > $event->start) {
+                    $data['isstartnotified'] = 0;
+                }
+            }
+
+            $data = hooks()->apply_filters('event_update_data', $data, $data['eventid']);
+
+            $this->db->where('eventid', $data['eventid']);
+            $this->db->update(db_prefix() . 'events', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            }
+
+            return false;
+        }
+
+        $data = hooks()->apply_filters('event_create_data', $data);
+
+        $this->db->insert(db_prefix() . 'events', $data);
+        $insert_id = $this->db->insert_id();
+
+        if ($insert_id) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function update_rel_wo_items($data, $id)
+    {
+        if(isset($data['items']))
+            $items = $data['items'];
+        if(isset($data['newitems']))
+            $newitems = $data['newitems'];
+
+        if(isset($newitems))
+            foreach ($newitems as $val) {
+                unset($val['itemid']);
+                $val['rel_wo_id'] = $id;
+                // $val['rel_type'] = 'proposal';
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->insert(db_prefix() . 'rel_wo_items', $val);
+                $insert_id = $this->db->insert_id();
+            }
+        if(isset($items))
+            foreach ($items as $val) {
+                $itemid = $val['itemid'];
+                unset($val['itemid']);
+                $val['rel_wo_id'] = $id;
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->where('id',$itemid);
+                $check_edit = $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
+                if(!empty($check_edit))
+                {   
+                    $this->db->where('id',$itemid);
+                    $this->db->update(db_prefix() . 'rel_wo_items', $val);
+                } else {
+                    $this->db->insert(db_prefix() . 'rel_wo_items', $val);
+                    $insert_id = $this->db->insert_id();
+                }
+                
+            }
+
+        if(isset($data['removed_items'])){
+            $removed_items = $data['removed_items'];
+            foreach ($removed_items as $val) {
+                $this->db->where('id',$val);
+                $this->db->delete(db_prefix() . 'rel_wo_items');
+            }
+        }
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }  
+    }
+
+    public function get_rel_wo_items($id)
+    {
+        $this->db->where('rel_wo_id',$id);
+        return $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
+    }
+
+    public function update_plan_recipe($data, $id, $item_select_recipe = '')
+    {
+        // add
+        // print_r($item_select_recipe); exit();
+        foreach ($data as $temp) {
+            $recipe_id = $temp['item_id'];
+            unset($temp['item_id']);
+
+            $this->db->where('id',$recipe_id);
+            $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+            // if(empty($check_edit) && $check_edit[0]['rel_product_id']!=$item_select_recipe){
+            if(empty($check_edit)){
+                $temp['rel_wo_id'] = $id;
+                $temp['rel_product_id'] = $item_select_recipe;
+                $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
+            } else {
+               $this->db->where('id',$recipe_id); 
+               $this->db->update(db_prefix() . 'plan_recipe', $temp);
+            }
+
+        }
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }  
+    }
+
+    public function get_plan_recipes($id)
+    {
+        $this->db->where('rel_wo_id',$id);
+        return $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+    }
+
+    public function delete_recipe_items($removed_items)
+    {
+        foreach ($removed_items as $val) {
+            $this->db->where('id',$val);
+            $this->db->delete(db_prefix() . 'plan_recipe');
+        }
+    }
+
+    public function delete_wo_items($removed_items)
+    {
+        foreach ($removed_items as $val) {
+            $this->db->where('id',$val);
+            $this->db->delete(db_prefix() . 'rel_wo_items');
+        }
     }
 }

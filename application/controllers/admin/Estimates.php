@@ -87,7 +87,7 @@ class Estimates extends AdminController
                 }
                 $id = $this->estimates_model->add($estimate_data);
                 if ($id) {
-                    set_alert('success', _l('added_successfully', _l('estimate')));
+                    set_alert('success', _l('added_successfully', _l('sale_order')));
                     if ($this->set_estimate_pipeline_autoload($id)) {
                         redirect(admin_url('estimates/list_estimates/'));
                     } else {
@@ -98,9 +98,10 @@ class Estimates extends AdminController
                 if (!has_permission('estimates', '', 'edit')) {
                     access_denied('estimates');
                 }
+                // print_r($estimate_data); exit();
                 $success = $this->estimates_model->update($estimate_data, $id);
                 if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('estimate')));
+                    set_alert('success', _l('updated_successfully', _l('sale_order')));
                 }
                 if ($this->set_estimate_pipeline_autoload($id)) {
                     redirect(admin_url('estimates/list_estimates/'));
@@ -110,7 +111,7 @@ class Estimates extends AdminController
             }
         }
         if ($id == '') {
-            $title = _l('create_new_estimate');
+            $title = _l('create_new_sale_order');
         } else {
             $estimate = $this->estimates_model->get($id);
 
@@ -120,7 +121,7 @@ class Estimates extends AdminController
 
             $data['estimate'] = $estimate;
             $data['edit']     = true;
-            $title            = _l('edit', _l('estimate_lowercase'));
+            $title            = _l('edit', _l('sale_order'));
 
             $created_user = $this->staff_model->get($estimate->addedfrom);
             $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
@@ -482,23 +483,23 @@ class Estimates extends AdminController
             $this->load->model('invoices_model');
             $invoice_id = $this->invoices_model->add($data);
             if ($invoice_id) {
-                set_alert('success', _l('proposal_converted_to_invoice_success'));
-                // $this->db->where('id', $id);
-                // $this->db->update(db_prefix() . 'proposals', [
-                //     'invoice_id' => $invoice_id,
-                //     'status'     => 3,
-                // ]);
-                // log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
-                // hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
-                // redirect(admin_url('invoices/invoice/' . $invoice_id));
+                set_alert('success', _l('convert_to_work_order'));
+                $this->db->where('id', $id);
+                $this->db->update(db_prefix() . 'estimates', [
+                    'invoiceid' => $invoice_id,
+                    'status'     => 3,
+                ]);
+                log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
+                hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
+                redirect(admin_url('invoices/invoice/' . $invoice_id));
             } else {
-                set_alert('danger', _l('proposal_converted_to_invoice_fail'));
+                set_alert('danger', _l('convert_to_work_order_fail'));
             }
-            if ($this->set_proposal_pipeline_autoload($id)) {
-                redirect(admin_url('proposals'));
-            } else {
-                redirect(admin_url('proposals/list_proposals/' . $id));
-            }
+            // if ($this->set_proposal_pipeline_autoload($id)) {
+            //     redirect(admin_url('proposals'));
+            // } else {
+            //     redirect(admin_url('proposals/list_proposals/' . $id));
+            // }
         }
     }
 

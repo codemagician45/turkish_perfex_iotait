@@ -57,4 +57,38 @@
     $('#convert_to_invoice').on('shown.bs.modal', function(){
         $('#item_select').trigger('change')
     })
+
+    $("body").on('change', 'select[name="item_select"]', function () {
+        var itemid = $(this).selectpicker('val');
+        if (itemid != '') {
+            add_item_to_preview_quote(itemid);
+        }
+    });
+
+    $('#pack_capacity').change(function(){
+      var pack_capacity = $(this).val();
+      requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
+        $('input[name="volume_m3"]').val(response.volume);
+      });
+    })
+
+    // $('input[name="discount_percent"]').keyup(function(){
+    //   calculate_total_quote()
+    // })
+
+    // $('input[name="discount_total"]').keyup(function(){
+    //   calculate_total_quote()
+    // })
+
+    $('input[name="discount_percent"]').change(function(){
+      calculate_total_quote()
+    })
+
+    $('input[name="discount_total"]').change(function(){
+      calculate_total_quote()
+    })
+
+    $(document).ready(function(){
+      calculate_total_quote();
+    })
 </script>

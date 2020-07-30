@@ -548,6 +548,8 @@ class Estimates_model extends App_Model
 
         $data['number_format'] = get_option('estimate_number_format');
 
+        $data['number'] = $data['rel_quote_id'];
+
         $save_and_send = isset($data['save_and_send']);
 
         if (isset($data['custom_fields'])) {
@@ -558,11 +560,24 @@ class Estimates_model extends App_Model
         $data['hash'] = app_generate_hash();
         $tags         = isset($data['tags']) ? $data['tags'] : '';
 
+        // $items = [];
+        // if (isset($data['newitems'])) {
+        //     $items = $data['newitems'];
+        //     unset($data['newitems']);
+        // }
+
         $items = [];
+        if (isset($data['items'])) {
+            $items = $data['items'];
+            unset($data['items']);
+        }
+
+        $newitems = [];
         if (isset($data['newitems'])) {
-            $items = $data['newitems'];
+            $newitems = $data['newitems'];
             unset($data['newitems']);
         }
+
 
         $data = $this->map_shipping_columns($data);
         if(isset($data['billing_street']))
@@ -584,13 +599,44 @@ class Estimates_model extends App_Model
 
         $data  = $hook['data'];
         $items = $hook['items'];
-        
-        $data['created_user'] = get_staff_user_id();
-        
+        unset($data['created_user']);
+        $rel_product_id = $data['rel_product_id'];
+        unset($data['rel_product_id']);
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'estimates', $data);
         $insert_id = $this->db->insert_id();
 
         if ($insert_id) {
+
+            if(isset($newitems))
+                foreach ($newitems as $val) {
+                    unset($val['itemid']);
+                    $val['rel_product_id'] = $rel_product_id;
+                    $val['rel_id'] = $data['rel_quote_id'];
+                    $val['rel_type'] = 'proposal';
+                    if(isset($val['approval_need']))
+                        $val['approval_need'] = 1;
+                    $this->db->insert(db_prefix() . 'itemable', $val);
+                    $insert_id = $this->db->insert_id();
+                }
+            if(isset($items))
+                foreach ($items as $val) {
+                    $id = $val['itemid'];
+                    unset($val['itemid']);
+                    if(isset($val['approval_need']))
+                        $val['approval_need'] = 1;
+                    $this->db->where('id',$id);
+                    $this->db->update(db_prefix() . 'itemable', $val);
+                }
+
+            if(isset($data['removed_items'])){
+                $removed_items = $data['removed_items'];
+                foreach ($removed_items as $val) {
+                    $this->db->where('id',$val);
+                    $this->db->delete(db_prefix() . 'itemable');
+                }
+            }    
+
             // Update next estimate number in settings
             $this->db->where('name', 'next_estimate_number');
             $this->db->set('value', 'value+1', false);
@@ -602,13 +648,13 @@ class Estimates_model extends App_Model
 
             handle_tags_save($tags, $insert_id, 'estimate');
 
-            foreach ($items as $key => $item) {
-                if ($itemid = add_new_sales_item_post($item, $insert_id, 'estimate')) {
-                    _maybe_insert_post_item_tax($itemid, $item, $insert_id, 'estimate');
-                }
-            }
+            // foreach ($items as $key => $item) {
+            //     if ($itemid = add_new_sales_item_post($item, $insert_id, 'estimate')) {
+            //         _maybe_insert_post_item_tax($itemid, $item, $insert_id, 'estimate');
+            //     }
+            // }
 
-            update_sales_total_tax_column($insert_id, 'estimate', db_prefix() . 'estimates');
+            // update_sales_total_tax_column($insert_id, 'estimate', db_prefix() . 'estimates');
             $this->log_estimate_activity($insert_id, 'estimate_activity_created');
 
             hooks()->do_action('after_estimate_added', $insert_id);
@@ -644,8 +690,8 @@ class Estimates_model extends App_Model
     public function update($data, $id)
     {
         $affectedRows = 0;
-
-        $data['number'] = trim($data['number']);
+        if(isset($data['number']))
+            $data['number'] = trim($data['number']);
 
         $original_estimate = $this->get($id);
 
@@ -682,12 +728,18 @@ class Estimates_model extends App_Model
                 $affectedRows++;
             }
         }
-
-        $data['billing_street'] = trim($data['billing_street']);
-        $data['billing_street'] = nl2br($data['billing_street']);
-
-        $data['shipping_street'] = trim($data['shipping_street']);
-        $data['shipping_street'] = nl2br($data['shipping_street']);
+        if(isset($data['billing_street']))
+        {
+            $data['billing_street'] = trim($data['billing_street']);
+            $data['billing_street'] = nl2br($data['billing_street']);
+        }
+        
+        if(isset($data['shipping_street']))
+        {
+            $data['shipping_street'] = trim($data['shipping_street']);
+            $data['shipping_street'] = nl2br($data['shipping_street']);
+        }
+        
 
         $data = $this->map_shipping_columns($data);
 
@@ -716,8 +768,20 @@ class Estimates_model extends App_Model
 
         unset($data['removed_items']);
 
-        $data['created_user'] = get_staff_user_id();
-        
+        // $data['created_user'] = get_staff_user_id();
+        unset($data['created_user']);
+        unset($data['item_select']);
+        unset($data['product_name']);
+        unset($data['pack_capacity']);
+        unset($data['qty']);
+        unset($data['unit']);
+        unset($data['original_price']);
+        unset($data['sale_price']);
+        unset($data['volume_m3']);
+        unset($data['notes']);
+        $rel_product_id = $data['rel_product_id'];
+        // unset($data['rel_product_id']);
+        print_r($data);exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'estimates', $data);
 
@@ -742,93 +806,121 @@ class Estimates_model extends App_Model
             $affectedRows++;
         }
 
-        foreach ($items as $key => $item) {
-            $original_item = $this->get_estimate_item($item['itemid']);
-
-            if (update_sales_item_post($item['itemid'], $item, 'item_order')) {
-                $affectedRows++;
+        if(isset($newitems))
+            foreach ($newitems as $val) {
+                unset($val['itemid']);
+                $val['rel_product_id'] = $rel_product_id;
+                $val['rel_id'] = $data['rel_quote_id'];
+                $val['rel_type'] = 'proposal';
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->insert(db_prefix() . 'itemable', $val);
+                $insert_id = $this->db->insert_id();
+            }
+        if(isset($items))
+            foreach ($items as $val) {
+                $id = $val['itemid'];
+                unset($val['itemid']);
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->where('id',$id);
+                $this->db->update(db_prefix() . 'itemable', $val);
             }
 
-            if (update_sales_item_post($item['itemid'], $item, 'unit')) {
-                $affectedRows++;
+        if(isset($data['removed_items'])){
+            $removed_items = $data['removed_items'];
+            foreach ($removed_items as $val) {
+                $this->db->where('id',$val);
+                $this->db->delete(db_prefix() . 'itemable');
             }
+        } 
+        // foreach ($items as $key => $item) {
+        //     $original_item = $this->get_estimate_item($item['itemid']);
 
-            if (update_sales_item_post($item['itemid'], $item, 'rate')) {
-                $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_rate', false, serialize([
-                        $original_item->rate,
-                        $item['rate'],
-                    ]));
-                $affectedRows++;
-            }
+        //     if (update_sales_item_post($item['itemid'], $item, 'item_order')) {
+        //         $affectedRows++;
+        //     }
 
-            if (update_sales_item_post($item['itemid'], $item, 'qty')) {
-                $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_qty_item', false, serialize([
-                        $item['description'],
-                        $original_item->qty,
-                        $item['qty'],
-                    ]));
-                $affectedRows++;
-            }
+        //     if (update_sales_item_post($item['itemid'], $item, 'unit')) {
+        //         $affectedRows++;
+        //     }
 
-            if (update_sales_item_post($item['itemid'], $item, 'description')) {
-                $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_short_description', false, serialize([
-                        $original_item->description,
-                        $item['description'],
-                    ]));
-                $affectedRows++;
-            }
+        //     if (update_sales_item_post($item['itemid'], $item, 'rate')) {
+        //         $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_rate', false, serialize([
+        //                 $original_item->rate,
+        //                 $item['rate'],
+        //             ]));
+        //         $affectedRows++;
+        //     }
 
-            if (update_sales_item_post($item['itemid'], $item, 'long_description')) {
-                $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_long_description', false, serialize([
-                        $original_item->long_description,
-                        $item['long_description'],
-                    ]));
-                $affectedRows++;
-            }
+        //     if (update_sales_item_post($item['itemid'], $item, 'qty')) {
+        //         $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_qty_item', false, serialize([
+        //                 $item['description'],
+        //                 $original_item->qty,
+        //                 $item['qty'],
+        //             ]));
+        //         $affectedRows++;
+        //     }
 
-            if (isset($item['custom_fields'])) {
-                if (handle_custom_fields_post($item['itemid'], $item['custom_fields'])) {
-                    $affectedRows++;
-                }
-            }
+        //     if (update_sales_item_post($item['itemid'], $item, 'description')) {
+        //         $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_short_description', false, serialize([
+        //                 $original_item->description,
+        //                 $item['description'],
+        //             ]));
+        //         $affectedRows++;
+        //     }
 
-            if (!isset($item['taxname']) || (isset($item['taxname']) && count($item['taxname']) == 0)) {
-                if (delete_taxes_from_item($item['itemid'], 'estimate')) {
-                    $affectedRows++;
-                }
-            } else {
-                $item_taxes        = get_estimate_item_taxes($item['itemid']);
-                $_item_taxes_names = [];
-                foreach ($item_taxes as $_item_tax) {
-                    array_push($_item_taxes_names, $_item_tax['taxname']);
-                }
+        //     if (update_sales_item_post($item['itemid'], $item, 'long_description')) {
+        //         $this->log_estimate_activity($id, 'invoice_estimate_activity_updated_item_long_description', false, serialize([
+        //                 $original_item->long_description,
+        //                 $item['long_description'],
+        //             ]));
+        //         $affectedRows++;
+        //     }
 
-                $i = 0;
-                foreach ($_item_taxes_names as $_item_tax) {
-                    if (!in_array($_item_tax, $item['taxname'])) {
-                        $this->db->where('id', $item_taxes[$i]['id'])
-                            ->delete(db_prefix() . 'item_tax');
-                        if ($this->db->affected_rows() > 0) {
-                            $affectedRows++;
-                        }
-                    }
-                    $i++;
-                }
-                if (_maybe_insert_post_item_tax($item['itemid'], $item, $id, 'estimate')) {
-                    $affectedRows++;
-                }
-            }
-        }
+        //     if (isset($item['custom_fields'])) {
+        //         if (handle_custom_fields_post($item['itemid'], $item['custom_fields'])) {
+        //             $affectedRows++;
+        //         }
+        //     }
 
-        foreach ($newitems as $key => $item) {
-            if ($new_item_added = add_new_sales_item_post($item, $id, 'estimate')) {
-                _maybe_insert_post_item_tax($new_item_added, $item, $id, 'estimate');
-                $this->log_estimate_activity($id, 'invoice_estimate_activity_added_item', false, serialize([
-                    $item['description'],
-                ]));
-                $affectedRows++;
-            }
-        }
+        //     if (!isset($item['taxname']) || (isset($item['taxname']) && count($item['taxname']) == 0)) {
+        //         if (delete_taxes_from_item($item['itemid'], 'estimate')) {
+        //             $affectedRows++;
+        //         }
+        //     } else {
+        //         $item_taxes        = get_estimate_item_taxes($item['itemid']);
+        //         $_item_taxes_names = [];
+        //         foreach ($item_taxes as $_item_tax) {
+        //             array_push($_item_taxes_names, $_item_tax['taxname']);
+        //         }
+
+        //         $i = 0;
+        //         foreach ($_item_taxes_names as $_item_tax) {
+        //             if (!in_array($_item_tax, $item['taxname'])) {
+        //                 $this->db->where('id', $item_taxes[$i]['id'])
+        //                     ->delete(db_prefix() . 'item_tax');
+        //                 if ($this->db->affected_rows() > 0) {
+        //                     $affectedRows++;
+        //                 }
+        //             }
+        //             $i++;
+        //         }
+        //         if (_maybe_insert_post_item_tax($item['itemid'], $item, $id, 'estimate')) {
+        //             $affectedRows++;
+        //         }
+        //     }
+        // }
+
+        // foreach ($newitems as $key => $item) {
+        //     if ($new_item_added = add_new_sales_item_post($item, $id, 'estimate')) {
+        //         _maybe_insert_post_item_tax($new_item_added, $item, $id, 'estimate');
+        //         $this->log_estimate_activity($id, 'invoice_estimate_activity_added_item', false, serialize([
+        //             $item['description'],
+        //         ]));
+        //         $affectedRows++;
+        //     }
+        // }
 
         if ($affectedRows > 0) {
             update_sales_total_tax_column($id, 'estimate', db_prefix() . 'estimates');

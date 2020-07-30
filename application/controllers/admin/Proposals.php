@@ -132,37 +132,38 @@ class Proposals extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
-            // print_r($proposal_data);exit();
             if ($id == '') {
                 if (!has_permission('proposals', '', 'create')) {
                     access_denied('proposals');
                 }
                 $id = $this->proposals_model->add($proposal_data);
                 if ($id) {
-                    set_alert('success', _l('added_successfully', _l('proposal')));
-                    if ($this->set_proposal_pipeline_autoload($id)) {
+                    set_alert('success', _l('added_successfully', _l('quotation')));
+                    // if ($this->set_proposal_pipeline_autoload($id)) {
                         redirect(admin_url('proposals'));
-                    } else {
-                        redirect(admin_url('proposals/list_proposals/' . $id));
-                    }
+                    // } else {
+                        // redirect(admin_url('proposals/list_proposals/' . $id));
+                    // }
                 }
             } else {
                 if (!has_permission('proposals', '', 'edit')) {
                     access_denied('proposals');
                 }
+                
                 $success = $this->proposals_model->update($proposal_data, $id);
                 if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('proposal')));
+                    set_alert('success', _l('updated_successfully', _l('quotation')));
                 }
-                if ($this->set_proposal_pipeline_autoload($id)) {
-                    redirect(admin_url('proposals'));
-                } else {
-                    redirect(admin_url('proposals/list_proposals/' . $id));
-                }
+                // if ($this->set_proposal_pipeline_autoload($id)) {
+                //     redirect(admin_url('proposals'));
+                // } else {
+                //     redirect(admin_url('proposals/list_proposals/' . $id));
+                // }
+                redirect(admin_url('proposals'));
             }
         }
         if ($id == '') {
-            $title = _l('add_new', _l('proposal_lowercase'));
+            $title = _l('add_new', _l('quotation'));
         } else {
             $data['proposal'] = $this->proposals_model->get($id);
 
@@ -173,7 +174,7 @@ class Proposals extends AdminController
             $data['estimate']    = $data['proposal'];
             // $data['quote_items'] = $this->proposals_model->get_quote_items($id);
             $data['is_proposal'] = true;
-            $title               = _l('edit', _l('proposal_lowercase'));
+            $title               = _l('edit', _l('quotation'));
         }
 
         $this->load->model('sale_model');
@@ -360,7 +361,7 @@ class Proposals extends AdminController
             $this->load->model('estimates_model');
             unset($data['item_select']);
             unset($data['product_name']);
-            unset($data['rel_product_id']);
+            
             unset($data['pack_capacity']);
             unset($data['qty']);
             unset($data['unit']);
@@ -368,12 +369,13 @@ class Proposals extends AdminController
             unset($data['sale_price']);
             unset($data['volume_m3']);
             unset($data['notes']);
-            unset($data['items']);
-            unset($data['sum_volume_m3']);
+            // unset($data['items']);
+            // unset($data['sum_volume_m3']);
             $data['rel_quote_id'] = $id;
             $estimate_id = $this->estimates_model->add($data);
+            // echo $estimate_id; exit();
             if ($estimate_id) {
-                set_alert('success', _l('proposal_converted_to_estimate_success'));
+                set_alert('success', _l('convert_to_sale_order'));
                 $this->db->where('id', $id);
                 $this->db->update(db_prefix() . 'proposals', [
                     'estimate_id' => $estimate_id,

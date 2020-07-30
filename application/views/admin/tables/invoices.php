@@ -6,15 +6,18 @@ $project_id = $this->ci->input->post('project_id');
 
 $aColumns = [
     'number',
-    'total',
-    'total_tax',
+    // 'total',
+    db_prefix() . 'work_order_phases.phase',
+    'sum_volume_m3',
+    // 'total_tax',
     'YEAR(date) as year',
-    'date',
+    db_prefix() . 'invoices.datecreated',
     get_sql_select_client_company(),
-    db_prefix() . 'projects.name as project_name',
+    // db_prefix() . 'projects.name as project_name',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'invoices.id and rel_type="invoice" ORDER by tag_order ASC) as tags',
-    'duedate',
-    db_prefix() . 'invoices.status',
+    // 'duedate',
+    // db_prefix() . 'invoices.status',
+    db_prefix() . 'invoices.addedfrom',
     ];
 
 $sIndexColumn = 'id';
@@ -24,7 +27,9 @@ $join = [
     'LEFT JOIN ' . db_prefix() . 'clients ON ' . db_prefix() . 'clients.userid = ' . db_prefix() . 'invoices.clientid',
     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'invoices.currency',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'invoices.project_id',
+    'LEFT JOIN ' . db_prefix() . 'work_order_phases ON ' . db_prefix() . 'work_order_phases.id = ' . db_prefix() . 'invoices.wo_phase_id',
 ];
+
 
 $custom_fields = get_table_custom_fields('invoice');
 
@@ -118,6 +123,7 @@ if (count($custom_fields) > 4) {
 
 $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     db_prefix() . 'invoices.id',
+    db_prefix() . 'invoices.updated_user',
     db_prefix() . 'invoices.clientid',
     db_prefix(). 'currencies.name as currency_name',
     'project_id',
@@ -127,7 +133,6 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     ]);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-
 foreach ($rResult as $aRow) {
     $row = [];
 
@@ -154,13 +159,8 @@ foreach ($rResult as $aRow) {
 
     $row[] = $numberOutput;
 
-    $row[] = app_format_money($aRow['total'], $aRow['currency_name']);
-
-    $row[] = app_format_money($aRow['total_tax'], $aRow['currency_name']);
-
-    $row[] = $aRow['year'];
-
-    $row[] = _d($aRow['date']);
+    // $row[] = app_format_money($aRow['total'], $aRow['currency_name']);
+    $row[] = $aRow[db_prefix() . 'work_order_phases.phase'];
 
     if (empty($aRow['deleted_customer_name'])) {
         $row[] = '<a href="' . admin_url('clients/client/' . $aRow['clientid']) . '">' . $aRow['company'] . '</a>';
@@ -168,19 +168,37 @@ foreach ($rResult as $aRow) {
         $row[] = $aRow['deleted_customer_name'];
     }
 
-    $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
-    ;
-
     $row[] = render_tags($aRow['tags']);
 
-    $row[] = _d($aRow['duedate']);
+    // $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
+    $row[] = $aRow['sum_volume_m3'];
 
-    $row[] = format_invoice_status($aRow[db_prefix() . 'invoices.status']);
+    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow[db_prefix() . 'invoices.addedfrom'])->row();
+    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow[db_prefix() . 'invoices.addedfrom']) . '">' . $c_user_name . '</a>';
 
-    // Custom fields add values
-    foreach ($customFieldsColumns as $customFieldColumn) {
-        $row[] = (strpos($customFieldColumn, 'date_picker_') !== false ? _d($aRow[$customFieldColumn]) : $aRow[$customFieldColumn]);
+    $row[] = $aRow[db_prefix() . 'invoices.datecreated'];
+
+    if(!empty($aRow['updated_user']))
+    {
+        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
+        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
     }
+    else
+        $row[] = '';
+
+
+    
+
+    // $row[] = _d($aRow['duedate']);
+
+    // $row[] = format_invoice_status($aRow[db_prefix() . 'invoices.status']);
+
+    // // Custom fields add values
+    // foreach ($customFieldsColumns as $customFieldColumn) {
+    //     $row[] = (strpos($customFieldColumn, 'date_picker_') !== false ? _d($aRow[$customFieldColumn]) : $aRow[$customFieldColumn]);
+    // }
 
     $row['DT_RowClass'] = 'has-row-options';
 

@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="col-md-12">
    <div class="panel_s mbot10">
-      <div class="panel-body _buttons">
+      <!-- <div class="panel-body _buttons">
          <?php $this->load->view('admin/invoices/invoices_top_stats'); ?>
          <?php if(has_permission('invoices','','create')){ ?>
             <a href="<?php echo admin_url('invoices/invoice'); ?>" class="btn btn-info pull-left new new-invoice-list mright5"><?php echo _l('create_new_invoice'); ?></a>
@@ -86,7 +86,7 @@
             <a href="#" class="btn btn-default btn-with-tooltip toggle-small-view hidden-xs" onclick="toggle_small_view('.table-invoices','#invoice'); return false;" data-toggle="tooltip" title="<?php echo _l('invoices_toggle_table_tooltip'); ?>"><i class="fa fa-angle-double-left"></i></a>
             <a href="#" class="btn btn-default btn-with-tooltip invoices-total" onclick="slideToggle('#stats-top'); init_invoices_total(true); return false;" data-toggle="tooltip" title="<?php echo _l('view_stats_tooltip'); ?>"><i class="fa fa-bar-chart"></i></a>
          </div>
-      </div>
+      </div> -->
    </div>
    <div class="row">
       <div class="col-md-12" id="small-table">

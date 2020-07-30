@@ -339,7 +339,7 @@ class Proposals_model extends App_Model
             unset($data['rel_product_id']);
         }
         $data['updated_user'] = get_staff_user_id();
-        print_r($data); exit();
+        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'proposals', $data);
 

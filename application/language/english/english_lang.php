@@ -3823,16 +3823,24 @@ $lang['export_to'] = 'Export To';
 
 /* Sales */
 $lang['quotation/offer'] = 'Quotation/Offer';
+$lang['quotation'] = 'Quotation';
 $lang['new_quote'] = 'New Quote';
-$lang['nothing_selected'] = 'New Quote';
+$lang['nothing_selected'] = 'Nothing Selected';
 $lang['original_price'] = 'Original Price';
 $lang['sale_price'] = 'Sale Price';
 
 $lang['sale_order'] = 'Sale Order';
+$lang['sale_order_dt_table_heading_number'] = 'Sale Order';
 $lang['quote'] = 'Quote';
 $lang['sum_volume_m3'] = 'Sum of Volume_m3';
 $lang['discount'] = 'Discount';
 $lang['updated_by'] = 'Updated By';
+$lang['general_notes'] = 'General Notes';
+$lang['shipping_type'] = 'Shipping Type';
+$lang['req_shipping_date'] = 'Shipping Date';
+$lang['total_price'] = 'Total Price';
+
+$lang['convert_to_sale_order'] = 'Convert to Sale Order';
 
 
 /*Planing*/
@@ -3840,6 +3848,14 @@ $lang['convert_to_work_order'] = 'Convert to Work Order';
 $lang['als_planing'] = 'Planing';
 $lang['pending_sale_order'] = 'Pending Sale Order';
 $lang['work_orders'] = 'Work Orders';
+$lang['rel_wo_items'] = 'Work Order Items';
+$lang['rel_plan_recipes'] = 'Plan Recipes';
+$lang['rel_plans'] = 'Rel Plans';
+$lang['set_plan'] = 'Set Plan';
+$lang['production_calculate'] = 'Production Calculate';
+$lang['machine_in_mould_suitablity'] = 'Machine In Suitability';
+$lang['wo_heading_number'] = 'Work Order';
+$lang['wo_phase_id'] = 'Work Order Phase';
 
 /*Settings*/
 $lang['accounts'] = 'Accounts';

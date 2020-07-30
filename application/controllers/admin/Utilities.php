@@ -101,10 +101,31 @@ class Utilities extends AdminController
     public function view_event($id)
     {
         $data['event'] = $this->utilities_model->get_event($id);
+        /*Planning part*/
+        $this->load->model('manufacturing_settings_model');
+        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        $machines_id_array = [];
+        foreach ($machines_in_suitability as $key => $value) {
+            array_push($machines_id_array, $value['machine_id']);
+        }
+        $machines_id_array_unique = array_unique($machines_id_array);
+
+        $machines = [];
+
+        foreach ($machines_id_array_unique as $key => $id) {
+            $machine = $this->manufacturing_settings_model->get_machine($id);
+            array_push($machines, $machine);
+        }
+
+        $data['machines'] = $machines;
+
+        $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
+
         if ($data['event']->public == 1 && !is_staff_member()
             || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
         } else {
-            $this->load->view('admin/utilities/event', $data);
+            // $this->load->view('admin/utilities/event', $data);
+            $this->load->view('admin/invoices/rel_plans/event', $data);
         }
     }
 

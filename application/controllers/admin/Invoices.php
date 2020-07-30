@@ -300,8 +300,9 @@ class Invoices extends AdminController
                 }
                 $id = $this->invoices_model->add($invoice_data);
                 if ($id) {
-                    set_alert('success', _l('added_successfully', _l('invoice')));
-                    $redUrl = admin_url('invoices/list_invoices/' . $id);
+                    set_alert('success', _l('added_successfully', _l('work_order')));
+                    // $redUrl = admin_url('invoices/list_invoices/' . $id);
+                    $redUrl = admin_url('invoices/invoice/' . $id);
 
                     if (isset($invoice_data['save_and_record_payment'])) {
                         $this->session->set_userdata('record_payment', true);
@@ -315,15 +316,74 @@ class Invoices extends AdminController
                 if (!has_permission('invoices', '', 'edit')) {
                     access_denied('invoices');
                 }
-                $success = $this->invoices_model->update($invoice_data, $id);
-                if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('invoice')));
+
+                // print_r($invoice_data); exit();
+                unset($invoice_data['item_select']);
+                unset($invoice_data['product_name']);
+                unset($invoice_data['rel_product_id']);
+                unset($invoice_data['pack_capacity']);
+                unset($invoice_data['qty']);
+                unset($invoice_data['unit']);
+                unset($invoice_data['volume_m3']);
+                unset($invoice_data['notes']);
+
+                if(isset($invoice_data['wo_items'])){
+                    $wo_items = $invoice_data['wo_items'];
+                    unset($invoice_data['wo_items']);
                 }
-                redirect(admin_url('invoices/list_invoices/' . $id));
+
+                if(isset($invoice_data['wo_removed-items'])){
+                    $wo_removed = $invoice_data['wo_removed-items'];
+                    unset($invoice_data['wo_removed-items']);
+                }
+
+                if(isset($invoice_data['plan_items'])){
+                    $plan_items = $invoice_data['plan_items'];
+                    unset($invoice_data['plan_items']);
+                }
+                if(isset($invoice_data['recipe_removed-items'])){
+                    $recipe_removed = $invoice_data['recipe_removed-items'];
+                    unset($invoice_data['recipe_removed-items']);
+                }
+                $success = $this->invoices_model->update($invoice_data, $id);
+
+                $wo_item_sucess = $this->invoices_model->update_rel_wo_items($wo_items,$id);
+
+                if($wo_item_sucess)
+                {
+                    $this->db->query('UPDATE tblinvoices SET wo_item_edited = 1 WHERE id='.$id);
+                }
+                
+                $item_select_recipe = $invoice_data['item_select_recipe'];
+                $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id, $item_select_recipe);
+
+
+                if($plan_recipe_success)
+                {
+                    $this->db->query('UPDATE tblinvoices SET plan_recipe_edited = 1 WHERE id='.$id);
+                }
+
+                if(isset($recipe_removed))
+                    $this->invoices_model->delete_recipe_items($recipe_removed);
+
+                if(isset($wo_removed))
+                    $this->invoices_model->delete_wo_items($wo_removed);
+
+
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('work_order')));
+                } else if ($wo_item_sucess) {
+                    set_alert('success', _l('updated_successfully', _l('work_order')));
+                } else if($plan_recipe_success){
+                    set_alert('success', _l('updated_successfully', _l('work_order')));
+                }
+
+                // redirect(admin_url('invoices/list_invoices/' . $id));
+                redirect(admin_url('invoices/invoice/' . $id));
             }
         }
         if ($id == '') {
-            $title                  = _l('create_new_invoice');
+            $title                  = _l('create_new_work_order');
             $data['billable_tasks'] = [];
         } else {
             $invoice = $this->invoices_model->get($id);
@@ -346,7 +406,11 @@ class Invoices extends AdminController
                $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
             }
 
-            $title = _l('edit', _l('invoice_lowercase')) . ' - ' . format_invoice_number($invoice->id);
+            $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
+
+            $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
+
+            $title = _l('edit', _l('work_order')) . ' - ' . format_invoice_number($invoice->id);
         }
 
         if ($this->input->get('customer_id')) {
@@ -401,7 +465,70 @@ class Invoices extends AdminController
         $data['staff']     = $this->staff_model->get('', ['active' => 1]);
         $data['title']     = $title;
         $data['bodyclass'] = 'invoice';
+
+        
+        $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
+        $data['google_calendar_api']  = get_option('google_calendar_api_key');
+        $data['title']                = _l('calendar');
+        add_calendar_assets();
+
+        $this->load->model('manufacturing_settings_model');
+        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        $machines_id_array = [];
+        foreach ($machines_in_suitability as $key => $value) {
+            array_push($machines_id_array, $value['machine_id']);
+        }
+        $machines_id_array_unique = array_unique($machines_id_array);
+
+        $machines = [];
+
+        foreach ($machines_id_array_unique as $key => $id) {
+            $machine = $this->manufacturing_settings_model->get_machine($id);
+            array_push($machines, $machine);
+        }
+
+        $data['machines'] = $machines;
+
+        $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
+
         $this->load->view('admin/invoices/invoice', $data);
+    }
+
+    public function calendar()
+    {
+        if ($this->input->post() && $this->input->is_ajax_request()) {
+            $data    = $this->input->post();
+            $success = $this->invoices_model->event($data);
+            $message = '';
+            if ($success) {
+                if (isset($data['eventid'])) {
+                    $message = _l('event_updated');
+                } else {
+                    $message = _l('utility_calendar_event_added_successfully');
+                }
+            }
+            echo json_encode([
+                'success' => $success,
+                'message' => $message,
+            ]);
+            die();
+        }
+        $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
+        $data['google_calendar_api']  = get_option('google_calendar_api_key');
+        $data['title']                = _l('calendar');
+        add_calendar_assets();
+        $this->load->view('admin/invoices/invoice', $data);
+    }
+
+    public function view_event_plan($id)
+    {
+        $data['event'] = $this->utilities_model->get_event($id);
+        if ($data['event']->public == 1 && !is_staff_member()
+            || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
+        } else {
+            // $this->load->view('admin/utilities/event', $data);
+            $this->load->view('admin/invoices/rel_recipes/event', $data);
+        }
     }
 
     /* Get all invoice data used when user click on invoiec number in a datatable left side*/

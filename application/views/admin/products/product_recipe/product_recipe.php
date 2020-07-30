@@ -142,50 +142,6 @@
         installation_cost_calc();
     })
 
-
-    function material_cost_calc () {
-        var usedQty = $('input[name = "used_qty"]').val();
-        var wasteRate = $('input[name = "rate_of_waste"]').val();
-        
-        if(productData)
-            materialCost = productData.price * usedQty * productData.rate * wasteRate; 
-        $('input[name="material_cost"]').val(materialCost);
-    }
-
-    function production_cost_cal(){
-        if(defaultMachineData)
-        {
-            var powerUsage = defaultMachineData.power_usage;
-            var cycleTime = $('input[name = "cycle_time"]').val();
-            var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
-            var profitExp = defaultMachineData.profit_expectation;
-
-            productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
-            $('input[name=production_cost]').val(productionCost);
-        }
-    }
-
-    function expected_profit_calc(){
-        if(defaultMachineData)
-        {
-            var cycleTime = $('input[name = "cycle_time"]').val();
-            var profitExp = defaultMachineData.profit_expectation;
-
-            expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity))*workHour).toFixed(2);
-            $('input[name=expected_profit]').val(expectedProfitCost);
-        }
-        
-    }
-
-    function installation_cost_calc()
-    {
-        var installConsumeTime = $('input[name="consumed_time"]').val();
-        var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
-        installationCost = installConsumeTime*opCostPerSec;
-        $('input[name="ins_cost"]').val(installationCost);
-    }
-
-
     function add_item_to_table_product_recipe(data, itemid, merge_invoice, bill_expense) {
 
         data = typeof (data) == 'undefined' || data == 'undefined' ? get_item_preview_product_recipe() : data;
@@ -202,6 +158,8 @@
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
             data.option = option;
+
+            var amount = data.material_cost + data.production_cost + data.expected_profit;
             var table_row = '';
             var item_key = $("body").find('tbody .item').length + 1;
 
@@ -212,18 +170,18 @@
             var checks = $('input[name="pre_produced"]');
             if(checks.prop("checked") == true) {
 
-                table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][pre_produced]"  value="1" ><label for="pre_produced"></label></div></td>';
+                table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][pre_produced]"  data-pre-check value="1" ><label for="pre_produced"></label></div></td>';
             }
             else if(checks.prop("checked") == false) {
 
-                table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][pre_produced]"  value="0" ><label for="pre_produced"></label></div></td>';
+                table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][pre_produced]"  data-pre-check value="0" ><label for="pre_produced"></label></div></td>';
             }
 
-            table_row += '<td><input type="number" name="newitems[' + item_key + '][used_qty]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
+            table_row += '<td><input type="number" name="newitems[' + item_key + '][used_qty]" data-qty class="form-control" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
 
             if(checks.prop("checked") == true) {
 
-                table_row += '<td><input type="number" name="newitems[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value=""></td>';
+                table_row += '<td><input type="number" name="newitems[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)" value=""></td>';
                 table_row += '<td><input type="text" name="newitems[' + item_key + '][default_machine]" readonly class="form-control" value=""></td>';
                 table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
                 table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control" value=""></td>';
@@ -233,35 +191,28 @@
 
                 table_row += '<td><input type="number" name="newitems[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value="' + data.rate_of_waste + '"></td>';
                 table_row += '<td><input type="text" name="newitems[' + item_key + '][default_machine]" readonly class="form-control" value="' + data.default_machine + '"></td>';
-                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.option+'</select></div></td>';
+                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);">'+data.option+'</select></div></td>';
                 table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control" value="' + data.mould_cavity + '"></td>';
-                table_row += '<td><input type="number" name="newitems[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"></td>';
+                table_row += '<td><input type="number" name="newitems[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);" onkeyup="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);"></td>';
             }
 
-            table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][material_cost]" class="form-control" value="' + data.material_cost + '"></td>';
+            table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][material_cost]" class="form-control" data-material-cost value="' + data.material_cost + '"></td>';
 
             if(checks.prop("checked") == true) {
 
-                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][production_cost]" class="form-control" value=""></td>';
+                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][production_cost]" class="form-control" data-production-cost value=""></td>';
 
-                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][expected_profit]" class="form-control" value=""></td>';
+                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][expected_profit]" class="form-control" data-expected-profit value=""></td>';
             }
             else if(checks.prop("checked") == false) {
 
-                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][production_cost]" class="form-control" value="' + data.production_cost + '"></td>';
+                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][production_cost]" class="form-control" data-production-cost value="' + data.production_cost + '"></td>';
 
-                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][expected_profit]" class="form-control" value="' + data.expected_profit + '"></td>';
+                table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][expected_profit]" class="form-control" data-expected-profit value="' + data.expected_profit + '"></td>';
             }
 
-            if(checks.prop("checked") == true) {
-                var subtotalVal = Number(data.used_qty) * Number(data.material_cost)
-                table_row += '<input type="hidden" name="newitems[' + item_key + '][subtotal]" class="subtotal" value="'+ subtotalVal.toFixed(2) +'">';
-            }
-            else if(checks.prop("checked") == false) {
-                var subtotalVal = Number(data.material_cost) + Number(data.production_cost) + Number(data.expected_profit);
-                table_row += '<input type="hidden" name="newitems[' + item_key + '][subtotal]" class="subtotal" value="' + subtotalVal.toFixed(2) + '">';
-            }
 
+            table_row += '<td class="amount" align="right">' + format_money(amount, true) + '</td>';
 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
@@ -274,6 +225,11 @@
                 data: data,
                 row: table_row
             });
+
+            setTimeout(function() {
+                calculate_total_recipe();
+            }, 15);
+
             if ($('#item_select').hasClass('ajax-search') && $('#item_select').selectpicker('val') !== '') {
                 $('#item_select').prepend('<option></option>');
             }
@@ -289,22 +245,6 @@
             $('#item_select').selectpicker('val', '');
         });
         
-        var subtotal = 0;
-        var total = $('#total').text();
-        if(total == '') total = 0;
-
-        if(data.pre_produced)
-        {
-            subtotal = Number(data.used_qty) * Number(data.material_cost);
-
-        } else {
-            subtotal = Number(data.material_cost) + Number(data.production_cost) + Number(data.expected_profit);
-        }
-
-        total  = Number(total) +  subtotal;
-        // console.log('total',total)
-        $('#total').text(total.toFixed(2))
-        $('#total_value').val(total.toFixed(2));
     }
 
     function get_item_preview_product_recipe() {
@@ -350,35 +290,40 @@
         $(row).parents('tr').addClass('animated fadeOut', function() {
             setTimeout(function() {
                 $(row).parents('tr').remove();
-                var subtotal_elements = $('.subtotal');
-                var total_value = 0;
-                for(let i=0; i<subtotal_elements.length; i++)
-                {
-                    // console.log(subtotal_elements[i])
-                    // console.log(Number(subtotal_elements[i].value))
-                    total_value += Number(subtotal_elements[i].value);
-                }
-                // console.log('subtotal_elements',subtotal_elements)
-                // console.log(total_value)
-                $('#total').text(total_value.toFixed(2))
-                $('#total_value').val(total_value.toFixed(2));
-
+                calculate_total_recipe();
             }, 50);
         });
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
 
-    // function calculate_total(){
-    //     var subtotal_elements = $('.subtotal');
-    //     var total_value = 0;
-    //     for(let i=0; i<subtotal_elements.length; i++)
-    //     {
-    //         total_value += Number(subtotal_elements[i].value);
-    //     }
-    //     console.log('total_value',total_value)
-    //     $('#total').text(total_value.toFixed(2))
-    //     $('#total_value').val(total_value.toFixed(2));
-    // }
+    function calculate_total_recipe()
+    {
+        var used_qty, mat_cost = 0, pro_cost = 0, exp_profit = 0, _amount = 0, subtotal = 0, total = 0;
+        rows = $('.table.has-calculations tbody tr.item'),
+        $.each(rows, function() {
+            used_qty = $(this).find('[data-qty]').val();
+            mat_cost = $(this).find('[data-material-cost]').val();
+            pro_cost = $(this).find('[data-production-cost]').val();
+            exp_profit = $(this).find('[data-expected-profit]').val();
+            pre_produced = $(this).find('[data-pre-check]').prop('checked')
+
+            if(!pre_produced)
+                _amount = parseFloat(mat_cost) + parseFloat(pro_cost) + parseFloat(exp_profit);
+            else
+                _amount = parseFloat(used_qty) * parseFloat(mat_cost);
+            console.log(pre_produced,used_qty,mat_cost,pro_cost,exp_profit,_amount)
+            subtotal += _amount;
+            $(this).find('td.amount').html(format_money(_amount, true));
+            row = $(this);
+        });
+
+        total = (total + subtotal);
+        $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
+    }
+
+    $(document).ready(function(){
+        calculate_total_recipe()
+    })
 
     function material_cost_calc_for_added(row)
     {
@@ -389,25 +334,12 @@
 
         requestGetJSON('warehouses/get_item_by_id_with_currency/' + productIdAdded).done(function(response) {
             var materialCostAdded = response.price * usedQtyAdded * response.rate * wasteRateAdded;
-            $(row).parents('tr').children()[9].firstChild.value = materialCostAdded;
-            let currentProductionCost = $(row).parents('tr').children()[10].firstChild.value;
-            let currentExpectedProfit = $(row).parents('tr').children()[11].firstChild.value;
-            let subtotal = Number(materialCostAdded) + Number(currentProductionCost) + Number(currentExpectedProfit);
-            $(row).parents('tr').children()[12].value = subtotal.toFixed(2);
-
-            var subtotal_elements = $('.subtotal');
-            var total_value = 0;
-            for(let i=0; i<subtotal_elements.length; i++)
-            {
-                total_value += Number(subtotal_elements[i].value);
-            }
-            $('#total').text(total_value.toFixed(2))
-            $('#total_value').val(total_value.toFixed(2));
-
+            $(row).parents('tr').find('[data-material-cost]').val(materialCostAdded);
+            calculate_total_recipe()
         });
     }
 
-    function production_cost_calc_for_added (row){
+    function production_cost_calc_for_added(row){
         
         var sel = $(row).parents('tr').children()[6].getElementsByTagName('select')[0];
         var mouldIdAdded = sel.options[sel.selectedIndex].value;
@@ -422,23 +354,9 @@
                     var profitExp = defaultMachineData.profit_expectation;
 
                     productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
-                    $(row).parents('tr').children()[10].firstChild.value = productionCost;
 
-                    let currentMaterialCost = $(row).parents('tr').children()[9].firstChild.value;
-                    let currentExpectedProfit = $(row).parents('tr').children()[11].firstChild.value;
-                    let subtotal = Number(currentMaterialCost) + Number(productionCost) + Number(currentExpectedProfit);
-                    $(row).parents('tr').children()[12].value = subtotal.toFixed(2);
-
-                    var subtotal_elements = $('.subtotal');
-                    var total_value = 0;
-                    for(let i=0; i<subtotal_elements.length; i++)
-                    {
-                        total_value += Number(subtotal_elements[i].value);
-                    }
-
-                    $('#total').text(total_value.toFixed(2))
-                    $('#total_value').val(total_value.toFixed(2));
-
+                    $(row).parents('tr').find('[data-production-cost]').val(productionCost);
+                    calculate_total_recipe()
                 }
             }); 
 
@@ -456,40 +374,57 @@
                 {
                     var cycleTime = $(row).parents('tr').children()[8].firstChild.value;
                     var profitExp = defaultMachineData.profit_expectation;
-
                     expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity))*workHour).toFixed(2);
-                    $(row).parents('tr').children()[11].firstChild.value = expectedProfitCost;
-
-                    let currentMaterialCost = $(row).parents('tr').children()[9].firstChild.value;
-                    let currentProductionCost = $(row).parents('tr').children()[10].firstChild.value;
-                    let subtotal = Number(currentMaterialCost) + Number(currentProductionCost) + Number(expectedProfitCost);
-                    $(row).parents('tr').children()[12].value = subtotal.toFixed(2);
-
-                    var subtotal_elements = $('.subtotal');
-                    var total_value = 0;
-                    for(let i=0; i<subtotal_elements.length; i++)
-                    {
-                        total_value += Number(subtotal_elements[i].value);
-                    }
-
-                    $('#total').text(total_value.toFixed(2))
-                    $('#total_value').val(total_value.toFixed(2));
-
+                    $(row).parents('tr').find('[data-expected-profit]').val(expectedProfitCost);
+                    calculate_total_recipe()
                 }
             }); 
     }
 
-    $('.cycle_time').keyup(function(){
+    function material_cost_calc () {
+        var usedQty = $('input[name = "used_qty"]').val();
+        var wasteRate = $('input[name = "rate_of_waste"]').val();
+        
+        if(productData)
+            materialCost = productData.price * usedQty * productData.rate * wasteRate; 
+        $('input[name="material_cost"]').val(materialCost);
+        calculate_total_recipe()
+    }
 
-        production_cost_calc_for_added(this)
-        expected_profit_calc_for_added(this)
+    function production_cost_cal(){
+        if(defaultMachineData)
+        {
+            var powerUsage = defaultMachineData.power_usage;
+            var cycleTime = $('input[name = "cycle_time"]').val();
+            var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
+            var profitExp = defaultMachineData.profit_expectation;
 
-    });
+            productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
+            $('input[name=production_cost]').val(productionCost);
+            calculate_total_recipe()
+        }
+    }
 
-    $('.mouldid').change(function(){
-        production_cost_calc_for_added(this)
-        expected_profit_calc_for_added(this)
-    })
+    function expected_profit_calc(){
+        if(defaultMachineData)
+        {
+            var cycleTime = $('input[name = "cycle_time"]').val();
+            var profitExp = defaultMachineData.profit_expectation;
+
+            expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity))*workHour).toFixed(2);
+            $('input[name=expected_profit]').val(expectedProfitCost);
+            calculate_total_recipe()
+        }
+        
+    }
+
+    function installation_cost_calc()
+    {
+        var installConsumeTime = $('input[name="consumed_time"]').val();
+        var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
+        installationCost = installConsumeTime*opCostPerSec;
+        $('input[name="ins_cost"]').val(installationCost);
+    }
 
 
 </script>

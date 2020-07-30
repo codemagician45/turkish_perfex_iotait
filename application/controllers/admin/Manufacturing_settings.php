@@ -176,7 +176,7 @@ class Manufacturing_settings extends AdminController
     public function get_mould_suitability_id($id)
     {
         if ($this->input->is_ajax_request()) {
-            $mould_suitability_id = $this->manufacturing_settings_model->get_mould_suitability($id);
+            $mould_suitability_id = $this->manufacturing_settings_model->get_mould_suitability($id = '');
             echo json_encode($mould_suitability_id);
         }
     }

@@ -135,7 +135,7 @@
 
                  $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
                  
-                 $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+                 $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_quote_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
                  $table_row .= '</tr>';
                  echo $table_row;
                  $i++;
@@ -152,11 +152,6 @@
                <td><span class="bold"><?php echo _l('estimate_subtotal'); ?> :</span>
                </td>
                <td class="subtotal">
-               <!-- <td>
-                  <?php 
-                    if(isset($estimate)) echo $estimate->subtotal;
-                    else echo '';
-                ?>  -->
                </td>
             </tr>
             <tr id="discount_area">
@@ -220,18 +215,7 @@
                <td><span class="bold"><?php echo _l('estimate_total'); ?> :</span>
                </td>
                <td class="total">
-                <!-- <td>
-                  <?php 
-                    if(isset($estimate)) echo $estimate->total;
-                    else echo '';
-                ?>  -->
                </td>
-               <input type="hidden" name="subtotal">
-               <input type="hidden" name="sum_volume_m3">
-               <input type="hidden" name="discount_percent">
-               <input type="hidden" name="discount_total">
-               <input type="hidden" name="adjustment">
-               <input type="hidden" name="total">
             </tr>
          </tbody>
       </table>

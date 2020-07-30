@@ -205,7 +205,7 @@ class Manufacturing_settings_model extends App_Model
         return false;
     }
 
-    public function get_mould_suitability($id){
+    public function get_mould_suitability($id = ''){
         $this->db->from(db_prefix() . 'mould_suitability');
 
         if (is_numeric($id)) {
