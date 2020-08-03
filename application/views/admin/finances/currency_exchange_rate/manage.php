@@ -59,7 +59,7 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-currencies-exchange', window.location.href, [2], [2]);
+		initDataTable('.table-currencies-exchange', window.location.href, [3], [3]);
 
 		appValidateForm($('form'), {
 			name:{

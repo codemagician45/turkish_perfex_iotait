@@ -34,6 +34,6 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-packing_list', window.location.href, [2], [2]);
+		initDataTable('.table-packing_list', window.location.href);
 	});
 </script>

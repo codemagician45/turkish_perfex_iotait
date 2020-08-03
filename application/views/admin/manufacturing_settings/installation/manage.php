@@ -61,7 +61,7 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-installation-process', window.location.href, [1], [1]);
+		initDataTable('.table-installation-process', window.location.href, [3], [3]);
 
 		appValidateForm($('form'), {
 			name: 'required',

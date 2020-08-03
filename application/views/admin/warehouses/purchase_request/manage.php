@@ -13,12 +13,20 @@
                         <hr class="hr-panel-heading" />
                         <div class="clearfix"></div>
                         <?php render_datatable(array(
-                            _l('purchase_phase_id'),
+                            // _l('purchase_phase_id'),
+                            // _l('approval'),
+                            // _l('bought_company_name'),
+                            // _l('notes'),
+                            // _l('created_user'),
+                            // _l('updated_at'),
+                            // _l('last_updated_user'),
+                            _l('purchase_no'),
+                            _l('updated_at'),
+                            _l('purchase_phase'),
                             _l('approval'),
                             _l('bought_company_name'),
                             _l('notes'),
                             _l('created_user'),
-                            _l('updated_at'),
                             _l('last_updated_user'),
                         ),'purchase_request'); ?>
                     </div>

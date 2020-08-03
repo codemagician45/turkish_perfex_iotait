@@ -2,29 +2,34 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $aColumns = [
-    db_prefix() . 'purchase_order_phases.order_no, tblpurchase_order_phases.phase',
+    db_prefix() .'purchase_order.id as id',
+    'updated_at',
+    db_prefix().'purchase_order_phases.phase as phase',
     'approval',
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
     'note',
-    db_prefix() . 'staff.firstname, tblstaff.lastname',
-    'updated_at',
-    'updated_user',
+    'staff1.firstname as c_firstname',
+    'staff2.firstname as u_firstname',
 
 ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'purchase_order';
 
-$where  = ['AND '.db_prefix() . 'purchase_order_phases.order_no = 1 AND '.db_prefix() . 'purchase_order.approval = 0'];
-
 $join = [
-   'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'purchase_order.created_user',
+   'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'purchase_order.created_user',
+   'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'purchase_order.updated_user',
    'LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id',
 ];
 
+$where  = ['AND '.db_prefix() . 'purchase_order_phases.order_no = 1 AND '.db_prefix() . 'purchase_order.approval = 0'];
+
 $additionalSelect = [
-    db_prefix() . 'purchase_order.id',
+    db_prefix() . 'purchase_order_phases.order_no as order_no',
     'acc_list',
-    'created_user'
+    'created_user',
+    'updated_user',
+    'staff1.lastname as c_lastname',
+    'staff2.lastname as u_lastname',
 
 ];
 
@@ -33,34 +38,34 @@ $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
     $row = [];
-
-    $subjectOutput = $aRow['id'];    
+    $subjectOutput = $aRow['id'];
     $subjectOutput .= '<div class="row-options">';
-    $subjectOutput .= '<a href="' . admin_url('warehouses/manage_purchase_receiving_bay/' . $aRow['id']) . '">' . _l('item_received') . '</a>';
-    // $subjectOutput .= ' | <a href="' . admin_url('warehouses/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
-    $subjectOutput .= '</div>';
-    $row[] = $subjectOutput;
 
+    $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+
+    $subjectOutput .= '</div>';
+    
+    $row[] = $subjectOutput;
+    
     $row[] = $aRow['updated_at'];
 
     $row[] = format_purchase_phase($aRow['order_no'],$aRow['phase']);
-    
+
     $row[] = format_approval_status($aRow['approval']);
 
     $row[] = $aRow['company'];
 
     $row[] = $aRow['note'];
 
-    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['firstname']. ' '. $aRow['lastname'] . '</a>';
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
-
-   if(!empty($aRow['updated_user']))
+    if(!empty($aRow['updated_user']))
     {
-        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
-        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
-        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $aRow['u_firstname']. ' '. $aRow['u_lastname'] . '</a>';
     }
     else
         $row[] = '';
+
     $output['aaData'][] = $row;
 }

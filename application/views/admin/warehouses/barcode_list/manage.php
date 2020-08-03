@@ -64,7 +64,7 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-barcode-list', window.location.href, [2], [2]);
+		initDataTable('.table-barcode-list', window.location.href, [4], [4]);
 
 		appValidateForm($('form'), {
             barcode_id: 'required',

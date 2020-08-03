@@ -6,20 +6,19 @@ $baseCurrency = get_base_currency();
 
 $aColumns = [
     db_prefix() . 'proposals.id',
-    // 'subject',
     db_prefix() . 'quote_phase.phase',
     'proposal_to',
-    'total',
     db_prefix() . 'pricing_categories.name',
     // 'date',
     // 'open_till',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'proposals.id and rel_type="proposal" ORDER by tag_order ASC) as tags',
-    'datecreated',
-    'status',
     'sum_volume_m3',
     'discount_total',
-    'addedfrom',
-    'updated_user'
+    'total',
+    'staff1.firstname as c_firstname',
+    db_prefix(). 'proposals.datecreated as datecreated',
+    'staff2.firstname as u_firstname',
+    'status',
 ];
 
 $sIndexColumn = 'id';
@@ -84,6 +83,9 @@ $join          = [
     'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.id',
     'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.id',
 
+    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'proposals.addedfrom',
+    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'proposals.updated_user',
+
     // 'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'proposals.addedfrom',
 ];
 $custom_fields = get_table_custom_fields('proposal');
@@ -109,6 +111,10 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'rel_type',
     'invoice_id',
     'hash',
+    'staff1.lastname as c_lastname',
+    'staff2.lastname as u_lastname',
+    'addedfrom',
+    'updated_user'
 ]);
 
 $output  = $result['output'];
@@ -141,14 +147,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = $toOutput;
 
-    $amount = app_format_money($aRow['total'], ($aRow['currency'] != 0 ? get_currency($aRow['currency']) : $baseCurrency));
-
-    if ($aRow['invoice_id']) {
-        $amount .= '<br /> <span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
-    }
-
     $row[] = $aRow[db_prefix() . 'pricing_categories.name'];
-    
 
     $row[] = render_tags($aRow['tags']);
 
@@ -157,21 +156,21 @@ foreach ($rResult as $aRow) {
     $row[] = $aRow['discount_total'];
 
     // $row[] = _d($aRow['open_till']);
+    $amount = app_format_money($aRow['total'], ($aRow['currency'] != 0 ? get_currency($aRow['currency']) : $baseCurrency));
+
+    if ($aRow['invoice_id']) {
+        $amount .= '<br /> <span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
+    }
 
     $row[] = $amount;
 
-    // $row[] = _d($aRow['date']);
-    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['addedfrom'])->row();
-    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
-    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $c_user_name . '</a>';
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
     $row[] = _d($aRow['datecreated']);
 
     if(!empty($aRow['updated_user']))
     {
-        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
-        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
-        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $aRow['u_firstname']. ' '. $aRow['u_lastname'] . '</a>';
     }
     else
         $row[] = '';

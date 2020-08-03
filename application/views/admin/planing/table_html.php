@@ -20,7 +20,7 @@
 //    _l('estimate_dt_table_heading_status'));
 
 $table_data = array(
-   _l('estimate_dt_table_heading_number'),
+   _l('sale_order_dt_table_heading_number'),
    _l('sale_phase'),
 
    array(

@@ -166,7 +166,7 @@
      $.each($('._hidden_inputs._filters input'),function(){
        Proposals_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
      });
-     initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, [7, 'desc']);
+     initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, []);
      init_proposal();
    });
 </script>

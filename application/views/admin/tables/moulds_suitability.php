@@ -14,17 +14,18 @@ $sTable       = db_prefix() . 'mould_suitability';
 
 $join = [
     'LEFT JOIN ' . db_prefix() . 'machines_list ON ' . db_prefix() . 'machines_list.id = ' . db_prefix() . 'mould_suitability.machine_id',
-];
-$join1 = [
     'LEFT JOIN ' . db_prefix() . 'moulds ON ' . db_prefix() . 'moulds.id = ' . db_prefix() . 'mould_suitability.mould_id',
 ];
+// $join1 = [
+//     'LEFT JOIN ' . db_prefix() . 'moulds ON ' . db_prefix() . 'moulds.id = ' . db_prefix() . 'mould_suitability.mould_id',
+// ];
 $additionalSelect = [
     db_prefix() . 'mould_suitability.id',
     'machine_id',
 
 ];
 
-$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $join1, $additionalSelect);
+$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {

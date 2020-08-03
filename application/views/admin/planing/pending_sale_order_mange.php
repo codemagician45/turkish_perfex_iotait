@@ -13,7 +13,7 @@
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
-								_l('estimate_dt_table_heading_number'),
+								_l('sale_order_dt_table_heading_number'),
 							   _l('sale_phase'),
 
 							   array(

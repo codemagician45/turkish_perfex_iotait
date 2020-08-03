@@ -31,6 +31,6 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-allocated_items', window.location.href, [2], [2]);
+		initDataTable('.table-allocated_items', window.location.href);
 	});
 </script>

@@ -63,7 +63,7 @@
 <script>
     $(function(){
 
-        initDataTable('.table-list-moulds', window.location.href, [1], [1]);
+        initDataTable('.table-list-moulds', window.location.href, [3], [3]);
 
         appValidateForm($('form'), {
             type: 'required',

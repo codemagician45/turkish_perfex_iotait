@@ -28,6 +28,6 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-packing_group', window.location.href);
+		initDataTable('.table-packing_group', window.location.href,[1],[1]);
 	});
 </script>

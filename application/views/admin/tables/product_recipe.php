@@ -5,7 +5,9 @@ $aColumns = [
     'product_code',
     'product_photo',
     db_prefix() .'stock_lists.product_name as product_name',
-    db_prefix() .'pack_list.pack_capacity as pack_capacity,'. db_prefix() .'pack_list.packing_type as packing_type,'. db_prefix() .'pack_list.volume as volume',
+    db_prefix() .'pack_list.pack_capacity as pack_capacity',
+    db_prefix() .'pack_list.packing_type as packing_type',
+    db_prefix() .'pack_list.volume as volume',
     'price'
 
 ];

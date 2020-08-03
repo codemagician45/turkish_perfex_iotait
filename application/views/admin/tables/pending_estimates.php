@@ -7,23 +7,23 @@ $project_id = $this->ci->input->post('project_id');
 $aColumns = [
     'number',
     db_prefix() . 'sale_phases.phase',
-    'total',
-    // 'total_tax',
-    // 'YEAR(date) as year',
+    get_sql_select_client_company(),
     'rel_quote_id',
     'shipping_type',
-    get_sql_select_client_company(),
-    // db_prefix() . 'projects.name as project_name',
-    // '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'estimates.id and rel_type="estimate" ORDER by tag_order ASC) as tags',
     'req_shipping_date',
     'general_notes',
+    'total',
+    'staff1.firstname as c_firstname',
+    db_prefix() . 'estimates.datecreated',
+    'staff2.firstname as u_firstname',
+    // 'total_tax',
+    // 'YEAR(date) as year',
+    // db_prefix() . 'projects.name as project_name',
+    // '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'estimates.id and rel_type="estimate" ORDER by tag_order ASC) as tags',
     // 'date',
     // 'expirydate',
     // 'reference_no',
-    db_prefix() . 'estimates.datecreated',
     // db_prefix() . 'estimates.status',
-    db_prefix() . 'estimates.addedfrom',
-    'updated_user'
     ];
 
 $join = [
@@ -31,6 +31,8 @@ $join = [
     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'estimates.currency',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'estimates.project_id',
     'LEFT JOIN ' . db_prefix() . 'sale_phases ON ' . db_prefix() . 'sale_phases.id = ' . db_prefix() . 'estimates.sale_phase_id',
+    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'estimates.addedfrom',
+    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'estimates.updated_user',
 ];
 
 $sIndexColumn = 'id';
@@ -123,16 +125,21 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'project_id',
     'deleted_customer_name',
     'hash',
+    db_prefix() . 'estimates.addedfrom',
+    db_prefix() . 'estimates.updated_user',
+    'staff1.lastname as c_lastname',
+    'staff2.lastname as u_lastname',
 ]);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
+
 foreach ($rResult as $aRow) {
     $row = [];
 
     $numberOutput = '';
     // If is from client area table or projects area request
-    if (isset($clientid) && is_numeric($clientid) || $project_id) {
+    if ((isset($clientid) && is_numeric($clientid)) || $project_id) {
         $numberOutput = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" target="_blank">' . format_estimate_number($aRow['id']) . '</a>';
     } else {
         $numberOutput = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" onclick="init_estimate(' . $aRow['id'] . '); return false;">' . format_estimate_number($aRow['id']) . '</a>';
@@ -148,12 +155,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = $numberOutput;
 
-    $amount = app_format_money($aRow['total'], $aRow['currency_name']);
-
-    if ($aRow['invoiceid']) {
-        $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
-    }
-
     // $row[] = $amount;
     $row[] = $aRow[db_prefix() . 'sale_phases.phase'];
 
@@ -162,6 +163,7 @@ foreach ($rResult as $aRow) {
     } else {
         $row[] = $aRow['deleted_customer_name'];
     }
+
 
     $numberOutput = '<a>' . format_proposal_number($aRow['rel_quote_id']) . '</a>';
 
@@ -176,19 +178,22 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['general_notes'];
 
+    $amount = app_format_money($aRow['total'], $aRow['currency_name']);
+
+    // if ($aRow['invoiceid']) {
+    //     $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
+    // }
+
     $row[] = $amount;
 
-    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow[db_prefix() . 'estimates.addedfrom'])->row();
-    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
-    $row[] = '<a href="' . admin_url('staff/member/' . $aRow[db_prefix() . 'estimates.addedfrom']) . '">' . $c_user_name . '</a>';
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
     $row[] = _d($aRow[db_prefix() . 'estimates.datecreated']);
 
+    
     if(!empty($aRow['updated_user']))
     {
-        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
-        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
-        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $aRow['u_firstname']. ' '. $aRow['u_lastname'] . '</a>';
     }
     else
         $row[] = '';

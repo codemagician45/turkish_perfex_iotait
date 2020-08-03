@@ -6,7 +6,9 @@ $aColumns = [
     'product_photo',
     db_prefix() .'stock_lists.product_name as product_name',
     db_prefix() . 'barcode_list.barcode_id as barcode_no',
-    db_prefix() .'pack_list.pack_capacity as pack_capacity,'. db_prefix() .'pack_list.packing_type as packing_type,'. db_prefix() .'pack_list.volume as volume',
+    db_prefix() .'pack_list.pack_capacity as pack_capacity',
+    db_prefix() .'pack_list.packing_type as packing_type',
+    db_prefix() .'pack_list.volume as volume', 
     'stock_level',
     'price'
 
@@ -21,7 +23,8 @@ $join = [
 ];
 
 $additionalSelect = [
-    db_prefix() . 'stock_lists.id'
+    db_prefix() . 'stock_lists.id',
+    
 ];
 
 // $where =['AND '.db_prefix().'product_list.created_by = '.get_login_user_id().''];

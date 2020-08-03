@@ -68,7 +68,7 @@
 <script>
     $(function(){
 
-        initDataTable('.table-list-machine', window.location.href, [2], [2]);
+        initDataTable('.table-list-machine', window.location.href, [7], [7]);
 
         appValidateForm($('form'), {
             name: 'required',

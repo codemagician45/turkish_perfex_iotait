@@ -2,29 +2,32 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $aColumns = [
-    // '(SELECT order_no FROM ' . db_prefix() . 'purchase_order_phases where id = ' . db_prefix() . 'purchase_order.purchase_phase_id) as purchase_phase',
-    db_prefix() . 'purchase_order_phases.order_no, tblpurchase_order_phases.phase',
+    db_prefix() .'purchase_order.id as id',
+    'updated_at',
+    db_prefix().'purchase_order_phases.phase as phase',
     'approval',
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
     'note',
-    // '(SELECT firstname FROM ' . db_prefix() . 'staff where staffid = ' . db_prefix() . 'purchase_order.created_user) as fname',
-    db_prefix() . 'staff.firstname, tblstaff.lastname',
-    'updated_at',
-    'updated_user',
+    'staff1.firstname as c_firstname',
+    'staff2.firstname as u_firstname',
 
 ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'purchase_order';
 
 $join = [
-   'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'purchase_order.created_user',
+   'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'purchase_order.created_user',
+   'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'purchase_order.updated_user',
    'LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id',
 ];
 
 $additionalSelect = [
-    db_prefix() . 'purchase_order.id',
+    db_prefix() . 'purchase_order_phases.order_no as order_no',
     'acc_list',
-    'created_user'
+    'created_user',
+    'updated_user',
+    'staff1.lastname as c_lastname',
+    'staff2.lastname as u_lastname',
 
 ];
 
@@ -47,25 +50,20 @@ foreach ($rResult as $aRow) {
 
     $row[] = format_purchase_phase($aRow['order_no'],$aRow['phase']);
 
-    
-
     $row[] = format_approval_status($aRow['approval']);
 
     $row[] = $aRow['company'];
 
     $row[] = $aRow['note'];
 
-    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['firstname']. ' '. $aRow['lastname'] . '</a>';
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['created_user']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
-    // $row[] = $aRow['date_and_time'];
-
-   if(!empty($aRow['updated_user']))
+    if(!empty($aRow['updated_user']))
     {
-        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
-        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
-        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $aRow['u_firstname']. ' '. $aRow['u_lastname'] . '</a>';
     }
     else
         $row[] = '';
+
     $output['aaData'][] = $row;
 }

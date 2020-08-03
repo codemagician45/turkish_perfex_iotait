@@ -6,8 +6,6 @@ $aColumns = [
     db_prefix() . 'transfer_lists.updated_at',
     'w1.warehouse_name as t_from',
     'w2.warehouse_name as t_to',
-    // 'transaction_to',
-    // '(SELECT warehouse_name FROM tbltransfer_lists LEFT JOIN tblwarehouses ON tblwarehouses.`id` = tbltransfer_lists.`transaction_to` WHERE tbltransfer_lists.`transaction_to` = tblwarehouses.id LIMIT 1) as t_to',
     'transaction_notes',
     'transaction_qty',
     'description',
@@ -71,8 +69,6 @@ foreach ($rResult as $aRow) {
     $row[] = $aRow['transaction_notes'];
 
     $row[] = $aRow['transaction_qty'];
-
-    
 
     $row[] = $aRow['description'];
 
