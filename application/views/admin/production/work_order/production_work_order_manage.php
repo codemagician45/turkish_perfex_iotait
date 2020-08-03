@@ -13,16 +13,15 @@
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
-							_l('product_code'),
-							_l('updated_at'),
-							_l('transaction_from'),
-							_l('transaction_to'),
-							_l('transaction_notes'),
-							_l('transaction_qty'),
-							_l('description'),
+							_l('wo_heading_number'),
+							_l('wo_phase_id'),
+							_l('client'),
+							_l('tags'),
+							_l('sum_volume_m3'),
 							_l('created_user'),
+							_l('date_time'),
 							_l('updated_user'),
-						),'transfers'); ?>
+						),'production-work-order'); ?>
 					</div>
 				</div>
 			</div>
@@ -32,6 +31,6 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-transfers', window.location.href,[],[],[],[1, 'asc']);
+		initDataTable('.table-production-work-order', window.location.href, [2], [2]);
 	});
 </script>

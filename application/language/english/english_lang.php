@@ -3857,6 +3857,18 @@ $lang['machine_in_mould_suitablity'] = 'Machine In Suitability';
 $lang['wo_heading_number'] = 'Work Order';
 $lang['wo_phase_id'] = 'Work Order Phase';
 
+/*Production*/
+$lang['als_production'] = 'Production';
+$lang['production_work_order'] = 'Work Order';
+$lang['production_machine_list'] = 'Machine List';
+$lang['produced_quantity'] = 'Produced Quantity';
+$lang['enter_produced_quantity'] = 'Enter Produced Quantity';
+$lang['add_produced_qty'] = 'Add Produced Qty';
+$lang['edit_day_produced_qty'] = 'Edit Daily Produced Qty';
+
+/*Installation*/
+$lang['installation_work_order'] = 'Work Order';
+
 /*Settings*/
 $lang['accounts'] = 'Accounts';
 $lang['account_type'] = 'Account Type';

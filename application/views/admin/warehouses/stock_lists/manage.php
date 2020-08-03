@@ -89,7 +89,7 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-stock_lists', window.location.href, [2], [2]);
+		initDataTable('.table-stock_lists', window.location.href, [8], [8]);
 
 		appValidateForm($('form'), {
 			product_code: 'required',

@@ -1167,6 +1167,270 @@ $(function() {
         }
     }
 
+    var plan_recipe_calendar_selector = $('#plan_recipe_calendar');
+
+    if (plan_recipe_calendar_selector.length > 0) {
+        validate_calendar_form();
+        var calendar_settings = {
+            themeSystem: 'bootstrap3',
+            customButtons: {},
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+            },
+            editable: false,
+            eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+            views: {
+                day: {
+                    eventLimit: false
+                }
+            },
+            defaultView: app.options.default_view_calendar,
+            isRTL: (isRTL == 'true' ? true : false),
+            eventStartEditable: false,
+            timezone: app.options.timezone,
+            firstDay: parseInt(app.options.calendar_first_day),
+            year: moment.tz(app.options.timezone).format("YYYY"),
+            month: moment.tz(app.options.timezone).format("M"),
+            date: moment.tz(app.options.timezone).format("DD"),
+            loading: function(isLoading, view) {
+                isLoading && $('#calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+            },
+            eventSources: [{
+                url: admin_url + 'utilities/get_calendar_data',
+                data: function() {
+                    var params = {};
+                    $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                        params[$(this).attr('name')] = true;
+                    }).get();
+                    if (!jQuery.isEmptyObject(params)) {
+                        params['calendar_filters'] = true;
+                    }
+                    return params;
+                },
+                type: 'POST',
+                error: function(error) {
+                    console.log(error)
+                    console.error('There was error fetching calendar data');
+                },
+            }, ],
+            eventLimitClick: function(cellInfo, jsEvent) {
+                $('#calendar').fullCalendar('gotoDate', cellInfo.date);
+                $('#calendar').fullCalendar('changeView', 'basicDay');
+            },
+            eventRender: function(event, element) {
+                element.attr('title', event._tooltip);
+                element.attr('onclick', event.onclick);
+                element.attr('data-toggle', 'tooltip');
+                if (!event.url) {
+                    element.click(function() { view_plan_event(event.eventid); });
+                }
+            },
+            dayClick: function(date, jsEvent, view) {
+                var d = date.format();
+                if (!$.fullCalendar.moment(d).hasTime()) {
+                    d += ' 00:00';
+                }
+                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+                var fmt = new DateFormatter();
+                var d1 = fmt.formatDate(new Date(d), vformat);
+                $("input[name='start'].datetimepicker").val(d1);
+                $('#planNewEventModal').modal('show');
+                return false;
+            }
+        };
+
+
+        if ($("body").hasClass('dashboard')) {
+            calendar_settings.customButtons.viewFullCalendar = {
+                text: app.lang.calendar_expand,
+                click: function() {
+                    window.location.href = admin_url + 'utilities/calendar';
+                }
+            };
+        }
+        calendar_settings.customButtons.calendarFilter = {
+            text: app.lang.filter_by.toLowerCase(),
+            click: function() {
+                slideToggle('#calendar_filters');
+            }
+        };
+        if (app.user_is_staff_member == 1) {
+            if (app.options.google_api !== '') {
+                calendar_settings.googleCalendarApiKey = app.options.google_api;
+            }
+            if (app.calendarIDs !== '') {
+                app.calendarIDs = JSON.parse(app.calendarIDs);
+                if (app.calendarIDs.length != 0) {
+                    if (app.options.google_api !== '') {
+                        for (var i = 0; i < app.calendarIDs.length; i++) {
+                            var _gcal = {};
+                            _gcal.googleCalendarId = app.calendarIDs[i];
+                            calendar_settings.eventSources.push(_gcal);
+                        }
+                    } else {
+                        console.error('You have setup Google Calendar IDs but you dont have specified Google API key. To setup Google API key navigate to Setup->Settings->Google');
+                    }
+                }
+            }
+        }
+        // Init calendar
+        plan_recipe_calendar_selector.fullCalendar(calendar_settings);
+        var new_event = get_url_param('new_event');
+        if (new_event) {
+            $("input[name='start'].datetimepicker").val(get_url_param('date'));
+            $('#planNewEventModal').modal('show');
+        }
+    }
+    
+    function view_plan_event(id)
+    {
+        if (typeof(id) == 'undefined') { return; }
+        $.post(admin_url + 'invoices/view_plan_event/' + id).done(function(response) {
+            $('#event').html(response);
+            $('#viewPlanEvent').modal('show');
+            init_datepicker();
+            init_selectpicker();
+            validate_calendar_form();
+        });
+    }
+
+
+
+    var machine_calendar_selector = $('#machine_calendar');
+
+    if (machine_calendar_selector.length > 0) {
+        console.log('calendar render')
+        validate_calendar_form();
+        var calendar_settings = {
+            themeSystem: 'bootstrap3',
+            customButtons: {},
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+            },
+            editable: false,
+            eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+            views: {
+                day: {
+                    eventLimit: false
+                }
+            },
+            defaultView: app.options.default_view_calendar,
+            isRTL: (isRTL == 'true' ? true : false),
+            eventStartEditable: false,
+            timezone: app.options.timezone,
+            firstDay: parseInt(app.options.calendar_first_day),
+            year: moment.tz(app.options.timezone).format("YYYY"),
+            month: moment.tz(app.options.timezone).format("M"),
+            date: moment.tz(app.options.timezone).format("DD"),
+            loading: function(isLoading, view) {
+                isLoading && $('#machine_calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+            },
+            eventSources: [{
+                url: admin_url + 'utilities/get_calendar_data',
+                data: function() {
+                    var params = {};
+                    $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                        params[$(this).attr('name')] = true;
+                    }).get();
+                    if (!jQuery.isEmptyObject(params)) {
+                        params['calendar_filters'] = true;
+                    }
+                    return params;
+                },
+                type: 'POST',
+                error: function() {
+                    console.error('There was error fetching calendar data');
+                },
+            }, ],
+            // eventLimitClick: function(cellInfo, jsEvent) {
+            //     $('#machine_calendar').fullCalendar('gotoDate', cellInfo.date);
+            //     $('#machine_calendar').fullCalendar('changeView', 'basicDay');
+            // },
+            // eventRender: function(event, element) {
+            //     element.attr('title', event._tooltip);
+            //     element.attr('onclick', event.onclick);
+            //     element.attr('data-toggle', 'tooltip');
+            //     if (!event.url) {
+            //         element.click(function() { view_machine_event(event.eventid); console.log('machine') });
+            //     }
+            // },
+            // dayClick: function(date, jsEvent, view) {
+            //     var d = date.format();
+            //     if (!$.fullCalendar.moment(d).hasTime()) {
+            //         d += ' 00:00';
+            //     }
+            //     var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+            //     var fmt = new DateFormatter();
+            //     var d1 = fmt.formatDate(new Date(d), vformat);
+            //     $("input[name='start'].datetimepicker").val(d1);
+            //     $('#machineNewEventModal').modal('show');
+            //     return false;
+            // }
+        };
+        if ($("body").hasClass('dashboard')) {
+            calendar_settings.customButtons.viewFullCalendar = {
+                text: app.lang.calendar_expand,
+                click: function() {
+                    window.location.href = admin_url + 'utilities/calendar';
+                }
+            };
+        }
+        calendar_settings.customButtons.calendarFilter = {
+            text: app.lang.filter_by.toLowerCase(),
+            click: function() {
+                slideToggle('#calendar_filters');
+            }
+        };
+        if (app.user_is_staff_member == 1) {
+            if (app.options.google_api !== '') {
+                calendar_settings.googleCalendarApiKey = app.options.google_api;
+            }
+            if (app.calendarIDs !== '') {
+                console.log('a',JSON.parse(app.calendarIDs))
+                app.calendarIDs = JSON.parse(app.calendarIDs);
+                if (app.calendarIDs.length != 0) {
+                    if (app.options.google_api !== '') {
+                        for (var i = 0; i < app.calendarIDs.length; i++) {
+                            console.log('aaa')
+                            var _gcal = {};
+                            _gcal.googleCalendarId = app.calendarIDs[i];
+                            calendar_settings.eventSources.push(_gcal);
+                        }
+                    } else {
+                        console.error('You have setup Google Calendar IDs but you dont have specified Google API key. To setup Google API key navigate to Setup->Settings->Google');
+                    }
+                }
+            }
+        }
+        // Init calendar
+        machine_calendar_selector.fullCalendar(calendar_settings);
+        var new_event = get_url_param('new_event');
+        if (new_event) {
+            $("input[name='start'].datetimepicker").val(get_url_param('date'));
+            $('#machineNewEventModal').modal('show');
+        }
+    }
+
+    function view_machine_event(id)
+    {
+        if (typeof(id) == 'undefined') { return; }
+        $.post(admin_url + 'production/view_machine_event/' + id).done(function(response) {
+            $('#event').html(response);
+            $('#viewMachineEvent').modal('show');
+            init_datepicker();
+            init_selectpicker();
+            validate_calendar_form();
+        });
+    }
+
     // On select with name tax apply necessary actions if tax2 exists too
     $("body").on('change', 'select[name="tax"]', function() {
         var sp_tax_2 = $("body").find('select[name="tax2"]');
@@ -2609,6 +2873,7 @@ function initDataTable(selector, url, notsearchable, notsortable, fnserverparams
     }
 
     fnserverparams = (fnserverparams == 'undefined' || typeof(fnserverparams) == 'undefined') ? [] : fnserverparams;
+    // console.log('fnserverparams',fnserverparams)
 
     // If not order is passed order by the first column
     if (typeof(defaultorder) == 'undefined') {
@@ -6787,6 +7052,8 @@ function delete_sale_activity(id) {
 function view_event(id) {
     if (typeof(id) == 'undefined') { return; }
     $.post(admin_url + 'utilities/view_event/' + id).done(function(response) {
+        console.log(response)
+        console.log($('#event'));
         $('#event').html(response);
         $('#viewEvent').modal('show');
         init_datepicker();
@@ -6828,7 +7095,9 @@ function calendar_form_handler(form) {
             setTimeout(function() {
                 var location = window.location.href;
                 location = location.split('?');
-                window.location.href = location[0];
+                console.log(location[0])
+                // window.location.href = location[0];
+                window.location.reload(true);
             }, 500);
         }
     });

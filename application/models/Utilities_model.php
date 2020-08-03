@@ -514,6 +514,27 @@ class Utilities_model extends App_Model
         ]);
     }
 
+    public function get_calendar_data_by_machine($start, $end,$machine_id)
+    {
+        $this->get_all_events($start, $end);
+        $this->db->where('machine_id', $machine_id);
+
+        $event = $this->db->get(db_prefix() . 'events')->result_array();
+        $data = [];
+        if(!empty($event))
+        {
+            $event = $event[0];
+            if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                $event['is_not_creator'] = true;
+                $event['onclick']        = true;
+            }
+            $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+            $event['color']    = $event['color'];
+            array_push($data, $event);
+            return $data;
+        } else 
+            return false;
+    }
     /**
      * Delete user event
      * @param  mixed $id event id

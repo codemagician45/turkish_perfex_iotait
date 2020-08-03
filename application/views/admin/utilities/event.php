@@ -5,6 +5,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><?php echo $event->title; ?></h4>
+        <?php print_r($event);?>
       </div>
       <?php echo form_open('admin/utilities/calendar',array('id'=>'calendar-event-form')); ?>
       <div class="modal-body">

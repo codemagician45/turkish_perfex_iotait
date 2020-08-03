@@ -45,5 +45,42 @@ class Production_model extends App_Model
         return $this->db->get(db_prefix() . 'work_order_phases')->result_array();
     }
 
+    public function produced_qty($data)
+    {
+        $data['userid'] = get_staff_user_id();
+        if(isset($data['p_qty_id']))
+        {
+            $this->db->where('p_qty_id',$data['p_qty_id']);
+            $this->db->update(db_prefix().'produced_qty',$data);
+            if ($this->db->affected_rows() > 0) {
+               log_activity('Daily Produced Qty Updated [' . $data['p_qty_id'] . ']');
+                return true;
+            }
+
+        } else {
+
+            $this->db->insert(db_prefix() . 'produced_qty', $data);
+            $insert_id = $this->db->insert_id();
+
+            if ($insert_id) {
+                $this->db->where('id',$data['machine_id']);
+                $machine = $this->db->get(db_prefix().'machines_list')->row();
+                $take_from = $machine->take_from;
+                $export_to = $machine->export_to;
+                
+                return true;
+            } else{
+                return false;
+            }
+
+        }
+    }
+
+    public function get_produced_qty($date)
+    {
+        $this->db->where('current_time_selection',$date);
+        return $this->db->get(db_prefix().'produced_qty')->row();
+    }
+
 
 }

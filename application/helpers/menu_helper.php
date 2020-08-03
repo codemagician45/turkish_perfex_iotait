@@ -295,6 +295,47 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 10,
         ]);
 
+    $CI->app_menu->add_sidebar_menu_item('production', [
+            'collapse' => true,
+            'name'     => _l('als_production'),
+            'position' => 40,
+            'icon'     => 'fa fa-industry',
+        ]);
+
+    
+        $CI->app_menu->add_sidebar_children_item('production', [
+                'slug'     => 'production_work_order',
+                'name'     => _l('production_work_order'),
+                'href'     => admin_url('production/production_work_order'),
+                // 'href'     => admin_url('invoices'),
+                'position' => 5,
+        ]);
+    
+
+    
+        $CI->app_menu->add_sidebar_children_item('production', [
+                'slug'     => 'production_machine_list',
+                'name'     => _l('production_machine_list'),
+                'href'     => admin_url('production/production_machine_list'),
+                'position' => 10,
+        ]);
+
+    $CI->app_menu->add_sidebar_menu_item('installation', [
+            'collapse' => true,
+            'name'     => _l('installation'),
+            'position' => 45,
+            'icon'     => 'fa fa fa-window-restore',
+        ]);
+
+    
+        $CI->app_menu->add_sidebar_children_item('installation', [
+                'slug'     => 'installation_work_order',
+                'name'     => _l('installation_work_order'),
+                'href'     => admin_url('installation/installation_work_order'),
+                // 'href'     => admin_url('invoices'),
+                'position' => 5,
+        ]);
+    
 
     // if (has_permission('subscriptions', '', 'view') || has_permission('subscriptions', '', 'view_own')) {
     //     $CI->app_menu->add_sidebar_menu_item('subscriptions', [

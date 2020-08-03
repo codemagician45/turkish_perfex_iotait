@@ -172,7 +172,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-
+// print_r($rResult);
 foreach ($rResult as $aRow) {
     $row = [];
 

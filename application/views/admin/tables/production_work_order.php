@@ -76,15 +76,15 @@ if (count($agentsIds) > 0) {
     array_push($filter, 'AND sale_agent IN (' . implode(', ', $agentsIds) . ')');
 }
 
-$modesIds = [];
-foreach ($data['payment_modes'] as $mode) {
-    if ($this->ci->input->post('invoice_payments_by_' . $mode['id'])) {
-        array_push($modesIds, $mode['id']);
-    }
-}
-if (count($modesIds) > 0) {
-    array_push($where, 'AND ' . db_prefix() . 'invoices.id IN (SELECT invoiceid FROM ' . db_prefix() . 'invoicepaymentrecords WHERE paymentmode IN ("' . implode('", "', $modesIds) . '"))');
-}
+// $modesIds = [];
+// foreach ($data['payment_modes'] as $mode) {
+//     if ($this->ci->input->post('invoice_payments_by_' . $mode['id'])) {
+//         array_push($modesIds, $mode['id']);
+//     }
+// }
+// if (count($modesIds) > 0) {
+//     array_push($where, 'AND ' . db_prefix() . 'invoices.id IN (SELECT invoiceid FROM ' . db_prefix() . 'invoicepaymentrecords WHERE paymentmode IN ("' . implode('", "', $modesIds) . '"))');
+// }
 
 $years     = $this->ci->invoices_model->get_invoices_years();
 $yearArray = [];
@@ -100,7 +100,8 @@ if (count($yearArray) > 0) {
 if (count($filter) > 0) {
     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
 }
-if ($clientid != '') {
+
+if (isset($clientid) && $clientid != '') {
     array_push($where, 'AND ' . db_prefix() . 'invoices.clientid=' . $this->ci->db->escape_str($clientid));
 }
 
@@ -138,7 +139,7 @@ foreach ($rResult as $aRow) {
     $numberOutput = '';
 
     // If is from client area table
-    if (is_numeric($clientid) || $project_id) {
+    if ((isset($clientid) && is_numeric($clientid)) || $project_id) {
         $numberOutput = '<a href="' . admin_url('invoices/list_invoices/' . $aRow['id']) . '" target="_blank">' . format_invoice_number($aRow['id']) . '</a>';
     } else {
         $numberOutput = '<a href="' . admin_url('invoices/list_invoices/' . $aRow['id']) . '" onclick="init_invoice(' . $aRow['id'] . '); return false;">' . format_invoice_number($aRow['id']) . '</a>';

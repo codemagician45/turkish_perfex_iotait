@@ -21,7 +21,7 @@
 				<div class="col-md-12">
 					<div class="panel_s">
 						<?php
-							$this->load->view('admin/invoices/rel_plans/calendar.php'); ?>
+							$this->load->view('admin/invoices/rel_plans/plan_calendar.php'); ?>
 					</div>
 				</div>	
 			</div>
@@ -32,7 +32,7 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		validate_invoice_form();
+		// validate_invoice_form();
 	    // Init accountacy currency symbol
 	    init_currency();
 	    // Project ajax search
@@ -349,10 +349,9 @@
 
 
 	/* Calendar*/
-
     $(function(){
 		if(get_url_param('eventid')) {
-			view_event(get_url_param('eventid'));
+			view_plan_event(get_url_param('eventid'));
 		}
 	});
 
@@ -365,7 +364,7 @@
 		console.log($(row).parents('tr').children()[0].value)
 		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value)		
 		$('input[name="production_calculate"]').val(production_time);
-		$('#newEventModal').modal('show');
+		$('#planNewEventModal').modal('show');
 	}
 
 </script>

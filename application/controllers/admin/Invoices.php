@@ -9,6 +9,7 @@ class Invoices extends AdminController
         parent::__construct();
         $this->load->model('invoices_model');
         $this->load->model('credit_notes_model');
+        $this->load->model('utilities_model');
     }
 
     /* Get all invoices in case user go on index page */
@@ -31,7 +32,7 @@ class Invoices extends AdminController
         $this->load->model('payment_modes_model');
         $data['payment_modes']        = $this->payment_modes_model->get('', [], true);
         $data['invoiceid']            = $id;
-        $data['title']                = _l('invoices');
+        $data['title']                = _l('work_orders');
         $data['invoices_years']       = $this->invoices_model->get_invoices_years();
         $data['invoices_sale_agents'] = $this->invoices_model->get_sale_agents();
         $data['invoices_statuses']    = $this->invoices_model->get_statuses();
@@ -862,4 +863,37 @@ class Invoices extends AdminController
             }
         }
     }
+
+    public function view_plan_event($id)
+    {
+        
+        $data['event'] = $this->utilities_model->get_event($id);
+        /*Planning part*/
+        $this->load->model('manufacturing_settings_model');
+        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        $machines_id_array = [];
+        foreach ($machines_in_suitability as $key => $value) {
+            array_push($machines_id_array, $value['machine_id']);
+        }
+        $machines_id_array_unique = array_unique($machines_id_array);
+
+        $machines = [];
+
+        foreach ($machines_id_array_unique as $key => $id) {
+            $machine = $this->manufacturing_settings_model->get_machine($id);
+            array_push($machines, $machine);
+        }
+
+        $data['machines'] = $machines;
+
+        $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
+
+        if ($data['event']->public == 1 && !is_staff_member()
+            || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
+        } else {
+            // $this->load->view('admin/utilities/event', $data);
+            $this->load->view('admin/invoices/rel_plans/plan_event', $data);
+        }
+    }
+
 }

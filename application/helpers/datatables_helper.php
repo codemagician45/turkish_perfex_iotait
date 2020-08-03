@@ -17,6 +17,7 @@ function data_tables_init($aColumns, $sIndexColumn, $sTable, $join = [], $where 
 {
     $CI          = & get_instance();
     $__post      = $CI->input->post();
+    // print_r($__post);
     $havingCount = '';
     /*
      * Paging
@@ -53,6 +54,7 @@ function data_tables_init($aColumns, $sIndexColumn, $sTable, $join = [], $where 
     $sOrder = '';
     if ($CI->input->post('order')) {
         $sOrder = 'ORDER BY ';
+        // print_r($CI->input->post('order')); exit();
         foreach ($CI->input->post('order') as $key => $val) {
             $columnName = $aColumns[intval($__post['order'][$key]['column'])];
             $dir        = strtoupper($__post['order'][$key]['dir']);
@@ -60,6 +62,8 @@ function data_tables_init($aColumns, $sIndexColumn, $sTable, $join = [], $where 
             if (strpos($columnName, ' as ') !== false) {
                 $columnName = strbefore($columnName, ' as');
             }
+
+            // print_r($columnName); exit();
 
             // first checking is for eq tablename.column name
             // second checking there is already prefixed table name in the column name
@@ -100,6 +104,7 @@ function data_tables_init($aColumns, $sIndexColumn, $sTable, $join = [], $where 
      * word by word on any field. It's possible to do here, but concerned about efficiency
      * on very large tables, and MySQL's regex functionality is very limited
      */
+    // $__post['search']['value'] = 'raw';
     $sWhere = '';
     if ((isset($__post['search'])) && $__post['search']['value'] != '') {
         $search_value = $__post['search']['value'];
@@ -219,8 +224,9 @@ function data_tables_init($aColumns, $sIndexColumn, $sTable, $join = [], $where 
     $sLimit
     ";
 
+    // print_r($sQuery);
     $rResult = $CI->db->query($sQuery)->result_array();
-
+    // print_r($rResult); exit();
     $rResult = hooks()->apply_filters('datatables_sql_query_results', $rResult, [
         'table' => $sTable,
         'limit' => $sLimit,

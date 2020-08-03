@@ -338,6 +338,7 @@
       });
        CustomersServerParams['exclude_inactive'] = '[name="exclude_inactive"]:checked';
 
+
        var tAPI = initDataTable('.table-clients', admin_url+'clients/table', [0], [0], CustomersServerParams,<?php echo hooks()->apply_filters('customers_table_default_order', json_encode(array(2,'asc'))); ?>);
        $('input[name="exclude_inactive"]').on('change',function(){
            tAPI.ajax.reload();

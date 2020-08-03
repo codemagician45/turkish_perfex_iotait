@@ -14,6 +14,7 @@ $sTable       = db_prefix() . 'stock_lists';
 
 $join = [
    'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.stock_product_code = ' . db_prefix() . 'stock_lists.id',
+   'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category',
 ];
 
 $additionalSelect = [
@@ -21,7 +22,8 @@ $additionalSelect = [
 ];
 
 // $where =['AND '.db_prefix().'product_list.created_by = '.get_login_user_id().''];
-$where = ['AND '.db_prefix().'stock_lists.category = 9'];
+// $where = ['AND '.db_prefix().'stock_lists.category = 9'];
+$where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join ,$where, $additionalSelect);
 $output  = $result['output'];
