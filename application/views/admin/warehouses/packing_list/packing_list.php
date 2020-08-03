@@ -273,29 +273,29 @@
     //     }
     // })
 
-    $('#packing_list').submit(function(e){
-        e.preventDefault();
-        var rows = $('body').find('.sortable');
-        var cnt = 0;
-        for(let k=0; k<rows.length; k++)
-        {
+    // $('#packing_list').submit(function(e){
+    //     e.preventDefault();
+    //     var rows = $('body').find('.sortable');
+    //     var cnt = 0;
+    //     for(let k=0; k<rows.length; k++)
+    //     {
 
-            if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
-            {
-                rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
-                cnt++;
-            }
-            else
-                rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
-        }
-        console.log(cnt)
-        if(cnt>1)
-        {
-            alert('You Must Set Default Pack to One Item');
-            return false;
-        }
-        document.getElementById("packing_list").submit();
-    })
+    //         if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
+    //         {
+    //             rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
+    //             cnt++;
+    //         }
+    //         else
+    //             rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
+    //     }
+    //     console.log(cnt)
+    //     if(cnt>1)
+    //     {
+    //         alert('You Must Set Default Pack to One Item');
+    //         return false;
+    //     }
+    //     document.getElementById("packing_list").submit();
+    // })
 
 
 </script>

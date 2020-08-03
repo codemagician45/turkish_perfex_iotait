@@ -56,6 +56,7 @@ class Purchases_model extends App_Model
 
     	$data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
+        $data['updated_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'purchase_order', $data);
         $insert_id = $this->db->insert_id();
 

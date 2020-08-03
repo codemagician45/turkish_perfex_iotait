@@ -510,13 +510,14 @@ class Warehouses extends AdminController
             $data = $this->input->post();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
-                if(isset($data['newitems']))
-                {
-                    $group_data = $data['newitems'];
-                    $group_data['packing_id'] = $id;
-                    $this->warehouses_model->add_packing_group($group_data);
-                }
+                
                 if ($id) {
+                    if(isset($data['newitems']))
+                    {
+                        $group_data = $data['newitems'];
+                        $group_data['packing_id'] = $id;
+                        $this->warehouses_model->add_packing_group($group_data);
+                    }
                     set_alert('success', _l('added_successfully', _l('packing_list and packing_group')));
                     redirect(admin_url('warehouses/packing_list'));
                 }
@@ -526,6 +527,7 @@ class Warehouses extends AdminController
 
                 if(empty($current_packing_group) && isset($data['newitems']))
                 {
+
                     $group_data = $data['newitems'];
                     $group_data['packing_id'] = $id;
                     $this->warehouses_model->add_packing_group($group_data);
@@ -559,6 +561,7 @@ class Warehouses extends AdminController
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
             $data['items'] = $this->warehouses_model->get_grouped();
+            // print_r($data['items']); exit();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
