@@ -237,6 +237,13 @@ class Warehouses extends AdminController
         }
     }
 
+    public function update_product_price()
+    {
+        $data = $this->input->post();
+        $res = $this->warehouses_model->update_product_price($data);
+        echo json_encode($res);
+    }
+
     public function stock_list_delete($id)
     {
         if (!$id) {

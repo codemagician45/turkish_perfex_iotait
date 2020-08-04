@@ -30,6 +30,7 @@ foreach ($rResult as $aRow) {
     $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
 
 
-    $row[]              = $options .= icon_btn('manufacturing_settings/delete_work_hours_capacity/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    // $row[]              = $options .= icon_btn('manufacturing_settings/delete_work_hours_capacity/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    $row[]              = $options;
     $output['aaData'][] = $row;
 }

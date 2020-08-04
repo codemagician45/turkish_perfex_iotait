@@ -7,7 +7,7 @@
 				<div class="panel_s">
 					<div class="panel-body">
 						<div class="_buttons">
-							<a href="#" class="btn btn-info pull-left" data-toggle="modal" data-target="#energy_price_modal"><?php echo _l('new_enery_price'); ?></a>
+							<!-- <a href="#" class="btn btn-info pull-left" data-toggle="modal" data-target="#energy_price_modal"><?php echo _l('new_enery_price'); ?></a> -->
 						</div>
 						<div class="clearfix"></div>
 						<hr class="hr-panel-heading" />

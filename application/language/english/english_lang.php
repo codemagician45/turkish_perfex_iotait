@@ -3800,6 +3800,7 @@ $lang['edit_mould_suitability'] = 'Edit Mould Suitability';
 $lang['machine_id'] = 'Machine Id';
 $lang['mould_id'] = 'Mould Id';
 $lang['default_machine'] = 'Default Machine';
+$lang['default_machine is already exist'] = 'Default Machine is already Exist';
 
 $lang['energy_prices'] = 'Energy Prices';
 $lang['energy_price'] = 'Energy Price';
@@ -3808,7 +3809,8 @@ $lang['edit_enery_price'] = 'Edit Energy Price';
 $lang['add_enery_price'] = 'Add Energy Price';
 
 $lang['work_hours_capacity'] = 'Work Hours Capacity';
-$lang['new_work_hours'] = 'New Work Hours Capacity';
+$lang['work_hour'] = 'Work Hour';
+$lang['work_hours'] = 'Work Hours';
 $lang['edit_work_hour_capacity'] = 'Edit Work Hour Capacity';
 $lang['edit_work_hour_capacity'] = 'Add Work Hour Capacity';
 $lang['capacity_hours'] = 'Capacity Hours';

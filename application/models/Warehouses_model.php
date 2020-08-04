@@ -224,6 +224,14 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function update_product_price($data)
+    {
+        $id = $data['id'];
+        $product_list_price = $data['product_list_price'];
+        $this->db->query('UPDATE '.db_prefix().'stock_lists SET product_list_price ='.$product_list_price.' WHERE id='.$id );
+        return $this->stock_list_get($id);
+    }
+
     public function stock_list_get($id = '')
     {
         $this->db->from(db_prefix() . 'stock_lists');

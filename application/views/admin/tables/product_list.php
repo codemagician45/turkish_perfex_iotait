@@ -10,7 +10,8 @@ $aColumns = [
     db_prefix() .'pack_list.packing_type as packing_type',
     db_prefix() .'pack_list.volume as volume', 
     'stock_level',
-    'price'
+    // 'price'
+    'product_list_price'
 
 ];
 $sIndexColumn = 'id';
@@ -38,7 +39,7 @@ foreach ($rResult as $aRow) {
     $row = [];
     for ($i = 0; $i < count($aColumns); $i++) {
 
-        $row[] = $aRow['product_code'];
+        $row[] = '<input type = "hidden"  value="'.$aRow['id'].'"><span>'. $aRow['product_code'] . '</span>';
 
         if($aRow['product_photo'] != '')
             $row[] = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
@@ -51,7 +52,8 @@ foreach ($rResult as $aRow) {
         $row[] = $aRow['packing_type'];
         $row[] = $aRow['volume'];
         $row[] = $aRow['stock_level'];
-        $row[] = $aRow['price'];
+        // $row[] = $aRow['price'];
+        $row[] = $aRow['product_list_price'];
     }
     $output['aaData'][] = $row;
 }
