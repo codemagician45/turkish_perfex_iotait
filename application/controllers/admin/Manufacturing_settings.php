@@ -135,26 +135,72 @@ class Manufacturing_settings extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+
+            $checK_flag = false;
             if ($data['mouldID'] == '') {
-                $success = $this->manufacturing_settings_model->add_moulds_suitability($data);
-                $message = '';
-                if ($success == true) {
-                    $message = _l('added_successfully', _l('mould_suitability'));
+
+                if(isset($data['default_machine']))
+                {
+                    $all_suits = $this->manufacturing_settings_model->get_suitability();
+                    foreach ($all_suits as $key => $suit) {
+                        if($suit['default_machine'] == 1)
+                        {
+                            $check_msg = _l('default_machine is already exist');
+                            $checK_flag = true;
+                            echo json_encode([
+                                'flag' => $checK_flag,
+                                'msg' => $check_msg,
+                            ]);
+                        }     
+                    }
+
                 }
-                echo json_encode([
-                    'success' => $success,
-                    'message' => $message,
-                ]);
+
+                if($checK_flag == false)
+                {
+                    $success = $this->manufacturing_settings_model->add_moulds_suitability($data);
+                    $message = '';
+                    if ($success == true) {
+                        $message = _l('added_successfully', _l('mould_suitability'));
+                    }
+                    echo json_encode([
+                        'success' => $success,
+                        'message' => $message,
+                    ]);
+                }
+
+                
             } else {
-                $success = $this->manufacturing_settings_model->edit_moulds_suitability($data);
-                $message = '';
-                if ($success == true) {
-                    $message = _l('updated_successfully', _l('mould_suitability'));
+
+                if(isset($data['default_machine']))
+                {
+                    $all_suits = $this->manufacturing_settings_model->get_suitability();
+                    foreach ($all_suits as $key => $suit) {
+                        if($suit['id'] != $data['mouldID'] && $suit['default_machine'] == 1)
+                        {
+                            $check_msg = _l('default_machine is already exist');
+                            $checK_flag = true;
+                            echo json_encode([
+                                'flag' => $checK_flag,
+                                'msg' => $check_msg,
+                            ]);
+                        } 
+                    }
+
                 }
-                echo json_encode([
-                    'success' => $success,
-                    'message' => $message,
-                ]);
+
+                if($checK_flag == false)
+                {
+                    $success = $this->manufacturing_settings_model->edit_moulds_suitability($data);
+                    $message = '';
+                    if ($success == true) {
+                        $message = _l('updated_successfully', _l('mould_suitability'));
+                    }
+                    echo json_encode([
+                        'success' => $success,
+                        'message' => $message,
+                    ]);
+                }
             }
         }
     }
@@ -173,18 +219,11 @@ class Manufacturing_settings extends AdminController
         redirect(admin_url('manufacturing_settings/moulds_suitability'));
     }
 
-    public function get_mould_suitability_id($id)
-    {
-        if ($this->input->is_ajax_request()) {
-            $mould_suitability_id = $this->manufacturing_settings_model->get_mould_suitability($id = '');
-            echo json_encode($mould_suitability_id);
-        }
-    }
 
-    public function get_mould_cavity_id($id)
+    public function get_suitability($id)
     {
         if ($this->input->is_ajax_request()) {
-            $mould_cavity_id = $this->manufacturing_settings_model->get_mould_cavity_id($id);
+            $mould_cavity_id = $this->manufacturing_settings_model->get_suitability($id);
             echo json_encode($mould_cavity_id);
         }
     }

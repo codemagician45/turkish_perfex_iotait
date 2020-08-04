@@ -74,7 +74,7 @@
 
             var button = $(event.relatedTarget)
             var id = button.data('id');
-            console.log(id)
+            // console.log(id)
             $('#mould_suitability').find('#machine_id').selectpicker('val', '');
             $('#mould_suitability').find('#mould_id').selectpicker('val', '');
             $('input[name="default_machine"]').prop('checked',false);
@@ -88,12 +88,9 @@
                 $('#mould_suitability .edit-title').removeClass('hide');
 
                 var modalSuitable = $('#mould_suitability');
-                requestGetJSON('manufacturing_settings/get_mould_suitability_id/' + id).done(function (response) {
-                    console.log(response)
+                requestGetJSON('manufacturing_settings/get_suitability/' + id).done(function (response) {
+
                     modalSuitable.find('#machine_id').selectpicker('val', response.machine_id);
-                    init_selectpicker();
-                });
-                requestGetJSON('manufacturing_settings/get_mould_cavity_id/' + id).done(function (response) {
                     modalSuitable.find('#mould_id').selectpicker('val', response.mould_id);
                     init_selectpicker();
                 });
@@ -115,10 +112,14 @@
         var url = form.action;
         $.post(url, data).done(function(response) {
             response = JSON.parse(response);
-            // console.log(response);
+            console.log(response);
             if (response.success == true) {
                 $('.table-mould-suitability').DataTable().ajax.reload();
                 alert_float('success', response.message);
+            }
+            if(response.flag == true)
+            {
+                alert_float('danger', response.msg);
             }
             $('#mould_suitability').modal('hide');
         });

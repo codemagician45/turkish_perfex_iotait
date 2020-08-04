@@ -150,7 +150,6 @@ class Manufacturing_settings_model extends App_Model
     }
     public function add_moulds_suitability($data)
     {
-        
         unset($data['mouldID']);
         $data['user_id']=get_staff_user_id();
         $data['created_at']=date('Y-m-d h:i:s');
@@ -205,17 +204,7 @@ class Manufacturing_settings_model extends App_Model
         return false;
     }
 
-    public function get_mould_suitability($id = ''){
-        $this->db->from(db_prefix() . 'mould_suitability');
-
-        if (is_numeric($id)) {
-            $this->db->where(db_prefix() . 'mould_suitability.id', $id);
-            return $this->db->get()->row();
-        }
-        return $this->db->get()->result_array();
-    }
-
-    public function get_mould_cavity_id($id){
+    public function get_suitability($id = ''){
         $this->db->from(db_prefix() . 'mould_suitability');
 
         if (is_numeric($id)) {
