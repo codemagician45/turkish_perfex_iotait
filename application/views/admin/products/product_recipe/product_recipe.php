@@ -299,6 +299,11 @@
     function calculate_total_recipe()
     {
         var used_qty, mat_cost = 0, pro_cost = 0, exp_profit = 0, _amount = 0, subtotal = 0, total = 0;
+        var other_cost = 0, ins_cost = 0;
+
+        other_cost = parseFloat($('#other_cost').val());
+        ins_cost = parseFloat($('#ins_cost').val());
+
         rows = $('.table.has-calculations tbody tr.item'),
         $.each(rows, function() {
             used_qty = $(this).find('[data-qty]').val();
@@ -311,13 +316,13 @@
                 _amount = parseFloat(mat_cost) + parseFloat(pro_cost) + parseFloat(exp_profit);
             else
                 _amount = parseFloat(used_qty) * parseFloat(mat_cost);
-            console.log(pre_produced,used_qty,mat_cost,pro_cost,exp_profit,_amount)
+            // console.log(pre_produced,used_qty,mat_cost,pro_cost,exp_profit,_amount)
             subtotal += _amount;
             $(this).find('td.amount').html(format_money(_amount, true));
             row = $(this);
         });
-
-        total = (total + subtotal);
+        console.log(subtotal, other_cost, ins_cost)
+        total = (total + subtotal + other_cost + ins_cost);
         $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     }
 
@@ -333,7 +338,7 @@
         var wasteRateAdded = $(row).parents('tr').children()[4].firstChild.value;
 
         requestGetJSON('warehouses/get_item_by_id_with_currency/' + productIdAdded).done(function(response) {
-            var materialCostAdded = response.price * usedQtyAdded * response.rate * wasteRateAdded;
+            var materialCostAdded = response.price * usedQtyAdded * response.rate * (1+ wasteRateAdded/100);
             $(row).parents('tr').find('[data-material-cost]').val(materialCostAdded);
             calculate_total_recipe()
         });
@@ -353,7 +358,12 @@
                     var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
                     var profitExp = defaultMachineData.profit_expectation;
 
-                    productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
+                    // p_cost1 = (((powerUsage * engergyPrice)/3600)*cycleTime);
+                    // p_cost2 = (opCostPerSec*cycleTime);
+                    // p_cost3 = ((profitExp/workHour)/(3600/cycleTime*mouldCavity))
+                    // console.log(p_cost1,p_cost2,p_cost3)
+                    // productionCost = (((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
+                    productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
 
                     $(row).parents('tr').find('[data-production-cost]').val(productionCost);
                     calculate_total_recipe()
@@ -374,7 +384,7 @@
                 {
                     var cycleTime = $(row).parents('tr').children()[8].firstChild.value;
                     var profitExp = defaultMachineData.profit_expectation;
-                    expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity))*workHour).toFixed(2);
+                    expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity)*workHour)).toFixed(2);
                     $(row).parents('tr').find('[data-expected-profit]').val(expectedProfitCost);
                     calculate_total_recipe()
                 }
@@ -386,7 +396,7 @@
         var wasteRate = $('input[name = "rate_of_waste"]').val();
         
         if(productData)
-            materialCost = productData.price * usedQty * productData.rate * wasteRate; 
+            materialCost = productData.price * usedQty * productData.rate * (1+wasteRate/100); 
         $('input[name="material_cost"]').val(materialCost);
         calculate_total_recipe()
     }
@@ -399,7 +409,12 @@
             var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
             var profitExp = defaultMachineData.profit_expectation;
 
-            productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
+            // p_cost1 = (((powerUsage * engergyPrice)/3600)*cycleTime);
+            // p_cost2 = (opCostPerSec*cycleTime);
+            // p_cost3 = ((profitExp/workHour)/(3600/cycleTime*mouldCavity))
+            // console.log(p_cost1,p_cost2,p_cost3)
+            productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
+            // // productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
             $('input[name=production_cost]').val(productionCost);
             calculate_total_recipe()
         }
@@ -411,7 +426,7 @@
             var cycleTime = $('input[name = "cycle_time"]').val();
             var profitExp = defaultMachineData.profit_expectation;
 
-            expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity))*workHour).toFixed(2);
+            expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity)*workHour)).toFixed(2);
             $('input[name=expected_profit]').val(expectedProfitCost);
             calculate_total_recipe()
         }
@@ -425,6 +440,13 @@
         installationCost = installConsumeTime*opCostPerSec;
         $('input[name="ins_cost"]').val(installationCost);
     }
+
+    $('.base_cal').keyup(function(){
+        calculate_total_recipe();
+    })
+    $('.base_cal').change(function(){
+        calculate_total_recipe();
+    })
 
 
 </script>

@@ -8,7 +8,7 @@ $aColumns = [
     db_prefix() .'pack_list.pack_capacity as pack_capacity',
     db_prefix() .'pack_list.packing_type as packing_type',
     db_prefix() .'pack_list.volume as volume',
-    'price'
+    db_prefix() . 'pricing_calculation.price as price'
 
 ];
 $sIndexColumn = 'id';
@@ -17,6 +17,7 @@ $sTable       = db_prefix() . 'stock_lists';
 $join = [
    'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.stock_product_code = ' . db_prefix() . 'stock_lists.id',
    'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category',
+   'LEFT JOIN ' . db_prefix() . 'pricing_calculation ON ' . db_prefix() . 'pricing_calculation.rel_product_id = ' . db_prefix() . 'stock_lists.id',
 ];
 
 $additionalSelect = [

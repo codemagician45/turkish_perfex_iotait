@@ -633,6 +633,40 @@ class Warehouses_model extends App_Model
         $this->db->order_by('name', 'asc');
         $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
 
+        array_unshift($groups, [
+            'id' => 0,
+            'name' => '',
+        ]);
+
+        foreach ($groups as $group) {
+            $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
+            $this->db->where('category', $group['id']);
+            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+            // $this->db->join(db_prefix() . 'package_group', '' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id', 'left');
+            $this->db->order_by('product_name', 'asc');
+            $this->db->where('created_by', get_staff_user_id());
+            // $this->db->where(array(
+            //                'default_pack='=> NULL));
+            $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
+            // print_r($this->db->last_query()); exit();
+            // print_r($_items); exit();
+            if (count($_items) > 0) {
+                $items[$group['id']] = [];
+                foreach ($_items as $i) {
+                    array_push($items[$group['id']], $i);
+                }
+            }
+        }
+        return $items;
+    }
+
+    public function get_grouped_on_default_pack()
+    {
+        $items = [];
+
+        $this->db->order_by('name', 'asc');
+        $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
+
         // array_unshift($groups, [
         //     'id' => 0,
         //     'name' => '',

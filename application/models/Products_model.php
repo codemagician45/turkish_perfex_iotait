@@ -109,6 +109,7 @@ class Products_model extends App_Model
         $this->db->insert(db_prefix().'pricing_calculation',$data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
+            $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
             log_activity('New Pricing Calculation Added [ID: ' . $insert_id . ']');
             return $insert_id;
         }
@@ -117,9 +118,11 @@ class Products_model extends App_Model
 
     public function update_pricing_calc($data, $id)
     {
+        // print_r($data); exit();
         $this->db->where('id',$id);
         $this->db->update(db_prefix().'pricing_calculation',$data);
         if ($this->db->affected_rows() > 0) {
+            $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
             log_activity('Pricing Calculation Updated [' . $id . ']');
             return true;
         }

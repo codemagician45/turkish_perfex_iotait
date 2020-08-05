@@ -9,23 +9,26 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->other_cost : '');
-                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('placeholder' => _l('other_cost'))); ?>
+                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('placeholder' => _l('other_cost')),[],'','base_cal'); ?>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->op_cost_per_sec : '');
-                echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec'))); ?>
+                echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec')),[],'','base_cal'); ?>
         </div>
         <div class="col-md-4">
             <?php 
                 $value = (isset($install_time) ? $install_time->consumed_time : '');
-                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('placeholder' => _l('installation_consumed_time'))); ?>
+                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('placeholder' => _l('installation_consumed_time')),[],'','base_cal'); ?>
         </div>
 
         <div class="col-md-4">
-           <label><?php echo _l('installation_cost')?></label><input type="number" readonly id="ins_cost" name="ins_cost" class="form-control" align="right" placeholder="<?php echo _l('installation_cost'); ?>">
+           <!-- <label><?php echo _l('installation_cost')?></label><input type="number" readonly id="ins_cost" name="ins_cost" class="form-control" align="right" placeholder="<?php echo _l('installation_cost'); ?>"> -->
+           <?php 
+            $value = (isset($pricing_calc_data) ? $pricing_calc_data->ins_cost : '');
+            echo render_input('ins_cost', _l('installation_cost'), $value, 'number', array('placeholder' => _l('installation_cost'))); ?>
         </div>
     </div>
 

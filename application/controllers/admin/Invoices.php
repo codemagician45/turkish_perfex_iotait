@@ -474,7 +474,7 @@ class Invoices extends AdminController
         add_calendar_assets();
 
         $this->load->model('manufacturing_settings_model');
-        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
         $machines_id_array = [];
         foreach ($machines_in_suitability as $key => $value) {
             array_push($machines_id_array, $value['machine_id']);
@@ -870,7 +870,7 @@ class Invoices extends AdminController
         $data['event'] = $this->utilities_model->get_event($id);
         /*Planning part*/
         $this->load->model('manufacturing_settings_model');
-        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
         $machines_id_array = [];
         foreach ($machines_in_suitability as $key => $value) {
             array_push($machines_id_array, $value['machine_id']);
