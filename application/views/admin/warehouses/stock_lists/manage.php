@@ -25,7 +25,7 @@
 							_l('unit'),
 							_l('category'),
 							_l('price'),
-							_l('currency_id'),
+							_l('currency'),
 							_l('stock_level'),
 							_l('options'),
 						),'stock_lists'); ?>
@@ -56,7 +56,7 @@
 						<?php echo render_select('unit',$stock_units,array('unitid','name'),_l('unit')); ?>
 						<?php echo render_select('category',$stock_categories,array('id','name'),_l('category')); ?>
 						<?php echo render_input('price',_l('price'),'','number'); ?>
-						<?php echo render_select('currency_id',$currency_exchange,array('id','name'),_l('currency_id')); ?>
+						<?php echo render_select('currency_id',$currency,array('id','name'),_l('currency_id')); ?>
 					</div>
 				</div>
 				<div class="row">

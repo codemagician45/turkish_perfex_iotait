@@ -10,7 +10,7 @@ $aColumns = [
     'price',
     // '(SELECT name FROM ' . db_prefix() . 'currencies_exchange where id = ' . db_prefix() . 'stock_lists.currency_id) as currency_id',
     // 'currency_id',
-    db_prefix() . 'currencies_exchange.name',
+    db_prefix() . 'currencies.name',
     'stock_level'
     ];
 $sIndexColumn = 'id';
@@ -19,7 +19,7 @@ $sTable       = db_prefix() . 'stock_lists';
 $join = [
      'LEFT JOIN ' . db_prefix() . 'units ON ' . db_prefix() . 'units.unitid = ' . db_prefix() . 'stock_lists.unit',
      'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category',
-     'LEFT JOIN ' . db_prefix() . 'currencies_exchange ON ' . db_prefix() . 'currencies_exchange.id = ' . db_prefix() . 'stock_lists.currency_id',
+     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'stock_lists.currency_id',
      ];
 
 $additionalSelect = [

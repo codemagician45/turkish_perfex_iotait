@@ -15,6 +15,7 @@
 						<?php render_datatable(array(
 							_l('currency_list_name'),
 							_l('currency_list_symbol'),
+							_l('currency_rate'),
 							_l('options'),
 						),'currencies'); ?>
 					</div>
@@ -41,6 +42,7 @@
 						<div class="alert alert-warning"><?php echo _l('currency_valid_code_help'); ?></div>
 						<?php echo render_input('name','currency_add_edit_description','','text',array('placeholder'=>_l('iso_code'))); ?>
 						<?php echo render_input('symbol','currency_add_edit_rate'); ?>
+						<?php echo render_input('rate',_l('currency_rate'),'','number'); ?>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
@@ -110,6 +112,7 @@
 
 			$('#currency_modal input[name="name"]').val('');
 			$('#currency_modal input[name="symbol"]').val('');
+			$('#currency_modal input[name="rate"]').val('');
 			$('#currency_modal input[name="currencyid"]').val('');
 
 			$('#currency_modal #c_placement_before').prop('checked', true);
@@ -128,7 +131,8 @@
 				$('#currency_modal .edit-title').removeClass('hide');
 				$('#currency_modal input[name="name"]').val(name);
 				$('#currency_modal input[name="symbol"]').val(symbol);
-
+				$('#currency_modal input[name="rate"]').val(xrate);
+				
 				$('#currency_modal #c_placement_'+button.data('placement')).prop('checked', true);
 				$('#currency_modal #decimal_separator').selectpicker('val', button.data('decimal-separator'));
 				$('#currency_modal #thousand_separator').selectpicker('val', button.data('thousand-separator'));

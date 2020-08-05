@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     'name',
     'symbol',
+    'rate',
     ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'currencies';

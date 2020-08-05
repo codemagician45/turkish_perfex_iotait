@@ -9,6 +9,7 @@ class Sale extends AdminController
         parent::__construct();
         $this->load->model('sale_model');
         $this->load->model('warehouses_model');
+        $this->load->model('currencies_model');
     }
 
     /*--------------Pricing Category-------------*/
@@ -18,7 +19,8 @@ class Sale extends AdminController
             $this->app->get_table_data('pricing-category');
         }
 
-        $data['currency_exchanges'] = $this->warehouses_model->get_currency_exchange();
+        // $data['currency_exchanges'] = $this->warehouses_model->get_currency_exchange();
+        $data['currency'] = $this->currencies_model->get();
         $data['title'] = _l('pricing_categories');
         $this->load->view('admin/sale/settings/pricing_categories_manage', $data);
     }

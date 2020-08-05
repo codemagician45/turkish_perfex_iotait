@@ -106,10 +106,17 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-money',
         ]);
 
+        // $CI->app_menu->add_sidebar_children_item('finance', [
+        //     'slug'     => 'currency_exchange_rate',
+        //     'name'     => _l('currency_exchange_rate'),
+        //     'href'     => admin_url('finances/currency_exchange_rate'),
+        //     'position' => 5,
+        // ]);
+
         $CI->app_menu->add_sidebar_children_item('finance', [
-            'slug'     => 'currency_exchange_rate',
-            'name'     => _l('currency_exchange_rate'),
-            'href'     => admin_url('finances/currency_exchange_rate'),
+            'slug'     => 'currency',
+            'name'     => _l('currency'),
+            'href'     => admin_url('currencies'),
             'position' => 5,
         ]);
 

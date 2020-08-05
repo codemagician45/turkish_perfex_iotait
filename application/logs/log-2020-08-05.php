@@ -666,3 +666,1160 @@ ERROR - 2020-08-05 05:37:42 --> Could not find the language line "finance"
 ERROR - 2020-08-05 05:37:42 --> Could not find the language line "products"
 ERROR - 2020-08-05 05:37:42 --> Could not find the language line "finance"
 ERROR - 2020-08-05 05:37:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:43:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:43:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:43:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:43:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:43:55 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:43:55 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:43:55 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:43:55 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:43:55 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:43:55 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:43:55 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:43:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:43:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:44:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:44:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:44:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:44:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:44:02 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:44:02 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:48:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:48:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:48:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:48:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:48:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:48:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:48:10 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-05 05:48:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-05 05:48:10 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-05 05:48:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-05 05:48:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:48:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:48:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:48:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:51:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:51:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:53:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:53:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:53:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:53:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:53:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:53:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:53:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:53:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:53:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:53:27 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:53:27 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:53:27 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:53:27 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:53:27 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:53:27 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:55:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:55:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:55:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:55:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:55:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:55:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:55:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:55:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:55:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:55:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:55:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:55:15 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:55:15 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:55:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:55:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:35 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:35 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:56:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:56:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:56:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:56:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:56:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:38 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:38 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:42 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:42 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:56:44 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:44 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 05:56:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:56:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:57:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:57:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:57:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:57:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:57:22 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:57:22 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:57:22 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 05:57:22 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:57:22 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 05:57:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:57:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:55 --> Could not find the language line "finance"
+ERROR - 2020-08-05 05:59:55 --> Could not find the language line "products"
+ERROR - 2020-08-05 05:59:56 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-05 05:59:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-05 05:59:56 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-05 05:59:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-05 06:02:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:02:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:02:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:02:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:00 --> Could not find the language line "pack price"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:08 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:08 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:03:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:03:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:03:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:03:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:03:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:03:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:03:15 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:03:15 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:19:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:19:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:19:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:19:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:19:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:19:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:19:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:19:39 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:19:39 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:19:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:19:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:19:43 --> Query error: Unknown column 'packing_id' in 'field list' - Invalid query: SELECT packing_id tblpackage_group where product_id=79 AND default_pack = 1
+ERROR - 2020-08-05 06:19:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:19:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:19:44 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:19:44 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:20:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:20:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:07 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:20:07 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:20:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:20 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:20 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:20 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:20:20 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:20:20 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:20:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:20:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:20:23 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:20:23 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:27:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:27:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:27:44 --> Severity: error --> Exception: syntax error, unexpected '{' C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 266
+ERROR - 2020-08-05 06:28:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:28:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:28:17 --> Severity: error --> Exception: syntax error, unexpected '{' C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 266
+ERROR - 2020-08-05 06:28:19 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:28:19 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:28:19 --> Severity: error --> Exception: syntax error, unexpected '{' C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 266
+ERROR - 2020-08-05 06:28:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:28:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:28:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:28:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:28:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:28:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:28:48 --> Severity: error --> Exception: syntax error, unexpected '{' C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 266
+ERROR - 2020-08-05 06:29:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:29:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:29:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:29:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:29:16 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:29:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:24 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:29:24 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:29:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:29:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:29:54 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:29:54 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:32:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:32:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:32:05 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:32:05 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:32:05 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:32:05 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:32:05 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:32:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:32:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:32:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:32:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:32:10 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:32:10 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:32:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:32:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:35:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:35:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:35:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:35:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:35:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:35:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:35:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:35:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:35:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:35:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:35:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:35:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:35:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:35:52 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:35:52 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:11 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:11 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:36:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:36:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:36:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:36:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:36:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:54 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:54 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:36:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:36:57 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:36:57 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:37:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:37:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:37:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:37:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:10 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:38:10 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:38:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:18 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:18 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:18 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:18 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:44 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:38:44 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:38:44 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 06:38:44 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:38:44 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 06:38:45 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:45 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:48 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:38:48 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 06:38:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:38:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:38:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 06:40:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 06:40:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:19:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:19:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:19:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:19:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:19:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:19:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:20:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:20:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:20:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:20:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:20:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:20:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:20:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:20:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:20:20 --> Could not find the language line "rate"
+ERROR - 2020-08-05 07:20:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:20:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:35 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:35 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:40 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:40 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:44:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:44:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:44:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:44:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:44:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:44:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:44:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:45:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:45:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:45:18 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:45:18 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:46:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:46:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:46:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:46:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:46:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:46:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:46:23 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:46:23 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:46:23 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:46:23 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:46:23 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:46:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:46:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:48:31 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:48:31 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:48:32 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 07:48:32 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 07:48:32 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:48:32 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:49:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:49:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:49:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:49:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:49:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:49:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:49:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:50:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:50:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:51:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:51:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:51:02 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:02 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:02 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:02 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:51:02 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:51:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:51:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:51:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:51:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:51:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:51:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:51:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:51:39 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:51:39 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:53:25 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:53:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:53:25 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:25 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:25 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:25 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:53:25 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:53:26 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:53:26 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:53:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:53:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:53:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:53:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:53:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 77
+ERROR - 2020-08-05 07:53:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:53:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:55:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:55:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:55:00 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:00 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:00 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:55:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:55:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:55:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:55:46 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:46 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:46 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:55:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:55:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:09 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:09 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:09 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:56:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:56:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:56:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:08 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:08 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:08 --> Could not find the language line "rate"
+ERROR - 2020-08-05 07:57:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:57:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:57:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:33 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:33 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:34 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:34 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:59:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:59:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 07:59:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 07:59:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 07:59:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:01:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:01:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:01:10 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:01:10 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:01:10 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:01:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:01:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:02:35 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:02:35 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:02:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:02:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:02:35 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:02:35 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 89
+ERROR - 2020-08-05 08:02:35 --> Severity: Notice --> Undefined variable: currency_attr C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 89
+ERROR - 2020-08-05 08:02:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:02:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:02:36 --> Severity: error --> Exception: Too few arguments to function Misc::get_currency(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Misc.php 45
+ERROR - 2020-08-05 08:09:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:09:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Undefined variable: selected C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 89
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Undefined variable: currency_attr C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 89
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:09:59 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:10:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:10:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:10:02 --> Severity: error --> Exception: Too few arguments to function Misc::get_currency(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Misc.php 45
+ERROR - 2020-08-05 08:11:31 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:11:31 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:11:31 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:11:32 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:11:32 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:11:32 --> Severity: error --> Exception: Too few arguments to function Misc::get_currency(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Misc.php 45
+ERROR - 2020-08-05 08:12:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:12:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:12:17 --> Severity: Notice --> Undefined index: isdefault C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 29
+ERROR - 2020-08-05 08:13:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:13:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:13:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:13:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:13:49 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:13:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:13:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:13:51 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:13:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:13:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:14:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:14:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:14:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:14:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:18:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:18:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:18:50 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:18:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:18:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:18:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:18:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:48 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:19:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:53 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:19:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:19:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:19:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:20:08 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:20:08 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:21:34 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:21:34 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:21:34 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:21:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:21:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:22:03 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:22:03 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:22:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:22:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:25:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:25:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:25:43 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:25:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:25:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:26:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:26:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:26:16 --> Severity: error --> Exception: syntax error, unexpected ')', expecting ';' or ',' C:\xampp\htdocs\turkish_perfex\application\views\admin\currencies\manage.php 45
+ERROR - 2020-08-05 08:26:26 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:26:26 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:26:26 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:26:27 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:26:27 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:26:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:26:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:26:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:26:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:28:19 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:28:19 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:28:19 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:28:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:28:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:29:03 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:29:03 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:29:03 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:29:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:29:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:29:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:29:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:29:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:29:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:29 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:29 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:29 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:29 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:29 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:30:30 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:30 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:37 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:30:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:30:43 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:30:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:30:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:11 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:31:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:22 --> Could not find the language line "rate"
+ERROR - 2020-08-05 08:31:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:33 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:33 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:33 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:33 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:31:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:31:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:32:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:32:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:32:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:32:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:32:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:32:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:32:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:32:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:23 --> Severity: Notice --> Undefined variable: currency_exchange C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\stock_lists\manage.php 59
+ERROR - 2020-08-05 08:34:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-08-05 08:34:26 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:26 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:28 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:28 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:28 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:28 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:39 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:39 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:40 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:40 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:34:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:34:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:35:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:35:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:35:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:35:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:35:48 --> Query error: Unknown column 'tblcurrencies.name' in 'field list' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS product_code, product_photo, product_name, `tblunits`.`name` AS `tblunits.name`, `tblstock_categories`.`name` AS `tblstock_categories.name`, price, `tblcurrencies`.`name` AS `tblcurrencies.name`, stock_level ,tblstock_lists.id,unit,category
+    FROM tblstock_lists
+    LEFT JOIN tblunits ON tblunits.unitid = tblstock_lists.unit LEFT JOIN tblstock_categories ON tblstock_categories.id = tblstock_lists.category LEFT JOIN tblcurrencies_exchange ON tblcurrencies.id = tblstock_lists.currency_id
+    
+    WHERE  tblstock_lists.created_by = 1
+    
+    ORDER BY product_code ASC
+    LIMIT 0, 25
+    
+ERROR - 2020-08-05 08:36:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:36:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:36:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:37:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:37:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:37:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:37:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:37:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:37:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:25 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:55 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:55 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:40:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:40:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:23 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:23 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:25 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:26 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:26 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:41:28 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:41:28 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:42:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:42:42 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:16 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:44:16 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:44:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:44:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:17 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:27 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:44:27 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:44:27 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:44:28 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:44:28 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:44:28 --> Severity: error --> Exception: Too few arguments to function Misc::get_currency(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Misc.php 45
+ERROR - 2020-08-05 08:45:39 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:39 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:45:39 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:39 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:39 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:40 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:40 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:45:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:45:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:45:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:45:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:57 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:45:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:45:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:46:03 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:46:03 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:46:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:46:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:46:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:46:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:46:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:46:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:48:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:48:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:48:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:48:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:48:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:48:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:48:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:48:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:48:44 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:48:44 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:15 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:15 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:20 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:20 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:25 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:49:25 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:49:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:52:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:52:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:52:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:52:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:52:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:52:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:52:13 --> Severity: Notice --> Trying to get property 'decimal_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:52:13 --> Severity: Notice --> Trying to get property 'thousand_separator' of non-object C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 133
+ERROR - 2020-08-05 08:52:13 --> Severity: Notice --> Undefined variable: formattedWithCurrency C:\xampp\htdocs\turkish_perfex\application\helpers\sales_helper.php 142
+ERROR - 2020-08-05 08:52:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:52:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:52:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:52:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:53:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:53:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:53:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:53:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:53:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:53:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:53:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:53:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:53:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:54:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:54:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:54:42 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:54:42 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:54:42 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:54:43 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:54:43 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:54:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:54:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:54:48 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:54:48 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:01 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:01 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:01 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:01 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:01 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:02 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:02 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:34 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:34 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:34 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:34 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:41 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:41 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:41 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:41 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:41 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:42 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:42 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:51 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:51 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:52 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:52 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:59 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:55:59 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:55:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:55:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 08:56:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:10 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:10 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:10 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 08:56:10 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 08:56:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:12 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:12 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:12 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 08:56:12 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 08:56:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:56:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:56:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:59:29 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:59:29 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:59:32 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:59:32 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:59:34 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:59:34 --> Could not find the language line "products"
+ERROR - 2020-08-05 08:59:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 08:59:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:02:08 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:02:08 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:02:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:08 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:02:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:02:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:02:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:02:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:02:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:02:54 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:54 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:54 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 09:02:55 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:02:55 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:03:00 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:03:00 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:03:03 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:03:03 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:03:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:03:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 09:03:06 --> Could not find the language line "finance"
+ERROR - 2020-08-05 09:03:06 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:45 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:45 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:46 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:46 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:47 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:47 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:00:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:00:47 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:00:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:00:57 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:00:57 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:12:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:12:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:12:07 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:07 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:09 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:09 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:14 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:14 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:21 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:21 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:12:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:12:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:13:54 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:13:54 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:13:58 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:13:58 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:19:49 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:19:49 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:19:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:19:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:19:49 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:19:50 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:19:50 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:19:53 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:19:53 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:04 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:04 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:04 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:05 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:05 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:37 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:20:38 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:38 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:20:40 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:20:40 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:22:29 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:22:29 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:22:29 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 12:22:29 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-08-05 12:22:29 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:22:29 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:22:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:22:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:22:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:22:37 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:25:11 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:25:11 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:25:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:25:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:25:11 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:25:13 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:25:13 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:25:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:25:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:17 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:17 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:17 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:19 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:19 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:22 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:22 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:24 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:24 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:25 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:36 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:36 --> Could not find the language line "products"
+ERROR - 2020-08-05 12:26:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:36 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\proposal.php 43
+ERROR - 2020-08-05 12:26:37 --> Could not find the language line "finance"
+ERROR - 2020-08-05 12:26:37 --> Could not find the language line "products"

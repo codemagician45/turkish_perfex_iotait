@@ -255,7 +255,7 @@ class Clients extends AdminController
             $data['zip_in_folder'] = slug_it($slug_zip_folder);
         }
         $this->load->model('warehouses_model');
-        $data['currency_exchange'] = $this->warehouses_model->get_currency_exchange();
+        // $data['currency_exchange'] = $this->warehouses_model->get_currency_exchange();
         // print_r($data['currency_exchange']); exit();
         
         $data['bodyclass'] = 'customer-profile dynamic-create-groups';

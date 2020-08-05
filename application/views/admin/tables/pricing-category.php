@@ -6,14 +6,14 @@ $aColumns = [
     db_prefix() .'pricing_categories.name',
     'calc_value1',
     'calc_value2',
-    db_prefix() . 'currencies_exchange.name',
+    db_prefix() . 'currencies.name',
     ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'pricing_categories';
 
 //$join = [];
  $join = [
-    'LEFT JOIN ' . db_prefix() . 'currencies_exchange ON ' . db_prefix() . 'currencies_exchange.id = ' . db_prefix() . 'pricing_categories.default_currency',
+    'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'pricing_categories.default_currency',
      ];
 // $additionalSelect = [];
 $additionalSelect = [

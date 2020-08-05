@@ -207,6 +207,8 @@ class Proposals extends AdminController
         $data['statuses']      = $this->proposals_model->get_statuses();
         $data['staff']         = $this->staff_model->get('', ['active' => 1]);
         $data['currencies']    = $this->currencies_model->get();
+        $this->load->model('finances_model');
+        // $data['currencies']    = $this->finances_model->get_currency_exchange();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
 
         $data['title'] = $title;

@@ -42,7 +42,7 @@
 					<div class="col-md-12">
 						<div class="alert alert-warning"><?php echo _l('currency_valid_code_help'); ?></div>
 						<?php echo render_input('name',_l('name'),'','text',array('placeholder'=>_l('name'))); ?>
-						<?php echo render_select('default_currency',$currency_exchanges,array('id','name'),_l('default_currency')); ?>
+						<?php echo render_select('default_currency',$currency,array('id','name'),_l('default_currency')); ?>
 
 						<?php echo render_input('calc_value1',_l('cal_value1'),'','number',array('placeholder'=>_l('cal_value1'))); ?>
 

@@ -2225,7 +2225,7 @@ $(function() {
     $("body").on('submit', '._transaction_form', function() {
 
         // On submit re-calculate total and reorder the items for all cases.
-        calculate_total();
+        calculate_total_quote();
 
         $('body').find('#items-warning').remove();
         var $itemsTable = $(this).find('table.items');
@@ -2461,7 +2461,7 @@ $(function() {
             $('.input-discount-percent').addClass('hide').val(0);
             $('#discount_percent-error').remove();
         }
-        calculate_total();
+        calculate_total_quote();
     });
 
     // Discount type for estimate/invoice
@@ -2471,7 +2471,7 @@ $(function() {
             $('input[name="discount_percent"]').val(0);
         }
         // Recalculate the total
-        calculate_total();
+        calculate_total_quote();
     });
 
     // In case user enter discount percent but there is no discount type set
@@ -2486,7 +2486,7 @@ $(function() {
             return false;
         }
         if ($(this).valid() === true) {
-            calculate_total();
+            calculate_total_quote()
         }
     });
 
@@ -2627,7 +2627,7 @@ $(function() {
         accounting.settings.number.decimal = app.options.decimal_separator;
         accounting.settings.number.precision = app.options.decimal_places;
 
-        calculate_total();
+        calculate_total_quote()
     }
 
     // Invoices to merge
@@ -6452,7 +6452,6 @@ function format_money(total, excludeSymbol) {
 // Set the currency for accounting
 function init_currency(id) {
     var $accountingTemplate = $("body").find('.accounting-template');
-
     if ($accountingTemplate.length || id) {
 
         var selectedCurrencyId = !id ? $accountingTemplate.find('select[name="currency"]').val() : id;
@@ -6464,7 +6463,7 @@ function init_currency(id) {
                 accounting.settings.currency.thousand = currency.thousand_separator;
                 accounting.settings.currency.symbol = currency.symbol;
                 accounting.settings.currency.format = currency.placement == 'after' ? '%v %s' : '%s%v';
-                calculate_total();
+                calculate_total_quote();
             });
     }
 }
@@ -7374,12 +7373,19 @@ function init_currency_symbol() {
 }
 
 function add_item_to_preview_quote(id) {
-    requestGetJSON('warehouses/get_item_by_id_with_currency/' + id).done(function(response) {
+    requestGetJSON('warehouses/get_item_by_id_with_relation/' + id).done(function(response) {
+        // console.log(response)
         clear_item_preview_values();
-        $('input[name="product_name"]').val(response.product_name);
-        $('input[name="rel_product_id"]').val(response.id);
-        $('input[name="original_price"]').val(response.price);
-
+        $('input[name="product_name"]').val(response.stock.product_name);
+        $('input[name="rel_product_id"]').val(response.stock.id);
+        $('input[name="original_price"]').val(response.stock.price);
+        $('select[name="unit"]').selectpicker('val',response.stock.unit);
+        if(response.default_pack)
+        {
+            $('select[name="pack_capacity"]').selectpicker('val',response.default_pack.pack_capacity);
+            $('input[name="volume_m3"]').val(response.default_pack.volume);
+        }
+        
         init_selectpicker();
         init_color_pickers();
         init_datepicker();
@@ -7431,7 +7437,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         // table_row += '</td>';
 
         table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
-        console.log('data',data.pack_capacity)
+        // console.log('data',data.pack_capacity)
         table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.pack_capacity+'</select></div></td>';
 
         table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="'+data.qty+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';

@@ -66,6 +66,6 @@ class Finances_model extends App_Model
 
     public function get_currency_exchange()
     {
-        
+        return $this->db->get(db_prefix().'currencies_exchange')->result_array();
     }
 }

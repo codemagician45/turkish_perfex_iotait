@@ -74,7 +74,7 @@
                            <label class="control-label"><?php echo _l('pricing_category'); ?></label>
                            <select name="pricing_category_id" id="pricing_category" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                               <option></option>
-                              <?php foreach($pricing_categories as $pricing_category){ echo $pricing_category->id;?>
+                              <?php foreach($pricing_categories as $pricing_category){?>
 
                                   <option value="<?= $pricing_category['id'];?>" <?php if((isset($proposal) &&  $proposal->pricing_category_id == $pricing_category['id'])){echo 'selected';} ?>><?= $pricing_category['name']; ?></option>
 
@@ -82,25 +82,7 @@
                               
                            </select>
                         </div>
-                        <!-- <div class="row">
-                          <div class="col-md-6">
-                              <?php $value = (isset($proposal) ? _d($proposal->date) : _d(date('Y-m-d'))) ?>
-                              <?php echo render_date_input('date','proposal_date',$value); ?>
-                          </div>
-                          <div class="col-md-6">
-                            <?php
-                        $value = '';
-                        if(isset($proposal)){
-                          $value = _d($proposal->open_till);
-                        } else {
-                          if(get_option('proposal_due_after') != 0){
-                              $value = _d(date('Y-m-d',strtotime('+'.get_option('proposal_due_after').' DAY',strtotime(date('Y-m-d')))));
-                          }
-                        }
-                        echo render_date_input('open_till','proposal_open_till',$value); ?>
-                          </div>
-                        </div> -->
-                        <?php
+                         <?php
                            $selected = '';
                            $currency_attr = array('data-show-subtext'=>true);
                            foreach($currencies as $currency){
@@ -112,7 +94,7 @@
                                 $selected = $currency['id'];
                               }
                               if($proposal->rel_type == 'customer'){
-                                $currency_attr['disabled'] = true;
+                                // $currency_attr['disabled'] = true;
                               }
                             } else {
                               if($rel_type == 'customer'){
@@ -124,7 +106,7 @@
                                     $selected = $currency['id'];
                                   }
                                 }
-                                $currency_attr['disabled'] = true;
+                                // $currency_attr['disabled'] = true;
                               } else {
                                if($currency['isdefault'] == 1){
                                 $selected = $currency['id'];
@@ -135,37 +117,19 @@
                            $currency_attr = apply_filters_deprecated('proposal_currency_disabled', [$currency_attr], '2.3.0', 'proposal_currency_attributes');
                            $currency_attr = hooks()->apply_filters('proposal_currency_attributes', $currency_attr);
                            ?>
-                           <div class="row">
-                             <div class="col-md-6">
-                              <?php
-                              echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected, $currency_attr);
-                              ?>
-                             </div>
-                             <!-- <div class="col-md-6">
-                               <div class="form-group select-placeholder">
-                                 <label for="discount_type" class="control-label"><?php echo _l('discount_type'); ?></label>
-                                 <select name="discount_type" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
-                                  <option value="" selected><?php echo _l('no_discount'); ?></option>
-                                  <option value="before_tax" <?php
-                                  if(isset($estimate)){ if($estimate->discount_type == 'before_tax'){ echo 'selected'; }}?>><?php echo _l('discount_type_before_tax'); ?></option>
-                                  <option value="after_tax" <?php if(isset($estimate)){if($estimate->discount_type == 'after_tax'){echo 'selected';}} ?>><?php echo _l('discount_type_after_tax'); ?></option>
-                                </select>
-                              </div>
-                            </div> -->
+                       <div class="row">
+                          <div class="col-md-6">
+                            <?php
+                            echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected, $currency_attr);
+                            ?>
                            </div>
+                       </div>
                         <?php $fc_rel_id = (isset($proposal) ? $proposal->id : false); ?>
                         <?php echo render_custom_fields('proposal',$fc_rel_id); ?>
                          <div class="form-group no-mbot">
                            <label for="tags" class="control-label"><i class="fa fa-tag" aria-hidden="true"></i> <?php echo _l('tags'); ?></label>
                            <input type="text" class="tagsinput" id="tags" name="tags" value="<?php echo (isset($proposal) ? prep_tags_input(get_tags_in($proposal->id,'proposal')) : ''); ?>" data-role="tagsinput">
                         </div>
-                        <!-- <div class="form-group mtop10 no-mbot">
-                            <p><?php echo _l('proposal_allow_comments'); ?></p>
-                            <div class="onoffswitch">
-                              <input type="checkbox" id="allow_comments" class="onoffswitch-checkbox" <?php if((isset($proposal) && $proposal->allow_comments == 1) || !isset($proposal)){echo 'checked';}; ?> value="on" name="allow_comments">
-                              <label class="onoffswitch-label" for="allow_comments" data-toggle="tooltip" title="<?php echo _l('proposal_allow_comments_help'); ?>"></label>
-                            </div>
-                          </div> -->
                      </div>
                      <div class="col-md-6">
                         <div class="row">
@@ -401,6 +365,33 @@ $('input[name="discount_total"]').change(function(){
 $(document).ready(function(){
   calculate_total_quote();
 })
+
+$('#pricing_category').change(function(){
+  var price_category_id = $('#pricing_category').val();
+
+  if(price_category_id)
+  {
+      requestGetJSON('products/get_price_category_calc/' + price_category_id).done(function (response) {
+        // console.log(response)
+        $('select[name="currency"]').selectpicker('val', response.default_currency)
+        init_currency();
+        if(response.calc_value1)
+            var value1 = response.calc_value1;
+        else
+            var value1 = 1;
+
+        if(response.calc_value2)
+            var value2 = response.calc_value2;
+        else
+            var value2 = 1;
+
+          
+      });
+  } else {
+      init_currency();
+  }
+})
+
 </script>
 </body>
 </html>

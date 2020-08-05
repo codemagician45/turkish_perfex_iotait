@@ -98,21 +98,23 @@
                   <?php if(!isset($client)){ ?>
                   <i class="fa fa-question-circle pull-left" data-toggle="tooltip" data-title="<?php echo _l('customer_currency_change_notice'); ?>"></i>
                   <?php }
-                     // $s_attrs = array('data-none-selected-text'=>_l('system_default_string'));
-                     $selected = (isset($client->default_currency) ? $client->default_currency : ''); 
-                     // if(isset($client) && client_have_transactions($client->userid)){
-                     //    $s_attrs['disabled'] = true;
-                     // }
-                     // foreach($currencies as $currency){
-                     //    if(isset($client)){
-                     //      if($currency['id'] == $client->default_currency){
-                     //        $selected = $currency['id'];
-                     //     }
-                     //  }
-                     // }
-                     //        // Do not remove the currency field from the customer profile!
-                     // echo render_select('default_currency',$currencies,array('id','name','symbol'),'invoice_add_edit_currency',$selected,$s_attrs); 
-                     echo render_select('default_currency',$currency_exchange,array('id','name','symbol'),_l('currency'),$selected);
+                     
+                     // $selected = (isset($client->default_currency) ? $client->default_currency : ''); 
+                     $s_attrs = array('data-none-selected-text'=>_l('system_default_string'));
+                     $selected = ''; 
+                     if(isset($client) && client_have_transactions($client->userid)){
+                        $s_attrs['disabled'] = true;
+                     }
+                     foreach($currencies as $currency){
+                        if(isset($client)){
+                          if($currency['id'] == $client->default_currency){
+                            $selected = $currency['id'];
+                         }
+                      }
+                     }
+                            // Do not remove the currency field from the customer profile!
+                     echo render_select('default_currency',$currencies,array('id','name','symbol'),'invoice_add_edit_currency',$selected,$s_attrs); 
+                     // echo render_select('default_currency',$currency_exchange,array('id','name','symbol'),_l('currency'),$selected);
                      ?>
 
                   <?php if(get_option('disable_language') == 0){ ?>

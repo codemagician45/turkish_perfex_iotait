@@ -11,6 +11,7 @@ class Warehouses extends AdminController
         $this->load->model('warehouses_model');
         $this->load->model('staff_model');
         $this->load->model('purchases_model');
+        $this->load->model('currencies_model');
     }
 
     /* Warehouse Material */
@@ -189,7 +190,7 @@ class Warehouses extends AdminController
         // $data['warehouses'] = $this->stock_lists_model->get_warehouses();
         $data['stock_units'] = $this->warehouses_model->get_units();
         $data['stock_categories'] = $this->warehouses_model->get_stock_categories();
-        $data['currency_exchange'] = $this->warehouses_model->get_currency_exchange();
+        $data['currency'] = $this->currencies_model->get();
         $data['title'] = _l('stock_list');
         $this->load->view('admin/warehouses/stock_lists/manage', $data);
     }
@@ -619,10 +620,10 @@ class Warehouses extends AdminController
         }
     }
 
-    public function get_item_by_id_with_currency($id)
+    public function get_item_by_id_with_relation($id)
     {
         if ($this->input->is_ajax_request()) {
-            $item = $this->warehouses_model->get_stocks_with_currency($id);
+            $item = $this->warehouses_model->get_item_by_id_with_relation($id);
             echo json_encode($item);
         }
     }
