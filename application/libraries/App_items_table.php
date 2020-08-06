@@ -48,82 +48,87 @@ class App_items_table extends App_items_table_template
             // Table data number
             $itemHTML .= '<td' . $this->td_attributes() . ' align="center" width="5%">' . $i . '</td>';
 
-            $itemHTML .= '<td class="description" align="left;" width="' . $descriptionItemWidth . '%">';
+            $itemHTML .= '<td class="description" width="10%" align="left;" >';
 
             /**
-             * Item description
+             * Item product name
              */
-            if (!empty($item['description'])) {
+            if (!empty($item['product_name'])) {
                 $itemHTML .= '<span style="font-size:' . $this->get_pdf_font_size() . 'px;"><strong>'
-                . $this->period_merge_field($item['description'])
+                . $this->period_merge_field($item['product_name'])
                 . '</strong></span>';
 
-                if (!empty($item['long_description'])) {
-                    $itemHTML .= '<br />';
-                }
-            }
-
-            /**
-             * Item long description
-             */
-            if (!empty($item['long_description'])) {
-                $itemHTML .= '<span style="color:#424242;">' . $this->period_merge_field($item['long_description']) . '</span>';
             }
 
             $itemHTML .= '</td>';
 
-            /**
-             * Item custom fields
-             */
-            foreach ($customFieldsItems as $custom_field) {
-                $itemHTML .= '<td align="left" width="' . $regularItemWidth . '%">' . get_custom_field_value($item['id'], $custom_field['id'], 'items') . '</td>';
-            }
+            /* Item Pack Capacity*/
+            $itemHTML .= '<td align="right" width="8%">' . $item['pack_capacity'].'</td>';
 
             /**
              * Item quantity
              */
-            $itemHTML .= '<td align="right" width="' . $regularItemWidth . '%">' . floatVal($item['qty']);
-
-            /**
-             * Maybe item has added unit?
-             */
-            if ($item['unit']) {
-                $itemHTML .= ' ' . $item['unit'];
-            }
+            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['qty']);
 
             $itemHTML .= '</td>';
 
             /**
-             * Item rate
-             * @var string
+             * Maybe item has added unit?
              */
-            $rate = hooks()->apply_filters(
-                'item_preview_rate',
-                app_format_money($item['rate'], $this->transaction->currency_name, $this->exclude_currency()),
-                ['item' => $item, 'transaction' => $this->transaction]
-            );
+            $unit = $this->ci->db->query('SELECT name FROM '.db_prefix().'units WHERE unitid='.$item['unit'])->row()->name;
 
-            $itemHTML .= '<td align="right" width="' . $regularItemWidth . '%">' . $rate . '</td>';
+            $itemHTML .= '<td align="right" width="10%">' . $unit;
 
-            /**
-             * Items table taxes HTML custom function because it's too general for all features/options
-             * @var string
-             */
-            $itemHTML .= $this->taxes_html($item, $regularItemWidth);
+            $itemHTML .= '</td>';
 
-            /**
-             * Possible action hook user to include tax in item total amount calculated with the quantiy
-             * eq Rate * QTY + TAXES APPLIED
-             */
+            /*Original Price*/
+            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['original_price']);
+
+            $itemHTML .= '</td>';
+
+            /* Sale Price */
+
+            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['sale_price']);
+
+            $itemHTML .= '</td>';
+
+            /* volume_m3 */
+
+            $itemHTML .= '<td align="right" width="10%">' . floatVal($item['volume_m3']);
+
+            $itemHTML .= '</td>';
+
+            /* approval need */
+
+            if($item['approval_need'])
+            {
+                $approval = _l('approval_need');
+            } else {
+                $approval = _l('approval_not_need');
+            }
+
+            $itemHTML .= '<td align="right" width="10%">' . $approval;
+
+            $itemHTML .= '</td>';
+
+            /* Notes */
+
+            $itemHTML .= '<td align="right" width="10%">' . $item['notes'];
+
+            $itemHTML .= '</td>';
+
             $item_amount_with_quantity = hooks()->apply_filters(
                 'item_preview_amount_with_currency',
-                app_format_money(($item['qty'] * $item['rate']), $this->transaction->currency_name, $this->exclude_currency()),
+                app_format_money(($item['qty'] * $item['sale_price']), $this->transaction->currency_name, $this->exclude_currency()),
                 $item,
                 $this->transaction,
                 $this->exclude_currency()
             );
 
-            $itemHTML .= '<td class="amount" align="right" width="' . $regularItemWidth . '%">' . $item_amount_with_quantity . '</td>';
+            /* Amounts */
+
+
+            $itemHTML .= '<td class="amount" align="right" width="10%">' . $item_amount_with_quantity . '</td>';
 
             // Close table row
             $itemHTML .= '</tr>';
@@ -132,9 +137,114 @@ class App_items_table extends App_items_table_template
 
             $i++;
         }
-
+        // print_r($html); exit();
         return $html;
     }
+
+    // public function items()
+    // {
+    //     $html = '';
+
+
+    //     $descriptionItemWidth = $this->get_description_item_width();
+
+    //     $regularItemWidth  = $this->get_regular_items_width(6);
+    //     $customFieldsItems = $this->get_custom_fields_for_table();
+
+    //     if ($this->for == 'html') {
+    //         $descriptionItemWidth = $descriptionItemWidth - 5;
+    //         $regularItemWidth     = $regularItemWidth - 5;
+    //     }
+
+    //     $i = 1;
+    //     foreach ($this->items as $item) {
+    //         $itemHTML = '';
+
+    //         // Open table row
+    //         $itemHTML .= '<tr' . $this->tr_attributes($item) . '>';
+
+    //         // Table data number
+    //         $itemHTML .= '<td' . $this->td_attributes() . ' align="center" width="5%">' . $i . '</td>';
+
+    //         $itemHTML .= '<td class="description" align="left;" width="' . $descriptionItemWidth . '%">';
+
+    //         /**
+    //          * Item description
+    //          */
+    //         if (!empty($item['product_name'])) {
+    //             $itemHTML .= '<span style="font-size:' . $this->get_pdf_font_size() . 'px;"><strong>'
+    //             . $this->period_merge_field($item['product_name'])
+    //             . '</strong></span>';
+
+    //         }
+
+    //         $itemHTML .= '</td>';
+
+    //         /**
+    //          * Item custom fields
+    //          */
+    //         // foreach ($customFieldsItems as $custom_field) {
+    //         //     $itemHTML .= '<td align="left" width="' . $regularItemWidth . '%">' . get_custom_field_value($item['id'], $custom_field['id'], 'items') . '</td>';
+    //         // }
+
+    //          $itemHTML .= '<td align="right" width="' . $regularItemWidth . '%">' . $item['pack_capacity'];
+
+    //         /**
+    //          * Item quantity
+    //          */
+    //         // $itemHTML .= '<td align="right" width="' . $regularItemWidth . '%">' . floatVal($item['qty']);
+
+    //         /**
+    //          * Maybe item has added unit?
+    //          */
+    //         if ($item['unit']) {
+    //             $itemHTML .= ' ' . $item['unit'];
+    //         }
+
+    //         $itemHTML .= '</td>';
+
+    //         /**
+    //          * Item rate
+    //          * @var string
+    //          */
+    //         $rate = hooks()->apply_filters(
+    //             'item_preview_rate',
+    //             app_format_money($item['rate'], $this->transaction->currency_name, $this->exclude_currency()),
+    //             ['item' => $item, 'transaction' => $this->transaction]
+    //         );
+
+    //         $itemHTML .= '<td align="right" width="' . $regularItemWidth . '%">' . $rate . '</td>';
+
+    //         /**
+    //          * Items table taxes HTML custom function because it's too general for all features/options
+    //          * @var string
+    //          */
+    //         $itemHTML .= $this->taxes_html($item, $regularItemWidth);
+
+    //         /**
+    //          * Possible action hook user to include tax in item total amount calculated with the quantiy
+    //          * eq Rate * QTY + TAXES APPLIED
+    //          */
+    //         $item_amount_with_quantity = hooks()->apply_filters(
+    //             'item_preview_amount_with_currency',
+    //             app_format_money(($item['qty'] * $item['rate']), $this->transaction->currency_name, $this->exclude_currency()),
+    //             $item,
+    //             $this->transaction,
+    //             $this->exclude_currency()
+    //         );
+
+    //         $itemHTML .= '<td class="amount" align="right" width="' . $regularItemWidth . '%">' . $item_amount_with_quantity . '</td>';
+
+    //         // Close table row
+    //         $itemHTML .= '</tr>';
+
+    //         $html .= $itemHTML;
+
+    //         $i++;
+    //     }
+
+    //     return $html;
+    // }
 
     /**
      * Html headings preview
@@ -142,21 +252,41 @@ class App_items_table extends App_items_table_template
      */
     public function html_headings()
     {
+        $descriptionItemWidth = $this->get_description_item_width();
+
+        $regularItemWidth  = $this->get_regular_items_width(6);
+
+        if ($this->for == 'html') {
+            $descriptionItemWidth = $descriptionItemWidth - 5;
+            $regularItemWidth     = $regularItemWidth - 5;
+        }
+
         $html = '<tr>';
-        $html .= '<th align="center">' . $this->number_heading() . '</th>';
-        $html .= '<th class="description" width="' . $this->get_description_item_width() . '%" align="left">' . $this->item_heading() . '</th>';
+        $html .= '<th width="2%" align="right">' . '#' . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('product_name') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('pack_capacity') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('qty') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('unit') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('original_price') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('sale_price') . '</th>';
+        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('volume_m3') . '</th>';
+        $html .= '<th width="' . $descriptionItemWidth . '%" align="right">' . _l('approval_need') . '</th>';
+        $html .= '<th width="' . $descriptionItemWidth . '%" align="right">' . _l('notes') . '</th>';
+        $html .= '<th width="8%" align="right">'.$this->amount_heading().'</th>';
+        // $html .= '<th align="center">' . $this->number_heading() . '</th>';
+        // $html .= '<th class="description" width="' . $this->get_description_item_width() . '%" align="left">' . $this->item_heading() . '</th>';
 
-        $customFieldsItems = $this->get_custom_fields_for_table();
-        foreach ($customFieldsItems as $cf) {
-            $html .= '<th class="custom_field" align="left">' . $cf['name'] . '</th>';
-        }
+        // $customFieldsItems = $this->get_custom_fields_for_table();
+        // foreach ($customFieldsItems as $cf) {
+        //     $html .= '<th class="custom_field" align="left">' . $cf['name'] . '</th>';
+        // }
 
-        $html .= '<th align="right">' . $this->qty_heading() . '</th>';
-        $html .= '<th align="right">' . $this->rate_heading() . '</th>';
-        if ($this->show_tax_per_item()) {
-            $html .= '<th align="right">' . $this->tax_heading() . '</th>';
-        }
-        $html .= '<th align="right">' . $this->amount_heading() . '</th>';
+        // $html .= '<th align="right">' . $this->qty_heading() . '</th>';
+        // $html .= '<th align="right">' . $this->rate_heading() . '</th>';
+        // if ($this->show_tax_per_item()) {
+        //     $html .= '<th align="right">' . $this->tax_heading() . '</th>';
+        // }
+        // $html .= '<th align="right">' . $this->amount_heading() . '</th>';
         $html .= '</tr>';
 
         return $html;
@@ -170,29 +300,52 @@ class App_items_table extends App_items_table_template
     {
         $descriptionItemWidth = $this->get_description_item_width();
         $regularItemWidth     = $this->get_regular_items_width(6);
-        $customFieldsItems    = $this->get_custom_fields_for_table();
 
         $tblhtml = '<tr height="30" bgcolor="' . get_option('pdf_table_heading_color') . '" style="color:' . get_option('pdf_table_heading_text_color') . ';">';
 
-        $tblhtml .= '<th width="5%;" align="center">' . $this->number_heading() . '</th>';
-        $tblhtml .= '<th width="' . $descriptionItemWidth . '%" align="left">' . $this->item_heading() . '</th>';
-
-        foreach ($customFieldsItems as $cf) {
-            $tblhtml .= '<th width="' . $regularItemWidth . '%" align="left">' . $cf['name'] . '</th>';
-        }
-
-        $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->qty_heading() . '</th>';
-        $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->rate_heading() . '</th>';
-
-        if ($this->show_tax_per_item()) {
-            $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->tax_heading() . '</th>';
-        }
-
-        $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->amount_heading() . '</th>';
+        $tblhtml .= '<th width="5%;" align="center">' . '#' . '</th>';
+        $tblhtml .= '<th width="10%" align="left">' . _l('product_name'). '</th>';
+        $tblhtml .= '<th width="8%" align="left">' . _l('pack_capacity'). '</th>';
+        $tblhtml .= '<th width="9%" align="left">' . _l('qty'). '</th>';
+        $tblhtml .= '<th width="10%" align="left">' . _l('unit'). '</th>';
+        $tblhtml .= '<th width="9%" align="left">' . _l('original_price'). '</th>';
+        $tblhtml .= '<th width="9%" align="left">' . _l('sale_price'). '</th>';
+        $tblhtml .= '<th width="10%" align="left">' . _l('volume_m3'). '</th>';
+        $tblhtml .= '<th width="10%" align="left">' . _l('approval_need'). '</th>';
+        $tblhtml .= '<th width="10%" align="left">' . _l('notes'). '</th>';
+        $tblhtml .= '<th width="10%" align="right">' . $this->amount_heading() . '</th>';
         $tblhtml .= '</tr>';
 
         return $tblhtml;
     }
+
+    // public function pdf_headings()
+    // {
+    //     $descriptionItemWidth = $this->get_description_item_width();
+    //     $regularItemWidth     = $this->get_regular_items_width(6);
+    //     $customFieldsItems    = $this->get_custom_fields_for_table();
+
+    //     $tblhtml = '<tr height="30" bgcolor="' . get_option('pdf_table_heading_color') . '" style="color:' . get_option('pdf_table_heading_text_color') . ';">';
+
+    //     $tblhtml .= '<th width="5%;" align="center">' . $this->number_heading() . '</th>';
+    //     $tblhtml .= '<th width="' . $descriptionItemWidth . '%" align="left">' . $this->item_heading() . '</th>';
+
+    //     foreach ($customFieldsItems as $cf) {
+    //         $tblhtml .= '<th width="' . $regularItemWidth . '%" align="left">' . $cf['name'] . '</th>';
+    //     }
+
+    //     $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->qty_heading() . '</th>';
+    //     $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->rate_heading() . '</th>';
+
+    //     if ($this->show_tax_per_item()) {
+    //         $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->tax_heading() . '</th>';
+    //     }
+
+    //     $tblhtml .= '<th width="' . $regularItemWidth . '%" align="right">' . $this->amount_heading() . '</th>';
+    //     $tblhtml .= '</tr>';
+
+    //     return $tblhtml;
+    // }
 
     /**
      * Check for period merge field for recurring invoices

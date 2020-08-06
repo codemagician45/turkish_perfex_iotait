@@ -48,6 +48,7 @@ $items = get_items_table_data($proposal, 'proposal', 'pdf')
         ->set_headings('estimate');
 
 $items_html = $items->table();
+// print_r($items_html);exit();
 
 $items_html .= '<br /><br />';
 $items_html .= '';
@@ -113,4 +114,5 @@ $proposal->content
 </div>
 EOF;
 
+// print_r($html); exit();
 $pdf->writeHTML($html, true, false, true, false, '');

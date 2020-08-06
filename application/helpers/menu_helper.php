@@ -223,7 +223,18 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'proposals',
                 'name'     => _l('quotation/offer'),
-                'href'     => admin_url('proposals'),
+                'href'     => admin_url('sale/quotation_list'),
+                // 'href'     => admin_url('proposals'),
+                'position' => 5,
+        ]);
+    }
+
+    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own'))
+        || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+        $CI->app_menu->add_sidebar_children_item('sales', [
+                'slug'     => 'quotation_approval',
+                'name'     => _l('quotation_approval'),
+                'href'     => admin_url('sale/quotation_approval'),
                 'position' => 5,
         ]);
     }

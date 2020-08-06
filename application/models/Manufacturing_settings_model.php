@@ -148,6 +148,13 @@ class Manufacturing_settings_model extends App_Model
         $this->db->order_by('id', 'asc');
         return $this->db->get(db_prefix() . 'moulds')->result_array();
     }
+
+    public function get_machine_by_mould($id)
+    {
+        $this->db->where('mould_id',$id);
+        return $this->db->get(db_prefix().'mould_suitability')->result_array();
+    }
+
     public function add_moulds_suitability($data)
     {
         unset($data['mouldID']);

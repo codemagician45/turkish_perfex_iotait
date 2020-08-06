@@ -8,7 +8,7 @@
       </div>
    </div>
    <div class="table-responsive s_table">
-      <table class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
+      <table class="table estimate-items-table items wo-items table-main-estimate-edit has-calculations no-mtop">
          <thead>
             <tr>
               <th width="12%" align="center"><?php echo _l('product_name'); ?></th>

@@ -253,6 +253,11 @@ class Warehouses_model extends App_Model
         return $this->db->get()->result_array();
     }
 
+    public function get_item_by_id_with_currency($id = '')
+    {
+        return $this->db->query('SELECT tblstock_lists.*, tblcurrencies.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies ON tblcurrencies.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row();
+    }
+
     public function get_item_by_id_with_relation($id = '')
     {
         // return $this->db->query('SELECT tblstock_lists.*, tblcurrencies_exchange.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies_exchange ON tblcurrencies_exchange.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row(); 
@@ -698,7 +703,7 @@ class Warehouses_model extends App_Model
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
             $this->db->where(array(
-                           'default_pack='=> NULL));
+                           'default_pack='=> 0));
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             // print_r($this->db->last_query()); exit();
             // print_r($_items); exit();

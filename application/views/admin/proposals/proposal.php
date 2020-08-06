@@ -4,6 +4,7 @@
    <div class="content accounting-template proposal">
       <div class="row">
          <?php
+         // print_r($pricing_categories); exit();
             if(isset($proposal)){
              echo form_hidden('isedit',$proposal->id);
             }
@@ -40,7 +41,7 @@
                            <label class="control-label"><?php echo _l('quote_phase'); ?></label>
                            <select name="quote_phase_id" id="quote_phase" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                               <option></option>
-                              <?php foreach($quote_phases as $quote_phase){ echo $quote_phase->id;?>
+                              <?php foreach($quote_phases as $quote_phase){?>
 
                                   <option value="<?= $quote_phase['id'];?>" <?php if((isset($proposal) &&  $proposal->quote_phase_id == $quote_phase['id'])){echo 'selected';} ?>><?= $quote_phase['phase']; ?></option>
 
@@ -74,7 +75,10 @@
                            <label class="control-label"><?php echo _l('pricing_category'); ?></label>
                            <select name="pricing_category_id" id="pricing_category" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                               <option></option>
-                              <?php foreach($pricing_categories as $pricing_category){?>
+                              <?php 
+                              foreach($pricing_categories as $pricing_category){
+
+                                ?>
 
                                   <option value="<?= $pricing_category['id'];?>" <?php if((isset($proposal) &&  $proposal->pricing_category_id == $pricing_category['id'])){echo 'selected';} ?>><?= $pricing_category['name']; ?></option>
 
@@ -391,6 +395,17 @@ $('#pricing_category').change(function(){
       init_currency();
   }
 })
+
+function quote_phase_change(row)
+{
+  var sale_price = $(row).val();
+  var original_price = $(row).parents('tr').find('.original_price').val();
+  console.log(sale_price, original_price)
+  if(parseFloat(original_price) > parseFloat(sale_price))
+  {
+    $('select[name="quote_phase_id"]').selectpicker('val',11);
+  }
+}
 
 </script>
 </body>

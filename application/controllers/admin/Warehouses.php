@@ -620,6 +620,14 @@ class Warehouses extends AdminController
         }
     }
 
+    public function get_item_by_id_with_currency($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            $item = $this->warehouses_model->get_item_by_id_with_currency($id);
+            echo json_encode($item);
+        }
+    }
+
     public function get_item_by_id_with_relation($id)
     {
         if ($this->input->is_ajax_request()) {

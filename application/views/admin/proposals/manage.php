@@ -27,7 +27,8 @@
             <div class="panel_s mbot10">
                <div class="panel-body _buttons">
                   <?php if(has_permission('proposals','','create')){ ?>
-                  <a href="<?php echo admin_url('proposals/proposal'); ?>" class="btn btn-info pull-left display-block">
+                  <!-- <a href="<?php echo admin_url('proposals/proposal'); ?>" class="btn btn-info pull-left display-block"> -->
+                  <a href="<?php echo admin_url('sale/quotation'); ?>" class="btn btn-info pull-left display-block">
                   <?php echo _l('new_quote'); ?>
                   </a>
                   <?php } ?>

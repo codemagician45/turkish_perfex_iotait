@@ -61,7 +61,6 @@
 	    if (data.item_id === "" && data.product_name === "") { return; }
 
 	    requestGetJSON('warehouses/get_pack_by_capacity').done(function(res) {
-	      // console.log('pack_capacity', res)
 	      var pack_capacity = '<option></option>';
 	      res.forEach(e => {
 	          if(e.pack_capacity == data.pack_capacity)
@@ -72,7 +71,6 @@
 	      data.pack_capacity = pack_capacity;
 
 	      requestGetJSON('warehouses/get_units').done(function(res) {
-	        // console.log('units', res)
 	        var unit = '<option></option>';
 	        res.forEach(e => {
 	            if(e.unitid == data.unitid)
@@ -96,17 +94,12 @@
 	        // table_row += '</td>';
 
 	        table_row += '<td class="bold description"><input type="text" name="wo_items[newitems][' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="wo_items[newitems][' + item_key + '][rel_product_id]" value="'+data.rel_product_id+'"></td>';
-	        console.log('data',data.pack_capacity)
+	        
 	        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="wo_items[newitems][' + item_key + '][pack_capacity]" id="wo_items[newitems][' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.pack_capacity+'</select></div></td>';
 
 	        table_row += '<td><input type="number" data-quantity name="wo_items[newitems][' + item_key + '][qty]" class="form-control" value="'+data.qty+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
 	        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="wo_items[newitems][' + item_key + '][unit]" id="wo_items[newitems][' + item_key + '][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.unit+'</select></div></td>';
-
-
-	        // table_row += '<td><input type="number" name="wo_items[newitems][' + item_key + '][original_price]" readonly class="form-control" value="'+data.original_price+'"></td>';
-
-	        // table_row += '<td class="sale-price"><input type="number" name="wo_items[newitems][' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
 	        table_row += '<td><input type="number" name="wo_items[newitems][' + item_key + '][volume_m3]" readonly class="form-control volume_m3" value="'+data.volume_m3+'"></td>';
 
@@ -121,11 +114,11 @@
 
 	        table_row += '<td><input type="text" name="wo_items[newitems][' + item_key + '][notes]" readonly class="form-control" value="'+data.notes+'"></td>';
 
-	        table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_wo_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
+	        table_row += '<td><a href="#" class="btn btn-danger" onclick="delete_wo_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
 	        table_row += '</tr>';
 
-	        $('table.items tbody').append(table_row);
+	        $('table.wo-items tbody').append(table_row);
 
 	        $(document).trigger({
 	            type: "item-added-to-table",
@@ -150,6 +143,8 @@
 	        $("body").find('.dt-loader').remove();
 	        $('#item_select').selectpicker('val', '');
 
+	        add_recipes_from_product_recipe(data.rel_product_id);
+
 	      })
 
 	      
@@ -166,22 +161,6 @@
 	  });
 	})
 
-	// $('input[name="discount_percent"]').keyup(function(){
-	//   calculate_total_quote()
-	// })
-
-	// $('input[name="discount_total"]').keyup(function(){
-	//   calculate_total_quote()
-	// })
-
-	$('input[name="discount_percent"]').change(function(){
-	  calculate_total_quote()
-	})
-
-	$('input[name="discount_total"]').change(function(){
-	  calculate_total_quote()
-	})
-
 	function delete_wo_item(row, itemid) {
 	    $(row).parents('tr').addClass('animated fadeOut', function() {
 	        setTimeout(function() {
@@ -193,19 +172,13 @@
 	    if ($('input[name="isedit"]').length > 0) {
 	        $('#wo_removed-items').append(hidden_input('wo_removed-items[]', itemid));
 	    }
-	}
 
-	
+
+	}
 
 	$(document).ready(function(){
 	  calculate_total_quote();
 	})
-
-
-	$("body").on('change', 'select[name="item_select_recipe"]', function () {
-		var itemid = $(this).selectpicker('val');
-	    add_recipes_from_product_recipe(itemid);
-	});
 
 	function add_recipes_from_product_recipe(id)
 	{
@@ -219,7 +192,7 @@
 	}
 
 	function add_item_to_table_plan_recipe(data,i) {
-		$('.recipe').find('tbody').empty();
+		// $('.recipe').find('tbody').empty();
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -228,6 +201,7 @@
                 else
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
+            console.log('recipe',data)
             data.option = option;
             var table_row = '';
             // var item_key = $("body").find('.recipe .item').length + 1;
@@ -236,14 +210,6 @@
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
 
-            // if(data.pre_produced == 1) {
-
-            //     table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox" checked  name="plan_items[' + item_key + '][pre_produced]"  value="1" ><label for="pre_produced"></label></div></td>';
-            // }
-            // else if(data.pre_produced == 0) {
-
-            //     table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox"  name="plan_items[' + item_key + '][pre_produced]"  value="0" ><label for="pre_produced"></label></div></td>';
-            // }
 
             table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
 
@@ -264,29 +230,6 @@
                 table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"></td>';
             }
 
-            // table_row += '<td><input type="number" readonly name="items[' + item_key + '][material_cost]" class="form-control" value="' + data.material_cost + '"></td>';
-
-            // if(data.pre_produced == 1) {
-
-            //     table_row += '<td><input type="number" readonly name="items[' + item_key + '][production_cost]" class="form-control" value=""></td>';
-
-            //     table_row += '<td><input type="number" readonly name="items[' + item_key + '][expected_profit]" class="form-control" value=""></td>';
-            // }
-            // else if(data.pre_produced == 0) {
-
-            //     table_row += '<td><input type="number" readonly name="items[' + item_key + '][production_cost]" class="form-control" value="' + data.production_cost + '"></td>';
-
-            //     table_row += '<td><input type="number" readonly name="items[' + item_key + '][expected_profit]" class="form-control" value="' + data.expected_profit + '"></td>';
-            // }
-
-            // if(data.pre_produced == 1) {
-            //     var subtotalVal = Number(data.used_qty) * Number(data.material_cost)
-            //     table_row += '<input type="hidden" name="items[' + item_key + '][subtotal]" class="subtotal" value="'+ subtotalVal.toFixed(2) +'">';
-            // }
-            // else if(data.pre_produced == 0) {
-            //     var subtotalVal = Number(data.material_cost) + Number(data.production_cost) + Number(data.expected_profit);
-            //     table_row += '<input type="hidden" name="items[' + item_key + '][subtotal]" class="subtotal" value="' + subtotalVal.toFixed(2) + '">';
-            // }
 
 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_plan_recipe_item(this,' + data.id + '); return false;"><i class="fa fa-trash"></i></a></td>';
@@ -318,22 +261,6 @@
 
         });
         
-        // var subtotal = 0;
-        // var total = $('#total').text();
-        // if(total == '') total = 0;
-
-        // if(data.pre_produced == 1)
-        // {
-        //     subtotal = Number(data.used_qty) * Number(data.material_cost);
-
-        // } else {
-        //     subtotal = Number(data.material_cost) + Number(data.production_cost) + Number(data.expected_profit);
-        // }
-
-        // total  = Number(total) +  subtotal;
-        // // console.log('total',total)
-        // $('#total').text(total.toFixed(2))
-        // $('#total_value').val(total.toFixed(2));
     }
 
      function delete_plan_recipe_item(row, itemid) {
@@ -345,9 +272,6 @@
         $('#recipe_removed-items').append(hidden_input('recipe_removed-items[]', itemid));
     }
 
-
-
-
 	/* Calendar*/
     $(function(){
 		if(get_url_param('eventid')) {
@@ -357,15 +281,196 @@
 
 	function set_plan(row,recipe_id)
 	{
+		$('#busy_machine_events').empty();
 		var qty = $(row).parents('tr').find('.qty').val();
+		var mould_sel = $(row).parents('tr').find('.mouldid')[1];
+		var mould_id = mould_sel.options[mould_sel.selectedIndex].value;
+		// var mould_id = $(row).parents('tr').find('.mouldid').val();
 		var mould_cavity = $(row).parents('tr').find('.mould_cavity').val();
 		var cycle_time = $(row).parents('tr').find('.cycle_time').val();
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
-		console.log($(row).parents('tr').children()[0].value)
-		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value)		
+		// console.log(mould_id)
+		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value);		
 		$('input[name="production_calculate"]').val(production_time);
+		$('select[name="mould_id"]').selectpicker('val',mould_id);
+		$('select[name="mould_id"]').prop('disabled', true);
 		$('#planNewEventModal').modal('show');
+
+		var option = '<option></option>';
+		requestGetJSON('invoices/get_machine_by_mould/' + mould_id).done(function(res) {
+			
+			res.forEach(e => {
+				requestGetJSON('manufacturing_settings/get_list_machine_by_id/'+ e.machine_id).done(function(data){
+					option += '<option value="'+ data.id +'">'+data.name+'</option>';
+					// console.log(option)
+					$('#machine_id').empty();
+					$('#machine_id').append(option);
+					$('#machine_id').selectpicker('refresh');
+				})
+			})
+		})
+
 	}
+
+
+	$('#machine_id').change(function(){
+
+		var machine_id = $(this).val();
+		// console.log(machine_id)
+
+		$('#busy_machine_events').remove();
+        $('#busy_machine_events_div').append('<div id="busy_machine_events"></div>')
+        validate_calendar_form();
+        var calendar_settings = {
+            themeSystem: 'bootstrap3',
+            customButtons: {},
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+            },
+            editable: false,
+            eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+            views: {
+                day: {
+                    eventLimit: false
+                }
+            },
+            defaultView: app.options.default_view_calendar,
+            isRTL: (isRTL == 'true' ? true : false),
+            eventStartEditable: false,
+            timezone: app.options.timezone,
+            firstDay: parseInt(app.options.calendar_first_day),
+            year: moment.tz(app.options.timezone).format("YYYY"),
+            month: moment.tz(app.options.timezone).format("M"),
+            date: moment.tz(app.options.timezone).format("DD"),
+            loading: function(isLoading, view) {
+                isLoading && $('#machine_calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+            },
+            eventSources: [{
+                url: admin_url + 'utilities/get_calendar_data_by_machine/'+ machine_id,
+                data: function() {
+                    var params = {};
+                    $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                        params[$(this).attr('name')] = true;
+                    }).get();
+                    if (!jQuery.isEmptyObject(params)) {
+                        params['calendar_filters'] = true;
+                    }
+                    return params;
+                },
+                type: 'POST',
+                error: function() {
+                    // console.error('There was error fetching calendar data');
+                },
+            }, ],
+            dayClick: function(date, jsEvent, view) {
+                var d = date.format();
+                if (!$.fullCalendar.moment(d).hasTime()) {
+                    d += ' 00:00';
+                }
+                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+                var fmt = new DateFormatter();
+                var d1 = fmt.formatDate(new Date(d), vformat);
+                $("input[name='start'].datetimepicker").val(d1);
+                return false;
+            }
+        };
+        calendar_settings.customButtons.calendarFilter = {
+            text: app.lang.filter_by.toLowerCase(),
+            click: function() {
+                slideToggle('#calendar_filters');
+            }
+        };
+        $('#busy_machine_events').fullCalendar(calendar_settings);
+        var new_event = get_url_param('new_event');
+        if (new_event) {
+            $("input[name='start'].datetimepicker").val(get_url_param('date'));
+        }
+
+	})
+
+
+	function one_machine_schedule(machine_id = '', machine_name = '')
+    {
+        $('#machine_calendar').remove();
+        $('#machine_calendear_div').append('<div id="machine_calendar"></div>')
+        validate_calendar_form();
+        var calendar_settings = {
+            themeSystem: 'bootstrap3',
+            customButtons: {},
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+            },
+            editable: false,
+            eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+            views: {
+                day: {
+                    eventLimit: false
+                }
+            },
+            defaultView: app.options.default_view_calendar,
+            isRTL: (isRTL == 'true' ? true : false),
+            eventStartEditable: false,
+            timezone: app.options.timezone,
+            firstDay: parseInt(app.options.calendar_first_day),
+            year: moment.tz(app.options.timezone).format("YYYY"),
+            month: moment.tz(app.options.timezone).format("M"),
+            date: moment.tz(app.options.timezone).format("DD"),
+            loading: function(isLoading, view) {
+                isLoading && $('#machine_calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+            },
+            eventSources: [{
+                url: admin_url + 'utilities/get_calendar_data_by_machine/'+ machine_id,
+                data: function() {
+                    var params = {};
+                    $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                        params[$(this).attr('name')] = true;
+                    }).get();
+                    if (!jQuery.isEmptyObject(params)) {
+                        params['calendar_filters'] = true;
+                    }
+                    return params;
+                },
+                type: 'POST',
+                error: function() {
+                    // console.error('There was error fetching calendar data');
+                },
+            }, ],
+            dayClick: function(date, jsEvent, view) {
+                var d = date.format();
+                view_produced_qty(d,machine_id,machine_name)
+                return false;
+            }
+        };
+        if ($("body").hasClass('dashboard')) {
+            calendar_settings.customButtons.viewFullCalendar = {
+                text: app.lang.calendar_expand,
+                click: function() {
+                    window.location.href = admin_url + 'utilities/calendar';
+                }
+            };
+        }
+        calendar_settings.customButtons.calendarFilter = {
+            text: app.lang.filter_by.toLowerCase(),
+            click: function() {
+                slideToggle('#calendar_filters');
+            }
+        };
+        $('#machine_calendar').fullCalendar(calendar_settings);
+        var new_event = get_url_param('new_event');
+        if (new_event) {
+            $("input[name='start'].datetimepicker").val(get_url_param('date'));
+            $('#machineNewEventModal').modal('show');
+        }
+    }
+
 
 </script>
 </body>

@@ -1213,7 +1213,7 @@ $(function() {
                 },
                 type: 'POST',
                 error: function(error) {
-                    console.log(error)
+                    // console.log(error)
                     console.error('There was error fetching calendar data');
                 },
             }, ],
@@ -1303,7 +1303,7 @@ $(function() {
     var machine_calendar_selector = $('#machine_calendar');
 
     if (machine_calendar_selector.length > 0) {
-        console.log('calendar render')
+        // console.log('calendar render')
         validate_calendar_form();
         var calendar_settings = {
             themeSystem: 'bootstrap3',
@@ -1394,12 +1394,11 @@ $(function() {
                 calendar_settings.googleCalendarApiKey = app.options.google_api;
             }
             if (app.calendarIDs !== '') {
-                console.log('a',JSON.parse(app.calendarIDs))
+                // console.log('a',JSON.parse(app.calendarIDs))
                 app.calendarIDs = JSON.parse(app.calendarIDs);
                 if (app.calendarIDs.length != 0) {
                     if (app.options.google_api !== '') {
                         for (var i = 0; i < app.calendarIDs.length; i++) {
-                            console.log('aaa')
                             var _gcal = {};
                             _gcal.googleCalendarId = app.calendarIDs[i];
                             calendar_settings.eventSources.push(_gcal);
@@ -4861,7 +4860,7 @@ function proposal_convert_template(invoker) {
     } else {
         return false;
     }
-    console.log(proposal_id,html_helper_selector);
+    // console.log(proposal_id,html_helper_selector);
     requestGet('proposals/get_' + html_helper_selector + '_convert_data/' + proposal_id).done(function(data) {
         if ($('.proposal-pipeline-modal').is(':visible')) {
             $('.proposal-pipeline-modal').modal('hide');
@@ -7051,8 +7050,8 @@ function delete_sale_activity(id) {
 function view_event(id) {
     if (typeof(id) == 'undefined') { return; }
     $.post(admin_url + 'utilities/view_event/' + id).done(function(response) {
-        console.log(response)
-        console.log($('#event'));
+        // console.log(response)
+        // console.log($('#event'));
         $('#event').html(response);
         $('#viewEvent').modal('show');
         init_datepicker();
@@ -7094,7 +7093,6 @@ function calendar_form_handler(form) {
             setTimeout(function() {
                 var location = window.location.href;
                 location = location.split('?');
-                console.log(location[0])
                 // window.location.href = location[0];
                 window.location.reload(true);
             }, 500);
@@ -7423,6 +7421,8 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         })
         data.unit = unit;
 
+        var amount = data.qty * data.sale_price;
+
         var table_row = '';
         var item_key = $("body").find('tbody .item').length + 1;
 
@@ -7445,9 +7445,9 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.unit+'</select></div></td>';
 
 
-        table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control" value="'+data.original_price+'"></td>';
+        table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control original_price" value="'+data.original_price+'"></td>';
 
-        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
+        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();quote_phase_change(this);" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][volume_m3]" readonly class="form-control volume_m3" value="'+data.volume_m3+'"></td>';
 
@@ -7461,6 +7461,8 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         }
 
         table_row += '<td><input type="text" name="newitems[' + item_key + '][notes]" readonly class="form-control" value="'+data.notes+'"></td>';
+
+        table_row += '<td class="amount" align="right">' + format_money(amount, true) + '</td>';
 
         table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_quote_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
@@ -7570,7 +7572,7 @@ function calculate_total_quote()
 
     $.each(rows, function() {
         volume_m3 = Number($(this).find('.volume_m3').val());
-        console.log(volume_m3)
+        // console.log(volume_m3)
         sum_volume_m3 += volume_m3;
         row = $(this);
     });
@@ -7601,7 +7603,7 @@ function calculate_total_quote()
     $('.discount-total').html(discount_html);
     $('.adjustment').html(format_money(adjustment));
     $('.subtotal').html(format_money(subtotal) + hidden_input('subtotal', accounting.toFixed(subtotal, app.options.decimal_places)));
-    $('.sum_volume_m3').html(sum_volume_m3.toFixed(10))+ hidden_input('sum_volume_m3', sum_volume_m3.toFixed(10));
+    $('.sum_volume_m3').html(sum_volume_m3.toFixed(10) + hidden_input('sum_volume_m3', sum_volume_m3.toFixed(10)));
     
     $('#sum_volume_m3').val(sum_volume_m3.toFixed(10));
     $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));

@@ -29,6 +29,7 @@ class Proposal extends ClientsController
 
                     try {
                         $pdf = proposal_pdf($proposal);
+                        // print_r($pdf); exit();
                     } catch (Exception $e) {
                         echo $e->getMessage();
                         die;

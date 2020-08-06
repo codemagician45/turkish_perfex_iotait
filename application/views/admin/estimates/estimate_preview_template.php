@@ -174,6 +174,7 @@
                   </div>
                   <?php if($estimate->invoiceid == NULL){ ?>
                   <?php if(has_permission('invoices','','create') && !empty($estimate->clientid)){ ?>
+                  <?php //if(has_permission('invoices','','create') && !empty($estimate->clientid) && $estimate->status == 4){ ?>
                   <div class="btn-group pull-right mleft5">
                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <?php echo _l('convert'); ?> <span class="caret"></span>
@@ -299,7 +300,8 @@
                      <div class="col-md-12">
                         <div class="table-responsive">
                               <?php
-                                 $items = get_items_table_data($estimate, 'estimate', 'html', true);
+                                 // $items = get_items_table_data($estimate, 'estimate', 'html', true);
+                                 $items = get_sale_order_items_table_data($estimate, 'estimate', 'html', true);
                                  echo $items->table();
                               ?>
                         </div>
@@ -328,9 +330,9 @@
                               </tr>
                               <?php } ?>
                               <?php
-                                 foreach($items->taxes() as $tax){
-                                     echo '<tr class="tax-area"><td class="bold">'.$tax['taxname'].' ('.app_format_number($tax['taxrate']).'%)</td><td>'.app_format_money($tax['total_tax'], $estimate->currency_name).'</td></tr>';
-                                 }
+                                 // foreach($items->taxes() as $tax){
+                                 //     echo '<tr class="tax-area"><td class="bold">'.$tax['taxname'].' ('.app_format_number($tax['taxrate']).'%)</td><td>'.app_format_money($tax['total_tax'], $estimate->currency_name).'</td></tr>';
+                                 // }
                                  ?>
                               <?php if((int)$estimate->adjustment != 0){ ?>
                               <tr>

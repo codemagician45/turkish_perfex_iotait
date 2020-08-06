@@ -10,24 +10,28 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <?php echo render_datetime_input('start','utility_calendar_new_event_start_date'); ?>
-            <div class="clearfix mtop15"></div>
-            <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?>
-            <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('placeholder'=>_l('production_calculate'))); ?>
             <input type="hidden" name="recipe_id">
+
+            <?php
+               echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id')); ?>
+
             <div class="form-group">
               <label for="machine_id"><?php echo _l('machine_in_mould_suitablity') ?></label>
               <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
                     <select data-fieldto="machine_id" data-fieldid="machine_id" name="machine_id" id="machine_id" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
-                        <option value=""></option>
-                      <?php foreach ($machines as $key => $machine) {?>
-                        <option value="<?php echo $machine->id;?>"><?php echo $machine->name;?></option>
-                      <?php } ?>
                     </select>
                 </div>
+            </div> 
+            <div id="busy_machine_events_div">
+              <div id="busy_machine_events"></div>
             </div>
+            <?php echo render_datetime_input('start','utility_calendar_new_event_start_date'); ?>
+            <div class="clearfix mtop15"></div>
+            <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?>
+            <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('placeholder'=>_l('production_calculate'))); ?>
+            
 
-            <?php echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id')); ?>
+            
 
          <hr />
          <p class="bold"><?php echo _l('event_color'); ?></p>

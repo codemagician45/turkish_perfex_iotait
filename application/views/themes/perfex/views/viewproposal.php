@@ -1,6 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div id="proposal-wrapper">
    <?php
+      // print_r($proposal); exit();
       ob_start();
       $items = get_items_table_data($proposal, 'proposal')
       ->add_table_class('no-margin')

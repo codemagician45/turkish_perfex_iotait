@@ -106,10 +106,10 @@
 			$('#stock_lists_modal input[name="product_code"]').val('');
 			$('#stock_lists_modal input[name="product_photo"]').val('');
 			$('#stock_lists_modal input[name="product_name"]').val('');
-			$('#stock_lists_modal input[name="unit"]').val('');
-			$('#stock_lists_modal input[name="category"]').val('');
+			$('#stock_lists_modal select[name="unit"]').selectpicker('val','');
+			$('#stock_lists_modal select[name="category"]').selectpicker('val','');
 			$('#stock_lists_modal input[name="price"]').val('');
-			$('#stock_lists_modal input[name="currency_id"]').val('');
+			$('#stock_lists_modal select[name="currency_id"]').selectpicker('val','');
 			$('#stock_lists_modal input[name="stocklistId"]').val('');
 
 			$('#stock_lists_modal .add-title').removeClass('hide');

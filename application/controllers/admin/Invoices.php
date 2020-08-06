@@ -10,6 +10,7 @@ class Invoices extends AdminController
         $this->load->model('invoices_model');
         $this->load->model('credit_notes_model');
         $this->load->model('utilities_model');
+        $this->load->model('manufacturing_settings_model');
     }
 
     /* Get all invoices in case user go on index page */
@@ -473,22 +474,22 @@ class Invoices extends AdminController
         $data['title']                = _l('calendar');
         add_calendar_assets();
 
-        $this->load->model('manufacturing_settings_model');
-        $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
-        $machines_id_array = [];
-        foreach ($machines_in_suitability as $key => $value) {
-            array_push($machines_id_array, $value['machine_id']);
-        }
-        $machines_id_array_unique = array_unique($machines_id_array);
+        
+        // $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
+        // $machines_id_array = [];
+        // foreach ($machines_in_suitability as $key => $value) {
+        //     array_push($machines_id_array, $value['machine_id']);
+        // }
+        // $machines_id_array_unique = array_unique($machines_id_array);
 
-        $machines = [];
+        // $machines = [];
 
-        foreach ($machines_id_array_unique as $key => $id) {
-            $machine = $this->manufacturing_settings_model->get_machine($id);
-            array_push($machines, $machine);
-        }
+        // foreach ($machines_id_array_unique as $key => $id) {
+        //     $machine = $this->manufacturing_settings_model->get_machine($id);
+        //     array_push($machines, $machine);
+        // }
 
-        $data['machines'] = $machines;
+        // $data['machines'] = $machines;
 
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
 
@@ -529,6 +530,14 @@ class Invoices extends AdminController
         } else {
             // $this->load->view('admin/utilities/event', $data);
             $this->load->view('admin/invoices/rel_recipes/event', $data);
+        }
+    }
+
+    public function get_machine_by_mould($id)
+    {
+        if($this->input->is_ajax_request()){
+            $res = $this->manufacturing_settings_model->get_machine_by_mould($id);
+            echo json_encode($res);
         }
     }
 

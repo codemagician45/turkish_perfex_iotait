@@ -3844,6 +3844,8 @@ $lang['total_price'] = 'Total Price';
 
 $lang['convert_to_sale_order'] = 'Convert to Sale Order';
 
+$lang['quotation_approval'] = 'Quotation Approval';
+
 
 /*Planing*/
 $lang['convert_to_work_order'] = 'Convert to Work Order';

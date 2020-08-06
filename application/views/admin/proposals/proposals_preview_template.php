@@ -147,7 +147,7 @@
                </ul>
             </div>
             <?php if($proposal->estimate_id == NULL && $proposal->invoice_id == NULL){ ?>
-            <?php if(has_permission('estimates','','create') || has_permission('invoices','','create')){ ?>
+            <?php if((has_permission('estimates','','create') || has_permission('invoices','','create')) && $proposal->status == 3){ ?>
             <div class="btn-group">
                <button type="button" class="btn btn-success dropdown-toggle<?php if($proposal->rel_type == 'customer' && total_rows(db_prefix().'clients',array('active'=>0,'userid'=>$proposal->rel_id)) > 0){echo ' disabled';} ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <?php echo _l('proposal_convert'); ?> <span class="caret"></span>

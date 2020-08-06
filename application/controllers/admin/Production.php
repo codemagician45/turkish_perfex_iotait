@@ -72,21 +72,21 @@ class Production extends AdminController
         add_calendar_assets();
 
         $this->load->model('manufacturing_settings_model');
-        $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
-        $machines_id_array = [];
-        foreach ($machines_in_suitability as $key => $value) {
-            array_push($machines_id_array, $value['machine_id']);
-        }
-        $machines_id_array_unique = array_unique($machines_id_array);
+        // $machines_in_suitability = $this->manufacturing_settings_model->get_mould_suitability();
+        // $machines_id_array = [];
+        // foreach ($machines_in_suitability as $key => $value) {
+        //     array_push($machines_id_array, $value['machine_id']);
+        // }
+        // $machines_id_array_unique = array_unique($machines_id_array);
 
-        $machines = [];
+        // $machines = [];
 
-        foreach ($machines_id_array_unique as $key => $id) {
-            $machine = $this->manufacturing_settings_model->get_machine($id);
-            array_push($machines, $machine);
-        }
+        // foreach ($machines_id_array_unique as $key => $id) {
+        //     $machine = $this->manufacturing_settings_model->get_machine($id);
+        //     array_push($machines, $machine);
+        // }
 
-        $data['machines'] = $machines;
+        // $data['machines'] = $machines;
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
         // print_r($data); exit();
         $this->load->view('admin/production/list_of_machinery/manage', $data);

@@ -339,10 +339,12 @@ class Proposals_model extends App_Model
             unset($data['rel_product_id']);
         }
         $data['updated_user'] = get_staff_user_id();
-        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'proposals', $data);
 
+        if ($this->db->affected_rows() > 0) {
+            $affectedRows++;
+        }
         if(isset($newitems))
             foreach ($newitems as $val) {
                 unset($val['itemid']);
@@ -353,15 +355,21 @@ class Proposals_model extends App_Model
                     $val['approval_need'] = 1;
                 $this->db->insert(db_prefix() . 'itemable', $val);
                 $insert_id = $this->db->insert_id();
+                if ($insert_id) {
+                    $affectedRows++;
+                }
             }
         if(isset($items))
             foreach ($items as $val) {
-                $id = $val['itemid'];
+                $itemid = $val['itemid'];
                 unset($val['itemid']);
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->where('id',$id);
                 $this->db->update(db_prefix() . 'itemable', $val);
+                if ($this->db->affected_rows() > 0) {
+                    $affectedRows++;
+                }
             }
 
         if(isset($data['removed_items'])){
@@ -369,6 +377,9 @@ class Proposals_model extends App_Model
             foreach ($removed_items as $val) {
                 $this->db->where('id',$val);
                 $this->db->delete(db_prefix() . 'itemable');
+                if ($this->db->affected_rows() > 0) {
+                    $affectedRows++;
+                }
             }
         }    
         
@@ -1088,7 +1099,10 @@ class Proposals_model extends App_Model
             $this->db->update(db_prefix() . 'proposals', ['status' => 4]);
         }
 
+
         $proposal = $this->get($id);
+
+        // print_r($id); exit();
 
         $sent = send_mail_template('proposal_send_to_customer', $proposal, $attachpdf, $cc);
 

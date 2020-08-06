@@ -24,7 +24,20 @@ $aColumns = [
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'proposals';
 
-$where  = [];
+$join          = [
+    'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.id',
+    'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.id',
+
+    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'proposals.addedfrom',
+    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'proposals.updated_user',
+
+    // 'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'proposals.addedfrom',
+];
+
+$where  = [
+    'AND '.db_prefix() . 'quote_phase.id = 11'
+];
+
 $filter = [];
 
 if ($this->ci->input->post('leads_related')) {
@@ -79,15 +92,7 @@ if (!has_permission('proposals', '', 'view')) {
     array_push($where, 'AND ' . get_proposals_sql_where_staff(get_staff_user_id()));
 }
 
-$join          = [
-    'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.id',
-    'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.id',
 
-    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'proposals.addedfrom',
-    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'proposals.updated_user',
-
-    // 'LEFT JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid = ' . db_prefix() . 'proposals.addedfrom',
-];
 $custom_fields = get_table_custom_fields('proposal');
 
 foreach ($custom_fields as $key => $field) {
@@ -104,7 +109,7 @@ $aColumns = hooks()->apply_filters('proposals_table_sql_columns', $aColumns);
 if (count($custom_fields) > 4) {
     @$this->ci->db->query('SET SQL_BIG_SELECTS=1');
 }
-
+// print_r($where); exit();
 $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'currency',
     'rel_id',
@@ -125,7 +130,7 @@ foreach ($rResult as $aRow) {
 
     $numberOutput = '<a href="' . admin_url('proposals/list_proposals/' . $aRow[db_prefix() . 'proposals.id']) . '" onclick="init_proposal(' . $aRow[db_prefix() . 'proposals.id'] . '); return false;">' . format_proposal_number($aRow[db_prefix() . 'proposals.id']) . '</a>';
 
-    $numberOutput .= '<div class="row-options">';
+    // $numberOutput .= '<div class="row-options">';
 
     // $numberOutput .= '<a href="' . site_url('proposal/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     // if (has_permission('proposals', '', 'edit')) {
@@ -136,7 +141,7 @@ foreach ($rResult as $aRow) {
     if (has_permission('proposals', '', 'edit')) {
         $numberOutput .= ' | <a href="' . admin_url('sale/quotation/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
     }
-
+    
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;

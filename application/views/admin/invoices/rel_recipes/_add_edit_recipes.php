@@ -4,11 +4,11 @@
    <div class="row">
       <div class="col-md-4">
           <?php //$this->load->view('admin/invoice_items/item_select'); ?>
-          <?php $this->load->view('admin/invoices/rel_recipes/select_package'); ?>
+          <?php //$this->load->view('admin/invoices/rel_recipes/select_package'); ?>
       </div>
    </div>
    <div class="table-responsive recipe" id="item-section">
-        <table class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
+        <table class="table estimate-items-table items recipe-items table-main-estimate-edit has-calculations no-mtop">
             <thead>
             <tr>
                 <th width="9%"><?php echo _l('product_name'); ?></th>
