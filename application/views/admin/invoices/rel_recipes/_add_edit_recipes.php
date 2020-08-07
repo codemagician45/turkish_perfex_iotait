@@ -101,7 +101,8 @@
                                 $option.='<option value="'.$mould['id'].'">'.$mould['mould_name'].'</option>';
                         }
 
-                        $table_row = '<tr>';
+                        $table_row = '<tr class="sortable item">';
+                        
                         // $table_row .= '<td>';
 
                         $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][item_id]', $item['id']);

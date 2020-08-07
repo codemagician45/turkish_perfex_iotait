@@ -93,6 +93,8 @@ $route['viewinvoice/(:num)/(:any)'] = 'invoice/index/$1/$2';
  */
 $route['invoice/(:num)/(:any)'] = 'invoice/index/$1/$2';
 
+$route['work_order/(:num)/(:any)'] = 'work_order/index/$1/$2';
+
 /**
  * @deprecated
  */
@@ -102,6 +104,8 @@ $route['viewestimate/(:num)/(:any)'] = 'estimate/index/$1/$2';
  * @since 2.0.0
  */
 $route['estimate/(:num)/(:any)'] = 'estimate/index/$1/$2';
+$route['sale_order/(:num)/(:any)'] = 'sale_order/index/$1/$2';
+
 $route['subscription/(:any)']    = 'subscription/index/$1';
 
 /**
@@ -113,6 +117,7 @@ $route['viewproposal/(:num)/(:any)'] = 'proposal/index/$1/$2';
  * @since 2.0.0
  */
 $route['proposal/(:num)/(:any)'] = 'proposal/index/$1/$2';
+$route['quotation/(:num)/(:any)'] = 'quotation/index/$1/$2';
 
 /**
  * @since 2.0.0

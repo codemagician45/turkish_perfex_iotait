@@ -9,6 +9,7 @@ class Sale extends AdminController
         parent::__construct();
         $this->load->model('sale_model');
         $this->load->model('proposals_model');
+        $this->load->model('estimates_model');
         $this->load->model('warehouses_model');
         $this->load->model('currencies_model');
     }
@@ -211,7 +212,7 @@ class Sale extends AdminController
 
             $data['proposal_id']           = $proposal_id;
             $data['switch_pipeline']       = true;
-            $data['title']                 = _l('proposals');
+            $data['title']                 = _l('quotation');
             $data['statuses']              = $this->proposals_model->get_statuses();
             $data['proposals_sale_agents'] = $this->proposals_model->get_sale_agents();
             $data['years']                 = $this->proposals_model->get_proposals_years();
@@ -223,6 +224,7 @@ class Sale extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
+            // print_r($proposal_data); exit();
             if ($id == '') {
                 if (!has_permission('proposals', '', 'create')) {
                     access_denied('proposals');
@@ -310,4 +312,157 @@ class Sale extends AdminController
         $data['title'] = _l('quotation_approval');
         $this->load->view('admin/sale/quotation_approval/manage', $data);
     }
+
+    public function sale_order_list($id = '')
+    {
+        if (!has_permission('estimates', '', 'view') && !has_permission('estimates', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == '0') {
+            access_denied('estimates');
+        }
+
+        $isPipeline = $this->session->userdata('estimate_pipeline') == 'true';
+
+        $data['estimate_statuses'] = $this->estimates_model->get_statuses();
+        if ($isPipeline && !$this->input->get('status') && !$this->input->get('filter')) {
+            $data['title']           = _l('estimates_pipeline');
+            $data['bodyclass']       = 'estimates-pipeline estimates-total-manual';
+            $data['switch_pipeline'] = false;
+
+            if (is_numeric($id)) {
+                $data['estimateid'] = $id;
+            } else {
+                $data['estimateid'] = $this->session->flashdata('estimateid');
+            }
+
+            $this->load->view('admin/estimates/pipeline/manage', $data);
+        } else {
+
+            // Pipeline was initiated but user click from home page and need to show table only to filter
+            if ($this->input->get('status') || $this->input->get('filter') && $isPipeline) {
+                $this->pipeline(0, true);
+            }
+
+            $data['estimateid']            = $id;
+            $data['switch_pipeline']       = true;
+            $data['title']                 = _l('sale_order');
+            $data['bodyclass']             = 'estimates-total-manual';
+            $data['estimates_years']       = $this->estimates_model->get_estimates_years();
+            $data['estimates_sale_agents'] = $this->estimates_model->get_sale_agents();
+            $this->load->view('admin/estimates/manage', $data);
+        }
+    }
+
+    public function sale_order($id = '')
+    {
+        if ($this->input->post()) {
+            $estimate_data = $this->input->post();
+            // print_r($estimate_data); exit();
+            if ($id == '') {
+                if (!has_permission('estimates', '', 'create')) {
+                    access_denied('estimates');
+                }
+                $id = $this->estimates_model->add($estimate_data);
+                if ($id) {
+                    // set_alert('success', _l('added_successfully', _l('sale_order')));
+                    // if ($this->set_estimate_pipeline_autoload($id)) {
+                    //     redirect(admin_url('estimates/list_estimates/'));
+                    // } else {
+                    //     redirect(admin_url('estimates/list_estimates/' . $id));
+                    // }
+                    redirect(admin_url('sale/sale_order_list'));
+                }
+            } else {
+                if (!has_permission('estimates', '', 'edit')) {
+                    access_denied('estimates');
+                }
+                // print_r($estimate_data); exit();
+                $success = $this->estimates_model->update($estimate_data, $id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('sale_order')));
+                }
+                // if ($this->set_estimate_pipeline_autoload($id)) {
+                //     redirect(admin_url('estimates/list_estimates/'));
+                // } else {
+                //     redirect(admin_url('estimates/list_estimates/' . $id));
+                // }
+                redirect(admin_url('sale/sale_order_list'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('create_new_sale_order');
+        } else {
+            $estimate = $this->estimates_model->get($id);
+            if (!$estimate || !user_can_view_estimate($id)) {
+                blank_page(_l('estimate_not_found'));
+            }
+
+            $data['estimate'] = $estimate;
+            $data['edit']     = true;
+            $title            = _l('edit', _l('sale_order'));
+
+            $created_user = $this->staff_model->get($estimate->addedfrom);
+            $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
+            if(!empty($estimate->updated_user)){
+               $updated_user = $this->staff_model->get($estimate->updated_user);
+               $data['updated_user_name'] = $updated_user->firstname . ' ' . $updated_user->lastname; 
+            }
+        }
+        if ($this->input->get('customer_id')) {
+            $data['customer_id'] = $this->input->get('customer_id');
+        }
+        $this->load->model('taxes_model');
+        $data['taxes'] = $this->taxes_model->get();
+        $this->load->model('currencies_model');
+        $data['currencies'] = $this->currencies_model->get();
+
+        $data['base_currency'] = $this->currencies_model->get_base_currency();
+
+        $this->load->model('invoice_items_model');
+
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix().'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('sale_model');
+        $data['sale_phase'] = $this->sale_model->get_sale_phases();
+
+        $data['quote_items'] = $this->estimates_model->get_quote_items($id);
+
+        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['staff']             = $this->staff_model->get('', ['active' => 1]);
+        $data['estimate_statuses'] = $this->estimates_model->get_statuses();
+        $data['title']             = $title;
+        $this->load->view('admin/estimates/estimate', $data);
+    }
+
+    public function set_estimate_pipeline_autoload($id)
+    {
+        if ($id == '') {
+            return false;
+        }
+        if ($this->session->has_userdata('estimate_pipeline') && $this->session->userdata('estimate_pipeline') == 'true') {
+            $this->session->set_flashdata('estimateid', $id);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    
 }

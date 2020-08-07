@@ -1,4 +1,4 @@
-  <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel_s accounting-template invoice">
    <div class="panel-body">
       <div class="row">
@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <?php 
               $value = (isset($invoice) ? $invoice->sum_volume_m3 : '');
-              echo render_input('sum_volume_m3',_l('sum_volume_m3'),$value,'text',array('placeholder'=>_l('sum_volume_m3'))); ?>
+              echo render_input('sum_volume',_l('sum_volume_m3'),$value,'text',array('placeholder'=>_l('sum_volume_m3'))); ?>
         </div>
 
         <div class="col-md-6">

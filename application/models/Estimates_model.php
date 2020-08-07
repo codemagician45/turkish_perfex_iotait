@@ -278,7 +278,7 @@ class Estimates_model extends App_Model
             $key++;
         }
         $this->load->model('invoices_model');
-        print_r($new_invoice_data); exit;
+        // print_r($new_invoice_data); exit;
         $id = $this->invoices_model->add($new_invoice_data);
         if ($id) {
             // Customer accepted the estimate and is auto converted to invoice
@@ -780,8 +780,9 @@ class Estimates_model extends App_Model
         unset($data['volume_m3']);
         unset($data['notes']);
         $rel_product_id = $data['rel_product_id'];
-        // unset($data['rel_product_id']);
-        print_r($data);exit();
+        unset($data['rel_product_id']);
+        // unset($data['total_price']);
+        // print_r($data);exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'estimates', $data);
 
@@ -819,11 +820,11 @@ class Estimates_model extends App_Model
             }
         if(isset($items))
             foreach ($items as $val) {
-                $id = $val['itemid'];
+                $itemid = $val['itemid'];
                 unset($val['itemid']);
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
-                $this->db->where('id',$id);
+                $this->db->where('id',$itemid);
                 $this->db->update(db_prefix() . 'itemable', $val);
             }
 

@@ -147,10 +147,15 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    $numberOutput .= '<a href="' . site_url('estimate/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // $numberOutput .= '<a href="' . site_url('estimate/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // if (has_permission('estimates', '', 'edit')) {
+    //     $numberOutput .= ' | <a href="' . admin_url('estimates/estimate/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    // }
+    $numberOutput .= '<a href="' . site_url('sale_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('estimates', '', 'edit')) {
-        $numberOutput .= ' | <a href="' . admin_url('estimates/estimate/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
+
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;

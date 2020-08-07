@@ -840,4 +840,12 @@ class Warehouses extends AdminController
         }
         redirect(admin_url('warehouses/purchase_request'));
     }
+
+    public function update_original_price()
+    {
+        $data = $this->input->post();
+        // print_r($data); exit();
+        $res = $this->warehouses_model->update_original_price($data);
+        echo json_encode($res);
+    }
 }

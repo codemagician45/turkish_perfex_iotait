@@ -29,8 +29,8 @@
 
         <div class="col-md-6">
             <?php 
-              $value = (isset($invoice) ? $invoice->sum_volume_m3 : '');
-              echo render_input('sum_volume_m3',_l('sum_volume_m3'),$value,'text',array('placeholder'=>_l('sum_volume_m3'))); ?>
+              $value = (isset($invoice) ? $invoice->sum_volume_wo : '');
+              echo render_input('sum_volume_wo',_l('sum_volume_m3'),$value,'number'); ?>
         </div>
 
         <div class="col-md-6">

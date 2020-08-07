@@ -778,4 +778,15 @@ class Warehouses_model extends App_Model
             return $this->db->get()->result_array();
         }
     }
+
+    public function update_original_price($data){
+        $stock_lists = $this->stock_list_get();
+
+        foreach ($stock_lists as $key => $stock) {
+            $original_price = $stock['price']*$data['value1']*$data['value2'];
+            $this->db->query('UPDATE '.db_prefix().'stock_lists set original_price ='.$original_price.' where id='.$stock['id']);
+            // $this->db->query('UPDATE '.db_prefix().'itemable set original_price ='.$original_price.' where rel_product_id='.$stock['id']);
+        }
+        return $this->stock_list_get();     
+    }
 }

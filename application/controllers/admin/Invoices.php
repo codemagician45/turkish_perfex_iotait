@@ -411,6 +411,7 @@ class Invoices extends AdminController
             $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
 
             $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
+            // print_r($data['plan_recipes']); exit();
 
             $title = _l('edit', _l('work_order')) . ' - ' . format_invoice_number($invoice->id);
         }

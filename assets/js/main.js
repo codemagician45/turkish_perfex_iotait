@@ -7376,7 +7376,7 @@ function add_item_to_preview_quote(id) {
         clear_item_preview_values();
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
-        $('input[name="original_price"]').val(response.stock.price);
+        $('input[name="original_price"]').val(response.stock.original_price);
         $('select[name="unit"]').selectpicker('val',response.stock.unit);
         if(response.default_pack)
         {
@@ -7604,9 +7604,12 @@ function calculate_total_quote()
     $('.adjustment').html(format_money(adjustment));
     $('.subtotal').html(format_money(subtotal) + hidden_input('subtotal', accounting.toFixed(subtotal, app.options.decimal_places)));
     $('.sum_volume_m3').html(sum_volume_m3.toFixed(10) + hidden_input('sum_volume_m3', sum_volume_m3.toFixed(10)));
-    
+    // console.log('sum', sum_volume_m3)
     $('#sum_volume_m3').val(sum_volume_m3.toFixed(10));
+    $('#sum_volume').val(sum_volume_m3.toFixed(10));
+    console.log('aaa')
     $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
+    $('#total_price').val(total);
     $(document).trigger('sales-total-calculated');
 }
 

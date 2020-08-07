@@ -352,6 +352,9 @@ class Invoices_model extends App_Model
         unset($data['notes']);
         unset($data['items']);
 
+        $data['sum_volume_wo'] = $data['sum_volume'];
+        unset($data['sum_volume']);
+        unset($data['sum_volume_m3']);
         // print_r($data); exit();
 
         $this->db->insert(db_prefix() . 'invoices', $data);

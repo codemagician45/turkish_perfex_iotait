@@ -112,7 +112,9 @@
             <div class="col-md-12">
                <div class="table-responsive">
                   <?php
-                     $items = get_items_table_data($invoice, 'invoice');
+                     // $items = get_items_table_data($invoice, 'invoice');
+                     $items = get_items_table_data($proposal, 'invoice');
+                     // print_r($items); exit();
                      echo $items->table();
                      ?>
                </div>

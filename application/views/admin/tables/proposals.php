@@ -132,7 +132,7 @@ foreach ($rResult as $aRow) {
     //     $numberOutput .= ' | <a href="' . admin_url('proposals/proposal/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
     // }
 
-    $numberOutput .= '<a href="' . site_url('proposal/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    $numberOutput .= '<a href="' . site_url('quotation/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('proposals', '', 'edit')) {
         $numberOutput .= ' | <a href="' . admin_url('sale/quotation/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
     }

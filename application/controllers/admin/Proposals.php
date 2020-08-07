@@ -387,15 +387,15 @@ class Proposals extends AdminController
 
                 hooks()->do_action('proposal_converted_to_estimate', ['proposal_id' => $id, 'estimate_id' => $estimate_id]);
 
-                redirect(admin_url('estimates/estimate/' . $estimate_id));
+                redirect(admin_url('sale/sale_order/' . $estimate_id));
             } else {
                 set_alert('danger', _l('proposal_converted_to_estimate_fail'));
             }
-            if ($this->set_proposal_pipeline_autoload($id)) {
-                redirect(admin_url('proposals'));
-            } else {
-                redirect(admin_url('proposals/list_proposals/' . $id));
-            }
+            // if ($this->set_proposal_pipeline_autoload($id)) {
+            //     redirect(admin_url('proposals'));
+            // } else {
+            //     redirect(admin_url('proposals/list_proposals/' . $id));
+            // }
         }
     }
 

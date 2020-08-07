@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="col-md-12">
-  <div class="panel_s mbot10">
+  <!-- <div class="panel_s mbot10">
    <div class="panel-body _buttons">
     <?php $this->load->view('admin/estimates/estimates_top_stats');
-    ?>
+    ?> -->
     <!-- <?php if(has_permission('estimates','','create')){ ?>
      <a href="<?php echo admin_url('estimates/estimate'); ?>" class="btn btn-info pull-left new new-estimate-btn"><?php echo _l('create_new_estimate'); ?></a>
    <?php } ?> -->
-   <a href="<?php echo admin_url('estimates/pipeline/'.$switch_pipeline); ?>" class="btn btn-default mleft5 pull-left switch-pipeline hidden-xs"><?php echo _l('switch_to_pipeline'); ?></a>
+   <!-- <a href="<?php echo admin_url('estimates/pipeline/'.$switch_pipeline); ?>" class="btn btn-default mleft5 pull-left switch-pipeline hidden-xs"><?php echo _l('switch_to_pipeline'); ?></a>
    <div class="display-block text-right">
      <div class="btn-group pull-right mleft4 btn-with-tooltip-group _filter_data" data-toggle="tooltip" data-title="<?php echo _l('filter_by'); ?>">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +74,7 @@
 <a href="#" class="btn btn-default btn-with-tooltip estimates-total" onclick="slideToggle('#stats-top'); init_estimates_total(true); return false;" data-toggle="tooltip" title="<?php echo _l('view_stats_tooltip'); ?>"><i class="fa fa-bar-chart"></i></a>
 </div>
 </div>
-</div>
+</div> -->
 <div class="row">
   <div class="col-md-12" id="small-table">
     <div class="panel_s">

@@ -345,6 +345,7 @@ class Proposals_model extends App_Model
         if ($this->db->affected_rows() > 0) {
             $affectedRows++;
         }
+
         if(isset($newitems))
             foreach ($newitems as $val) {
                 unset($val['itemid']);
@@ -365,7 +366,8 @@ class Proposals_model extends App_Model
                 unset($val['itemid']);
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
-                $this->db->where('id',$id);
+                // print_r($val); exit();
+                $this->db->where('id',$itemid);
                 $this->db->update(db_prefix() . 'itemable', $val);
                 if ($this->db->affected_rows() > 0) {
                     $affectedRows++;
@@ -514,6 +516,12 @@ class Proposals_model extends App_Model
         }
 
         return $this->db->get()->result_array();
+    }
+
+    public function get_by_inv($inv_id)
+    {
+        $this->db->where('invoice_id', $inv_id);
+        return $this->db->get(db_prefix().'proposals')->row();
     }
 
     public function clear_signature($id)

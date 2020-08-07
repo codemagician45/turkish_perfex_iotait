@@ -8,7 +8,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    <span class="edit-title"><?php echo _l('proposal_convert_to_estimate'); ?></span>
+                    <span class="edit-title"><?php echo _l('convert_to_sale_order'); ?></span>
                 </h4>
             </div>
             <div class="modal-body">

@@ -10,7 +10,7 @@ $aColumns = [
     db_prefix() . 'work_order_phases.phase',
     get_sql_select_client_company(),
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'invoices.id and rel_type="invoice" ORDER by tag_order ASC) as tags',
-    'sum_volume_m3',
+    'sum_volume_wo',
     
     'staff1.firstname as c_firstname',
     db_prefix() . 'invoices.datecreated',
@@ -160,10 +160,16 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    $numberOutput .= '<a href="' . site_url('invoice/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // $numberOutput .= '<a href="' . site_url('invoice/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // if (has_permission('invoices', '', 'edit')) {
+    //     $numberOutput .= ' | <a href="' . admin_url('invoices/invoice/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    // }
+
+    $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('invoices', '', 'edit')) {
-        $numberOutput .= ' | <a href="' . admin_url('invoices/invoice/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= ' | <a href="' . admin_url('planning/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
+
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;
@@ -180,7 +186,7 @@ foreach ($rResult as $aRow) {
     $row[] = render_tags($aRow['tags']);
 
     // $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
-    $row[] = $aRow['sum_volume_m3'];
+    $row[] = $aRow['sum_volume_wo'];
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
     $row[] = $aRow[db_prefix() . 'invoices.datecreated'];

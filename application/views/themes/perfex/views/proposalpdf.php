@@ -47,6 +47,7 @@ if ($proposal->show_quantity_as == 2) {
 $items = get_items_table_data($proposal, 'proposal', 'pdf')
         ->set_headings('estimate');
 
+// print_r($proposal); exit();
 $items_html = $items->table();
 // print_r($items_html);exit();
 
@@ -114,5 +115,4 @@ $proposal->content
 </div>
 EOF;
 
-// print_r($html); exit();
 $pdf->writeHTML($html, true, false, true, false, '');

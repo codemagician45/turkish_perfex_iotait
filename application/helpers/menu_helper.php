@@ -244,7 +244,8 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'estimates',
                 'name'     => _l('sale_order'),
-                'href'     => admin_url('estimates'),
+                // 'href'     => admin_url('estimates'),
+                'href'     => admin_url('sale/sale_order_list'),
                 'position' => 10,
         ]);
     }
@@ -309,7 +310,8 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('planing', [
                 'slug'     => 'work_orders',
                 'name'     => _l('work_orders'),
-                'href'     => admin_url('invoices'),
+                // 'href'     => admin_url('invoices'),
+                'href'     => admin_url('planning/work_orders_list'),
                 'position' => 10,
         ]);
 

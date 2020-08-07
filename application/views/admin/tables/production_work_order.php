@@ -6,18 +6,22 @@ $project_id = $this->ci->input->post('project_id');
 
 $aColumns = [
     'number',
-    // 'total',
+    
     db_prefix() . 'work_order_phases.phase',
-    'sum_volume_m3',
-    // 'total_tax',
-    'YEAR(date) as year',
-    db_prefix() . 'invoices.datecreated',
     get_sql_select_client_company(),
-    // db_prefix() . 'projects.name as project_name',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'invoices.id and rel_type="invoice" ORDER by tag_order ASC) as tags',
+    'sum_volume_wo',
+    
+    'staff1.firstname as c_firstname',
+    db_prefix() . 'invoices.datecreated',
+    'staff2.firstname as u_firstname',
+    // db_prefix() . 'projects.name as project_name',
+    // 'total',
+    // 'total_tax',
     // 'duedate',
     // db_prefix() . 'invoices.status',
-    db_prefix() . 'invoices.addedfrom',
+    // 'YEAR(date) as year',
+    
     ];
 
 $sIndexColumn = 'id';
@@ -28,6 +32,8 @@ $join = [
     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'invoices.currency',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'invoices.project_id',
     'LEFT JOIN ' . db_prefix() . 'work_order_phases ON ' . db_prefix() . 'work_order_phases.id = ' . db_prefix() . 'invoices.wo_phase_id',
+    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'invoices.addedfrom',
+    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'invoices.updated_user',
 ];
 
 
@@ -100,7 +106,6 @@ if (count($yearArray) > 0) {
 if (count($filter) > 0) {
     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
 }
-
 if (isset($clientid) && $clientid != '') {
     array_push($where, 'AND ' . db_prefix() . 'invoices.clientid=' . $this->ci->db->escape_str($clientid));
 }
@@ -123,6 +128,7 @@ if (count($custom_fields) > 4) {
 
 $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     db_prefix() . 'invoices.id',
+    db_prefix() . 'invoices.addedfrom',
     db_prefix() . 'invoices.updated_user',
     db_prefix() . 'invoices.clientid',
     db_prefix(). 'currencies.name as currency_name',
@@ -130,6 +136,9 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'hash',
     'recurring',
     'deleted_customer_name',
+    'staff1.lastname as c_lastname',
+    'staff2.lastname as u_lastname',
+
     ]);
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -139,7 +148,7 @@ foreach ($rResult as $aRow) {
     $numberOutput = '';
 
     // If is from client area table
-    if ((isset($clientid) && is_numeric($clientid)) || $project_id) {
+    if ( isset($clientid) && is_numeric($clientid) || $project_id) {
         $numberOutput = '<a href="' . admin_url('invoices/list_invoices/' . $aRow['id']) . '" target="_blank">' . format_invoice_number($aRow['id']) . '</a>';
     } else {
         $numberOutput = '<a href="' . admin_url('invoices/list_invoices/' . $aRow['id']) . '" onclick="init_invoice(' . $aRow['id'] . '); return false;">' . format_invoice_number($aRow['id']) . '</a>';
@@ -151,10 +160,16 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    $numberOutput .= '<a href="' . site_url('invoice/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // $numberOutput .= '<a href="' . site_url('invoice/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // if (has_permission('invoices', '', 'edit')) {
+    //     $numberOutput .= ' | <a href="' . admin_url('invoices/invoice/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    // }
+
+    $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('invoices', '', 'edit')) {
-        $numberOutput .= ' | <a href="' . admin_url('invoices/invoice/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= ' | <a href="' . admin_url('planning/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
+
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;
@@ -171,25 +186,17 @@ foreach ($rResult as $aRow) {
     $row[] = render_tags($aRow['tags']);
 
     // $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
-    $row[] = $aRow['sum_volume_m3'];
+    $row[] = $aRow['sum_volume_wo'];
 
-    $c_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow[db_prefix() . 'invoices.addedfrom'])->row();
-    $c_user_name = $c_user->firstname. ' ' . $c_user->lastname;
-    $row[] = '<a href="' . admin_url('staff/member/' . $aRow[db_prefix() . 'invoices.addedfrom']) . '">' . $c_user_name . '</a>';
-
+    $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
     $row[] = $aRow[db_prefix() . 'invoices.datecreated'];
 
     if(!empty($aRow['updated_user']))
     {
-        $u_user = @$this->ci->db->query('select * from tblstaff where `staffid`='.$aRow['updated_user'])->row();
-        $u_user_name = $u_user->firstname. ' ' . $u_user->lastname;
-        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $u_user_name . '</a>';
+        $row[] = '<a href="' . admin_url('staff/member/' . $aRow['updated_user']) . '">' . $aRow['u_firstname']. ' '. $aRow['u_lastname'] . '</a>';
     }
     else
         $row[] = '';
-
-
-    
 
     // $row[] = _d($aRow['duedate']);
 

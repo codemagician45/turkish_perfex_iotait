@@ -300,8 +300,7 @@
                      <div class="col-md-12">
                         <div class="table-responsive">
                               <?php
-                                 // $items = get_items_table_data($estimate, 'estimate', 'html', true);
-                                 $items = get_sale_order_items_table_data($estimate, 'estimate', 'html', true);
+                                 $items = get_items_table_data($proposal, 'estimate', 'html', true);
                                  echo $items->table();
                               ?>
                         </div>

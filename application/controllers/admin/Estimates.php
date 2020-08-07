@@ -81,6 +81,7 @@ class Estimates extends AdminController
     {
         if ($this->input->post()) {
             $estimate_data = $this->input->post();
+            // print_r($estimate_data); exit();
             if ($id == '') {
                 if (!has_permission('estimates', '', 'create')) {
                     access_denied('estimates');
@@ -114,7 +115,6 @@ class Estimates extends AdminController
             $title = _l('create_new_sale_order');
         } else {
             $estimate = $this->estimates_model->get($id);
-
             if (!$estimate || !user_can_view_estimate($id)) {
                 blank_page(_l('estimate_not_found'));
             }
@@ -122,6 +122,8 @@ class Estimates extends AdminController
             $data['estimate'] = $estimate;
             $data['edit']     = true;
             $title            = _l('edit', _l('sale_order'));
+
+
 
             $created_user = $this->staff_model->get($estimate->addedfrom);
             $data['created_user_name'] = $created_user->firstname . ' ' . $created_user->lastname;
@@ -255,6 +257,7 @@ class Estimates extends AdminController
         }
 
         $estimate = $this->estimates_model->get($id);
+        
 
         if (!$estimate || !user_can_view_estimate($id)) {
             echo _l('estimate_not_found');
@@ -278,6 +281,10 @@ class Estimates extends AdminController
 
         $data['activity']          = $this->estimates_model->get_estimate_activity($id);
         $data['estimate']          = $estimate;
+
+        $this->load->model('proposals_model');
+        $data['proposal'] = $this->proposals_model->get($estimate->rel_quote_id);
+        
         $data['members']           = $this->staff_model->get('', ['active' => 1]);
         $data['estimate_statuses'] = $this->estimates_model->get_statuses();
         $data['totalNotes']        = total_rows(db_prefix().'notes', ['rel_id' => $id, 'rel_type' => 'estimate']);
@@ -480,6 +487,9 @@ class Estimates extends AdminController
         if ($this->input->post()) {
             $data = $this->input->post();
             $data['rel_sale_id'] = $id;
+            $estimate_data = $this->estimates_model->get($id);
+            $data['rel_quote_id'] = $estimate_data->rel_quote_id;
+            // print_r($estimate_data); exit();
             $this->load->model('invoices_model');
             $invoice_id = $this->invoices_model->add($data);
             if ($invoice_id) {
@@ -489,9 +499,16 @@ class Estimates extends AdminController
                     'invoiceid' => $invoice_id,
                     'status'     => 3,
                 ]);
+
+                $this->db->where('estimate_id', $id);
+                $this->db->update(db_prefix() . 'proposals', [
+                    'invoice_id' => $invoice_id,
+                    // 'status'     => 3,
+                ]);
+
                 log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
                 hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
-                redirect(admin_url('invoices/invoice/' . $invoice_id));
+                redirect(admin_url('planing/work_order/' . $invoice_id));
             } else {
                 set_alert('danger', _l('convert_to_work_order_fail'));
             }

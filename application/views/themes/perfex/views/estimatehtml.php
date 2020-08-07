@@ -145,7 +145,8 @@
             <div class="col-md-12">
                <div class="table-responsive">
                   <?php
-                     $items = get_items_table_data($estimate, 'estimate');
+                     // $items = get_items_table_data($estimate, 'estimate');
+                     $items = get_items_table_data($proposal, 'estimate');
                      echo $items->table();
                      ?>
                </div>

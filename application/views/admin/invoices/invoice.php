@@ -83,7 +83,7 @@
 	        var table_row = '';
 	        var item_key = $("body").find('tbody .item').length + 1;
 
-	        table_row += '<tr class="sortable item" data-merge-invoice="' + merge_invoice + '" data-bill-expense="' + bill_expense + '">';
+	        table_row += '<tr class="sortable item">';
 	        // table_row += '<td class="dragger">';
 
 	        $("body").append('<div class="dt-loader"></div>');
@@ -177,7 +177,23 @@
 	}
 
 	$(document).ready(function(){
-	  calculate_total_quote();
+	  // calculate_total_quote();
+	  
+	  var wo_rows = $('.table.wo-items tbody tr.item').find('.rel_product_id');
+	  var recipe_rows_save_check = $('.table.recipe-items tbody tr.item').find('.btn-info');
+	  if(recipe_rows_save_check.length  < 1)
+		  for(let i = 0; i < wo_rows.length ; i++)
+		  {
+		  	 console.log(wo_rows[i].value);
+		  	 requestGetJSON('products/get_recipes_by_product/' + wo_rows[i].value).done(function(response) {
+					i = 0
+			        response.forEach(e => {
+			        	i += 1;
+			        	add_item_to_table_plan_recipe(e,i)
+			        })
+			    });
+		  }
+	  
 	})
 
 	function add_recipes_from_product_recipe(id)
@@ -201,12 +217,12 @@
                 else
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
-            console.log('recipe',data)
             data.option = option;
             var table_row = '';
             // var item_key = $("body").find('.recipe .item').length + 1;
             var item_key = i;
-            table_row += '<tr>';
+            // table_row += '<tr>';
+            table_row += '<tr class="sortable item">';
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
 
@@ -271,6 +287,10 @@
         });
         $('#recipe_removed-items').append(hidden_input('recipe_removed-items[]', itemid));
     }
+
+
+
+
 
 	/* Calendar*/
     $(function(){
