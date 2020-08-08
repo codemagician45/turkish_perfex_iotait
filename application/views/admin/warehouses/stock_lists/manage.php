@@ -179,6 +179,14 @@
 		return false;
 	}
 
+	$('select[name="category"]').change(function(){
+		if($(this).val() == 6 || $(this).val() == 9)
+		{
+			$('input[name="price"]').prop('disabled',true)
+		} else {
+			$('input[name="price"]').prop('disabled',false)
+		}
+	})
 </script>
 </body>
 </html>

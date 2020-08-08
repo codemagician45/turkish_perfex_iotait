@@ -39,6 +39,7 @@ class Products extends AdminController
         }
 
         $data['title'] = _l('product_recipe');
+        $data['product_categories'] = $this->warehouses_model->get_stock_categories_finished();
         $this->load->view('admin/products/product_recipe/manage', $data);
     }
 

@@ -3757,6 +3757,7 @@ $lang['ready_to_invoice'] = 'Ready to Invoice';
 /*product*/
 $lang['product_list'] = 'Product List';
 $lang['product_recipe'] = 'Product Recipe';
+$lang['product_category'] = 'Product Category';
 $lang['other_cost_details'] = 'Other Cost Details';
 $lang['other_cost'] = 'Other Cost';
 $lang['op_cost_per_sec'] = 'Operator Cost Per Sec';

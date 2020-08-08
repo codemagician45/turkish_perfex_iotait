@@ -3240,7 +3240,9 @@ function dt_custom_view(value, table, custom_input_name, clear_other_filters) {
     if (_cinput != name) {
         value = "";
     }
+    console.log(name, value)
     $('input[name="' + name + '"]').val(value);
+
     $(table).DataTable().ajax.reload();
 }
 

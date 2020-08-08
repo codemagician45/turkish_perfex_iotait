@@ -119,7 +119,9 @@
         var trArr = $('body').find('tr');
         for(let i=1; i<trArr.length; i++){
             let product_id = trArr[i].childNodes[0].firstChild.value;
+            console.log(product_id)
             requestGetJSON('warehouses/get_stock_list_by_id/' + product_id).done(function (response) {
+                console.log(response)
                 base_price.push({id:response.id,base_price:response.price});
 
                 var trArr = $('#price_category').parents().find('tr');

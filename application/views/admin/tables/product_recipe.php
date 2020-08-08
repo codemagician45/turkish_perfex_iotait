@@ -9,6 +9,7 @@ $aColumns = [
     db_prefix() .'pack_list.packing_type as packing_type',
     db_prefix() .'pack_list.volume as volume',
     db_prefix() . 'pricing_calculation.price as price'
+    // 'product_list_price as price'
 
 ];
 $sIndexColumn = 'id';
@@ -26,7 +27,22 @@ $additionalSelect = [
 
 // $where =['AND '.db_prefix().'product_list.created_by = '.get_login_user_id().''];
 // $where = ['AND '.db_prefix().'stock_lists.category = 9'];
-$where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
+// $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
+$where = ['AND '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+
+// print_r($this->ci->input->post()); exit();
+// $this->ci->input->post('product_2') = 'product_2';
+if ($this->ci->input->post('products_2')) {
+    $where = ['AND '.db_prefix().'stock_categories.order_no = 2'];
+}
+if ($this->ci->input->post('products_3')) {
+    $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
+}
+
+// if (count($filter) > 0) {
+//     $where = [];
+//     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
+// }
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join ,$where, $additionalSelect);
 $output  = $result['output'];
@@ -36,7 +52,7 @@ foreach ($rResult as $aRow) {
     $row = [];
     for ($i = 0; $i < count($aColumns); $i++) {
 
-        $subjectOutput = $aRow['product_code'];
+        $subjectOutput = '<input type = "hidden"  value="'.$aRow['id'].'"><span>'. $aRow['product_code'] . '</span>';
         $subjectOutput .= '<div class="row-options">';
 
         $subjectOutput .= '<a href="' . admin_url('products/manage_product_recipe/' . $aRow['id']) . '">' . _l('edit') . '</a>';

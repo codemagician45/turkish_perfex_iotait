@@ -187,6 +187,13 @@ class Warehouses_model extends App_Model
         return $this->db->get(db_prefix() . 'stock_categories')->result_array();
     }
 
+    public function get_stock_categories_finished()
+    {
+        $this->db->where('order_no', 2);
+        $this->db->or_where('order_no',3);
+        return $this->db->get(db_prefix() . 'stock_categories')->result_array();
+    }
+
     public function get_currency_exchange()
     {
         $this->db->order_by('name', 'asc');
