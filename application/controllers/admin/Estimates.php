@@ -508,7 +508,7 @@ class Estimates extends AdminController
 
                 log_activity('Proposal Converted to Invoice [InvoiceID: ' . $invoice_id . ', ProposalID: ' . $id . ']');
                 hooks()->do_action('proposal_converted_to_invoice', ['proposal_id' => $id, 'invoice_id' => $invoice_id]);
-                redirect(admin_url('planing/work_order/' . $invoice_id));
+                redirect(admin_url('planning/work_order/' . $invoice_id));
             } else {
                 set_alert('danger', _l('convert_to_work_order_fail'));
             }
