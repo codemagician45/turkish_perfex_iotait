@@ -139,13 +139,13 @@ class Manufacturing_settings extends AdminController
             $check_flag = false;
             if ($data['mouldID'] == '') {
 
-                if(isset($data['default_machine']))
+                $all_suits = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
+                if(!empty($all_suits))
                 {
-                    $all_suits_for = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
                     foreach ($all_suits as $key => $suit) {
-                        if($suit['default_machine'] == 1)
+                        if($suit['mould_id'] == $data['mould_id'] && $suit['machine_id'] == $data['machine_id'])
                         {
-                            $check_msg = _l('default_machine is already exist');
+                            $check_msg = _l('suitability is already exist');
                             $check_flag = true;
                             echo json_encode([
                                 'flag' => $check_flag,
@@ -153,6 +153,22 @@ class Manufacturing_settings extends AdminController
                             ]);
                         }     
                     }
+                }
+
+                if(isset($data['default_machine']))
+                {                   
+                    if(!empty($all_suits))
+                        foreach ($all_suits as $key => $suit) {
+                            if($suit['default_machine'] == 1)
+                            {
+                                $check_msg = _l('default_machine is already exist');
+                                $check_flag = true;
+                                echo json_encode([
+                                    'flag' => $check_flag,
+                                    'msg' => $check_msg,
+                                ]);
+                            }     
+                        }
 
                 }
 
@@ -172,20 +188,36 @@ class Manufacturing_settings extends AdminController
                 
             } else {
 
-                if(isset($data['default_machine']))
+                $all_suits = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
+                if(!empty($all_suits))
                 {
-                    $all_suits = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
                     foreach ($all_suits as $key => $suit) {
-                        if($suit['id'] != $data['mouldID'] && $suit['default_machine'] == 1)
+                        if($suit['mould_id'] == $data['mould_id'] && $suit['machine_id'] == $data['machine_id'])
                         {
-                            $check_msg = _l('default_machine is already exist');
+                            $check_msg = _l('suitability is already exist');
                             $check_flag = true;
                             echo json_encode([
                                 'flag' => $check_flag,
                                 'msg' => $check_msg,
                             ]);
-                        } 
+                        }     
                     }
+                }
+
+                if(isset($data['default_machine']))
+                {   
+                    if(!empty($all_suits))
+                        foreach ($all_suits as $key => $suit) {
+                            if($suit['id'] != $data['mouldID'] && $suit['default_machine'] == 1)
+                            {
+                                $check_msg = _l('default_machine is already exist');
+                                $check_flag = true;
+                                echo json_encode([
+                                    'flag' => $check_flag,
+                                    'msg' => $check_msg,
+                                ]);
+                            } 
+                        }
 
                 }
 

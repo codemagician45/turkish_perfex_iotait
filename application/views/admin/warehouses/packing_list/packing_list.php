@@ -7,14 +7,14 @@
             <div class="col-md-12 transfers">
                 <div class="panel_s">
                     <div class="panel-body">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-md-6">
                                 <?php 
                                     $selected = (isset($packing_list) ? $packing_list->stock_product_code : '');
                                     echo render_select('stock_product_code',$product_code,array('id','product_code'),_l('product_code'),$selected); 
                                 ?>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="row">
                             <div class="col-md-6">
                                 <?php 
@@ -191,14 +191,14 @@
         var checks = $('input[name="default_pack"]');
         if(checks.prop("checked") == true) {
 
-            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" checked  name="newitems[' + item_key + '][default_pack]"  value="1" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="' + data.product_id + '"></td>';
+            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" checked  name="newitems[' + item_key + '][default_pack]" class="default_pack" value="1" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div></td>';
         }
         else if(checks.prop("checked") == false) {
 
-            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox"  name="newitems[' + item_key + '][default_pack]"  value="0" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control" value="' + data.product_id + '"></td>';
+            table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox"  name="newitems[' + item_key + '][default_pack]" class="default_pack" value="0" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div></td>';
         }
         
-        table_row += '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
+        table_row += '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control product_id" value="' + data.product_id + '"></td>';
 
         table_row += '</tr>';
 
@@ -259,43 +259,50 @@
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
 
-    // var checkboxDiv = $('body').find('.sortable');
-    // console.log(checkboxDiv)
-    // checkboxDiv.change(function(){
-    //     console.log('aaa')
-    //     for(let i=0; i<checkboxDiv.length; i++)
-    //     {
-    //         console.log(checkboxDiv[i].querySelectorAll('input[type="checkbox"]')[0].checked)
-    //         if(checkboxDiv[i].querySelectorAll('input[type="checkbox"]')[0].checked == true)
-    //             checkboxDiv[i].firstChild.value = 1;
-    //         else
-    //             checkboxDiv[i].firstChild.value = 0;
-    //     }
-    // })
 
-    // $('#packing_list').submit(function(e){
-    //     e.preventDefault();
-    //     var rows = $('body').find('.sortable');
-    //     var cnt = 0;
-    //     for(let k=0; k<rows.length; k++)
-    //     {
+    $('#packing_list').submit(async function(e){
+        e.preventDefault();
+        var rows = $('body').find('.sortable');
+        console.log(rows)
+        var check = 0;
+        for(let i = 0; i < rows.length ; i++)
+        {
+            if(rows[i].getElementsByClassName('default_pack')[0].checked)
+            {
+                let product_id = rows[i].getElementsByClassName('product_id')[0].value;
+                let id = '<?php if(isset($packing_list)) echo $packing_list->id; else echo ''?>';
+                console.log(product_id,id)
+                let data = {
+                    <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",
+                    product_id:product_id,
+                    pack_id:id
+                }
 
-    //         if(rows[k].querySelectorAll('input[type="checkbox"]')[0].checked == true)
-    //         {
-    //             rows[k].querySelectorAll('input[type="checkbox"]')[0].value = 1;
-    //             cnt++;
-    //         }
-    //         else
-    //             rows[k]. querySelectorAll('input[type="checkbox"]')[0].value = 0;
-    //     }
-    //     console.log(cnt)
-    //     if(cnt>1)
-    //     {
-    //         alert('You Must Set Default Pack to One Item');
-    //         return false;
-    //     }
-    //     document.getElementById("packing_list").submit();
-    // })
+                // $.post(admin_url+'warehouses/get_packing_group_by_product', data).done(function(response) {
+                //     var res = JSON.parse(response);
+                //     console.log(res)
+                //     if(res.default_check)
+                //     {
+                //         alert_float('danger', res.msg);
+                //     }
+
+                // })
+                postResult = await $.post(admin_url+'warehouses/get_packing_group_by_product', $.param(data)).promise();
+                    var res = JSON.parse(postResult);
+                    console.log(res)
+                    if(res.default_check)
+                    {
+                        alert_float('danger', res.msg);
+                        check = 1;
+                    }
+            }
+            
+        }
+        console.log(check)
+        if(check == 0)
+            document.getElementById("packing_list").submit();
+
+    })
 
 
 </script>

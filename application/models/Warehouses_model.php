@@ -675,6 +675,7 @@ class Warehouses_model extends App_Model
             // $this->db->join(db_prefix() . 'package_group', '' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
+            $this->db->where(db_prefix().'stock_categories.order_no=3');
             // $this->db->where(array(
             //                'default_pack='=> NULL));
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
@@ -733,6 +734,10 @@ class Warehouses_model extends App_Model
         foreach ($data as $val) {
             $val['packing_id'] = $pack_id;
             unset($val['item_id']);
+            if(isset($val['default_pack']))
+                $val['default_pack'] = 1;
+            else
+                $val['default_pack'] = 0;
             $this->db->insert(db_prefix() . 'package_group', $val);
             $insert_id = $this->db->insert_id();
         }
@@ -741,13 +746,17 @@ class Warehouses_model extends App_Model
     public function update_packing_group($data)
     {
         $pack_id = $data['packing_id'];
-        
+        // print_r($data); exit();
         if(isset($data['newitems']))
         {
             $newitems = $data['newitems'];
             foreach ($newitems as $val) {
                 $val['packing_id'] = $pack_id;
                 unset($val['item_id']);
+                if(isset($val['default_pack']))
+                    $val['default_pack'] = 1;
+                else
+                    $val['default_pack'] = 0;
                 $this->db->insert(db_prefix() . 'package_group', $val);
                 $insert_id = $this->db->insert_id();
             }
@@ -758,7 +767,9 @@ class Warehouses_model extends App_Model
             foreach ($items as $key => $value) {
                 $id = $value['itemid'];
                 unset($value['itemid']);
-                if(!isset($value['default_pack']))
+                if(isset($value['default_pack']))
+                    $value['default_pack'] = 1;
+                else
                     $value['default_pack'] = 0;
                 $this->db->where('id',$id);
                 $this->db->update(db_prefix() . 'package_group', $value);
@@ -784,6 +795,20 @@ class Warehouses_model extends App_Model
             $this->db->where(db_prefix() . 'package_group.packing_id', $packing_id);
             return $this->db->get()->result_array();
         }
+    }
+
+    public function get_packing_group_by_product($data)
+    {
+        // print_r($data); exit();
+        $this->db->from(db_prefix().'package_group');
+        $this->db->where(db_prefix() .'package_group.product_id',$data['product_id']);
+        $this->db->where(db_prefix() .'package_group.packing_id !=',$data['pack_id']);
+        $res = $this->db->get()->result_array();
+        foreach ($res as $key => $value) {
+            if($value['default_pack'] == 1)
+            return true;
+        }
+        return false;
     }
 
     public function update_original_price($data){

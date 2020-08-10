@@ -33,10 +33,10 @@
                 </td>
                 <td>
                     <div class="checkbox checkbox-primary" style="margin-top: 8px">
-                        <input type="checkbox" id="default_pack" name="default_pack" >
+                        <input type="checkbox" class="default_pack" id="default_pack" name="default_pack" >
                        <label for="default_pack"><?php echo _l('default_pack'); ?></label>
                     </div>
-                    <input type="hidden" name="product_id" class="form-control" placeholder="<?php echo _l('unit'); ?>">
+                    
                 </td>
 
 
@@ -48,6 +48,7 @@
                         }
                     ?>
                     <button type="button" onclick="add_item_to_table_pack_group('undefined','undefined',<?php echo $new_item; ?>); return false;" class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
+                    <input type="hidden" name="product_id" class="form-control product_id" placeholder="<?php echo _l('unit'); ?>">
                 </td>
             </tr>
             <?php if (isset($packing_group)) {
@@ -75,15 +76,14 @@
                     $table_row .= render_custom_fields_items_table_in($item, $items_indicator . '[' . $i . ']');
                     if ($item['default_pack'] == 1) {
 
-                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
-
-                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][default_pack]" class="default_pack" value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
+                        </td>';
                     } else {
-                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][default_pack]"  value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
-                        <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
+                        $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][default_pack]" class="default_pack" value="'.$item['default_pack'].'"><label for="default_pack"> '._l('default_pack').'</label></div>
+                        </td>';
 
                     }
-                    $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_package_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+                    $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_package_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a><input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control product_id input-transparent text-right" value="' . $item['product_id'] . '"></td>';
                     $table_row .= '</tr>';
                     echo $table_row;
                     $i++;

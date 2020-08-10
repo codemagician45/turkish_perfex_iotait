@@ -568,7 +568,7 @@ class Warehouses extends AdminController
 
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
-            $data['items'] = $this->warehouses_model->get_grouped_on_default_pack();
+            $data['items'] = $this->warehouses_model->get_grouped();
             // print_r($data['items']); exit();
         } else {
             $data['items']     = [];
@@ -611,6 +611,21 @@ class Warehouses extends AdminController
         $data['title'] = _l('packing_group');
         $this->load->view('admin/warehouses/packing_group/manage', $data);
     }
+
+    public function get_packing_group_by_product()
+    {
+        $data = $this->input->post();
+        // print_r($data);exit();
+        if ($this->input->is_ajax_request()) {
+            $res = $this->warehouses_model->get_packing_group_by_product($data);
+            $product = $this->warehouses_model->stock_list_get($data['product_id'])->product_name;
+            echo json_encode([
+                'default_check' => $res,
+                'msg' => $product .' is already set as default'
+            ]);
+        }
+    }
+
     /* Get stock item by id in packing group/ ajax */
     public function get_item_by_id($id)
     {

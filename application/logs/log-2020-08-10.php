@@ -1996,3 +1996,1603 @@ ERROR - 2020-08-10 15:53:27 --> Could not find the language line "finance"
 ERROR - 2020-08-10 15:53:27 --> Could not find the language line "products"
 ERROR - 2020-08-10 15:53:27 --> Could not find the language line "finance"
 ERROR - 2020-08-10 15:53:27 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:05:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:05:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:05:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:05:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:43:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:43:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:43:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:43:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:43:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:43:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:43:48 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 16:43:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 16:43:48 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 16:43:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 16:46:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:46:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:46:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:46:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 16:59:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 16:59:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 16:59:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 16:59:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:25 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:25 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:27 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:27 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:27 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 16:59:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 16:59:27 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 16:59:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 16:59:32 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:32 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:32 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 16:59:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 16:59:32 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 16:59:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 16:59:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:41 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 16:59:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 16:59:41 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 16:59:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 16:59:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 16:59:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 16:59:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:05:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:05:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:05:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:05:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:51 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:06:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:06:51 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:06:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:06:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:06:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:06:55 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:06:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:06:55 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:06:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:09:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:09:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:09:02 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:09:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:09:02 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:09:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:12:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:12:25 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:12:25 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:12:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:12:25 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:12:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:13:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:13:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:13:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:13:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:13:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:13:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:16:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:16:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:16:07 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:16:07 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:16:07 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:16:07 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:18:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:10 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:18:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:18:10 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:18:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:18:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:47 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:18:47 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:18:47 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:18:47 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:18:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:18:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:18:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:18:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:18:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:18:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:19:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:19:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:19:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:19:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:19:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:19:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:19:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:19:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:19:39 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:19:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:19:39 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:19:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:19:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:19:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:20:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:20:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:04 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:21:04 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:21:04 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:21:04 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:21:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:24 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:21:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:21:24 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:21:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:21:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:36 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:36 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:38 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:21:38 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:21:38 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:21:38 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:21:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:21:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:21:44 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:21:44 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:21:44 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:21:44 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:22:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:22:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:22:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:22:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:22:46 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:22:46 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:22:46 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:22:46 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:22:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:22:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:48 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:23:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:23:48 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:23:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:23:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:23:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:23:56 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:23:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:23:56 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:23:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:24:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:05 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:24:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:24:05 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:24:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:24:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:39 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:24:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:24:39 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:24:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:24:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:48 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:24:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:24:48 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:24:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:24:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:24:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:24:54 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:24:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:24:54 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:24:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:25:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:17 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:25:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:25:17 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:25:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:25:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:24 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:25:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:25:24 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:25:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:25:27 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:27 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:29 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:25:29 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:25:29 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:25:29 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:25:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:25:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:25:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:25:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:25:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:25:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:08 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:08 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:30 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:30 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:36 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:36 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:37 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:37 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:42 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:42 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:26:55 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:26:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:26:55 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:26:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:26:57 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:26:57 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:03 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:27:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:27:03 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:27:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:27:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:12 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:12 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:12 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:27:12 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:27:12 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:27:12 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:27:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:27:21 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:27:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:27:21 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:27:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:27:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:27:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:27 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:27 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:27 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:28:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:28:27 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:28:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:28:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:37 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:28:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:28:37 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:28:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:28:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:42 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:28:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:28:42 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:28:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:28:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:47 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:28:47 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:28:47 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:28:47 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:28:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:57 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:57 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:28:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:28:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:28:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:28:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:28:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:29:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:05 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:29:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:29:05 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:29:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:29:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:15 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:15 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:21 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:29:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:29:21 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:29:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:29:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:25 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:29:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:29:26 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:29:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:29:26 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:29:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:30:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:21 --> Could not find the language line "packing_list and packing_group"
+ERROR - 2020-08-10 19:30:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:30:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:30:24 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:30:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:30:24 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:30:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:31:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:36 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:36 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:37 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:31:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:31:37 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:31:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:31:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:43 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:31:43 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:31:43 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:31:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:31:43 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:31:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:33:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:33:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:33:59 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:33:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:33:59 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:33:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:35:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:35:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:35:26 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:35:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:35:26 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:35:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:36:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:36:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:36:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:36:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:36:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:36:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:38:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:38:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:40:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:40:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:40:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:40:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:40:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:40:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:40:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:40:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:40:55 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:40:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:40:55 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:40:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:42:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:42:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:42:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:42:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:42:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:42:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:43:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:43:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:43:54 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:43:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:43:54 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:43:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:44:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:44:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:44:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:44:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:44:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:44:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:47:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:47:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:47:03 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:47:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:47:03 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:47:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:47:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:47:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:47:35 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:47:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:47:35 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:47:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:51:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:51:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:51:30 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:51:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:51:30 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:51:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:51:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:51:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:52:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:52:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:52:55 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:52:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:52:55 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:52:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:53:12 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:53:12 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:53:12 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:53:12 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:53:12 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:53:12 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:53:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:53:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:53:31 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:53:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:53:31 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:53:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:54:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:54:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:54:31 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:54:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:54:31 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:54:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 19:54:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 19:54:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 19:54:41 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 19:54:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 19:54:41 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 19:54:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:01:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:01:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:01:24 --> Severity: error --> Exception: syntax error, unexpected '==' (T_IS_EQUAL) C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 806
+ERROR - 2020-08-10 20:01:44 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:01:44 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:01:44 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:01:44 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:01:44 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:01:44 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:04:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:04:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:04:53 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:04:53 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:04:53 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:04:53 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:06:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:06:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:06:05 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:06:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:06:05 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:06:05 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:08:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:08:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:08:16 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:08:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:08:16 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:08:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:08:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:08:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value1 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value2 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value1 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value2 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value1 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value2 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value1 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:19 --> Severity: Notice --> Undefined index: value2 C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 816
+ERROR - 2020-08-10 20:08:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:08:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:08:39 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:08:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:08:39 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:08:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:08:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:08:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:08:45 --> Severity: error --> Exception: Too few arguments to function Warehouses::get_packing_group_by_product(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Warehouses.php 615
+ERROR - 2020-08-10 20:09:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:09:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:09:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:09:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:09:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:09:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:10:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:10:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:03 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:13:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:13:03 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:13:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:13:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:13:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:13:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:13:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:13:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:24 --> Severity: Notice --> Trying to get property 'product_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 803
+ERROR - 2020-08-10 20:13:24 --> Severity: Notice --> Trying to get property 'pack_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 804
+ERROR - 2020-08-10 20:13:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:45 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:13:45 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:13:45 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:13:45 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:13:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:13:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:13:49 --> Severity: Notice --> Trying to get property 'product_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 803
+ERROR - 2020-08-10 20:13:49 --> Severity: Notice --> Trying to get property 'pack_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 804
+ERROR - 2020-08-10 20:14:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:14:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:14:30 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:14:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:14:30 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:14:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:14:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:14:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:09 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:15:09 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:15:09 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:15:09 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:15:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:45 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:45 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:15:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:15:59 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:15:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:15:59 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:15:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:16:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:16:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:16:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:16:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:32 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:32 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:32 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:17:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:17:32 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:17:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:17:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:39 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:17:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:17:39 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:17:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:17:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:17:54 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:17:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:17:54 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:17:54 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:17:57 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:17:57 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:18:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:18:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:18:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:18:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:20:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:20:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:20:14 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:20:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:20:14 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:20:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:20:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:20:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:22:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:22:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:22:28 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:22:28 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:22:28 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:22:28 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:22:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:22:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:24:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:24:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:24:11 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:24:11 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:24:11 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:24:11 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:24:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:24:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:24:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:24:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:24:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:24:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:26:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:26:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:26:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:26:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:26:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:26:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:26:36 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:26:36 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:26:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:26:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:26:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:26:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:03 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:27:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:27:03 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:27:03 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:27:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:18 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:27:18 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:27:19 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:19 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:29 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:27:29 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:27:29 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:27:29 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:27:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:27:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:27:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:28:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:10 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:30:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:30:10 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:30:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:30:12 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:12 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:12 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:12 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:15 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:15 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:15 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:30:15 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:30:15 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:30:15 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:30:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:30:26 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:30:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:30:26 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:30:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:31:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:31:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:31:17 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:31:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:31:17 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:31:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:31:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:31:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:31:20 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:31:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:31:20 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:31:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:31:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:31:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:31:48 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:31:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:31:48 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:31:48 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:32:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:02 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:02 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:04 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:32:04 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:32:04 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:32:04 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:32:06 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:06 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:09 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:32:09 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:32:09 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:32:09 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:32:12 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:12 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:15 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:15 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:15 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:32:15 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:32:15 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:32:15 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:32:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:32:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:32:30 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:32:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:32:30 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:32:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:33:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:33:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:33:58 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:33:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:33:58 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:33:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:34:07 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:07 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:10 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:34:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:34:10 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:34:10 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:15 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:15 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:17 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:34:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:34:17 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:34:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:34:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:34:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:34:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:34:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:34:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:34:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:17 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:39:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:39:17 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:39:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:39:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:28 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:39:28 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:39:28 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:39:28 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:39:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:32 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:32 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:39:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:39:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:39:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:39:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:36 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:36 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:38 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:39:38 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:39:38 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:39:38 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:39:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:42 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:42 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:39:43 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:39:43 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:26 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:40:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:40:26 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:40:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:40:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:29 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:29 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:40:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:40:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:40:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:40:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:39 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:39 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:39 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:40:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:40:39 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:40:39 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:40:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:49 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:40:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:40:49 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:40:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:40:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:40:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:40:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:41:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:41:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:41:21 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:41:21 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:41:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:41:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:41:22 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:41:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:41:22 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:41:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:41:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:41:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:41:26 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:41:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:42:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:42:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:42:20 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:42:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:42:20 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:42:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:42:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:42:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:42:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:42:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:42:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:42:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:42:41 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:42:41 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:00 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:46:00 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:46:00 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:46:00 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:46:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:08 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:46:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:46:08 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:46:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 20:46:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 20:46:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 20:46:16 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 20:46:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 20:46:16 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 20:46:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:00:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:20 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:00:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:00:20 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:00:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:00:24 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:24 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:25 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:25 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:26 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:40 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:00:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:00:40 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:00:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:00:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:46 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:46 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:49 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:00:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:00:49 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:00:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:00:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:55 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:00:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:00:55 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:00:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:00:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:00:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:00:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:02:33 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:02:33 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:02:33 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:02:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:02:33 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:02:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:03:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:03:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:03:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:03:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:03:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:03:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:03:18 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:03:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:03:18 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:03:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:03:18 --> Severity: Notice --> Undefined variable: packing_list C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:03:18 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:04:06 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:04:06 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:04:06 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:04:06 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:04:06 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:04:06 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:04:06 --> Severity: Notice --> Undefined variable: packing_list C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:04:06 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:04:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:04:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:04:40 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:04:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:04:40 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:04:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:04:40 --> Severity: Notice --> Undefined variable: packing_list C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:04:40 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:05:32 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:32 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:32 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:05:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:05:32 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:05:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:05:32 --> Severity: Notice --> Undefined variable: packing_list C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:05:32 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:05:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:50 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:50 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:50 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:05:50 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:05:50 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:05:50 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:05:57 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:57 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:05:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:05:59 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:05:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:05:59 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:05:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:05:59 --> Severity: Notice --> Undefined variable: packing_list C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:05:59 --> Severity: Notice --> Trying to get property 'id' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\packing_list\packing_list.php 273
+ERROR - 2020-08-10 21:06:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:06:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:06:52 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:06:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:06:52 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:06:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:07:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:07:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:07:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:07:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:08:06 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:08:06 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:08:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:08:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:08:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:08:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:08:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:08:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:08:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:08:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:12:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:12:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:12:03 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:12:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:12:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:12:15 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:12:15 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:12:15 --> Severity: Notice --> Undefined variable: all_suits C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Manufacturing_settings.php 145
+ERROR - 2020-08-10 21:12:15 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Manufacturing_settings.php 145
+ERROR - 2020-08-10 21:12:17 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:12:18 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:12:18 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:12:18 --> Severity: Notice --> Undefined variable: all_suits C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Manufacturing_settings.php 145
+ERROR - 2020-08-10 21:12:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Manufacturing_settings.php 145
+ERROR - 2020-08-10 21:12:19 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:14:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:08 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:14:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:16 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:14:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:22 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:14:22 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:22 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:23 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:14:23 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:23 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:30 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:14:30 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:30 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:53 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:14:53 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:53 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:55 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:55 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:14:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:14:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:15:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:15:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:19:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:19:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:19:52 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:19:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:19:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:01 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:01 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:03 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:20:04 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:04 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "mould_suitability"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:13 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:20:14 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:14 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:20:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:20:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:24:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:24:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:24:49 --> Could not find the language line "suitability is already exist"
+ERROR - 2020-08-10 21:24:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:24:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:24:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:24:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:24:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:24:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:24:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:24:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:03 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:03 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:03 --> Could not find the language line "suitability is already exist"
+ERROR - 2020-08-10 21:25:08 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:08 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:08 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-08-10 21:25:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:11 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:16 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:16 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:17 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:17 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:20 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:20 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:20 --> Could not find the language line "suitability is already exist"
+ERROR - 2020-08-10 21:25:28 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:25:28 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:25:28 --> Could not find the language line "suitability is already exist"
+ERROR - 2020-08-10 21:30:56 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:30:56 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:30:58 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:30:58 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:30:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:30:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:30:59 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:30:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:30:59 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:30:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:31:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:32 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:31:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:31:32 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:31:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:31:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:35 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:35 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:49 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:49 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:50 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:50 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:52 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:31:52 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:31:52 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:31:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:31:52 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:31:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:32:31 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:32:31 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:32:31 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:32:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:32:31 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:32:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:32:37 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:32:37 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:34:32 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:34:32 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:34:32 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:34:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:34:32 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:34:32 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:34:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:34:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:34:38 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:34:38 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:34 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:34 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:34 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:36:34 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:36:34 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:36:34 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:36:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:40 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:40 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:47 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:48 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:48 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:51 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:51 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:51 --> Could not find the language line "Packing Type"
+ERROR - 2020-08-10 21:36:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-08-10 21:36:51 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-08-10 21:36:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-08-10 21:36:54 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:54 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:36:59 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:36:59 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:00 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:00 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:05 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:05 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:09 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:09 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:10 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:10 --> Could not find the language line "products"
+ERROR - 2020-08-10 21:37:11 --> Could not find the language line "finance"
+ERROR - 2020-08-10 21:37:11 --> Could not find the language line "products"
