@@ -14,6 +14,7 @@
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('name'),
+							_l('order_no'),
 							_l('options'),
 						),'sale-phase'); ?>
 					</div>
@@ -39,7 +40,7 @@
 					<div class="col-md-12">
 
 						<?php echo render_input('phase',_l('sale_phase'),'','text',array('placeholder'=>_l('sale_phase'))); ?>
-
+						<?php echo render_input('order_no',_l('order_no'),'','number'); ?>
 					</div>
 				</div>
 			</div>
@@ -55,7 +56,7 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-sale-phase', window.location.href, [1], [1]);
+		initDataTable('.table-sale-phase', window.location.href, [2], [2],'undefined',[1,'asc']);
 
 		appValidateForm($('form'), {
 			phase: 'required',
@@ -68,6 +69,7 @@
 
 			$('#sale_phase_modal input[name="phase"]').val('');
 			$('#sale_phase_modal input[name="salephaseid"]').val('');
+			$('#sale_phase_modal input[name="order_no"]').val('');
 
 			$('#sale_phase_modal .add-title').removeClass('hide');
 			$('#sale_phase_modal .edit-title').addClass('hide');
@@ -75,9 +77,11 @@
 			if (typeof(id) !== 'undefined') {
 				$('input[name="salephaseid"]').val(id);
 				var phase = $(button).parents('tr').find('td').eq(0).find('span.name').text();
+				var orderNo = $(button).parents('tr').find('td').eq(1).text();
 				$('#sale_phase_modal .add-title').addClass('hide');
 				$('#sale_phase_modal .edit-title').removeClass('hide');
 				$('#sale_phase_modal input[name="phase"]').val(phase);
+				$('#sale_phase_modal input[name="order_no"]').val(orderNo);
 
 			}
 		});

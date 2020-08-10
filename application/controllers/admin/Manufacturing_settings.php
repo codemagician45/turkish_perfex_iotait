@@ -135,20 +135,20 @@ class Manufacturing_settings extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-
-            $checK_flag = false;
+            // print_r($data); exit();
+            $check_flag = false;
             if ($data['mouldID'] == '') {
 
                 if(isset($data['default_machine']))
                 {
-                    $all_suits = $this->manufacturing_settings_model->get_suitability();
+                    $all_suits_for = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
                     foreach ($all_suits as $key => $suit) {
                         if($suit['default_machine'] == 1)
                         {
                             $check_msg = _l('default_machine is already exist');
-                            $checK_flag = true;
+                            $check_flag = true;
                             echo json_encode([
-                                'flag' => $checK_flag,
+                                'flag' => $check_flag,
                                 'msg' => $check_msg,
                             ]);
                         }     
@@ -156,7 +156,7 @@ class Manufacturing_settings extends AdminController
 
                 }
 
-                if($checK_flag == false)
+                if($check_flag == false)
                 {
                     $success = $this->manufacturing_settings_model->add_moulds_suitability($data);
                     $message = '';
@@ -174,14 +174,14 @@ class Manufacturing_settings extends AdminController
 
                 if(isset($data['default_machine']))
                 {
-                    $all_suits = $this->manufacturing_settings_model->get_suitability();
+                    $all_suits = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id']);
                     foreach ($all_suits as $key => $suit) {
                         if($suit['id'] != $data['mouldID'] && $suit['default_machine'] == 1)
                         {
                             $check_msg = _l('default_machine is already exist');
-                            $checK_flag = true;
+                            $check_flag = true;
                             echo json_encode([
-                                'flag' => $checK_flag,
+                                'flag' => $check_flag,
                                 'msg' => $check_msg,
                             ]);
                         } 
@@ -189,7 +189,7 @@ class Manufacturing_settings extends AdminController
 
                 }
 
-                if($checK_flag == false)
+                if($check_flag == false)
                 {
                     $success = $this->manufacturing_settings_model->edit_moulds_suitability($data);
                     $message = '';

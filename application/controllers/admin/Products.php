@@ -24,10 +24,10 @@ class Products extends AdminController
         $this->load->view('admin/products/product_list/manage', $data);
     }
 
-    public function get_price_category_calc($id)
+    public function get_price_category_calc($no)
     {
          if ($this->input->is_ajax_request()) {
-            $res = $this->sale_model->get_pricing_category($id);
+            $res = $this->sale_model->get_pricing_category($no);
             echo json_encode($res);
         }
     }

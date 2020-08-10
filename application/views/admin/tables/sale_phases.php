@@ -3,6 +3,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     'phase',
+    'order_no'
     ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'sale_phases';

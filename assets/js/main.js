@@ -5762,18 +5762,22 @@ function tasks_bulk_action(event) {
 }
 
 function load_small_table_item(id, selector, input_name, url, table) {
+    
     var _tmpID = $('input[name="' + input_name + '"]').val();
+    console.log(_tmpID)
     // Check if id passed from url, hash is prioritized becuase is last
     if (_tmpID !== '' && !window.location.hash) {
         id = _tmpID;
         // Clear the current id value in case user click on the left sidebar credit_note_ids
         $('input[name="' + input_name + '"]').val('');
     } else {
+        console.log(id)
         // check first if hash exists and not id is passed, becuase id is prioritized
         if (window.location.hash && !id) {
             id = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
         }
     }
+
     if (typeof(id) == 'undefined' || id === '') { return; }
     destroy_dynamic_scripts_in_element($(selector))
     if (!$("body").hasClass('small-table')) { toggle_small_view(table, selector); }
@@ -6456,16 +6460,16 @@ function init_currency(id) {
     if ($accountingTemplate.length || id) {
 
         var selectedCurrencyId = !id ? $accountingTemplate.find('select[name="currency"]').val() : id;
-
-        requestGetJSON('misc/get_currency/' + selectedCurrencyId)
-            .done(function(currency) {
-                // Used for formatting money
-                accounting.settings.currency.decimal = currency.decimal_separator;
-                accounting.settings.currency.thousand = currency.thousand_separator;
-                accounting.settings.currency.symbol = currency.symbol;
-                accounting.settings.currency.format = currency.placement == 'after' ? '%v %s' : '%s%v';
-                calculate_total_quote();
-            });
+        if(selectedCurrencyId)
+            requestGetJSON('misc/get_currency/' + selectedCurrencyId)
+                .done(function(currency) {
+                    // Used for formatting money
+                    accounting.settings.currency.decimal = currency.decimal_separator;
+                    accounting.settings.currency.thousand = currency.thousand_separator;
+                    accounting.settings.currency.symbol = currency.symbol;
+                    accounting.settings.currency.format = currency.placement == 'after' ? '%v %s' : '%s%v';
+                    calculate_total_quote();
+                });
     }
 }
 
@@ -7380,6 +7384,7 @@ function add_item_to_preview_quote(id) {
         $('input[name="rel_product_id"]').val(response.stock.id);
         $('input[name="original_price"]').val(response.stock.original_price);
         $('select[name="unit"]').selectpicker('val',response.stock.unit);
+        $('select[name="unit"]').prop('disabled',true)
         if(response.default_pack)
         {
             $('select[name="pack_capacity"]').selectpicker('val',response.default_pack.pack_capacity);
@@ -7449,7 +7454,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control original_price" value="'+data.original_price+'"></td>';
 
-        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();quote_phase_change(this);" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
+        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][volume_m3]" readonly class="form-control volume_m3" value="'+data.volume_m3+'"></td>';
 
@@ -7609,7 +7614,6 @@ function calculate_total_quote()
     // console.log('sum', sum_volume_m3)
     $('#sum_volume_m3').val(sum_volume_m3.toFixed(10));
     $('#sum_volume').val(sum_volume_m3.toFixed(10));
-    console.log('aaa')
     $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     $('#total_price').val(total);
     $(document).trigger('sales-total-calculated');

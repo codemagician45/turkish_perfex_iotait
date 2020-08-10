@@ -3801,7 +3801,7 @@ $lang['edit_mould_suitability'] = 'Edit Mould Suitability';
 $lang['machine_id'] = 'Machine Id';
 $lang['mould_id'] = 'Mould Id';
 $lang['default_machine'] = 'Default Machine';
-$lang['default_machine is already exist'] = 'Default Machine is already Exist';
+$lang['default_machine is already exist'] = 'Default Machine is already Exist for this Mould';
 
 $lang['energy_prices'] = 'Energy Prices';
 $lang['energy_price'] = 'Energy Price';
@@ -3831,6 +3831,7 @@ $lang['new_quote'] = 'New Quote';
 $lang['nothing_selected'] = 'Nothing Selected';
 $lang['original_price'] = 'Original Price';
 $lang['sale_price'] = 'Sale Price';
+$lang['work_order_created'] = 'Work order Created';
 
 $lang['sale_order'] = 'Sale Order';
 $lang['sale_order_dt_table_heading_number'] = 'Sale Order';
@@ -3850,7 +3851,7 @@ $lang['quotation_approval'] = 'Quotation Approval';
 
 /*Planing*/
 $lang['convert_to_work_order'] = 'Convert to Work Order';
-$lang['als_planing'] = 'Planing';
+$lang['als_planning'] = 'Planning';
 $lang['pending_sale_order'] = 'Pending Sale Order';
 $lang['work_orders'] = 'Work Orders';
 $lang['rel_wo_items'] = 'Work Order Items';

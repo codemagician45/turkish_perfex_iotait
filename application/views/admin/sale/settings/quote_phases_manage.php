@@ -14,6 +14,7 @@
                         <div class="clearfix"></div>
                         <?php render_datatable(array(
                             _l('name'),
+                            _l('order_no'),
                             _l('options'),
                         ),'quote-phase'); ?>
                     </div>
@@ -37,6 +38,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php echo render_input('order_no',_l('order_no'),'','number'); ?>
                         <?php echo render_input('phase',_l('name'),'','text',array('placeholder'=>_l('phase_name'))); ?>
                     </div>
                 </div>
@@ -53,7 +55,7 @@
 <script>
     $(function(){
 
-        initDataTable('.table-quote-phase', window.location.href, [1], [1]);
+        initDataTable('.table-quote-phase', window.location.href, [2], [2],'undefined',[1,'asc']);
 
         appValidateForm($('form'), {
             phase: 'required',
@@ -74,10 +76,11 @@
             if (typeof(id) !== 'undefined') {
                 $('input[name="quoteId"]').val(id);
                 var phase = $(button).parents('tr').find('td').eq(0).text();
-
+                var orderNo = $(button).parents('tr').find('td').eq(1).text();
                 $('#quote_phase_modal .add-title').addClass('hide');
                 $('#quote_phase_modal .edit-title').removeClass('hide');
                 $('#quote_phase_modal input[name="phase"]').val(phase);
+                $('#quote_phase_modal input[name="order_no"]').val(orderNo);
 
                 // var $installationModal = $('#quote_phase_modal');
                 // requestGetJSON('installation_process/get_installation_by_id/' + id).done(function (response) {

@@ -6,6 +6,7 @@ $aColumns = [
     db_prefix() .'pricing_categories.name',
     'calc_value1',
     'calc_value2',
+    'order_no',
     db_prefix() . 'currencies.name',
     ];
 $sIndexColumn = 'id';

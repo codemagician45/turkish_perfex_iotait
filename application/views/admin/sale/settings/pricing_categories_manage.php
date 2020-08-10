@@ -16,6 +16,7 @@
 							_l('name'),
 							_l('cal_value1'),
 							_l('cal_value2'),
+							_l('order_no'),
 							_l('default_currency'),
 							_l('options'),
 						),'pricing-category'); ?>
@@ -47,6 +48,7 @@
 						<?php echo render_input('calc_value1',_l('cal_value1'),'','number',array('placeholder'=>_l('cal_value1'))); ?>
 
 						<?php echo render_input('calc_value2',_l('cal_value2'),'','number',array('placeholder'=>_l('cal_value1'))); ?>
+						<?php echo render_input('order_no',_l('order_no'),'','number'); ?>
 					</div>
 				</div>
 			</div>
@@ -62,13 +64,14 @@
 <script>
 	$(function(){
 
-		initDataTable('.table-pricing-category', window.location.href, [2], [2]);
+		initDataTable('.table-pricing-category', window.location.href, [5], [5],'undefined',[3, 'asc']);
 
 		appValidateForm($('form'), {
 			name: 'required',
 			default_currency: 'required',
 			calc_value1: 'required',
 			calc_value2: 'required',
+			order_no: 'required',
 		}, manage_currencies);
 
 		$('#pricing_category_modal').on('show.bs.modal', function(event) {
@@ -80,6 +83,7 @@
 			$('#pricing_category_modal input[name="calc_value1"]').val('');
 			$('#pricing_category_modal input[name="calc_value2"]').val('');
 			$('#pricing_category_modal input[name="pricingCatId"]').val('');
+			$('#pricing_category_modal input[name="order_no"]').val('');
 
 			$('#pricing_category_modal .add-title').removeClass('hide');
 			$('#pricing_category_modal .edit-title').addClass('hide');
@@ -89,11 +93,13 @@
 				var name = $(button).parents('tr').find('td').eq(0).text();
 				var calcValue1 = $(button).parents('tr').find('td').eq(1).text();
 				var calcValue2 = $(button).parents('tr').find('td').eq(2).text();
+				var order_no = $(button).parents('tr').find('td').eq(3).text();
 				$('#pricing_category_modal .add-title').addClass('hide');
 				$('#pricing_category_modal .edit-title').removeClass('hide');
 				$('#pricing_category_modal input[name="name"]').val(name);
 				$('#pricing_category_modal input[name="calc_value1"]').val(calcValue1);
 				$('#pricing_category_modal input[name="calc_value2"]').val(calcValue2);
+				$('#pricing_category_modal input[name="order_no"]').val(order_no);
 
                 var $priceCatModal = $('#pricing_category_modal');
                 requestGetJSON('sale/get_price_category_by_id/' + id).done(function (response) {

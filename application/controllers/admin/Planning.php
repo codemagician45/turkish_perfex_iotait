@@ -8,6 +8,7 @@ class Planning extends AdminController
     {
         parent::__construct();
         $this->load->model('invoices_model');
+        $this->load->model('estimates_model');
         $this->load->model('credit_notes_model');
         $this->load->model('utilities_model');
         $this->load->model('manufacturing_settings_model');

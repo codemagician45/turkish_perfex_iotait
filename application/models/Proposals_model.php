@@ -175,10 +175,9 @@ class Proposals_model extends App_Model
         unset($data['volume_m3']);
         unset($data['notes']);
         $data['updated_user'] = get_staff_user_id();
-        // print_r($items); exit();
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();
-
+        // print_r($insert_id); exit();
         if ($insert_id) {
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
@@ -192,7 +191,7 @@ class Proposals_model extends App_Model
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->insert(db_prefix() . 'itemable', $val);
-                $insert_id = $this->db->insert_id();
+                $insert_item_id = $this->db->insert_id();
             }
             // return $insert_id;
 
@@ -355,8 +354,8 @@ class Proposals_model extends App_Model
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->insert(db_prefix() . 'itemable', $val);
-                $insert_id = $this->db->insert_id();
-                if ($insert_id) {
+                $insert_item_id = $this->db->insert_id();
+                if ($insert_item_id) {
                     $affectedRows++;
                 }
             }
@@ -483,6 +482,7 @@ class Proposals_model extends App_Model
      */
     public function get($id = '', $where = [], $for_editor = false)
     {
+        // print_r($id); exit();
         $this->db->where($where);
 
         if (is_client_logged_in()) {

@@ -617,15 +617,15 @@ class Estimates_model extends App_Model
                     if(isset($val['approval_need']))
                         $val['approval_need'] = 1;
                     $this->db->insert(db_prefix() . 'itemable', $val);
-                    $insert_id = $this->db->insert_id();
+                    $insert_item_id = $this->db->insert_id();
                 }
             if(isset($items))
                 foreach ($items as $val) {
-                    $id = $val['itemid'];
+                    $itemid = $val['itemid'];
                     unset($val['itemid']);
                     if(isset($val['approval_need']))
                         $val['approval_need'] = 1;
-                    $this->db->where('id',$id);
+                    $this->db->where('id',$itemid);
                     $this->db->update(db_prefix() . 'itemable', $val);
                 }
 
@@ -816,7 +816,7 @@ class Estimates_model extends App_Model
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->insert(db_prefix() . 'itemable', $val);
-                $insert_id = $this->db->insert_id();
+                $insert__item_id = $this->db->insert_id();
             }
         if(isset($items))
             foreach ($items as $val) {

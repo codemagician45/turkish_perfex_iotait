@@ -43,7 +43,7 @@
                               <option></option>
                               <?php foreach($quote_phases as $quote_phase){?>
 
-                                  <option value="<?= $quote_phase['id'];?>" <?php if((isset($proposal) &&  $proposal->quote_phase_id == $quote_phase['id'])){echo 'selected';} ?>><?= $quote_phase['phase']; ?></option>
+                                  <option value="<?= $quote_phase['order_no'];?>" <?php if((isset($proposal) &&  $proposal->quote_phase_id == $quote_phase['order_no'])){echo 'selected';} ?>><?= $quote_phase['phase']; ?></option>
 
                               <?php }?>
                               
@@ -77,54 +77,52 @@
                               <option></option>
                               <?php 
                               foreach($pricing_categories as $pricing_category){
-
                                 ?>
-
-                                  <option value="<?= $pricing_category['id'];?>" <?php if((isset($proposal) &&  $proposal->pricing_category_id == $pricing_category['id'])){echo 'selected';} ?>><?= $pricing_category['name']; ?></option>
+                                  <option value="<?= $pricing_category['order_no'];?>" <?php if((isset($proposal) &&  $proposal->pricing_category_id == $pricing_category['order_no'])){echo 'selected';} ?>><?= $pricing_category['name']; ?></option>
 
                               <?php }?>
                               
                            </select>
                         </div>
                          <?php
-                           $selected = '';
-                           $currency_attr = array('data-show-subtext'=>true);
-                           foreach($currencies as $currency){
-                            if($currency['isdefault'] == 1){
-                              $currency_attr['data-base'] = $currency['id'];
-                            }
-                            if(isset($proposal)){
-                              if($currency['id'] == $proposal->currency){
-                                $selected = $currency['id'];
-                              }
-                              if($proposal->rel_type == 'customer'){
-                                // $currency_attr['disabled'] = true;
-                              }
-                            } else {
-                              if($rel_type == 'customer'){
-                                $customer_currency = $this->clients_model->get_customer_default_currency($rel_id);
-                                if($customer_currency != 0){
-                                  $selected = $customer_currency;
-                                } else {
-                                  if($currency['isdefault'] == 1){
-                                    $selected = $currency['id'];
-                                  }
-                                }
-                                // $currency_attr['disabled'] = true;
-                              } else {
-                               if($currency['isdefault'] == 1){
-                                $selected = $currency['id'];
-                              }
-                            }
-                           }
-                           }
-                           $currency_attr = apply_filters_deprecated('proposal_currency_disabled', [$currency_attr], '2.3.0', 'proposal_currency_attributes');
-                           $currency_attr = hooks()->apply_filters('proposal_currency_attributes', $currency_attr);
+                           $selected = (isset($proposal) ? $proposal->currency : '');
+                           // $currency_attr = array('data-show-subtext'=>true);
+                           // foreach($currencies as $currency){
+                           //  if($currency['isdefault'] == 1){
+                           //    $currency_attr['data-base'] = $currency['id'];
+                           //  }
+                           //  if(isset($proposal)){
+                           //    if($currency['id'] == $proposal->currency){
+                           //      $selected = $currency['id'];
+                           //    }
+                           //    if($proposal->rel_type == 'customer'){
+                           //      // $currency_attr['disabled'] = true;
+                           //    }
+                           //  } else {
+                           //    if($rel_type == 'customer'){
+                                // $customer_currency = $this->clients_model->get_customer_default_currency($rel_id);
+                           //      if($customer_currency != 0){
+                           //        $selected = $customer_currency;
+                           //      } else {
+                           //        if($currency['isdefault'] == 1){
+                           //          $selected = $currency['id'];
+                           //        }
+                           //      }
+                           //      // $currency_attr['disabled'] = true;
+                           //    } else {
+                           //     if($currency['isdefault'] == 1){
+                           //      $selected = $currency['id'];
+                           //    }
+                           //  }
+                           // }
+                           // }
+                           // $currency_attr = apply_filters_deprecated('proposal_currency_disabled', [$currency_attr], '2.3.0', 'proposal_currency_attributes');
+                           // $currency_attr = hooks()->apply_filters('proposal_currency_attributes', $currency_attr);
                            ?>
                        <div class="row">
                           <div class="col-md-6">
                             <?php
-                            echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected, $currency_attr);
+                            echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected);
                             ?>
                            </div>
                        </div>
@@ -371,12 +369,12 @@ $(document).ready(function(){
 })
 
 $('#pricing_category').change(function(){
-  var price_category_id = $('#pricing_category').val();
+  var pricing_category_no = $('#pricing_category').val();
   rows = $('.table.has-calculations tbody tr.item')
-  console.log(rows)
-  if(price_category_id)
+  // console.log(rows)
+  if(pricing_category_no)
   {
-      requestGetJSON('products/get_price_category_calc/' + price_category_id).done(function (response) {
+      requestGetJSON('products/get_price_category_calc/' + pricing_category_no).done(function (response) {
         // console.log(response)
         $('select[name="currency"]').selectpicker('val', response.default_currency)
         init_currency();
@@ -440,12 +438,23 @@ function quote_phase_change(row)
 {
   var sale_price = $(row).val();
   var original_price = $(row).parents('tr').find('.original_price').val();
-  console.log(sale_price, original_price)
-  if(parseFloat(original_price) > parseFloat(sale_price))
+  var last_phase = $('select[name="quote_phase_id"]').val();
+
+  if(last_phase != 1)
   {
-    $('select[name="quote_phase_id"]').selectpicker('val',11);
+    if(parseFloat(original_price) > parseFloat(sale_price))
+    {
+      last_phase = $('select[name="quote_phase_id"]').val();
+      $('select[name="quote_phase_id"]').selectpicker('val',1);
+      $('select[name="quote_phase_id"]').prop('disabled', true);
+    } else {
+      $('select[name="quote_phase_id"]').selectpicker('val',last_phase);
+      $('select[name="quote_phase_id"]').prop('disabled', false);
+    }
   }
+  
 }
+
 
 </script>
 </body>
