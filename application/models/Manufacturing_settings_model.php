@@ -221,13 +221,13 @@ class Manufacturing_settings_model extends App_Model
         return $this->db->get()->result_array();
     }
 
-    public function get_suitability_by_mould($mould_id = ''){
+    public function get_suitability_by_mould($mould_id = '', $suit_id = ''){
         $this->db->from(db_prefix() . 'mould_suitability');
+        $this->db->where(db_prefix() . 'mould_suitability.mould_id', $mould_id);
+        if(is_numeric($suit_id))
+            $this->db->where(db_prefix() . 'mould_suitability.id !='.$suit_id);
+        return $this->db->get()->result_array();
 
-        if (is_numeric($mould_id)) {
-            $this->db->where(db_prefix() . 'mould_suitability.mould_id', $mould_id);
-            return $this->db->get()->result_array();
-        }
     }
 
     public function get_default_machine_status_by_id($id){

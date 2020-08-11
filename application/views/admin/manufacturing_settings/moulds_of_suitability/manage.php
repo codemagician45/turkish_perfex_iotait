@@ -61,7 +61,7 @@
 <script>
     $(function(){
 
-        initDataTable('.table-mould-suitability', window.location.href);
+        initDataTable('.table-mould-suitability', window.location.href,'undefined','undefined','undefined',[1, 'asc']);
 
         appValidateForm($('form'), {
             mould_id: 'required',
