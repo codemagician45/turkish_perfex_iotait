@@ -420,10 +420,10 @@ class Manufacturing_settings extends AdminController
         }
     }
 
-    public function get_default_machine()
+    public function get_default_machine($mould_id)
     {
         if ($this->input->is_ajax_request()) {
-            $default_machine = $this->manufacturing_settings_model->get_default_machine();
+            $default_machine = $this->manufacturing_settings_model->get_default_machine($mould_id);
             echo json_encode($default_machine);
         }
     }

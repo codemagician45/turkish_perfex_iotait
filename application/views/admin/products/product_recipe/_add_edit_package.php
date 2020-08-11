@@ -25,7 +25,6 @@
         </div>
 
         <div class="col-md-4">
-           <!-- <label><?php echo _l('installation_cost')?></label><input type="number" readonly id="ins_cost" name="ins_cost" class="form-control" align="right" placeholder="<?php echo _l('installation_cost'); ?>"> -->
            <?php 
             $value = (isset($pricing_calc_data) ? $pricing_calc_data->ins_cost : '');
             echo render_input('ins_cost', _l('installation_cost'), $value, 'number', array('placeholder' => _l('installation_cost'))); ?>
@@ -76,11 +75,15 @@
                         <input type="number" name="rate_of_waste"  class="form-control material" onkeyup="material_cost_calc()" onchange="material_cost_calc()">
                     </td>
                     <td>
-                        <input type="text" name="default_machine" readonly class="form-control">
+                        <!-- <input type="text" name="default_machine" readonly class="form-control"> -->
+                        <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                            <select data-fieldto="default_machine" data-fieldid="default_machine" name="default_machine" id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">
+                            </select>
+                        </div>
                     </td>
                     <td>
                         <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                            <select data-fieldto="mould" data-fieldid="mould" name="mould" id="mould" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">
+                            <select data-fieldto="mould" data-fieldid="mould" name="mould" id="mould" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity(this)">
                                 <option value=""></option>
                               <?php foreach ($moulds as $key => $mould) {?>
                                 <option value="<?php echo $mould['id'];?>"><?php echo $mould['mould_name'];?></option>
@@ -151,13 +154,16 @@
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][rate_of_waste]" class="form-control material" value="'.$item['rate_of_waste'].'" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
 
-                        $table_row .= '<td><input type="text" readonly  name="'.$items_indicator.'['.$i.'][default_machine]" class="form-control" value="'.$item['default_machine'].'"></td>';
+                        // $table_row .= '<td><input type="text" readonly  name="'.$items_indicator.'['.$i.'][default_machine]" class="form-control" value="'.$item['default_machine'].'"></td>';
+
+                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                            <select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
 
                         $table_row .= '<td>
-                            <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);">'.$option.'</select></div>
+                            <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity_added(this);">'.$option.'</select></div>
                         </td>';
 
-                        $table_row .= '<td><input type="text" readonly name="'.$items_indicator.'['.$i.'][mould_cavity]" class="form-control" value="'.$item['mould_cavity'].'"></td>';
+                        $table_row .= '<td><input type="text" readonly name="'.$items_indicator.'['.$i.'][mould_cavity]" class="form-control mould_cavity" value="'.$item['mould_cavity'].'"></td>';
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][cycle_time]" class="form-control cycle_time" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);" onkeyup="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);" value="'.$item['cycle_time'].'"></td>';
 

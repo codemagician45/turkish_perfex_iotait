@@ -83,12 +83,6 @@
     var expectedProfitCost = 0;
     var installationCost = 0;
 
-    requestGetJSON('manufacturing_settings/get_default_machine').done(function(response) {
-        defaultMachineData = response;
-        $('input[name="default_machine"]').val(response.name);
-        // console.log(defaultMachineData)
-    });
-
     requestGetJSON('manufacturing_settings/get_work_hour').done(function(response) {
         workHour = response.capacity_hours;
     });
@@ -118,15 +112,68 @@
 
     }
 
-    $('#mould').change(function(){
-        var mouldId = $('select[name="mould"]').val();
+
+    function default_machine_and_mould_cavity(mould)
+    {
+        var mouldId = $(mould).val();
+        default_machine = $(mould).parents('tr').find('.default_machine').children()[0];
         requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldId).done(function(response) {
             mouldCavity = response.mould_cavity;
             $('input[name="mould_cavity"]').val(mouldCavity)
             production_cost_cal();
             expected_profit_calc();
+        });
+
+        requestGetJSON('manufacturing_settings/get_default_machine/' +mouldId).done(function(response) {
+            if(response){
+                // var option = '<option></option>'
+                defaultMachineData = response;
+                var option = '<option value="'+response.id+'" selected>'+response.name+'</option>';
+                default_machine.innerHTML = '';
+                default_machine.innerHTML = option;
+                $(mould).parents().find('.default_machine').selectpicker('refresh')
+            }
+            else {
+                defaultMachineData = '';
+                default_machine.innerHTML = '';
+                $(mould).parents().find('.default_machine').selectpicker('refresh')
+            }
+            production_cost_cal();
+            expected_profit_calc();
         });        
-    });
+    }
+
+    function default_machine_and_mould_cavity_added(mould)
+    {
+        var mouldId = $(mould).val();
+        // console.log($(mould).parents().find('.mould_cavity'))
+        default_machine = $(mould).parents('tr').find('.default_machine').children()[0];
+        requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldId).done(function(response) {
+            mouldCavity = response.mould_cavity;
+            $(mould).parents().find('.mould_cavity').val(mouldCavity)
+            production_cost_calc_for_added(mould);
+            expected_profit_calc_for_added(mould);
+        });
+        // console.log(mouldId)
+        requestGetJSON('manufacturing_settings/get_default_machine/' +mouldId).done(function(response) {
+            if(response){
+                // var option = '<option></option>'
+                // console.log($(mould).parents('tr').find('.default_machine'))
+                defaultMachineData = response;
+                var option = '<option value="'+response.id+'" selected>'+response.name+'</option>';
+                default_machine.innerHTML = '';
+                default_machine.innerHTML = option;
+                $(mould).parents().find('.default_machine').selectpicker('refresh')
+            }
+            else {
+                defaultMachineData = '';
+                default_machine.innerHTML = '';
+                $(mould).parents().find('.default_machine').selectpicker('refresh')
+            }
+            production_cost_calc_for_added(mould);
+            expected_profit_calc_for_added(mould);
+        });        
+    }
 
     $('input[name="cycle_time"]').keyup(function(){
         production_cost_cal();
@@ -182,17 +229,27 @@
             if(checks.prop("checked") == true) {
 
                 table_row += '<td><input type="number" name="newitems[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)" value=""></td>';
-                table_row += '<td><input type="text" name="newitems[' + item_key + '][default_machine]" readonly class="form-control" value=""></td>';
+
+                // table_row += '<td><input type="text" name="newitems[' + item_key + '][default_machine]" readonly class="form-control" value=""></td>';
+
+                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="default_machine" data-fieldid="default_machine" name="newitems[' + item_key + '][default_machine]" id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
+
                 table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
-                table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control" value=""></td>';
+
+                table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value=""></td>';
+
                 table_row += '<td><input type="number" name="newitems[' + item_key + '][cycle_time]" class="form-control cycle_time" value=""></td>';
             }
             else if(checks.prop("checked") == false) {
 
                 table_row += '<td><input type="number" name="newitems[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value="' + data.rate_of_waste + '"></td>';
-                table_row += '<td><input type="text" name="newitems[' + item_key + '][default_machine]" readonly class="form-control" value="' + data.default_machine + '"></td>';
-                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);">'+data.option+'</select></div></td>';
-                table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control" value="' + data.mould_cavity + '"></td>';
+
+                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="default_machine" data-fieldid="default_machine" name="newitems[' + item_key + '][default_machine]" id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"><option value="'+data.default_machine+'">'+data.default_machine_text+'</option></select></div></td>';
+
+                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="newitems[' + item_key + '][mould]" id="newitems[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity_added(this);">'+data.option+'</select></div></td>';
+
+                table_row += '<td><input type="text" readonly name="newitems[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value="' + data.mould_cavity + '"></td>';
+
                 table_row += '<td><input type="number" name="newitems[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '" onchange="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);" onkeyup="production_cost_calc_for_added(this);        expected_profit_calc_for_added(this);"></td>';
             }
 
@@ -258,7 +315,8 @@
         response.pre_produced = $('.main input[name="pre_produced"]').prop('checked');
         response.used_qty = $('.main input[name="used_qty"]').val();
         response.rate_of_waste = $('.main input[name="rate_of_waste"]').val();
-        response.default_machine = $('.main input[name="default_machine"]').val();
+        response.default_machine = $('.main select[name="default_machine"]').val();
+        response.default_machine_text = $('.main select[name="default_machine"]').text();
         response.mouldid = $('.main select[name="mould"]').val();
         response.mould_cavity = $('.main input[name="mould_cavity"]').val();
         response.cycle_time = $('.main input[name="cycle_time"]').val();
@@ -271,7 +329,7 @@
         response.ingredient_price = $('.main input[name="ingredient_price"]').val();
         response.ingredient_currency_rate = $('.main input[name="ingredient_currency_rate"]').val();
         response.ingredient_currency_id = $('.main input[name="ingredient_currency_id"]').val();
-
+        console.log(response)
         return response;
     }
 
@@ -283,7 +341,7 @@
         previewArea.find('input[name="product_name"]').val('');
         previewArea.find('input[name="used_qty"]').val('');
         previewArea.find('input[name="rate_of_waste"]').val('');
-        previewArea.find('input[name="default_machine"]').val('');
+        previewArea.find('select[name="default_machine"]').selectpicker('val','');
         previewArea.find('select[name="mould"]').selectpicker('val','');
         previewArea.find('input[name="mould_cavity"]').val('');
         previewArea.find('input[name="cycle_time"]').val('');
@@ -327,7 +385,7 @@
             $(this).find('td.amount').html(format_money(_amount, true));
             row = $(this);
         });
-        console.log(subtotal, other_cost, ins_cost)
+        // console.log(subtotal, other_cost, ins_cost)
         total = (total + subtotal + other_cost + ins_cost);
         $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     }

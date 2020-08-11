@@ -398,13 +398,17 @@ class Manufacturing_settings_model extends App_Model
         return $this->db->get()->result_array();
     }
 
-    public function get_default_machine()
+    public function get_default_machine($mould_id)
     {
         $this->db->from(db_prefix() . 'mould_suitability');
-        $this->db->where(db_prefix() . 'mould_suitability.default_machine', 1);
+        $this->db->where('mould_id',$mould_id);
+        $this->db->where('default_machine', 1);
         $default_suitability =  $this->db->get()->row();
-        if(isset($default_suitability))
+        if(isset($default_suitability)){
             $default_machine_id = $default_suitability->machine_id;
-        return $this->get_machine($default_machine_id);
+            return $this->get_machine($default_machine_id);
+        }
+        return false;
+        
     }
 }
