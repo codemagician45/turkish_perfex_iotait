@@ -47,6 +47,7 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($data);exit();
             $pricing_calc_data = [];
             $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
             $pricing_calc_data['other_cost'] = $data['other_cost'];

@@ -103,7 +103,7 @@
                     <td>
                         <input type="number" readonly name="expected_profit" class="form-control">
                     </td>
-                    <td></td>
+                    <td><input type="hidden" name="ingredient_price" class="ingredient_price"><input type="hidden" name="ingredient_currency_id" class="ingredient_currency_id"><input type="hidden" name="ingredient_currency_rate" class="ingredient_currency_rate"></td>
                     <td>
                         <?php
                             $new_item = 'undefined';
@@ -170,6 +170,8 @@
                         $table_row .= '<td class="amount" align="right">' . $amount . '</td>';
 
                         $table_row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+
+                        $table_row .='<td><input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_price]" class="ingredient_price"><input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_currency_rate]" class="ingredient_currency_rate"></td>';
 
                         $table_row .= '</tr>';
                         echo $table_row;

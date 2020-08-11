@@ -91,6 +91,9 @@ class Currencies_model extends App_Model
         $this->db->update(db_prefix() . 'currencies', $data);
         if ($this->db->affected_rows() > 0) {
             log_activity('Currency Updated [' . $data['name'] . ']');
+            $this->db->where('id',$currencyid);
+            $changed_rate = $this->db->get(db_prefix().'currencies')->row()->rate;
+            // $this->db->where('ingredient_currency_id',$currencyid)
 
             return true;
         }

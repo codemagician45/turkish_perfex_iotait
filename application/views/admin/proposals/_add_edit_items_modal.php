@@ -18,13 +18,14 @@
             </tr>
          </thead>
          <tbody>
-            <?php if (isset($quote_items)) {
+            <?php if (isset($estimate)) {
                $i               = 1;
                $items_indicator = 'newitems';
-               if (isset($quote_items)) {
+               if (isset($estimate)) {
+                 $add_items       = $estimate->items;
                  $items_indicator = 'items';
                }
-               foreach ($quote_items as $item) {
+               foreach ($add_items as $item) {
                  $manual    = false;
 
                  $capacity_option = '<option></option>';
@@ -54,15 +55,15 @@
 
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '" disabled><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" disabled data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$capacity_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" disabled data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$capacity_option.'</select></div></td>';
 
-                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" disabled value="'.$item['qty'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
+                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" disabled onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" disabled name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" disabled data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
 
                  $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control original_price" value="'.$item['original_price'].'"></td>';
 
-                 $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" disabled value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();quote_phase_change(this);" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
+                 $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" disabled value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();quote_phase_change();" onchange="calculate_total_quote();quote_phase_change();"></td>';
 
                  $table_row .= '<td><input type="number"  name="' . $items_indicator . '[' . $i . '][volume_m3]" readonly class="form-control volume_m3" value="'.$item['volume_m3'].'"></td>';
 
@@ -147,6 +148,19 @@
                </td>
                <td class="discount-total"></td>
             </tr>
+            <!-- <tr>
+               <td>
+                  <div class="row">
+                     <div class="col-md-7">
+                        <span class="bold"><?php echo _l('estimate_adjustment'); ?></span>
+                     </div>
+                     <div class="col-md-5">
+                        <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php if(isset($estimate)){echo $estimate->adjustment; } else { echo 0; } ?>" class="form-control pull-left" name="adjustment">
+                     </div>
+                  </div>
+               </td>
+               <td class="adjustment"></td>
+            </tr> -->
             <tr>
                <td><span class="bold"><?php echo _l('estimate_total'); ?> :</span>
                </td>

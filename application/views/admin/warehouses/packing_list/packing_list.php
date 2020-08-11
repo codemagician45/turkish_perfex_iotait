@@ -263,7 +263,7 @@
     $('#packing_list').submit(async function(e){
         e.preventDefault();
         var rows = $('body').find('.sortable');
-        console.log(rows)
+        // console.log(rows)
         var check = 0;
         for(let i = 0; i < rows.length ; i++)
         {
@@ -271,7 +271,6 @@
             {
                 let product_id = rows[i].getElementsByClassName('product_id')[0].value;
                 let id = '<?php if(isset($packing_list)) echo $packing_list->id; else echo ''?>';
-                console.log(product_id,id)
                 let data = {
                     <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",
                     product_id:product_id,
@@ -298,7 +297,7 @@
             }
             
         }
-        console.log(check)
+        // console.log(check)
         if(check == 0)
             document.getElementById("packing_list").submit();
 

@@ -132,6 +132,7 @@ class Proposals extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
+            
             if ($id == '') {
                 if (!has_permission('proposals', '', 'create')) {
                     access_denied('proposals');
@@ -374,6 +375,7 @@ class Proposals extends AdminController
             // unset($data['items']);
             // unset($data['sum_volume_m3']);
             $data['rel_quote_id'] = $id;
+            // print_r($data);exit();
             $estimate_id = $this->estimates_model->add($data);
             // echo $estimate_id; exit();
             if ($estimate_id) {

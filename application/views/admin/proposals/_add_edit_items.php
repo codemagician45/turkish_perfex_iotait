@@ -56,7 +56,7 @@
                 <input type="number" name="original_price" readonly class="form-control original_price" placeholder="<?php echo _l('original_price'); ?>">
               </td>
               <td>
-                <input type="number" name="sale_price" class="form-control" placeholder="<?php echo _l('sale_price'); ?>" onchange= "quote_phase_change(this)">
+                <input type="number" name="sale_price" class="form-control" placeholder="<?php echo _l('sale_price'); ?>">
               </td>
               <td>
                 <input type="number" name="volume_m3" readonly class="form-control" placeholder="<?php echo _l('volume_m3'); ?>">
@@ -126,7 +126,7 @@
 
                  $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control original_price" value="'.$item['original_price'].'"></td>';
 
-                 $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
+                 $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();quote_phase_change();" onchange="calculate_total_quote();quote_phase_change();"></td>';
 
                  $table_row .= '<td><input type="number"  name="' . $items_indicator . '[' . $i . '][volume_m3]" readonly class="form-control volume_m3" value="'.$item['volume_m3'].'"></td>';
 

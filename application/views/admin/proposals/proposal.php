@@ -39,7 +39,7 @@
 
                         <div class="form-group select-placeholder">
                            <label class="control-label"><?php echo _l('quote_phase'); ?></label>
-                           <select name="quote_phase_id" id="quote_phase" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
+                           <select name="quote_phase" id="quote_phase" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                               <option></option>
                               <?php foreach($quote_phases as $quote_phase){?>
 
@@ -49,6 +49,7 @@
                               
                            </select>
                         </div>
+                        <input type="hidden" name="quote_phase_id" id="quote_phase_id" value="">
 
                         <div class="form-group select-placeholder">
                            <label for="rel_type" class="control-label"><?php echo _l('proposal_related'); ?></label>
@@ -434,28 +435,52 @@ $('#pricing_category').change(function(){
   }
 })
 
-function quote_phase_change(row)
+function quote_phase_change()
 {
-  var sale_price = $(row).val();
-  var original_price = $(row).parents('tr').find('.original_price').val();
-  var last_phase = $('select[name="quote_phase_id"]').val();
+  // var sale_price = $(row).val();
+  // var original_price = $(row).parents('tr').find('.original_price').val();
+  // var last_phase = $('select[name="quote_phase_id"]').val();
 
-  if(last_phase != 1)
-  {
-    if(parseFloat(original_price) > parseFloat(sale_price))
+  // if(last_phase != 1)
+  // {
+  //   if(parseFloat(original_price) > parseFloat(sale_price))
+  //   {
+  //     // last_phase = $('select[name="quote_phase_id"]').val();
+  //     $('select[name="quote_phase_id"]').selectpicker('val',1);
+  //     $('select[name="quote_phase_id"]').prop('disabled', true);
+  //   } else {
+  //     // $('select[name="quote_phase_id"]').selectpicker('val',last_phase);
+  //     $('select[name="quote_phase_id"]').prop('disabled', false);
+  //   }
+  // }
+
+  var rows = $('.table.has-calculations tbody tr.item');
+  var flag = 0;
+  $.each(rows, function() {
+    // console.log($(this))
+    var original_price = $(this).find('.original_price').val();
+    var sale_price = $(this).find('.sale-price').children().val();
+    console.log(original_price,sale_price)
+    if(Number(original_price)> Number(sale_price))
     {
-      last_phase = $('select[name="quote_phase_id"]').val();
-      $('select[name="quote_phase_id"]').selectpicker('val',1);
-      $('select[name="quote_phase_id"]').prop('disabled', true);
-    } else {
-      $('select[name="quote_phase_id"]').selectpicker('val',last_phase);
-      $('select[name="quote_phase_id"]').prop('disabled', false);
+      flag = 1;
+      return false;
     }
+  })
+  console.log(flag)
+  if(flag == 1)
+  {
+    $('select[name="quote_phase"]').selectpicker('val',1);
+    $('select[name="quote_phase"]').prop('disabled', true);
+    $('#quote_phase_id').val($('select[name="quote_phase"]').val())
+  } else {
+    $('select[name="quote_phase"]').prop('disabled', false);
   }
-  
 }
-
-
+$('select[name="quote_phase"]').change(function(){
+    console.log($('select[name="quote_phase"]').val())
+    $('#quote_phase_id').val($('select[name="quote_phase"]').val())
+  })
 </script>
 </body>
 </html>

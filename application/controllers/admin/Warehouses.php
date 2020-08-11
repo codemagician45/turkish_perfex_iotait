@@ -568,7 +568,7 @@ class Warehouses extends AdminController
 
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
-            $data['items'] = $this->warehouses_model->get_grouped();
+            $data['items'] = $this->warehouses_model->get_grouped_packing();
             // print_r($data['items']); exit();
         } else {
             $data['items']     = [];

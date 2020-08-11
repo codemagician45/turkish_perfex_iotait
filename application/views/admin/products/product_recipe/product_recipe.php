@@ -216,6 +216,8 @@
 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
+            table_row +='<input type="hidden" name="newitems[' + item_key + '][ingredient_price]" class="ingredient_price" value="'+data.ingredient_price+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_id]"  class="ingredient_currency_id" value="'+data.ingredient_currency_id+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_rate]"  class="ingredient_currency_rate" value="'+data.ingredient_currency_rate+'">';
+
             table_row += '</tr>';
 
             $('table.items tbody').append(table_row);
@@ -265,6 +267,10 @@
         response.expected_profit = $('.main input[name="expected_profit"]').val();
         response.ins_cost = $('.main input[name="ins_cost"]').val();
         response.consumed_time = $('.main input[name="consumed_time"]').val();
+
+        response.ingredient_price = $('.main input[name="ingredient_price"]').val();
+        response.ingredient_currency_rate = $('.main input[name="ingredient_currency_rate"]').val();
+        response.ingredient_currency_id = $('.main input[name="ingredient_currency_id"]').val();
 
         return response;
     }
@@ -339,7 +345,10 @@
 
         requestGetJSON('warehouses/get_item_by_id_with_currency/' + productIdAdded).done(function(response) {
             var materialCostAdded = response.price * usedQtyAdded * response.rate * (1+ wasteRateAdded/100);
+
             $(row).parents('tr').find('[data-material-cost]').val(materialCostAdded);
+            $(row).parents('tr').find('.ingredient_price').val(response.price);
+            $(row).parents('tr').find('.ingredient_currency_rate').val(response.rate);
             calculate_total_recipe()
         });
     }
@@ -396,8 +405,11 @@
         var wasteRate = $('input[name = "rate_of_waste"]').val();
         
         if(productData)
-            materialCost = productData.price * usedQty * productData.rate * (1+wasteRate/100); 
+            materialCost = productData.price * usedQty * productData.rate * (1+wasteRate/100);
         $('input[name="material_cost"]').val(materialCost);
+        $('input[name="ingredient_price"]').val(productData.price);
+        $('input[name="ingredient_currency_rate"]').val(productData.rate);
+        $('input[name="ingredient_currency_id"]').val(productData.currency_id);
         calculate_total_recipe()
     }
 

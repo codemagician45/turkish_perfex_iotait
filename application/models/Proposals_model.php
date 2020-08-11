@@ -115,6 +115,7 @@ class Proposals_model extends App_Model
      */
     public function add($data)
     {
+        // print_r($data); exit();
         $data['allow_comments'] = isset($data['allow_comments']) ? 1 : 0;
 
         $save_and_send = isset($data['save_and_send']);

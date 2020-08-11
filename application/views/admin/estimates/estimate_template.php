@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel_s accounting-template estimate">
    <div class="panel-body">
-      <?php if(isset($estimate)){ ?>
+<!--       <?php if(isset($estimate)){ ?>
       <?php echo format_estimate_status($estimate->status); ?>
       <hr class="hr-panel-heading" />
-      <?php } ?>
+      <?php } ?> -->
       <div class="row">
           <div class="col-md-6">
               <?php 
@@ -94,13 +94,13 @@
       </div>
 
    </div>
-   <?php $this->load->view('admin/estimates/_add_edit_items'); ?>
+   <?php $this->load->view('admin/estimates/_add_edit_items0'); ?>
    <div class="row">
       <div class="col-md-12 mtop15">
           <div class="btn-bottom-toolbar text-right">
-            <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit save-and-send transaction-submit">
+            <!-- <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit save-and-send transaction-submit">
             <?php echo _l('save_and_send'); ?>
-            </button>
+            </button> -->
             <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit transaction-submit">
             <?php echo _l('submit'); ?>
             </button>

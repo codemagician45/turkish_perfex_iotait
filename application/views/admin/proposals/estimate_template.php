@@ -1,13 +1,11 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel_s accounting-template estimate">
    <div class="panel-body">
-      <?php if(isset($estimate)){ ?>
+      <!-- <?php if(isset($estimate)){ ?>
       <?php echo format_estimate_status($estimate->status); ?>
       <hr class="hr-panel-heading" />
-      <?php } ?>
+      <?php } ?> -->
       <div class="row">
-         
-
           <div class="col-md-6">
               <?php echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase'); ?>
           </div>
@@ -88,6 +86,54 @@
 
 
    </div>
-   <?php $this->load->view('admin/proposals/_add_edit_items'); ?>
-   
+   <?php $this->load->view('admin/proposals/_add_edit_items_modal'); ?>
+   <!-- <div class="col-md-12">
+      <div class="table-responsive">
+            <?php
+               $items = get_items_table_data($proposal, 'estimate', 'html', true);
+               echo $items->table();
+            ?>
+      </div>
+   </div> -->
+   <!-- <div class="col-md-5 col-md-offset-7">
+      <table class="table text-right">
+         <tbody>
+            <tr id="sum_volume_m3">
+               <td><span class="bold"><?php echo _l('sum_volume_m3'); ?></span>
+               </td>
+               <td>
+                <?php echo $proposal->sum_volume_m3?>
+               </td>
+            </tr>
+            <tr id="subtotal">
+               <td><span class="bold"><?php echo _l('estimate_subtotal'); ?></span>
+               </td>
+               <td >
+                  <?php echo app_format_money($proposal->subtotal, $proposal->currency_name); ?>
+               </td>
+            </tr>
+            <?php if(is_sale_discount_applied($proposal)){ ?>
+            <tr>
+               <td>
+                  <span class="bold"><?php echo _l('estimate_discount'); ?>
+                  <?php if(is_sale_discount($proposal,'percent')){ ?>
+                  (<?php echo app_format_number($proposal->discount_percent,true); ?>%)
+                  <?php } ?></span>
+               </td>
+               <td >
+                  <?php echo '-' . app_format_money($proposal->discount_total, $proposal->currency_name); ?>
+               </td>
+            </tr>
+            <?php } ?>
+            
+            <tr>
+               <td><span class="bold"><?php echo _l('estimate_total'); ?></span>
+               </td>
+               <td >
+                  <?php echo app_format_money($proposal->total, $proposal->currency_name); ?>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div> -->
 </div>

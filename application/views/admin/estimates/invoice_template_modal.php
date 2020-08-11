@@ -74,48 +74,7 @@
           </div>
       </div>
    </div>
-   <?php $this->load->view('admin/estimates/_add_edit_items'); ?>
-   <div class="row">
-      <div class="col-md-12 mtop15">
-         <!-- <div class="panel-body bottom-transaction"> -->
-            <!-- <?php $value = (isset($invoice) ? $invoice->clientnote : get_option('predefined_clientnote_invoice')); ?>
-            <?php echo render_textarea('clientnote','invoice_add_edit_client_note',$value,array(),array(),'mtop15'); ?>
-            <?php $value = (isset($invoice) ? $invoice->terms : get_option('predefined_terms_invoice')); ?>
-            <?php echo render_textarea('terms','terms_and_conditions',$value,array(),array(),'mtop15'); ?> -->
-            <div class="btn-bottom-toolbar text-right">
-                <?php if(!isset($invoice)){ ?>
-                <button class="btn-tr btn btn-default mleft10 text-right invoice-form-submit save-as-draft transaction-submit">
-                <?php echo _l('save_as_draft'); ?>
-                </button>
-                <?php } ?>
-              <div class="btn-group dropup">
-                <button type="button" class="btn-tr btn btn-info invoice-form-submit transaction-submit"><?php echo _l('submit'); ?></button>
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right width200">
-                  <li>
-                    <a href="#" class="invoice-form-submit save-and-send transaction-submit">
-                      <?php echo _l('save_and_send'); ?>
-                    </a>
-                  </li>
-                  <?php if(!isset($invoice)) { ?>
-                  <li>
-                    <a href="#" class="invoice-form-submit save-and-send-later transaction-submit">
-                      <?php echo _l('save_and_send_later'); ?>
-                    </a>
-                  </li>
-                  <li>
-                      <a href="#" class="invoice-form-submit save-and-record-payment transaction-submit">
-                        <?php echo _l('save_and_record_payment'); ?>
-                      </a>
-                  </li>
-                <?php } ?>
-                </ul>
-              </div>
-             </div>
-         </div>
-        <div class="btn-bottom-pusher"></div>
-      </div>
+   <?php $this->load->view('admin/estimates/_add_edit_items1'); ?>
+   
    </div>
 </div>

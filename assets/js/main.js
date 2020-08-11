@@ -7454,7 +7454,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control original_price" value="'+data.original_price+'"></td>';
 
-        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
+        table_row += '<td class="sale-price"><input type="number" name="newitems[' + item_key + '][sale_price]" class="form-control" value="'+data.sale_price+'" onkeyup="calculate_total_quote();quote_phase_change();" onchange="calculate_total_quote();quote_phase_change();"></td>';
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][volume_m3]" readonly class="form-control volume_m3" value="'+data.volume_m3+'"></td>';
 
@@ -7485,6 +7485,8 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
 
         setTimeout(function() {
             calculate_total_quote();
+            quote_phase_change();
+
         }, 15);
 
         if ($('#item_select').hasClass('ajax-search') && $('#item_select').selectpicker('val') !== '') {
@@ -7617,6 +7619,7 @@ function calculate_total_quote()
     $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     $('#total_price').val(total);
     $(document).trigger('sales-total-calculated');
+    // console.log('test')
 }
 
 function delete_quote_item(row, itemid) {
