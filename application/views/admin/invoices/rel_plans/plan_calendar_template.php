@@ -6,7 +6,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><?php echo _l('utility_calendar_new_event_title'); ?></h4>
       </div>
-      <?php echo form_open('admin/invoices/calendar',array('id'=>'calendar-event-form')); ?>
+      <?php echo form_open('admin/invoices/calendar',array('id'=>'busy_machine_events-form')); ?>
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
@@ -25,10 +25,12 @@
             <div id="busy_machine_events_div">
               <div id="busy_machine_events"></div>
             </div>
-            <?php echo render_datetime_input('start','utility_calendar_new_event_start_date'); ?>
+            <!-- <?php echo render_datetime_input('start','utility_calendar_new_event_start_date'); ?>
             <div class="clearfix mtop15"></div>
-            <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?>
-            <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('placeholder'=>_l('production_calculate'))); ?>
+            <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?> -->
+            <input type="hidden" name="start">
+            <input type="hidden" name="end">
+            <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('readonly' => true )); ?>
             
 
             

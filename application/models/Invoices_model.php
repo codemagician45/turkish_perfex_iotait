@@ -1640,61 +1640,75 @@ class Invoices_model extends App_Model
     {
         if(isset($data['items']))
             $items = $data['items'];
-        if(isset($data['newitems']))
-            $newitems = $data['newitems'];
+        // if(isset($data['newitems']))
+        //     $newitems = $data['newitems'];
 
-        if(isset($newitems))
-            foreach ($newitems as $val) {
-                unset($val['itemid']);
-                $val['rel_wo_id'] = $id;
-                // $val['rel_type'] = 'proposal';
-                if(isset($val['approval_need']))
-                    $val['approval_need'] = 1;
-                $this->db->insert(db_prefix() . 'rel_wo_items', $val);
-                $insert_id = $this->db->insert_id();
-            }
         if(isset($items))
             foreach ($items as $val) {
                 $itemid = $val['itemid'];
                 unset($val['itemid']);
-                $val['rel_wo_id'] = $id;
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->where('id',$itemid);
-                $check_edit = $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
-                if(!empty($check_edit))
-                {   
-                    $this->db->where('id',$itemid);
-                    $this->db->update(db_prefix() . 'rel_wo_items', $val);
-                } else {
-                    $this->db->insert(db_prefix() . 'rel_wo_items', $val);
-                    $insert_id = $this->db->insert_id();
-                }
+                $this->db->update(db_prefix() . 'itemable', $val);
+                if ($this->db->affected_rows() > 0) {
+                    return true;
+                } 
+            }
+        // if(isset($newitems))
+        //     foreach ($newitems as $val) {
+        //         unset($val['itemid']);
+        //         $val['rel_wo_id'] = $id;
+        //         // $val['rel_type'] = 'proposal';
+        //         if(isset($val['approval_need']))
+        //             $val['approval_need'] = 1;
+        //         $this->db->insert(db_prefix() . 'rel_wo_items', $val);
+        //         $insert_id = $this->db->insert_id();
+        //     }
+        // if(isset($items))
+        //     foreach ($items as $val) {
+        //         $itemid = $val['itemid'];
+        //         unset($val['itemid']);
+        //         $val['rel_wo_id'] = $id;
+        //         if(isset($val['approval_need']))
+        //             $val['approval_need'] = 1;
+        //         $this->db->where('id',$itemid);
+        //         $check_edit = $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
+        //         if(!empty($check_edit))
+        //         {   
+        //             $this->db->where('id',$itemid);
+        //             $this->db->update(db_prefix() . 'rel_wo_items', $val);
+        //         } else {
+        //             $this->db->insert(db_prefix() . 'rel_wo_items', $val);
+        //             $insert_id = $this->db->insert_id();
+        //         }
                 
-            }
+        //     }
 
-        if(isset($data['removed_items'])){
-            $removed_items = $data['removed_items'];
-            foreach ($removed_items as $val) {
-                $this->db->where('id',$val);
-                $this->db->delete(db_prefix() . 'rel_wo_items');
-            }
-        }
-        if ($this->db->affected_rows() > 0) {
-            return true;
-        }  
+        // if(isset($data['removed_items'])){
+        //     $removed_items = $data['removed_items'];
+        //     foreach ($removed_items as $val) {
+        //         $this->db->where('id',$val);
+        //         $this->db->delete(db_prefix() . 'rel_wo_items');
+        //     }
+        // }
+         
     }
 
     public function get_rel_wo_items($id)
     {
-        $this->db->where('rel_wo_id',$id);
-        return $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
+        // $this->db->where('rel_wo_id',$id);
+        // return $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
+        $this->db->where('id',$id);
+        $rel_quote_id = $this->db->get(db_prefix() . 'invoices')->row()->rel_quote_id;
+        $this->db->where('rel_id',$rel_quote_id);
+        return $this->db->get(db_prefix() . 'itemable')->result_array();
     }
 
-    public function update_plan_recipe($data, $id, $item_select_recipe = '')
+    public function update_plan_recipe($data, $id= '', $item_select_recipe = '')
     {
         // add
-        // print_r($item_select_recipe); exit();
+        // print_r($data); exit();
         foreach ($data as $temp) {
             $recipe_id = $temp['item_id'];
             unset($temp['item_id']);
@@ -1719,6 +1733,7 @@ class Invoices_model extends App_Model
 
     public function get_plan_recipes($id)
     {
+        
         $this->db->where('rel_wo_id',$id);
         return $this->db->get(db_prefix() . 'plan_recipe')->result_array();
     }

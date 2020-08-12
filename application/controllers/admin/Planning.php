@@ -49,6 +49,7 @@ class Planning extends AdminController
     {
         if ($this->input->post()) {
             $invoice_data = $this->input->post();
+            // print_r($invoice_data); exit();
             if ($id == '') {
                 if (!has_permission('invoices', '', 'create')) {
                     access_denied('invoices');
@@ -87,10 +88,10 @@ class Planning extends AdminController
                     unset($invoice_data['wo_items']);
                 }
 
-                if(isset($invoice_data['wo_removed-items'])){
-                    $wo_removed = $invoice_data['wo_removed-items'];
-                    unset($invoice_data['wo_removed-items']);
-                }
+                // if(isset($invoice_data['wo_removed-items'])){
+                //     $wo_removed = $invoice_data['wo_removed-items'];
+                //     unset($invoice_data['wo_removed-items']);
+                // }
 
                 if(isset($invoice_data['plan_items'])){
                     $plan_items = $invoice_data['plan_items'];
@@ -108,10 +109,10 @@ class Planning extends AdminController
                 {
                     $this->db->query('UPDATE tblinvoices SET wo_item_edited = 1 WHERE id='.$id);
                 }
-                
-                $item_select_recipe = $invoice_data['item_select_recipe'];
-                $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id, $item_select_recipe);
-
+                // print_r($plan_items); exit();
+                // $item_select_recipe = $invoice_data['item_select_recipe'];
+                // $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id, $item_select_recipe);
+                $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items);
 
                 if($plan_recipe_success)
                 {
@@ -121,8 +122,8 @@ class Planning extends AdminController
                 if(isset($recipe_removed))
                     $this->invoices_model->delete_recipe_items($recipe_removed);
 
-                if(isset($wo_removed))
-                    $this->invoices_model->delete_wo_items($wo_removed);
+                // if(isset($wo_removed))
+                //     $this->invoices_model->delete_wo_items($wo_removed);
 
 
                 if ($success) {
@@ -162,7 +163,7 @@ class Planning extends AdminController
             }
 
             $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
-
+            // print_r($data['rel_wo_items']); exit();
             $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
             // print_r($data['plan_recipes']); exit();
 

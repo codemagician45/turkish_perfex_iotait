@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <?php 
               $value = (isset($invoice) ? $invoice->sum_volume_m3 : '');
-              echo render_input('sum_volume',_l('sum_volume_m3'),$value,'text',array('placeholder'=>_l('sum_volume_m3'))); ?>
+              echo render_input('sum_volume',_l('sum_volume_m3'),$value,'text',array('readonly'=>true)); ?>
         </div>
 
         <div class="col-md-6">

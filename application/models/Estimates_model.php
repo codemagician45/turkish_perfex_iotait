@@ -1506,15 +1506,9 @@ class Estimates_model extends App_Model
 
     public function get_quote_items($id = '')
     {
-        // print_r($id); exit();
         $this->db->where('id',$id);
         $rel_quote_id = $this->db->get(db_prefix() . 'estimates')->row()->rel_quote_id;
         $this->db->where('rel_id',$rel_quote_id);
         return $this->db->get(db_prefix() . 'itemable')->result_array();
-        // $this->db->where('rel_id', $id);
-        // $this->db->where('rel_type', 'estimate');
-        // $this->db->order_by('date', 'asc');
-
-        // return $this->db->get(db_prefix() . 'sales_activity')->result_array();
     }
 }

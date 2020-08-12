@@ -501,6 +501,7 @@ class Invoices extends AdminController
     {
         if ($this->input->post() && $this->input->is_ajax_request()) {
             $data    = $this->input->post();
+            // print_r($data); exit();
             $success = $this->invoices_model->event($data);
             $message = '';
             if ($success) {

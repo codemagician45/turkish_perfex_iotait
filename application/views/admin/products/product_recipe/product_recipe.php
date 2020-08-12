@@ -150,7 +150,7 @@
         default_machine = $(mould).parents('tr').find('.default_machine').children()[0];
         requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldId).done(function(response) {
             mouldCavity = response.mould_cavity;
-            $(mould).parents().find('.mould_cavity').val(mouldCavity)
+            $(mould).parents('tr').find('.mould_cavity').val(mouldCavity)
             production_cost_calc_for_added(mould);
             expected_profit_calc_for_added(mould);
         });
@@ -163,12 +163,12 @@
                 var option = '<option value="'+response.id+'" selected>'+response.name+'</option>';
                 default_machine.innerHTML = '';
                 default_machine.innerHTML = option;
-                $(mould).parents().find('.default_machine').selectpicker('refresh')
+                $(mould).parents('tr').find('.default_machine').selectpicker('refresh')
             }
             else {
                 defaultMachineData = '';
                 default_machine.innerHTML = '';
-                $(mould).parents().find('.default_machine').selectpicker('refresh')
+                $(mould).parents('tr').find('.default_machine').selectpicker('refresh')
             }
             production_cost_calc_for_added(mould);
             expected_profit_calc_for_added(mould);

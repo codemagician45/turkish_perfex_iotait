@@ -30,7 +30,7 @@
         <div class="col-md-6">
             <?php 
               $value = (isset($invoice) ? $invoice->sum_volume_wo : '');
-              echo render_input('sum_volume_wo',_l('sum_volume_m3'),$value,'number'); ?>
+              echo render_input('sum_volume_wo',_l('sum_volume_m3'),$value,'number',array('readonly' => true)); ?>
         </div>
 
         <div class="col-md-6">
@@ -85,10 +85,10 @@
       <?php } ?>
     <div class="btn-group dropup">
       <button type="button" class="btn-tr btn btn-info invoice-form-submit transaction-submit"><?php echo _l('submit'); ?></button>
-      <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!-- <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-right width200">
+      </button> -->
+      <!-- <ul class="dropdown-menu dropdown-menu-right width200">
         <li>
           <a href="#" class="invoice-form-submit save-and-send transaction-submit">
             <?php echo _l('save_and_send'); ?>
@@ -106,7 +106,7 @@
             </a>
         </li>
       <?php } ?>
-      </ul>
+      </ul> -->
     </div>
   </div>
    </div>

@@ -144,6 +144,12 @@ class Proposals_model extends App_Model
             }
         }
 
+
+        $newitems = [];
+        if (isset($data['newitems'])) {
+            $newitems = $data['newitems'];
+            unset($data['newitems']);
+        }
         $items = [];
         if (isset($data['newitems'])) {
             $items = $data['newitems'];
@@ -183,17 +189,27 @@ class Proposals_model extends App_Model
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
             }
-            
-            foreach ($items as $val) {
-                unset($val['itemid']);
-                $val['rel_product_id'] = $rel_product_id;
-                $val['rel_id'] = $insert_id;
-                $val['rel_type'] = 'proposal';
-                if(isset($val['approval_need']))
-                    $val['approval_need'] = 1;
-                $this->db->insert(db_prefix() . 'itemable', $val);
-                $insert_item_id = $this->db->insert_id();
-            }
+            if(isset($newitems))
+                foreach ($newitems as $val) {
+                    unset($val['itemid']);
+                    $val['rel_id'] = $insert_id;
+                    $val['rel_type'] = 'proposal';
+                    if(isset($val['approval_need']))
+                        $val['approval_need'] = 1;
+                    $this->db->insert(db_prefix() . 'itemable', $val);
+                    $insert_item_id = $this->db->insert_id();
+                    // return $insert_item_id;
+                }
+            // foreach ($items as $val) {
+            //     unset($val['itemid']);
+            //     $val['rel_product_id'] = $rel_product_id;
+            //     $val['rel_id'] = $insert_id;
+            //     $val['rel_type'] = 'proposal';
+            //     if(isset($val['approval_need']))
+            //         $val['approval_need'] = 1;
+            //     $this->db->insert(db_prefix() . 'itemable', $val);
+            //     $insert_item_id = $this->db->insert_id();
+            // }
             // return $insert_id;
 
             // handle_tags_save($tags, $insert_id, 'proposal');
@@ -349,7 +365,7 @@ class Proposals_model extends App_Model
         if(isset($newitems))
             foreach ($newitems as $val) {
                 unset($val['itemid']);
-                $val['rel_product_id'] = $rel_product_id;
+                // $val['rel_product_id'] = $rel_product_id;
                 $val['rel_id'] = $id;
                 $val['rel_type'] = 'proposal';
                 if(isset($val['approval_need']))

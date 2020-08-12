@@ -3,8 +3,7 @@
   <h3><?php echo _l('rel_wo_items')?></h3>
    <div class="row">
       <div class="col-md-4">
-          <?php //$this->load->view('admin/invoice_items/item_select'); ?>
-          <?php $this->load->view('admin/products/product_recipe/select_package'); ?>
+          <?php //$this->load->view('admin/products/product_recipe/select_package'); ?>
       </div>
    </div>
    <div class="table-responsive s_table">
@@ -25,7 +24,7 @@
             </tr>
          </thead>
          <tbody>
-            <tr class="main">
+            <!-- <tr class="main">
               <td>
                 <input type="text" name="product_name" class="form-control">
                 <input type="hidden" name="rel_product_id">
@@ -53,12 +52,6 @@
                     </select>
                 </div>
               </td>
-              <!-- <td>
-                <input type="number" name="original_price" readonly class="form-control" placeholder="<?php echo _l('original_price'); ?>">
-              </td>
-              <td>
-                <input type="number" name="sale_price" class="form-control" placeholder="<?php echo _l('sale_price'); ?>">
-              </td> -->
               <td>
                 <input type="number" name="volume_m3" readonly class="form-control" placeholder="<?php echo _l('volume_m3'); ?>">
               </td>
@@ -80,7 +73,7 @@
                      ?>
                   <button type="button" onclick="add_item_to_table_wo('undefined','undefined',<?php echo $new_item; ?>); return false;" class="btn btn-info"><i class="fa fa-check"></i></button>
               </td>
-            </tr>
+            </tr> -->
             <?php 
               if($invoice->wo_item_edited == 1) $items = $rel_wo_items;
                else $items = $inv_items;
@@ -117,13 +110,13 @@
                
                  $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][itemid]', $item['id']);
 
-                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
+                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '" disabled><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$capacity_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>'.$capacity_option.'</select></div></td>';
 
-                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
+                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" disabled onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>'.$unit_option.'</select></div></td>';
 
                  // $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control" value="'.$item['original_price'].'"></td>';
 
@@ -141,7 +134,7 @@
 
                  $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
                  
-                 $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_wo_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+                 // $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_wo_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
                  $table_row .= '</tr>';
                  echo $table_row;
                  $i++;

@@ -7455,13 +7455,13 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
 
         // table_row += '</td>';
 
-        table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"></td>';
+        table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="newitems[' + item_key + '][rel_product_id]" value="'+data.rel_product_id+'"></td>';
         // console.log('data',data.pack_capacity)
         table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.pack_capacity+'</select></div></td>';
 
         table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="'+data.qty+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
-        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.unit+'</select></div></td>';
+        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>'+data.unit+'</select></div></td>';
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control original_price" value="'+data.original_price+'"></td>';
 
@@ -7497,7 +7497,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         setTimeout(function() {
             calculate_total_quote();
             quote_phase_change();
-            unit_disable();
+            // unit_disable();
         }, 15);
 
         if ($('#item_select').hasClass('ajax-search') && $('#item_select').selectpicker('val') !== '') {
@@ -7655,5 +7655,9 @@ function unit_disable()
         $(this).find('.unit').prop('disabled',true);
       })
 }
+
+$('#proposal-form').submit(function() {
+    $('.unit').removeAttr('disabled');
+});
 
 

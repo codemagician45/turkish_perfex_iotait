@@ -84,7 +84,7 @@
                     </td>
                 </tr> -->
                 <?php if (isset($plan_recipes)) {
-                    $i               = 1;
+                    
                     $items_indicator = 'plan_items';
                     // if (isset($plan_recipes)) {
                     //     $items_indicator = 'items';
@@ -92,7 +92,7 @@
 
                     foreach ($plan_recipes as $item) {
                         $manual    = false;
-
+                        $i               = 0;
                         $option = '<option></option>';
                         foreach ($moulds as $key => $mould) {
                             if($mould['id'] == $item['mould'])
@@ -124,7 +124,7 @@
                         // $table_row .= '<td><input type="text"  name="'.$items_indicator.'['.$i.'][default_machine]" class="form-control" value="'.$item['default_machine'].'"></td>';
 
                         $table_row .= '<td>
-                            <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$option.'</select></div>
+                            <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="mould_cavity_added(this)">'.$option.'</select></div>
                         </td>';
 
                         $table_row .= '<td><input type="text" disabled name="'.$items_indicator.'['.$i.'][mould_cavity]" class="form-control mould_cavity" value="'.$item['mould_cavity'].'"></td>';

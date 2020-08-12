@@ -143,7 +143,7 @@
 	        $("body").find('.dt-loader').remove();
 	        $('#item_select').selectpicker('val', '');
 
-	        add_recipes_from_product_recipe(data.rel_product_id);
+	        // add_recipes_from_product_recipe(data.rel_product_id);
 
 	      })
 
@@ -177,35 +177,37 @@
 	}
 
 	$(document).ready(function(){
-	  // calculate_total_quote();
-	  
-	  var wo_rows = $('.table.wo-items tbody tr.item').find('.rel_product_id');
+
+	  var wo_rows = $('.table.wo-items tbody tr.item');
 	  var recipe_rows_save_check = $('.table.recipe-items tbody tr.item').find('.btn-info');
-	  if(recipe_rows_save_check.length  < 1)
-		  for(let i = 0; i < wo_rows.length ; i++)
-		  {
-		  	 console.log(wo_rows[i].value);
-		  	 requestGetJSON('products/get_recipes_by_product/' + wo_rows[i].value).done(function(response) {
-					i = 0
-			        response.forEach(e => {
-			        	i += 1;
-			        	add_item_to_table_plan_recipe(e,i)
-			        })
-			    });
-		  }
+	  var i = 0;
+	  $.each(wo_rows, function(){
+	  	let product_id = $(this).find('.rel_product_id').val();
+	  	if(recipe_rows_save_check.length  < 1){
+	  		requestGetJSON('products/get_recipes_by_product/' + product_id).done(function(response) {
+		        response.forEach(e => {
+		        	add_item_to_table_plan_recipe(e,i)
+		        	i++;
+		        })
+		    });
+		    
+	  	}
+		  	 
+	  })
+	  
 	  
 	})
 
-	function add_recipes_from_product_recipe(id)
-	{
-		requestGetJSON('products/get_recipes_by_product/' + id).done(function(response) {
-			i = 0
-            response.forEach(e => {
-            	i += 1;
-            	add_item_to_table_plan_recipe(e,i)
-            })
-        });
-	}
+	// function add_recipes_from_product_recipe(id)
+	// {
+	// 	requestGetJSON('products/get_recipes_by_product/' + id).done(function(response) {
+	// 		i = 0
+ //            response.forEach(e => {
+ //            	i += 1;
+ //            	add_item_to_table_plan_recipe(e,i)
+ //            })
+ //        });
+	// }
 
 	function add_item_to_table_plan_recipe(data,i) {
 		// $('.recipe').find('tbody').empty();
@@ -233,7 +235,7 @@
 
                 table_row += '<td><input type="number" name="plan_items[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value=""></td>';
                 // table_row += '<td><input type="text" name="plan_items[' + item_key + '][default_machine]" readonly class="form-control" value=""></td>';
-                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="plan_items[' + item_key + '][mould]" id="plan_items[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
+                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="plan_items[' + item_key + '][mould]" id="plan_items[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="mould_cavity_added(this)"></select></div></td>';
                 table_row += '<td><input type="text" readonly name="plan_items[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value=""></td>';
                 table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value=""></td>';
             }
@@ -309,9 +311,9 @@
 		var mould_cavity = $(row).parents('tr').find('.mould_cavity').val();
 		var cycle_time = $(row).parents('tr').find('.cycle_time').val();
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
-		// console.log(mould_id)
+		console.log(production_time)
 		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value);		
-		$('input[name="production_calculate"]').val(production_time);
+		$('input[name="production_calculate"]').val(parseInt(production_time)+1);
 		$('select[name="mould_id"]').selectpicker('val',mould_id);
 		$('select[name="mould_id"]').prop('disabled', true);
 		$('#planNewEventModal').modal('show');
@@ -386,17 +388,53 @@
                     // console.error('There was error fetching calendar data');
                 },
             }, ],
-            dayClick: function(date, jsEvent, view) {
-                var d = date.format();
-                if (!$.fullCalendar.moment(d).hasTime()) {
-                    d += ' 00:00';
-                }
-                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
-                var fmt = new DateFormatter();
-                var d1 = fmt.formatDate(new Date(d), vformat);
-                $("input[name='start'].datetimepicker").val(d1);
-                return false;
-            }
+            // dayClick: function(date, jsEvent, view) {
+            //     var d = date.format();
+            //     if (!$.fullCalendar.moment(d).hasTime()) {
+            //         d += ' 00:00';
+            //     }
+            //     var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+            //     var fmt = new DateFormatter();
+            //     var d1 = fmt.formatDate(new Date(d), vformat);
+            //     $("input[name='start'].datetimepicker").val(d1);
+            //     return false;
+            // },
+            selectable: true,
+			select: function (start, end) {
+				var title = prompt("Event Content: ");
+				var eventData;
+				if(title){
+					eventData = {
+						title:title,
+						start:start,
+						end:end
+					}
+					$('#busy_machine_events').fullCalendar("renderEvent", eventData, true);
+				};
+				$("#busy_machine_events").fullCalendar("unselect");
+				console.log(eventData.start.format())
+				if(eventData)
+				{
+				    var sd = eventData.start.format();
+	                if (!$.fullCalendar.moment(sd).hasTime()) {
+	                    sd += ' 00:00';
+	                }
+	                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+	                var fmt = new DateFormatter();
+	                var d1 = fmt.formatDate(new Date(sd), vformat);
+	                $("input[name='start']").val(d1);
+
+	                var ed = eventData.end.format();
+	                if (!$.fullCalendar.moment(ed).hasTime()) {
+	                    ed += ' 00:00';
+	                }
+	                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+	                var fmt = new DateFormatter();
+	                var d2 = fmt.formatDate(new Date(ed), vformat);
+	                $("input[name='end']").val(d2);
+					
+				}
+			},
         };
         calendar_settings.customButtons.calendarFilter = {
             text: app.lang.filter_by.toLowerCase(),
@@ -405,10 +443,10 @@
             }
         };
         $('#busy_machine_events').fullCalendar(calendar_settings);
-        var new_event = get_url_param('new_event');
-        if (new_event) {
-            $("input[name='start'].datetimepicker").val(get_url_param('date'));
-        }
+        // var new_event = get_url_param('new_event');
+        // if (new_event) {
+        //     $("input[name='start'].datetimepicker").val(get_url_param('date'));
+        // }
 
 	})
 
@@ -491,6 +529,19 @@
         }
     }
 
+    $('#busy_machine_events-form').submit(function(){
+    	$('#mould_id').prop('disabled',false);
+    })
+
+    function mould_cavity_added(mould)
+    {
+        var mouldId = $(mould).val();
+        default_machine = $(mould).parents('tr').find('.default_machine').children()[0];
+        requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldId).done(function(response) {
+            mouldCavity = response.mould_cavity;
+            $(mould).parents('tr').find('.mould_cavity').val(mouldCavity)
+        });
+    }
 
 </script>
 </body>
