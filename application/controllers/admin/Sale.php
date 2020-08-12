@@ -224,7 +224,7 @@ class Sale extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
-            if($proposal_data['quote_phase']) 
+            if(isset($proposal_data['quote_phase'])) 
                 unset($proposal_data['quote_phase']);
             // print_r($proposal_data); exit();
             if ($id == '') {
@@ -298,7 +298,7 @@ class Sale extends AdminController
         $this->load->model('finances_model');
         // $data['currencies']    = $this->finances_model->get_currency_exchange();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
-
+        // print_r($data['estimate']); exit();
         $data['title'] = $title;
         $this->load->view('admin/proposals/proposal', $data);
     }

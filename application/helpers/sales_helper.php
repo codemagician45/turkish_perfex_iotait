@@ -570,6 +570,18 @@ function get_items_by_type($type, $id)
 
     return $CI->db->get()->result_array();
 }
+
+function get_items_by_type_with_pack($id)
+{
+    
+    $CI = &get_instance();
+    $CI->db->select();
+    $CI->db->from(db_prefix() . 'package_group');
+    $CI->db->join(db_prefix() . 'pack_list', db_prefix() . 'pack_list.id = ' . db_prefix() . 'package_group.packing_id', 'left');
+    $CI->db->where('product_id', $id);
+    // print_r($CI->db->get()->result_array()); exit();
+    return $CI->db->get()->result_array();
+}
 /**
 * Function that update total tax in sales table eq. invoice, proposal, estimates, credit note
 * @param  mixed $id

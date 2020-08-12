@@ -87,7 +87,10 @@
                         </div>
                          <?php
                            $selected = (isset($proposal) ? $proposal->currency : '');
-                           // $currency_attr = array('data-show-subtext'=>true);
+                           $currency_attr = array('data-show-subtext'=>true);
+                           if($rel_type == 'customer'){
+                              $currency_attr['disabled'] = true;
+                           }
                            // foreach($currencies as $currency){
                            //  if($currency['isdefault'] == 1){
                            //    $currency_attr['data-base'] = $currency['id'];
@@ -117,13 +120,13 @@
                            //  }
                            // }
                            // }
-                           // $currency_attr = apply_filters_deprecated('proposal_currency_disabled', [$currency_attr], '2.3.0', 'proposal_currency_attributes');
-                           // $currency_attr = hooks()->apply_filters('proposal_currency_attributes', $currency_attr);
+                           $currency_attr = apply_filters_deprecated('proposal_currency_disabled', [$currency_attr], '2.3.0', 'proposal_currency_attributes');
+                           $currency_attr = hooks()->apply_filters('proposal_currency_attributes', $currency_attr);
                            ?>
                        <div class="row">
                           <div class="col-md-6">
                             <?php
-                            echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected);
+                            echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected,$currency_attr);
                             ?>
                            </div>
                        </div>
@@ -343,19 +346,10 @@ $('#pack_capacity').change(function(){
 $('.pack_capacity').change(function(){
   var pack_capacity = $(this).val();
   var currentV = $(this).parents('tr').children()[7].firstChild;
-  console.log(currentV)
   requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
     currentV.value = response.volume;
   });
 })
-
-// $('input[name="discount_percent"]').keyup(function(){
-//   calculate_total_quote()
-// })
-
-// $('input[name="discount_total"]').keyup(function(){
-//   calculate_total_quote()
-// })
 
 $('input[name="discount_percent"]').change(function(){
   calculate_total_quote()
@@ -367,16 +361,17 @@ $('input[name="discount_total"]').change(function(){
 
 $(document).ready(function(){
   calculate_total_quote();
+  quote_phase_change();
+  unit_disable();
+  // setting_packing_list();
 })
 
 $('#pricing_category').change(function(){
   var pricing_category_no = $('#pricing_category').val();
   rows = $('.table.has-calculations tbody tr.item')
-  // console.log(rows)
   if(pricing_category_no)
   {
       requestGetJSON('products/get_price_category_calc/' + pricing_category_no).done(function (response) {
-        // console.log(response)
         $('select[name="currency"]').selectpicker('val', response.default_currency)
         init_currency();
         if(response.calc_value1)
@@ -402,7 +397,6 @@ $('#pricing_category').change(function(){
                 if(e.id == rel_product_id)
                 {
                   $(this).find('.original_price').val(e.original_price)
-                  // console.log(row)
                 }
               })
               
@@ -425,7 +419,6 @@ $('#pricing_category').change(function(){
                 if(e.id == rel_product_id)
                 {
                   $(this).find('.original_price').val(e.original_price)
-                  // console.log(row)
                 }
               })
               
@@ -437,37 +430,19 @@ $('#pricing_category').change(function(){
 
 function quote_phase_change()
 {
-  // var sale_price = $(row).val();
-  // var original_price = $(row).parents('tr').find('.original_price').val();
-  // var last_phase = $('select[name="quote_phase_id"]').val();
-
-  // if(last_phase != 1)
-  // {
-  //   if(parseFloat(original_price) > parseFloat(sale_price))
-  //   {
-  //     // last_phase = $('select[name="quote_phase_id"]').val();
-  //     $('select[name="quote_phase_id"]').selectpicker('val',1);
-  //     $('select[name="quote_phase_id"]').prop('disabled', true);
-  //   } else {
-  //     // $('select[name="quote_phase_id"]').selectpicker('val',last_phase);
-  //     $('select[name="quote_phase_id"]').prop('disabled', false);
-  //   }
-  // }
-
   var rows = $('.table.has-calculations tbody tr.item');
   var flag = 0;
   $.each(rows, function() {
-    // console.log($(this))
     var original_price = $(this).find('.original_price').val();
     var sale_price = $(this).find('.sale-price').children().val();
-    console.log(original_price,sale_price)
+    // console.log(original_price,sale_price)
     if(Number(original_price)> Number(sale_price))
     {
       flag = 1;
       return false;
     }
   })
-  console.log(flag)
+  // console.log(flag)
   if(flag == 1)
   {
     $('select[name="quote_phase"]').selectpicker('val',1);
@@ -478,9 +453,35 @@ function quote_phase_change()
   }
 }
 $('select[name="quote_phase"]').change(function(){
-    console.log($('select[name="quote_phase"]').val())
-    $('#quote_phase_id').val($('select[name="quote_phase"]').val())
-  })
+  // console.log($('select[name="quote_phase"]').val())
+  $('#quote_phase_id').val($('select[name="quote_phase"]').val())
+})
+
+
+// function setting_packing_list()
+// {
+//   var rows = $('.table.has-calculations tbody tr.item');
+//   $.each(rows, function() {
+    
+//     let rel_product_id = $(this).find('.rel_product_id').val();
+//     let pack_capacity_selector = $(this).find('.pack_capacity')[1];
+//     // console.log(rel_product_id);
+//     requestGetJSON('warehouses/get_item_by_id_with_relation/' + rel_product_id).done(function(response) {
+//       var pack_capacity_option = '<option></option>';
+//       $.each(response.pack_list, function(){
+          
+//           pack_capacity_option += '<option value="'+this.pack_capacity+'">'+this.pack_capacity+'</option>';
+
+//       })
+//       console.log(pack_capacity_selector,pack_capacity_option)
+//       pack_capacity_selector.innerHTML = '';
+//       pack_capacity_selector.innerHTML += pack_capacity_option;
+//       // $(this).find('.pack_capacity').selectpicker('refresh');
+//     })
+//   })
+// }
+
+
 </script>
 </body>
 </html>

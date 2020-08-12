@@ -20,14 +20,14 @@
                      <?php echo format_estimate_number($estimate->id); ?>
                      </span>
                   </h3>
-                  <h4 class="estimate-html-status mtop7">
+                  <!-- <h4 class="estimate-html-status mtop7">
                      <?php echo format_estimate_status($estimate->status,'',true); ?>
-                  </h4>
+                  </h4> -->
                </div>
                <div class="visible-xs">
                   <div class="clearfix"></div>
                </div>
-               <?php
+               <!-- <?php
                   // Is not accepted, declined and expired
                   if ($estimate->status != 4 && $estimate->status != 3 && $estimate->status != 5) {
                     $can_be_accepted = true;
@@ -59,7 +59,7 @@
                     echo '<button type="submit" data-loading-text="'._l('wait_text').'" autocomplete="off" class="btn btn-default action-button accept"><i class="fa fa-remove"></i> '._l('clients_decline_estimate').'</button>';
                     echo form_close();
                   }
-                  ?>
+                  ?> -->
                <?php echo form_open($this->uri->uri_string(), array('class'=>'pull-right action-button')); ?>
                <button type="submit" name="estimatepdf" class="btn btn-default action-button download mright5 mtop7" value="estimatepdf">
                <i class="fa fa-file-pdf-o"></i>

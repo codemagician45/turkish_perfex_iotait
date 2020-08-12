@@ -78,9 +78,9 @@
             </div>
          </div>
          <div class="row mtop10">
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                <?php echo format_estimate_status($estimate->status,'mtop5');  ?>
-            </div>
+            </div> -->
             <div class="col-md-9">
                <div class="visible-xs">
                   <div class="mtop10"></div>
@@ -194,7 +194,7 @@
 
                   else { ?>
                   <!-- <a href="<?php echo admin_url('invoices/list_invoices/'.$estimate->invoice->id); ?>" data-placement="bottom" data-toggle="tooltip" title="<?php echo _l('estimate_invoiced_date',_dt($estimate->invoiced_date)); ?>"class="btn mleft10 btn-info"><?php echo format_invoice_number($estimate->invoice->id); ?></a> -->
-                  <a href="'.admin_url('invoices/invoice/'.$estimate->invoiceid).'" class="btn btn-info"><?php echo format_invoice_number($estimate->invoiceid) ?></a>
+                  <a href="<?php echo admin_url('planning/work_order/'.$estimate->invoiceid);?>" class="btn btn-info"><?php echo format_invoice_number($estimate->invoiceid) ?></a>
                   <?php } ?>
                </div>
             </div>

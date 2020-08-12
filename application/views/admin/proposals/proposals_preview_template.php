@@ -178,10 +178,11 @@
             <?php } ?>
             <?php } else {
                if($proposal->estimate_id != NULL){
-                echo '<a href="'.admin_url('estimates/list_estimates/'.$proposal->estimate_id).'" class="btn btn-info">'.format_estimate_number($proposal->estimate_id).'</a>';
-               } else {
-                echo '<a href="'.admin_url('invoices/list_invoices/'.$proposal->invoice_id).'" class="btn btn-info">'.format_invoice_number($proposal->invoice_id).'</a>';
-               }
+                echo '<a href="'.admin_url('sale/sale_order_list/'.$proposal->estimate_id).'" class="btn btn-info">'.format_estimate_number($proposal->estimate_id).'</a>';
+               } 
+               // else {
+               //  echo '<a href="'.admin_url('invoices/list_invoices/'.$proposal->invoice_id).'" class="btn btn-info">'.format_invoice_number($proposal->invoice_id).'</a>';
+               // }
                } ?>
          </div>
       </div>

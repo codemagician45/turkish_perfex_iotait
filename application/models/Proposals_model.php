@@ -493,13 +493,18 @@ class Proposals_model extends App_Model
         $this->db->select('*,' . db_prefix() . 'currencies.id as currencyid, ' . db_prefix() . 'proposals.id as id, ' . db_prefix() . 'currencies.name as currency_name');
         $this->db->from(db_prefix() . 'proposals');
         $this->db->join(db_prefix() . 'currencies', db_prefix() . 'currencies.id = ' . db_prefix() . 'proposals.currency', 'left');
-
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'proposals.id', $id);
             $proposal = $this->db->get()->row();
             if ($proposal) {
                 $proposal->attachments                           = $this->get_attachments($id);
                 $proposal->items                                 = get_items_by_type('proposal', $id);
+                $pack_list_arr = [];
+                foreach ($proposal->items  as $key => &$value) {
+                    $pack_list = get_items_by_type_with_pack($value['rel_product_id']);
+                    array_push($value, $pack_list);
+                }
+
                 $proposal->visible_attachments_to_customer_found = false;
                 foreach ($proposal->attachments as $attachment) {
                     if ($attachment['visible_to_customer'] == 1) {

@@ -7377,14 +7377,25 @@ function init_currency_symbol() {
 }
 
 function add_item_to_preview_quote(id) {
+
     requestGetJSON('warehouses/get_item_by_id_with_relation/' + id).done(function(response) {
-        // console.log(response)
         clear_item_preview_values();
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
         $('input[name="original_price"]').val(response.stock.original_price);
         $('select[name="unit"]').selectpicker('val',response.stock.unit);
         $('select[name="unit"]').prop('disabled',true)
+
+        var pack_capacity_option = '<option></option>';
+        $.each(response.pack_list, function(){
+            
+            pack_capacity_option += '<option value="'+this.pack_capacity+'">'+this.pack_capacity+'</option>';
+            $('select[name="pack_capacity"]').empty();
+            $('select[name="pack_capacity"]').append(pack_capacity_option);
+            $('select[name="pack_capacity"]').selectpicker('refresh');
+            // $('input[name="pack_capacity_option"]').val(pack_capacity_option);
+        })
+
         if(response.default_pack)
         {
             $('select[name="pack_capacity"]').selectpicker('val',response.default_pack.pack_capacity);
@@ -7408,9 +7419,10 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
     data = typeof(data) == 'undefined' || data == 'undefined' ? get_item_preview_values_quote() : data;
     if (data.item_id === "" && data.product_name === "") { return; }
 
-    requestGetJSON('warehouses/get_pack_by_capacity').done(function(res) {
+    // requestGetJSON('warehouses/get_pack_by_capacity').done(function(res) {
+    requestGetJSON('warehouses/get_item_by_id_with_relation/' + data.rel_product_id).done(function(res) {
       var pack_capacity = '<option></option>';
-      res.forEach(e => {
+      res.pack_list.forEach(e => {
           if(e.pack_capacity == data.pack_capacity)
               pack_capacity += '<option value="'+e.pack_capacity+'" selected>'+e.pack_capacity+'</option>';
           else
@@ -7449,8 +7461,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
 
         table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="'+data.qty+'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
-        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.unit+'</select></div></td>';
-
+        table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.unit+'</select></div></td>';
 
         table_row += '<td><input type="number" name="newitems[' + item_key + '][original_price]" readonly class="form-control original_price" value="'+data.original_price+'"></td>';
 
@@ -7486,7 +7497,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense){
         setTimeout(function() {
             calculate_total_quote();
             quote_phase_change();
-
+            unit_disable();
         }, 15);
 
         if ($('#item_select').hasClass('ajax-search') && $('#item_select').selectpicker('val') !== '') {
@@ -7512,6 +7523,7 @@ function get_item_preview_values_quote() {
     response.rel_product_id = $('input[name="rel_product_id"]').val();
     response.product_name = $('input[name="product_name"]').val();
     response.pack_capacity = $('select[name="pack_capacity"]').val();
+    // response.pack_capacity_option = $('input[name="pack_capacity_option"]').val();
     response.qty = $('input[name="qty"]').val();
     response.unitid = $('select[name="unit"]').val();
     response.original_price = $('input[name="original_price"]').val();
@@ -7529,6 +7541,7 @@ function clear_item_preview_values_quote(data){
     previewArea.find('input[name="product_name"]').val('');
     previewArea.find('input[name="item_id"]').val('');
     previewArea.find('select[name="pack_capacity"]').selectpicker('val','');
+    previewArea.find('select[name="pack_capacity"]').empty();
     previewArea.find('input[name="qty"]').val('');
     previewArea.find('input[name="original_price"]').val('');
     previewArea.find('select[name="unit"]').selectpicker('val','');
@@ -7633,6 +7646,14 @@ function delete_quote_item(row, itemid) {
     if ($('input[name="isedit"]').length > 0) {
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
+}
+
+function unit_disable()
+{
+    var rows = $('.table.has-calculations tbody tr.item');
+      $.each(rows, function() {
+        $(this).find('.unit').prop('disabled',true);
+      })
 }
 
 

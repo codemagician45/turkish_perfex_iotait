@@ -270,19 +270,23 @@ class Warehouses_model extends App_Model
         // return $this->db->query('SELECT tblstock_lists.*, tblcurrencies_exchange.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies_exchange ON tblcurrencies_exchange.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row(); 
 
         $default_pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
+
+        $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
+        $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
+        
+
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
-            // return $this->db->query('SELECT tblstock_lists.*, tblpack_list.* FROM tblstock_lists LEFT JOIN tblpack_list ON tblpack_list.`id` = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row();
-            $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
             return $data = [
                 'stock' => $stock_data,
+                'pack_list' => $pack_list,
                 'default_pack' => $default_pack_data
             ];
         } else {
-            $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
             return $data = [
                 'stock' => $stock_data,
+                'pack_list' => $pack_list,
                 'default_pack' => NULL
             ];
         }

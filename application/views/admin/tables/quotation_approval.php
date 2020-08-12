@@ -25,8 +25,8 @@ $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'proposals';
 
 $join          = [
-    'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.id',
-    'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.id',
+    'LEFT JOIN ' . db_prefix() . 'quote_phase ON ' . db_prefix() . 'proposals.quote_phase_id = ' . db_prefix() . 'quote_phase.order_no',
+    'LEFT JOIN ' . db_prefix() . 'pricing_categories ON ' . db_prefix() . 'proposals.pricing_category_id = ' . db_prefix() . 'pricing_categories.order_no',
 
     'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'proposals.addedfrom',
     'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'proposals.updated_user',

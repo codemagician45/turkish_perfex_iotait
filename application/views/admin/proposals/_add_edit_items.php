@@ -31,13 +31,14 @@
               </td>
               <td>
                 <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                  <select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="pack_capacity" id="pack_capacity" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                  <select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="pack_capacity" id="pack_capacity" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
                       <option value=""></option>
-                    <?php foreach ($packlist as $key => $pack) {?>
+                    <!-- <?php foreach ($packlist as $key => $pack) {?>
                       <option value="<?php echo $pack['pack_capacity'];?>"><?php echo $pack['pack_capacity'];?></option>
-                    <?php } ?>
+                    <?php } ?> -->
                   </select>
                 </div>
+                <!-- <input type="hidden" name="pack_capacity_option"> -->
               </td>
               <td>
                 <input type="number" name="qty" min="0" class="form-control" placeholder="<?php echo _l('item_quantity_placeholder'); ?>">
@@ -90,9 +91,9 @@
                }
                foreach ($add_items as $item) {
                  $manual    = false;
-
+                 // print_r($item[0]); exit();
                  $capacity_option = '<option></option>';
-                  foreach ($packlist as $key => $pack) {
+                  foreach ($item[0] as $key => $pack) {
                       if($pack['pack_capacity'] == $item['pack_capacity'])
                           $capacity_option.='<option value="'.$pack['pack_capacity'].'" selected>'.$pack['pack_capacity'].'</option>';
                       else
@@ -122,7 +123,7 @@
 
                  $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
 
                  $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control original_price" value="'.$item['original_price'].'"></td>';
 
