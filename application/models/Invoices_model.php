@@ -1642,7 +1642,7 @@ class Invoices_model extends App_Model
             $items = $data['items'];
         // if(isset($data['newitems']))
         //     $newitems = $data['newitems'];
-
+        $affected_rows = 0;
         if(isset($items))
             foreach ($items as $val) {
                 $itemid = $val['itemid'];
@@ -1652,8 +1652,8 @@ class Invoices_model extends App_Model
                 $this->db->where('id',$itemid);
                 $this->db->update(db_prefix() . 'itemable', $val);
                 if ($this->db->affected_rows() > 0) {
-                    return true;
-                } 
+                    $affected_rows++;
+                }
             }
         // if(isset($newitems))
         //     foreach ($newitems as $val) {
@@ -1692,6 +1692,9 @@ class Invoices_model extends App_Model
         //         $this->db->delete(db_prefix() . 'rel_wo_items');
         //     }
         // }
+        if ($affected_rows > 0) {
+                return true;
+            } 
          
     }
 
@@ -1707,15 +1710,13 @@ class Invoices_model extends App_Model
 
     public function update_plan_recipe($data, $id= '', $item_select_recipe = '')
     {
-        // add
-        // print_r($data); exit();
+        $affected_rows = 0;
         foreach ($data as $temp) {
             $recipe_id = $temp['item_id'];
             unset($temp['item_id']);
 
             $this->db->where('id',$recipe_id);
             $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
-            // if(empty($check_edit) && $check_edit[0]['rel_product_id']!=$item_select_recipe){
             if(empty($check_edit)){
                 $temp['rel_wo_id'] = $id;
                 $temp['rel_product_id'] = $item_select_recipe;
@@ -1724,9 +1725,11 @@ class Invoices_model extends App_Model
                $this->db->where('id',$recipe_id); 
                $this->db->update(db_prefix() . 'plan_recipe', $temp);
             }
-
+            if ($this->db->affected_rows() > 0) {
+                $affected_rows++;
+            }  
         }
-        if ($this->db->affected_rows() > 0) {
+        if ($affected_rows > 0) {
             return true;
         }  
     }
