@@ -542,6 +542,7 @@ class Estimates extends AdminController
             // print_r($estimate_data); exit();
             $this->load->model('invoices_model');
             $invoice_id = $this->invoices_model->add($data);
+            
             if ($invoice_id) {
                 set_alert('success', _l('convert_to_work_order'));
                 $this->db->where('id', $id);

@@ -1,52 +1,17 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel_s accounting-template estimate">
    <div class="panel-body">
-      <!-- <?php if(isset($estimate)){ ?>
-      <?php echo format_estimate_status($estimate->status); ?>
-      <hr class="hr-panel-heading" />
-      <?php } ?> -->
       <div class="row">
           <div class="col-md-6">
-              <?php echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase'); ?>
+              <?php echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase','',array('required' => true)); ?>
           </div>
-          <!-- <div class="col-md-6">
-              <?php echo render_select('rel_quote_id',$acc_list,array('id','subject'),'Quote'); ?>
-          </div> -->
-          <!-- <div class="col-md-6">
-              <input type="hidden" name="account_id" id="account_id" class="form-control" value="">
-              <?php echo render_input('account','Account','','text',array('placeholder'=>_l('Account'))); ?>
-          </div> -->
-
-          <div class="col-md-6" style=" display: none;">
-             <?php
-
-                $currency_attr = array('disabled'=>true,'data-show-subtext'=>true);
-                $currency_attr = apply_filters_deprecated('estimate_currency_disabled', [$currency_attr], '2.3.0', 'estimate_currency_attributes');
-                foreach($currencies as $currency){
-                  if($currency['isdefault'] == 1){
-                    $currency_attr['data-base'] = $currency['id'];
-                  }
-                  if(isset($estimate)){
-                    if($currency['id'] == $estimate->currency){
-                      $selected = $currency['id'];
-                    }
-                  } else{
-                   if($currency['isdefault'] == 1){
-                    $selected = $currency['id'];
-                  }
-                }
-                }
-                $currency_attr = hooks()->apply_filters('estimate_currency_attributes',$currency_attr);
-                ?>
-             <?php echo render_select('currency', $currencies, array('id','name','symbol'), 'estimate_add_edit_currency', $selected, $currency_attr); ?>
-          </div>
-
+             <input type="hidden" name="currency" value="<?php echo $proposal->currency?>">
           <div class="col-md-6">
             <div class="f_client_id">
              <div class="form-group select-placeholder">
                 <label for="clientid" class="control-label"><?php echo _l('estimate_select_customer'); ?></label>
-                <select id="clientid" name="clientid" data-live-search="true" data-width="100%" class="ajax-search<?php if(isset($estimate) && empty($estimate->clientid)){echo ' customer-removed';} ?>" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
-               <?php $selected = (isset($estimate) ? $estimate->clientid : '');
+                <select id="clientid" name="clientid" data-live-search="true" data-width="100%" class="ajax-search<?php if(isset($proposal) && empty($proposal->clientid)){echo ' customer-removed';} ?>" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
+               <?php $selected = (isset($proposal) ? $proposal->rel_id : '');
                  if($selected == ''){
                    $selected = (isset($customer_id) ? $customer_id: '');
                  }
@@ -59,7 +24,8 @@
               </div>
             </div>
           </div>
-
+        </div>
+        <div class="row">
           <div class="col-md-6">
               <?php echo render_input('general_notes',_l('general_notes'),'','text',array('placeholder'=>_l('general_notes'))); ?>
           </div>

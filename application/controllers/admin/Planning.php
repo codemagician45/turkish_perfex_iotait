@@ -104,15 +104,14 @@ class Planning extends AdminController
                 $success = $this->invoices_model->update($invoice_data, $id);
 
                 $wo_item_sucess = $this->invoices_model->update_rel_wo_items($wo_items,$id);
-
-                if($wo_item_sucess)
-                {
-                    $this->db->query('UPDATE tblinvoices SET wo_item_edited = 1 WHERE id='.$id);
-                }
+                // if($wo_item_sucess)
+                // {
+                //     $this->db->query('UPDATE tblinvoices SET wo_item_edited = 1 WHERE id='.$id);
+                // }
                 // print_r($plan_items); exit();
                 // $item_select_recipe = $invoice_data['item_select_recipe'];
                 // $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id, $item_select_recipe);
-                $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items);
+                $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id);
 
                 if($plan_recipe_success)
                 {

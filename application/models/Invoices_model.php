@@ -265,6 +265,7 @@ class Invoices_model extends App_Model
      */
     public function add($data, $expense = false)
     {
+        // print_r($data); exit();
         $data['prefix'] = get_option('invoice_prefix');
 
         $data['number_format'] = get_option('invoice_number_format');

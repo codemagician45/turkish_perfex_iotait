@@ -5,9 +5,10 @@
         <div class="col-md-6">
               <?php 
                 $selected = (isset($invoice) ? $invoice->wo_phase_id : '');
-                echo render_select('wo_phase_id',$work_order_phase,array('id','phase'),'work_order_phase',$selected);
+                echo render_select('wo_phase_id',$work_order_phase,array('id','phase'),'work_order_phase',$selected,array('required' => true));
                  ?>
         </div>
+        <input type="hidden" name="currency" value="<?php echo $estimate->currency?>">
         <div class="col-md-6">
           <div class="f_client_id">
               <div class="form-group select-placeholder">
@@ -26,7 +27,8 @@
               </div>
             </div>
         </div>
-
+      </div>
+      <div class="row">
         <div class="col-md-6">
             <?php 
               $value = (isset($invoice) ? $invoice->sum_volume_m3 : '');

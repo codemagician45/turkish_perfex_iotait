@@ -138,7 +138,6 @@ function app_format_money($amount, $currency, $excludeSymbol = false)
      */
     if(isset($symbol))
         $formattedWithCurrency = $currency->placement === 'after' ? $amountFormatted . '' . $symbol : $symbol . '' . $amountFormatted;
-
     return hooks()->apply_filters('app_format_money', $formattedWithCurrency, [
         'amount'         => $amount,
         'currency'       => $currency,

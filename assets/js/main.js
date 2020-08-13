@@ -4866,10 +4866,32 @@ function proposal_convert_template(invoker) {
             $('.proposal-pipeline-modal').modal('hide');
         }
         $('#convert_helper').html(data);
+        estimate_init_currency();
+        // calculate_total_quote();
         $('#convert_to_' + html_helper_selector).modal({ show: true, backdrop: 'static' });
         reorder_items();
     });
 
+}
+
+function estimate_init_currency(){
+
+  var $accountingTemplate = $("body").find('.accounting-template.estimate');
+    if ($accountingTemplate.length) {
+
+        var selectedCurrencyId = $accountingTemplate.find('input[name="currency"]').val();
+        if (selectedCurrencyId)
+            requestGetJSON('misc/get_currency/' + selectedCurrencyId)
+                .done(function (currency) {
+                    console.log(currency)
+                    // Used for formatting money
+                    accounting.settings.currency.decimal = currency.decimal_separator;
+                    accounting.settings.currency.thousand = currency.thousand_separator;
+                    accounting.settings.currency.symbol = currency.symbol;
+                    accounting.settings.currency.format = currency.placement == 'after' ? '%v %s' : '%s%v';
+                    calculate_total_quote();
+                });
+    }
 }
 
 function save_proposal_content(manual) {
@@ -6446,7 +6468,7 @@ function delete_item(row, itemid) {
 
 // Format money function
 function format_money(total, excludeSymbol) {
-
+    console.log(excludeSymbol)
     if (typeof (excludeSymbol) != 'undefined' && excludeSymbol) {
         return accounting.formatMoney(total, { symbol: '' });
     }

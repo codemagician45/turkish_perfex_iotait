@@ -4,7 +4,6 @@
    <div class="content accounting-template proposal">
       <div class="row">
          <?php
-         // print_r($pricing_categories); exit();
             if(isset($proposal)){
              echo form_hidden('isedit',$proposal->id);
             }
@@ -453,9 +452,9 @@ function quote_phase_change()
   }
 }
 $('select[name="quote_phase"]').change(function(){
-  // console.log($('select[name="quote_phase"]').val())
   $('#quote_phase_id').val($('select[name="quote_phase"]').val())
 })
+
 
 
 // function setting_packing_list()

@@ -600,8 +600,8 @@ class Estimates_model extends App_Model
         $data  = $hook['data'];
         $items = $hook['items'];
         unset($data['created_user']);
-        $rel_product_id = $data['rel_product_id'];
-        unset($data['rel_product_id']);
+        // $rel_product_id = $data['rel_product_id'];
+        // unset($data['rel_product_id']);
         // print_r($data); exit();
         $this->db->insert(db_prefix() . 'estimates', $data);
         $insert_id = $this->db->insert_id();
