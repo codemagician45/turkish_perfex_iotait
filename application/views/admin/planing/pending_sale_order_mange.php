@@ -1,5 +1,4 @@
 
-
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
 <div id="wrapper">
@@ -9,13 +8,13 @@
 		</div>
 	</div>
 </div>
-<?php $this->load->view('admin/includes/modals/sales_attach_file'); ?>
-<div id="convert_helper"></div>
-<script>var hidden_columns = [2,5,6,8,9];</script>
+
 <?php init_tail(); ?>
+<script>var hidden_columns = [2,5,6,8,9];</script>
 <script>
 	$(function(){
-		init_estimate();
+		// init_estimate();
+		initDataTable('.table-p_sale_order', window.location.href);
 	});
 </script>
 </body>

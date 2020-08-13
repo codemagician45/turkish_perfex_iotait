@@ -12,7 +12,7 @@ $aColumns = [
     'shipping_type',
     'req_shipping_date',
     'general_notes',
-    'total',
+    // 'total',
     'staff1.firstname as c_firstname',
     db_prefix() . 'estimates.datecreated',
     'staff2.firstname as u_firstname',
@@ -142,7 +142,7 @@ foreach ($rResult as $aRow) {
     if ((isset($clientid) && is_numeric($clientid)) || $project_id) {
         $numberOutput = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" target="_blank">' . format_estimate_number($aRow['id']) . '</a>';
     } else {
-        $numberOutput = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" onclick="init_estimate(' . $aRow['id'] . '); return false;">' . format_estimate_number($aRow['id']) . '</a>';
+        $numberOutput = '<a href="#" onclick="init_pending_estimate(' . $aRow['id'] . '); return false;">' . format_estimate_number($aRow['id']) . '</a>';
     }
 
     $numberOutput .= '<div class="row-options">';
@@ -151,10 +151,10 @@ foreach ($rResult as $aRow) {
     // if (has_permission('estimates', '', 'edit')) {
     //     $numberOutput .= ' | <a href="' . admin_url('estimates/estimate/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     // }
-    $numberOutput .= '<a href="' . site_url('sale_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
-    if (has_permission('estimates', '', 'edit')) {
-        $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-    }
+    // $numberOutput .= '<a href="' . site_url('sale_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
+    // if (has_permission('estimates', '', 'edit')) {
+    //     $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    // }
 
     $numberOutput .= '</div>';
 
@@ -183,13 +183,13 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['general_notes'];
 
-    $amount = app_format_money($aRow['total'], $aRow['currency_name']);
+    // $amount = app_format_money($aRow['total'], $aRow['currency_name']);
 
     // if ($aRow['invoiceid']) {
     //     $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
     // }
 
-    $row[] = $amount;
+    // $row[] = $amount;
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 

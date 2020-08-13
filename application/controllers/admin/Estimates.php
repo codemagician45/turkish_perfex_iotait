@@ -295,6 +295,56 @@ class Estimates extends AdminController
         }
     }
 
+    public function get_pending_estimate_data_ajax($id, $to_return = false)
+    {
+        if (!has_permission('estimates', '', 'view') && !has_permission('estimates', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == '0') {
+            echo _l('access_denied');
+            die;
+        }
+
+        if (!$id) {
+            die('No estimate found');
+        }
+
+        $estimate = $this->estimates_model->get($id);
+        
+
+        if (!$estimate || !user_can_view_estimate($id)) {
+            echo _l('estimate_not_found');
+            die;
+        }
+
+        $estimate->date       = _d($estimate->date);
+        $estimate->expirydate = _d($estimate->expirydate);
+        if ($estimate->invoiceid !== null) {
+            $this->load->model('invoices_model');
+            $estimate->invoice = $this->invoices_model->get($estimate->invoiceid);
+        }
+
+        if ($estimate->sent == 0) {
+            $template_name = 'estimate_send_to_customer';
+        } else {
+            $template_name = 'estimate_send_to_customer_already_sent';
+        }
+
+        $data = prepare_mail_preview_data($template_name, $estimate->clientid);
+
+        $data['activity']          = $this->estimates_model->get_estimate_activity($id);
+        $data['estimate']          = $estimate;
+
+        $this->load->model('proposals_model');
+        $data['proposal'] = $this->proposals_model->get($estimate->rel_quote_id);
+        
+        $data['members']           = $this->staff_model->get('', ['active' => 1]);
+        $data['estimate_statuses'] = $this->estimates_model->get_statuses();
+        $data['totalNotes']        = total_rows(db_prefix().'notes', ['rel_id' => $id, 'rel_type' => 'estimate']);
+        if ($to_return == false) {
+            $this->load->view('admin/planing/pending_estimate_preview_template', $data);
+        } else {
+            return $this->load->view('admin/planing/pending_estimate_preview_template', $data, true);
+        }
+    }
+
     public function get_estimates_total()
     {
         if ($this->input->post()) {

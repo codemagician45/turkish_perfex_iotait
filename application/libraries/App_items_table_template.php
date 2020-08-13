@@ -346,6 +346,22 @@ abstract class App_items_table_template
         return $html;
     }
 
+    public function table1()
+    {
+
+        $html = $this->{$this->for . '_table_open'}();
+        $html .= '<thead>';
+        $html .= $this->{$this->for . '_headings1'}();
+        $html .= '</thead>';
+        $html .= '<tbody>';
+        $html .= $this->items1();
+        $html .= '</tbody>';
+        $html .= $this->table_close();
+
+        return $html;
+    }
+
+
     /**
      * PDF table opening tag
      * @return string

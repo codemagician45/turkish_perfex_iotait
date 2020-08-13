@@ -19,12 +19,11 @@ $table_data = array(
    _l('updated_by'),
 );
 
-$custom_fields = get_custom_fields('estimate',array('show_on_table'=>1));
+// $custom_fields = get_custom_fields('estimate',array('show_on_table'=>1));
 
-foreach($custom_fields as $field){
-   array_push($table_data,$field['name']);
-}
+// foreach($custom_fields as $field){
+//    array_push($table_data,$field['name']);
+// }
 
 $table_data = hooks()->apply_filters('estimates_table_columns', $table_data);
-
 render_datatable($table_data, isset($class) ? $class : 'estimates');
