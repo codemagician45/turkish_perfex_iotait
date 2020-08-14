@@ -30,7 +30,7 @@ $join = [
     'LEFT JOIN ' . db_prefix() . 'clients ON ' . db_prefix() . 'clients.userid = ' . db_prefix() . 'estimates.clientid',
     'LEFT JOIN ' . db_prefix() . 'currencies ON ' . db_prefix() . 'currencies.id = ' . db_prefix() . 'estimates.currency',
     'LEFT JOIN ' . db_prefix() . 'projects ON ' . db_prefix() . 'projects.id = ' . db_prefix() . 'estimates.project_id',
-    'LEFT JOIN ' . db_prefix() . 'sale_phases ON ' . db_prefix() . 'sale_phases.id = ' . db_prefix() . 'estimates.sale_phase_id',
+    'LEFT JOIN ' . db_prefix() . 'sale_phases ON ' . db_prefix() . 'sale_phases.order_no = ' . db_prefix() . 'estimates.sale_phase_id',
     'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'estimates.addedfrom',
     'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'estimates.updated_user',
 ];

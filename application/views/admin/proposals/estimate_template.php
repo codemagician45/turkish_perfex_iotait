@@ -3,7 +3,9 @@
    <div class="panel-body">
       <div class="row">
           <div class="col-md-6">
-              <?php echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase','',array('required' => true)); ?>
+              <?php 
+              $selected = 1;
+              echo render_select('sale_phase_id',$sale_phase,array('order_no','phase'),'sale_phase',$selected,array('required' => true)); ?>
           </div>
              <input type="hidden" name="currency" value="<?php echo $proposal->currency?>">
           <div class="col-md-6">

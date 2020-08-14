@@ -1,25 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel_s accounting-template estimate">
    <div class="panel-body">
-<!--       <?php if(isset($estimate)){ ?>
-      <?php echo format_estimate_status($estimate->status); ?>
-      <hr class="hr-panel-heading" />
-      <?php } ?> -->
       <div class="row">
           <div class="col-md-6">
               <?php 
                 $selected = (isset($estimate) ? $estimate->sale_phase_id : '');
-                echo render_select('sale_phase_id',$sale_phase,array('id','phase'),'sale_phase',$selected);
+                echo render_select('sale_phase_id',$sale_phase,array('order_no','phase'),'sale_phase',$selected);
                  ?>
           </div>
-          <!-- <div class="col-md-6">
-              <?php echo render_select('rel_quote_id',$acc_list,array('id','subject'),'Quote'); ?>
-          </div> -->
-          <!-- <div class="col-md-6">
-              <input type="hidden" name="account_id" id="account_id" class="form-control" value="">
-              <?php echo render_input('account','Account','','text',array('placeholder'=>_l('Account'))); ?>
-          </div> -->
-
           <div class="col-md-6" style=" display: none;">
              <?php
 

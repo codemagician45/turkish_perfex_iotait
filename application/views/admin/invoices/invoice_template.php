@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-md-6">
               <?php 
-                $selected = (isset($invoice) ? $invoice->wo_phase_id : '');
-                echo render_select('wo_phase_id',$work_order_phase,array('id','phase'),'work_order_phase',$selected);
+                $selected = (isset($invoice) ? $invoice->wo_phase_id : 1);
+                echo render_select('wo_phase_id',$work_order_phase,array('order_no','phase'),'work_order_phase',$selected);
                  ?>
         </div>
         <div class="col-md-6">
