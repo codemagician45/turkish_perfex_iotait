@@ -55,7 +55,7 @@ class Sale_model extends App_Model
     public function get_pricing_category($no = '')
     {
         $this->db->from(db_prefix() . 'pricing_categories');
-        $this->db->join(db_prefix() . 'currencies_exchange', '' . db_prefix() . 'currencies_exchange.id = ' . db_prefix() . 'pricing_categories.default_currency', 'left');
+        $this->db->join(db_prefix() . 'currencies', '' . db_prefix() . 'currencies.id = ' . db_prefix() . 'pricing_categories.default_currency', 'left');
         if (is_numeric($no)) {
             $this->db->where(db_prefix() . 'pricing_categories.order_no', $no);
             return $this->db->get()->row();

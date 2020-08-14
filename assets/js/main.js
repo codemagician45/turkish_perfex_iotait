@@ -6468,7 +6468,6 @@ function delete_item(row, itemid) {
 
 // Format money function
 function format_money(total, excludeSymbol) {
-    console.log(excludeSymbol)
     if (typeof (excludeSymbol) != 'undefined' && excludeSymbol) {
         return accounting.formatMoney(total, { symbol: '' });
     }
@@ -7401,6 +7400,7 @@ function init_currency_symbol() {
 function add_item_to_preview_quote(id) {
 
     requestGetJSON('warehouses/get_item_by_id_with_relation/' + id).done(function (response) {
+        console.log(response)
         clear_item_preview_values();
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
@@ -7420,7 +7420,7 @@ function add_item_to_preview_quote(id) {
 
         if (response.default_pack) {
             $('select[name="pack_capacity"]').selectpicker('val', response.default_pack.pack_capacity);
-            $('input[name="volume_m3"]').val(response.default_pack.volume);
+            // $('input[name="volume_m3"]').val(response.default_pack.volume);
         }
 
         init_selectpicker();
@@ -7478,9 +7478,9 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense) {
 
             table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="' + data.product_name + '"><input type="hidden" name="newitems[' + item_key + '][rel_product_id]" value="' + data.rel_product_id + '"></td>';
             // console.log('data',data.pack_capacity)
-            table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">' + data.pack_capacity + '</select></div></td>';
+            table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="volume_calc_added(this);">' + data.pack_capacity + '</select></div></td>';
 
-            table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="' + data.qty + '" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
+            table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="' + data.qty + '" onkeyup="calculate_total_quote();volume_calc_added(this);" onchange="calculate_total_quote();volume_calc_added(this);"></td>';
 
             table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>' + data.unit + '</select></div></td>';
 

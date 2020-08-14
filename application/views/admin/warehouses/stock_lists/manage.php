@@ -54,7 +54,7 @@
 						<?php echo render_input('product_photo',_l('product_photo'),'','file'); ?>
 						<?php echo render_input('product_name',_l('product_name'),'','text'); ?>
 						<?php echo render_select('unit',$stock_units,array('unitid','name'),_l('unit')); ?>
-						<?php echo render_select('category',$stock_categories,array('id','name'),_l('category')); ?>
+						<?php echo render_select('category',$stock_categories,array('order_no','name'),_l('category')); ?>
 						<?php echo render_input('price',_l('price'),'','number'); ?>
 						<?php echo render_select('currency_id',$currency,array('id','name'),_l('currency_id')); ?>
 					</div>
@@ -127,9 +127,14 @@
                     $stockListModal.find('#stock_level').val(response.stock_level);
                     $stockListModal.find('#price').val(response.price);
                     $stockListModal.find('#unit').selectpicker('val', response.unit);
-                    $stockListModal.find('#category').selectpicker('val', response.category);
-                    if(response.category == 2){
-                        $('[data-id="category"]').prop('disabled', true);
+                    $stockListModal.find('#category').selectpicker('val', response.order_no);
+                    console.log(response)
+                    // if(response.category == 2){
+                    //     $('[data-id="category"]').prop('disabled', true);
+                    // }
+                    if(response.order_no == 2 || response.order_no == 3)
+                    {
+                    	$('input[name="price"]').prop('disabled',true)
                     }
                     $stockListModal.find('#currency_id').selectpicker('val', response.currency_id);
                     init_selectpicker();
@@ -138,7 +143,7 @@
                 //Apeending Warehouse and transaction qty from transfer..
                 var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
                 requestGetJSON(tranferReqUrl).done(function (results) {
-                	console.log(results);
+                	// console.log(results);
                 	$('.warehouse_qty').empty();
                 	if(results.length > 0)
                 	{
@@ -146,7 +151,7 @@
                 		data_row += '<label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label><table width="100%" style="border:1px solid;"><thead style="border:1px solid;"><th width="60%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('warehouse_name')?></th><th width="40%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('qty')?></th></thead><tbody style="border:1px solid #bfcbd9;">';
 
                 		results.forEach( e => {
-                			console.log(e)
+                			// console.log(e)
                 			data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'</td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td></tr>';
                 		})
                 		data_row += '</tbody></table>';
@@ -180,13 +185,19 @@
 	}
 
 	$('select[name="category"]').change(function(){
-		if($(this).val() == 6 || $(this).val() == 9)
+		if($(this).val() == 2 || $(this).val() == 3)
 		{
 			$('input[name="price"]').prop('disabled',true)
 		} else {
 			$('input[name="price"]').prop('disabled',false)
 		}
 	})
+	// if($('select[name="category"]').val() == 2 || $('select[name="category"]').val() == 3 )
+	// {
+	// 	$('input[name="price"]').prop('disabled',true)
+	// } else {
+	// 	$('input[name="price"]').prop('disabled',false)
+	// }
 </script>
 </body>
 </html>

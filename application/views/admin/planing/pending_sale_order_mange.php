@@ -8,7 +8,7 @@
 		</div>
 	</div>
 </div>
-
+<div id="convert_helper"></div>
 <?php init_tail(); ?>
 <script>var hidden_columns = [2,5,6,8,9];</script>
 <script>

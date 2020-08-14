@@ -335,19 +335,21 @@ $("body").on('change', 'select[name="item_select"]', function () {
 
 
 
-$('#pack_capacity').change(function(){
-  var pack_capacity = $(this).val();
-  requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-    $('input[name="volume_m3"]').val(response.volume);
-  });
-})
+// $('#pack_capacity').change(function(){
+//   var pack_capacity = $(this).val();
+//   requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
+//     // console.log(response)
+//     $('input[name="volume_m3"]').val(response.volume);
+//   });
+// })
 
 $('.pack_capacity').change(function(){
-  var pack_capacity = $(this).val();
-  var currentV = $(this).parents('tr').children()[7].firstChild;
-  requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-    currentV.value = response.volume;
-  });
+  // var pack_capacity = $(this).val();
+  // var currentV = $(this).parents('tr').children()[7].firstChild;
+  // requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
+  //   currentV.value = response.volume;
+  // });
+
 })
 
 $('input[name="discount_percent"]').change(function(){
@@ -455,8 +457,27 @@ $('select[name="quote_phase"]').change(function(){
   $('#quote_phase_id').val($('select[name="quote_phase"]').val())
 })
 
+function volume_calc(){
+  var pack_capacity = $('#pack_capacity').val();
+  requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
+    var volume = response.volume;
+    var qty = $('input[name="qty"]').val();
+    var cal_volume = Number(volume)*(Number(qty)/Number(pack_capacity));
+    $('input[name="volume_m3"]').val(cal_volume);
+    calculate_total_quote();
+  });
 
+}
 
+function volume_calc_added(row){
+  var pack_capacity = $(row).parents('tr').find('.selectpicker.pack_capacity').val()
+  var currentV = $(row).parents('tr').children()[7].firstChild;
+  var qty = $(row).parents('tr').find('[data-quantity]').val();
+  requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
+    currentV.value = Number(response.volume)*Number(qty)/Number(pack_capacity);
+    calculate_total_quote();
+  });
+}
 // function setting_packing_list()
 // {
 //   var rows = $('.table.has-calculations tbody tr.item');

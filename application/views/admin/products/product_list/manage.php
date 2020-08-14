@@ -16,7 +16,7 @@
                                           <option value=""></option>
                                           <?php 
                                             foreach ($price_cat as $key => $value) { ?>
-                                            <option value="<?php echo $value['id']?>"><?php echo $value['name']?></option>
+                                            <option value="<?php echo $value['order_no']?>"><?php echo $value['name']?></option>
                                           <?php } ?>
                                         </select>
                                       </div>

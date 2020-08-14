@@ -40,6 +40,7 @@ class App_items_table extends App_items_table_template
 
         $i = 1;
         foreach ($this->items as $item) {
+            // print_r($item); exit();
             $itemHTML = '';
 
             // Open table row
@@ -68,7 +69,8 @@ class App_items_table extends App_items_table_template
             /**
              * Item quantity
              */
-            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['qty']);
+            // $itemHTML .= '<td align="right" width="9%">' . round(floatVal($item['qty']), 2);
+            $itemHTML .= '<td align="right" width="9%">' . $item['qty'];
 
             $itemHTML .= '</td>';
 
@@ -132,7 +134,6 @@ class App_items_table extends App_items_table_template
 
             // Close table row
             $itemHTML .= '</tr>';
-
             $html .= $itemHTML;
 
             $i++;

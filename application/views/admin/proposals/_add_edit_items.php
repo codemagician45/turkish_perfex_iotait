@@ -31,7 +31,7 @@
               </td>
               <td>
                 <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                  <select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="pack_capacity" id="pack_capacity" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                  <select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="pack_capacity" id="pack_capacity" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98" onchange="volume_calc()">
                       <option value=""></option>
                     <!-- <?php foreach ($packlist as $key => $pack) {?>
                       <option value="<?php echo $pack['pack_capacity'];?>"><?php echo $pack['pack_capacity'];?></option>
@@ -41,7 +41,7 @@
                 <!-- <input type="hidden" name="pack_capacity_option"> -->
               </td>
               <td>
-                <input type="number" name="qty" min="0" class="form-control" placeholder="<?php echo _l('item_quantity_placeholder'); ?>">
+                <input type="number" name="qty" min="0" class="form-control" placeholder="<?php echo _l('item_quantity_placeholder'); ?>" onchange="volume_calc()" onkeyup="volume_calc()">
               </td>
               <td>
                 <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
@@ -119,9 +119,9 @@
 
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
 
-                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$capacity_option.'</select></div></td>';
+                 $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="volume_calc_added(this);">'.$capacity_option.'</select></div></td>';
 
-                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
+                 $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" value="'.$item['qty'].'" onkeyup="calculate_total_quote();volume_calc_added(this);" onchange="calculate_total_quote();volume_calc_added(this);"></td>';
 
                  $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
 
