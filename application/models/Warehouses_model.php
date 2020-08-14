@@ -242,7 +242,7 @@ class Warehouses_model extends App_Model
     public function stock_list_get($id = '')
     {
         $this->db->from(db_prefix() . 'stock_lists');
-        $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+        $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'stock_lists.id', $id);
             return $this->db->get()->row();
@@ -676,7 +676,7 @@ class Warehouses_model extends App_Model
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
             $this->db->where('category', $group['id']);
-            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
             $this->db->where(db_prefix().'stock_categories.order_no=3');
@@ -706,7 +706,7 @@ class Warehouses_model extends App_Model
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
             $this->db->where('category', $group['id']);
-            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
             
@@ -736,7 +736,7 @@ class Warehouses_model extends App_Model
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
             $this->db->where('category', $group['id']);
-            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category', 'left');
+            $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->join(db_prefix() . 'package_group', '' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());

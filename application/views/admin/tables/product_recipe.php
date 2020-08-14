@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $aColumns = [
-    'product_code',
+    db_prefix() . 'stock_lists.product_code as product_code',
     'product_photo',
     db_prefix() .'stock_lists.product_name as product_name',
     db_prefix() .'pack_list.pack_capacity as pack_capacity',
@@ -16,8 +16,9 @@ $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'stock_lists';
 
 $join = [
-   'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.stock_product_code = ' . db_prefix() . 'stock_lists.id',
-   'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'stock_lists.category',
+   'LEFT JOIN ' . db_prefix() . 'package_group ON ' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id',
+   'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.id = ' . db_prefix() . 'package_group.packing_id',
+   'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category',
    'LEFT JOIN ' . db_prefix() . 'pricing_calculation ON ' . db_prefix() . 'pricing_calculation.rel_product_id = ' . db_prefix() . 'stock_lists.id',
 ];
 
@@ -28,17 +29,20 @@ $additionalSelect = [
 // $where =['AND '.db_prefix().'product_list.created_by = '.get_login_user_id().''];
 // $where = ['AND '.db_prefix().'stock_lists.category = 9'];
 // $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
-$where = ['AND '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+$where = ['AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+
 
 // print_r($this->ci->input->post()); exit();
 // $this->ci->input->post('product_2') = 'product_2';
 if ($this->ci->input->post('products_2')) {
     $where = ['AND '.db_prefix().'stock_categories.order_no = 2'];
+    // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
 }
 if ($this->ci->input->post('products_3')) {
     $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
+    // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
 }
-
+// $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
 // if (count($filter) > 0) {
 //     $where = [];
 //     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
