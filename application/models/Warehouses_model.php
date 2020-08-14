@@ -669,22 +669,23 @@ class Warehouses_model extends App_Model
         $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
 
         array_unshift($groups, [
-            'id' => 0,
+            'cate_id' => 0,
+            'order_no' => 0,
             'name' => '',
         ]);
 
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
-            $this->db->where('category', $group['id']);
+            $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
             $this->db->where(db_prefix().'stock_categories.order_no=3');
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
-                $items[$group['id']] = [];
+                $items[$group['cate_id']] = [];
                 foreach ($_items as $i) {
-                    array_push($items[$group['id']], $i);
+                    array_push($items[$group['cate_id']], $i);
                 }
             }
         }
@@ -699,25 +700,27 @@ class Warehouses_model extends App_Model
         $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
 
         array_unshift($groups, [
-            'id' => 0,
+            'cate_id' => 0,
+            'order_no' => 0,
             'name' => '',
         ]);
-
+        // print_r($groups); exit();
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
-            $this->db->where('category', $group['id']);
+            $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
             $this->db->where('created_by', get_staff_user_id());
             
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
-                $items[$group['id']] = [];
+                $items[$group['cate_id']] = [];
                 foreach ($_items as $i) {
-                    array_push($items[$group['id']], $i);
+                    array_push($items[$group['cate_id']], $i);
                 }
             }
         }
+        // print_r($items); exit();
         return $items;
     }
 

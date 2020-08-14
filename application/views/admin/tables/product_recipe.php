@@ -26,23 +26,27 @@ $additionalSelect = [
     db_prefix() . 'stock_lists.id'
 ];
 
-// $where =['AND '.db_prefix().'product_list.created_by = '.get_login_user_id().''];
-// $where = ['AND '.db_prefix().'stock_lists.category = 9'];
-// $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
-$where = ['AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+$where = ['AND '.db_prefix().'package_group.default_pack = 1'];
 
+array_push($where,'AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2');
 
-// print_r($this->ci->input->post()); exit();
-// $this->ci->input->post('product_2') = 'product_2';
+// $where = ['AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+
 if ($this->ci->input->post('products_2')) {
-    $where = ['AND '.db_prefix().'stock_categories.order_no = 2'];
-    // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
+    $where = [];
+    $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
+    array_push($where,'AND '.db_prefix().'stock_categories.order_no = 2');
+    // $where = ['AND '.db_prefix().'stock_categories.order_no = 2'];
 }
 if ($this->ci->input->post('products_3')) {
-    $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
-    // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
+    $where = [];
+    $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
+    array_push($where,'AND '.db_prefix().'stock_categories.order_no = 3');
+    // $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
 }
+
 // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
+
 // if (count($filter) > 0) {
 //     $where = [];
 //     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');

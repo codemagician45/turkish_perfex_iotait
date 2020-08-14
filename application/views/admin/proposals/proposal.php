@@ -363,6 +363,7 @@ $('input[name="discount_total"]').change(function(){
 $(document).ready(function(){
   calculate_total_quote();
   quote_phase_change();
+  quote_phase_change_by_discount();
   unit_disable();
   // setting_packing_list();
 })
@@ -453,6 +454,20 @@ function quote_phase_change()
     $('select[name="quote_phase"]').prop('disabled', false);
   }
 }
+
+function quote_phase_change_by_discount(){
+  
+  if($('.discount').val() > 0){
+    $('select[name="quote_phase"]').selectpicker('val',1);
+    $('select[name="quote_phase"]').prop('disabled', true);
+    $('#quote_phase_id').val($('select[name="quote_phase"]').val())
+  } else {
+    $('select[name="quote_phase"]').prop('disabled', false);
+    $('#quote_phase_id').val($('select[name="quote_phase"]').val())
+  }
+
+}
+
 $('select[name="quote_phase"]').change(function(){
   $('#quote_phase_id').val($('select[name="quote_phase"]').val())
 })
