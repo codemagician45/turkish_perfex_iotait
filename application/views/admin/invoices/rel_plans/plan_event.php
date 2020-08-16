@@ -36,6 +36,10 @@
                   </div>
               </div>
 
+<!--               <div id="busy_machine_events_div">
+                <div id="busy_machine_events"></div>
+              </div> -->
+
               <!-- <?php echo render_datetime_input('start','utility_calendar_new_event_start_date',_dt($event->start)); ?>
               <div class="clearfix mtop15"></div>
               <?php echo render_datetime_input('end','utility_calendar_new_event_end_date',_dt($event->end)); ?> -->

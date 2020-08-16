@@ -1631,6 +1631,7 @@ class Invoices_model extends App_Model
         $insert_id = $this->db->insert_id();
 
         if ($insert_id) {
+            $this->db->query('UPDATE '.db_prefix().'plan_recipe SET scheduled = 1 WHERE id='.$data['recipe_id']);
             return true;
         }
 
@@ -1711,6 +1712,7 @@ class Invoices_model extends App_Model
 
     public function update_plan_recipe($data, $id= '', $item_select_recipe = '')
     {
+        // print_r($data); exit();
         $affected_rows = 0;
         foreach ($data as $temp) {
             $recipe_id = $temp['item_id'];
@@ -1737,7 +1739,8 @@ class Invoices_model extends App_Model
 
     public function get_plan_recipes($id)
     {
-        
+        $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
+        $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'plan_recipe.wo_product_id', 'left');
         $this->db->where('rel_wo_id',$id);
         return $this->db->get(db_prefix() . 'plan_recipe')->result_array();
     }

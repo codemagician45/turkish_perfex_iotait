@@ -543,10 +543,14 @@ class Utilities_model extends App_Model
     public function delete_event($id)
     {
         $this->db->where('eventid', $id);
+        $event = $this->db->get(db_prefix() . 'events')->row();
+        $plan_recipe = $event->recipe_id;
+        $this->db->where('eventid', $id);
         $this->db->delete(db_prefix() . 'events');
         if ($this->db->affected_rows() > 0) {
             log_activity('Event Deleted [' . $id . ']');
 
+            $this->db->query('UPDATE '.db_prefix().'plan_recipe SET scheduled = 0 WHERE id='.$plan_recipe);
             return true;
         }
 

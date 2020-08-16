@@ -3862,6 +3862,8 @@ $lang['production_calculate'] = 'Production Calculate';
 $lang['machine_in_mould_suitablity'] = 'Machine In Suitability';
 $lang['wo_heading_number'] = 'Work Order';
 $lang['wo_phase_id'] = 'Work Order Phase';
+$lang['scheduled'] = 'Scheduled';
+$lang['rel_wo_item'] = 'Rel Wo Item';
 
 /*Production*/
 $lang['als_production'] = 'Production';

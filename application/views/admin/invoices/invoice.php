@@ -195,23 +195,9 @@
 		  	 
 	  })
 	  
-	  
 	})
 
-	// function add_recipes_from_product_recipe(id)
-	// {
-	// 	requestGetJSON('products/get_recipes_by_product/' + id).done(function(response) {
-	// 		i = 0
- //            response.forEach(e => {
- //            	i += 1;
- //            	add_item_to_table_plan_recipe(e,i)
- //            })
- //        });
-	// }
-
 	function add_item_to_table_plan_recipe(data,i) {
-		// $('.recipe').find('tbody').empty();
-		console.log(data)
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -220,12 +206,15 @@
                 else
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
+
             data.option = option;
             var table_row = '';
             // var item_key = $("body").find('.recipe .item').length + 1;
             var item_key = i;
             // table_row += '<tr>';
             table_row += '<tr class="sortable item">';
+
+            table_row += '<td><span style="color: green;font-weight: 600;font-size: 14px">'+data.wo_product+'</span><input type="hidden" name="plan_items[' + item_key + '][wo_product_id]" value="'+data.wo_product_id+'"></td>';
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
 
@@ -437,6 +426,7 @@
 					
 				}
 			},
+			editable:true,
         };
         calendar_settings.customButtons.calendarFilter = {
             text: app.lang.filter_by.toLowerCase(),

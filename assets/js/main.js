@@ -1229,18 +1229,21 @@ $(function () {
                     element.click(function () { view_plan_event(event.eventid); });
                 }
             },
-            dayClick: function (date, jsEvent, view) {
-                var d = date.format();
-                if (!$.fullCalendar.moment(d).hasTime()) {
-                    d += ' 00:00';
-                }
-                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
-                var fmt = new DateFormatter();
-                var d1 = fmt.formatDate(new Date(d), vformat);
-                $("input[name='start'].datetimepicker").val(d1);
-                $('#planNewEventModal').modal('show');
-                return false;
-            }
+            // dayClick: function (date, jsEvent, view) {
+            //     var d = date.format();
+            //     if (!$.fullCalendar.moment(d).hasTime()) {
+            //         d += ' 00:00';
+            //     }
+            //     var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+            //     var fmt = new DateFormatter();
+            //     var d1 = fmt.formatDate(new Date(d), vformat);
+            //     $("input[name='start'].datetimepicker").val(d1);
+            //     $('#planNewEventModal').modal('show');
+            //     return false;
+            // }
+            editable:true,
+            eventStartEditable:true,
+            // eventDurationEditable:true
         };
 
 

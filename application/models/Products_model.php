@@ -81,6 +81,8 @@ class Products_model extends App_Model
 
     public function get_product_receipe_item($productid)
     {
+        $this->db->select('product_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
+        $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'product_recipe.rel_product_id', 'left');
         $this->db->from(db_prefix().'product_recipe');
         $this->db->where('rel_product_id',$productid);
         return $this->db->get()->result_array();
