@@ -15,10 +15,9 @@
             <?php } ?>
             <?php if($event->userid == get_staff_user_id() || is_admin()){ ?>
               <?php echo form_hidden('eventid',$event->eventid); ?>
-              <?php echo render_datetime_input('start','utility_calendar_new_event_start_date',_dt($event->start)); ?>
-              <div class="clearfix mtop15"></div>
-              <?php echo render_datetime_input('end','utility_calendar_new_event_end_date',_dt($event->end)); ?>
-              <?php echo render_input('production_calculate',_l('production_calculate'),$event->production_calculate,'number',array('placeholder'=>_l('production_calculate'))); ?>
+
+              <?php echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id'),$event->mould_id); ?>
+
               <?php
                 $machine_option = '<option></option>';
                 foreach ($machines as $key => $machine) {
@@ -37,7 +36,16 @@
                   </div>
               </div>
 
-              <?php echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id'),$event->mould_id); ?>
+              <!-- <?php echo render_datetime_input('start','utility_calendar_new_event_start_date',_dt($event->start)); ?>
+              <div class="clearfix mtop15"></div>
+              <?php echo render_datetime_input('end','utility_calendar_new_event_end_date',_dt($event->end)); ?> -->
+              <?php echo render_input('production_calculate',_l('production_calculate'),$event->production_calculate,'number',array('placeholder'=>_l('production_calculate'))); ?>
+              <input type="hidden" name="start" value="<?php echo $event->start;?>">
+              <input type="hidden" name="end" value="<?php echo $event->end;?>">
+              <input type="hidden" name="title" value="<?php echo $event->title;?>">
+              
+
+              
            <hr />
            <p class="bold"><?php echo _l('event_color'); ?></p>
            <?php

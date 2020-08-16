@@ -41,8 +41,10 @@ foreach ($rResult as $aRow) {
     $subjectOutput = $aRow['id'];
     $subjectOutput .= '<div class="row-options">';
 
-    $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-    $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
+    $subjectOutput .= '<a href="' . admin_url('warehouses/manage_purchase_receiving_bay/' . $aRow['id']) . '">' . _l('item_received') . '</a>';
+
+    // $subjectOutput .= '<a href="' . admin_url('purchases/manage_purchase_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    // $subjectOutput .= ' | <a href="' . admin_url('purchases/delete_purchase_order/' . $aRow['id']) . '" class="text-danger _delete">' . _l('delete') . '</a>';
 
     $subjectOutput .= '</div>';
     

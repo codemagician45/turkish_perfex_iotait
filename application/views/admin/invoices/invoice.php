@@ -211,6 +211,7 @@
 
 	function add_item_to_table_plan_recipe(data,i) {
 		// $('.recipe').find('tbody').empty();
+		console.log(data)
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -415,6 +416,7 @@
 				console.log(eventData.start.format())
 				if(eventData)
 				{
+					$('input[name="title"]').val(eventData.title);
 				    var sd = eventData.start.format();
 	                if (!$.fullCalendar.moment(sd).hasTime()) {
 	                    sd += ' 00:00';

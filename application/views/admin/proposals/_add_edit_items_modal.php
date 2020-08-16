@@ -110,6 +110,11 @@
                      <div class="col-md-7">
                         <span class="bold"><?php echo _l('estimate_discount'); ?></span>
                      </div>
+                     <div class="col-md-5">
+                        <input type="number" value="<?php echo (isset($proposal) ? $proposal->discount_percent : 0); ?>" class="form-control pull-left input-discount-percent<?php if(isset($proposal) && !is_sale_discount($proposal,'percent') && is_sale_discount_applied($proposal)){echo ' hide';} ?>" min="0" max="100" name="discount_percent" readonly>
+
+                        <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php echo (isset($proposal) ? $proposal->discount_total : 0); ?>" class="form-control pull-left input-discount-fixed<?php if(!isset($proposal) || (isset($proposal) && !is_sale_discount($proposal,'fixed'))){echo ' hide';} ?>" min="0" name="discount_total" readonly>
+                     </div>
                   </div>
                </td>
                <td class="discount-total"></td>

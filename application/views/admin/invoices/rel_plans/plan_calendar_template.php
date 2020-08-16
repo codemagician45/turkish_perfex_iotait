@@ -30,6 +30,7 @@
             <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?> -->
             <input type="hidden" name="start">
             <input type="hidden" name="end">
+            <input type="hidden" name="title">
             <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('readonly' => true )); ?>
             
 

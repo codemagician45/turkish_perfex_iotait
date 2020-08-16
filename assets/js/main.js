@@ -2864,7 +2864,6 @@ function initDataTableInline(dt_table) {
 // General function for all datatables serverside
 function initDataTable(selector, url, notsearchable, notsortable, fnserverparams, defaultorder) {
     var table = typeof (selector) == 'string' ? $("body").find('table' + selector) : selector;
-    console.log(url)
     if (table.length === 0) {
         return false;
     }
@@ -3331,7 +3330,6 @@ function init_roles_permissions(roleid, user_changed) {
 
 // Show/hide full table
 function toggle_small_view(table, main_data) {
-    console.log(table, main_data, hidden_columns)
     $("body").toggleClass('small-table');
     var tablewrap = $('#small-table');
     if (tablewrap.length === 0) { return; }
@@ -4883,7 +4881,6 @@ function estimate_init_currency(){
         if (selectedCurrencyId)
             requestGetJSON('misc/get_currency/' + selectedCurrencyId)
                 .done(function (currency) {
-                    console.log(currency)
                     // Used for formatting money
                     accounting.settings.currency.decimal = currency.decimal_separator;
                     accounting.settings.currency.thousand = currency.thousand_separator;

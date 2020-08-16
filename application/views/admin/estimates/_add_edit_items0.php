@@ -109,40 +109,11 @@
                      <div class="col-md-7">
                         <span class="bold"><?php echo _l('estimate_discount'); ?></span>
                      </div>
-                     <!-- <div class="col-md-5">
-                        <div class="input-group" id="discount-total">
+                     <div class="col-md-5">
+                        <input type="number" value="<?php echo (isset($estimate) ? $estimate->discount_percent : 0); ?>" class="form-control pull-left input-discount-percent<?php if(isset($estimate) && !is_sale_discount($estimate,'percent') && is_sale_discount_applied($estimate)){echo ' hide';} ?>" min="0" max="100" name="discount_percent" readonly>
 
-                           <input type="number" value="<?php echo (isset($estimate) ? $estimate->discount_percent : 0); ?>" class="form-control pull-left input-discount-percent<?php if(isset($estimate) && !is_sale_discount($estimate,'percent') && is_sale_discount_applied($estimate)){echo ' hide';} ?>" min="0" max="100" name="discount_percent">
-
-                           <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php echo (isset($estimate) ? $estimate->discount_total : 0); ?>" class="form-control pull-left input-discount-fixed<?php if(!isset($estimate) || (isset($estimate) && !is_sale_discount($estimate,'fixed'))){echo ' hide';} ?>" min="0" name="discount_total">
-
-                           <div class="input-group-addon">
-                              <div class="dropdown">
-                                 <a class="dropdown-toggle" href="#" id="dropdown_menu_tax_total_type" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                 <span class="discount-total-type-selected">
-                                  <?php if(!isset($estimate) || isset($estimate) && (is_sale_discount($estimate,'percent') || !is_sale_discount_applied($estimate))) {
-                                    echo '%';
-                                    } else {
-                                    echo _l('discount_fixed_amount');
-                                    }
-                                    ?>
-                                 </span>
-                                 <span class="caret"></span>
-                                 </a>
-                                 <ul class="dropdown-menu" id="discount-total-type-dropdown" aria-labelledby="dropdown_menu_tax_total_type">
-                                   <li>
-                                    <a href="#" class="discount-total-type discount-type-percent<?php if(!isset($estimate) || (isset($estimate) && is_sale_discount($estimate,'percent')) || (isset($estimate) && !is_sale_discount_applied($estimate))){echo ' selected';} ?>">%</a>
-                                  </li>
-                                  <li>
-                                    <a href="#" class="discount-total-type discount-type-fixed<?php if(isset($estimate) && is_sale_discount($estimate,'fixed')){echo ' selected';} ?>">
-                                      <?php echo _l('discount_fixed_amount'); ?>
-                                    </a>
-                                  </li>
-                                 </ul>
-                              </div>
-                           </div>
-                        </div>
-                     </div> -->
+                        <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php echo (isset($estimate) ? $estimate->discount_total : 0); ?>" class="form-control pull-left input-discount-fixed<?php if(!isset($estimate) || (isset($estimate) && !is_sale_discount($estimate,'fixed'))){echo ' hide';} ?>" min="0" name="discount_total" readonly>
+                     </div>
                   </div>
                </td>
                <td class="discount-total"></td>
