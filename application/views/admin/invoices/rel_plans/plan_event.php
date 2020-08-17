@@ -16,7 +16,7 @@
             <?php if($event->userid == get_staff_user_id() || is_admin()){ ?>
               <?php echo form_hidden('eventid',$event->eventid); ?>
 
-              <?php echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id'),$event->mould_id); ?>
+              <?php echo render_select('mould_id',$moulds,array('id','mould_name'),_l('mould_id'),$event->mould_id,array('disabled' => true)); ?>
 
               <?php
                 $machine_option = '<option></option>';
@@ -28,27 +28,21 @@
                 }
               ?>
               <div class="form-group">
-                <label for="machine_id"><?php echo _l('machine_in_mould_suitablity') ?></label>
+                <label for="edit_machine_id"><?php echo _l('machine_in_mould_suitablity') ?></label>
                 <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                      <select data-fieldto="machine_id" data-fieldid="machine_id" name="machine_id" id="machine_id" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
+                      <select data-fieldto="edit_machine_id" data-fieldid="edit_machine_id" name="edit_machine_id" id="edit_machine_id" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98" disabled>
                           <?php echo $machine_option;?>
                       </select>
                   </div>
               </div>
 
-<!--               <div id="busy_machine_events_div">
-                <div id="busy_machine_events"></div>
-              </div> -->
-
-              <!-- <?php echo render_datetime_input('start','utility_calendar_new_event_start_date',_dt($event->start)); ?>
-              <div class="clearfix mtop15"></div>
-              <?php echo render_datetime_input('end','utility_calendar_new_event_end_date',_dt($event->end)); ?> -->
-              <?php echo render_input('production_calculate',_l('production_calculate'),$event->production_calculate,'number',array('placeholder'=>_l('production_calculate'))); ?>
+              <div id="edit_busy_machine_events_div">
+                <div id="edit_busy_machine_events"></div>
+              </div>
+              <?php echo render_input('production_calculate',_l('production_calculate'),$event->production_calculate,'number',array('readonly'=>true)); ?>
               <input type="hidden" name="start" value="<?php echo $event->start;?>">
               <input type="hidden" name="end" value="<?php echo $event->end;?>">
               <input type="hidden" name="title" value="<?php echo $event->title;?>">
-              
-
               
            <hr />
            <p class="bold"><?php echo _l('event_color'); ?></p>

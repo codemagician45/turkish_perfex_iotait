@@ -1241,8 +1241,8 @@ $(function () {
             //     $('#planNewEventModal').modal('show');
             //     return false;
             // }
-            editable:true,
-            eventStartEditable:true,
+            // editable:true,
+            // eventStartEditable:true,
             // eventDurationEditable:true
         };
 
@@ -1294,6 +1294,102 @@ $(function () {
         $.post(admin_url + 'invoices/view_plan_event/' + id).done(function (response) {
             $('#event').html(response);
             $('#viewPlanEvent').modal('show');
+
+            var eventData = {
+                        start:'',
+                        end:''
+                    };
+            var edit_machine_id = $('#edit_machine_id').val();
+
+            // $('#edit_busy_machine_events').remove();
+            // $('#edit_busy_machine_events_div').append('<div id="edit_busy_machine_events"></div>')
+            validate_calendar_form();
+            var calendar_settings = {
+                themeSystem: 'bootstrap3',
+                customButtons: {},
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+                },
+                editable: false,
+                eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+                views: {
+                    day: {
+                        eventLimit: false
+                    }
+                },
+                defaultView: app.options.default_view_calendar,
+                isRTL: (isRTL == 'true' ? true : false),
+                eventStartEditable: false,
+                timezone: app.options.timezone,
+                firstDay: parseInt(app.options.calendar_first_day),
+                year: moment.tz(app.options.timezone).format("YYYY"),
+                month: moment.tz(app.options.timezone).format("M"),
+                date: moment.tz(app.options.timezone).format("DD"),
+                loading: function(isLoading, view) {
+                    isLoading && $('#machine_calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                    !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+                },
+                eventSources: [{
+                    url: admin_url + 'utilities/get_calendar_data_by_machine/'+ edit_machine_id,
+                    data: function() {
+                        var params = {};
+                        $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                            params[$(this).attr('name')] = true;
+                        }).get();
+                        if (!jQuery.isEmptyObject(params)) {
+                            params['calendar_filters'] = true;
+                        }
+                        return params;
+                    },
+                    type: 'POST',
+                    error: function() {
+                        // console.error('There was error fetching calendar data');
+                    },
+                }, ],
+                
+                editable:true,
+                eventStartEditable:true,
+                
+                eventResize:function(event,dayDelta){
+                    eventData.start = event.start.format();
+                    eventData.end = event.end.format();
+
+                    if(dayDelta)
+                    {
+                        eventData.start + dayDelta;
+                        eventData.end + dayDelta;
+                    }
+                    console.log('eventData',eventData)
+                    $('input[name="start"]').val(eventData.start);
+                    $('input[name="end"]').val(eventData.end);
+                },
+                eventDrop:function(event,dayDelta){
+
+                    eventData.start = event.start.format();
+                    eventData.end = event.end.format();
+
+                    if(dayDelta)
+                    {
+                        eventData.start + dayDelta;
+                        eventData.end + dayDelta;
+                    }
+                    console.log('eventData',eventData)
+                    $('input[name="start"]').val(eventData.start);
+                    $('input[name="end"]').val(eventData.end);
+
+                }
+            };
+            calendar_settings.customButtons.calendarFilter = {
+                text: app.lang.filter_by.toLowerCase(),
+                click: function() {
+                    slideToggle('#calendar_filters');
+                }
+            };
+            $('#edit_busy_machine_events').fullCalendar(calendar_settings);
+
             init_datepicker();
             init_selectpicker();
             validate_calendar_form();

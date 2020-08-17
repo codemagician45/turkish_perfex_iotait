@@ -442,6 +442,12 @@
 
 	})
 
+	/*Edit*/
+
+	// $("#viewPlanEvent").on('shown.bs.modal', function () {
+	//   console.log('aaaa')
+	// });
+
 
 	function one_machine_schedule(machine_id = '', machine_name = '')
     {
