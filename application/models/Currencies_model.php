@@ -93,7 +93,22 @@ class Currencies_model extends App_Model
             log_activity('Currency Updated [' . $data['name'] . ']');
             $this->db->where('id',$currencyid);
             $changed_rate = $this->db->get(db_prefix().'currencies')->row()->rate;
-            // $this->db->where('ingredient_currency_id',$currencyid)
+
+            $this->db->query('Update '.db_prefix().'product_recipe set ingredient_currency_rate ='.$changed_rate.' where ingredient_currency_id ='.$currencyid);
+            $this->db->where('ingredient_currency_id',$currencyid);
+            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
+            foreach ($products as $key => $value) {
+                $material_cost = floatval($value['ingredient_price']) * floatval($value['used_qty']) * floatval($value['ingredient_currency_rate']) * floatval((1+$value['rate_of_waste']/100));
+                $this->db->query('Update '.db_prefix().'product_recipe set material_cost ='.$material_cost.' where ingredient_currency_id ='.$currencyid);
+                $this->db->where('rel_product_id',$value['rel_product_id']);
+                $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
+                // print_r($price_calc_value); exit();
+                $total = $price_calc_value->other_cost + $price_calc_value->ins_cost + $material_cost + $value['production_cost'] + $value['expected_profit'];
+
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
+            }
 
             return true;
         }
