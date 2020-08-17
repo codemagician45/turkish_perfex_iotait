@@ -140,6 +140,7 @@ class Products extends AdminController
         $data['pricing_calc_data'] = $this->products_model->get_pricing_calc($id);
         $data['install_time'] = $this->products_model->get_install_time($id);
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
+        $data['machine_list'] = $this->manufacturing_settings_model->get_machine_list();
         $data['product_receipe_item'] = $this->products_model->get_product_receipe_item($id);
         $this->load->view('admin/products/product_recipe/product_recipe', $data);
     }

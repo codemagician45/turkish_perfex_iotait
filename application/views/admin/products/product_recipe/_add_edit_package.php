@@ -106,7 +106,18 @@
                     <td>
                         <input type="number" readonly name="expected_profit" class="form-control">
                     </td>
-                    <td><input type="hidden" name="ingredient_price" class="ingredient_price"><input type="hidden" name="ingredient_currency_id" class="ingredient_currency_id"><input type="hidden" name="ingredient_currency_rate" class="ingredient_currency_rate"></td>
+                    <td>
+                        <input type="hidden" name="ingredient_price" class="ingredient_price">
+                        <input type="hidden" name="ingredient_currency_id" class="ingredient_currency_id">
+                        <input type="hidden" name="ingredient_currency_rate" class="ingredient_currency_rate">
+                        <input type="hidden" name="machine_id_expected" class="machine_id_expected">
+                        <input type="hidden" name="machine_profit_expected" class="machine_profit_expected">
+                        <input type="hidden" name="machine_power_expected" class="machine_power_expected">
+                        <!-- <input type="hidden" name="work_hour_id" class="work_hour_id"> -->
+                        <input type="hidden" name="work_hour_capacity" class="work_hour_capacity">
+                        <!-- <input type="hidden" name="energy_price_id" class="energy_price_id"> -->
+                        <input type="hidden" name="energy_price_value" class="energy_price_value">
+                    </td>
                     <td>
                         <?php
                             $new_item = 'undefined';
@@ -134,6 +145,12 @@
                             else
                                 $option.='<option value="'.$mould['id'].'">'.$mould['mould_name'].'</option>';
                         }
+
+                        $default_machine = '<option></option>';
+                        foreach ($machine_list as $key => $machine) {
+                            if($machine['id'] == $item['default_machine'])
+                                 $default_machine.='<option value="'.$machine['id'].'" selected>'.$machine['name'].'</option>';
+                        }
                         $amount = $item['material_cost'] + $item['production_cost'] + $item['expected_profit'];
                         $amount = app_format_number($amount);
                         $table_row = '<tr class="sortable item">';
@@ -157,7 +174,7 @@
                         // $table_row .= '<td><input type="text" readonly  name="'.$items_indicator.'['.$i.'][default_machine]" class="form-control" value="'.$item['default_machine'].'"></td>';
 
                         $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                            <select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"></select></div></td>';
+                            <select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$default_machine.'</select></div></td>';
 
                         $table_row .= '<td>
                             <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity_added(this);">'.$option.'</select></div>
@@ -177,7 +194,15 @@
 
                         $table_row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
 
-                        $table_row .='<td><input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_price]" class="ingredient_price"><input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_currency_rate]" class="ingredient_currency_rate"></td>';
+                        $table_row .='<td>
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_price]" class="ingredient_price" value="'.$item['ingredient_price'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][ingredient_currency_rate]" class="ingredient_currency_rate" value="'.$item['ingredient_currency_rate'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_id_expected]" class="machine_id_expected" value="'.$item['machine_id_expected'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_profit_expected]" class="machine_profit_expected" value="'.$item['machine_profit_expected'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_power_expected]" class="machine_power_expected" value="'.$item['machine_power_expected'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][work_hour_capacity]" class="work_hour_capacity" value="'.$item['work_hour_capacity'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][energy_price_value]" class="energy_price_value" value="'.$item['energy_price_value'].'">
+                        </td>';
 
                         $table_row .= '</tr>';
                         echo $table_row;

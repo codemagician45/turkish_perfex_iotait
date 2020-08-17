@@ -27,6 +27,7 @@ class Manufacturing_settings extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($data); exit();
             if ($data['machineID'] == '') {
                 $success = $this->manufacturing_settings_model->add_machine($data);
                 $message = '';

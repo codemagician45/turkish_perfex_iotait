@@ -132,11 +132,21 @@
                 default_machine.innerHTML = '';
                 default_machine.innerHTML = option;
                 $(mould).parents().find('.default_machine').selectpicker('refresh')
+
+                $('input[name=machine_id_expected]').val(defaultMachineData.id);
+                $('input[name=machine_profit_expected]').val(defaultMachineData.profit_expectation);
+                $('input[name=machine_power_expected]').val(defaultMachineData.power_usage);
+                $('input[name=work_hour_capacity]').val(workHour);
+                $('input[name=energy_price_value]').val(engergyPrice);
             }
             else {
                 defaultMachineData = '';
                 default_machine.innerHTML = '';
                 $(mould).parents().find('.default_machine').selectpicker('refresh')
+
+                $('input[name=machine_id_expected]').val('');
+                $('input[name=machine_profit_expected]').val('');
+                $('input[name=machine_power_expected]').val('');
             }
             production_cost_cal();
             expected_profit_calc();
@@ -146,7 +156,6 @@
     function default_machine_and_mould_cavity_added(mould)
     {
         var mouldId = $(mould).val();
-        // console.log($(mould).parents().find('.mould_cavity'))
         default_machine = $(mould).parents('tr').find('.default_machine').children()[0];
         requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldId).done(function(response) {
             mouldCavity = response.mould_cavity;
@@ -154,21 +163,29 @@
             production_cost_calc_for_added(mould);
             expected_profit_calc_for_added(mould);
         });
-        // console.log(mouldId)
         requestGetJSON('manufacturing_settings/get_default_machine/' +mouldId).done(function(response) {
             if(response){
-                // var option = '<option></option>'
-                // console.log($(mould).parents('tr').find('.default_machine'))
                 defaultMachineData = response;
                 var option = '<option value="'+response.id+'" selected>'+response.name+'</option>';
                 default_machine.innerHTML = '';
                 default_machine.innerHTML = option;
-                $(mould).parents('tr').find('.default_machine').selectpicker('refresh')
+                $(mould).parents('tr').find('.default_machine').selectpicker('refresh');
+
+                $(mould).parents('tr').find('.machine_id_expected').val(defaultMachineData.id);
+                $(mould).parents('tr').find('.machine_profit_expected').val(defaultMachineData.profit_expectation);
+                $(mould).parents('tr').find('.machine_power_expected').val(defaultMachineData.power_usage);
+                $(mould).parents('tr').find('.work_hour_capacity').val(workHour);
+                $(mould).parents('tr').find('.energy_price_value').val(engergyPrice);
+                console.log('defaultMachineData',$(row))
             }
             else {
                 defaultMachineData = '';
                 default_machine.innerHTML = '';
-                $(mould).parents('tr').find('.default_machine').selectpicker('refresh')
+                $(mould).parents('tr').find('.default_machine').selectpicker('refresh');
+                
+                $(mould).parents('tr').find('.machine_id_expected').val('');
+                $(mould).parents('tr').find('.machine_profit_expected').val('');
+                $(mould).parents('tr').find('.machine_power_expected').val('');
             }
             production_cost_calc_for_added(mould);
             expected_profit_calc_for_added(mould);
@@ -273,7 +290,7 @@
 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
-            table_row +='<input type="hidden" name="newitems[' + item_key + '][ingredient_price]" class="ingredient_price" value="'+data.ingredient_price+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_id]"  class="ingredient_currency_id" value="'+data.ingredient_currency_id+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_rate]"  class="ingredient_currency_rate" value="'+data.ingredient_currency_rate+'">';
+            table_row +='<input type="hidden" name="newitems[' + item_key + '][ingredient_price]" class="ingredient_price" value="'+data.ingredient_price+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_id]"  class="ingredient_currency_id" value="'+data.ingredient_currency_id+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_rate]"  class="ingredient_currency_rate" value="'+data.ingredient_currency_rate+'"><input type="hidden" name="newitems[' + item_key + '][machine_id_expected]"  class="machine_id_expected" value="'+data.machine_id_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_profit_expected]"  class="machine_profit_expected" value="'+data.machine_profit_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_power_expected]"  class="machine_power_expected" value="'+data.machine_power_expected+'"><input type="hidden" name="newitems[' + item_key + '][work_hour_capacity]"  class="work_hour_capacity" value="'+data.work_hour_capacity+'"><input type="hidden" name="newitems[' + item_key + '][energy_price_value]"  class="energy_price_value" value="'+data.energy_price_value+'">';
 
             table_row += '</tr>';
 
@@ -329,6 +346,11 @@
         response.ingredient_price = $('.main input[name="ingredient_price"]').val();
         response.ingredient_currency_rate = $('.main input[name="ingredient_currency_rate"]').val();
         response.ingredient_currency_id = $('.main input[name="ingredient_currency_id"]').val();
+        response.machine_id_expected = $('.main input[name="machine_id_expected"]').val();
+        response.machine_profit_expected = $('.main input[name="machine_profit_expected"]').val();
+        response.machine_power_expected = $('.main input[name="machine_power_expected"]').val();
+        response.work_hour_capacity = $('.main input[name="work_hour_capacity"]').val();
+        response.energy_price_value = $('.main input[name="energy_price_value"]').val();
         console.log(response)
         return response;
     }
@@ -424,15 +446,10 @@
                     var cycleTime = $(row).parents('tr').children()[8].firstChild.value;
                     var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
                     var profitExp = defaultMachineData.profit_expectation;
-
-                    // p_cost1 = (((powerUsage * engergyPrice)/3600)*cycleTime);
-                    // p_cost2 = (opCostPerSec*cycleTime);
-                    // p_cost3 = ((profitExp/workHour)/(3600/cycleTime*mouldCavity))
-                    // console.log(p_cost1,p_cost2,p_cost3)
-                    // productionCost = (((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
                     productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
 
                     $(row).parents('tr').find('[data-production-cost]').val(productionCost);
+
                     calculate_total_recipe()
                 }
             }); 
@@ -478,13 +495,7 @@
             var cycleTime = $('input[name = "cycle_time"]').val();
             var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
             var profitExp = defaultMachineData.profit_expectation;
-
-            // p_cost1 = (((powerUsage * engergyPrice)/3600)*cycleTime);
-            // p_cost2 = (opCostPerSec*cycleTime);
-            // p_cost3 = ((profitExp/workHour)/(3600/cycleTime*mouldCavity))
-            // console.log(p_cost1,p_cost2,p_cost3)
             productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (opCostPerSec*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
-            // // productionCost = ((powerUsage * engergyPrice)/3600*cycleTime + opCostPerSec*cycleTime + (profitExp/workHour)/(3600/cycleTime*mouldCavity)).toFixed(2);
             $('input[name=production_cost]').val(productionCost);
             calculate_total_recipe()
         }
