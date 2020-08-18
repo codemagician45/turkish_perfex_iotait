@@ -78,7 +78,14 @@ class Dashboard extends AdminController
         }
         $data['user_dashboard_visibility'] = json_encode($data['user_dashboard_visibility']);
 
+        $this->load->model('sale_model');
+        $data['quotation_phases'] = $this->sale_model->get_quote_phases();
+        $data['sale_phases'] = $this->sale_model->get_sale_phases();
+        $this->load->model('production_model');
+        $data['work_phases'] = $this->production_model->get_wo_phases();
+
         $data = hooks()->apply_filters('before_dashboard_render', $data);
+        // print_r($data['quotation_phases']);exit();
         $this->load->view('admin/dashboard/dashboard', $data);
     }
 

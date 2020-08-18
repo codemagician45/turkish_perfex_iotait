@@ -105,6 +105,26 @@ function format_proposal_status($status, $classes = '', $label = true)
     return $status;
 }
 
+function format_proposal_phase($phase, $classes = '', $label = true)
+{
+    $order = $phase['order_no'];
+    $status      = $phase['phase'];
+    if ($order == 1) {
+        $label_class = 'default';
+    } elseif ($order == 2) {
+        $label_class = 'danger';
+    } elseif ($status == 3) {
+        $label_class = 'warning';
+    } 
+
+    if ($label == true) {
+        return '<span class="label label-' . $label_class . ' ' . $classes . ' s-status proposal-status-' . $order . '">' . $status . '</span>';
+    }
+
+    return $status;
+
+}
+
 /**
  * Function that format proposal number based on the prefix option and the proposal id
  * @param  mixed $id proposal id
@@ -180,6 +200,117 @@ function get_proposals_percent_by_status($status, $total_proposals = '')
     $data['total_by_status'] = $total_by_status;
     $data['percent']         = $percent;
     $data['total']           = $total_proposals;
+
+    return $data;
+}
+
+function get_proposals_percent_by_phase($order){
+    $has_permission_view                 = has_permission('proposals', '', 'view');
+    $has_permission_view_own             = has_permission('proposals', '', 'view_own');
+    $allow_staff_view_proposals_assigned = get_option('allow_staff_view_proposals_assigned');
+    $staffId                             = get_staff_user_id();
+
+    $whereUser = '';
+    if (!$has_permission_view) {
+        if ($has_permission_view_own) {
+            $whereUser = '(addedfrom=' . $staffId;
+            if ($allow_staff_view_proposals_assigned == 1) {
+                $whereUser .= ' OR assigned=' . $staffId;
+            }
+            $whereUser .= ')';
+        } else {
+            $whereUser .= 'assigned=' . $staffId;
+        }
+    }
+    $total_proposals = total_rows(db_prefix() . 'proposals', $whereUser);
+
+    $data            = [];
+    $total_by_phase = 0;
+    $where           = 'quote_phase_id=' . $order;
+    if (!$has_permission_view) {
+        $where .= ' AND (' . $whereUser . ')';
+    }
+
+    $total_by_phase = total_rows(db_prefix() . 'proposals', $where);
+    $percent         = ($total_proposals > 0 ? number_format(($total_by_phase * 100) / $total_proposals, 2) : 0);
+
+    $data['total_by_phase'] = $total_by_phase;
+    $data['percent']         = $percent;
+    $data['total']           = $total_proposals;
+
+    return $data;
+}
+
+function get_sale_orders_percent_by_phase($order){
+    $has_permission_view                 = has_permission('estimates', '', 'view');
+    $has_permission_view_own             = has_permission('estimates', '', 'view_own');
+    $allow_staff_view_estimates_assigned = get_option('allow_staff_view_estimates_assigned');
+    $staffId                             = get_staff_user_id();
+
+    $whereUser = '';
+    if (!$has_permission_view) {
+        if ($has_permission_view_own) {
+            $whereUser = '(addedfrom=' . $staffId;
+            if ($allow_staff_view_estimates_assigned == 1) {
+                $whereUser .= ' OR assigned=' . $staffId;
+            }
+            $whereUser .= ')';
+        } else {
+            $whereUser .= 'assigned=' . $staffId;
+        }
+    }
+    $total_estimates = total_rows(db_prefix() . 'estimates', $whereUser);
+
+    $data            = [];
+    $total_by_phase = 0;
+    $where           = 'sale_phase_id=' . $order;
+    if (!$has_permission_view) {
+        $where .= ' AND (' . $whereUser . ')';
+    }
+
+    $total_by_phase = total_rows(db_prefix() . 'estimates', $where);
+    $percent         = ($total_estimates > 0 ? number_format(($total_by_phase * 100) / $total_estimates, 2) : 0);
+
+    $data['total_by_phase'] = $total_by_phase;
+    $data['percent']         = $percent;
+    $data['total']           = $total_estimates;
+
+    return $data;
+}
+
+function get_work_orders_percent_by_phase($order){
+    $has_permission_view                 = has_permission('invoices', '', 'view');
+    $has_permission_view_own             = has_permission('invoices', '', 'view_own');
+    $allow_staff_view_invoices_assigned = get_option('allow_staff_view_invoices_assigned');
+    $staffId                             = get_staff_user_id();
+
+    $whereUser = '';
+    if (!$has_permission_view) {
+        if ($has_permission_view_own) {
+            $whereUser = '(addedfrom=' . $staffId;
+            if ($allow_staff_view_invoices_assigned == 1) {
+                $whereUser .= ' OR assigned=' . $staffId;
+            }
+            $whereUser .= ')';
+        } else {
+            $whereUser .= 'assigned=' . $staffId;
+        }
+    }
+    $total_invoices = total_rows(db_prefix() . 'invoices', $whereUser);
+
+    $data            = [];
+    $total_by_phase = 0;
+    $where           = 'wo_phase_id=' . $order;
+    if (!$has_permission_view) {
+        $where .= ' AND (' . $whereUser . ')';
+    }
+
+    $total_by_phase = total_rows(db_prefix() . 'invoices', $where);
+    $percent         = ($total_invoices > 0 ? number_format(($total_by_phase * 100) / $total_invoices, 2) : 0);
+
+    $data['total_by_phase'] = $total_by_phase;
+    $data['percent']         = $percent;
+    $data['total']           = $total_invoices;
 
     return $data;
 }

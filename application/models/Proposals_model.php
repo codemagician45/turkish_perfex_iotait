@@ -12,11 +12,11 @@ class Proposals_model extends App_Model
     {
         parent::__construct();
         $this->statuses = hooks()->apply_filters('before_set_proposal_statuses', [
-            6,
+            // 6,
             4,
-            1,
-            5,
-            2,
+            // 1,
+            // 5,
+            // 2,
             3,
         ]);
     }

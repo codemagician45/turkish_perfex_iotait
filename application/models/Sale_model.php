@@ -119,7 +119,7 @@ class Sale_model extends App_Model
 
     public function get_sale_phases()
     {
-        $this->db->order_by('id', 'asc');
+        $this->db->order_by('order_no', 'asc');
         return $this->db->get(db_prefix() . 'sale_phases')->result_array();
     }
 

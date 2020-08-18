@@ -28,7 +28,7 @@ $additionalSelect = [
 
 $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
 
-array_push($where,'AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2');
+array_push($where,'AND  ('.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2)');
 
 // $where = ['AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
 

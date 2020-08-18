@@ -426,12 +426,12 @@ function app_init_admin_sidebar_menu_items()
     // }
 
     // // Utilities
-    $CI->app_menu->add_sidebar_menu_item('utilities', [
-            'collapse' => true,
-            'name'     => _l('als_utilities'),
-            'position' => 55,
-            'icon'     => 'fa fa-cogs',
-        ]);
+    // $CI->app_menu->add_sidebar_menu_item('utilities', [
+    //         'collapse' => true,
+    //         'name'     => _l('als_utilities'),
+    //         'position' => 55,
+    //         'icon'     => 'fa fa-cogs',
+    //     ]);
 
     // $CI->app_menu->add_sidebar_children_item('utilities', [
     //             'slug'     => 'media',
