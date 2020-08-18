@@ -11,7 +11,7 @@
                   <div class="col-md-6 col-lg-4 col-sm-6">
                      <div class="row">
                         <div class="col-md-12">
-                           <p class="text-dark text-uppercase"><?php echo _l('home_invoice_overview'); ?></p>
+                           <p class="text-dark text-uppercase"><?php echo _l('home_work_order_overview'); ?></p>
                            <hr class="mtop15" />
                         </div>
                         <?php $percent_data = get_invoices_percent_by_status(6); ?>
@@ -99,7 +99,7 @@
                   <div class="col-md-6 col-lg-4 col-sm-6">
                      <div class="row">
                         <div class="col-md-12 text-stats-wrapper">
-                           <p class="text-dark text-uppercase"><?php echo _l('home_estimate_overview'); ?></p>
+                           <p class="text-dark text-uppercase"><?php echo _l('home_sale_order_overview'); ?></p>
                            <hr class="mtop15" />
                         </div>
                         <?php
@@ -133,11 +133,11 @@
                   <div class="col-md-12 col-sm-6 col-lg-4">
                      <div class="row">
                         <div class="col-md-12 text-stats-wrapper">
-                           <p class="text-dark text-uppercase"><?php echo _l('home_proposal_overview'); ?></p>
+                           <p class="text-dark text-uppercase"><?php echo _l('home_quotation_overview'); ?></p>
                            <hr class="mtop15" />
                         </div>
                         <?php foreach($proposal_statuses as $status){
-                           $url = admin_url('proposals/list_proposals?status='.$status);
+                           $url = admin_url('sale/quotation_list?status='.$status);
                            $percent_data = get_proposals_percent_by_status($status);
                            ?>
                            <div class="col-md-12 text-stats-wrapper">
@@ -158,13 +158,13 @@
                      </div>
                      <?php } ?>
                   </div>
-                  <?php if(has_permission('invoices','','view') || has_permission('invoices','','view_own')){ ?>
+                  <!-- <?php if(has_permission('invoices','','view') || has_permission('invoices','','view_own')){ ?>
                   <hr />
                   <a href="#" class="hide invoices-total initialized"></a>
                   <div id="invoices_total" class="invoices-total-inline">
                      <?php load_invoices_total_template(); ?>
                   </div>
-                  <?php } ?>
+                  <?php } ?> -->
                </div>
             </div>
          </div>

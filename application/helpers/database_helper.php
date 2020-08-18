@@ -129,6 +129,7 @@ function total_rows($table, $where = [])
 
     return $CI->db->count_all_results($table);
 }
+
 /**
  * Sum total from table
  * @param  string $table table name

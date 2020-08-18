@@ -31,18 +31,18 @@ function get_dashboard_widgets()
             'path'      => 'admin/dashboard/widgets/calendar',
             'container' => 'left-8',
         ],
-        [
-            'path'      => 'admin/dashboard/widgets/weekly_payments_chart',
-            'container' => 'left-8',
-        ],
-        [
-            'path'      => 'admin/dashboard/widgets/todos',
-            'container' => 'right-4',
-        ],
-        [
-            'path'      => 'admin/dashboard/widgets/leads_chart',
-            'container' => 'right-4',
-        ],
+        // [
+        //     'path'      => 'admin/dashboard/widgets/weekly_payments_chart',
+        //     'container' => 'left-8',
+        // ],
+        // [
+        //     'path'      => 'admin/dashboard/widgets/todos',
+        //     'container' => 'right-4',
+        // ],
+        // [
+        //     'path'      => 'admin/dashboard/widgets/leads_chart',
+        //     'container' => 'right-4',
+        // ],
         [
             'path'      => 'admin/dashboard/widgets/projects_chart',
             'container' => 'right-4',
@@ -55,10 +55,10 @@ function get_dashboard_widgets()
             'path'      => 'admin/dashboard/widgets/projects_activity',
             'container' => 'right-4',
         ],
-        [
-            'path'      => 'admin/dashboard/widgets/contracts_expiring',
-            'container' => 'left-8',
-        ],
+        // [
+        //     'path'      => 'admin/dashboard/widgets/contracts_expiring',
+        //     'container' => 'left-8',
+        // ],
     ];
 
     return hooks()->apply_filters('get_dashboard_widgets', $widgets);

@@ -19,14 +19,14 @@
                   $total_invoices_awaiting_payment = total_rows(db_prefix().'invoices','status NOT IN (2,5,6)'.(!has_permission('invoices','','view') ? ' AND ' . get_invoices_where_sql_for_staff(get_staff_user_id()) : ''));
                   $percent_total_invoices_awaiting_payment = ($total_invoices > 0 ? number_format(($total_invoices_awaiting_payment * 100) / $total_invoices,2) : 0);
                   ?>
-               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-balance-scale"></i> <?php echo _l('invoices_awaiting_payment'); ?>
+               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-balance-scale"></i> <?php echo _l('pending_invoices'); ?>
                   <span class="pull-right"><?php echo $total_invoices_awaiting_payment; ?> / <?php echo $total_invoices; ?></span>
                </p>
-               <div class="clearfix"></div>
+               <!-- <div class="clearfix"></div>
                <div class="progress no-margin progress-bar-mini">
                   <div class="progress-bar progress-bar-danger no-percent-text not-dynamic" role="progressbar" aria-valuenow="<?php echo $percent_total_invoices_awaiting_payment; ?>" aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percent="<?php echo $percent_total_invoices_awaiting_payment; ?>">
                   </div>
-               </div>
+               </div> -->
             </div>
          </div>
          <?php } ?>
@@ -36,26 +36,14 @@
                <?php
                   $where = '';
                   if(!is_admin()){
-                    $where .= '(addedfrom = '.get_staff_user_id().' OR assigned = '.get_staff_user_id().')';
-                  }
-                  // Junk leads are excluded from total
-                  $total_leads = total_rows(db_prefix().'leads',($where == '' ? 'junk=0' : $where .= ' AND junk =0'));
-                  if($where == ''){
-                   $where .= 'status=1';
-                  } else {
-                   $where .= ' AND status =1';
-                  }
-                  $total_leads_converted = total_rows(db_prefix().'leads',$where);
-                  $percent_total_leads_converted = ($total_leads > 0 ? number_format(($total_leads_converted * 100) / $total_leads,2) : 0);
+                    $where .= '(created_user = '.get_staff_user_id().' AND approval = 1)';
+                  } else 
+                     $where .= '(approval = 1)';
+                  $total_pending_purchase_requests = total_rows(db_prefix().'purchase_order',$where);
                   ?>
-               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-tty"></i> <?php echo _l('leads_converted_to_client'); ?>
-                  <span class="pull-right"><?php echo $total_leads_converted; ?> / <?php echo $total_leads; ?></span>
+               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-tty"></i> <?php echo _l('pending_purchase_request'); ?>
+                  <span class="pull-right"><?php echo $total_pending_purchase_requests; ?></span>
                </p>
-               <div class="clearfix"></div>
-               <div class="progress no-margin progress-bar-mini">
-                  <div class="progress-bar progress-bar-success no-percent-text not-dynamic" role="progressbar" aria-valuenow="<?php echo $percent_total_leads_converted; ?>" aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percent="<?php echo $percent_total_leads_converted; ?>">
-                  </div>
-               </div>
             </div>
          </div>
          <?php } ?>
@@ -63,44 +51,31 @@
             <div class="top_stats_wrapper">
                <?php
                   $_where = '';
-                  $project_status = get_project_status_by_id(2);
-                  if(!has_permission('projects','','view')){
-                    $_where = 'id IN (SELECT project_id FROM '.db_prefix().'project_members WHERE staff_id='.get_staff_user_id().')';
+                  if(!is_admin()){
+                    $_where .= '(addedfrom = '.get_staff_user_id().')';
                   }
-                  $total_projects = total_rows(db_prefix().'projects',$_where);
-                  $where = ($_where == '' ? '' : $_where.' AND ').'status = 2';
-                  $total_projects_in_progress = total_rows(db_prefix().'projects',$where);
-                  $percent_in_progress_projects = ($total_projects > 0 ? number_format(($total_projects_in_progress * 100) / $total_projects,2) : 0);
+
+                  $total_work_orders = $this->db->query('SELECT COUNT(tblpurchase_order.`id`) as total_rows FROM '.db_prefix().'purchase_order LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id')->row()->total_rows ;
                   ?>
-               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-cubes"></i> <?php echo _l('projects') . ' ' . $project_status['name']; ?><span class="pull-right"><?php echo $total_projects_in_progress; ?> / <?php echo $total_projects; ?></span></p>
-               <div class="clearfix"></div>
-               <div class="progress no-margin progress-bar-mini">
-                  <div class="progress-bar no-percent-text not-dynamic" style="background:<?php echo $project_status['color']; ?>" role="progressbar" aria-valuenow="<?php echo $percent_in_progress_projects; ?>" aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percent="<?php echo $percent_in_progress_projects; ?>">
-                  </div>
-               </div>
+               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-cubes"></i> <?php echo _l('active_work_orders') ?><span class="pull-right"><?php echo $total_work_orders; ?></span></p>
             </div>
          </div>
          <div class="quick-stats-tasks col-xs-12 col-md-6 col-sm-6 <?php echo $initial_column; ?>">
             <div class="top_stats_wrapper">
                <?php
                   $_where = '';
-                  if (!has_permission('tasks', '', 'view')) {
-                    $_where = db_prefix().'tasks.id IN (SELECT taskid FROM '.db_prefix().'task_assigned WHERE staffid = ' . get_staff_user_id() . ')';
-                  }
-                  $total_tasks = total_rows(db_prefix().'tasks',$_where);
-                  $where = ($_where == '' ? '' : $_where.' AND ').'status != '.Tasks_model::STATUS_COMPLETE;
-                  $total_not_finished_tasks = total_rows(db_prefix().'tasks',$where);
-                  $percent_not_finished_tasks = ($total_tasks > 0 ? number_format(($total_not_finished_tasks * 100) / $total_tasks,2) : 0);
+                  if(!is_admin()){
+                    $_where .= '(created_user = '.get_staff_user_id().' AND approval = 0)';
+                  } else 
+                     $_where .= '(approval = 0)';
+
+                  $due_purchase_orders = total_rows(db_prefix().'purchase_order',$_where);
                   ?>
-               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-tasks"></i> <?php echo _l('tasks_not_finished'); ?> <span class="pull-right">
-                  <?php echo $total_not_finished_tasks; ?> / <?php echo $total_tasks; ?>
+               <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-tasks"></i> <?php echo _l('due_purchase_orders'); ?> <span class="pull-right">
+                  <?php echo $due_purchase_orders; ?>
                   </span>
                </p>
-               <div class="clearfix"></div>
-               <div class="progress no-margin progress-bar-mini">
-                  <div class="progress-bar progress-bar-default no-percent-text not-dynamic" role="progressbar" aria-valuenow="<?php echo $percent_not_finished_tasks; ?>" aria-valuemin="0" aria-valuemax="100" style="width: 0%" data-percent="<?php echo $percent_not_finished_tasks; ?>">
-                  </div>
-               </div>
+               
             </div>
          </div>
       </div>

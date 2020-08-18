@@ -3943,4 +3943,13 @@ $lang['user_logs'] = 'User Logs';
 $lang['extra_permission'] = 'Extra Permission';
 $lang['content'] = 'Content';
 
+/*Dashboard*/
+
+$lang['pending_invoices'] = 'Pending Invoices';
+$lang['active_work_orders'] = 'Active Work Orders';
+$lang['due_purchase_orders'] = 'Due Purchase Orders';
+$lang['home_quotation_overview'] = 'Quotation Overview';
+$lang['home_sale_order_overview'] = 'Sale Order Overview';
+$lang['home_work_order_overview'] = 'Work Order Overview';
+
 
