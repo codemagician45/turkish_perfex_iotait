@@ -16,6 +16,7 @@
           <div class="col-md-12">
             <?php echo form_hidden('current_time_selection'); ?>
             <?php echo form_hidden('machine_id'); ?>
+            <?php echo form_hidden('rel_event_id'); ?>
             <?php echo render_input('produced_quantity',_l('produced_quantity'),'','number',array('placeholder'=>_l('enter_produced_quantity'))); ?>
           </div>
     </div>

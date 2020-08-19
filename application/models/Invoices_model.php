@@ -1722,7 +1722,7 @@ class Invoices_model extends App_Model
             $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
             if(empty($check_edit)){
                 $temp['rel_wo_id'] = $id;
-                $temp['rel_product_id'] = $item_select_recipe;
+                // $temp['rel_product_id'] = $item_select_recipe;
                 $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
             } else {
                $this->db->where('id',$recipe_id); 

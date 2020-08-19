@@ -309,6 +309,7 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
+        // print_r($data);exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_stock_level = $last_stock_level + $data['transaction_qty'];

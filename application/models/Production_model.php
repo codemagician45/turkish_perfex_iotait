@@ -47,6 +47,7 @@ class Production_model extends App_Model
 
     public function produced_qty($data)
     {
+        // print_r($data); exit();
         $data['userid'] = get_staff_user_id();
         if(isset($data['p_qty_id']))
         {
@@ -67,7 +68,22 @@ class Production_model extends App_Model
                 $machine = $this->db->get(db_prefix().'machines_list')->row();
                 $take_from = $machine->take_from;
                 $export_to = $machine->export_to;
-                
+
+                $this->db->join(db_prefix().'events', db_prefix().'events.eventid='.db_prefix().'produced_qty.rel_event_id','left');
+                $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
+                $this->db->where('p_qty_id',$insert_id);
+                $res = $this->db->get(db_prefix().'produced_qty')->row();
+                $plus_transfer_stock = $res->wo_product_id;
+                // print_r($res);exit();
+                $minus_transfer_stock = [];
+                $minus_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
+                $minus_transfer_stock['transaction_from'] = $take_from;
+                $minus_transfer_stock['transaction_to'] = $export_to;
+                $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+                $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
+
+                $this->load->model('warehouses_model');
+                $this->warehouses_model->add_transfer($minus_transfer_stock);
                 return true;
             } else{
                 return false;
