@@ -3727,6 +3727,7 @@ $lang['note'] = 'Note';
 $lang['created_user'] = 'Created By';
 $lang['created_date_time'] = 'Created Date Time';
 $lang['updated_at'] = 'Updated At';
+$lang['created_at'] = 'Created At';
 $lang['last_updated_user'] = 'Last Updated By';
 
 $lang['ordered_qty'] = 'Ordered Qty';
@@ -3952,4 +3953,15 @@ $lang['home_quotation_overview'] = 'Quotation Overview';
 $lang['home_sale_order_overview'] = 'Sale Order Overview';
 $lang['home_work_order_overview'] = 'Work Order Overview';
 
+/*Reports*/
+$lang['als_reports_profit_submenu'] = 'Profit Report';
+$lang['als_reports_sale_submenu'] = 'Sale Report';
+$lang['als_reports_work_orders_submenu'] = 'Work Orders Report';
+$lang['als_reports_warehouse_submenu'] = 'Warehouse Report';
+$lang['salesperson'] = 'SalesPerson';
+$lang['cost_price'] = 'Cost Price';
+$lang['sold_price'] = 'Sold Price';
+$lang['gross_profit'] = 'Gross Profit';
+
+$lang['current_phase'] = 'Current Phase';
 

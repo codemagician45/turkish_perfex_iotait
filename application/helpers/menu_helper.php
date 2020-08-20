@@ -449,12 +449,12 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
-    $CI->app_menu->add_sidebar_children_item('utilities', [
-                'slug'     => 'calendar',
-                'name'     => _l('als_calendar_submenu'),
-                'href'     => admin_url('utilities/calendar'),
-                'position' => 15,
-        ]);
+    // $CI->app_menu->add_sidebar_children_item('utilities', [
+    //             'slug'     => 'calendar',
+    //             'name'     => _l('als_calendar_submenu'),
+    //             'href'     => admin_url('utilities/calendar'),
+    //             'position' => 15,
+    //     ]);
 
 
     // if (is_admin()) {
@@ -480,55 +480,80 @@ function app_init_admin_sidebar_menu_items()
     //     ]);
     // }
 
-    // if (has_permission('reports', '', 'view')) {
-    //     $CI->app_menu->add_sidebar_menu_item('reports', [
-    //             'collapse' => true,
-    //             'name'     => _l('als_reports'),
-    //             'href'     => admin_url('reports'),
-    //             'icon'     => 'fa fa-area-chart',
-    //             'position' => 60,
-    //     ]);
-    //     $CI->app_menu->add_sidebar_children_item('reports', [
-    //             'slug'     => 'sales-reports',
-    //             'name'     => _l('als_reports_sales_submenu'),
-    //             'href'     => admin_url('reports/sales'),
-    //             'position' => 5,
-    //     ]);
-    //     $CI->app_menu->add_sidebar_children_item('reports', [
-    //             'slug'     => 'expenses-reports',
-    //             'name'     => _l('als_reports_expenses'),
-    //             'href'     => admin_url('reports/expenses'),
-    //             'position' => 10,
-    //     ]);
-    //     $CI->app_menu->add_sidebar_children_item('reports', [
-    //             'slug'     => 'expenses-vs-income-reports',
-    //             'name'     => _l('als_expenses_vs_income'),
-    //             'href'     => admin_url('reports/expenses_vs_income'),
-    //             'position' => 15,
-    //     ]);
-    //     $CI->app_menu->add_sidebar_children_item('reports', [
-    //             'slug'     => 'leads-reports',
-    //             'name'     => _l('als_reports_leads_submenu'),
-    //             'href'     => admin_url('reports/leads'),
-    //             'position' => 20,
-    //     ]);
+    if (has_permission('reports', '', 'view')) {
+        $CI->app_menu->add_sidebar_menu_item('reports', [
+                'collapse' => true,
+                'name'     => _l('als_reports'),
+                'href'     => admin_url('reports'),
+                'icon'     => 'fa fa-area-chart',
+                'position' => 60,
+        ]);
+            $CI->app_menu->add_sidebar_children_item('reports', [
+                    'slug'     => 'profit-reports',
+                    'name'     => _l('als_reports_profit_submenu'),
+                    'href'     => admin_url('reports/profit'),
+                    'position' => 5,
+            ]);
+            $CI->app_menu->add_sidebar_children_item('reports', [
+                    'slug'     => 'sale-reports',
+                    'name'     => _l('als_reports_sale_submenu'),
+                    'href'     => admin_url('reports/sale'),
+                    'position' => 10,
+            ]);
+            $CI->app_menu->add_sidebar_children_item('reports', [
+                    'slug'     => 'work_orders-reports',
+                    'name'     => _l('als_reports_work_orders_submenu'),
+                    'href'     => admin_url('reports/work_orders'),
+                    'position' => 15,
+            ]);
+            $CI->app_menu->add_sidebar_children_item('reports', [
+                    'slug'     => 'warehouse-reports',
+                    'name'     => _l('als_reports_warehouse_submenu'),
+                    'href'     => admin_url('reports/warehouse'),
+                    'position' => 15,
+            ]);
 
-    //     if (is_admin()) {
-    //         $CI->app_menu->add_sidebar_children_item('reports', [
-    //                 'slug'     => 'timesheets-reports',
-    //                 'name'     => _l('timesheets_overview'),
-    //                 'href'     => admin_url('staff/timesheets?view=all'),
-    //                 'position' => 25,
-    //         ]);
-    //     }
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //         'slug'     => 'sales-reports',
+            //         'name'     => _l('als_reports_sales_submenu'),
+            //         'href'     => admin_url('reports/sales'),
+            //         'position' => 5,
+            // ]);
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //         'slug'     => 'expenses-reports',
+            //         'name'     => _l('als_reports_expenses'),
+            //         'href'     => admin_url('reports/expenses'),
+            //         'position' => 10,
+            // ]);
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //         'slug'     => 'expenses-vs-income-reports',
+            //         'name'     => _l('als_expenses_vs_income'),
+            //         'href'     => admin_url('reports/expenses_vs_income'),
+            //         'position' => 15,
+            // ]);
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //         'slug'     => 'leads-reports',
+            //         'name'     => _l('als_reports_leads_submenu'),
+            //         'href'     => admin_url('reports/leads'),
+            //         'position' => 20,
+            // ]);
 
-    //     $CI->app_menu->add_sidebar_children_item('reports', [
-    //                 'slug'     => 'knowledge-base-reports',
-    //                 'name'     => _l('als_kb_articles_submenu'),
-    //                 'href'     => admin_url('reports/knowledge_base_articles'),
-    //                 'position' => 30,
-    //         ]);
-    // }
+            // if (is_admin()) {
+            //     $CI->app_menu->add_sidebar_children_item('reports', [
+            //             'slug'     => 'timesheets-reports',
+            //             'name'     => _l('timesheets_overview'),
+            //             'href'     => admin_url('staff/timesheets?view=all'),
+            //             'position' => 25,
+            //     ]);
+            // }
+
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //             'slug'     => 'knowledge-base-reports',
+            //             'name'     => _l('als_kb_articles_submenu'),
+            //             'href'     => admin_url('reports/knowledge_base_articles'),
+            //             'position' => 30,
+            //     ]);
+    }
 
     // Setup menu
     if (has_permission('staff', '', 'view')) {

@@ -1358,4 +1358,43 @@ class Reports extends AdminController
     {
         return $this->db->query('SELECT DISTINCT taxname,taxrate FROM ' . db_prefix() . "item_tax WHERE rel_type='" . $rel_type . "' ORDER BY taxname ASC")->result_array();
     }
+
+    /*New Reports by Raf*/
+
+    public function profit()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('report_profit');
+        }
+        $data['title'] = _l('als_reports_profit_submenu');
+        $this->load->view('admin/reports/new/profit/manage', $data);
+    }
+
+    public function sale()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('report_sale');
+        }
+        $data['title'] = _l('als_reports_sale_submenu');
+        $this->load->view('admin/reports/new/sale/manage', $data);
+    }
+
+    public function work_orders()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('report_work_orders');
+        }
+        $data['title'] = _l('als_reports_work_orders_submenu');
+        $this->load->view('admin/reports/new/work_orders/manage', $data);
+    }
+
+    public function warehouse()
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('report_warehouse');
+        }
+        $data['title'] = _l('als_reports_warehouse_submenu');
+        $this->load->view('admin/reports/new/warehouse/manage', $data);
+    }
+
 }

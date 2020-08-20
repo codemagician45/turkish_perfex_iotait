@@ -183,10 +183,11 @@
 	  var i = 0;
 	  $.each(wo_rows, function(){
 	  	let product_id = $(this).find('.rel_product_id').val();
+	  	var wo_item_qty = $(this).find('[data-quantity]').val();
 	  	if(recipe_rows_save_check.length  < 1){
 	  		requestGetJSON('products/get_recipes_by_product/' + product_id).done(function(response) {
 		        response.forEach(e => {
-		        	add_item_to_table_plan_recipe(e,i)
+		        	add_item_to_table_plan_recipe(e,i,wo_item_qty)
 		        	i++;
 		        })
 		    });
@@ -197,7 +198,7 @@
 	  
 	})
 
-	function add_item_to_table_plan_recipe(data,i) {
+	function add_item_to_table_plan_recipe(data,i,rel_wo_qty) {
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -206,7 +207,7 @@
                 else
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
-
+            // console.log(rel_wo_qty)
             data.option = option;
             var table_row = '';
             // var item_key = $("body").find('.recipe .item').length + 1;
@@ -219,7 +220,7 @@
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
 
 
-            table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
+            table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + rel_wo_qty*data.used_qty + '"></td>';
 
             if(data.pre_produced == 1) {
 

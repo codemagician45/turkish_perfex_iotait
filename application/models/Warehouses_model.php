@@ -342,6 +342,45 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function add_transfer_by_production($data,$sign)
+    {
+        // print_r($data);exit();
+        // $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
+        if($sign == 1)
+            $updated_stock_level = $last_stock_level + $data['transaction_qty'];
+        elseif($sign == -1)
+            $updated_stock_level = $last_stock_level - $data['transaction_qty'];
+
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
+        // if($first_transfer_check == 1)
+        // {
+        //     $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
+        // }
+
+        $data['created_user'] = get_staff_user_id();
+        $data['created_at'] = date('Y-m-d h:i:s');
+        $data['updated_at'] = date('Y-m-d h:i:s');
+        $this->db->insert(db_prefix() . 'transfer_lists', $data);
+        $insert_id = $this->db->insert_id();
+
+        $this->db->from(db_prefix() . 'transfer_lists');
+        $this->db->where('stock_product_code',$data['stock_product_code']);
+        $qty = $this->db->get()->result_array();
+        $total_qty = 0;
+        foreach ($qty as $val) {
+            $total_qty = $total_qty + $val['transaction_qty'];
+        }
+
+        if ($insert_id) {
+            log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
+
+            return $insert_id;
+        }
+
+        return false;
+    }
+
     public function update_transfer($data,$id)
     {
 

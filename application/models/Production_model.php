@@ -73,17 +73,25 @@ class Production_model extends App_Model
                 $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
                 $this->db->where('p_qty_id',$insert_id);
                 $res = $this->db->get(db_prefix().'produced_qty')->row();
-                $plus_transfer_stock = $res->wo_product_id;
+                // $plus_transfer_stock = $res->wo_product_id;
                 // print_r($res);exit();
                 $minus_transfer_stock = [];
                 $minus_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                 $minus_transfer_stock['transaction_from'] = $take_from;
-                $minus_transfer_stock['transaction_to'] = $export_to;
-                $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+                $minus_transfer_stock['transaction_to'] = NULL;
+                $minus_transfer_stock['transaction_qty'] = $res->used_qty;
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
 
+                $plus_transfer_stock = [];
+                $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
+                $plus_transfer_stock['transaction_from'] = NULL;
+                $plus_transfer_stock['transaction_to'] = $export_to;
+                $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+                $plus_transfer_stock['wo_no'] = $res->rel_wo_id;
+
                 $this->load->model('warehouses_model');
-                $this->warehouses_model->add_transfer($minus_transfer_stock);
+                $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
+                $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
                 return true;
             } else{
                 return false;
