@@ -53,6 +53,26 @@ class Production_model extends App_Model
         {
             $this->db->where('p_qty_id',$data['p_qty_id']);
             $this->db->update(db_prefix().'produced_qty',$data);
+
+            $this->db->join(db_prefix().'events', db_prefix().'events.eventid='.db_prefix().'produced_qty.rel_event_id','left');
+            $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
+            $this->db->where('p_qty_id',$data['p_qty_id']);
+            $res = $this->db->get(db_prefix().'produced_qty')->row();
+
+            $plus_transfer_stock = [];
+            $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
+            $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+
+            // $this->db->where('p_qty_id',$data['p_qty_id']);
+            // $produced_qty = $this->db->get(db_prefix().'produced_qty')->row();
+            // $plus_transfer_stock = [];
+            // $plus_transfer_stock['transaction_qty'] = $data['produced_quantity'];
+
+            $this->load->model('warehouses_model');
+            $last_transaction_qty = $this->warehouses_model->get_transfer($res->plus_transfer_id)->transaction_qty;
+            $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
+            $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
+
             if ($this->db->affected_rows() > 0) {
                log_activity('Daily Produced Qty Updated [' . $data['p_qty_id'] . ']');
                 return true;
@@ -90,8 +110,15 @@ class Production_model extends App_Model
                 $plus_transfer_stock['wo_no'] = $res->rel_wo_id;
 
                 $this->load->model('warehouses_model');
-                $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
-                $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
+                $minus_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
+                $plus_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
+
+                $data['minus_transfer_id'] = $minus_transfer_id;
+                $data['plus_transfer_id'] = $plus_transfer_id;
+
+                $this->db->where('p_qty_id',$insert_id);
+                $this->db->update(db_prefix().'produced_qty',$data);
+
                 return true;
             } else{
                 return false;

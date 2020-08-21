@@ -38,7 +38,7 @@ class Installation extends AdminController
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('work_order')));
                     // $redUrl = admin_url('invoices/list_invoices/' . $id);
-                    $redUrl = admin_url('planning/work_order/' . $id);
+                    $redUrl = admin_url('installation/work_order/' . $id);
 
                     if (isset($invoice_data['save_and_record_payment'])) {
                         $this->session->set_userdata('record_payment', true);
