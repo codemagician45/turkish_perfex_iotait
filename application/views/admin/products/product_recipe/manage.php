@@ -16,6 +16,7 @@
                                      <div class="form-group">
                                         <label for="product_category"><?php echo _l('product_category'); ?></label>
                                         <select name="product_category" id="product_category" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+
                                            <?php foreach($product_categories as $cate){ ?>
                                                <option value="<?php echo $cate['order_no']; ?>"><?php echo $cate['name'] ?></option>
                                             <?php } ?>
@@ -29,7 +30,6 @@
                                    foreach($product_categories as $category){?>
                                     <input type="hidden" class="filter" name="products_<?php echo $category['order_no']?>">
                                    <?php }?>
-                                   <!-- <input type="hidden" class="filter" name="products_2" value="products_2"> -->
                              </div>
                         </div>
                         <div class="clearfix"></div>
@@ -60,16 +60,18 @@
     $(function(){
 
         $('#product_category').change(function(){
-            console.log($('#product_category option:selected').val())
             $('.filter').val('')
-            dt_custom_view('products_'+ $('#product_category option:selected').val(), '.table-product-recipe','products_'+ $('#product_category option:selected').val()); return false;
+            var product_category = $('#product_category').val();
+            for(let i = 0; i < product_category.length; i++){
+                dt_custom_view('products_'+ product_category[i], '.table-product-recipe','products_'+ product_category[i]); 
+            }
+            
         })
 
         var ProductRecipe_ServerParams = {};
         $.each($('._hidden_inputs._filters input'),function(){
            ProductRecipe_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
          });
-        console.log(ProductRecipe_ServerParams)
         initDataTable('.table-product-recipe', window.location.href,['undefined'], ['undefined'], ProductRecipe_ServerParams, []);
     });
 </script>

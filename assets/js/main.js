@@ -3323,6 +3323,7 @@ function init_tags_inputs() {
 
 // Datatables custom view will fill input with the value
 function dt_custom_view(value, table, custom_input_name, clear_other_filters) {
+
     var name = typeof (custom_input_name) == 'undefined' ? 'custom_view' : custom_input_name;
     if (typeof (clear_other_filters) != 'undefined') {
         var filters = $('._filter_data li.active').not('.clear-all-prevent');
@@ -3336,6 +3337,7 @@ function dt_custom_view(value, table, custom_input_name, clear_other_filters) {
     if (_cinput != name) {
         value = "";
     }
+    // console.log(table,name,value)
     $('input[name="' + name + '"]').val(value);
 
     $(table).DataTable().ajax.reload();

@@ -25,6 +25,49 @@ $additionalSelect = [
      'category',
     ];
 $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
+$filter = [];
+
+$this->ci->load->model('warehouses_model');
+$categories  = $this->ci->warehouses_model->get_stock_categories();
+$categoriesIds = [];
+
+foreach ($categories as $cate) {
+    if ($this->ci->input->post('category_' . $cate['order_no'])) {
+        array_push($categoriesIds, $cate['order_no']);
+    }
+}
+if (count($categoriesIds) > 0) {
+    array_push($filter, 'AND category IN (' . implode(', ', $categoriesIds) . ')');
+}
+
+$units  = $this->ci->warehouses_model->get_units();
+$unitsIds = [];
+
+foreach ($units as $unit) {
+    if ($this->ci->input->post('unit_' . $unit['unitid'])) {
+        array_push($unitsIds, $unit['unitid']);
+    }
+}
+if (count($unitsIds) > 0) {
+    array_push($filter, 'AND unit IN (' . implode(', ', $unitsIds) . ')');
+}
+
+$this->ci->load->model('currencies_model');
+$currencies  = $this->ci->currencies_model->get();
+$currenciesIds = [];
+
+foreach ($currencies as $currency) {
+    if ($this->ci->input->post('curr_' . $currency['id'])) {
+        array_push($currenciesIds, $currency['id']);
+    }
+}
+if (count($currenciesIds) > 0) {
+    array_push($filter, 'AND currency_id IN (' . implode(', ', $currenciesIds) . ')');
+}
+
+if (count($filter) > 0) {
+    array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
+}
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];

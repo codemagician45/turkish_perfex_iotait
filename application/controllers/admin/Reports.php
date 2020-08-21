@@ -952,7 +952,6 @@ class Reports extends AdminController
             if ($custom_date_select != '') {
                 array_push($where, $custom_date_select);
             }
-
             if ($this->input->post('sale_agent_invoices')) {
                 $agents  = $this->input->post('sale_agent_invoices');
                 $_agents = [];
@@ -1394,6 +1393,11 @@ class Reports extends AdminController
             $this->app->get_table_data('report_warehouse');
         }
         $data['title'] = _l('als_reports_warehouse_submenu');
+        $this->load->model('warehouses_model');
+        $this->load->model('currencies_model');
+        $data['stock_units'] = $this->warehouses_model->get_units();
+        $data['stock_categories'] = $this->warehouses_model->get_stock_categories();
+        $data['currency'] = $this->currencies_model->get();
         $this->load->view('admin/reports/new/warehouse/manage', $data);
     }
 
