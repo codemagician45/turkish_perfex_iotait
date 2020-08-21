@@ -422,6 +422,47 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function update_transfer_by_production($data,$id)
+    {
+
+        // $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
+        $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
+        $updated_transfer = $data['transaction_qty'];
+        
+        if(isset($data['delta']))
+        {
+            $updated_transfer = $last_stock_level + $data['delta'];
+            unset($data['delta']);
+        }
+        
+        // if($first_transfer_check == 1)
+        // {
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
+        // }
+        unset($data['created_user']);
+        unset($data['updated_user']);
+        $data['updated_user'] = get_staff_user_id();
+        $data['updated_at'] = date('Y-m-d h:i:s');
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'transfer_lists', $data);
+
+        $this->db->from(db_prefix() . 'transfer_lists');
+        $this->db->where('stock_product_code',$data['stock_product_code']);
+        $qty = $this->db->get()->result_array();
+        $total_qty = 0;
+        foreach ($qty as $val) {
+            $total_qty = $total_qty + $val['transaction_qty'];
+        }
+
+        if ($this->db->affected_rows() > 0) {
+            log_activity('Tansfer Updated [' . $id . ']');
+
+            return true;
+        }
+
+        return false;
+    }
+
     public function get_transfer($id)
     {
         $this->db->from(db_prefix() . 'transfer_lists');

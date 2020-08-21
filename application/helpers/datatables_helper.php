@@ -299,6 +299,7 @@ function get_null_columns_that_should_be_sorted_as_last()
  */
 function render_datatable($headings = [], $class = '', $additional_classes = [''], $table_attributes = [])
 {
+
     $_additional_classes = '';
     $_table_attributes   = ' ';
     if (count($additional_classes) > 0) {
@@ -314,9 +315,10 @@ function render_datatable($headings = [], $class = '', $additional_classes = [''
     foreach ($table_attributes as $key => $val) {
         $_table_attributes .= $key . '=' . '"' . $val . '" ';
     }
-
+    
     $table = '<div class="' . $IEfix . '"><table' . $_table_attributes . 'class="dt-table-loading table table-' . $class . '' . $_additional_classes . '">';
     $table .= '<thead>';
+    
     $table .= '<tr>';
     foreach ($headings as $heading) {
         if (!is_array($heading)) {

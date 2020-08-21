@@ -1642,8 +1642,7 @@ class Invoices_model extends App_Model
     {
         if(isset($data['items']))
             $items = $data['items'];
-        // if(isset($data['newitems']))
-        //     $newitems = $data['newitems'];
+
         $affected_rows = 0;
         if(isset($items))
             foreach ($items as $val) {
@@ -1653,6 +1652,7 @@ class Invoices_model extends App_Model
                     $val['approval_need'] = 1;
                 $this->db->where('id',$itemid);
                 $this->db->update(db_prefix() . 'itemable', $val);
+
                 if ($this->db->affected_rows() > 0) {
                     $affected_rows++;
                 }
@@ -1700,10 +1700,67 @@ class Invoices_model extends App_Model
          
     }
 
+    public function update_rel_wo_items_install($data, $id)
+    {
+        
+        $transfer_check = $this->get($id)->transfered_plus;
+        $this->load->model('manufacturing_settings_model');
+        $installation = $this->manufacturing_settings_model->get_installation_by_id();
+        if(!empty($installation))
+            $export_to = $installation[0]['export_to'];
+        else
+            $export_to = '';
+
+        if(isset($data['items']))
+            $items = $data['items'];
+
+        $affected_rows = 0;
+        if(isset($items))
+            foreach ($items as $val) {
+                $itemid = $val['itemid'];
+                unset($val['itemid']);
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->where('id',$itemid);
+                $this->db->update(db_prefix() . 'itemable', $val);
+
+                $plus_transfer_stock = [];
+                $plus_transfer_stock['stock_product_code'] = $val['rel_product_id'];
+                $plus_transfer_stock['transaction_from'] = NULL;
+                $plus_transfer_stock['transaction_to'] = $export_to;
+                $plus_transfer_stock['transaction_qty'] = $val['produced_qty'];
+                $plus_transfer_stock['wo_no'] = $id;
+
+                $this->db->where('id',$itemid);
+                $item = $this->db->get(db_prefix().'itemable')->row();
+                $this->load->model('warehouses_model');
+                if(empty($item->wo_install_transfer_id))
+                {
+                    $wo_install_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
+                    $this->db->query('UPDATE tblitemable SET wo_install_transfer_id = '.$wo_install_transfer_id.' WHERE id='.$itemid);
+                } else {
+                    $last_transaction_qty = $this->warehouses_model->get_transfer($item->wo_install_transfer_id)->transaction_qty;
+                    $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
+                    $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $item->wo_install_transfer_id);
+                }
+                
+                // if($transfer_check == 0){
+                //     $wo_install_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
+                //     $this->db->query('UPDATE tblinvoices SET transfered_plus = 1 WHERE id='.$id);
+                // }
+                    
+                if ($this->db->affected_rows() > 0) {
+                    $affected_rows++;
+                }
+            }
+        if ($affected_rows > 0) {
+                return true;
+            } 
+         
+    }
+
     public function get_rel_wo_items($id)
     {
-        // $this->db->where('rel_wo_id',$id);
-        // return $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
         $this->db->where('id',$id);
         $rel_quote_id = $this->db->get(db_prefix() . 'invoices')->row()->rel_quote_id;
         $this->db->where('rel_id',$rel_quote_id);
@@ -1712,7 +1769,40 @@ class Invoices_model extends App_Model
 
     public function update_plan_recipe($data, $id= '', $item_select_recipe = '')
     {
-        // print_r($data); exit();
+        $affected_rows = 0;
+        foreach ($data as $temp) {
+            $recipe_id = $temp['item_id'];
+            unset($temp['item_id']);
+            $this->db->where('id',$recipe_id);
+            $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+            if(empty($check_edit)){
+                $temp['rel_wo_id'] = $id;
+                $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
+            } else {
+               $this->db->where('id',$recipe_id); 
+               $this->db->update(db_prefix() . 'plan_recipe', $temp);
+            }
+            if ($this->db->affected_rows() > 0) {
+                $affected_rows++;
+            }  
+        }
+        if ($affected_rows > 0) {
+            return true;
+        }  
+    }
+
+    public function update_plan_recipe_install($data, $id= '', $item_select_recipe = '')
+    {
+
+        $transfer_check = $this->get($id)->transfered_minus;
+        $this->load->model('manufacturing_settings_model');
+
+        $installation = $this->manufacturing_settings_model->get_installation_by_id();
+        if(!empty($installation))
+            $take_from = $installation[0]['take_from'];
+        else
+            $take_from = '';
+
         $affected_rows = 0;
         foreach ($data as $temp) {
             $recipe_id = $temp['item_id'];
@@ -1722,11 +1812,36 @@ class Invoices_model extends App_Model
             $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
             if(empty($check_edit)){
                 $temp['rel_wo_id'] = $id;
-                // $temp['rel_product_id'] = $item_select_recipe;
                 $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
             } else {
                $this->db->where('id',$recipe_id); 
                $this->db->update(db_prefix() . 'plan_recipe', $temp);
+
+                $minus_transfer_stock = [];
+                $minus_transfer_stock['stock_product_code'] = $temp['ingredient_item_id'];
+                $minus_transfer_stock['transaction_from'] = $take_from;
+                $minus_transfer_stock['transaction_to'] = NULL;
+                $minus_transfer_stock['transaction_qty'] = $temp['used_qty'];
+                $minus_transfer_stock['wo_no'] = $id;
+
+                $this->db->where('id',$recipe_id);
+                $recipe = $this->db->get(db_prefix().'plan_recipe')->row();
+                $this->load->model('warehouses_model');
+                if(empty($recipe->recipe_install_transfer_id))
+                {
+                    $recipe_install_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
+                    $this->db->query('UPDATE tblplan_recipe SET recipe_install_transfer_id = '.$recipe_install_transfer_id.' WHERE id='.$recipe_id);
+                } else {
+                    $last_transaction_qty = $this->warehouses_model->get_transfer($recipe->recipe_install_transfer_id)->transaction_qty;
+                    $minus_transfer_stock['delta'] = $minus_transfer_stock['transaction_qty'] - $last_transaction_qty;
+                    $this->warehouses_model->update_transfer_by_production($minus_transfer_stock, $recipe->recipe_install_transfer_id);
+                }
+
+                // $this->load->model('warehouses_model');
+                // if($transfer_check == 0){
+                //     $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
+                //     $this->db->query('UPDATE tblinvoices SET transfered_minus = 1 WHERE id='.$id);
+                // }
             }
             if ($this->db->affected_rows() > 0) {
                 $affected_rows++;

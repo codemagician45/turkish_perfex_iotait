@@ -8,9 +8,20 @@
                     <div class="panel-body">
                         <div class="_buttons">
                             <div class="row">
-                                <div class="col-md-3 pricing_categories">
+                                <!-- <div class="col-md-3 pricing_categories">
                                     <?php echo render_select( 'product_category',$product_categories,array( 'order_no','name'), _l('product_category')); ?>
-                                </div>
+                                </div> -->
+
+                                <div class="col-md-4">
+                                     <div class="form-group">
+                                        <label for="product_category"><?php echo _l('product_category'); ?></label>
+                                        <select name="product_category" id="product_category" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+                                           <?php foreach($product_categories as $cate){ ?>
+                                               <option value="<?php echo $cate['order_no']; ?>"><?php echo $cate['name'] ?></option>
+                                            <?php } ?>
+                                     </select>
+                                  </div>
+                               </div>
                             </div>
                             
                             <div class="_filters _hidden_inputs">
@@ -49,7 +60,7 @@
     $(function(){
 
         $('#product_category').change(function(){
-            
+            console.log($('#product_category option:selected').val())
             $('.filter').val('')
             dt_custom_view('products_'+ $('#product_category option:selected').val(), '.table-product-recipe','products_'+ $('#product_category option:selected').val()); return false;
         })

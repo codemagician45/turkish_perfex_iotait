@@ -8,7 +8,9 @@ $aColumns = [
     'number',
     db_prefix() .'staff.firstname as c_firstname',
     get_sql_select_client_company(),
-    db_prefix() . 'pricing_categories.name as price_category_name'
+    db_prefix() . 'pricing_categories.name as price_category_name',
+    '',
+    db_prefix() . 'estimates.total as sold',
     ];
 
 $join = [
@@ -42,6 +44,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     db_prefix() . 'currencies.name as currency_name',
     
     db_prefix() . 'estimates.addedfrom',
+    
     db_prefix() .'staff.lastname as c_lastname',
 ]);
 
@@ -50,23 +53,21 @@ $rResult = $result['rResult'];
 // print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
-    $numberOutput = '';
-   
-    $numberOutput = '<a href="#" onclick="init_estimate(' . $aRow['id'] . '); return false;">' . format_estimate_number($aRow['id']) . '</a>';
-    $numberOutput .= '<div class="row-options">';
-
-    $numberOutput .= '</div>';
-
-    $row[] = $numberOutput;
+    
+    $row[] = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" target="_blank">' . format_estimate_number($aRow['id']) . '</a>';
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
     $row[] = '<a href="' . admin_url('clients/client/' . $aRow['clientid']) . '">' . $aRow['company'] . '</a>';
 
     $row[] = $aRow['price_category_name'];
+    
+    $row[] = $aRow['sold'];
+    
     $row[] = '';
+    
     $row[] = '';
-    $row[] = '';
+
     $output['aaData'][] = $row;
 }
 

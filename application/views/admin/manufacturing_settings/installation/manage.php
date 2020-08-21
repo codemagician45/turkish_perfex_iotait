@@ -6,9 +6,9 @@
 			<div class="col-md-12">
 				<div class="panel_s">
 					<div class="panel-body">
-						<div class="_buttons">
+						<!-- <div class="_buttons">
 							<a href="#" class="btn btn-info pull-left" data-toggle="modal" data-target="#installation_process_modal"><?php echo _l('new_installation'); ?></a>
-						</div>
+						</div> -->
 						<div class="clearfix"></div>
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>

@@ -351,7 +351,7 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('installation', [
                 'slug'     => 'installation_work_order',
                 'name'     => _l('installation_work_order'),
-                'href'     => admin_url('installation/installation_work_order'),
+                'href'     => admin_url('installation/installation_work_order_list'),
                 // 'href'     => admin_url('invoices'),
                 'position' => 5,
         ]);
@@ -513,12 +513,12 @@ function app_init_admin_sidebar_menu_items()
                     'position' => 15,
             ]);
 
-            // $CI->app_menu->add_sidebar_children_item('reports', [
-            //         'slug'     => 'sales-reports',
-            //         'name'     => _l('als_reports_sales_submenu'),
-            //         'href'     => admin_url('reports/sales'),
-            //         'position' => 5,
-            // ]);
+            $CI->app_menu->add_sidebar_children_item('reports', [
+                    'slug'     => 'sales-reports',
+                    'name'     => _l('als_reports_sales_submenu'),
+                    'href'     => admin_url('reports/sales'),
+                    'position' => 5,
+            ]);
             // $CI->app_menu->add_sidebar_children_item('reports', [
             //         'slug'     => 'expenses-reports',
             //         'name'     => _l('als_reports_expenses'),

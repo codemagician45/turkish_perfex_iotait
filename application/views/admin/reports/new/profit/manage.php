@@ -11,8 +11,8 @@
 							_l('salesperson'),
 							_l('client'),
 							_l('pricing_category'),
-							_l('cost_price'),
 							_l('sold_price'),
+							_l('cost_price'),
 							_l('gross_profit'),
 						),'profit-report'); ?>
 					</div>

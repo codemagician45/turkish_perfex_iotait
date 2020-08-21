@@ -3855,6 +3855,7 @@ $lang['convert_to_work_order'] = 'Convert to Work Order';
 $lang['als_planning'] = 'Planning';
 $lang['pending_sale_order'] = 'Pending Sale Order';
 $lang['work_orders'] = 'Work Orders';
+$lang['work_order'] = 'Work Order';
 $lang['rel_wo_items'] = 'Work Order Items';
 $lang['rel_plan_recipes'] = 'Plan Recipes';
 $lang['rel_plans'] = 'Rel Plans';
@@ -3877,6 +3878,8 @@ $lang['edit_day_produced_qty'] = 'Edit Daily Produced Qty';
 
 /*Installation*/
 $lang['installation_work_order'] = 'Work Order';
+$lang['produced_qty'] = 'Produced Qty';
+$lang['save_and_transfer'] = 'Save and Transfer';
 
 /*Settings*/
 $lang['accounts'] = 'Accounts';

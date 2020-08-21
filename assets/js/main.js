@@ -3336,11 +3336,11 @@ function dt_custom_view(value, table, custom_input_name, clear_other_filters) {
     if (_cinput != name) {
         value = "";
     }
-    console.log(name, value)
     $('input[name="' + name + '"]').val(value);
 
     $(table).DataTable().ajax.reload();
 }
+
 
 // Sets table filters dropdown to active
 function do_filter_active(value, parent_selector) {
@@ -3429,6 +3429,7 @@ function init_roles_permissions(roleid, user_changed) {
 
 // Show/hide full table
 function toggle_small_view(table, main_data) {
+    console.log(table)
     $("body").toggleClass('small-table');
     var tablewrap = $('#small-table');
     if (tablewrap.length === 0) { return; }
@@ -5878,7 +5879,6 @@ function tasks_bulk_action(event) {
 }
 
 function load_small_table_item(id, selector, input_name, url, table) {
-
     var _tmpID = $('input[name="' + input_name + '"]').val();
     // Check if id passed from url, hash is prioritized becuase is last
     if (_tmpID !== '' && !window.location.hash) {

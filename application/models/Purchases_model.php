@@ -208,10 +208,6 @@ class Purchases_model extends App_Model
                     $val['transfer_id'] = $transfer_id;
                 $this->db->insert(db_prefix() . 'purchase_order_item', $val);
                 $insert_id = $this->db->insert_id();
-                // if(isset($transfer_id))
-                //     $this->db->query('UPDATE tblpurchase_order_item SET transfer_id = '.$transfer_id.' WHERE `id` ='.$insert_id);
-                // if(isset($rel_purchase_id))
-                //     $this->db->query('UPDATE tblpurchase_order_item SET rel_purchase_id = '.$rel_purchase_id.' WHERE `id` ='.$insert_id);
                 }
         }
         

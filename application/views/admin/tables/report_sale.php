@@ -9,7 +9,8 @@ $aColumns = [
     db_prefix() .'staff.firstname as c_firstname',
     get_sql_select_client_company(),
     db_prefix() . 'pricing_categories.name as price_category_name',
-    db_prefix() . 'sale_phases.phase as sale_phase'
+    db_prefix() . 'sale_phases.phase as sale_phase',
+    db_prefix() .'estimates.total as sold'
     ];
 
 $join = [
@@ -52,14 +53,8 @@ $rResult = $result['rResult'];
 // print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
-    $numberOutput = '';
-   
-    $numberOutput = '<a href="#" onclick="init_estimate(' . $aRow['id'] . '); return false;">' . format_estimate_number($aRow['id']) . '</a>';
-    $numberOutput .= '<div class="row-options">';
-
-    $numberOutput .= '</div>';
-
-    $row[] = $numberOutput;
+    
+    $row[] = '<a href="' . admin_url('estimates/list_estimates/' . $aRow['id']) . '" target="_blank">' . format_estimate_number($aRow['id']) . '</a>';
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
@@ -67,7 +62,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['price_category_name'];
     $row[] = $aRow['sale_phase'];
-    $row[] = '';
+    $row[] = $aRow['sold'];
     $output['aaData'][] = $row;
 }
 
