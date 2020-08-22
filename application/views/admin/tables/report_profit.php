@@ -28,6 +28,49 @@ $sTable       = db_prefix() . 'estimates';
 $where  = [];
 $filter = [];
 
+$this->ci->load->model('staff_model');
+$staffs  = $this->ci->staff_model->get();
+$staffsIds = [];
+
+foreach ($staffs as $staff) {
+    if ($this->ci->input->post('staff_' . $staff['staffid'])) {
+        array_push($staffsIds, $staff['staffid']);
+    }
+}
+if (count($staffsIds) > 0) {
+    array_push($filter, 'AND tblestimates.addedfrom IN (' . implode(', ', $staffsIds) . ')');
+}
+
+$this->ci->load->model('clients_model');
+$customers  = $this->ci->clients_model->get();
+$customersIds = [];
+
+foreach ($customers as $customer) {
+    if ($this->ci->input->post('customer_' . $customer['userid'])) {
+        array_push($customersIds, $customer['userid']);
+    }
+}
+if (count($customersIds) > 0) {
+    array_push($filter, 'AND tblestimates.clientid IN (' . implode(', ', $customersIds) . ')');
+}
+
+$this->ci->load->model('sale_model');
+$pricing_categories  = $this->ci->sale_model->get_pricing_category_list(); 
+$pricing_categoriesIds = [];
+
+foreach ($pricing_categories as $pcate) {
+    if ($this->ci->input->post('pcate_' . $pcate['order_no'])) {
+        array_push($pricing_categoriesIds, $pcate['order_no']);
+    }
+}
+if (count($pricing_categoriesIds) > 0) {
+    array_push($filter, 'AND tblproposals.pricing_category_id IN (' . implode(', ', $pricing_categoriesIds) . ')');
+}
+
+
+if (count($filter) > 0) {
+    array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
+}
 
 if (!has_permission('estimates', '', 'view')) {
     $userWhere = 'AND ' . get_estimates_where_sql_for_staff(get_staff_user_id());

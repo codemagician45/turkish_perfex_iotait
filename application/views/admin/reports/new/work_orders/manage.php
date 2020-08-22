@@ -6,6 +6,63 @@
 			<div class="col-md-12">
 				<div class="panel_s">
 					<div class="panel-body">
+						<div class="_buttons">
+							<div class="row">
+								<div class="col-md-4">
+                    <div class="form-group">
+                        <label for="staffs"><?php echo _l('salesperson'); ?></label>
+                        <select name="staffs" id="staffs" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+                           <?php foreach($staffs as $staff){ ?>
+                               <option value="<?php echo $staff['staffid']; ?>"><?php echo $staff['firstname'].' '.$staff['lastname'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <div class="_filters _hidden_inputs staffs">
+                            <?php
+                               foreach($staffs as $staff){?>
+                                <input type="hidden" class="filter staff" name="staff_<?php echo $staff['staffid']?>">
+                               <?php }?>
+                         </div>
+                    </div>
+                  </div>
+                 <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="customers"><?php echo _l('client'); ?></label>
+                        <select name="customers" id="customers" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+                           <?php foreach($customers as $customer){ ?>
+                               <option value="<?php echo $customer['userid']; ?>"><?php echo $customer['company'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <div class="_filters _hidden_inputs customers">
+                            <?php
+                               foreach($customers as $customer){?>
+                                <input type="hidden" class="filter customer" name="customer_<?php echo $customer['userid']?>">
+                               <?php }?>
+                         </div>
+                    </div>
+                 </div>
+
+                 <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="work_order_phases"><?php echo _l('current_phase'); ?></label>
+                          <select name="work_order_phases" id="work_order_phases" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+                             <?php foreach($work_order_phases as $phase){ ?>
+                                 <option value="<?php echo $phase['order_no']; ?>"><?php echo $phase['phase'] ?></option>
+                              <?php } ?>
+                          </select>
+                          <div class="_filters _hidden_inputs work_order_phases">
+                              <?php
+                                 foreach($work_order_phases as $phase){?>
+                                  <input type="hidden" class="filter phase" name="phase_<?php echo $phase['order_no']?>">
+                                 <?php }?>
+                           </div>
+                      </div>
+                 </div>
+
+							</div>
+						</div>
+						<div class="clearfix"></div>
+            <hr class="hr-panel-heading" />
+            <div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('wo_heading_number'),
 							_l('salesperson'),
@@ -24,6 +81,59 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-work-order-report', window.location.href,[],[],[],[0, 'asc']);
+
+		$('#staffs').change(function(){
+        $('.filter.staff').val('')
+        var staffs = $('#staffs').val();
+        if(staffs.length == 0)
+        {
+            dt_custom_view('','.table-work-order-report'); return false;
+
+        } else 
+            for(let i = 0; i < staffs.length; i++)
+            {
+                dt_custom_view('staff_'+ staffs[i], '.table-work-order-report','staff_'+ staffs[i]); 
+            }
+    })
+
+    $('#customers').change(function(){
+        $('.filter.customer').val('')
+        var customers = $('#customers').val();
+        if(customers.length == 0)
+        {
+            dt_custom_view('','.table-work-order-report'); return false;
+
+        } else 
+            for(let i = 0; i < customers.length; i++)
+            {
+                dt_custom_view('customer_'+ customers[i], '.table-work-order-report','customer_'+ customers[i]); 
+            }
+    })
+
+    $('#work_order_phases').change(function(){
+        $('.filter.phase').val('')
+        var work_order_phases = $('#work_order_phases').val();
+        if(work_order_phases.length == 0)
+        {
+            dt_custom_view('','.table-work-order-report'); return false;
+
+        } else 
+            for(let i = 0; i < work_order_phases.length; i++)
+            {
+                dt_custom_view('phase_'+ work_order_phases[i], '.table-work-order-report','phase_'+ work_order_phases[i]); 
+            }
+    })
+
+    var fnServerParams = {};
+    $.each($('._hidden_inputs._filters.staffs input'),function(){
+       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
+     });
+    $.each($('._hidden_inputs._filters.customers input'),function(){
+       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
+     });
+    $.each($('._hidden_inputs._filters.work_order_phases input'),function(){
+       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
+     });
+		initDataTable('.table-work-order-report', window.location.href,[],[],fnServerParams,[0, 'asc']);
 	});
 </script>

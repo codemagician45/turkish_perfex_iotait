@@ -29,6 +29,49 @@ $sTable       = db_prefix() . 'invoices';
 $where  = [];
 $filter = [];
 
+$this->ci->load->model('staff_model');
+$staffs  = $this->ci->staff_model->get();
+$staffsIds = [];
+
+foreach ($staffs as $staff) {
+    if ($this->ci->input->post('staff_' . $staff['staffid'])) {
+        array_push($staffsIds, $staff['staffid']);
+    }
+}
+if (count($staffsIds) > 0) {
+    array_push($filter, 'AND tblinvoices.addedfrom IN (' . implode(', ', $staffsIds) . ')');
+}
+
+$this->ci->load->model('clients_model');
+$customers  = $this->ci->clients_model->get();
+$customersIds = [];
+
+foreach ($customers as $customer) {
+    if ($this->ci->input->post('customer_' . $customer['userid'])) {
+        array_push($customersIds, $customer['userid']);
+    }
+}
+if (count($customersIds) > 0) {
+    array_push($filter, 'AND tblinvoices.clientid IN (' . implode(', ', $customersIds) . ')');
+}
+
+$this->ci->load->model('production_model');
+$wo_phases  = $this->ci->production_model->get_wo_phases();
+$wo_phasesIds = [];
+
+foreach ($wo_phases as $phase) {
+    if ($this->ci->input->post('phase_' . $phase['order_no'])) {
+        array_push($wo_phasesIds, $phase['order_no']);
+    }
+}
+if (count($wo_phasesIds) > 0) {
+    array_push($filter, 'AND wo_phase_id IN (' . implode(', ', $wo_phasesIds) . ')');
+}
+
+if (count($filter) > 0) {
+    array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
+}
+
 
 if (!has_permission('invoices', '', 'view')) {
     $userWhere = 'AND ' . get_invoices_where_sql_for_staff(get_staff_user_id());

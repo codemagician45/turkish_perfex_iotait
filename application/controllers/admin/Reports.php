@@ -1365,6 +1365,11 @@ class Reports extends AdminController
         if ($this->input->is_ajax_request()) {
             $this->app->get_table_data('report_profit');
         }
+        $this->load->model('staff_model');
+        $this->load->model('sale_model');
+        $data['staffs'] = $this->staff_model->get();
+        $data['customers'] = $this->clients_model->get();                        
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list(); 
         $data['title'] = _l('als_reports_profit_submenu');
         $this->load->view('admin/reports/new/profit/manage', $data);
     }
@@ -1375,6 +1380,12 @@ class Reports extends AdminController
             $this->app->get_table_data('report_sale');
         }
         $data['title'] = _l('als_reports_sale_submenu');
+        $this->load->model('staff_model');
+        $this->load->model('sale_model');
+        $data['staffs'] = $this->staff_model->get();
+        $data['customers'] = $this->clients_model->get();                        
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();                        
+        $data['sale_phases'] = $this->sale_model->get_sale_phases(); 
         $this->load->view('admin/reports/new/sale/manage', $data);
     }
 
@@ -1384,6 +1395,11 @@ class Reports extends AdminController
             $this->app->get_table_data('report_work_orders');
         }
         $data['title'] = _l('als_reports_work_orders_submenu');
+        $this->load->model('staff_model');
+        $this->load->model('production_model');
+        $data['staffs'] = $this->staff_model->get();
+        $data['customers'] = $this->clients_model->get();                        
+        $data['work_order_phases'] = $this->production_model->get_wo_phases();                        
         $this->load->view('admin/reports/new/work_orders/manage', $data);
     }
 
