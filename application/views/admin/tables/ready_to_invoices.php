@@ -15,12 +15,6 @@ $aColumns = [
     'staff1.firstname as c_firstname',
     db_prefix() . 'invoices.datecreated',
     'staff2.firstname as u_firstname',
-    // db_prefix() . 'projects.name as project_name',
-    // 'total',
-    // 'total_tax',
-    // 'duedate',
-    // db_prefix() . 'invoices.status',
-    // 'YEAR(date) as year',
     
     ];
 
@@ -47,7 +41,7 @@ foreach ($custom_fields as $key => $field) {
     array_push($join, 'LEFT JOIN ' . db_prefix() . 'customfieldsvalues as ctable_' . $key . ' ON ' . db_prefix() . 'invoices.id = ctable_' . $key . '.relid AND ctable_' . $key . '.fieldto="' . $field['fieldto'] . '" AND ctable_' . $key . '.fieldid=' . $field['id']);
 }
 
-$where  = [];
+$where = ['AND ('.db_prefix().'work_order_phases.order_no = 3 or '.db_prefix().'work_order_phases.order_no = 4)'];
 $filter = [];
 
 // if ($this->ci->input->post('not_sent')) {
@@ -138,7 +132,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'deleted_customer_name',
     'staff1.lastname as c_lastname',
     'staff2.lastname as u_lastname',
-
+    'rel_sale_id'
     ]);
 $output  = $result['output'];
 $rResult = $result['rResult'];
@@ -155,10 +149,12 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    // $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . ' | </a>';
+    // $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('invoices', '', 'edit')) {
         $numberOutput .= '<a href="' . admin_url('installation/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
+
+    $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['rel_sale_id']) . '" target="_blank">' . _l('sale_order') . '</a>';
 
     $numberOutput .= '</div>';
 

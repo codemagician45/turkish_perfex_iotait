@@ -131,6 +131,6 @@
 	       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
 	     });
 
-		initDataTable('.table-profit-report', window.location.href,[],[],fnServerParams,[0, 'asc']);
+		initDataTable('.table-profit-report', window.location.href,[5,6],[5,6],fnServerParams,[0, 'asc']);
 	});
 </script>

@@ -7,7 +7,7 @@ $aColumns = [
     'name',
 //     db_prefix() . 'currencies_exchange.name',
 ];
-$sIndexColumn = 'id';
+$sIndexColumn = 'cate_id';
 $sTable       = db_prefix() . 'stock_categories';
 
 //$join = [];
@@ -16,7 +16,7 @@ $join = [
 ];
 
 $additionalSelect = [
-    db_prefix() . 'stock_categories.id',
+    db_prefix() . 'stock_categories.cate_id',
 
 ];
 
@@ -31,7 +31,7 @@ foreach ($rResult as $aRow) {
         $attributes = [
             'data-toggle'             => 'modal',
             'data-target'             => '#stock_category_modal',
-            'data-id'                 => $aRow['id'],
+            'data-id'                 => $aRow['cate_id'],
         ];
 
         if ($aColumns[$i] == 'name') {
@@ -39,7 +39,7 @@ foreach ($rResult as $aRow) {
         }
         $row[] = $_data;
     }
-    $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
+    $options = icon_btn('#' . $aRow['cate_id'], 'pencil-square-o', 'btn-default', $attributes);
 
 
     // $row[]              = $options .= icon_btn('warehouses/stock_category_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');

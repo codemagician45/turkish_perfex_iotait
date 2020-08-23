@@ -31,7 +31,6 @@ foreach ($rResult as $aRow) {
     $options = icon_btn('#' . $aRow['unitid'], 'pencil-square-o', 'btn-default', $attributes);
     // $row[] = $options .= icon_btn('warehouses/warehouse_delete/' . $aRow['unitid'], 'remove', 'btn-danger _delete');
     $row[] = $options;
-    // print_r($row); exit();
     $toggleActive = '<div class="onoffswitch" data-toggle="tooltip" data-title="' . _l('customer_active_inactive_help') . '">
     <input type="checkbox"' . ' data-switch-url="' . admin_url() . 'warehouses/change_unit_status" name="onoffswitch" class="onoffswitch-checkbox" id="' . $aRow['unitid'] . '" data-id="' . $aRow['unitid'] . '" ' . ($aRow[db_prefix().'units.active'] == 1 ? 'checked' : '') . '>
     <label class="onoffswitch-label" for="' . $aRow['unitid'] . '"></label>

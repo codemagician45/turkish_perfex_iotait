@@ -1,33 +1,22 @@
-<!-- <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <?php init_head(); ?>
 <div id="wrapper">
 	<div class="content">
 		<div class="row">
-			<div class="col-md-12">
-				<div class="panel_s">
-					<div class="panel-body">
-						<div class="clearfix"></div>
-						<hr class="hr-panel-heading" />
-						<div class="clearfix"></div>
-						<?php render_datatable(array(
-							_l('product_code'),
-							_l('product_name'),
-							_l('allocation_reason'),
-							_l('category'),
-							_l('current_location'),
-							_l('stock_quantity'),
-							_l('created_user'),
-							_l('wo_no'),
-						),'ready_to_invoice'); ?>
-					</div>
-				</div>
-			</div>
+			<?php
+			// include_once(APPPATH.'views/admin/invoices/filter_params.php');
+			$this->load->view('admin/installation/list_template');
+			?>
 		</div>
 	</div>
 </div>
+<script>var hidden_columns = [2,6,7,8];</script>
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-ready_to_invoice', window.location.href, [2], [2]);
+		// init_invoice();
+		initDataTable('.table-installation_work_order', window.location.href);
 	});
-</script> -->
+</script>
+</body>
+</html>

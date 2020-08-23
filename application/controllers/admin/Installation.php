@@ -16,7 +16,6 @@ class Installation extends AdminController
 
     public function installation_work_order_list($id = '')
     {
-        
         if ($this->input->is_ajax_request()) {
             $this->app->get_table_data('installation_invoices');
         }

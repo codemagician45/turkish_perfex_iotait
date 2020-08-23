@@ -64,11 +64,11 @@ class Finances extends AdminController
 
     public function ready_to_invoice()
     {
-    	// if ($this->input->is_ajax_request()) {
-     //        $this->app->get_table_data('ready_to_invoice');
-     //    }
+    	 if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('ready_to_invoices');
+        }
 
-        // $data['title'] = _l('ready_to_invoice');
-        // $this->load->view('admin/finances/ready_to_invoice/manage', $data);
+        $data['title'] = _l('work_orders');
+        $this->load->view('admin/finances/ready_to_invoice/manage', $data);
     }
 }

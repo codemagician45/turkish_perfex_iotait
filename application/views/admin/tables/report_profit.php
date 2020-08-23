@@ -9,7 +9,7 @@ $aColumns = [
     db_prefix() .'staff.firstname as c_firstname',
     get_sql_select_client_company(),
     db_prefix() . 'pricing_categories.name as price_category_name',
-    '',
+    // '',
     db_prefix() . 'estimates.total as sold',
     ];
 
@@ -89,6 +89,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     db_prefix() . 'estimates.addedfrom',
     
     db_prefix() .'staff.lastname as c_lastname',
+    db_prefix() .'estimates.rel_quote_id'
 ]);
 
 $output  = $result['output'];
@@ -107,9 +108,16 @@ foreach ($rResult as $aRow) {
     
     $row[] = $aRow['sold'];
     
-    $row[] = '';
+    $cost_data = $this->ci->db->query('SELECT tblitemable.`qty`,tblstock_lists.`price` FROM tblitemable LEFT JOIN tblstock_lists ON tblstock_lists.`id` = tblitemable.`rel_product_id` WHERE tblitemable.`rel_id`= '.$aRow['rel_quote_id'])->result_array();
+    $amount = 0;
+    foreach ($cost_data as $key => $cost) {
+        $cost_val = $cost['qty']*$cost['price'];
+        $amount += $cost_val;
+    }
+
+    $row[] = number_format($amount,2);
     
-    $row[] = '';
+    $row[] = number_format($amount-$aRow['sold'],2);
 
     $output['aaData'][] = $row;
 }
