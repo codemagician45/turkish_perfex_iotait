@@ -59,13 +59,27 @@
 <script>
     $(function(){
 
+        // $('#product_category').change(function(){
+        //     $('.filter').val('')
+        //     var product_category = $('#product_category').val();
+        //     for(let i = 0; i < product_category.length; i++){
+        //         dt_custom_view('products_'+ product_category[i], '.table-product-recipe','products_'+ product_category[i]); 
+        //     }
+            
+        // })
+
         $('#product_category').change(function(){
             $('.filter').val('')
             var product_category = $('#product_category').val();
-            for(let i = 0; i < product_category.length; i++){
-                dt_custom_view('products_'+ product_category[i], '.table-product-recipe','products_'+ product_category[i]); 
-            }
-            
+            if(product_category.length == 0)
+            {
+                dt_custom_view('','.table-product-recipe'); return false;
+
+            } else 
+                for(let i = 0; i < product_category.length; i++)
+                {
+                    dt_custom_view('products_'+ product_category[i], '.table-product-recipe','products_'+ product_category[i]); 
+                }
         })
 
         var ProductRecipe_ServerParams = {};

@@ -26,36 +26,34 @@ $additionalSelect = [
     db_prefix() . 'stock_lists.id'
 ];
 
-$where = ['AND '.db_prefix().'package_group.default_pack = 1'];
-
+$where = ['AND ('.db_prefix().'package_group.default_pack = 1 OR '.db_prefix().'package_group.default_pack IS NULL)'];
+// $where = [];
 array_push($where,'AND  ('.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2)');
 
-// $where = ['AND  '.db_prefix().'stock_categories.order_no = 3 OR '.db_prefix().'stock_categories.order_no = 2'];
+$filter = [];
 
-if ($this->ci->input->post('products_2')) {
-    $where = [];
-    $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
-    array_push($where,'AND '.db_prefix().'stock_categories.order_no = 2');
-    // $where = ['AND '.db_prefix().'stock_categories.order_no = 2'];
-}
-if ($this->ci->input->post('products_3')) {
-    $where = [];
-    $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
-    array_push($where,'AND '.db_prefix().'stock_categories.order_no = 3');
-    // $where = ['AND '.db_prefix().'stock_categories.order_no = 3'];
-}
+$this->ci->load->model('warehouses_model');
+$pricing_categories  = $this->ci->warehouses_model->get_stock_categories_finished();
+$pricing_categoriesIds = [];
 
+foreach ($pricing_categories as $category) {
+    if ($this->ci->input->post('products_' . $category['order_no'])) {
+        array_push($pricing_categoriesIds, $category['order_no']);
+    }
+}
+if (count($pricing_categoriesIds) > 0) {
+    array_push($filter, 'AND tblstock_lists.category IN (' . implode(', ', $pricing_categoriesIds) . ')');
+}
+if (count($filter) > 0) {
+    array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
+}
+// array_push($where, 'AND '.db_prefix().'package_group.default_pack = 1');
 // $where = ['AND '.db_prefix().'package_group.default_pack = 1'];
-
-// if (count($filter) > 0) {
-//     $where = [];
-//     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
-// }
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join ,$where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
+// print_r($rResult);exit();
 foreach ($rResult as $aRow) {
     $row = [];
     for ($i = 0; $i < count($aColumns); $i++) {

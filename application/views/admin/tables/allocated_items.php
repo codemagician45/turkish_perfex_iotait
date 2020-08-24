@@ -16,7 +16,7 @@ $sTable       = db_prefix() . 'allocated_items';
 
 $join = [
     'LEFT JOIN ' . db_prefix() . 'stock_lists ON ' . db_prefix() . 'stock_lists.id = ' . db_prefix() . 'allocated_items.allocation_product_code',
-    'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.id = ' . db_prefix() . 'allocated_items.stock_category',
+    'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.cate_id = ' . db_prefix() . 'allocated_items.stock_category',
 ];
 
 $additionalSelect = [
