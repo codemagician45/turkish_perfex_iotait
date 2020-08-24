@@ -58,7 +58,7 @@ class Manufacturing_settings_model extends App_Model
 
                 $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($price_calc_value->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
 
-                $expected_profit = $value['machine_profit_expected']/((3600/($value['cycle_time']*$value['mould_cavity']))*$value['work_hour_capacity']);
+                $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$value['work_hour_capacity']);
 
                 $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.' where default_machine ='.$machine->id);
 
@@ -374,7 +374,7 @@ class Manufacturing_settings_model extends App_Model
 
                 $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($price_calc_value->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
 
-                $expected_profit = $value['machine_profit_expected']/((3600/($value['cycle_time']*$value['mould_cavity']))*$data['capacity_hours']);
+                $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
 
                 $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.' where id ='.$value['id']);
 

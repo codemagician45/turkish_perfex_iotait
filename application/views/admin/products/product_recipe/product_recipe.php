@@ -241,7 +241,7 @@
                 table_row += '<td><div class="checkbox" style="margin-top: 8px; padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][pre_produced]"  data-pre-check value="0" ><label for="pre_produced"></label></div></td>';
             }
 
-            table_row += '<td><input type="number" name="newitems[' + item_key + '][used_qty]" data-qty class="form-control" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
+            table_row += '<td><input type="number" name="newitems[' + item_key + '][used_qty]" data-qty class="form-control" onkeyup = "material_cost_calc_for_added(this)" step="any" onchange = "material_cost_calc_for_added(this)" value="' + data.used_qty + '"></td>';
 
             if(checks.prop("checked") == true) {
 
@@ -468,7 +468,7 @@
                 {
                     var cycleTime = $(row).parents('tr').children()[8].firstChild.value;
                     var profitExp = defaultMachineData.profit_expectation;
-                    expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity)*workHour)).toFixed(2);
+                    expectedProfitCost = (profitExp/(((3600/cycleTime)*mouldCavity)*workHour)).toFixed(2);
                     $(row).parents('tr').find('[data-expected-profit]').val(expectedProfitCost);
                     calculate_total_recipe()
                 }
@@ -506,8 +506,8 @@
         {
             var cycleTime = $('input[name = "cycle_time"]').val();
             var profitExp = defaultMachineData.profit_expectation;
-
-            expectedProfitCost = (profitExp/(3600/(cycleTime*mouldCavity)*workHour)).toFixed(2);
+            console.log(profitExp)
+            expectedProfitCost = (profitExp/(((3600/cycleTime)*mouldCavity)*workHour)).toFixed(2);
             $('input[name=expected_profit]').val(expectedProfitCost);
             calculate_total_recipe()
         }

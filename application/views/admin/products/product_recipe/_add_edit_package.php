@@ -9,14 +9,14 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->other_cost : '');
-                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('placeholder' => _l('other_cost')),[],'','base_cal'); ?>
+                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('placeholder' => _l('other_cost'),'step'=>"any"),[],'','base_cal'); ?>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->op_cost_per_sec : '');
-                echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec')),[],'','base_cal'); ?>
+                echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec'),'step'=>"any"),[],'','base_cal'); ?>
         </div>
         <div class="col-md-4">
             <?php 
@@ -69,7 +69,7 @@
                         </div>
                     </td>
                     <td>
-                        <input type="number" name="used_qty" class="form-control material" onkeyup="material_cost_calc()" onchange="material_cost_calc()">
+                        <input type="number" name="used_qty" step="any" class="form-control material" onkeyup="material_cost_calc()" onchange="material_cost_calc()">
                     </td>
                     <td>
                         <input type="number" name="rate_of_waste"  class="form-control material" onkeyup="material_cost_calc()" onchange="material_cost_calc()">
@@ -167,7 +167,7 @@
 
                         }
                         
-                        $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][used_qty]" class="form-control material" value="'.$item['used_qty'].'" data-qty onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
+                        $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][used_qty]" class="form-control material" step="any" value="'.$item['used_qty'].'" data-qty onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][rate_of_waste]" class="form-control material" value="'.$item['rate_of_waste'].'" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
 
