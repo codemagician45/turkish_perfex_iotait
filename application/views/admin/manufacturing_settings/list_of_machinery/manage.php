@@ -102,8 +102,8 @@
             if (typeof(id) !== 'undefined') {
                 $('input[name="machineID"]').val(id);
                 var name = $(button).parents('tr').find('td').eq(0).find('span.name').text();
-                var profit_expectation = $(button).parents('tr').find('td').eq(1).text();
-                var power_usage = $(button).parents('tr').find('td').eq(2).text();
+                var power_usage = $(button).parents('tr').find('td').eq(1).text();
+                var profit_expectation = $(button).parents('tr').find('td').eq(2).text();
                 var order_no = $(button).parents('tr').find('td').eq(5).text();
                 $('#list_machine_modal .add-title').addClass('hide');
                 $('#list_machine_modal .edit-title').removeClass('hide');
