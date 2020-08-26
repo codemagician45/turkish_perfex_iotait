@@ -229,6 +229,16 @@ class Warehouses extends AdminController
         }
     }
 
+    public function check_duplicate_product_code()
+    {
+       $product_code = trim($this->input->post('product_code'));
+        $response    = [
+            'exists'  => (bool) total_rows(db_prefix() . 'stock_lists', ['product_code' => $product_code]) > 0,
+            'message' => _l('product_exists_info', '<b>' . $product_code . '</b>'),
+        ];
+        echo json_encode($response);
+    }
+
     /* Get stock_list by id / ajax */
     public function get_stock_list_by_id($id)
     {

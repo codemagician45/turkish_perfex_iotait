@@ -51,6 +51,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<?php echo render_input('product_code',_l('product_code'),'','text'); ?>
+						<div id="product_exists_info" class="hide"></div>
 						<?php echo render_input('product_photo',_l('product_photo'),'','file'); ?>
 						<?php echo render_input('product_name',_l('product_name'),'','text'); ?>
 						<?php echo render_select('unit',$stock_units,array('unitid','name'),_l('unit')); ?>
@@ -62,16 +63,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="warehouse_qty">
-							<!-- <label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label>
-							<table width="100%" style="border:1px solid;">
-								<thead style="border:1px solid;">
-									<th width="60%" class="ware-trans-th"><?php echo _l('warehouse_name')?></th>
-									<th width="40%" class="ware-trans-th"><?php echo _l('transaction_qty')?></th>
-								</thead>
-								<tbody style="border:1px solid #bfcbd9;">
-
-								</tbody>
-							</table> -->
 						</div>
 					</div>
 				</div>
@@ -79,7 +70,7 @@
 
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _l('close'); ?></button>
-				<button type="submit" class="btn btn-info"><?php echo _l('submit'); ?></button>
+				<button type="submit" id="submit" class="btn btn-info"><?php echo _l('submit'); ?></button>
 				<?php echo form_close(); ?>
 			</div>
 		</div>
@@ -128,10 +119,7 @@
                     $stockListModal.find('#price').val(response.price);
                     $stockListModal.find('#unit').selectpicker('val', response.unit);
                     $stockListModal.find('#category').selectpicker('val', response.order_no);
-                    console.log(response)
-                    // if(response.category == 2){
-                    //     $('[data-id="category"]').prop('disabled', true);
-                    // }
+
                     if(response.order_no == 2 || response.order_no == 3)
                     {
                     	$('input[name="price"]').prop('disabled',true)
@@ -143,7 +131,7 @@
                 //Apeending Warehouse and transaction qty from transfer..
                 var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
                 requestGetJSON(tranferReqUrl).done(function (results) {
-                	// console.log(results);
+
                 	$('.warehouse_qty').empty();
                 	if(results.length > 0)
                 	{
@@ -158,11 +146,37 @@
                 		$('.warehouse_qty').append(data_row);
                 	}
                 });
-
 			}
+
+			$('input[name="product_code"]').keyup(function(){
+				var product = $(this).val();
+				console.log(product)
+			    var $productExistsDiv = $('#product_exists_info');
+
+			    if(product == '') {
+			        $productExistsDiv.addClass('hide');
+			        return;
+			    }
+
+			    $.post(admin_url+'warehouses/check_duplicate_product_code', {product_code:product})
+			    .done(function(response) {
+			        if(response) {
+			            response = JSON.parse(response);
+			            if(response.exists == true) {
+			                $productExistsDiv.removeClass('hide');
+			                $productExistsDiv.html('<div class="info-block mbot15">'+response.message+'</div>');
+			                $('#submit').prop('disabled',true);
+
+			            } else {
+			                $productExistsDiv.addClass('hide');
+			                $('#submit').prop('disabled',false);
+			            }
+			        }
+			    });
+			})
 		});
 	});
-	/* CURRENCY MANAGE FUNCTIONS */
+
 	function manage_stock_lists(form) {
 		var formData = new FormData($(form)[0]);
 		$.ajax({
@@ -192,12 +206,6 @@
 			$('input[name="price"]').prop('disabled',false)
 		}
 	})
-	// if($('select[name="category"]').val() == 2 || $('select[name="category"]').val() == 3 )
-	// {
-	// 	$('input[name="price"]').prop('disabled',true)
-	// } else {
-	// 	$('input[name="price"]').prop('disabled',false)
-	// }
 </script>
 </body>
 </html>
