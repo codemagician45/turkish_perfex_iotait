@@ -185,6 +185,7 @@ class Proposals_model extends App_Model
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();
         // print_r($insert_id); exit();
+        $this->load->model('warehouses_model');
         if ($insert_id) {
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
@@ -196,6 +197,8 @@ class Proposals_model extends App_Model
                     $val['rel_type'] = 'proposal';
                     if(isset($val['approval_need']))
                         $val['approval_need'] = 1;
+                    $product_code = $this->warehouses_model->stock_list_get($val['rel_product_id'])->product_code;
+                    $val['product_code'] = $product_code;
                     $this->db->insert(db_prefix() . 'itemable', $val);
                     $insert_item_id = $this->db->insert_id();
                     // return $insert_item_id;
@@ -361,13 +364,15 @@ class Proposals_model extends App_Model
         if ($this->db->affected_rows() > 0) {
             $affectedRows++;
         }
-
+        $this->load->model('warehouses_model');
         if(isset($newitems))
             foreach ($newitems as $val) {
                 unset($val['itemid']);
-                // $val['rel_product_id'] = $rel_product_id;
+                
                 $val['rel_id'] = $id;
                 $val['rel_type'] = 'proposal';
+                $product_code = $this->warehouses_model->stock_list_get($val['rel_product_id'])->product_code;
+                $val['product_code'] = $product_code;
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
                 $this->db->insert(db_prefix() . 'itemable', $val);
@@ -382,7 +387,9 @@ class Proposals_model extends App_Model
                 unset($val['itemid']);
                 if(isset($val['approval_need']))
                     $val['approval_need'] = 1;
-                // print_r($val); exit();
+ 
+                $product_code = $this->warehouses_model->stock_list_get($val['rel_product_id'])->product_code;
+                $val['product_code'] = $product_code;
                 $this->db->where('id',$itemid);
                 $this->db->update(db_prefix() . 'itemable', $val);
                 if ($this->db->affected_rows() > 0) {

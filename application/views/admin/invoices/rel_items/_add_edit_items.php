@@ -10,6 +10,7 @@
       <table class="table estimate-items-table items wo-items table-main-estimate-edit has-calculations no-mtop">
          <thead>
             <tr>
+              <th width="12%" align="center"><?php echo _l('product_code'); ?></th>
               <th width="12%" align="center"><?php echo _l('product_name'); ?></th>
               <th width="12%" align="center"><?php echo _l('pack_capacity'); ?></th>
               <th width="12%" align="center"><?php echo _l('qty'); ?></th>
@@ -109,6 +110,8 @@
                  // $table_row .= '<td class="dragger">';
                
                  $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][itemid]', $item['id']);
+
+                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" value="' . $item['product_code'] . '" disabled></td>';
 
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '" disabled><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
 

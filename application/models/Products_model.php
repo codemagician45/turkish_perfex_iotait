@@ -33,11 +33,14 @@ class Products_model extends App_Model
 
     public function add_product_recipe_item($data)
     {
+        $this->load->model('warehouses_model');
         $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
         foreach ($data as $val) {
             unset($val['item_id']);
             $val['rel_product_id'] = $rel_product_id;
+            $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
+            $val['product_code'] = $product_code;
             $this->db->insert(db_prefix() . 'product_recipe', $val);
             $insert_id = $this->db->insert_id();
         }
@@ -47,15 +50,19 @@ class Products_model extends App_Model
     public function update_product_recipe_item($data)
     {
         // print_r($data); exit;
+        $this->load->model('warehouses_model');
         $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
-
+        $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
+        
         if(isset($data['newitems']))
         {
             $newitems = $data['newitems'];
             foreach ($newitems as $key => $item) {
                 unset($item['item_id']);
                 $item['rel_product_id'] = $rel_product_id;
+                
+                $item['product_code'] = $product_code;
                 $this->db->insert(db_prefix() . 'product_recipe', $item);
                 $insert_id = $this->db->insert_id();
             }
@@ -66,6 +73,7 @@ class Products_model extends App_Model
                 $id = $item['item_id'];
                 unset($item['item_id']);
                 $this->db->where('id',$id);
+                $item['product_code'] = $product_code;
                 $this->db->update(db_prefix().'product_recipe',$item);
             }
         }
