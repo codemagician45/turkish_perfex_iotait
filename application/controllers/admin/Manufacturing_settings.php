@@ -444,4 +444,50 @@ class Manufacturing_settings extends AdminController
             echo json_encode($energy_price);
         }
     }
+
+    public function get_operation_cost()
+    {
+        if ($this->input->is_ajax_request()) {
+            $operation_cost = $this->manufacturing_settings_model->get_operation_cost();
+            echo json_encode($operation_cost);
+        }
+    }
+
+    public function op_cost_per_sec()
+    {
+        if ($this->input->is_ajax_request()) {
+           $this->app->get_table_data('operation_cost');
+       }
+
+        $data['title'] = _l('op_cost_per_sec');
+        $this->load->view('admin/manufacturing_settings/op_cost_per_sec/manage', $data);
+    }
+
+    public function manage_op_cost_per_sec()
+    {
+        if ($this->input->post()) {
+            $data = $this->input->post();
+            if ($data['opcid'] == '') {
+                $success = $this->manufacturing_settings_model->add_op_cost_per_sec($data);
+                $message = '';
+                if ($success == true) {
+                    $message = _l('added_successfully', _l('op_cost_per_sec'));
+                }
+                echo json_encode([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            } else {
+                $success = $this->manufacturing_settings_model->edit_op_cost_per_sec($data);
+                $message = '';
+                if ($success == true) {
+                    $message = _l('updated_successfully', _l('op_cost_per_sec'));
+                }
+                echo json_encode([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            }
+        }
+    }
 }

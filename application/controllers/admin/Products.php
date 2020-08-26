@@ -51,9 +51,10 @@ class Products extends AdminController
             $pricing_calc_data = [];
             $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
             $pricing_calc_data['other_cost'] = $data['other_cost'];
-            $pricing_calc_data['op_cost_per_sec'] = $data['op_cost_per_sec'];
+            // $pricing_calc_data['op_cost_per_sec'] = $data['op_cost_per_sec'];
             $pricing_calc_data['price'] = $data['total'];
             $pricing_calc_data['ins_cost'] = $data['ins_cost'];
+            $pricing_calc_data['ins_time'] = $data['consumed_time'];
             $pricing_calc_data['last_calc_date'] = date('Y-m-d h:i:s');
             $pricing_calc_data['rel_product_id'] = $id;
             $current_pricing_calc_data = $this->products_model->get_pricing_calc($id);

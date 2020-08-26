@@ -209,6 +209,13 @@ function app_init_admin_sidebar_menu_items()
             'position' => 25,
         ]);
 
+        $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
+            'slug'     => 'op_cost_per_sec',
+            'name'     => _l('op_cost_per_sec'),
+            'href'     => admin_url('manufacturing_settings/op_cost_per_sec'),
+            'position' => 30,
+        ]);
+
     // Sales 
 
     $CI->app_menu->add_sidebar_menu_item('sales', [

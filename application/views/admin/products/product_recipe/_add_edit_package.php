@@ -13,18 +13,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->op_cost_per_sec : '');
                 echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec'),'step'=>"any"),[],'','base_cal'); ?>
-        </div>
-        <div class="col-md-4">
+        </div> -->
+        <div class="col-md-6">
             <?php 
                 $value = (isset($install_time) ? $install_time->consumed_time : '');
                 echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('placeholder' => _l('installation_consumed_time')),[],'','base_cal'); ?>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-6">
            <?php 
             $value = (isset($pricing_calc_data) ? $pricing_calc_data->ins_cost : '');
             echo render_input('ins_cost', _l('installation_cost'), $value, 'number', array('placeholder' => _l('installation_cost'))); ?>
@@ -115,7 +115,7 @@
                         <input type="hidden" name="machine_power_expected" class="machine_power_expected">
                         <!-- <input type="hidden" name="work_hour_id" class="work_hour_id"> -->
                         <input type="hidden" name="work_hour_capacity" class="work_hour_capacity">
-                        <!-- <input type="hidden" name="energy_price_id" class="energy_price_id"> -->
+                        <input type="hidden" name="operation_cost" class="operation_cost">
                         <input type="hidden" name="energy_price_value" class="energy_price_value">
                     </td>
                     <td>
@@ -201,6 +201,7 @@
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_profit_expected]" class="machine_profit_expected" value="'.$item['machine_profit_expected'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_power_expected]" class="machine_power_expected" value="'.$item['machine_power_expected'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][work_hour_capacity]" class="work_hour_capacity" value="'.$item['work_hour_capacity'].'">
+                            <input type="hidden" name="'.$items_indicator.'['.$i.'][operation_cost]" class="operation_cost" value="'.$item['operation_cost'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][energy_price_value]" class="energy_price_value" value="'.$item['energy_price_value'].'">
                         </td>';
 

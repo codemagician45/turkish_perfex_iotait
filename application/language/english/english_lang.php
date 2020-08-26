@@ -3762,7 +3762,6 @@ $lang['product_recipe'] = 'Product Recipe';
 $lang['product_category'] = 'Product Category';
 $lang['other_cost_details'] = 'Other Cost Details';
 $lang['other_cost'] = 'Other Cost';
-$lang['op_cost_per_sec'] = 'Operator Cost Per Sec';
 $lang['installation_consumed_time'] = 'Installation Consumed Time';
 $lang['pre_produced'] = 'Pre-Produced';
 $lang['used_qty'] = 'Used Qty';
@@ -3825,6 +3824,9 @@ $lang['edit_installation'] = 'Edit Installation';
 $lang['add_installation'] = 'Add Installation';
 $lang['take_from'] = 'Take From';
 $lang['export_to'] = 'Export To';
+
+$lang['edit_op_cost_per_sec'] = 'Edit Operator Cost Per Sec';
+$lang['op_cost_per_sec'] = 'Operator Cost Per Sec';
 
 /* Sales */
 $lang['quotation/offer'] = 'Quotation/Offer';
