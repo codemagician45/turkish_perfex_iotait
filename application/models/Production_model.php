@@ -62,7 +62,7 @@ class Production_model extends App_Model
             $plus_transfer_stock = [];
             $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
             $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
-
+            $plus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
             // $this->db->where('p_qty_id',$data['p_qty_id']);
             // $produced_qty = $this->db->get(db_prefix().'produced_qty')->row();
             // $plus_transfer_stock = [];
@@ -101,13 +101,14 @@ class Production_model extends App_Model
                 $minus_transfer_stock['transaction_to'] = NULL;
                 $minus_transfer_stock['transaction_qty'] = $res->used_qty;
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
+                $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
 
                 $plus_transfer_stock = [];
                 $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
                 $plus_transfer_stock['transaction_from'] = NULL;
                 $plus_transfer_stock['transaction_to'] = $export_to;
                 $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
-                $plus_transfer_stock['wo_no'] = $res->rel_wo_id;
+                $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
 
                 $this->load->model('warehouses_model');
                 $minus_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);

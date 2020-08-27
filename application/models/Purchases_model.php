@@ -193,9 +193,10 @@ class Purchases_model extends App_Model
                     $transfer = [];
                     $transfer['stock_product_code'] = $val['product_id'];
                     $transfer['purchase_id'] = $rel_purchase_id;
+                    $transfer['transaction_notes'] = 'S.AL-'.$rel_purchase_id;
                     $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
                     $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                    $transfer['transaction_notes'] = $val['notes'];
+                    // $transfer['transaction_notes'] = $val['notes'];
                     $transfer['transaction_qty'] = $val['received_qty'];
                     $transfer['date_and_time'] = date('Y-m-d h:i:s');
                     $this->load->model('warehouses_model');
@@ -223,9 +224,10 @@ class Purchases_model extends App_Model
                         $transfer = [];
                         $transfer['stock_product_code'] = $val['product_id'];
                         $transfer['purchase_id'] = $rel_purchase_id;
+                        $transfer['transaction_notes'] = 'S.AL-'.$rel_purchase_id;
                         $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
                         $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                        $transfer['transaction_notes'] = $val['notes'];
+                        // $transfer['transaction_notes'] = $val['notes'];
                         $transfer['transaction_qty'] = $val['received_qty'];
                         $transfer['date_and_time'] = date('Y-m-d h:i:s');
                         $this->load->model('warehouses_model');
@@ -240,7 +242,8 @@ class Purchases_model extends App_Model
                         $transfer['purchase_id'] = $rel_purchase_id;
                         $transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 1')->row()->id;
                         $transfer['transaction_to'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                        $transfer['transaction_notes'] = $val['notes'];
+                        // $transfer['transaction_notes'] = $val['notes'];
+                        $transfer['transaction_notes'] = 'S.AL-'.$rel_purchase_id;
                         $transfer['transaction_qty'] = $val['received_qty'];
                         $transfer['date_and_time'] = date('Y-m-d h:i:s');
                         $transfer['delta'] = $val['received_qty']-$last_qty;

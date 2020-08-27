@@ -1730,6 +1730,7 @@ class Invoices_model extends App_Model
                 $plus_transfer_stock['transaction_to'] = $export_to;
                 $plus_transfer_stock['transaction_qty'] = $val['produced_qty'];
                 $plus_transfer_stock['wo_no'] = $id;
+                $plus_transfer_stock['transaction_notes'] = 'WO-'.$id;
 
                 $this->db->where('id',$itemid);
                 $item = $this->db->get(db_prefix().'itemable')->row();
@@ -1827,7 +1828,7 @@ class Invoices_model extends App_Model
                 $minus_transfer_stock['transaction_to'] = NULL;
                 $minus_transfer_stock['transaction_qty'] = $temp['used_qty'];
                 $minus_transfer_stock['wo_no'] = $id;
-
+                $minus_transfer_stock['transaction_notes'] = 'WO-'.$id;
                 $this->db->where('id',$recipe_id);
                 $recipe = $this->db->get(db_prefix().'plan_recipe')->row();
                 $this->load->model('warehouses_model');
