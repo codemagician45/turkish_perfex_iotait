@@ -68,6 +68,21 @@ if (count($wo_phasesIds) > 0) {
     array_push($filter, 'AND wo_phase_id IN (' . implode(', ', $wo_phasesIds) . ')');
 }
 
+$field = db_prefix().'invoices.datecreated';
+$from_date = to_sql_date($this->ci->input->post('report_from'));
+$to_date   = to_sql_date($this->ci->input->post('report_to'));
+$custom_date_select = '';
+if($from_date != '')
+    if ($from_date == $to_date) {
+        $custom_date_select = 'AND ' . $field . ' = "' . $this->ci->db->escape_str($from_date) . '"';
+    } else {
+        $custom_date_select = 'AND (' . $field . ' BETWEEN "' . $this->ci->db->escape_str($from_date) . '" AND "' . $this->ci->db->escape_str($to_date) . '")';
+    }
+
+if ($custom_date_select != '') {
+    array_push($filter, $custom_date_select);
+}
+
 if (count($filter) > 0) {
     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
 }

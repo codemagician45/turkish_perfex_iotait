@@ -78,6 +78,30 @@
 
 							</div>
 						</div>
+
+						<div id="date-range" class="mbot15">
+	                        <div class="row">
+	                           <div class="col-md-3">
+	                              <label for="report-from" class="control-label"><?php echo _l('report_sales_from_date'); ?></label>
+	                              <div class="input-group date">
+	                                 <input type="text" class="form-control datepicker" id="report-from" name="report-from">
+	                                 <div class="input-group-addon">
+	                                    <i class="fa fa-calendar calendar-icon"></i>
+	                                 </div>
+	                              </div>
+	                           </div>
+	                           <div class="col-md-3">
+	                              <label for="report-to" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
+	                              <div class="input-group date">
+	                                 <input type="text" class="form-control datepicker" disabled="disabled" id="report-to" name="report-to">
+	                                 <div class="input-group-addon">
+	                                    <i class="fa fa-calendar calendar-icon"></i>
+	                                 </div>
+	                              </div>
+	                           </div>
+	                        </div>
+	                     </div>
+	                     
 						<div class="clearfix"></div>
             			<hr class="hr-panel-heading" />
             			<div class="clearfix"></div>
@@ -155,7 +179,11 @@
 	            }
 	    })
 
-	    var fnServerParams = {};
+	    var fnServerParams = {
+	    	"report_from": '[name="report-from"]',
+   			"report_to": '[name="report-to"]',
+	    };
+
 	    $.each($('._hidden_inputs._filters.staffs input'),function(){
 	       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
 	     });
@@ -168,6 +196,36 @@
 	    $.each($('._hidden_inputs._filters.sale_phases input'),function(){
 	       fnServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
 	     });
+
+	    var report_from = $('input[name="report-from"]');
+ 		var report_to = $('input[name="report-to"]');
+
+ 		report_from.on('change', function() {
+		    var val = $(this).val();
+		    var report_to_val = report_to.val();
+		    if (val != '') {
+		       report_to.attr('disabled', false);
+		       if (report_to_val != '') {
+		         filter_by_date();
+		       }
+		     } else {
+		       report_to.attr('disabled', true);
+		     }
+		});
+
+	    report_to.on('change', function() {
+		    var val = $(this).val();
+		    if (val != '') {
+		       filter_by_date();
+		     }
+		});
+
+		function filter_by_date() {
+	     if ($.fn.DataTable.isDataTable('.table-sale-report')) {
+	       $('.table-sale-report').DataTable().destroy();
+	     }
+	     initDataTable('.table-sale-report', window.location.href,[],[],fnServerParams,[0, 'asc']);
+	   }
 
 		initDataTable('.table-sale-report', window.location.href,[],[],fnServerParams,[0, 'asc']);
 	});
