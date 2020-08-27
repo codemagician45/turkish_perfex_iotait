@@ -4,6 +4,7 @@
       <div class="col-md-12" id="small-table">
          <div class="panel_s">
             <div class="panel-body">
+               
                <div class="horizontal-tabs">
                   <ul class="nav nav-tabs nav-tabs-horizontal" role="tablist">
                      <li role="presentation" class="active">
@@ -28,7 +29,6 @@
                         <?php $this->load->view('admin/invoices/table1_html'); ?>
                      </div>
                   </div>
-
                </div>
                
             </div>

@@ -48,7 +48,7 @@ foreach ($custom_fields as $key => $field) {
     array_push($join, 'LEFT JOIN ' . db_prefix() . 'customfieldsvalues as ctable_' . $key . ' ON ' . db_prefix() . 'estimates.id = ctable_' . $key . '.relid AND ctable_' . $key . '.fieldto="' . $field['fieldto'] . '" AND ctable_' . $key . '.fieldid=' . $field['id']);
 }
 
-$where  = [' AND '.db_prefix().'estimates.active=1'];
+$where  = [' AND '.db_prefix().'estimates.active=0'];
 $filter = [];
 
 if ($this->ci->input->post('not_sent')) {

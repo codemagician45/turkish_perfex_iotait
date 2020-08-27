@@ -76,6 +76,17 @@ class Estimates extends AdminController
         ]);
     }
 
+    public function table1($clientid = '')
+    {
+        if (!has_permission('estimates', '', 'view') && !has_permission('estimates', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == '0') {
+            ajax_access_denied();
+        }
+
+        $this->app->get_table_data('estimates1', [
+            'clientid' => $clientid,
+        ]);
+    }
+
     /* Add new estimate or update existing */
     public function estimate($id = '')
     {
@@ -791,6 +802,13 @@ class Estimates extends AdminController
                 $duedate = _d($d);
                 echo $duedate;
             }
+        }
+    }
+
+    public function change_so_status($id, $status)
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->estimates_model->change_so_status($id, $status);
         }
     }
 }

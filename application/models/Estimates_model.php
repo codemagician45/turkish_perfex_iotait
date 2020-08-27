@@ -1516,4 +1516,25 @@ class Estimates_model extends App_Model
         }
         return $this->db->get(db_prefix() . 'itemable')->result_array();
     }
+
+    public function change_so_status($id, $status)
+    {
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'estimates', [
+            'active' => $status,
+        ]);
+
+        if ($this->db->affected_rows() > 0) {
+            hooks()->do_action('so_status_changed', [
+                'id'     => $id,
+                'status' => $status,
+            ]);
+
+            log_activity('Sale Order Status Changed [ID: ' . $id . ' Status(Active/Inactive): ' . $status . ']');
+
+            return true;
+        }
+
+        return false;
+    }
 }

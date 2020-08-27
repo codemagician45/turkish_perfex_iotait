@@ -2118,6 +2118,7 @@ $(function () {
     table_invoices = $('table.table-invoices');
     table_invoices1 = $('table.table-invoices1');
     table_estimates = $('table.table-estimates');
+    table_estimates1 = $('table.table-estimates1');
 
     if (table_invoices.length > 0 || table_estimates.length > 0) {
 
@@ -2148,6 +2149,14 @@ $(function () {
         if (table_estimates.length) {
             // Estimates table
             initDataTable(table_estimates, admin_url + 'estimates/table', 'undefined', 'undefined', Invoices_Estimates_ServerParams, [
+                [3, 'desc'],
+                [0, 'desc']
+            ]);
+        }
+
+        if (table_estimates1.length) {
+            // Estimates table
+            initDataTable(table_estimates1, admin_url + 'estimates/table1', 'undefined', 'undefined', Invoices_Estimates_ServerParams, [
                 [3, 'desc'],
                 [0, 'desc']
             ]);
@@ -7808,5 +7817,15 @@ function quote_refresh(){
 
     setTimeout(function () {
         $('.table-proposals1').DataTable().ajax.reload(null, false);
+    }, 30);
+}
+
+function so_refresh(){
+    setTimeout(function () {
+        $('.table-estimates').DataTable().ajax.reload(null, false);
+    }, 30);
+
+    setTimeout(function () {
+        $('.table-estimates1').DataTable().ajax.reload(null, false);
     }, 30);
 }

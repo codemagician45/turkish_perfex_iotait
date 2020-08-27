@@ -3977,4 +3977,5 @@ $lang['active_wo_orders'] = 'Active Work Orders';
 $lang['archive_wo_orders'] = 'Archived Work Orders';
 $lang['active_quotation'] = 'Active Quotation';
 $lang['archived_quotation'] = 'Archived Quotation';
-
+$lang['active_sale_orders'] = 'Active Sale Orders';
+$lang['archived_sale_orders'] = 'Archived Sale Orders';
