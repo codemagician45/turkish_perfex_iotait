@@ -76,6 +76,23 @@ class Invoices extends AdminController
         ]);
     }
 
+    public function table1($clientid = '')
+    {
+        if (!has_permission('invoices', '', 'view')
+            && !has_permission('invoices', '', 'view_own')
+            && get_option('allow_staff_view_invoices_assigned') == '0') {
+            ajax_access_denied();
+        }
+
+        $this->load->model('payment_modes_model');
+        $data['payment_modes'] = $this->payment_modes_model->get('', [], true);
+
+        $this->app->get_table_data(($this->input->get('recurring') ? 'recurring_invoices' : 'invoices1'), [
+            'clientid' => $clientid,
+            'data'     => $data,
+        ]);
+    }
+
     public function client_change_data($customer_id, $current_invoice = '')
     {
         if ($this->input->is_ajax_request()) {
@@ -907,4 +924,10 @@ class Invoices extends AdminController
         }
     }
 
+    public function change_wo_status($id, $status)
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->invoices_model->change_wo_status($id, $status);
+        }
+    }
 }

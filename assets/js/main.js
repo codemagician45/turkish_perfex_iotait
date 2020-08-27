@@ -2116,6 +2116,7 @@ $(function () {
     }
 
     table_invoices = $('table.table-invoices');
+    table_invoices1 = $('table.table-invoices1');
     table_estimates = $('table.table-estimates');
 
     if (table_invoices.length > 0 || table_estimates.length > 0) {
@@ -2134,6 +2135,14 @@ $(function () {
                 [3, 'desc'],
                 [0, 'desc']
             ] : [table_invoices.find('th.next-recurring-date').index(), 'asc']);
+        }
+
+        if (table_invoices1.length) {
+            // Invoices tables
+            initDataTable(table_invoices1, (admin_url + 'invoices/table1' + ($('body').hasClass('recurring') ? '?recurring=1' : '')), 'undefined', 'undefined', Invoices_Estimates_ServerParams, !$('body').hasClass('recurring') ? [
+                [3, 'desc'],
+                [0, 'desc']
+            ] : [table_invoices1.find('th.next-recurring-date').index(), 'asc']);
         }
 
         if (table_estimates.length) {
@@ -5912,6 +5921,10 @@ function init_invoice(id) {
     load_small_table_item(id, '#invoice', 'invoiceid', 'invoices/get_invoice_data_ajax', '.table-invoices');
 }
 
+function init_invoice1(id) {
+    load_small_table_item(id, '#invoice', 'invoiceid', 'invoices/get_invoice_data_ajax', '.table-invoices1');
+}
+
 // Init single credit note
 function init_credit_note(id) {
     load_small_table_item(id, '#credit_note', 'credit_note_id', 'credit_notes/get_credit_note_data_ajax', '.table-credit-notes');
@@ -7778,3 +7791,12 @@ $('#proposal-form').submit(function () {
 });
 
 
+function wo_refresh(){
+    setTimeout(function () {
+        $('.table-invoices').DataTable().ajax.reload(null, false);
+    }, 30);
+
+    setTimeout(function () {
+        $('.table-invoices1').DataTable().ajax.reload(null, false);
+    }, 30);
+}

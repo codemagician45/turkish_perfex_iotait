@@ -3972,3 +3972,7 @@ $lang['gross_profit'] = 'Gross Profit';
 
 $lang['current_phase'] = 'Current Phase';
 
+/* archieved*/
+$lang['active_wo_orders'] = 'Active Work Orders';
+$lang['archive_wo_orders'] = 'Archive(Inactive) Work Orders';
+

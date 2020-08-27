@@ -1880,4 +1880,25 @@ class Invoices_model extends App_Model
             $this->db->delete(db_prefix() . 'rel_wo_items');
         }
     }
+
+    public function change_wo_status($id, $status)
+    {
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'invoices', [
+            'active' => $status,
+        ]);
+
+        if ($this->db->affected_rows() > 0) {
+            hooks()->do_action('wo_status_changed', [
+                'id'     => $id,
+                'status' => $status,
+            ]);
+
+            log_activity('Work Order Status Changed [ID: ' . $id . ' Status(Active/Inactive): ' . $status . ']');
+
+            return true;
+        }
+
+        return false;
+    }
 }
