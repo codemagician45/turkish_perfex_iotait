@@ -9,16 +9,16 @@
       <table class="table estimate-items-table items wo-items table-main-estimate-edit has-calculations no-mtop">
          <thead>
             <tr>
-              <th width="12%" align="center"><?php echo _l('product_code'); ?></th>
-              <th width="12%" align="center"><?php echo _l('product_name'); ?></th>
-              <th width="12%" align="center"><?php echo _l('pack_capacity'); ?></th>
-              <th width="12%" align="center"><?php echo _l('qty'); ?></th>
-              <th width="12%" align="center"><?php echo _l('produced_qty'); ?></th>
-              <th width="12%" align="center"><?php echo _l('unit'); ?></th>
-              <th width="12%" align="center"><?php echo _l('volume_m3'); ?></th>
-              <th width="4%" align="center"><?php echo _l('approval_need'); ?></th>
+              <th width="24%" align="center"><?php echo _l('product_code'); ?></th>
+              <th width="24%" align="center"><?php echo _l('product_name'); ?></th>
+              <th width="9%" align="center"><?php echo _l('pack_capacity'); ?></th>
+              <th width="9%" align="center"><?php echo _l('qty'); ?></th>
+              <th width="9%" align="center"><?php echo _l('produced_qty'); ?></th>
+              <th width="9%" align="center"><?php echo _l('unit'); ?></th>
+              <th width="9%" align="center"><?php echo _l('volume_m3'); ?></th>
+              <!-- <th width="4%" align="center"><?php echo _l('approval_need'); ?></th> -->
               <th width="12%" align="center"><?php echo _l('notes'); ?></th>
-              <th width="5%" align="center"><i class="fa fa-cog"></i></th>
+              <!-- <th width="5%" align="center"><i class="fa fa-cog"></i></th> -->
             </tr>
          </thead>
          <tbody>
@@ -72,13 +72,13 @@
 
                  $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][volume_m3]" readonly class="form-control volume_m3" value="'.$item['volume_m3'].'"></td>';
 
-                 if ($item['approval_need'] == 1) {
+                 // if ($item['approval_need'] == 1) {
 
-                      $table_row .= '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][approval_need]" disabled><label ></label></div>';
-                  } else {
-                      $table_row .= '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][approval_need]" disabled><label ></label></div>';
+                 //      $table_row .= '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][approval_need]" disabled><label ></label></div>';
+                 //  } else {
+                 //      $table_row .= '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][approval_need]" disabled><label ></label></div>';
 
-                  }
+                 //  }
 
                  $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
                  

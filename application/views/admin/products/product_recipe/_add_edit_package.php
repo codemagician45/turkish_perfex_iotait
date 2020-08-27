@@ -4,12 +4,12 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->other_cost_details : ''); 
-                echo render_input('other_cost_details', _l('other_cost_details'), $value, 'text', array('placeholder' => _l('other_cost_details'))); ?>
+                echo render_input('other_cost_details', _l('other_cost_details'), $value, 'text', array('placeholder' => _l('other_cost_details'),'required' => true)); ?>
         </div>
         <div class="col-md-6">
             <?php 
                 $value = (isset($pricing_calc_data) ? $pricing_calc_data->other_cost : '');
-                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('placeholder' => _l('other_cost'),'step'=>"any"),[],'','base_cal'); ?>
+                echo render_input('other_cost', _l('other_cost'), $value, 'number', array('required' => true,'placeholder' => _l('other_cost'),'step'=>"any"),[],'','base_cal'); ?>
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($install_time) ? $install_time->consumed_time : '');
-                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('placeholder' => _l('installation_consumed_time')),[],'','base_cal'); ?>
+                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('required' => true,'placeholder' => _l('installation_consumed_time')),[],'','base_cal'); ?>
         </div>
 
         <div class="col-md-6">

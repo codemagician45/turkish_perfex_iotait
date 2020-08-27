@@ -537,9 +537,9 @@ class Manufacturing_settings_model extends App_Model
 
                 $total = $price_calc_value->other_cost + $ins_cost + $value['material_cost'] + $production_cost + $value['expected_profit'];
 
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.', ins_cost = '.$ins_cost.' where id ='.$value['id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;

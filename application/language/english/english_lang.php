@@ -3776,7 +3776,7 @@ $lang['installation_cost'] = 'Installation Cost';
 
 /*manufacturing settings*/
 $lang['manufacturing_settings'] = 'Manufacturing Settings';
-$lang['list_of_machinery'] = 'List of Marchinery';
+$lang['list_of_machinery'] = 'List of Machinery';
 $lang['machine'] = 'Machine';
 $lang['new_marchine'] = 'New Marchine';
 $lang['edit_marchine'] = 'Edit Marchine';
