@@ -1158,4 +1158,25 @@ class Proposals_model extends App_Model
 
         return false;
     }
+
+    public function change_quote_status($id, $status)
+    {
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'proposals', [
+            'active' => $status,
+        ]);
+
+        if ($this->db->affected_rows() > 0) {
+            hooks()->do_action('quote_status_changed', [
+                'id'     => $id,
+                'status' => $status,
+            ]);
+
+            log_activity('Quotation Status Changed [ID: ' . $id . ' Status(Active/Inactive): ' . $status . ']');
+
+            return true;
+        }
+
+        return false;
+    }
 }

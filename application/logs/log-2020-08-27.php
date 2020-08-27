@@ -1132,3 +1132,130 @@ ERROR - 2020-08-27 17:20:38 --> Could not find the language line "finance"
 ERROR - 2020-08-27 17:20:38 --> Could not find the language line "products"
 ERROR - 2020-08-27 17:20:39 --> Could not find the language line "finance"
 ERROR - 2020-08-27 17:20:39 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "active_quotation"
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "archived_quotation"
+ERROR - 2020-08-27 17:44:31 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 153
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:44:31 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:04 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:04 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:04 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 153
+ERROR - 2020-08-27 17:45:04 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:04 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:11 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:11 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:12 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:12 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:12 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:12 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:28 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:28 --> Could not find the language line "products"
+ERROR - 2020-08-27 17:45:29 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 153
+ERROR - 2020-08-27 17:45:29 --> Could not find the language line "finance"
+ERROR - 2020-08-27 17:45:29 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:18:14 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:18:14 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:18:14 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:18:17 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:18:17 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:18:57 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:18:57 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:18:57 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:18:57 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 195
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:18:57 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 195
+ERROR - 2020-08-27 18:19:06 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:19:06 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:19:06 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:19:09 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:19:09 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 195
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 194
+ERROR - 2020-08-27 18:19:09 --> Severity: Notice --> Undefined index: id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 195
+ERROR - 2020-08-27 18:19:44 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:19:44 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:19:44 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:19:45 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:19:45 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 136
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 138
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 127
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 136
+ERROR - 2020-08-27 18:19:45 --> Severity: Notice --> Undefined index: tblproposals.id C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\proposals.php 138
+ERROR - 2020-08-27 18:20:41 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:20:41 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:20:43 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:20:43 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:20:43 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:20:43 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:21:44 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:21:44 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:21:44 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:21:45 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:21:45 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:21:46 --> Query error: Column 'id' in field list is ambiguous - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS `tblproposals`.`id` AS `tblproposals.id`, `tblquote_phase`.`phase` AS `tblquote_phase.phase`, proposal_to, `tblpricing_categories`.`name` AS `tblpricing_categories.name`, (SELECT GROUP_CONCAT(name SEPARATOR ",") FROM tbltaggables JOIN tbltags ON tbltaggables.tag_id = tbltags.id WHERE rel_id = tblproposals.id and rel_type="proposal" ORDER by tag_order ASC) as tags, sum_volume_m3, discount_total, total, staff1.firstname as c_firstname, tblproposals.datecreated as datecreated, staff2.firstname as u_firstname, status, `tblproposals`.`active` AS `tblproposals.active` ,id,currency,rel_id,rel_type,invoice_id,hash,staff1.lastname as c_lastname,staff2.lastname as u_lastname,addedfrom,updated_user
+    FROM tblproposals
+    LEFT JOIN tblquote_phase ON tblproposals.quote_phase_id = tblquote_phase.order_no LEFT JOIN tblpricing_categories ON tblproposals.pricing_category_id = tblpricing_categories.order_no LEFT JOIN tblstaff staff1 ON staff1.staffid = tblproposals.addedfrom LEFT JOIN tblstaff staff2 ON staff2.staffid = tblproposals.updated_user
+    
+    WHERE  tblproposals.active=1
+    
+    
+    LIMIT 0, 25
+    
+ERROR - 2020-08-27 18:22:08 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:08 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:22:08 --> Severity: Notice --> Undefined variable: invoiceid C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 154
+ERROR - 2020-08-27 18:22:09 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:09 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:22:15 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:15 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:22:19 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:19 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:22:27 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:27 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:22:28 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:22:28 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:26:03 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:26:03 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:26:03 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:26:03 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:07 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:07 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:08 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:08 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:09 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:09 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:15 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:19 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "products"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "finance"
+ERROR - 2020-08-27 18:28:22 --> Could not find the language line "products"

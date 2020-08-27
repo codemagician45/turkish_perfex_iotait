@@ -103,47 +103,83 @@
                <div class="col-md-12" id="small-table">
                   <div class="panel_s">
                      <div class="panel-body">
-                        <!-- if invoiceid found in url -->
-                        <?php echo form_hidden('proposal_id',$proposal_id); ?>
-                        <?php
-                           // $table_data = array(
-                           //    _l('proposal') . ' #',
-                           //    _l('proposal_subject'),
-                           //    _l('proposal_to'),
-                           //    _l('proposal_total'),
-                           //    _l('proposal_date'),
-                           //    _l('proposal_open_till'),
-                           //    _l('tags'),
-                           //    _l('proposal_date_created'),
-                           //    _l('proposal_status'),
-                           //  );
+                      <div class="horizontal-tabs">
+                        <ul class="nav nav-tabs nav-tabs-horizontal" role="tablist">
+                           <li role="presentation" class="active">
+                              <a href="#active_quotation" aria-controls="active_quotation" role="tab" data-toggle="tab">
+                                 <i class="fa fa-tasks menu-icon"></i> <?php echo _l('active_quotation'); ?>
+                              </a>
+                           </li>
+                           <li role="presentation">
+                              <a href="#archived_quotation" onclick="init_table_staff_projects(true);" aria-controls="archived_quotation" role="tab" data-toggle="tab">
+                              <i class="fa fa-bars menu-icon"></i> <?php echo _l('archived_quotation'); ?>
+                              </a>
+                           </li>
+                        </ul>
+                        <div class="tab-content">
+                           <div role="tabpanel" class="tab-pane active" id="active_quotation">
+                              <!-- if invoiceid found in url -->
+                              <?php echo form_hidden('proposal_id',$proposal_id); ?>
+                              <?php
 
-                           $table_data = array(
-                              _l('quote') . ' #',
-                              _l('quote_phase'),
-                              _l('client'),
-                              _l('pricing_category'),
-                              _l('tags'),
-                              _l('sum_volume_m3'),
-                              _l('discount'),
-                              _l('proposal_total'),
-                              _l('created_user'),
-                              _l('proposal_date_created'),
-                              _l('updated_by'),
-                              _l('proposal_status'),
-                            );
+                                 $table_data = array(
+                                    _l('quote') . ' #',
+                                    _l('quote_phase'),
+                                    _l('client'),
+                                    _l('pricing_category'),
+                                    _l('tags'),
+                                    _l('sum_volume_m3'),
+                                    _l('discount'),
+                                    _l('proposal_total'),
+                                    _l('created_user'),
+                                    _l('proposal_date_created'),
+                                    _l('updated_by'),
+                                    _l('proposal_status'),
+                                    _l('active'),
+                                  );
 
-                             $custom_fields = get_custom_fields('proposal',array('show_on_table'=>1));
-                             foreach($custom_fields as $field){
-                                array_push($table_data,$field['name']);
-                             }
+                                   $custom_fields = get_custom_fields('proposal',array('show_on_table'=>1));
+                                   foreach($custom_fields as $field){
+                                      array_push($table_data,$field['name']);
+                                   }
 
-                             $table_data = hooks()->apply_filters('proposals_table_columns', $table_data);
-                             render_datatable($table_data,'proposals',[],[
-                                 'data-last-order-identifier' => 'proposals',
-                                 'data-default-order'         => get_table_last_order('proposals'),
-                             ]);
-                           ?>
+                                   $table_data = hooks()->apply_filters('proposals_table_columns', $table_data);
+                                   render_datatable($table_data,'proposals',[],[
+                                       'data-last-order-identifier' => 'proposals',
+                                       'data-default-order'         => get_table_last_order('proposals'),
+                                   ]);
+                                 ?>
+                           </div>
+                           <div role="tabpanel" class="tab-pane" id="archived_quotation">
+                              <?php echo form_hidden('proposal_id',$proposal_id); ?>
+                              <?php
+
+                                 $table_data = array(
+                                    _l('quote') . ' #',
+                                    _l('quote_phase'),
+                                    _l('client'),
+                                    _l('pricing_category'),
+                                    _l('tags'),
+                                    _l('sum_volume_m3'),
+                                    _l('discount'),
+                                    _l('proposal_total'),
+                                    _l('created_user'),
+                                    _l('proposal_date_created'),
+                                    _l('updated_by'),
+                                    _l('proposal_status'),
+                                    _l('active'),
+                                  );
+
+
+                                   $table_data = hooks()->apply_filters('proposals_table_columns', $table_data);
+                                   render_datatable($table_data,'proposals1',[],[
+                                       'data-last-order-identifier' => 'proposals',
+                                       'data-default-order'         => get_table_last_order('proposals'),
+                                   ]);
+                                 ?>
+                           </div>
+                        </div>
+                     </div>
                      </div>
                   </div>
                </div>
@@ -167,8 +203,8 @@
      $.each($('._hidden_inputs._filters input'),function(){
        Proposals_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
      });
-     console.log(Proposals_ServerParams)
      initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, []);
+     initDataTable('.table-proposals1', admin_url+'proposals/table1', ['undefined'], ['undefined'], Proposals_ServerParams, []);
      init_proposal();
    });
 </script>

@@ -3974,5 +3974,7 @@ $lang['current_phase'] = 'Current Phase';
 
 /* archieved*/
 $lang['active_wo_orders'] = 'Active Work Orders';
-$lang['archive_wo_orders'] = 'Archive(Inactive) Work Orders';
+$lang['archive_wo_orders'] = 'Archived Work Orders';
+$lang['active_quotation'] = 'Active Quotation';
+$lang['archived_quotation'] = 'Archived Quotation';
 

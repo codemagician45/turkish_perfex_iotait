@@ -66,6 +66,17 @@ class Proposals extends AdminController
         $this->app->get_table_data('proposals');
     }
 
+    public function table1()
+    {
+        if (!has_permission('proposals', '', 'view')
+            && !has_permission('proposals', '', 'view_own')
+            && get_option('allow_staff_view_proposals_assigned') == 0) {
+            ajax_access_denied();
+        }
+
+        $this->app->get_table_data('proposals1');
+    }
+
     public function proposal_relations($rel_id, $rel_type)
     {
         $this->app->get_table_data('proposals_relations', [
@@ -814,6 +825,13 @@ class Proposals extends AdminController
                 $duedate = _d($d);
                 echo $duedate;
             }
+        }
+    }
+
+    public function change_quote_status($id, $status)
+    {
+        if ($this->input->is_ajax_request()) {
+            $this->proposals_model->change_quote_status($id, $status);
         }
     }
 }

@@ -25,7 +25,7 @@ $aColumns = [
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'proposals';
 
-$where  = [' AND '.db_prefix().'proposals.active=1'];
+$where  = [' AND '.db_prefix().'proposals.active=0'];
 $filter = [];
 
 if ($this->ci->input->post('leads_related')) {

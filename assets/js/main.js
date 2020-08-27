@@ -7800,3 +7800,13 @@ function wo_refresh(){
         $('.table-invoices1').DataTable().ajax.reload(null, false);
     }, 30);
 }
+
+function quote_refresh(){
+    setTimeout(function () {
+        $('.table-proposals').DataTable().ajax.reload(null, false);
+    }, 30);
+
+    setTimeout(function () {
+        $('.table-proposals1').DataTable().ajax.reload(null, false);
+    }, 30);
+}
