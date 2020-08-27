@@ -140,7 +140,7 @@ class Dashboard_model extends App_Model
         $this->load->model('projects_model');
         $statuses = $this->projects_model->get_project_statuses();
         $colors   = get_system_favourite_colors();
-
+        // print_r($statuses); exit();
         $chart = [
             'labels'   => [],
             'datasets' => [],
@@ -181,6 +181,56 @@ class Dashboard_model extends App_Model
             array_push($_data['data'], $result[$key]->total);
         }
 
+        $chart['datasets'][]           = $_data;
+        $chart['datasets'][0]['label'] = _l('home_stats_by_project_status');
+        return $chart;
+    }
+
+    public function wo_phase_stats()
+    {
+        $this->load->model('production_model');
+        $phases = $this->production_model->get_wo_phases();
+
+        $colors   = get_system_favourite_colors();
+
+        $chart = [
+            'labels'   => [],
+            'datasets' => [],
+        ];
+
+        $_data                         = [];
+        $_data['data']                 = [];
+        $_data['backgroundColor']      = [];
+        $_data['hoverBackgroundColor'] = [];
+        // $_data['statusLink']           = [];
+
+
+        // $has_permission = has_permission('projects', '', 'view');
+        $sql            = '';
+        foreach ($phases as $phase) {
+            $sql .= ' SELECT COUNT(*) as total';
+            $sql .= ' FROM ' . db_prefix() . 'invoices';
+            $sql .= ' WHERE wo_phase_id=' . $phase['order_no'];
+            if (!is_admin()) {
+                $sql .= ' AND addedfrom =' . get_staff_user_id();
+            }
+            $sql .= ' UNION ALL ';
+            $sql = trim($sql);
+        }
+
+        $result = [];
+        if ($sql != '') {
+            // Remove the last UNION ALL
+            $sql    = substr($sql, 0, -10);
+            $result = $this->db->query($sql)->result();
+        }
+
+        foreach ($phases as $key => $phase) {
+            array_push($chart['labels'], $phase['phase']);
+            array_push($_data['backgroundColor'], $colors[$phase['order_no']+2]);
+            array_push($_data['hoverBackgroundColor'], adjust_color_brightness($colors[$phase['order_no']+2], -20));
+            array_push($_data['data'], $result[$key]->total);
+        }
         $chart['datasets'][]           = $_data;
         $chart['datasets'][0]['label'] = _l('home_stats_by_project_status');
 

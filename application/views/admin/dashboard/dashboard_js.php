@@ -152,14 +152,15 @@
         }
         if(projects_chart.length > 0){
             // Projects statuses
+            console.log(<?php echo $wo_phase_stats; ?>)
             new Chart(projects_chart, {
                 type: 'doughnut',
-                data: <?php echo $projects_status_stats; ?>,
+                data: <?php echo $wo_phase_stats; ?>,
                 options: {
                     maintainAspectRatio:false,
-                    onClick:function(evt){
-                       onChartClickRedirect(evt,this);
-                   }
+                   //  onClick:function(evt){
+                   //     onChartClickRedirect(evt,this);
+                   // }
                }
            });
         }

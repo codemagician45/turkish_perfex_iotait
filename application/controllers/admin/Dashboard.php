@@ -44,6 +44,7 @@ class Dashboard extends AdminController
         $data['tickets_awaiting_reply_by_department_no_json'] = $tickets_awaiting_reply_by_department;
 
         $data['projects_status_stats'] = json_encode($this->dashboard_model->projects_status_stats());
+        $data['wo_phase_stats'] = json_encode($this->dashboard_model->wo_phase_stats());
         $data['leads_status_stats']    = json_encode($this->dashboard_model->leads_status_stats());
         $data['google_ids_calendars']  = $this->misc_model->get_google_calendar_ids();
         $data['bodyclass']             = 'dashboard invoices-total-manual';

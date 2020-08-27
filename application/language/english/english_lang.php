@@ -3958,6 +3958,7 @@ $lang['due_purchase_orders'] = 'Due Purchase Orders';
 $lang['home_quotation_overview'] = 'Quotation Overview';
 $lang['home_sale_order_overview'] = 'Sale Order Overview';
 $lang['home_work_order_overview'] = 'Work Order Overview';
+$lang['home_stats_by_wo_phase'] = 'Statistics by Work Order Phase';
 
 /*Reports*/
 $lang['als_reports_profit_submenu'] = 'Profit Report';
