@@ -49,7 +49,6 @@ class Planning extends AdminController
     {
         if ($this->input->post()) {
             $invoice_data = $this->input->post();
-            // print_r($invoice_data); exit();
             if ($id == '') {
                 if (!has_permission('invoices', '', 'create')) {
                     access_denied('invoices');

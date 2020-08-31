@@ -68,9 +68,9 @@ foreach ($rResult as $aRow) {
         $row[] = $subjectOutput;
 
         if($aRow['product_photo'] != '')
-            $row[] = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
+            $row[] = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
         else
-            $row[] = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small"></a>';
+            $row[] = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
         
         $row[] = $aRow['product_name'];
         $row[] = $aRow['pack_capacity'];

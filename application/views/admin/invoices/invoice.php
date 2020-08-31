@@ -184,9 +184,20 @@
 	  $.each(wo_rows, function(){
 	  	let product_id = $(this).find('.rel_product_id').val();
 	  	var wo_item_qty = $(this).find('[data-quantity]').val();
+	  	console.log(wo_item_qty)
 	  	if(recipe_rows_save_check.length  < 1){
 	  		requestGetJSON('products/get_recipes_by_product/' + product_id).done(function(response) {
 		        response.forEach(e => {
+		        	if(e.pre_produced == 1)
+		        	{
+		        		requestGetJSON('products/get_recipes_by_product/' + e.ingredient_item_id).done(function(response) {
+		        			response.forEach(item => {
+		        				add_item_to_table_plan_recipe(item,i,wo_item_qty);
+		        				i++;
+		        			})
+		        		});
+		        		return;
+		        	}
 		        	add_item_to_table_plan_recipe(e,i,wo_item_qty)
 		        	i++;
 		        })

@@ -44,9 +44,9 @@ foreach ($rResult as $aRow) {
         ];
         if ($aColumns[$i] == 'product_photo') {
             if($aRow['product_photo'] != '')
-                $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
+                $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
             else
-                $_data = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small"></a>';
+                $_data = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
         }
         
         if ($aColumns[$i] == 'product_name') {

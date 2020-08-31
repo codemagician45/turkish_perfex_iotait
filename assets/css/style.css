@@ -16,7 +16,7 @@
     background-color: #E1E4E6;
     border-color: #E6E9EB;
 }
-
+table>tfoot>tr>td
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
@@ -3632,6 +3632,7 @@ table.dataTable thead .sorting:after {
 .table>tbody>tr>td,
 .table>tfoot>tr>td {
     padding: 10px 10px 5px 10px;
+    /*padding-top: 45px;*/
 }
 
 .selecpicker:active,
