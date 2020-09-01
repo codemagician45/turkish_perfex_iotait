@@ -888,6 +888,7 @@ function get_datatable_buttons(table) {
                         return _dt_maybe_export_only_selected_rows(index, table);
                     },
                     format: formatExport,
+                    stripHtml: false
                 },
                 orientation: 'landscape',
                 customize: function(doc) {
@@ -919,6 +920,23 @@ function get_datatable_buttons(table) {
                     doc.styles.tableHeader.alignment = 'left';
                     doc.styles.tableHeader.margin = [5, 5, 5, 5];
                     doc.pageMargins = [12, 12, 12, 12];
+                    // console.log('doc',doc)
+                    // if (doc) {
+                    //     for (var i = 1; i < doc.content[1].table.body.length; i++) {
+                 
+                    //         var tmptext = doc.content[1].table.body[i][0].text;
+                    //         tmptext = tmptext.substring(10, tmptext.indexOf("width=") - 2);
+                 
+                    //         doc.content[1].table.body[i][0] = {
+                    //             margin: [0, 0, 0, 12],
+                    //             alignment: 'center',
+                    //             image: tmptext,
+                    //             width: 60,
+                    //             height: 58
+                    //         };
+                    //     }
+                    // }
+
                 }
             }, {
                 extend: 'print',

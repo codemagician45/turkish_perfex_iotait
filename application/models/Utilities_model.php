@@ -76,6 +76,13 @@ class Utilities_model extends App_Model
         return $this->db->get(db_prefix() . 'events')->row();
     }
 
+    public function get_installation_event_by_id($id)
+    {
+        $this->db->where('eventid', $id);
+
+        return $this->db->get(db_prefix() . 'events_installation')->row();
+    }
+
     /**
      * Get all user events
      * @return array
@@ -94,11 +101,32 @@ class Utilities_model extends App_Model
         return $this->db->get(db_prefix() . 'events')->result_array();
     }
 
+    public function get_all_installation_events($start, $end)
+    {
+        $is_staff_member = is_staff_member();
+        $this->db->select('title,start,end,eventid,userid,color,public');
+        // Check if is passed start and end date
+        $this->db->where('(start BETWEEN "' . $start . '" AND "' . $end . '")');
+        $this->db->where('userid', get_staff_user_id());
+        if ($is_staff_member) {
+            $this->db->or_where('public', 1);
+        }
+
+        return $this->db->get(db_prefix() . 'events_installation')->result_array();
+    }
+
     public function get_event($id)
     {
         $this->db->where('eventid', $id);
 
         return $this->db->get(db_prefix() . 'events')->row();
+    }
+
+    public function get_installation_event($id)
+    {
+        $this->db->where('eventid', $id);
+
+        return $this->db->get(db_prefix() . 'events_installation')->row();
     }
 
     public function get_calendar_data($start, $end, $client_id = '', $contact_id = '', $filters = false)
@@ -535,6 +563,120 @@ class Utilities_model extends App_Model
         } else 
             return false;
     }
+
+    public function get_calendar_data_by_wo_item($start, $end,$wo_item_id)
+    {
+        $this->get_all_events($start, $end);
+        $this->db->where('wo_item_id', $wo_item_id);
+
+        $event = $this->db->get(db_prefix() . 'events_installation')->result_array();
+        $data = [];
+        if(!empty($event))
+        {
+            $event = $event[0];
+            if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                $event['is_not_creator'] = true;
+                $event['onclick']        = true;
+            }
+            $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+            $event['color']    = $event['color'];
+            array_push($data, $event);
+            return $data;
+        } else 
+            return false;
+    }
+
+    // public function get_installation_calendar_data($start, $end)
+    // {
+    //     $event = $this->get_all_installation_events($start, $end);
+
+    //     // $event = $this->db->get(db_prefix() . 'events_installation')->result_array();
+    //     $data = [];
+    //     if(!empty($event))
+    //     {
+    //         $event = $event[0];
+    //         if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+    //             $event['is_not_creator'] = true;
+    //             $event['onclick']        = true;
+    //         }
+    //         $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+    //         $event['color']    = $event['color'];
+    //         array_push($data, $event);
+    //         return $data;
+    //     } else 
+    //         return false;
+    // }
+
+    public function get_installation_calendar_data($start, $end, $client_id = '', $contact_id = '', $filters = false)
+    {
+        $start      = $this->db->escape_str($start);
+        $end        = $this->db->escape_str($end);
+        $client_id  = $this->db->escape_str($client_id);
+        $contact_id = $this->db->escape_str($contact_id);
+
+        $is_admin                     = is_admin();
+        $has_permission_tasks_view    = has_permission('tasks', '', 'view');
+        $has_permission_projects_view = has_permission('projects', '', 'view');
+        $has_permission_invoices      = has_permission('invoices', '', 'view');
+        $has_permission_invoices_own  = has_permission('invoices', '', 'view_own');
+        $has_permission_estimates     = has_permission('estimates', '', 'view');
+        $has_permission_estimates_own = has_permission('estimates', '', 'view_own');
+        $has_permission_contracts     = has_permission('contracts', '', 'view');
+        $has_permission_contracts_own = has_permission('contracts', '', 'view_own');
+        $has_permission_proposals     = has_permission('proposals', '', 'view');
+        $has_permission_proposals_own = has_permission('proposals', '', 'view_own');
+        $data                         = [];
+
+        $client_data = false;
+        if (is_numeric($client_id) && is_numeric($contact_id)) {
+            $client_data                      = true;
+            $has_contact_permission_invoices  = has_contact_permission('invoices', $contact_id);
+            $has_contact_permission_estimates = has_contact_permission('estimates', $contact_id);
+            $has_contact_permission_proposals = has_contact_permission('proposals', $contact_id);
+            $has_contact_permission_contracts = has_contact_permission('contracts', $contact_id);
+            $has_contact_permission_projects  = has_contact_permission('projects', $contact_id);
+        }
+
+        $hook = [
+            'client_data' => $client_data,
+        ];
+        if ($client_data == true) {
+            $hook['client_id']  = $client_id;
+            $hook['contact_id'] = $contact_id;
+        }
+
+        $data = hooks()->apply_filters('before_fetch_events', $data, $hook);
+
+        $ff = false;
+        if ($filters) {
+            // excluded calendar_filters from post
+            $ff = (count($filters) > 1 && isset($filters['calendar_filters']) ? true : false);
+        }
+
+        
+        //calendar_project
+        
+        if (!$client_data && !$ff || (!$client_data && $ff && array_key_exists('events', $filters))) {
+            $events = $this->get_all_installation_events($start, $end);
+            foreach ($events as $event) {
+                if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                    $event['is_not_creator'] = true;
+                    $event['onclick']        = true;
+                }
+                $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+                $event['color']    = $event['color'];
+                array_push($data, $event);
+            }
+        }
+
+        return hooks()->apply_filters('calendar_data', $data, [
+            'start'      => $start,
+            'end'        => $end,
+            'client_id'  => $client_id,
+            'contact_id' => $contact_id,
+        ]);
+    }
+
     /**
      * Delete user event
      * @param  mixed $id event id
@@ -551,6 +693,23 @@ class Utilities_model extends App_Model
             log_activity('Event Deleted [' . $id . ']');
 
             $this->db->query('UPDATE '.db_prefix().'plan_recipe SET scheduled = 0 WHERE id='.$plan_recipe);
+            return true;
+        }
+
+        return false;
+    }
+
+    public function delete_installation_event($id)
+    {
+        $this->db->where('eventid', $id);
+        $event = $this->db->get(db_prefix() . 'events_installation')->row();
+        $wo_item_id = $event->wo_item_id;
+        $this->db->where('eventid', $id);
+        $this->db->delete(db_prefix() . 'events_installation');
+        if ($this->db->affected_rows() > 0) {
+            log_activity('Installation Event Deleted [' . $id . ']');
+
+            $this->db->query('UPDATE '.db_prefix().'itemable SET scheduled = 0 WHERE id='.$wo_item_id);
             return true;
         }
 

@@ -97,6 +97,20 @@ class Utilities extends AdminController
         }
     }
 
+    public function get_installation_calendar_data()
+    {
+        if ($this->input->is_ajax_request()) {
+            echo json_encode($this->utilities_model->get_installation_calendar_data(
+                $this->input->post('start'),
+                $this->input->post('end'),
+                '',
+                '',
+                $this->input->post()
+            ));
+            die();
+        }
+    }
+
     public function get_calendar_data_by_machine($machine_id)
     {
         if ($this->input->is_ajax_request()) {
@@ -104,6 +118,18 @@ class Utilities extends AdminController
                 $this->input->post('start'),
                 $this->input->post('end'),
                 $machine_id
+            ));
+            die();
+        }
+    }
+
+    public function get_calendar_data_by_wo_item($wo_item_id)
+    {
+        if ($this->input->is_ajax_request()) {
+            echo json_encode($this->utilities_model->get_calendar_data_by_wo_item(
+                $this->input->post('start'),
+                $this->input->post('end'),
+                $wo_item_id
             ));
             die();
         }
@@ -141,6 +167,29 @@ class Utilities extends AdminController
             ]);
             die();
         }
+    }
+
+    public function delete_installation_event($id)
+    {if ($this->input->is_ajax_request()) {
+            $event = $this->utilities_model->get_installation_event_by_id($id);
+            if ($event->userid != get_staff_user_id() && !is_admin()) {
+                echo json_encode([
+                    'success' => false,
+                ]);
+                die;
+            }
+            $success = $this->utilities_model->delete_installation_event($id);
+            $message = '';
+            if ($success) {
+                $message = _l('utility_calendar_event_deleted_successfully');
+            }
+            echo json_encode([
+                'success' => $success,
+                'message' => $message,
+            ]);
+            die();
+        }
+
     }
 
     // Moved here from version 1.0.5

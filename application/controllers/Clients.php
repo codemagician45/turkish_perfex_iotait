@@ -70,6 +70,9 @@ class Clients extends ClientsController
         echo json_encode($data);
     }
 
+    
+
+
     public function projects($status = '')
     {
         if (!has_contact_permission('projects')) {

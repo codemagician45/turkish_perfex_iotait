@@ -18,12 +18,18 @@
 
 		<div class="content" style="padding-top: 0">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<div class="panel_s">
 						<?php
 							$this->load->view('admin/invoices/rel_plans/plan_calendar.php'); ?>
 					</div>
-				</div>	
+				</div>
+				<div class="col-md-6">
+					<div class="panel_s">
+						<?php
+							$this->load->view('admin/invoices/installation_schedule/installation_calendar.php'); ?>
+					</div>
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -142,13 +148,7 @@
 	        $('body').find('#items-warning').remove();
 	        $("body").find('.dt-loader').remove();
 	        $('#item_select').selectpicker('val', '');
-
-	        // add_recipes_from_product_recipe(data.rel_product_id);
-
 	      })
-
-	      
-
 	    })
 	}
 
@@ -172,8 +172,6 @@
 	    if ($('input[name="isedit"]').length > 0) {
 	        $('#wo_removed-items').append(hidden_input('wo_removed-items[]', itemid));
 	    }
-
-
 	}
 
 	$(document).ready(function(){
@@ -228,7 +226,7 @@
 
             table_row += '<td><span style="color: green;font-weight: 600;font-size: 14px">'+data.wo_product+'</span><input type="hidden" name="plan_items[' + item_key + '][wo_product_id]" value="'+data.wo_product_id+'"></td>';
 
-            table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_code]" class="form-control" value="'+data.product_code+'"></td>';
+            table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_code]" class="form-control product_code" value="'+data.product_code+'"></td>';
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
 
@@ -285,7 +283,7 @@
         
     }
 
-     function delete_plan_recipe_item(row, itemid) {
+    function delete_plan_recipe_item(row, itemid) {
         $(row).parents('tr').addClass('animated fadeOut', function() {
             setTimeout(function() {
                 $(row).parents('tr').remove();
@@ -293,10 +291,6 @@
         });
         $('#recipe_removed-items').append(hidden_input('recipe_removed-items[]', itemid));
     }
-
-
-
-
 
 	/* Calendar*/
     $(function(){
@@ -315,7 +309,6 @@
 		var mould_cavity = $(row).parents('tr').find('.mould_cavity').val();
 		var cycle_time = $(row).parents('tr').find('.cycle_time').val();
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
-		console.log(production_time)
 		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value);		
 		$('input[name="production_calculate"]').val(parseInt(production_time)+1);
 		$('select[name="mould_id"]').selectpicker('val',mould_id);
@@ -337,7 +330,6 @@
 		})
 
 	}
-
 
 	$('#machine_id').change(function(){
 
@@ -456,13 +448,6 @@
 
 	})
 
-	/*Edit*/
-
-	// $("#viewPlanEvent").on('shown.bs.modal', function () {
-	//   console.log('aaaa')
-	// });
-
-
 	function one_machine_schedule(machine_id = '', machine_name = '')
     {
         $('#machine_calendar').remove();
@@ -553,6 +538,111 @@
             mouldCavity = response.mould_cavity;
             $(mould).parents('tr').find('.mould_cavity').val(mouldCavity)
         });
+    }
+
+    function set_installation_plan(row, wo_item_id){
+
+    	var wo_id = '<?php echo $invoice->id;?>';
+    	var wo_item_product_code = $(row).parents('tr').find('.product_code').val();
+
+    	$('#installationNewModal').modal('show');
+    	$('input[name="wo_item_id"]').val(wo_item_id);
+    	$('#installation_events').remove();
+        $('#installation_events_div').append('<div id="installation_events"></div>')
+        validate_calendar_form();
+        var calendar_settings = {
+            themeSystem: 'bootstrap3',
+            customButtons: {},
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,viewFullCalendar,calendarFilter'
+            },
+            editable: false,
+            eventLimit: parseInt(app.options.calendar_events_limit) + 1,
+
+            views: {
+                day: {
+                    eventLimit: false
+                }
+            },
+            defaultView: app.options.default_view_calendar,
+            isRTL: (isRTL == 'true' ? true : false),
+            eventStartEditable: false,
+            timezone: app.options.timezone,
+            firstDay: parseInt(app.options.calendar_first_day),
+            year: moment.tz(app.options.timezone).format("YYYY"),
+            month: moment.tz(app.options.timezone).format("M"),
+            date: moment.tz(app.options.timezone).format("DD"),
+            loading: function(isLoading, view) {
+                isLoading && $('#machine_calendar .fc-header-toolbar .btn-default').addClass('btn-info').removeClass('btn-default').css('display', 'block');
+                !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
+            },
+            eventSources: [{
+                url: admin_url + 'utilities/get_calendar_data_by_wo_item/'+ wo_item_id,
+                data: function() {
+                    var params = {};
+                    $('#calendar_filters').find('input:checkbox:checked').map(function() {
+                        params[$(this).attr('name')] = true;
+                    }).get();
+                    if (!jQuery.isEmptyObject(params)) {
+                        params['calendar_filters'] = true;
+                    }
+                    return params;
+                },
+                type: 'POST',
+                error: function() {
+                    // console.error('There was error fetching calendar data');
+                },
+            }, ],
+
+            selectable: true,
+			select: function (start, end) {
+				// var title = prompt("Event Content: ");
+				var title = 'wo'+'-'+wo_id+'-'+wo_item_product_code;
+				var eventData;
+				if(title){
+					eventData = {
+						title:title,
+						start:start,
+						end:end
+					}
+					$('#installation_events').fullCalendar("renderEvent", eventData, true);
+				};
+				$("#installation_events").fullCalendar("unselect");
+				console.log(eventData.start.format())
+				if(eventData)
+				{
+					$('input[name="title"]').val(eventData.title);
+				    var sd = eventData.start.format();
+	                if (!$.fullCalendar.moment(sd).hasTime()) {
+	                    sd += ' 00:00';
+	                }
+	                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+	                var fmt = new DateFormatter();
+	                var d1 = fmt.formatDate(new Date(sd), vformat);
+	                $("input[name='start']").val(d1);
+
+	                var ed = eventData.end.format();
+	                if (!$.fullCalendar.moment(ed).hasTime()) {
+	                    ed += ' 00:00';
+	                }
+	                var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
+	                var fmt = new DateFormatter();
+	                var d2 = fmt.formatDate(new Date(ed), vformat);
+	                $("input[name='end']").val(d2);
+					
+				}
+			},
+			// editable:true,
+        };
+        calendar_settings.customButtons.calendarFilter = {
+            text: app.lang.filter_by.toLowerCase(),
+            click: function() {
+                slideToggle('#calendar_filters');
+            }
+        };
+        $('#installation_events').fullCalendar(calendar_settings);
     }
 
 </script>

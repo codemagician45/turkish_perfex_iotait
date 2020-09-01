@@ -21,6 +21,10 @@ class Installation extends AdminController
         }
 
         $data['title'] = _l('work_orders');
+        $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
+        $data['google_calendar_api']  = get_option('google_calendar_api_key');
+        $data['title']                = _l('calendar');
+        add_calendar_assets();
         $this->load->view('admin/installation/manage', $data);
     }
 

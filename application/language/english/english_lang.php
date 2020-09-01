@@ -3979,3 +3979,9 @@ $lang['active_quotation'] = 'Active Quotation';
 $lang['archived_quotation'] = 'Archived Quotation';
 $lang['active_sale_orders'] = 'Active Sale Orders';
 $lang['archived_sale_orders'] = 'Archived Sale Orders';
+
+
+
+// ending
+
+$lang['set_installation_plan'] = 'Set Installation Plan';

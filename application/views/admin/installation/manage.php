@@ -3,9 +3,16 @@
 <div id="wrapper">
 	<div class="content">
 		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="panel_s">
+					<?php
+						$this->load->view('admin/installation/installation_schedule/installation_calendar.php'); ?>
+				</div>
+			</div>
+			<div class="col-md-3"></div>	
 			<?php
-			// include_once(APPPATH.'views/admin/invoices/filter_params.php');
-			$this->load->view('admin/installation/list_template');
+				$this->load->view('admin/installation/list_template');
 			?>
 		</div>
 	</div>
@@ -16,7 +23,10 @@
 	$(function(){
 		// init_invoice();
 		initDataTable('.table-installation_work_order', window.location.href);
+
 	});
+
+
 </script>
 </body>
 </html>

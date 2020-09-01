@@ -20,8 +20,8 @@
               <th width="12%" align="center"><?php echo _l('volume_m3'); ?></th>
               <th width="4%" align="center"><?php echo _l('approval_need'); ?></th>
               <th width="12%" align="center"><?php echo _l('notes'); ?></th>
-              <!-- <th align="center"><i class="fa fa-cog"></i></th> -->
-              <th width="5%" align="center"><i class="fa fa-cog"></i></th>
+              <th width="10%" align="right"><?php echo _l('set_installation_plan'); ?></th>
+              <th width="10%" align="right"><?php echo _l('scheduled'); ?></th>
             </tr>
          </thead>
          <tbody>
@@ -111,7 +111,7 @@
                
                  $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][itemid]', $item['id']);
 
-                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" value="' . $item['product_code'] . '" disabled></td>';
+                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control product_code" value="' . $item['product_code'] . '" disabled></td>';
 
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '" disabled><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
 
@@ -138,6 +138,14 @@
                  $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
                  
                  // $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_wo_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
+
+                 $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_installation_plan(this,' . $item['id'] . '); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
+
+                if($item['scheduled'] == 1)
+                    $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
+                else
+                    $table_row .= '<td><a href="#" class="btn btn-warning pull-right"><i class="fa fa-times-circle"></i></a></td>';
+
                  $table_row .= '</tr>';
                  echo $table_row;
                  $i++;

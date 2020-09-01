@@ -192,6 +192,18 @@ class Warehouses extends AdminController
         $data['stock_categories'] = $this->warehouses_model->get_stock_categories();
         $data['currency'] = $this->currencies_model->get();
         $data['title'] = _l('stock_list');
+
+        // $image = base_url().'uploads/stock_lists/medical-person-03.jpg';
+
+        //  // Read image path, convert to base64 encoding
+        // $type = pathinfo($image, PATHINFO_EXTENSION);
+        // $data = file_get_contents($image);
+
+        // $imgData = base64_encode($data);
+
+        //  // Format the image SRC:  data:{mime};base64,{data};
+        // $src = 'data:image/' . $type . ';base64,'.$imgData;
+        // $data['src'] = $src;
         $this->load->view('admin/warehouses/stock_lists/manage', $data);
     }
 

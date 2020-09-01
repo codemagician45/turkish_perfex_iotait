@@ -1638,6 +1638,59 @@ class Invoices_model extends App_Model
         return false;
     }
 
+    public function installation_event($data)
+    {
+        // print_r($data); exit();
+        $data['userid'] = get_staff_user_id();
+        $data['start']  = to_sql_date($data['start'], true);
+        if ($data['end'] == '') {
+            unset($data['end']);
+        } else {
+            $data['end'] = to_sql_date($data['end'], true);
+        }
+        if (isset($data['public'])) {
+            $data['public'] = 1;
+        } else {
+            $data['public'] = 0;
+        }
+        // $data['description'] = nl2br($data['description']);
+        if (isset($data['eventid'])) {
+            unset($data['userid']);
+            $this->db->where('eventid', $data['eventid']);
+            $event = $this->db->get(db_prefix() . 'events_installation')->row();
+            if (!$event) {
+                return false;
+            }
+            if ($event->isstartnotified == 1) {
+                if ($data['start'] > $event->start) {
+                    $data['isstartnotified'] = 0;
+                }
+            }
+
+            $data = hooks()->apply_filters('event_update_data', $data, $data['eventid']);
+
+            $this->db->where('eventid', $data['eventid']);
+            $this->db->update(db_prefix() . 'events_installation', $data);
+            if ($this->db->affected_rows() > 0) {
+                return true;
+            }
+
+            return false;
+        }
+
+        $data = hooks()->apply_filters('event_create_data', $data);
+
+        $this->db->insert(db_prefix() . 'events_installation', $data);
+        $insert_id = $this->db->insert_id();
+
+        if ($insert_id) {
+            $this->db->query('UPDATE '.db_prefix().'itemable SET scheduled = 1 WHERE id='.$data['wo_item_id']);
+            return true;
+        }
+
+        return false;
+    }
+
     public function update_rel_wo_items($data, $id)
     {
         if(isset($data['items']))

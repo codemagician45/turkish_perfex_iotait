@@ -79,7 +79,7 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-
+		
 		initDataTable('.table-stock_lists', window.location.href, [8], [8]);
 
 		appValidateForm($('form'), {

@@ -541,6 +541,33 @@ class Invoices extends AdminController
         $this->load->view('admin/invoices/invoice', $data);
     }
 
+    public function installation_calendar()
+    {
+        if ($this->input->post() && $this->input->is_ajax_request()) {
+            $data    = $this->input->post();
+            // print_r($data); exit();
+            $success = $this->invoices_model->installation_event($data);
+            $message = '';
+            if ($success) {
+                if (isset($data['eventid'])) {
+                    $message = _l('event_updated');
+                } else {
+                    $message = _l('utility_calendar_event_added_successfully');
+                }
+            }
+            echo json_encode([
+                'success' => $success,
+                'message' => $message,
+            ]);
+            die();
+        }
+        $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
+        $data['google_calendar_api']  = get_option('google_calendar_api_key');
+        $data['title']                = _l('calendar');
+        add_calendar_assets();
+        $this->load->view('admin/invoices/invoice', $data);
+    }
+
     public function view_event_plan($id)
     {
         $data['event'] = $this->utilities_model->get_event($id);
@@ -921,6 +948,16 @@ class Invoices extends AdminController
         } else {
             // $this->load->view('admin/utilities/event', $data);
             $this->load->view('admin/invoices/rel_plans/plan_event', $data);
+        }
+    }
+
+    public function view_installation_event($id){
+        $data['event'] = $this->utilities_model->get_installation_event($id);
+        if ($data['event']->public == 1 && !is_staff_member()
+            || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
+        } else {
+            // $this->load->view('admin/utilities/event', $data);
+            $this->load->view('admin/invoices/installation_schedule/installation_event', $data);
         }
     }
 
