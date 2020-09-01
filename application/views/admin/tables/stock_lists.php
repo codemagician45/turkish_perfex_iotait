@@ -45,19 +45,20 @@ foreach ($rResult as $aRow) {
         ];
         if ($aColumns[$i] == 'product_photo') {
 
-            $image = base_url().$aRow['product_photo'];
+            // $image = base_url().$aRow['product_photo'];
 
-             // Read image path, convert to base64 encoding
-            $type = pathinfo($image, PATHINFO_EXTENSION);
-            $data = file_get_contents($image);
+            //  // Read image path, convert to base64 encoding
+            // $type = pathinfo($image, PATHINFO_EXTENSION);
+            // $data = file_get_contents($image);
 
-            $imgData = base64_encode($data);
+            // $imgData = base64_encode($data);
 
-             // Format the image SRC:  data:{mime};base64,{data};
-            $src = 'data:image/' . $type . ';base64,'.$imgData;
+            //  // Format the image SRC:  data:{mime};base64,{data};
+            // $src = 'data:image/' . $type . ';base64,'.$imgData;
 
             if($aRow['product_photo'] != '')
-                $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small" style="width:100px; height:100px"></a><input type="hidden" value="'. $src.'">';
+                $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
+            // <input type="hidden" value="'. $src.'">
             else
                 $_data = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small" style="width:100px; height:100px"></a>';
         }

@@ -22,7 +22,7 @@
 <script>
 	$(function(){
 		// init_invoice();
-		initDataTable('.table-installation_work_order', window.location.href);
+		initDataTable('.table-installation_work_order', window.location.href,[],[],[],[0,'desc']);
 
 	});
 

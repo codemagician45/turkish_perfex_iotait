@@ -3985,3 +3985,7 @@ $lang['archived_sale_orders'] = 'Archived Sale Orders';
 // ending
 
 $lang['set_installation_plan'] = 'Set Installation Plan';
+$lang['stock_level_warning'] = 'Stock Level Warning';
+$lang['email_permission'] = 'Email Permission';
+$lang['warning_enable'] = 'Warning Enable';
+$lang['minimum_stock_level'] = 'Minimum Stock Level';

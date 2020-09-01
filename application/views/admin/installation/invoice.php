@@ -152,6 +152,10 @@
         });
     }
 
+    $('#invoice-form').submit(function(){
+        $('.pack_capacity').prop('disabled',false);
+    })
+
 </script>
 </body>
 </html>

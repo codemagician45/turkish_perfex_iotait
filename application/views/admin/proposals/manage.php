@@ -203,8 +203,8 @@
      $.each($('._hidden_inputs._filters input'),function(){
        Proposals_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
      });
-     initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, []);
-     initDataTable('.table-proposals1', admin_url+'proposals/table1', ['undefined'], ['undefined'], Proposals_ServerParams, []);
+     initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
+     initDataTable('.table-proposals1', admin_url+'proposals/table1', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
      init_proposal();
    });
 </script>

@@ -136,11 +136,11 @@
                 	if(results.length > 0)
                 	{
                 		var data_row = '';
-                		data_row += '<label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label><table width="100%" style="border:1px solid;"><thead style="border:1px solid;"><th width="60%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('warehouse_name')?></th><th width="40%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('qty')?></th></thead><tbody style="border:1px solid #bfcbd9;">';
+                		data_row += '<label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label><table width="100%" style="border:1px solid;"><thead style="border:1px solid;"><th width="30%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('warehouse_name')?></th><th width="20%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;padding: 4px;"><?php echo _l('warning_enable')?></th><th width="20%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('qty')?></th><th width="30%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('minimum_stock_level')?></th></thead><tbody style="border:1px solid #bfcbd9;">';
 
                 		results.forEach( e => {
                 			// console.log(e)
-                			data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'</td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td></tr>';
+                			data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'</td><td style="border:1px solid #bfcbd9;text-align: center;"><input type="checkbox"></td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td><td style="border:1px solid #bfcbd9;text-align: center;padding:8px;"><input type="number"></td></tr>';
                 		})
                 		data_row += '</tbody></table>';
                 		$('.warehouse_qty').append(data_row);

@@ -309,14 +309,16 @@ class Warehouses_model extends App_Model
     /* ------------------Transfer----------------- */
     public function add_transfer($data)
     {
-        // print_r($data);exit();
+
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_stock_level = $last_stock_level + $data['transaction_qty'];
-
+        $pack_id = $this->stock_list_get($data['stock_product_code'])->pack_id;
         if($first_transfer_check == 1)
         {
             $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
+            if(!empty($pack_id))
+                $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_stock_level.' WHERE `id` ='.$pack_id);
         }
 
         $data['created_user'] = get_staff_user_id();
@@ -344,8 +346,6 @@ class Warehouses_model extends App_Model
 
     public function add_transfer_by_production($data,$sign)
     {
-        // print_r($data);exit();
-        // $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         if($sign == 1)
             $updated_stock_level = $last_stock_level + $data['transaction_qty'];
@@ -353,24 +353,37 @@ class Warehouses_model extends App_Model
             $updated_stock_level = $last_stock_level - $data['transaction_qty'];
 
         $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
-        // if($first_transfer_check == 1)
-        // {
-        //     $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
-        // }
-
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $data['updated_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'transfer_lists', $data);
         $insert_id = $this->db->insert_id();
 
-        $this->db->from(db_prefix() . 'transfer_lists');
-        $this->db->where('stock_product_code',$data['stock_product_code']);
-        $qty = $this->db->get()->result_array();
-        $total_qty = 0;
-        foreach ($qty as $val) {
-            $total_qty = $total_qty + $val['transaction_qty'];
+        if ($insert_id) {
+            log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
+
+            return $insert_id;
         }
+
+        return false;
+    }
+
+    public function add_transfer_by_pack($data,$pack_id)
+    {
+        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id);
+        if(!empty($last_stock))
+            $last_stock_level = $last_stock->stock_level;
+        else 
+            $last_stock_level = 0;
+        $updated_stock_level = $last_stock_level - $data['transaction_qty'];
+
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `pack_id` ='.$pack_id);
+
+        $data['created_user'] = get_staff_user_id();
+        $data['created_at'] = date('Y-m-d h:i:s');
+        $data['updated_at'] = date('Y-m-d h:i:s');
+        $this->db->insert(db_prefix() . 'transfer_lists', $data);
+        $insert_id = $this->db->insert_id();
 
         if ($insert_id) {
             log_activity('New Tansfer Added [ID: ' . $insert_id . ']');
@@ -383,7 +396,7 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
-
+        print_r($data); exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_transfer = $data['transaction_qty'];
@@ -394,9 +407,12 @@ class Warehouses_model extends App_Model
             unset($data['delta']);
         }
         
+        $pack_id = $this->stock_list_get($data['stock_product_code'])->pack_id;
         if($first_transfer_check == 1)
         {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
+            if(!empty($pack_id))
+                $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_stock_level.' WHERE `id` ='.$pack_id);
         }
         unset($data['created_user']);
         unset($data['updated_user']);
@@ -404,14 +420,6 @@ class Warehouses_model extends App_Model
         $data['updated_at'] = date('Y-m-d h:i:s');
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
-
-        $this->db->from(db_prefix() . 'transfer_lists');
-        $this->db->where('stock_product_code',$data['stock_product_code']);
-        $qty = $this->db->get()->result_array();
-        $total_qty = 0;
-        foreach ($qty as $val) {
-            $total_qty = $total_qty + $val['transaction_qty'];
-        }
 
         if ($this->db->affected_rows() > 0) {
             log_activity('Tansfer Updated [' . $id . ']');
@@ -425,7 +433,6 @@ class Warehouses_model extends App_Model
     public function update_transfer_by_production($data,$id)
     {
 
-        // $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_transfer = $data['transaction_qty'];
         
@@ -435,10 +442,7 @@ class Warehouses_model extends App_Model
             unset($data['delta']);
         }
         
-        // if($first_transfer_check == 1)
-        // {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
-        // }
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
         unset($data['created_user']);
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
@@ -446,13 +450,38 @@ class Warehouses_model extends App_Model
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
-        $this->db->from(db_prefix() . 'transfer_lists');
-        $this->db->where('stock_product_code',$data['stock_product_code']);
-        $qty = $this->db->get()->result_array();
-        $total_qty = 0;
-        foreach ($qty as $val) {
-            $total_qty = $total_qty + $val['transaction_qty'];
+        if ($this->db->affected_rows() > 0) {
+            log_activity('Tansfer Updated [' . $id . ']');
+
+            return true;
         }
+
+        return false;
+    }
+
+    public function update_transfer_by_pack($data,$pack_id)
+    {
+
+        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id);
+        if(!empty($last_stock))
+            $last_stock_level = $last_stock->stock_level;
+        else 
+            $last_stock_level = 0;
+
+        $updated_transfer = $data['transaction_qty'];
+        
+        if(isset($data['delta']))
+        {
+            $updated_transfer = $last_stock_level + $data['delta'];
+            unset($data['delta']);
+        }
+        $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `pack_id` ='.$pack_id);
+        unset($data['created_user']);
+        unset($data['updated_user']);
+        $data['updated_user'] = get_staff_user_id();
+        $data['updated_at'] = date('Y-m-d h:i:s');
+        $this->db->where('id', $id);
+        $this->db->update(db_prefix() . 'transfer_lists', $data);
 
         if ($this->db->affected_rows() > 0) {
             log_activity('Tansfer Updated [' . $id . ']');
@@ -679,10 +708,30 @@ class Warehouses_model extends App_Model
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
             log_activity('Pack List Added [ID: ' .$insert_id . ']');
+
+            $stock['product_code'] = $data['packing_type'];
+            $stock['product_name'] = $data['l_size'].'X'.$data['w_size'].'X'.$data['h_size'];
+            $stock['stock_level'] = $data['stock_qty'];
+            $stock['pack_id'] = $insert_id;
+            $this->stock_list_add($stock);
             return $insert_id;
         }
         return false;
     }
+
+    public function stock_list_edit_by_pack($data)
+    {
+        $data['updated_by'] = get_staff_user_id();
+        $data['updated_at'] = date('Y-m-d h:i:s');
+        $this->db->where('pack_id', $data['pack_id']);
+        $this->db->update(db_prefix() . 'stock_lists', $data);
+        if ($this->db->affected_rows() > 0) {
+            log_activity('Item Updated [' . $data['product_name'] . ']');
+            return true;
+        }
+        return false;
+    }
+
 
     public function update_packing_list($data,$id)
     {
@@ -701,6 +750,11 @@ class Warehouses_model extends App_Model
         $this->db->update(db_prefix() . 'pack_list', $data);
         if ($this->db->affected_rows() > 0) {
             log_activity('Packing List Updated [' . $id . ']');
+            $stock['product_code'] = $data['packing_type'];
+            $stock['product_name'] = $data['l_size'].'X'.$data['w_size'].'X'.$data['h_size'];
+            $stock['stock_level'] = $data['stock_qty'];
+            $stock['pack_id'] = $id;
+            $this->stock_list_edit_by_pack($stock);
             return true;
         }
         return false;

@@ -73,7 +73,7 @@
      $.each($('._hidden_inputs._filters input'),function(){
        Proposals_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
      });
-     initDataTable('.table-proposals', window.location.href, ['undefined'], ['undefined'], Proposals_ServerParams, []);
+     initDataTable('.table-proposals', window.location.href, ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
      init_proposal();
    });
 </script>

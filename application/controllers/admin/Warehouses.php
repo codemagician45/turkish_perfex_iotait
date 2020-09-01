@@ -181,6 +181,18 @@ class Warehouses extends AdminController
     }
     /* End Warehouse Material */
 
+    public function stock_level_warning()
+    {
+        if (!is_admin()) {
+            access_denied('stock_level_warning');
+        }
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('stock_level_warning');
+        }
+        $data['title'] = _l('stock_level_warning');
+        $this->load->view('admin/warehouses/settings/stock_level_warning', $data);
+    }
+
     /*-------------------------Stock List---------------------------*/
     public function stock_lists()
     {

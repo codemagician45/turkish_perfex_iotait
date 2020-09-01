@@ -319,6 +319,15 @@ class Staff extends AdminController
         }
     }
 
+    public function change_staff_email_permission($id, $status)
+    {
+        if (has_permission('staff', '', 'edit')) {
+            if ($this->input->is_ajax_request()) {
+                $this->staff_model->change_staff_email_permission($id, $status);
+            }
+        }
+    }
+
     /* Logged in staff notifications*/
     public function notifications()
     {

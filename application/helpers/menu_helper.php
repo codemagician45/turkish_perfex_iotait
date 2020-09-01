@@ -806,6 +806,13 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 15,
         ]);
 
+        $CI->app_menu->add_setup_children_item('warehouse', [
+                'slug'     => 'stock_level_warning',
+                'name'     => _l('stock_level_warning'),
+                'href'     => admin_url('warehouses/stock_level_warning'),
+                'position' => 20,
+        ]);
+
         // Sale
         $CI->app_menu->add_setup_menu_item('sale', [
             'collapse' => true,
