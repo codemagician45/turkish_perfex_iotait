@@ -169,19 +169,19 @@ class Purchases_model extends App_Model
                 $this->load->model('warehouses_model');
                 $transfer_id = $this->warehouses_model->add_transfer($transfer);
             }
-            // print_r($temp); exit();
             if(isset($transfer_id) && !is_null($transfer_id))
                     $temp['transfer_id'] = $transfer_id;
             $temp['rel_purchase_id'] = $rel_purchase_id;
             unset($temp['item_id']);
+            // print_r($temp); exit();
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
-            // print_r($this->db->last_query()); exit();
             $insert_id = $this->db->insert_id();
         }
     }
 
     public function update_purchase_order_item($data,$transfer_data = [])
     {
+        // print_r($data); exit();
         $rel_purchase_id = $data['rel_purchase_id'];
         
         if(isset($data['newitems']))
@@ -232,6 +232,7 @@ class Purchases_model extends App_Model
                         $transfer['date_and_time'] = date('Y-m-d h:i:s');
                         $this->load->model('warehouses_model');
                         $transfer_id = $this->warehouses_model->add_transfer($transfer);
+                        $val['transfer_id'] = $transfer_id;
                     }
                     else
                     {

@@ -1808,7 +1808,9 @@ class Invoices_model extends App_Model
                     $pack_id = $pack->id;
                 $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
                 $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
-
+                $pack_transfer['transaction_notes'] = 'WO-'.$id;
+                $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
+                // print_r($pack_transfer); exit();
                 if(empty($item->pack_transfer_id))
                 {
                     $pack_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
@@ -1817,12 +1819,8 @@ class Invoices_model extends App_Model
                 else {
                     $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
                     $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
-                    $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id);
+                    $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
                 }
-
-
-                $result_pack_qty = $pack->stock_level - $pack_transfer['transaction_qty'];
-
             }
         if ($affected_rows > 0) {
                 return true;

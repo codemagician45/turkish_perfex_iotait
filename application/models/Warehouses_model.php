@@ -370,7 +370,7 @@ class Warehouses_model extends App_Model
 
     public function add_transfer_by_pack($data,$pack_id)
     {
-        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id);
+        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id)->row();
         if(!empty($last_stock))
             $last_stock_level = $last_stock->stock_level;
         else 
@@ -378,7 +378,7 @@ class Warehouses_model extends App_Model
         $updated_stock_level = $last_stock_level - $data['transaction_qty'];
 
         $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `pack_id` ='.$pack_id);
-
+        $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_stock_level.' WHERE `id` ='.$pack_id);
         $data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $data['updated_at'] = date('Y-m-d h:i:s');
@@ -396,7 +396,6 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
-        print_r($data); exit();
         $first_transfer_check = $this->get_warehouse($data['transaction_from'])->order_no;
         $last_stock_level = $this->stock_list_get($data['stock_product_code'])->stock_level;
         $updated_transfer = $data['transaction_qty'];
@@ -410,9 +409,9 @@ class Warehouses_model extends App_Model
         $pack_id = $this->stock_list_get($data['stock_product_code'])->pack_id;
         if($first_transfer_check == 1)
         {
-            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_stock_level.' WHERE `id` ='.$data['stock_product_code']);
+            $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `id` ='.$data['stock_product_code']);
             if(!empty($pack_id))
-                $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_stock_level.' WHERE `id` ='.$pack_id);
+                $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_transfer.' WHERE `id` ='.$pack_id);
         }
         unset($data['created_user']);
         unset($data['updated_user']);
@@ -459,10 +458,10 @@ class Warehouses_model extends App_Model
         return false;
     }
 
-    public function update_transfer_by_pack($data,$pack_id)
+    public function update_transfer_by_pack($data,$id,$pack_id)
     {
 
-        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id);
+        $last_stock = $this->db->query('SELECT * from tblstock_lists where pack_id='.$pack_id)->row();
         if(!empty($last_stock))
             $last_stock_level = $last_stock->stock_level;
         else 
@@ -472,14 +471,17 @@ class Warehouses_model extends App_Model
         
         if(isset($data['delta']))
         {
-            $updated_transfer = $last_stock_level + $data['delta'];
+            $updated_transfer = $last_stock_level - $data['delta'];
             unset($data['delta']);
         }
+
         $this->db->query('UPDATE tblstock_lists SET stock_level = '.$updated_transfer.' WHERE `pack_id` ='.$pack_id);
+        $this->db->query('UPDATE tblpack_list SET stock_qty = '.$updated_transfer.' WHERE `id` ='.$pack_id);
         unset($data['created_user']);
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
+        // print_r($id); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
@@ -712,6 +714,7 @@ class Warehouses_model extends App_Model
             $stock['product_code'] = $data['packing_type'];
             $stock['product_name'] = $data['l_size'].'X'.$data['w_size'].'X'.$data['h_size'];
             $stock['stock_level'] = $data['stock_qty'];
+            $stock['price'] = $data['pack_price'];
             $stock['pack_id'] = $insert_id;
             $this->stock_list_add($stock);
             return $insert_id;
@@ -753,6 +756,7 @@ class Warehouses_model extends App_Model
             $stock['product_code'] = $data['packing_type'];
             $stock['product_name'] = $data['l_size'].'X'.$data['w_size'].'X'.$data['h_size'];
             $stock['stock_level'] = $data['stock_qty'];
+            $stock['price'] = $data['pack_price'];
             $stock['pack_id'] = $id;
             $this->stock_list_edit_by_pack($stock);
             return true;
