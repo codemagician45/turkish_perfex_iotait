@@ -202,7 +202,10 @@ class Warehouses_model extends App_Model
     }
 
     public function stock_list_add($data){
+
+        $warning_data = $data['warning'];
         unset($data['stocklistId']);
+        unset($data['warning']);
         $data['created_by'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'stock_lists', $data);
@@ -210,8 +213,19 @@ class Warehouses_model extends App_Model
         if ($insert_id) {
             log_activity('Item Added [ID: ' . $data['product_name'] . ']');
 
+            $this->db->where('stock_id', $stock_list_Id);
+            $this->db->delete(db_prefix() . 'stock_level_warning');
+            
+            foreach ($warning_data as $key => $warning) {
+                if(isset($warning['warning_enable']))
+                {
+                    unset($warning['warning_enable']);
+                    $warning['stock_id'] = $stock_list_Id;
+                    $this->db->insert(db_prefix().'stock_level_warning',$warning);
+                }
+            }
+
             return true;
-            // return $insert_id;
         }
         return false;
     }
@@ -219,13 +233,28 @@ class Warehouses_model extends App_Model
     public function stock_list_edit($data)
     {
         $stock_list_Id = $data['stocklistId'];
+        $warning_data = $data['warning'];
         unset($data['stocklistId']);
+        unset($data['warning']);
         $data['updated_by'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
         $this->db->where('id', $stock_list_Id);
         $this->db->update(db_prefix() . 'stock_lists', $data);
         if ($this->db->affected_rows() > 0) {
             log_activity('Item Updated [' . $data['product_name'] . ']');
+
+            $this->db->where('stock_id', $stock_list_Id);
+            $this->db->delete(db_prefix() . 'stock_level_warning');
+            
+            foreach ($warning_data as $key => $warning) {
+                if(isset($warning['warning_enable']))
+                {
+                    unset($warning['warning_enable']);
+                    $warning['stock_id'] = $stock_list_Id;
+                    $this->db->insert(db_prefix().'stock_level_warning',$warning);
+                }
+            }
+
             return true;
         }
         return false;
@@ -507,27 +536,27 @@ class Warehouses_model extends App_Model
 
     public function get_transfer_by_code($id)
     {
-        $this->db->from(db_prefix() . 'transfer_lists');
+        // $this->db->from(db_prefix() . 'transfer_lists');
 
         if (is_numeric($id)) {
-            // For unallocated Items
-            $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
+            // $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
             // $this->db->where(db_prefix() . 'transfer_lists.allocation',0)
-            $res =  $this->db->get()->result_array();
-            $from_warehouse_arr = [];
-            foreach ($res as $key => $value) {
-                array_push($from_warehouse_arr, $value['transaction_from']);
-            }
-            $to_warehouse_arr = [];
-            foreach ($res as $key => $value) {
-                array_push($from_warehouse_arr, $value['transaction_to']);
-            }
+            // $res =  $this->db->get()->result_array();
+            // $from_warehouse_arr = [];
+            // foreach ($res as $key => $value) {
+            //     array_push($from_warehouse_arr, $value['transaction_from']);
+            // }
+            // $to_warehouse_arr = [];
+            // foreach ($res as $key => $value) {
+            //     array_push($from_warehouse_arr, $value['transaction_to']);
+            // }
             // $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
             $warehouses = $this->db->query('SELECT id FROM tblwarehouses')->result_array();
             $warehouse_arr = [];
             foreach ($warehouses as $key => $value) {
                 array_push($warehouse_arr, $value['id']);
             }
+
             $res = [];
             
             foreach ($warehouse_arr as $key => $value) {
@@ -538,11 +567,21 @@ class Warehouses_model extends App_Model
                 if(empty($from)) $from = 0;
 
                 $diff = $to->to_sum - $from->to_sum;
-                $obj = (object)[
-                    'warehouse_id' => $value,
-                    'warehouse' => $name,
-                    'qty' => $diff
-                ];
+                $warning = $this->db->query('SELECT * FROM tblstock_level_warning WHERE `warehouse_id`='.$value.' AND `stock_id`='.$id)->row();
+
+                if(empty($warning))
+                    $obj = (object)[
+                        'warehouse_id' => $value,
+                        'warehouse' => $name,
+                        'qty' => $diff
+                    ];
+                else 
+                    $obj = (object)[
+                        'warehouse_id' => $value,
+                        'warehouse' => $name,
+                        'qty' => $diff,
+                        'limit' => $warning->limit
+                    ];
                 array_push($res, $obj);
             }
             return $res;

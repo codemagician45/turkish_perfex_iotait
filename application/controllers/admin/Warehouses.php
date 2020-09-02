@@ -223,6 +223,7 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            
             $folderPath = "uploads/stock_lists/";
             if (move_uploaded_file($_FILES["product_photo"]["tmp_name"], $folderPath . $_FILES["product_photo"]["name"])) {
                 $data['product_photo'] = $folderPath . $_FILES["product_photo"]["name"];

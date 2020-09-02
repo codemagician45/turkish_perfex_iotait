@@ -131,20 +131,38 @@
                 //Apeending Warehouse and transaction qty from transfer..
                 var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
                 requestGetJSON(tranferReqUrl).done(function (results) {
-
+                	console.log(results)
                 	$('.warehouse_qty').empty();
                 	if(results.length > 0)
                 	{
                 		var data_row = '';
+                		var i = 0;
                 		data_row += '<label style="font-size: 14px;font-weight: 500"><?php echo _l('stock_by_warehouse')?></label><table width="100%" style="border:1px solid;"><thead style="border:1px solid;"><th width="30%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('warehouse_name')?></th><th width="20%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;padding: 4px;"><?php echo _l('warning_enable')?></th><th width="20%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('qty')?></th><th width="30%" style="font-size: 12px;font-weight: 500;border:1px solid #bfcbd9;text-align: center;"><?php echo _l('minimum_stock_level')?></th></thead><tbody style="border:1px solid #bfcbd9;">';
 
                 		results.forEach( e => {
-                			// console.log(e)
-                			data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'</td><td style="border:1px solid #bfcbd9;text-align: center;"><input type="checkbox"></td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td><td style="border:1px solid #bfcbd9;text-align: center;padding:8px;"><input type="number"></td></tr>';
+                			if(e.limit){
+                				data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'<input type="hidden" class="warehouse_id" name="warning['+i+'][warehouse_id]" value="'+e.warehouse_id+'"></td><td style="border:1px solid #bfcbd9;text-align: center;"><input type="checkbox" name="warning['+i+'][warning_enable]" class="warning_enable" checked></td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td><td style="border:1px solid #bfcbd9;text-align: center;padding:8px;"><input type="number" class="limit" name="warning['+i+'][limit]" value="'+e.limit+'"></td></tr>';
+                			}
+                			else {
+                				data_row += '<tr><td style="border:1px solid #bfcbd9;text-align: center;">'+e.warehouse+'<input type="hidden" class="warehouse_id" name="warning['+i+'][warehouse_id]" value="'+e.warehouse_id+'"></td><td style="border:1px solid #bfcbd9;text-align: center;"><input type="checkbox" name="warning['+i+'][warning_enable]" class="warning_enable"></td><td style="border:1px solid #bfcbd9;text-align: center;">'+e.qty+'</td><td style="border:1px solid #bfcbd9;text-align: center;padding:8px;"><input type="number" class="limit" name="warning['+i+'][limit]" value="0" disabled></td></tr>';
+                			}
+                			
+                			i++;
                 		})
                 		data_row += '</tbody></table>';
                 		$('.warehouse_qty').append(data_row);
                 	}
+
+                	$('.warning_enable').change(function(){
+                		if($(this).prop('checked')){
+                			$(this).parents('tr').find('.limit').prop('disabled',false);
+                			$(this).parents('tr').find('.warehouse_id').prop('disabled',false);
+                		} else {
+                			$(this).parents('tr').find('.limit').val('')
+                			$(this).parents('tr').find('.limit').prop('disabled',true);
+                		}
+
+                	})
                 });
 			}
 
@@ -206,6 +224,7 @@
 			$('input[name="price"]').prop('disabled',false)
 		}
 	})
+
 </script>
 </body>
 </html>

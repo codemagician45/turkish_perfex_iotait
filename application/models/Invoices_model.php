@@ -1804,23 +1804,24 @@ class Invoices_model extends App_Model
                 $pack_transfer = [];
                 $pack_capacity = $val['pack_capacity'];
                 $pack = $this->db->query('SELECT id from tblpack_list where pack_capacity='.$pack_capacity)->row();
-                if(!empty($pack))
+                if(!empty($pack)){
                     $pack_id = $pack->id;
-                $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
-                $pack_transfer['transaction_notes'] = 'WO-'.$id;
-                $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
-                // print_r($pack_transfer); exit();
-                if(empty($item->pack_transfer_id))
-                {
-                    $pack_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
-                    $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
-                } 
-                else {
-                    $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
-                    $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
-                    $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
+                    $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
+                    $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
+                    $pack_transfer['transaction_notes'] = 'WO-'.$id;
+                    $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
+                    if(empty($item->pack_transfer_id))
+                    {
+                        $pack_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
+                        $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
+                    } 
+                    else {
+                        $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
+                        $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
+                        $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
+                    }
                 }
+                
             }
         if ($affected_rows > 0) {
                 return true;
