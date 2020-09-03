@@ -167,6 +167,7 @@ class Client_merge_fields extends App_merge_fields
                         'project',
                         'credit_note',
                         'subscriptions',
+                        'purchase'
                     ],
                           'templates' => [
                         'gdpr-removal-request',

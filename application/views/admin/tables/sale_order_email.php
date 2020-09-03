@@ -8,7 +8,7 @@ $custom_fields = get_custom_fields('staff', [
     'show_on_table' => 1,
     ]);
 $aColumns = [
-    'stock_warning_email_permission',
+    'so_email_permission',
     'firstname',
     'email',
     
@@ -50,19 +50,19 @@ foreach ($rResult as $aRow) {
         } else {
             $_data = $aRow[$aColumns[$i]];
         }
-        if ($aColumns[$i] == 'stock_warning_email_permission') {
+        if ($aColumns[$i] == 'so_email_permission') {
             $checked = '';
-            if ($aRow['stock_warning_email_permission'] == 1) {
+            if ($aRow['so_email_permission'] == 1) {
                 $checked = 'checked';
             }
 
             // $_data = '<div class="onoffswitch">
-            //     <input type="checkbox" ' . (($aRow['staffid'] == get_staff_user_id() || (is_admin($aRow['staffid']) || !has_permission('staff', '', 'edit')) && !is_admin()) ? 'disabled' : '') . ' data-switch-url="' . admin_url() . 'staff/change_staff_email_permission" name="onoffswitch" class="onoffswitch-checkbox" id="c_' . $aRow['staffid'] . '" data-id="' . $aRow['staffid'] . '" ' . $checked . '">
+            //     <input type="checkbox" ' . (($aRow['staffid'] == get_staff_user_id() || (is_admin($aRow['staffid']) || !has_permission('staff', '', 'edit')) && !is_admin()) ? 'disabled' : '') . ' data-switch-url="' . admin_url() . 'staff/change_staff_so_email_permission" name="onoffswitch" class="onoffswitch-checkbox" id="c_' . $aRow['staffid'] . '" data-id="' . $aRow['staffid'] . '" ' . $checked . '">
             //     <label class="onoffswitch-label" for="c_' . $aRow['staffid'] . '"></label>
             // </div>';
 
             $_data = '<div class="onoffswitch">
-                <input type="checkbox"' . ' data-switch-url="' . admin_url() . 'staff/change_staff_stock_warning_email_permission" name="onoffswitch" class="onoffswitch-checkbox" id="' . $aRow['staffid'] . '" data-id="' . $aRow['staffid'] . '" ' . ($aRow['stock_warning_email_permission'] == 1 ? 'checked' : '') . '>
+                <input type="checkbox"' . ' data-switch-url="' . admin_url() . 'staff/change_staff_so_email_permission" name="onoffswitch" class="onoffswitch-checkbox" id="' . $aRow['staffid'] . '" data-id="' . $aRow['staffid'] . '" ' . ($aRow['so_email_permission'] == 1 ? 'checked' : '') . '>
                 <label class="onoffswitch-label" for="' . $aRow['staffid'] . '"></label>
                 </div>';
 

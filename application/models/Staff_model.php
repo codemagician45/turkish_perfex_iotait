@@ -755,16 +755,52 @@ class Staff_model extends App_Model
         log_activity('Staff Status Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
     }
 
-    public function change_staff_email_permission($id, $status)
+    public function change_staff_stock_warning_email_permission($id, $status)
     {
         $status = hooks()->apply_filters('before_staff_status_change', $status, $id);
 
         $this->db->where('staffid', $id);
         $this->db->update(db_prefix() . 'staff', [
-            'email_permission' => $status,
+            'stock_warning_email_permission' => $status,
         ]);
 
-        log_activity('Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
+        log_activity('Stock Level Warning Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
+    }
+
+    public function change_staff_so_email_permission($id, $status)
+    {
+        $status = hooks()->apply_filters('before_staff_status_change', $status, $id);
+
+        $this->db->where('staffid', $id);
+        $this->db->update(db_prefix() . 'staff', [
+            'so_email_permission' => $status,
+        ]);
+
+        log_activity('Sale Order Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
+    }
+
+    public function change_staff_purchase_email_permission($id, $status)
+    {
+        $status = hooks()->apply_filters('before_staff_status_change', $status, $id);
+
+        $this->db->where('staffid', $id);
+        $this->db->update(db_prefix() . 'staff', [
+            'purchase_email_permission' => $status,
+        ]);
+
+        log_activity('Purchase Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
+    }
+
+    public function change_staff_wo_email_permission($id, $status)
+    {
+        $status = hooks()->apply_filters('before_staff_status_change', $status, $id);
+
+        $this->db->where('staffid', $id);
+        $this->db->update(db_prefix() . 'staff', [
+            'wo_email_permission' => $status,
+        ]);
+
+        log_activity('Work Order Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
     }
 
     public function get_logged_time_data($id = '', $filter_data = [])

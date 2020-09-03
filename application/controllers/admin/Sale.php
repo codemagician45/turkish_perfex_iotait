@@ -467,5 +467,15 @@ class Sale extends AdminController
         return false;
     }
 
+    public function sale_order_email(){
+        if (!is_admin()) {
+            access_denied('sale_order_email');
+        }
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('sale_order_email');
+        }
+        $data['title'] = _l('sale_order_email');
+        $this->load->view('admin/sale/settings/sale_order_email', $data);
+    }
     
 }

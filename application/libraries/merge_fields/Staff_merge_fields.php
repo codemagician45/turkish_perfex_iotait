@@ -7,12 +7,13 @@ class Staff_merge_fields extends App_merge_fields
     public function build()
     {
         return [
-        [
+                [
                     'name'      => 'Staff Firstname',
                     'key'       => '{staff_firstname}',
                     'available' => [
                         'staff',
                         'gdpr',
+                        'purchase'
                     ],
                     'templates' => [
                         'task-status-change-to-staff',
@@ -36,6 +37,7 @@ class Staff_merge_fields extends App_merge_fields
                     'available' => [
                         'staff',
                         'gdpr',
+                        'purchase'
                     ],
                     'templates' => [
                         'task-status-change-to-staff',

@@ -762,7 +762,14 @@ function app_init_admin_sidebar_menu_items()
                 'name'     => _l('work_order_phases'),
                 'href'     => admin_url('production/work_order_phases'),
                 'position' => 5,
-        ]);    
+        ]);
+
+        $CI->app_menu->add_setup_children_item('production', [
+                'slug'     => 'work_order_email',
+                'name'     => _l('work_order_email'),
+                'href'     => admin_url('production/work_order_email'),
+                'position' => 10,
+        ]);      
 
         // Purchase
         $CI->app_menu->add_setup_menu_item('purchase', [
@@ -776,7 +783,14 @@ function app_init_admin_sidebar_menu_items()
                 'name'     => _l('purchase_orders_phases'),
                 'href'     => admin_url('purchases/purchase_orders_phases'),
                 'position' => 5,
-        ]);   
+        ]);
+
+        $CI->app_menu->add_setup_children_item('purchase', [
+                'slug'     => 'purchase_email',
+                'name'     => _l('purchase_email'),
+                'href'     => admin_url('purchases/purchase_email'),
+                'position' => 5,
+        ]);    
 
         // Warehouse Material
         $CI->app_menu->add_setup_menu_item('warehouse', [
@@ -838,6 +852,12 @@ function app_init_admin_sidebar_menu_items()
                 'name'     => _l('quote_phases'),
                 'href'     => admin_url('sale/quote_phases'),
                 'position' => 15,
+        ]);
+        $CI->app_menu->add_setup_children_item('sale', [
+                'slug'     => 'sale_order_email',
+                'name'     => _l('sale_order_email'),
+                'href'     => admin_url('sale/sale_order_email'),
+                'position' => 20,
         ]);
         // User log
         $CI->app_menu->add_setup_menu_item('user_logs', [

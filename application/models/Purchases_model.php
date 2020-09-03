@@ -40,6 +40,7 @@ class Purchases_model extends App_Model
 
     public function add_purchase_order($data)
     {
+
         unset($data['item_select']);
         unset($data['item_id']);
         unset($data['product_name']);
@@ -62,6 +63,10 @@ class Purchases_model extends App_Model
 
         if ($insert_id) {
             log_activity('New Purchase Order Added [ID: ' . $insert_id . ']');
+            $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE purchase_email_permission=1')->result_array();
+            foreach ($allowed_staffs as $key => $staff) {
+                $success = send_mail_template('purchase_opened', $staff['email'], $staff['staffid'], $insert_id);
+            }
             return $insert_id;
         }
         return false;

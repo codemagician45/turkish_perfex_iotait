@@ -51,6 +51,7 @@ class App_merge_fields
         } else {
             // Run only once when class is autoloaded
             $this->registered = hooks()->apply_filters('register_merge_fields', []);
+            array_push($this->registered, 'merge_fields/purchase_merge_fields');
         }
     }
 
@@ -176,7 +177,7 @@ class App_merge_fields
         }
 
         $registered = $this->get_registered();
-
+        // print_r($registered); exit();
         $available = [];
 
         foreach ($registered as $merge_field) {

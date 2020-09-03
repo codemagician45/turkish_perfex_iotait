@@ -168,4 +168,15 @@ class Production extends AdminController
         }
        
     }
+
+    public function work_order_email(){
+        if (!is_admin()) {
+            access_denied('work_order_email');
+        }
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('work_order_email');
+        }
+        $data['title'] = _l('work_order_email');
+        $this->load->view('admin/production/settings/work_order_email', $data);
+    }
 }

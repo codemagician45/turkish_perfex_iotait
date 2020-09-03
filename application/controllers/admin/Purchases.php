@@ -166,4 +166,16 @@ class Purchases extends AdminController
         $data['title'] = _l('pending_purchase_request');
         $this->load->view('admin/purchases/pending_purchase_request_manage', $data);
     }
+
+    public function purchase_email()
+    {
+        if (!is_admin()) {
+            access_denied('purchase_email');
+        }
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('purchase_email');
+        }
+        $data['title'] = _l('purchase_email');
+        $this->load->view('admin/purchases/settings/purchase_email', $data);
+    }
 }

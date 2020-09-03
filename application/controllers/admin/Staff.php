@@ -319,11 +319,38 @@ class Staff extends AdminController
         }
     }
 
-    public function change_staff_email_permission($id, $status)
+    public function change_staff_stock_warning_email_permission($id, $status)
     {
         if (has_permission('staff', '', 'edit')) {
             if ($this->input->is_ajax_request()) {
-                $this->staff_model->change_staff_email_permission($id, $status);
+                $this->staff_model->change_staff_stock_warning_email_permission($id, $status);
+            }
+        }
+    }
+
+    public function change_staff_so_email_permission($id, $status)
+    {
+        if (has_permission('staff', '', 'edit')) {
+            if ($this->input->is_ajax_request()) {
+                $this->staff_model->change_staff_so_email_permission($id, $status);
+            }
+        }
+    }
+
+    public function change_staff_purchase_email_permission($id, $status)
+    {
+        if (has_permission('staff', '', 'edit')) {
+            if ($this->input->is_ajax_request()) {
+                $this->staff_model->change_staff_purchase_email_permission($id, $status);
+            }
+        }
+    }
+
+    public function change_staff_wo_email_permission($id, $status)
+    {
+        if (has_permission('staff', '', 'edit')) {
+            if ($this->input->is_ajax_request()) {
+                $this->staff_model->change_staff_wo_email_permission($id, $status);
             }
         }
     }

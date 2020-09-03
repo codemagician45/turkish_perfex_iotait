@@ -120,10 +120,15 @@ class Emails extends AdminController
             'language' => 'english',
         ]);
 
+        $data['purchases'] = $this->emails_model->get([
+            'type'     => 'purchase',
+            'language' => 'english',
+        ]);
+
         $data['title'] = _l('email_templates');
 
         $data['hasPermissionEdit'] = has_permission('email_templates', '', 'edit');
-
+        // print_r($data['estimate']); exit();
         $this->load->view('admin/emails/email_templates', $data);
     }
 
@@ -172,7 +177,6 @@ class Emails extends AdminController
         }
 
         $data['available_merge_fields'] = $this->app_merge_fields->all();
-
         $data['template'] = $this->emails_model->get_email_template_by_id($id);
         $title            = $data['template']->name;
         $data['title']    = $title;

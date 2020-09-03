@@ -10,11 +10,11 @@
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
-							_l('warning_email_permission'),
+							_l('work_order_email'),
 							_l('staff_dt_name'),
 							_l('staff_dt_email'),
 							
-						),'stock_level_warning'); ?>
+						),'work_order_email'); ?>
 					</div>
 				</div>
 			</div>
@@ -24,7 +24,7 @@
 <?php init_tail(); ?>
 <script>
 	$(function(){
-		initDataTable('.table-stock_level_warning', window.location.href, [], [],[],[1, 'asc']);
+		initDataTable('.table-work_order_email', window.location.href, [], [],[],[1, 'asc']);
 	});
 
 </script>

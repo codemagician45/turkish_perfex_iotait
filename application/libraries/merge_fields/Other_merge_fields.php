@@ -85,6 +85,14 @@ class Other_merge_fields extends App_merge_fields
                     'fromoptions' => true,
                     'available'   => $available_for,
                 ],
+
+                // [
+                //     'name'      => 'Purchase',
+                //     'key'       => '{purchase}',
+                //     'available' => [
+                //         'purchase',
+                //     ],
+                // ],
             ];
     }
 

@@ -3980,12 +3980,16 @@ $lang['archived_quotation'] = 'Archived Quotation';
 $lang['active_sale_orders'] = 'Active Sale Orders';
 $lang['archived_sale_orders'] = 'Archived Sale Orders';
 
-
-
 // ending
 
 $lang['set_installation_plan'] = 'Set Installation Plan';
 $lang['stock_level_warning'] = 'Stock Level Warning';
-$lang['email_permission'] = 'Email Permission';
+$lang['warning_email_permission'] = 'Warning Email Permission';
 $lang['warning_enable'] = 'Warning Enable';
 $lang['minimum_stock_level'] = 'Minimum Stock Level';
+
+$lang['sale_order_email'] = 'Sale Order Email';
+$lang['purchase_email'] = 'Purchase Email';
+$lang['work_order_email'] = 'Work Order Email';
+
+$lang['purchases'] = 'Purchases';
