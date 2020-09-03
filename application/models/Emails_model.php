@@ -97,7 +97,6 @@ class Emails_model extends App_Model
         $main_id      = false;
         $affectedRows = 0;
         $i            = 0;
-
         foreach ($data['subject'] as $id => $val) {
             if ($i == 0) {
                 $main_id = $id;

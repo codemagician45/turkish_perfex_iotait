@@ -436,7 +436,7 @@
                                     </table>
                                 </div>
                             </div>
-
+                            <!-- Purchase -->
                             <div class="col-md-12">
                                 <h4 class="bold well email-template-heading">
                                     <?php echo _l('purchases'); ?>

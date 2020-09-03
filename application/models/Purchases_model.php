@@ -64,9 +64,14 @@ class Purchases_model extends App_Model
         if ($insert_id) {
             log_activity('New Purchase Order Added [ID: ' . $insert_id . ']');
             $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE purchase_email_permission=1')->result_array();
-            foreach ($allowed_staffs as $key => $staff) {
-                $success = send_mail_template('purchase_opened', $staff['email'], $staff['staffid'], $insert_id);
-            }
+            if($data['approval'] == 1)
+                foreach ($allowed_staffs as $key => $staff) {
+                    $success = send_mail_template('pending_purchase_request_opened', $staff['email'], $staff['staffid'], $insert_id);
+                }
+            else 
+                foreach ($allowed_staffs as $key => $staff) {
+                    $success = send_mail_template('purchase_opened', $staff['email'], $staff['staffid'], $insert_id);
+                }
             return $insert_id;
         }
         return false;
