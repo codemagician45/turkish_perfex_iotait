@@ -52,6 +52,9 @@ class App_merge_fields
             // Run only once when class is autoloaded
             $this->registered = hooks()->apply_filters('register_merge_fields', []);
             array_push($this->registered, 'merge_fields/purchase_merge_fields');
+            array_push($this->registered, 'merge_fields/so_merge_fields');
+            array_push($this->registered, 'merge_fields/wo_merge_fields');
+            array_push($this->registered, 'merge_fields/stock_warning_merge_fields');
         }
     }
 

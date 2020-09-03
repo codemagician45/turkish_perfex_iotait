@@ -659,9 +659,15 @@ class Estimates_model extends App_Model
 
             hooks()->do_action('after_estimate_added', $insert_id);
 
-            if ($save_and_send === true) {
-                $this->send_estimate_to_client($insert_id, '', true, '', true);
+            // if ($save_and_send === true) {
+            //     $this->send_estimate_to_client($insert_id, '', true, '', true);
+            // }
+
+            $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE so_email_permission=1')->result_array();
+            foreach ($allowed_staffs as $key => $staff) {
+                $success = send_mail_template('so_opened', $staff['email'], $staff['staffid'], $insert_id);
             }
+
 
             return $insert_id;
         }
@@ -779,7 +785,7 @@ class Estimates_model extends App_Model
         unset($data['sale_price']);
         unset($data['volume_m3']);
         unset($data['notes']);
-        $rel_product_id = $data['rel_product_id'];
+        // $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
         // unset($data['total_price']);
         // print_r($data);exit();
@@ -927,8 +933,13 @@ class Estimates_model extends App_Model
             update_sales_total_tax_column($id, 'estimate', db_prefix() . 'estimates');
         }
 
-        if ($save_and_send === true) {
-            $this->send_estimate_to_client($id, '', true, '', true);
+        // if ($save_and_send === true) {
+        //     $this->send_estimate_to_client($id, '', true, '', true);
+        // }
+
+        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE so_email_permission=1')->result_array();
+        foreach ($allowed_staffs as $key => $staff) {
+            $success = send_mail_template('so_updated', $staff['email'], $staff['staffid'], $id);
         }
 
         if ($affectedRows > 0) {

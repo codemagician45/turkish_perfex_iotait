@@ -125,6 +125,21 @@ class Emails extends AdminController
             'language' => 'english',
         ]);
 
+        $data['sale_orders'] = $this->emails_model->get([
+            'type'     => 'sale-order',
+            'language' => 'english',
+        ]);
+
+        $data['work_orders'] = $this->emails_model->get([
+            'type'     => 'work-order',
+            'language' => 'english',
+        ]);
+
+        $data['stock_warnings'] = $this->emails_model->get([
+            'type'     => 'stock-warning',
+            'language' => 'english',
+        ]);
+
         $data['title'] = _l('email_templates');
 
         $data['hasPermissionEdit'] = has_permission('email_templates', '', 'edit');
@@ -149,7 +164,7 @@ class Emails extends AdminController
 
             $data = $this->input->post();
             $tmp  = $this->input->post(null, false);
-            
+
             foreach ($data['message'] as $key => $contents) {
                 $data['message'][$key] = $tmp['message'][$key];
             }
@@ -159,7 +174,7 @@ class Emails extends AdminController
             }
 
             $data['fromname'] = $tmp['fromname'];
-            
+
             $success = $this->emails_model->update($data, $id);
 
             if ($success) {

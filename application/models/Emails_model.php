@@ -46,7 +46,6 @@ class Emails_model extends App_Model
     public function get($where = [], $result_type = 'result_array')
     {
         $this->db->where($where);
-
         return $this->db->get(db_prefix() . 'emailtemplates')->{$result_type}();
     }
 

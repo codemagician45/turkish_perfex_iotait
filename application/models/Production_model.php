@@ -47,7 +47,6 @@ class Production_model extends App_Model
 
     public function produced_qty($data)
     {
-        // print_r($data); exit();
         $data['userid'] = get_staff_user_id();
         if(isset($data['p_qty_id']))
         {
@@ -63,16 +62,16 @@ class Production_model extends App_Model
             $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
             $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
             $plus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
-            // $this->db->where('p_qty_id',$data['p_qty_id']);
-            // $produced_qty = $this->db->get(db_prefix().'produced_qty')->row();
-            // $plus_transfer_stock = [];
-            // $plus_transfer_stock['transaction_qty'] = $data['produced_quantity'];
 
             $this->load->model('warehouses_model');
             $last_transaction_qty = $this->warehouses_model->get_transfer($res->plus_transfer_id)->transaction_qty;
             $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
-            $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
-
+            $success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
+            if(!$success)
+            {
+                set_alert('danger', _l('warehouse_overrode'));
+                return false;
+            }
             if ($this->db->affected_rows() > 0) {
                log_activity('Daily Produced Qty Updated [' . $data['p_qty_id'] . ']');
                 return true;
@@ -112,10 +111,20 @@ class Production_model extends App_Model
 
                 $this->load->model('warehouses_model');
                 $minus_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
+                if(!$minus_transfer_id){
+                    set_alert('danger', _l('warehouse_overrode'));
+                    return false;
+                }
                 $plus_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
+                if(!$plus_transfer_id){
+                    set_alert('danger', _l('warehouse_overrode'));
+                    return false;
+                }
 
-                $data['minus_transfer_id'] = $minus_transfer_id;
-                $data['plus_transfer_id'] = $plus_transfer_id;
+                if($minus_transfer_id)
+                    $data['minus_transfer_id'] = $minus_transfer_id;
+                if($plus_transfer_id)
+                    $data['plus_transfer_id'] = $plus_transfer_id;
 
                 $this->db->where('p_qty_id',$insert_id);
                 $this->db->update(db_prefix().'produced_qty',$data);

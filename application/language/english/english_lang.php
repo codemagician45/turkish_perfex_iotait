@@ -3993,3 +3993,5 @@ $lang['purchase_email'] = 'Purchase Email';
 $lang['work_order_email'] = 'Work Order Email';
 
 $lang['purchases'] = 'Purchases';
+$lang['sale_orders'] = 'Sale Orders';
+$lang['stock_warnings'] = 'Stock Warnings';

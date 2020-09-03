@@ -472,6 +472,113 @@
                                 </div>
                             </div>
 
+                            <!-- Sale Order -->
+                            <div class="col-md-12">
+                                <h4 class="bold well email-template-heading">
+                                    <?php echo _l('sale_orders'); ?>
+                                       <?php if($hasPermissionEdit){ ?>
+                                      <a href="<?php echo admin_url('emails/disable_by_type/sale-order'); ?>" class="pull-right mleft5 mright25"><small><?php echo _l('disable_all'); ?></small></a>
+                                      <a href="<?php echo admin_url('emails/enable_by_type/sale-order'); ?>" class="pull-right"><small><?php echo _l('enable_all'); ?></small></a>
+                                     <?php } ?>
+
+                                    </h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><?php echo _l('email_templates_table_heading_name'); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($sale_orders as $so_template){ ?>
+                                            <tr>
+                                                <td class="<?php if($so_template['active'] == 0){echo 'text-throught';} ?>">
+                                                    <a href="<?php echo admin_url('emails/email_template/'.$so_template['emailtemplateid']); ?>"><?php echo $so_template['name']; ?></a>
+                                                    <?php if(ENVIRONMENT !== 'production'){ ?>
+                                                    <br/><small><?php echo $so_template['slug']; ?></small>
+                                                    <?php } ?>
+                                                    <?php if($hasPermissionEdit){ ?>
+                                                    <a href="<?php echo admin_url('emails/'.($so_template['active'] == '1' ? 'disable/' : 'enable/').$so_template['emailtemplateid']); ?>" class="pull-right"><small><?php echo _l($so_template['active'] == 1 ? 'disable' : 'enable'); ?></small></a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Work Order -->
+                            <div class="col-md-12">
+                                <h4 class="bold well email-template-heading">
+                                    <?php echo _l('work_orders'); ?>
+                                       <?php if($hasPermissionEdit){ ?>
+                                      <a href="<?php echo admin_url('emails/disable_by_type/work-order'); ?>" class="pull-right mleft5 mright25"><small><?php echo _l('disable_all'); ?></small></a>
+                                      <a href="<?php echo admin_url('emails/enable_by_type/work-order'); ?>" class="pull-right"><small><?php echo _l('enable_all'); ?></small></a>
+                                     <?php } ?>
+
+                                    </h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><?php echo _l('email_templates_table_heading_name'); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($work_orders as $wo_template){ ?>
+                                            <tr>
+                                                <td class="<?php if($wo_template['active'] == 0){echo 'text-throught';} ?>">
+                                                    <a href="<?php echo admin_url('emails/email_template/'.$wo_template['emailtemplateid']); ?>"><?php echo $wo_template['name']; ?></a>
+                                                    <?php if(ENVIRONMENT !== 'production'){ ?>
+                                                    <br/><small><?php echo $wo_template['slug']; ?></small>
+                                                    <?php } ?>
+                                                    <?php if($hasPermissionEdit){ ?>
+                                                    <a href="<?php echo admin_url('emails/'.($wo_template['active'] == '1' ? 'disable/' : 'enable/').$wo_template['emailtemplateid']); ?>" class="pull-right"><small><?php echo _l($wo_template['active'] == 1 ? 'disable' : 'enable'); ?></small></a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Stock Warning -->
+                            <div class="col-md-12">
+                                <h4 class="bold well email-template-heading">
+                                    <?php echo _l('stock_warnings'); ?>
+                                       <?php if($hasPermissionEdit){ ?>
+                                      <a href="<?php echo admin_url('emails/disable_by_type/stock_warning'); ?>" class="pull-right mleft5 mright25"><small><?php echo _l('disable_all'); ?></small></a>
+                                      <a href="<?php echo admin_url('emails/enable_by_type/stock_warning'); ?>" class="pull-right"><small><?php echo _l('enable_all'); ?></small></a>
+                                     <?php } ?>
+
+                                    </h4>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th><?php echo _l('email_templates_table_heading_name'); ?></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach($stock_warnings as $stock_warning_template){ ?>
+                                            <tr>
+                                                <td class="<?php if($stock_warning_template['active'] == 0){echo 'text-throught';} ?>">
+                                                    <a href="<?php echo admin_url('emails/email_template/'.$stock_warning_template['emailtemplateid']); ?>"><?php echo $stock_warning_template['name']; ?></a>
+                                                    <?php if(ENVIRONMENT !== 'production'){ ?>
+                                                    <br/><small><?php echo $stock_warning_template['slug']; ?></small>
+                                                    <?php } ?>
+                                                    <?php if($hasPermissionEdit){ ?>
+                                                    <a href="<?php echo admin_url('emails/'.($stock_warning_template['active'] == '1' ? 'disable/' : 'enable/').$stock_warning_template['emailtemplateid']); ?>" class="pull-right"><small><?php echo _l($stock_warning_template['active'] == 1 ? 'disable' : 'enable'); ?></small></a>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                            <?php } ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <?php hooks()->do_action('before_gdpr_email_templates'); ?>
                             <div class="col-md-12<?php if(!is_gdpr()){echo ' hide';} ?>">
                                 <h4 class="bold well email-template-heading">

@@ -506,6 +506,11 @@ class Invoices_model extends App_Model
             if ($save_and_send === true) {
                 $this->send_invoice_to_client($insert_id, '', true, '', true);
             }
+            $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE wo_email_permission=1')->result_array();
+            foreach ($allowed_staffs as $key => $staff) {
+                $success = send_mail_template('wo_updated', $staff['email'], $staff['staffid'], $insert_id);
+                print_r($success); exit();
+            }
             hooks()->do_action('after_invoice_added', $insert_id);
 
             return $insert_id;
@@ -1035,6 +1040,10 @@ class Invoices_model extends App_Model
 
         if ($save_and_send === true) {
             $this->send_invoice_to_client($id, '', true, '', true);
+        }
+        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE wo_email_permission=1')->result_array();
+        foreach ($allowed_staffs as $key => $staff) {
+            $success = send_mail_template('wo_updated', $staff['email'], $staff['staffid'], $id);
         }
 
         if ($affectedRows > 0) {
@@ -1790,11 +1799,23 @@ class Invoices_model extends App_Model
                 if(empty($item->wo_install_transfer_id))
                 {
                     $wo_install_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
-                    $this->db->query('UPDATE tblitemable SET wo_install_transfer_id = '.$wo_install_transfer_id.' WHERE id='.$itemid);
+                    if($wo_install_transfer_id)
+                        $this->db->query('UPDATE tblitemable SET wo_install_transfer_id = '.$wo_install_transfer_id.' WHERE id='.$itemid);
+                    else
+                    {
+                        set_alert('danger', _l('warehouse_overrode'));
+                        return false;
+                    }
+
                 } else {
                     $last_transaction_qty = $this->warehouses_model->get_transfer($item->wo_install_transfer_id)->transaction_qty;
                     $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
-                    $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $item->wo_install_transfer_id);
+                    $success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $item->wo_install_transfer_id);
+                    if(!$success)
+                    {
+                        set_alert('danger', _l('warehouse_overrode'));
+                        return false;
+                    }
                 }
                                     
                 if ($this->db->affected_rows() > 0) {
@@ -1813,12 +1834,23 @@ class Invoices_model extends App_Model
                     if(empty($item->pack_transfer_id))
                     {
                         $pack_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
-                        $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
+                        if($pack_transfer_id)
+                            $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
+                        else
+                        {
+                            set_alert('danger', _l('warehouse_overrode'));
+                            return false;
+                        }
                     } 
                     else {
                         $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
                         $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
-                        $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
+                        $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
+                        if(!$success)
+                        {
+                            set_alert('danger', _l('warehouse_overrode'));
+                            return false;
+                        }
                     }
                 }
                 
@@ -1904,11 +1936,24 @@ class Invoices_model extends App_Model
                 if(empty($recipe->recipe_install_transfer_id))
                 {
                     $recipe_install_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
-                    $this->db->query('UPDATE tblplan_recipe SET recipe_install_transfer_id = '.$recipe_install_transfer_id.' WHERE id='.$recipe_id);
+                    if($recipe_install_transfer_id)
+                        $this->db->query('UPDATE tblplan_recipe SET recipe_install_transfer_id = '.$recipe_install_transfer_id.' WHERE id='.$recipe_id);
+                   else
+                        {
+                            set_alert('danger', _l('warehouse_overrode'));
+                            return false;
+                        }
+
                 } else {
                     $last_transaction_qty = $this->warehouses_model->get_transfer($recipe->recipe_install_transfer_id)->transaction_qty;
                     $minus_transfer_stock['delta'] = $minus_transfer_stock['transaction_qty'] - $last_transaction_qty;
-                    $this->warehouses_model->update_transfer_by_production($minus_transfer_stock, $recipe->recipe_install_transfer_id);
+                    $success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock, $recipe->recipe_install_transfer_id);
+
+                    if(!$success)
+                    {
+                        set_alert('danger', _l('warehouse_overrode'));
+                        return false;
+                    }
                 }
 
                 // $this->load->model('warehouses_model');

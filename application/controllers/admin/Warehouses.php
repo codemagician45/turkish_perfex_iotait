@@ -326,6 +326,11 @@ class Warehouses extends AdminController
             if ($id == '') {
                 // Allocated Items saving if allocation is enabled
                 $id = $this->warehouses_model->add_transfer($data);
+                
+                if(!$id)
+                {
+                    set_alert('danger', _l('warehouse_overrode', _l('transfer')));
+                }
                 if($data['allocation'] == 1)
                 {
                     $allocation_data['transfer_id'] = $id;
@@ -387,6 +392,8 @@ class Warehouses extends AdminController
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('transfer')));
                 }
+                else
+                    set_alert('danger', _l('warehouse_overrode', _l('transfer')));
                 redirect(admin_url('warehouses/transfers'));
             }
         }
