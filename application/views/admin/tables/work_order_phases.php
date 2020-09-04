@@ -2,8 +2,8 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
-    'phase',
     'order_no',
+    'phase',
     ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'work_order_phases';

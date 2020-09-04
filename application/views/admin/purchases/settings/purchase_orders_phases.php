@@ -13,8 +13,8 @@
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
-							_l('purchase_phase'),
 							_l('order_no'),
+							_l('purchase_phase'),
 							_l('options'),
 						),'purchase-order-phase'); ?>
 					</div>

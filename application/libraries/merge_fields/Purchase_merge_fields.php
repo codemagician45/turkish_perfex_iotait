@@ -73,7 +73,7 @@ class Purchase_merge_fields extends App_merge_fields
         $this->ci->db->select(db_prefix().'purchase_order.*, '.db_prefix().'clients.company as company, '.db_prefix().'purchase_order_phases.phase');
         $this->ci->db->join(db_prefix().'clients',db_prefix().'clients.userid='.db_prefix().'purchase_order.acc_list','left');
         $this->ci->db->join(db_prefix().'purchase_order_phases',db_prefix().'purchase_order_phases.id='.db_prefix().'purchase_order.purchase_phase_id','left');
-        $this->ci->db->where('id',$purchase_id);
+        $this->ci->db->where(db_prefix().'purchase_order.id',$purchase_id);
         $purchase_order = $this->ci->db->get(db_prefix().'purchase_order')->row();
         
         $fields['{purchase_phase}'] = $purchase_order->phase;

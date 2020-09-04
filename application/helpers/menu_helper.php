@@ -780,7 +780,7 @@ function app_init_admin_sidebar_menu_items()
 
         $CI->app_menu->add_setup_children_item('purchase', [
                 'slug'     => 'purchase_orders_phases',
-                'name'     => _l('purchase_orders_phases'),
+                'name'     => _l('purchase_order_phases'),
                 'href'     => admin_url('purchases/purchase_orders_phases'),
                 'position' => 5,
         ]);

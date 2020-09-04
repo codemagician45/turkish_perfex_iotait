@@ -3741,7 +3741,7 @@ $lang['pending_purchase_request'] = 'Pending Purchase Request';
 $lang['new_purchase_request'] = 'New Purchase Request';
 
 $lang['purchase_tunning'] = 'Purchase Tunning';
-$lang['purchase_orders_phases'] = 'Purchase Orders Phases';
+$lang['purchase_order_phases'] = 'Purchase Order Phases';
 $lang['new_purchase_phase'] = 'New Purchase Phase';
 $lang['purchase_phase'] = 'Purchase Phase';
 $lang['edit_purchase_phase'] = 'Edit Purchase Phase';
@@ -3995,3 +3995,6 @@ $lang['work_order_email'] = 'Work Order Email';
 $lang['purchases'] = 'Purchases';
 $lang['sale_orders'] = 'Sale Orders';
 $lang['stock_warnings'] = 'Stock Warnings';
+
+$lang['transfer_out_confirm_title'] = 'Transfer-out Confirm';
+$lang['transfer_out_confirm_content'] = 'All items will be transferred out of your stock, Are you sure ?';

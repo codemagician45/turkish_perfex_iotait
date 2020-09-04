@@ -203,9 +203,10 @@ class Warehouses_model extends App_Model
 
     public function stock_list_add($data){
 
-        $warning_data = $data['warning'];
+        // if(isset($data['warning']))
+        //     $warning_data = $data['warning'];
         unset($data['stocklistId']);
-        unset($data['warning']);
+        // unset($data['warning']);
         $data['created_by'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'stock_lists', $data);
@@ -213,17 +214,16 @@ class Warehouses_model extends App_Model
         if ($insert_id) {
             log_activity('Item Added [ID: ' . $data['product_name'] . ']');
 
-            $this->db->where('stock_id', $stock_list_Id);
+            $this->db->where('stock_id', $insert_id);
             $this->db->delete(db_prefix() . 'stock_level_warning');
-            
-            foreach ($warning_data as $key => $warning) {
-                if(isset($warning['warning_enable']))
-                {
-                    unset($warning['warning_enable']);
-                    $warning['stock_id'] = $stock_list_Id;
-                    $this->db->insert(db_prefix().'stock_level_warning',$warning);
-                }
-            }
+            // foreach ($warning_data as $key => $warning) {
+            //     if(isset($warning['warning_enable']))
+            //     {
+            //         unset($warning['warning_enable']);
+            //         $warning['stock_id'] = $insert_id;
+            //         $this->db->insert(db_prefix().'stock_level_warning',$warning);
+            //     }
+            // }
 
             return true;
         }
