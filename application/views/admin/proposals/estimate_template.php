@@ -32,11 +32,11 @@
               <?php echo render_input('general_notes',_l('general_notes'),'','text',array('placeholder'=>_l('general_notes'))); ?>
           </div>
           <div class="col-md-6">
-              <?php echo render_input('shipping_type',_l('shipping_type'),'','text',array('placeholder'=>_l('shipping_type'))); ?>
+              <?php echo render_input('shipping_type',_l('shipping_type'),'','text',array('required' => true)); ?>
           </div>
           <div class="col-md-6">
-              <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-              <?php echo render_date_input('req_shipping_date',_l('req_shipping_date'),$value); ?>
+              <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : '') ?>
+              <?php echo render_date_input('req_shipping_date',_l('req_shipping_date'),$value,array('required' => true)); ?>
           </div>
           <div class="col-md-6">
               <?php echo render_input('total_price',_l('total_price'),'','text',array('placeholder'=>_l(''),'readonly'=>'readonly')); ?>

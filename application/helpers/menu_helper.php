@@ -520,12 +520,12 @@ function app_init_admin_sidebar_menu_items()
                     'position' => 15,
             ]);
 
-            $CI->app_menu->add_sidebar_children_item('reports', [
-                    'slug'     => 'sales-reports',
-                    'name'     => _l('als_reports_sales_submenu'),
-                    'href'     => admin_url('reports/sales'),
-                    'position' => 5,
-            ]);
+            // $CI->app_menu->add_sidebar_children_item('reports', [
+            //         'slug'     => 'sales-reports',
+            //         'name'     => _l('als_reports_sales_submenu'),
+            //         'href'     => admin_url('reports/sales'),
+            //         'position' => 5,
+            // ]);
             // $CI->app_menu->add_sidebar_children_item('reports', [
             //         'slug'     => 'expenses-reports',
             //         'name'     => _l('als_reports_expenses'),

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class WO_updated extends App_mail_template
+class Wo_updated extends App_mail_template
 {
     protected $for = 'work-order';
 

@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class SO_updated extends App_mail_template
+class So_updated extends App_mail_template
 {
     protected $for = 'sale-order';
 

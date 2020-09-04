@@ -131,7 +131,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = number_format($amount,2);
     
-    $row[] = number_format($amount-$aRow['sold'],2);
+    $row[] = number_format($aRow['sold']-$amount,2);
 
     $output['aaData'][] = $row;
 }
