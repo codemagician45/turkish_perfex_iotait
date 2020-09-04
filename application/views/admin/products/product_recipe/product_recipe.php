@@ -99,7 +99,6 @@
     function add_item_to_preview_product_recipe(id) {
         requestGetJSON('warehouses/get_item_by_id_with_currency/' + id).done(function(response) {
             clear_item_preview_values();
-            // console.log(response)
             productData = response;
             $('input[name="product_name"]').val(response.product_name);
             $('input[name="ingredient_item_id"]').val(response.id);
@@ -186,7 +185,6 @@
                 $(mould).parents('tr').find('.work_hour_capacity').val(workHour);
                 $(mould).parents('tr').find('.energy_price_value').val(engergyPrice);
                 $(mould).parents('tr').find('.operation_cost').val(operationCost);
-                console.log('defaultMachineData',$(row))
             }
             else {
                 defaultMachineData = '';
@@ -365,7 +363,6 @@
         response.work_hour_capacity = $('.main input[name="work_hour_capacity"]').val();
         response.energy_price_value = $('.main input[name="energy_price_value"]').val();
         response.operation_cost = $('.main input[name="operation_cost"]').val();
-        console.log(response)
         return response;
     }
 
@@ -415,7 +412,7 @@
             if(!pre_produced)
                 _amount = parseFloat(mat_cost) + parseFloat(pro_cost) + parseFloat(exp_profit);
             else
-                _amount = parseFloat(used_qty) * parseFloat(mat_cost);
+                _amount = parseFloat(mat_cost);
             // console.log(pre_produced,used_qty,mat_cost,pro_cost,exp_profit,_amount)
             subtotal += _amount;
             $(this).find('td.amount').html(format_money(_amount, true));

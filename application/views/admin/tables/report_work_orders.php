@@ -29,6 +29,10 @@ $sTable       = db_prefix() . 'invoices';
 $where  = [];
 $filter = [];
 
+if($this->ci->input->post('without_archive') == 1){
+    array_push($filter, 'AND tblinvoices.active=1');
+}
+
 $this->ci->load->model('staff_model');
 $staffs  = $this->ci->staff_model->get();
 $staffsIds = [];

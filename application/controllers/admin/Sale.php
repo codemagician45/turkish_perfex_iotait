@@ -284,7 +284,8 @@ class Sale extends AdminController
         $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
-            $data['items'] = $this->warehouses_model->get_grouped();
+            // $data['items'] = $this->warehouses_model->get_grouped();
+            $data['items'] = $this->warehouses_model->get_grouped_packing();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;

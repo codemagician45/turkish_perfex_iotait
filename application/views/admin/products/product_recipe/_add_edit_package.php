@@ -21,13 +21,13 @@
         <div class="col-md-6">
             <?php 
                 $value = (isset($install_time) ? $install_time->consumed_time : '');
-                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('required' => true,'placeholder' => _l('installation_consumed_time')),[],'','base_cal'); ?>
+                echo render_input('consumed_time', _l('installation_consumed_time'), $value, 'number', array('required' => true,'step'=>"any"),[],'','base_cal'); ?>
         </div>
 
         <div class="col-md-6">
            <?php 
             $value = (isset($pricing_calc_data) ? $pricing_calc_data->ins_cost : '');
-            echo render_input('ins_cost', _l('installation_cost'), $value, 'number', array('placeholder' => _l('installation_cost'))); ?>
+            echo render_input('ins_cost', _l('installation_cost'), $value, 'number', array('step'=>"any")); ?>
         </div>
     </div>
 

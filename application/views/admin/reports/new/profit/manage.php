@@ -55,11 +55,12 @@
 			                         </div>
 			                    </div>
 							</div>
+
 						</div>
 
 						<div id="date-range" class="mbot15">
 	                        <div class="row">
-	                           <div class="col-md-3">
+	                           <div class="col-md-4">
 	                              <label for="report-from" class="control-label"><?php echo _l('report_sales_from_date'); ?></label>
 	                              <div class="input-group date">
 	                                 <input type="text" class="form-control datepicker" id="report-from" name="report-from">
@@ -68,8 +69,8 @@
 	                                 </div>
 	                              </div>
 	                           </div>
-	                           <div class="col-md-3">
-	                              <label for="report-to" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
+	                           <div class="col-md-4">
+	                              <label for="archive" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
 	                              <div class="input-group date">
 	                                 <input type="text" class="form-control datepicker" disabled="disabled" id="report-to" name="report-to">
 	                                 <div class="input-group-addon">
@@ -77,6 +78,20 @@
 	                                 </div>
 	                              </div>
 	                           </div>
+
+	                           <div class="col-md-4">
+									<div class="form-group">
+				                        <label for="archive"><?php echo _l('filter_by_archived'); ?></label>
+				                        <select name="archive" id="archive" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+				                        	<option value="1"><?php echo _l('with_archive') ?></option>
+				                        	<option value="0"><?php echo _l('without_archive') ?></option>
+				                        </select>
+				                        <div class="_filters _hidden_inputs archive">
+				                            <input type="hidden" class="filter archive" name="with_archive">
+				                            <input type="hidden" class="filter archive" name="without_archive">
+				                         </div>
+				                    </div>
+								</div>
 	                        </div>
 	                     </div>
 
@@ -148,10 +163,21 @@
 	            }
 	    })
 
+	    $('#archive').change(function(){
+	        $('.filter.archive').val('')
+	        var archive = $('#archive').val();
+	        if(archive == 1)
+	        	dt_custom_view(1, '.table-profit-report','with_archive'); 
+	        else if(archive == 0)
+	        	dt_custom_view(1, '.table-profit-report','without_archive'); 
+	    })
+
 
 	    var fnServerParams = {
 	    	"report_from": '[name="report-from"]',
    			"report_to": '[name="report-to"]',
+   			"with_archive" : '[name="with_archive"]',
+   			"without_archive" : '[name="without_archive"]',
 	    };
 
 	    $.each($('._hidden_inputs._filters.staffs input'),function(){

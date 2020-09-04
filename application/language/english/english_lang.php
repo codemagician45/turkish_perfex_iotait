@@ -3998,3 +3998,7 @@ $lang['stock_warnings'] = 'Stock Warnings';
 
 $lang['transfer_out_confirm_title'] = 'Transfer-out Confirm';
 $lang['transfer_out_confirm_content'] = 'All items will be transferred out of your stock, Are you sure ?';
+
+$lang['with_archive'] = 'With Archived';
+$lang['without_archive'] = 'Without Archived';
+$lang['filter_by_archived'] = 'Archived Filter';

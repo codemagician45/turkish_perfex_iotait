@@ -28,6 +28,10 @@ $sTable       = db_prefix() . 'estimates';
 $where  = [];
 $filter = [];
 
+if($this->ci->input->post('without_archive') == 1){
+    array_push($filter, 'AND tblestimates.active=1');
+}
+
 $this->ci->load->model('staff_model');
 $staffs  = $this->ci->staff_model->get();
 $staffsIds = [];
