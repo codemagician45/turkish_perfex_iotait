@@ -30,6 +30,95 @@ function get_available_staff_permissions($data = [])
     $withNotApplicableViewOwn = array_merge(['view_own' => ['not_applicable' => true, 'name' => _l('permission_view_own')]], $withoutViewOwnPermissionsArray);
 
     $corePermissions = [
+        'dashboard' => [
+            'name' => _l('als_dashboard'),
+            'capabilities' => [
+                'view' => _l('permission_view'),
+            ]
+        ],
+        'warehouse' => [
+            'name' => _l('warehouse'),
+            'capabilities' => [
+                'stock_list' => _l('stock_list'),
+                'transfers' => _l('transfers'),
+                'allocated_items' => _l('allocated_items'),
+                'packing_list' => _l('packing_list'),
+                'packing_group' => _l('packing_group'),
+                'purchase_receiving_bay' => _l('purchase_receiving_bay'),
+                'purchase_request' => _l('purchase_request'),
+                'barcode_list' => _l('barcode_list'),
+            ]
+        ],
+
+        'purchase' => [
+            'name' => _l('purchase'),
+            'capabilities' => [
+                'purchase_orders' => _l('purchase_orders'),
+                'pending_purchase_request' => _l('pending_purchase_request'),
+            ]
+        ],
+
+        'finance' => [
+            'name' => _l('finance'),
+            'capabilities' => [
+                'currency' => _l('currency'),
+                'ready_to_invoice' => _l('ready_to_invoice'),
+            ]
+        ],
+
+        'products' => [
+            'name' => _l('products'),
+            'capabilities' => [
+                'product_list' => _l('product_list'),
+                'product_recipe' => _l('product_recipe'),
+            ]
+        ],
+
+        'manufacturing_settings' => [
+            'name' => _l('manufacturing_settings'),
+            'capabilities' => [
+                'list_of_machinery' => _l('list_of_machinery'),
+                'list_of_moulds' => _l('list_of_moulds'),
+                'moulds_of_suitability' => _l('moulds_of_suitability'),
+                'energy_prices' => _l('energy_prices'),
+                'work_hours_capacity' => _l('work_hours_capacity'),
+                'installation' => _l('installation'),
+                'op_cost_per_sec' => _l('op_cost_per_sec'),
+            ]
+        ],
+
+        'sales' => [
+            'name' => _l('als_sales'),
+            'capabilities' => [
+                'quotation/offer' => _l('quotation/offer'),
+                'quotation_approval' => _l('quotation_approval'),
+                'sale_order' => _l('sale_order'),
+            ]
+        ],
+
+        'planning' => [
+            'name' => _l('als_planning'),
+            'capabilities' => [
+                'pending_sale_order' => _l('pending_sale_order'),
+                'work_orders' => _l('work_orders'),
+            ]
+        ],
+
+        'production' => [
+            'name' => _l('als_production'),
+            'capabilities' => [
+                'production_work_order' => _l('production_work_order'),
+                'production_machine_list' => _l('production_machine_list'),
+            ]
+        ],
+
+        'installation' => [
+            'name' => _l('installation'),
+            'capabilities' => [
+                'installation_work_order' => _l('installation_work_order'),
+            ]
+        ],
+
         'bulk_pdf_exporter' => [
             'name'         => _l('bulk_pdf_exporter'),
             'capabilities' => [
@@ -40,10 +129,10 @@ function get_available_staff_permissions($data = [])
             'name'         => _l('contracts'),
             'capabilities' => $allPermissionsArray,
         ],
-        'credit_notes' => [
-            'name'         => _l('credit_notes'),
-            'capabilities' => $allPermissionsArray,
-        ],
+        // 'credit_notes' => [
+        //     'name'         => _l('credit_notes'),
+        //     'capabilities' => $allPermissionsArray,
+        // ],
         'customers' => [
             'name'         => _l('clients'),
             'capabilities' => $withNotApplicableViewOwn,
@@ -59,42 +148,42 @@ function get_available_staff_permissions($data = [])
             ],
         ],
         'estimates' => [
-            'name'         => _l('estimates'),
+            'name'         => _l('sale_order'),
             'capabilities' => $allPermissionsArray,
         ],
-        'expenses' => [
-            'name'         => _l('expenses'),
-            'capabilities' => $allPermissionsArray,
-        ],
+        // 'expenses' => [
+        //     'name'         => _l('expenses'),
+        //     'capabilities' => $allPermissionsArray,
+        // ],
         'invoices' => [
-            'name'         => _l('invoices'),
+            'name'         => _l('work_order'),
             'capabilities' => $allPermissionsArray,
         ],
-        'items' => [
-            'name'         => _l('items'),
-            'capabilities' => $withoutViewOwnPermissionsArray,
-        ],
-        'knowledge_base' => [
-            'name'         => _l('knowledge_base'),
-            'capabilities' => $withoutViewOwnPermissionsArray,
-        ],
-        'payments' => [
-            'name'         => _l('payments'),
-            'capabilities' => $withNotApplicableViewOwn,
-            'help'         => [
-                'view_own' => _l('permission_payments_based_on_invoices'),
-            ],
-        ],
-        'projects' => [
-            'name'         => _l('projects'),
-            'capabilities' => $withNotApplicableViewOwn,
-            'help'         => [
-                'view'     => _l('help_project_permissions'),
-                'view_own' => _l('permission_projects_based_on_assignee'),
-            ],
-        ],
+        // 'items' => [
+        //     'name'         => _l('items'),
+        //     'capabilities' => $withoutViewOwnPermissionsArray,
+        // ],
+        // 'knowledge_base' => [
+        //     'name'         => _l('knowledge_base'),
+        //     'capabilities' => $withoutViewOwnPermissionsArray,
+        // ],
+        // 'payments' => [
+        //     'name'         => _l('payments'),
+        //     'capabilities' => $withNotApplicableViewOwn,
+        //     'help'         => [
+        //         'view_own' => _l('permission_payments_based_on_invoices'),
+        //     ],
+        // ],
+        // 'projects' => [
+        //     'name'         => _l('projects'),
+        //     'capabilities' => $withNotApplicableViewOwn,
+        //     'help'         => [
+        //         'view'     => _l('help_project_permissions'),
+        //         'view_own' => _l('permission_projects_based_on_assignee'),
+        //     ],
+        // ],
         'proposals' => [
-            'name'         => _l('proposals'),
+            'name'         => _l('quotation'),
             'capabilities' => $allPermissionsArray,
         ],
         'reports' => [
@@ -118,25 +207,26 @@ function get_available_staff_permissions($data = [])
             'name'         => _l('staff'),
             'capabilities' => $withoutViewOwnPermissionsArray,
         ],
-        'subscriptions' => [
-            'name'         => _l('subscriptions'),
-            'capabilities' => $allPermissionsArray,
-        ],
-        'tasks' => [
-            'name'         => _l('tasks'),
-            'capabilities' => $withNotApplicableViewOwn,
-             'help'        => [
-                'view'     => _l('help_tasks_permissions'),
-                'view_own' => _l('permission_tasks_based_on_assignee'),
-            ],
-        ],
-        'checklist_templates' => [
-            'name'         => _l('checklist_templates'),
-            'capabilities' => [
-                'create' => _l('permission_create'),
-                'delete' => _l('permission_delete'),
-            ],
-        ],
+        // 'subscriptions' => [
+        //     'name'         => _l('subscriptions'),
+        //     'capabilities' => $allPermissionsArray,
+        // ],
+        // 'tasks' => [
+        //     'name'         => _l('tasks'),
+        //     'capabilities' => $withNotApplicableViewOwn,
+        //      'help'        => [
+        //         'view'     => _l('help_tasks_permissions'),
+        //         'view_own' => _l('permission_tasks_based_on_assignee'),
+        //     ],
+        // ],
+        // 'checklist_templates' => [
+        //     'name'         => _l('checklist_templates'),
+        //     'capabilities' => [
+        //         'create' => _l('permission_create'),
+        //         'delete' => _l('permission_delete'),
+        //     ],
+        // ],
+
     ];
 
     $addLeadsPermission = true;
@@ -147,18 +237,18 @@ function get_available_staff_permissions($data = [])
         }
     }
 
-    if ($addLeadsPermission) {
-        $corePermissions['leads'] = [
-            'name'         => _l('leads'),
-            'capabilities' => [
-                'view'   => $viewGlobalName,
-                'delete' => _l('permission_delete'),
-            ],
-            'help' => [
-                'view' => _l('help_leads_permission_view'),
-            ],
-        ];
-    }
+    // if ($addLeadsPermission) {
+    //     $corePermissions['leads'] = [
+    //         'name'         => _l('leads'),
+    //         'capabilities' => [
+    //             'view'   => $viewGlobalName,
+    //             'delete' => _l('permission_delete'),
+    //         ],
+    //         'help' => [
+    //             'view' => _l('help_leads_permission_view'),
+    //         ],
+    //     ];
+    // }
 
     return hooks()->apply_filters('staff_permissions', $corePermissions, $data);
 }

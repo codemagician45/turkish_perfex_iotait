@@ -11,6 +11,7 @@
             if(isset($member)){
                 $is_admin = is_admin($member->staffid);
             }
+          // print_r(get_available_staff_permissions($funcData));
          foreach(get_available_staff_permissions($funcData) as $feature => $permission) { ?>
          <tr data-name="<?php echo $feature; ?>">
             <td>

@@ -4002,3 +4002,6 @@ $lang['transfer_out_confirm_content'] = 'All items will be transferred out of yo
 $lang['with_archive'] = 'With Archived';
 $lang['without_archive'] = 'Without Archived';
 $lang['filter_by_archived'] = 'Archived Filter';
+
+$lang['products'] = 'Products';
+$lang['finance'] = 'Finance';

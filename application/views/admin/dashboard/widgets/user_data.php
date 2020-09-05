@@ -124,7 +124,7 @@
                      <?php render_datatable(array(_l('announcement_name'),_l('announcement_date_list')),'announcements'); ?>
                   </div>
                   <?php } ?>
-                  <?php if(is_admin()){ ?>
+                  <?php //if(is_admin()){ ?>
                   <div role="tabpanel" class="tab-pane active" id="home_tab_activity">
                      <a href="<?php echo admin_url('utilities/activity_log'); ?>" class="mbot20 inline-block full-width"><?php echo _l('home_widget_view_all'); ?></a>
                      <div class="clearfix"></div>
@@ -144,7 +144,7 @@
                         <?php } ?>
                      </div>
                   </div>
-                  <?php } ?>
+                  <?php //} ?>
                </div>
             </div>
          </div>

@@ -211,17 +211,18 @@ function get_proposals_percent_by_phase($order){
     $staffId                             = get_staff_user_id();
 
     $whereUser = '';
-    if (!$has_permission_view) {
-        if ($has_permission_view_own) {
-            $whereUser = '(addedfrom=' . $staffId;
-            if ($allow_staff_view_proposals_assigned == 1) {
-                $whereUser .= ' OR assigned=' . $staffId;
-            }
-            $whereUser .= ')';
-        } else {
-            $whereUser .= 'assigned=' . $staffId;
-        }
-    }
+    // if (!$has_permission_view) {
+    //     if ($has_permission_view_own) {
+    //         $whereUser = '(addedfrom=' . $staffId;
+    //         if ($allow_staff_view_proposals_assigned == 1) {
+    //             $whereUser .= ' OR assigned=' . $staffId;
+    //         }
+    //         $whereUser .= ')';
+    //     } else {
+    //         $whereUser .= 'assigned=' . $staffId;
+    //     }
+    // }
+    $whereUser = '(addedfrom=' . $staffId.')';
     $total_proposals = total_rows(db_prefix() . 'proposals', $whereUser);
 
     $data            = [];
@@ -248,17 +249,18 @@ function get_sale_orders_percent_by_phase($order){
     $staffId                             = get_staff_user_id();
 
     $whereUser = '';
-    if (!$has_permission_view) {
-        if ($has_permission_view_own) {
-            $whereUser = '(addedfrom=' . $staffId;
-            if ($allow_staff_view_estimates_assigned == 1) {
-                $whereUser .= ' OR assigned=' . $staffId;
-            }
-            $whereUser .= ')';
-        } else {
-            $whereUser .= 'assigned=' . $staffId;
-        }
-    }
+    // if (!$has_permission_view) {
+    //     if ($has_permission_view_own) {
+    //         $whereUser = '(addedfrom=' . $staffId;
+    //         if ($allow_staff_view_estimates_assigned == 1) {
+    //             $whereUser .= ' OR assigned=' . $staffId;
+    //         }
+    //         $whereUser .= ')';
+    //     } else {
+    //         $whereUser .= 'assigned=' . $staffId;
+    //     }
+    // }
+    $whereUser = '(addedfrom=' . $staffId.')';
     $total_estimates = total_rows(db_prefix() . 'estimates', $whereUser);
 
     $data            = [];
@@ -285,17 +287,20 @@ function get_work_orders_percent_by_phase($order){
     $staffId                             = get_staff_user_id();
 
     $whereUser = '';
-    if (!$has_permission_view) {
-        if ($has_permission_view_own) {
-            $whereUser = '(addedfrom=' . $staffId;
-            if ($allow_staff_view_invoices_assigned == 1) {
-                $whereUser .= ' OR assigned=' . $staffId;
-            }
-            $whereUser .= ')';
-        } else {
-            $whereUser .= 'assigned=' . $staffId;
-        }
-    }
+    // if (!$has_permission_view) {
+    //     if ($has_permission_view_own) {
+    //         $whereUser = '(addedfrom=' . $staffId;
+    //         if ($allow_staff_view_invoices_assigned == 1) {
+    //             $whereUser .= ' OR assigned=' . $staffId;
+    //         }
+    //         $whereUser .= ')';
+    //     } else {
+    //         $whereUser .= 'assigned=' . $staffId;
+    //     }
+    // }
+    /*new added*/
+    $whereUser = '(addedfrom=' . $staffId.')';
+
     $total_invoices = total_rows(db_prefix() . 'invoices', $whereUser);
 
     $data            = [];

@@ -5,69 +5,71 @@ defined('BASEPATH') or exit('No direct script access allowed');
 function app_init_admin_sidebar_menu_items()
 {
     $CI = &get_instance();
-
-    $CI->app_menu->add_sidebar_menu_item('dashboard', [
-        'name'     => _l('als_dashboard'),
-        'href'     => admin_url(),
-        'position' => 1,
-        'icon'     => 'fa fa-home',
-    ]);
+    // if (has_permission('dashboard', '', 'view')) 
+        $CI->app_menu->add_sidebar_menu_item('dashboard', [
+            'name'     => _l('als_dashboard'),
+            'href'     => admin_url(),
+            'position' => 1,
+            'icon'     => 'fa fa-home',
+        ]);
     // Warehouse
+
     $CI->app_menu->add_sidebar_menu_item('warehouse', [
+        'collapse' => true,
         'name'     => _l('warehouse'),
         'position' => 5,
         'icon'     => 'fa fa-hdd-o',
     ]);
-
+    if (has_permission('warehouse', '', 'stock_list'))   
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'stock_list',
             'name'     => _l('stock_list'),
             'href'     => admin_url('warehouses/stock_lists'),
             'position' => 5,
         ]);
-
+    if (has_permission('warehouse', '', 'transfers'))  
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'transfers',
             'name'     => _l('transfers'),
             'href'     => admin_url('warehouses/transfers'),
             'position' => 10,
         ]);
-
+    if (has_permission('warehouse', '', 'allocated_items')) 
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'allocated_items',
             'name'     => _l('allocated_items'),
             'href'     => admin_url('warehouses/allocated_items'),
             'position' => 15,
         ]);
-
+    if (has_permission('warehouse', '', 'packing_list')) 
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'packing_list',
             'name'     => _l('packing_list'),
             'href'     => admin_url('warehouses/packing_list'),
             'position' => 20,
         ]);
-
+    if (has_permission('warehouse', '', 'packing_group')) 
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'packing_group',
             'name'     => _l('packing_group'),
             'href'     => admin_url('warehouses/packing_group'),
             'position' => 25,
         ]);  
-
+    if (has_permission('warehouse', '', 'purchase_receiving_bay'))
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'purchase_receiving_bay',
             'name'     => _l('purchase_receiving_bay'),
             'href'     => admin_url('warehouses/purchase_receiving_bay'),
             'position' => 30,
         ]);
-
+    if (has_permission('warehouse', '', 'purchase_request'))
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'purchase_request',
             'name'     => _l('purchase_request'),
             'href'     => admin_url('warehouses/purchase_request'),
             'position' => 35,
         ]);  
-
+    if (has_permission('warehouse', '', 'barcode_list'))
         $CI->app_menu->add_sidebar_children_item('warehouse', [
             'slug'     => 'barcode_list',
             'name'     => _l('barcode_list'),
@@ -82,14 +84,14 @@ function app_init_admin_sidebar_menu_items()
             'position' => 10,
             'icon'     => 'fa fa-shopping-bag',
         ]);
-
+    if (has_permission('purchase', '', 'purchase_orders'))
         $CI->app_menu->add_sidebar_children_item('purchase', [
             'slug'     => 'purchase_orders',
             'name'     => _l('purchase_orders'),
             'href'     => admin_url('purchases/purchase_orders'),
             'position' => 5,
         ]);
-
+    if (has_permission('purchase', '', 'pending_purchase_request'))
         $CI->app_menu->add_sidebar_children_item('purchase', [
             'slug'     => 'pending_purchase_request',
             'name'     => _l('pending_purchase_request'),
@@ -112,14 +114,14 @@ function app_init_admin_sidebar_menu_items()
         //     'href'     => admin_url('finances/currency_exchange_rate'),
         //     'position' => 5,
         // ]);
-
+    if (has_permission('finance', '', 'currency'))
         $CI->app_menu->add_sidebar_children_item('finance', [
             'slug'     => 'currency',
             'name'     => _l('currency'),
             'href'     => admin_url('currencies'),
             'position' => 5,
         ]);
-
+    if (has_permission('finance', '', 'ready_to_invoice'))
         $CI->app_menu->add_sidebar_children_item('finance', [
             'slug'     => 'ready_to_invoice',
             'name'     => _l('ready_to_invoice'),
@@ -145,14 +147,14 @@ function app_init_admin_sidebar_menu_items()
             'position' => 20,
             'icon'     => 'fa fa-product-hunt',
         ]);
-
+    if (has_permission('products', '', 'product_list'))
         $CI->app_menu->add_sidebar_children_item('products', [
             'slug'     => 'product_list',
             'name'     => _l('product_list'),
             'href'     => admin_url('products/product_list'),
             'position' => 5,
         ]);
-
+    if (has_permission('products', '', 'product_recipe'))
         $CI->app_menu->add_sidebar_children_item('products', [
             'slug'     => 'product_recipe',
             'name'     => _l('product_recipe'),
@@ -161,54 +163,55 @@ function app_init_admin_sidebar_menu_items()
         ]);
 
     // manufacturing settings
-        $CI->app_menu->add_sidebar_menu_item('manufacturing_settings', [
+    $CI->app_menu->add_sidebar_menu_item('manufacturing_settings', [
+        'collapse' => true,
         'name'     => _l('manufacturing_settings'),
         'position' => 25,
         'icon'     => 'fa fa-cogs',
     ]);
-
+    if (has_permission('manufacturing_settings', '', 'list_of_machinery'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'list_of_machinery',
             'name'     => _l('list_of_machinery'),
             'href'     => admin_url('manufacturing_settings/list_of_machinery'),
             'position' => 2,
         ]);
-
+    if (has_permission('manufacturing_settings', '', 'list_of_moulds'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'list_of_moulds',
             'name'     => _l('list_of_moulds'),
             'href'     => admin_url('manufacturing_settings/list_of_moulds'),
             'position' => 7,
         ]);
-
+    if (has_permission('manufacturing_settings', '', 'moulds_suitability'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'moulds_suitability',
             'name'     => _l('moulds_of_suitability'),
             'href'     => admin_url('manufacturing_settings/moulds_suitability'),
             'position' => 10,
         ]);
-
+    if (has_permission('manufacturing_settings', '', 'energy_prices'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'energy_prices',
             'name'     => _l('energy_prices'),
             'href'     => admin_url('manufacturing_settings/energy_prices'),
             'position' => 15,
         ]);
-
+    if (has_permission('manufacturing_settings', '', 'work_hours_capacity'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'work_hours_capacity',
             'name'     => _l('work_hours_capacity'),
             'href'     => admin_url('manufacturing_settings/work_hours_capacity'),
             'position' => 20,
         ]); 
-
+    if (has_permission('manufacturing_settings', '', 'installation'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'installation',
             'name'     => _l('installation'),
             'href'     => admin_url('manufacturing_settings/installation_process'),
             'position' => 25,
         ]);
-
+    if (has_permission('manufacturing_settings', '', 'op_cost_per_sec'))
         $CI->app_menu->add_sidebar_children_item('manufacturing_settings', [
             'slug'     => 'op_cost_per_sec',
             'name'     => _l('op_cost_per_sec'),
@@ -225,8 +228,7 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-balance-scale',
         ]);
 
-    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own'))
-        || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation/offer') || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'proposals',
                 'name'     => _l('quotation/offer'),
@@ -235,8 +237,7 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 5,
         ]);
     }
-
-    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own'))
+    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation_approval')
         || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'quotation_approval',
@@ -246,7 +247,7 @@ function app_init_admin_sidebar_menu_items()
         ]);
     }
 
-    if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own'))
+    if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('sales', '', 'sale_order')
         || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1)) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'estimates',
@@ -304,7 +305,9 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-tasks',
         ]);
 
-    
+    if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('planning', '', 'pending_sale_order')
+        || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1))
+
         $CI->app_menu->add_sidebar_children_item('planning', [
                 'slug'     => 'pending_sale_order',
                 'name'     => _l('pending_sale_order'),
@@ -312,7 +315,8 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 5,
         ]);
     
-
+    if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('planning', '', 'work_orders')
+         || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
     
         $CI->app_menu->add_sidebar_children_item('planning', [
                 'slug'     => 'work_orders',
@@ -329,7 +333,9 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-industry',
         ]);
 
-    
+    if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('production', '', 'production_work_order')
+         || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
+
         $CI->app_menu->add_sidebar_children_item('production', [
                 'slug'     => 'production_work_order',
                 'name'     => _l('production_work_order'),
@@ -339,7 +345,7 @@ function app_init_admin_sidebar_menu_items()
         ]);
     
 
-    
+    if (has_permission('production', '', 'production_machine_list'))
         $CI->app_menu->add_sidebar_children_item('production', [
                 'slug'     => 'production_machine_list',
                 'name'     => _l('production_machine_list'),
@@ -354,7 +360,7 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa fa-window-restore',
         ]);
 
-    
+    if(has_permission('installation','','installation_work_order'))
         $CI->app_menu->add_sidebar_children_item('installation', [
                 'slug'     => 'installation_work_order',
                 'name'     => _l('installation_work_order'),
