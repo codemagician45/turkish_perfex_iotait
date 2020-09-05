@@ -320,3 +320,9 @@ ERROR - 2020-09-05 19:20:19 --> Severity: Notice --> Undefined variable: work_or
 ERROR - 2020-09-05 19:23:18 --> Query error: Unknown column 'assigned' in 'where clause' - Invalid query: SELECT COUNT(*) AS `numrows`
 FROM `tblestimates`
 WHERE `assigned` = 16
+ERROR - 2020-09-05 20:19:05 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 3 - Invalid query: SELECT COUNT(*) AS `numrows`
+FROM `tblinvoices`
+WHERE `wo_phase_id` = 1 AND ()
+ERROR - 2020-09-05 20:20:57 --> Query error: Unknown column 'assigned' in 'where clause' - Invalid query: SELECT COUNT(*) AS `numrows`
+FROM `tblinvoices`
+WHERE `wo_phase_id` = 1 AND (`assigned` = 16)

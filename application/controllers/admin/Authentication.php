@@ -31,7 +31,10 @@ class Authentication extends App_Controller
     public function admin()
     {
         if (is_staff_logged_in()) {
-            redirect(admin_url());
+            if (has_permission('dashboard', '', 'view')) 
+                redirect(admin_url());
+            else
+                redirect(admin_url('profile'));
         }
 
         $this->form_validation->set_rules('password', _l('admin_auth_login_password'), 'required');
@@ -74,8 +77,12 @@ class Authentication extends App_Controller
                 maybe_redirect_to_previous_url();
 
                 hooks()->do_action('after_staff_login');
-                redirect(admin_url());
-            }
+                // redirect(admin_url());
+                if (has_permission('dashboard', '', 'view')) 
+                    redirect(admin_url());
+                else
+                    redirect(admin_url('profile'));
+                }
         }
 
         $data['title'] = _l('admin_auth_login_heading');

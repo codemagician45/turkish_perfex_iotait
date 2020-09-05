@@ -211,9 +211,9 @@ class Dashboard_model extends App_Model
             $sql .= ' SELECT COUNT(*) as total';
             $sql .= ' FROM ' . db_prefix() . 'invoices';
             $sql .= ' WHERE wo_phase_id=' . $phase['order_no'];
-            if (!is_admin()) {
-                $sql .= ' AND addedfrom =' . get_staff_user_id();
-            }
+            // if (!is_admin()) {
+            //     $sql .= ' AND addedfrom =' . get_staff_user_id();
+            // }
             $sql .= ' UNION ALL ';
             $sql = trim($sql);
         }

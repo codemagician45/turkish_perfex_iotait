@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="widget" id="widget-<?php echo create_widget_id(); ?>" data-name="<?php echo _l('finance_overview'); ?>">
-   <?php if(has_permission('invoices','','view') || has_permission('invoices','','view_own') || has_permission('planning','','work_orders') || has_permission('sales','','sale_order') || has_permission('sales','','quotation/offer') || (get_option('allow_staff_view_invoices_assigned') == 1 && staff_has_assigned_invoices()) || has_permission('proposals','','view') || has_permission('estimates','','view') || has_permission('estimates','','view_own') || (get_option('allow_staff_view_estimates_assigned') == 1 && staff_has_assigned_estimates()) || has_permission('proposals','','view_own') || (get_option('allow_staff_view_proposals_assigned') == 1 && staff_has_assigned_proposals())){ ?>
+   <?php if(has_permission('invoices','','view') || has_permission('invoices','','view_own') || has_permission('dashboard','','view') || has_permission('sales','','sale_order') || has_permission('sales','','quotation/offer') || (get_option('allow_staff_view_invoices_assigned') == 1 && staff_has_assigned_invoices()) || has_permission('proposals','','view') || has_permission('estimates','','view') || has_permission('estimates','','view_own') || (get_option('allow_staff_view_estimates_assigned') == 1 && staff_has_assigned_estimates()) || has_permission('proposals','','view_own') || (get_option('allow_staff_view_proposals_assigned') == 1 && staff_has_assigned_proposals())){ ?>
    <div class="finance-summary">
       <div class="panel_s">
          <div class="panel-body">
             <div class="widget-dragger"></div>
             <div class="row home-summary">
                <?php 
-               if(has_permission('invoices','','view') || has_permission('invoices','','view_own') || has_permission('planning','','work_orders') || get_option('allow_staff_view_invoices_assigned') == 1 && staff_has_assigned_invoices()){
+               if(has_permission('invoices','','view') || has_permission('invoices','','view_own') || has_permission('dashboard','','view') || get_option('allow_staff_view_invoices_assigned') == 1 && staff_has_assigned_invoices()){
                   ?>
                   <div class="col-md-6 col-lg-4 col-sm-6">
                      <div class="row">
@@ -36,7 +36,7 @@
                      </div>
                   </div>
                   <?php } ?>
-                  <?php if(has_permission('estimates','','view') || has_permission('estimates','','view_own') || has_permission('sales','','sale_order') || (get_option('allow_staff_view_estimates_assigned') == 1 && staff_has_assigned_estimates())){ ?>
+                  <?php if(has_permission('estimates','','view') || has_permission('estimates','','view_own') || has_permission('dashboard','','view') || (get_option('allow_staff_view_estimates_assigned') == 1 && staff_has_assigned_estimates())){ ?>
                   <div class="col-md-6 col-lg-4 col-sm-6">
                      <div class="row">
                         <div class="col-md-12 text-stats-wrapper">
@@ -63,7 +63,7 @@
                      </div>
                   </div>
                   <?php } ?>
-                  <?php if(has_permission('proposals','','view') || has_permission('proposals','','view_own') || has_permission('sales','','quotation/offer') || get_option('allow_staff_view_proposals_assigned') == 1 && staff_has_assigned_proposals()){ ?>
+                  <?php if(has_permission('proposals','','view') || has_permission('proposals','','view_own') || has_permission('dashboard','','view') || get_option('allow_staff_view_proposals_assigned') == 1 && staff_has_assigned_proposals()){ ?>
                   <div class="col-md-12 col-sm-6 col-lg-4">
                      <div class="row">
                         <div class="col-md-12 text-stats-wrapper">

@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 function app_init_admin_sidebar_menu_items()
 {
     $CI = &get_instance();
-    // if (has_permission('dashboard', '', 'view')) 
+    if (has_permission('dashboard', '', 'view')) 
         $CI->app_menu->add_sidebar_menu_item('dashboard', [
             'name'     => _l('als_dashboard'),
             'href'     => admin_url(),
