@@ -224,10 +224,9 @@ class Sale extends AdminController
     {
         if ($this->input->post()) {
             $proposal_data = $this->input->post();
-            // print_r($proposal_data); exit();
+            print_r($proposal_data); exit();
             if(isset($proposal_data['quote_phase'])) 
                 unset($proposal_data['quote_phase']);
-            // print_r($proposal_data); exit();
             if ($id == '') {
                 if (!has_permission('proposals', '', 'create')) {
                     access_denied('proposals');

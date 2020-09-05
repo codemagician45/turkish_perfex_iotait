@@ -2,7 +2,6 @@
 <div class="panel-body mtop10">
    <div class="row">
       <div class="col-md-4">
-          <?php //$this->load->view('admin/invoice_items/item_select'); ?>
           <?php $this->load->view('admin/products/product_recipe/select_package'); ?>
       </div>
    </div>
@@ -38,7 +37,6 @@
                     <?php } ?> -->
                   </select>
                 </div>
-                <!-- <input type="hidden" name="pack_capacity_option"> -->
               </td>
               <td>
                 <input type="number" name="qty" min="0" class="form-control" placeholder="<?php echo _l('item_quantity_placeholder'); ?>" onchange="volume_calc()" onkeyup="volume_calc()">
@@ -91,7 +89,7 @@
                }
                foreach ($add_items as $item) {
                  $manual    = false;
-                 // print_r($item[0]); exit();
+
                  $capacity_option = '<option></option>';
                   foreach ($item[0] as $key => $pack) {
                       if($pack['pack_capacity'] == $item['pack_capacity'])
@@ -177,9 +175,9 @@
                      <div class="col-md-5">
                         <div class="input-group" id="discount-total">
 
-                           <input type="number" value="<?php echo (isset($estimate) ? $estimate->discount_percent : 0); ?>" class="form-control  pull-left input-discount-percent<?php if(isset($estimate) && !is_sale_discount($estimate,'percent') && is_sale_discount_applied($estimate)){echo ' hide';} ?>" min="0" max="100" name="discount_percent" onchange="quote_phase_change_by_discount()" onkeyup="quote_phase_change_by_discount()">
+                           <input type="number" value="<?php echo (isset($estimate) ? $estimate->discount_percent : 0); ?>" class="form-control  pull-left input-discount-percent<?php if(isset($estimate) && !is_sale_discount($estimate,'percent') && is_sale_discount_applied($estimate)){echo ' hide';} ?>" min="0" max="100" name="discount_percent" onchange="quote_phase_change_by_discount(this)" onkeyup="quote_phase_change_by_discount(this)">
 
-                           <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php echo (isset($estimate) ? $estimate->discount_total : 0); ?>" class="form-control  pull-left input-discount-fixed<?php if(!isset($estimate) || (isset($estimate) && !is_sale_discount($estimate,'fixed'))){echo ' hide';} ?>" min="0" name="discount_total" onchange="quote_phase_change_by_discount()" onkeyup="quote_phase_change_by_discount()">
+                           <input type="number" data-toggle="tooltip" data-title="<?php echo _l('numbers_not_formatted_while_editing'); ?>" value="<?php echo (isset($estimate) ? $estimate->discount_total : 0); ?>" class="form-control  pull-left input-discount-fixed<?php if(!isset($estimate) || (isset($estimate) && !is_sale_discount($estimate,'fixed'))){echo ' hide';} ?>" min="0" name="discount_total" onchange="quote_phase_change_by_discount(this)" onkeyup="quote_phase_change_by_discount(this)">
 
                            <div class="input-group-addon">
                               <div class="dropdown">
