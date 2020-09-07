@@ -47,11 +47,35 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data);exit();
+            // print_r($data); exit();
+            $current_recipe_data = $this->products_model->get_product_receipe_item($id);
+            if(empty($current_recipe_data) && isset($data['newitems']))
+            {
+                $recipe_data = $data['newitems'];
+                $recipe_data['rel_product_id'] = $id;
+                $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
+
+                if ($recipe_id) {
+                    set_alert('success', _l('added_successfully', _l('product_recipe')));
+                    // redirect(admin_url('products/product_recipe'));
+                }
+            } else {
+                if(isset($data['newitems']))
+                    $recipe_data['newitems'] = $data['newitems'];
+                if(isset($data['removed_items']))
+                    $recipe_data['removed_items'] = $data['removed_items'];
+                if(isset($data['items']))
+                    $recipe_data['items'] = $data['items'];
+
+                $recipe_data['rel_product_id'] = $id;
+                $this->products_model->update_product_recipe_item($recipe_data);
+                set_alert('success', _l('updated_successfully', _l('product_recipe')));
+                // redirect(admin_url('products/product_recipe'));
+            }
+
             $pricing_calc_data = [];
             $pricing_calc_data['other_cost_details'] = $data['other_cost_details'];
             $pricing_calc_data['other_cost'] = $data['other_cost'];
-            // $pricing_calc_data['op_cost_per_sec'] = $data['op_cost_per_sec'];
             $pricing_calc_data['price'] = $data['total'];
             $pricing_calc_data['ins_cost'] = $data['ins_cost'];
             $pricing_calc_data['ins_time'] = $data['consumed_time'];
@@ -62,13 +86,15 @@ class Products extends AdminController
             if(empty($current_pricing_calc_data)){
                 $cal_id = $this->products_model->add_pricing_calc($pricing_calc_data);
                 if ($cal_id) {
-                    set_alert('success', _l('added_successfully', _l('pricing_calculation')));
+                    // set_alert('success', _l('added_successfully', _l('pricing_calculation')));
+                    set_alert('success', _l('added_successfully', _l('product_recipe')));
                 }
             }
             else{
                 $success = $this->products_model->update_pricing_calc($pricing_calc_data,$current_pricing_calc_data->id);
                 if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('pricing_calculation')));
+                    // set_alert('success', _l('updated_successfully', _l('pricing_calculation')));
+                    set_alert('success', _l('updated_successfully', _l('product_recipe')));
                 }
             }
 
@@ -80,13 +106,13 @@ class Products extends AdminController
 
                 $install_id = $this->products_model->add_install_time($install_time);
                 if ($install_id) {
-                    set_alert('success', _l('added_successfully', _l('installation_time')));
+                    set_alert('success', _l('added_successfully', _l('product_recipe')));
                 }
             }
             else{
                 $success = $this->products_model->update_install_time($install_time,$current_install_time->id);
                 if ($success) {
-                    set_alert('success', _l('updated_successfully', _l('installation_time')));
+                    set_alert('success', _l('updated_successfully', _l('product_recipe')));
                 }
             }
                 
@@ -100,31 +126,8 @@ class Products extends AdminController
             //         // redirect(admin_url('products/product_recipe'));
             //     }
             // }
-
-            $current_recipe_data = $this->products_model->get_product_receipe_item($id);
-            if(empty($current_recipe_data) && isset($data['newitems']))
-            {
-                $recipe_data = $data['newitems'];
-                $recipe_data['rel_product_id'] = $id;
-                $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
-
-                if ($recipe_id) {
-                    set_alert('success', _l('added_successfully', _l('product_recipe')));
-                    redirect(admin_url('products/product_recipe'));
-                }
-            } else {
-                if(isset($data['newitems']))
-                    $recipe_data['newitems'] = $data['newitems'];
-                if(isset($data['removed_items']))
-                    $recipe_data['removed_items'] = $data['removed_items'];
-                if(isset($data['items']))
-                    $recipe_data['items'] = $data['items'];
-
-                $recipe_data['rel_product_id'] = $id;
-                $this->products_model->update_product_recipe_item($recipe_data);
-                set_alert('success', _l('updated_successfully', _l('product_recipe')));
-                redirect(admin_url('products/product_recipe'));
-            }
+            redirect(admin_url('products/product_recipe'));
+            
         }
         
         $data['title']         = _l('product_recipe');
@@ -157,6 +160,17 @@ class Products extends AdminController
     public function get_recipes_by_product($id)
     {
         if ($this->input->is_ajax_request()) {
+            $recipes = $this->products_model->get_product_receipe_item($id);
+            echo json_encode($recipes);
+        }
+    }
+
+    public function get_recipes_by_product1($id)
+    {
+        if ($this->input->is_ajax_request()) {
+            /*pre-produced saving*/
+            $pre_produceds = $this->db->query('SELECT id FROM tblproduct_recipe WHERE pre_produced = 1')->result_array();
+            print_r($pre_produceds); exit();
             $recipes = $this->products_model->get_product_receipe_item($id);
             echo json_encode($recipes);
         }

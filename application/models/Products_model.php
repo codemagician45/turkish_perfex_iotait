@@ -120,7 +120,21 @@ class Products_model extends App_Model
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
             $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
+            $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$data['price'].' where ingredient_item_id ='.$data['rel_product_id']);
             log_activity('New Pricing Calculation Added [ID: ' . $insert_id . ']');
+
+            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
+            foreach ($products as $key => $value) {
+                $material_cost = floatval($data['price']) * floatval($value['used_qty']) * floatval($value['ingredient_currency_rate']) * floatval((1+$value['rate_of_waste']/100));
+                $this->db->query('Update '.db_prefix().'product_recipe set material_cost ='.$material_cost.' where ingredient_item_id ='.$data['rel_product_id']);
+                $this->db->where('rel_product_id',$value['rel_product_id']);
+                $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
+                $total = $price_calc_value->other_cost + $price_calc_value->ins_cost + $material_cost + $value['production_cost'] + $value['expected_profit'];
+                // print_r($total); exit();
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$value['rel_product_id']);
+            }
             return $insert_id;
         }
         return false;
@@ -133,7 +147,22 @@ class Products_model extends App_Model
         $this->db->update(db_prefix().'pricing_calculation',$data);
         if ($this->db->affected_rows() > 0) {
             $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
+            $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$data['price'].' where ingredient_item_id ='.$data['rel_product_id']);
             log_activity('Pricing Calculation Updated [' . $id . ']');
+
+            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
+            foreach ($products as $key => $value) {
+                $material_cost = floatval($data['price']) * floatval($value['used_qty']) * floatval($value['ingredient_currency_rate']) * floatval((1+$value['rate_of_waste']/100));
+                $this->db->query('Update '.db_prefix().'product_recipe set material_cost ='.$material_cost.' where ingredient_item_id ='.$data['rel_product_id']);
+                $this->db->where('rel_product_id',$value['rel_product_id']);
+                $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
+                $total = $price_calc_value->other_cost + $price_calc_value->ins_cost + $material_cost + $value['production_cost'] + $value['expected_profit'];
+                // print_r($total); exit();
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$value['rel_product_id']);
+            }
+
             return true;
         }
         return false;
