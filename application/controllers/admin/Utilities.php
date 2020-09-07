@@ -97,6 +97,20 @@ class Utilities extends AdminController
         }
     }
 
+    public function get_calendar_data1()
+    {
+        if ($this->input->is_ajax_request()) {
+            echo json_encode($this->utilities_model->get_calendar_data1(
+                $this->input->post('start'),
+                $this->input->post('end'),
+                '',
+                '',
+                $this->input->post()
+            ));
+            die();
+        }
+    }
+
     public function get_installation_calendar_data()
     {
         if ($this->input->is_ajax_request()) {

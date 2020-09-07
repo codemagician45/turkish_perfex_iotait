@@ -1200,7 +1200,7 @@ $(function () {
                 !isLoading ? $('.dt-loader').addClass('hide') : $('.dt-loader').removeClass('hide');
             },
             eventSources: [{
-                url: admin_url + 'utilities/get_calendar_data',
+                url: admin_url + 'utilities/get_calendar_data1',
                 data: function () {
                     var params = {};
                     $('#calendar_filters').find('input:checkbox:checked').map(function () {
