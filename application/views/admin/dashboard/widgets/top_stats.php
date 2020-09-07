@@ -57,7 +57,9 @@
                   //   $_where .= '(addedfrom = '.get_staff_user_id().')';
                   // }
 
-                  $total_work_orders = $this->db->query('SELECT COUNT(tblpurchase_order.`id`) as total_rows FROM '.db_prefix().'purchase_order LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id')->row()->total_rows ;
+                  // $total_work_orders = $this->db->query('SELECT COUNT(tblpurchase_order.`id`) as total_rows FROM '.db_prefix().'purchase_order LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id')->row()->total_rows ;
+
+                  $total_work_orders = total_rows(db_prefix().'invoices','active = 1');
                   ?>
                <p class="text-uppercase mtop5"><i class="hidden-sm fa fa-cubes"></i> <?php echo _l('active_work_orders') ?><span class="pull-right"><?php echo $total_work_orders; ?></span></p>
             </div>

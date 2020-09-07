@@ -210,7 +210,7 @@ class Dashboard_model extends App_Model
         foreach ($phases as $phase) {
             $sql .= ' SELECT COUNT(*) as total';
             $sql .= ' FROM ' . db_prefix() . 'invoices';
-            $sql .= ' WHERE wo_phase_id=' . $phase['order_no'];
+            $sql .= ' WHERE wo_phase_id=' . $phase['order_no']. ' AND active = 1';
             // if (!is_admin()) {
             //     $sql .= ' AND addedfrom =' . get_staff_user_id();
             // }
