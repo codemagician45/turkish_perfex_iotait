@@ -304,7 +304,7 @@ class Sale extends AdminController
     }
 
 
-    public function quotation_approval($proposal_id = '')
+    public function quotation_approval_list($proposal_id = '')
     {
         if ($this->input->is_ajax_request()) {
             $this->app->get_table_data('quotation_approval');
@@ -313,6 +313,89 @@ class Sale extends AdminController
         $data['statuses']              = $this->proposals_model->get_statuses();
         $data['title'] = _l('quotation_approval');
         $this->load->view('admin/sale/quotation_approval/manage', $data);
+    }
+
+    public function quotation_approval($id = '')
+    {
+        if ($this->input->post()) {
+            $proposal_data = $this->input->post();
+            if(isset($proposal_data['quote_phase'])) 
+                unset($proposal_data['quote_phase']);
+            if ($id == '') {
+                if (!has_permission('proposals', '', 'create')) {
+                    access_denied('proposals');
+                }
+                $id = $this->proposals_model->add($proposal_data);
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('quotation')));
+                    redirect(admin_url('sale/quotation_list'));
+                    
+                }
+            } else {
+                if (!has_permission('proposals', '', 'edit')) {
+                    access_denied('proposals');
+                }
+                
+                $success = $this->proposals_model->update($proposal_data, $id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('quotation')));
+                }
+                
+                redirect(admin_url('sale/quotation_list'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('add_new', _l('quotation'));
+        } else {
+            $data['proposal'] = $this->proposals_model->get($id);
+
+            if (!$data['proposal'] || !user_can_view_proposal($id)) {
+                blank_page(_l('proposal_not_found'));
+            }
+
+            $data['estimate']    = $data['proposal'];
+            // $data['quote_items'] = $this->proposals_model->get_quote_items($id);
+            $data['is_proposal'] = true;
+            $title               = _l('edit', _l('quotation'));
+        }
+
+        $this->load->model('sale_model');
+        $data['quote_phases'] = $this->sale_model->get_quote_phases();
+        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
+
+        $this->load->model('taxes_model');
+        $data['taxes'] = $this->taxes_model->get();
+
+        $this->load->model('invoice_items_model');
+        // $data['ajaxItems'] = false;
+        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+        //     $data['items'] = $this->invoice_items_model->get_grouped();
+        // } else {
+        //     $data['items']     = [];
+        //     $data['ajaxItems'] = true;
+        // }
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            // $data['items'] = $this->warehouses_model->get_grouped();
+            $data['items'] = $this->warehouses_model->get_grouped_packing();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['statuses']      = $this->proposals_model->get_statuses();
+        $data['staff']         = $this->staff_model->get('', ['active' => 1]);
+        $data['currencies']    = $this->currencies_model->get();
+        $this->load->model('finances_model');
+        // $data['currencies']    = $this->finances_model->get_currency_exchange();
+        $data['base_currency'] = $this->currencies_model->get_base_currency();
+        // print_r($data['estimate']); exit();
+        $data['title'] = $title;
+        $this->load->view('admin/proposals/proposal_approval', $data);
     }
 
     public function sale_order_list($id = '')

@@ -38,7 +38,7 @@
 
                         <div class="form-group select-placeholder">
                            <label class="control-label"><?php echo _l('quote_phase'); ?></label>
-                           <select name="quote_phase" id="quote_phase" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>" disabled>
+                           <select name="quote_phase" id="quote_phase" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
                               <option></option>
                               <?php foreach($quote_phases as $quote_phase){?>
 

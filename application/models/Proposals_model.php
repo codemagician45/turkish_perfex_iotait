@@ -252,7 +252,8 @@ class Proposals_model extends App_Model
 
             log_activity('New Proposal Created [ID: ' . $insert_id . ']');
 
-            if ($save_and_send === true) {
+            if ($save_and_send === true && $data['quote_phase_id'] != 1) {
+
                 $this->send_proposal_to_email($insert_id);
             }
 
@@ -479,7 +480,7 @@ class Proposals_model extends App_Model
             log_activity('Proposal Updated [ID:' . $id . ']');
         }
 
-        if ($save_and_send === true) {
+        if ($save_and_send === true && $data['quote_phase_id'] != 1) {
             $this->send_proposal_to_email($id);
         }
 

@@ -125,3 +125,60 @@ ERROR - 2020-09-07 05:30:33 --> Could not find the language line "created user"
 ERROR - 2020-09-07 05:30:33 --> Could not find the language line "updated user"
 ERROR - 2020-09-07 05:30:33 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
 ERROR - 2020-09-07 05:30:33 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:05:22 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:05:22 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:05:22 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:05:22 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:05:36 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:05:36 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:05:36 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:05:36 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:10:25 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:10:25 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:10:25 --> Could not find the language line "yes"
+ERROR - 2020-09-07 06:10:25 --> Could not find the language line "no"
+ERROR - 2020-09-07 06:15:32 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:15:42 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:15:49 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:15:53 --> Could not find the language line "pricing_calculation"
+ERROR - 2020-09-07 06:16:27 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-09-07 06:16:27 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoice_items.php 205
+ERROR - 2020-09-07 06:17:05 --> Could not find the language line ""
+ERROR - 2020-09-07 06:17:05 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:17:05 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:17:17 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:17:17 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:17:17 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:17:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:17:21 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:17:21 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:17:21 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:17:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:18:06 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:18:11 --> Could not find the language line "pricing_calculation"
+ERROR - 2020-09-07 06:18:13 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:19:25 --> Could not find the language line "pack price"
+ERROR - 2020-09-07 06:19:40 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:19:40 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:19:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:19:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:20:12 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:20:12 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:20:12 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:20:12 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-09-07 06:20:25 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:20:25 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:20:25 --> Could not find the language line "yes"
+ERROR - 2020-09-07 06:20:25 --> Could not find the language line "no"
+ERROR - 2020-09-07 06:20:40 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:20:40 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:20:40 --> Could not find the language line "yes"
+ERROR - 2020-09-07 06:20:40 --> Could not find the language line "no"
+ERROR - 2020-09-07 06:20:50 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:20:50 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:20:50 --> Could not find the language line "yes"
+ERROR - 2020-09-07 06:20:50 --> Could not find the language line "no"
+ERROR - 2020-09-07 06:21:40 --> Could not find the language line "created user"
+ERROR - 2020-09-07 06:21:40 --> Could not find the language line "updated user"
+ERROR - 2020-09-07 06:21:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-09-07 06:21:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332

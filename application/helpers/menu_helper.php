@@ -242,7 +242,7 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'quotation_approval',
                 'name'     => _l('quotation_approval'),
-                'href'     => admin_url('sale/quotation_approval'),
+                'href'     => admin_url('sale/quotation_approval_list'),
                 'position' => 5,
         ]);
     }
