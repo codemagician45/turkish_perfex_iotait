@@ -542,23 +542,92 @@ class Utilities_model extends App_Model
         ]);
     }
 
+    public function get_calendar_data1($start, $end, $client_id = '', $contact_id = '', $filters = false)
+    {
+        $start      = $this->db->escape_str($start);
+        $end        = $this->db->escape_str($end);
+        $client_id  = $this->db->escape_str($client_id);
+        $contact_id = $this->db->escape_str($contact_id);
+
+        $is_admin                     = is_admin();
+        $has_permission_tasks_view    = has_permission('tasks', '', 'view');
+        $has_permission_projects_view = has_permission('projects', '', 'view');
+        $has_permission_invoices      = has_permission('invoices', '', 'view');
+        $has_permission_invoices_own  = has_permission('invoices', '', 'view_own');
+        $has_permission_estimates     = has_permission('estimates', '', 'view');
+        $has_permission_estimates_own = has_permission('estimates', '', 'view_own');
+        $has_permission_contracts     = has_permission('contracts', '', 'view');
+        $has_permission_contracts_own = has_permission('contracts', '', 'view_own');
+        $has_permission_proposals     = has_permission('proposals', '', 'view');
+        $has_permission_proposals_own = has_permission('proposals', '', 'view_own');
+        $data                         = [];
+
+        $client_data = false;
+        if (is_numeric($client_id) && is_numeric($contact_id)) {
+            $client_data                      = true;
+            $has_contact_permission_invoices  = has_contact_permission('invoices', $contact_id);
+            $has_contact_permission_estimates = has_contact_permission('estimates', $contact_id);
+            $has_contact_permission_proposals = has_contact_permission('proposals', $contact_id);
+            $has_contact_permission_contracts = has_contact_permission('contracts', $contact_id);
+            $has_contact_permission_projects  = has_contact_permission('projects', $contact_id);
+        }
+
+        $hook = [
+            'client_data' => $client_data,
+        ];
+        if ($client_data == true) {
+            $hook['client_id']  = $client_id;
+            $hook['contact_id'] = $contact_id;
+        }
+
+        $data = hooks()->apply_filters('before_fetch_events', $data, $hook);
+
+        $ff = false;
+        if ($filters) {
+            // excluded calendar_filters from post
+            $ff = (count($filters) > 1 && isset($filters['calendar_filters']) ? true : false);
+        }
+
+        if (!$client_data && !$ff || (!$client_data && $ff && array_key_exists('events', $filters))) {
+            $events = $this->get_all_events($start, $end);
+            foreach ($events as $event) {
+                if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                    $event['is_not_creator'] = true;
+                    $event['onclick']        = true;
+                }
+                $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+                $event['color']    = $event['color'];
+                array_push($data, $event);
+            }
+        }
+        return hooks()->apply_filters('calendar_data', $data, [
+            'start'      => $start,
+            'end'        => $end,
+            'client_id'  => $client_id,
+            'contact_id' => $contact_id,
+        ]);
+    }
     public function get_calendar_data_by_machine($start, $end,$machine_id)
     {
         $this->get_all_events($start, $end);
         $this->db->where('machine_id', $machine_id);
 
-        $event = $this->db->get(db_prefix() . 'events')->result_array();
+        $events = $this->db->get(db_prefix() . 'events')->result_array();
+        // print_r($events);exit();
         $data = [];
-        if(!empty($event))
+        if(!empty($events))
         {
-            $event = $event[0];
-            if ($event['userid'] != get_staff_user_id() && !$is_admin) {
-                $event['is_not_creator'] = true;
-                $event['onclick']        = true;
+            foreach ($events as $key => $event) {
+                // $event = $event[0];
+                if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                    $event['is_not_creator'] = true;
+                    $event['onclick']        = true;
+                }
+                $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+                $event['color']    = $event['color'];
+                array_push($data, $event);
             }
-            $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
-            $event['color']    = $event['color'];
-            array_push($data, $event);
+            
             return $data;
         } else 
             return false;
