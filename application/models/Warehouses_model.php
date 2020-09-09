@@ -275,7 +275,6 @@ class Warehouses_model extends App_Model
         $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
         if (is_numeric($id)) {
             $this->db->where(db_prefix() . 'stock_lists.id', $id);
-            // print_r($this->db->get()->row()); exit();
             return $this->db->get()->row();
         }
         return $this->db->get()->result_array();

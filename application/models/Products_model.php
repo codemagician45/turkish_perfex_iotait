@@ -49,11 +49,9 @@ class Products_model extends App_Model
 
     public function update_product_recipe_item($data)
     {
-        // print_r($data); exit;
         $this->load->model('warehouses_model');
         $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
-        $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
         
         if(isset($data['newitems']))
         {
@@ -70,10 +68,13 @@ class Products_model extends App_Model
         if(isset($data['items'])){
             $items = $data['items'];
             foreach ($items as $key => $item) {
+                
+                $ingredient_item_id = $item['ingredient_item_id'];
+                $product_code = $this->warehouses_model->stock_list_get($ingredient_item_id)->product_code;
+                $item['product_code'] = $product_code;
                 $id = $item['item_id'];
                 unset($item['item_id']);
                 $this->db->where('id',$id);
-                $item['product_code'] = $product_code;
                 $this->db->update(db_prefix().'product_recipe',$item);
             }
         }
@@ -121,6 +122,7 @@ class Products_model extends App_Model
         if ($insert_id) {
             $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
             $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$data['price'].' where ingredient_item_id ='.$data['rel_product_id']);
+            $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$data['price'].' where rel_product_id ='.$data['rel_product_id']);
             log_activity('New Pricing Calculation Added [ID: ' . $insert_id . ']');
 
             $products = $this->db->get(db_prefix().'product_recipe')->result_array();
@@ -130,10 +132,16 @@ class Products_model extends App_Model
                 $this->db->where('rel_product_id',$value['rel_product_id']);
                 $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
                 $total = $price_calc_value->other_cost + $price_calc_value->ins_cost + $material_cost + $value['production_cost'] + $value['expected_profit'];
-                // print_r($total); exit();
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$value['rel_product_id']);
+                /*rel_product part*/
+                $pricing_calculation_rel_product = $this->db->query('SELECT * FROM '.db_prefix().'product_recipe where ingredient_item_id='.$data['rel_product_id'])->row();
+                if(!empty($pricing_calculation_rel_product))
+                {
+                    $rel_parent_id = $pricing_calculation_rel_product->rel_product_id;
+                    $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$rel_parent_id);
+                    $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$rel_parent_id);
+                    $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$rel_parent_id);
+                }
+                /*rel_product part*/
             }
             return $insert_id;
         }
@@ -142,12 +150,15 @@ class Products_model extends App_Model
 
     public function update_pricing_calc($data, $id)
     {
-        // print_r($data); exit();
+        
         $this->db->where('id',$id);
         $this->db->update(db_prefix().'pricing_calculation',$data);
         if ($this->db->affected_rows() > 0) {
+            /*ingredient item part*/
             $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$data['price'].' where id ='.$data['rel_product_id']);
             $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$data['price'].' where ingredient_item_id ='.$data['rel_product_id']);
+            $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$data['price'].' where rel_product_id ='.$data['rel_product_id']);
+            /*ingredient item part*/
             log_activity('Pricing Calculation Updated [' . $id . ']');
 
             $products = $this->db->get(db_prefix().'product_recipe')->result_array();
@@ -157,10 +168,16 @@ class Products_model extends App_Model
                 $this->db->where('rel_product_id',$value['rel_product_id']);
                 $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
                 $total = $price_calc_value->other_cost + $price_calc_value->ins_cost + $material_cost + $value['production_cost'] + $value['expected_profit'];
-                // print_r($total); exit();
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$value['rel_product_id']);
+                /*rel_product part*/
+                $pricing_calculation_rel_product = $this->db->query('SELECT * FROM '.db_prefix().'product_recipe where ingredient_item_id='.$data['rel_product_id'])->row();
+                if(!empty($pricing_calculation_rel_product))
+                {
+                    $rel_parent_id = $pricing_calculation_rel_product->rel_product_id;
+                    $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.' where rel_product_id ='.$rel_parent_id);
+                    $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$rel_parent_id);
+                    $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$rel_parent_id);
+                }
+                /*rel_product part*/
             }
 
             return true;

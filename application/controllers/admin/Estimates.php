@@ -550,7 +550,6 @@ class Estimates extends AdminController
             $data['rel_sale_id'] = $id;
             $estimate_data = $this->estimates_model->get($id);
             $data['rel_quote_id'] = $estimate_data->rel_quote_id;
-            // print_r($estimate_data); exit();
             $this->load->model('invoices_model');
             $invoice_id = $this->invoices_model->add($data);
             

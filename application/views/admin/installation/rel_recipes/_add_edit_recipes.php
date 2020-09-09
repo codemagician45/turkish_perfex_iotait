@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed'); ?>
 <div class="panel-body mtop10">
-  <h3><?php echo _l('rel_plan_recipes')?></h3>
+  <h3><?php echo _l('planned_recipes')?></h3>
    <div class="row">
       <div class="col-md-4">
           <?php //$this->load->view('admin/invoices/rel_recipes/select_package'); ?>

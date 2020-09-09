@@ -4005,3 +4005,4 @@ $lang['filter_by_archived'] = 'Archived Filter';
 
 $lang['products'] = 'Products';
 $lang['finance'] = 'Finance';
+$lang['planned_recipes'] = 'Planned Recipes';

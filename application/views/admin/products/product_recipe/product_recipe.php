@@ -208,11 +208,6 @@
         expected_profit_calc();
     })
 
-    // $('#op_cost_per_sec').keyup(function(){
-    //     production_cost_cal();
-    //     installation_cost_calc();
-    // });
-
     $('#consumed_time').keyup(function(){
         installation_cost_calc();
     })
@@ -408,12 +403,17 @@
             pro_cost = $(this).find('[data-production-cost]').val();
             exp_profit = $(this).find('[data-expected-profit]').val();
             pre_produced = $(this).find('[data-pre-check]').prop('checked')
-
-            if(!pre_produced)
+            console.log('pro_cost',pro_cost)
+            if(!pre_produced){
+                if(!pro_cost)
+                    pro_cost = 0
+                if(!exp_profit)
+                    exp_profit = 0;
                 _amount = parseFloat(mat_cost) + parseFloat(pro_cost) + parseFloat(exp_profit);
+            }
             else
                 _amount = parseFloat(mat_cost);
-            // console.log(pre_produced,used_qty,mat_cost,pro_cost,exp_profit,_amount)
+            
             subtotal += _amount;
             $(this).find('td.amount').html(format_money(_amount, true));
             row = $(this);
@@ -445,9 +445,12 @@
     }
 
     function production_cost_calc_for_added(row){
-        
         var sel = $(row).parents('tr').children()[6].getElementsByTagName('select')[0];
         var mouldIdAdded = sel.options[sel.selectedIndex].value;
+        requestGetJSON('manufacturing_settings/get_default_machine/' +mouldIdAdded).done(function(response) {
+            if(response)
+                defaultMachineData = response;
+        })
         if(mouldIdAdded)
             requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldIdAdded).done(function(response) {
                 mouldCavity = response.mould_cavity;
@@ -458,13 +461,11 @@
                     // var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
                     var profitExp = defaultMachineData.profit_expectation;
                     productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (operationCost*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
-
                     $(row).parents('tr').find('[data-production-cost]').val(productionCost);
-
                     calculate_total_recipe()
                 }
             }); 
-
+         
         
     }
 
@@ -472,6 +473,10 @@
     {
         var sel = $(row).parents('tr').children()[6].getElementsByTagName('select')[0];
         var mouldIdAdded = sel.options[sel.selectedIndex].value;
+        requestGetJSON('manufacturing_settings/get_default_machine/' +mouldIdAdded).done(function(response) {
+            if(response)
+                defaultMachineData = response;
+        })
         if(mouldIdAdded)
             requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + mouldIdAdded).done(function(response) {
                 mouldCavity = response.mould_cavity;

@@ -57,6 +57,32 @@
     });
     var base_price = [];
     
+    $('.table-product_list').on( 'init.dt', function () {
+        var trArr = $('body').find('tr');
+        for(let i=1; i<trArr.length; i++){
+            let product_id = trArr[i].childNodes[0].firstChild.value;
+            console.log(product_id)
+            requestGetJSON('warehouses/get_stock_list_by_id/' + product_id).done(function (response) {
+                console.log(response)
+                base_price.push({id:response.id,base_price:response.price});
+
+                var trArr = $('#price_category').parents().find('tr');
+                let product_list_price = 0;
+                let data = {
+                    <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",id:product_id, product_list_price:product_list_price
+                }
+                $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
+                    var av_tables = ['.table-product_list'];
+                    $.each(av_tables, function(i, selector) {
+                        if ($.fn.DataTable.isDataTable(selector)) {
+                            $(selector).DataTable().ajax.reload(null, false);
+                        }
+                    });
+                });
+            });
+        }
+    });
+
     $('#price_category').change(function(){
         var price_category_id = $('#price_category').val();
         if(price_category_id)
@@ -90,12 +116,6 @@
                 }
             });
         } else {
-            // var av_tables = ['.table-product_list'];
-            // $.each(av_tables, function(i, selector) {
-            //     if ($.fn.DataTable.isDataTable(selector)) {
-            //         $(selector).DataTable().ajax.reload(null, false);
-            //     }
-            // });
             var trArr = $('#price_category').parents().find('tr');
             for(let i=1; i<trArr.length; i++){
                 let product_list_price = 0;
@@ -115,33 +135,7 @@
         
     })
 
-    $('.table-product_list').on( 'init.dt', function () {
-        var trArr = $('body').find('tr');
-        for(let i=1; i<trArr.length; i++){
-            let product_id = trArr[i].childNodes[0].firstChild.value;
-            console.log(product_id)
-            requestGetJSON('warehouses/get_stock_list_by_id/' + product_id).done(function (response) {
-                console.log(response)
-                base_price.push({id:response.id,base_price:response.price});
-
-                var trArr = $('#price_category').parents().find('tr');
-                let product_list_price = 0;
-                let data = {
-                    <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",id:product_id, product_list_price:product_list_price
-                }
-                $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
-                    var av_tables = ['.table-product_list'];
-                    $.each(av_tables, function(i, selector) {
-                        if ($.fn.DataTable.isDataTable(selector)) {
-                            $(selector).DataTable().ajax.reload(null, false);
-                        }
-                    });
-                });
-            });
-            // base_price.push(Number(trArr[i].childNodes[8].textContent));
-            // trArr[i].childNodes[8].innerHTML = 0;
-        }
-    } );
+    
     
     
 </script>

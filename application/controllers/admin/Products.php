@@ -128,6 +128,7 @@ class Products extends AdminController
             // }
             redirect(admin_url('products/product_recipe'));
             
+            
         }
         
         $data['title']         = _l('product_recipe');
