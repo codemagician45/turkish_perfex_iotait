@@ -129,7 +129,12 @@ class Installation extends AdminController
             }
 
             $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
-            $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
+            
+            $wo_product_ids = [];
+            foreach ($data['rel_wo_items'] as $wo) {
+                array_push($wo_product_ids, $wo['rel_product_id']);
+            }
+            $data['installation_plan_recipes'] = $this->invoices_model->get_installation_plan_recipes($id,$wo_product_ids);
             $title = _l('edit', _l('work_order')) . ' - ' . format_invoice_number($invoice->id);
         }
 

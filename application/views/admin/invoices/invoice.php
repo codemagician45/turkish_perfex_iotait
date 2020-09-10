@@ -185,7 +185,7 @@
 	  	if(recipe_rows_save_check.length  < 1){
 	  		requestGetJSON('products/get_recipes_by_product/' + product_id).done(function(response) {
 		        response.forEach(e => {
-		        	console.log(e)
+		        	// console.log(e)
 		        	if(e.pre_produced == 1)
 		        	{
 		        		requestGetJSON('products/get_recipes_by_product/' + e.ingredient_item_id).done(function(response) {
@@ -194,7 +194,7 @@
 		        				i++;
 		        			})
 		        		});
-		        		return;
+		        		// return;
 		        	}
 		        	add_item_to_table_plan_recipe(e,i,wo_item_qty)
 		        	i++;
@@ -216,19 +216,20 @@
                 else
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
-            // console.log(rel_wo_qty)
             data.option = option;
             var table_row = '';
-            // var item_key = $("body").find('.recipe .item').length + 1;
             var item_key = i;
-            // table_row += '<tr>';
-            table_row += '<tr class="sortable item">';
+            console.log(data)
+            if(data.pre_produced == 1)
+            	table_row += '<tr class="sortable item" style="display:none">';
+            else
+            	table_row += '<tr class="sortable item">';
 
             table_row += '<td><span style="color: green;font-weight: 600;font-size: 14px">'+data.wo_product+'</span><input type="hidden" name="plan_items[' + item_key + '][wo_product_id]" value="'+data.wo_product_id+'"></td>';
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_code]" class="form-control product_code" value="'+data.product_code+'"></td>';
 
-            table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"></td>';
+            table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"><input type="hidden" name="plan_items[' + item_key + '][pre_produced]" value = "' + data.pre_produced + '"></td>';
 
 
             table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + rel_wo_qty*data.used_qty + '"></td>';

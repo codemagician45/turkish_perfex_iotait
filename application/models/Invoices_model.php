@@ -1939,7 +1939,7 @@ class Invoices_model extends App_Model
 
     public function update_plan_recipe_install($data, $id= '', $transfer_out)
     {
-
+        // print_r($data);exit();
         $transfer_check = $this->get($id)->transfered_minus;
         $this->load->model('manufacturing_settings_model');
 
@@ -2021,7 +2021,26 @@ class Invoices_model extends App_Model
         $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
         $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'plan_recipe.wo_product_id', 'left');
         $this->db->where('rel_wo_id',$id);
+        $this->db->where('pre_produced !=1');
         return $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+    }
+
+    public function get_installation_plan_recipes($id,$wo_product_ids = [])
+    {
+        $data = [];
+        foreach ($wo_product_ids as $key => $wo_product_id) {
+            $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
+            $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'plan_recipe.wo_product_id', 'left');
+            $this->db->where('rel_wo_id',$id);
+            $this->db->where('wo_product_id',$wo_product_id);
+            $temp = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+            foreach ($temp as $key => $value) {
+               array_push($data, $value);
+            }
+            
+        }
+        // print_r($data);exit();
+        return $data;
     }
 
     public function delete_recipe_items($removed_items)

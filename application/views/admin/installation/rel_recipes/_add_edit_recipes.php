@@ -24,11 +24,11 @@
             </tr>
             </thead>
             <tbody>
-                <?php if (isset($plan_recipes)) {
+                <?php if (isset($installation_plan_recipes)) {
                     
                     $items_indicator = 'plan_items';
                     $i               = 0;
-                    foreach ($plan_recipes as $item) {
+                    foreach ($installation_plan_recipes as $item) {
                         $manual    = false;
                         
                         $option = '<option></option>';
