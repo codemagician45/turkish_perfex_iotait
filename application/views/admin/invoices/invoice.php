@@ -335,6 +335,8 @@
 	$('#machine_id').change(function(){
 
 		var machine_id = $(this).val();
+		var wo_id = '<?php echo $invoice->id;?>';
+    	var wo_item_mould = $('#mould_id').text();
 		// console.log(machine_id)
 
 		$('#busy_machine_events').remove();
@@ -398,7 +400,8 @@
             // },
             selectable: true,
 			select: function (start, end) {
-				var title = prompt("Event Content: ");
+				// var title = prompt("Event Content: ");
+				var title = 'wo'+'-'+wo_id+'-'+wo_item_mould;
 				var eventData;
 				if(title){
 					eventData = {
@@ -645,6 +648,21 @@
         };
         $('#installation_events').fullCalendar(calendar_settings);
     }
+
+    $('#busy_machine_events-form').submit(function(){
+    	$('#plan_new_submit').prop('disabled',true);
+    })
+    $('#calendar-event-form').submit(function(){
+    	$('#plan_update').prop('disabled', true);
+    })
+    
+    $('#installation-calendar-form').submit(function(){
+    	$('#installation_new_submit').prop('disabled',true);
+    })
+
+    $('#installation-event-form').submit(function(){
+    	$('#installation_event_submit').prop('disabled',true);
+    })
 
 </script>
 </body>
