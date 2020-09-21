@@ -36,3 +36,5 @@ ERROR - 2020-09-21 05:38:40 --> Could not find the language line "pack price"
 ERROR - 2020-09-21 05:48:30 --> Could not find the language line "req_shiping_date"
 ERROR - 2020-09-21 05:50:54 --> Could not find the language line "req_shiping_date"
 ERROR - 2020-09-21 05:55:25 --> Could not find the language line "req_shiping_date"
+ERROR - 2020-09-21 06:30:01 --> Severity: error --> Exception: Too few arguments to function Utilities::get_calendar_data_by_machine_date(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Utilities.php 141
+ERROR - 2020-09-21 06:30:32 --> Severity: error --> Exception: Too few arguments to function Utilities::get_calendar_data_by_machine_date(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Utilities.php 141

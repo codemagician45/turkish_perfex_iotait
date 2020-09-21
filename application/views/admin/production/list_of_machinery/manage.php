@@ -146,45 +146,21 @@
 
     function view_produced_qty(date,machine_id = '',machine_name = '')
     {
-        $.post(admin_url + 'utilities/get_calendar_data_by_machine/'+ machine_id).done(function(res){
+        // $.post(admin_url + 'utilities/get_calendar_data_by_machine_date/'+ {machine_id:machine_id,date:date}).done(function(res){
+        $.post(admin_url + 'utilities/get_calendar_data_by_machine_date',{
+            machine_id:machine_id,date:date
+        }).done(function(res){
             var event = JSON.parse(res);
-            if(event){
-                let start_date = new Date(event[0].start).setHours(0,0,0);
-                let end_date = event[0].end;
 
-                if(end_date) {
-                    end_date = new Date(event[0].end).setHours(0,0,0);
-                }
-                current_date = new Date(date).setHours(0,0,0);
-                // if(!end_date){
-                //     if(start_date == current_date)
-                //     {
-                //         console.log('equal')
-                //         $.post(admin_url + 'production/get_produced_qty/' + date).done(function(response) {
-                            
-                //             if(response){
-                //                 $('#event').html(response);
-                //                 $('#machine_name_on_view').empty();
-                //                 $('#machine_name_on_view').append(machine_name);
-                //                 $('#date_on_view').empty();
-                //                 $('#date_on_view').append(date);
-                //                 $('#viewMachineEvent').modal('show');
-                //                  validate_calendar_form();
-                //             } else {
-                //                 console.log(start_date)
-                //                 $("input[name='current_time_selection']").val(date);
-                //                 $("input[name='machine_id']").val(machine_id);
-                //                 // $('input[name="rel_event_id"]').val()
-                //                 $('#machine_name').empty();
-                //                 $('#machine_name').append(machine_name);
-                //                 $('#date').empty();
-                //                 $('#date').append(date);
-                //                 $('#machineNewEventModal').modal('show');
+            for(let i = 0; i < event.length; i++)
+                if(event[i]){
+                    let start_date = new Date(event[i].start).setHours(0,0,0);
+                    let end_date = event[i].end;
 
-                //             }
-                //         });
-                //     }
-                // } else {
+                    if(end_date) {
+                        end_date = new Date(event[i].end).setHours(0,0,0);
+                    }
+                    current_date = new Date(date).setHours(0,0,0);
                     if(start_date <= current_date && current_date < end_date)
                     {
                         $.post(admin_url + 'production/get_produced_qty/' + date).done(function(response) {
@@ -199,7 +175,7 @@
                             } else {
                                 $("input[name='current_time_selection']").val(date);
                                 $("input[name='machine_id']").val(machine_id);
-                                $("input[name='rel_event_id']").val(event[0].eventid);
+                                $("input[name='rel_event_id']").val(event[i].eventid);
                                 $('#machine_name').empty();
                                 $('#machine_name').append(machine_name);
                                 $('#date').empty();
@@ -208,8 +184,7 @@
                             }
                         });
                     }
-                // }
-            }
+                }
         });
         
     }

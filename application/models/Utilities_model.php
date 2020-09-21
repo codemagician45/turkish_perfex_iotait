@@ -633,6 +633,33 @@ class Utilities_model extends App_Model
             return false;
     }
 
+    public function get_calendar_data_by_machine_date($start, $end,$machine_id,$picked_date)
+    {
+        $this->get_all_events($start, $end);
+        $this->db->where('machine_id', $machine_id);
+
+        $events = $this->db->get(db_prefix() . 'events')->result_array();
+        // print_r($events);exit();
+        $data = [];
+        if(!empty($events))
+        {
+            foreach ($events as $key => $event) {
+                // $event = $event[0];
+                if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                    $event['is_not_creator'] = true;
+                    $event['onclick']        = true;
+                }
+                $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+                $event['color']    = $event['color'];
+                if($picked_date >= $event['start'] && $picked_date < $event['end'])
+                    array_push($data, $event);
+            }
+            // print_r($data); exit();
+            return $data;
+        } else 
+            return false;
+    }
+
     public function get_calendar_data_by_wo_item($start, $end,$wo_item_id)
     {
         $this->get_all_events($start, $end);

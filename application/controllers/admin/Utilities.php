@@ -137,6 +137,20 @@ class Utilities extends AdminController
         }
     }
 
+    public function get_calendar_data_by_machine_date()
+    {
+        if ($this->input->is_ajax_request()) {
+            // print_r($_POST); exit();
+            echo json_encode($this->utilities_model->get_calendar_data_by_machine_date(
+                $this->input->post('start'),
+                $this->input->post('end'),
+                $_POST['machine_id'],
+                $_POST['date']
+            ));
+            die();
+        }
+    }
+
     public function get_calendar_data_by_wo_item($wo_item_id)
     {
         if ($this->input->is_ajax_request()) {
