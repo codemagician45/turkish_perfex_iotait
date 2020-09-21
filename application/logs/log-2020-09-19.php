@@ -88,3 +88,12 @@ ERROR - 2020-09-19 12:23:31 --> Could not find the language line "Packing Type"
 ERROR - 2020-09-19 12:23:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
 ERROR - 2020-09-19 12:23:31 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
 ERROR - 2020-09-19 12:23:31 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-09-19 13:12:56 --> Could not find the language line "Packing Type"
+ERROR - 2020-09-19 13:12:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-09-19 13:12:57 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-09-19 13:12:57 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-09-19 13:13:02 --> Could not find the language line "Packing Type"
+ERROR - 2020-09-19 13:13:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2020-09-19 13:13:02 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2020-09-19 13:13:02 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2020-09-19 13:17:03 --> Could not find the language line "barcode_no"

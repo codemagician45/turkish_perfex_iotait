@@ -266,7 +266,9 @@ class Sale extends AdminController
 
         $this->load->model('sale_model');
         $data['quote_phases'] = $this->sale_model->get_quote_phases();
-        $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
+        // $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();
+        $this->load->model('products_model');
+        $data['pricing_categories'] = $this->products_model->get_pricing_category_by_permission(get_staff_user_id());;
 
         $this->load->model('taxes_model');
         $data['taxes'] = $this->taxes_model->get();

@@ -952,7 +952,7 @@ class Warehouses_model extends App_Model
             $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
-            $this->db->where('created_by', get_staff_user_id());
+            // $this->db->where('created_by', get_staff_user_id());
             $this->db->where(db_prefix().'stock_categories.order_no=3');
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
@@ -983,7 +983,7 @@ class Warehouses_model extends App_Model
             $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
-            $this->db->where('created_by', get_staff_user_id());
+            // $this->db->where('created_by', get_staff_user_id());
             
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
@@ -1015,7 +1015,7 @@ class Warehouses_model extends App_Model
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->join(db_prefix() . 'package_group', '' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id', 'left');
             $this->db->order_by('product_name', 'asc');
-            $this->db->where('created_by', get_staff_user_id());
+            // $this->db->where('created_by', get_staff_user_id());
             $this->db->where(array(
                            'default_pack='=> 0));
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();

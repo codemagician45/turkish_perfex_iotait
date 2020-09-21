@@ -234,7 +234,8 @@
                                 echo '<i class="fa fa-tag" aria-hidden="true" data-toggle="tooltip" data-title="'.html_escape(implode(', ',$tags)).'"></i>';
                               }
                               ?>
-                           <a href="<?php echo admin_url('estimates/estimate/'.$estimate->id); ?>">
+                           <!-- <a href="<?php echo admin_url('estimates/estimate/'.$estimate->id); ?>"> -->
+                           <a href="#">
                            <span id="estimate-number">
                            <?php echo format_estimate_number($estimate->id); ?>
                            </span>

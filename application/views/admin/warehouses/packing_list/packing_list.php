@@ -74,7 +74,12 @@
                             <div class="col-md-6">
                                 <?php 
                                 $value = (isset($packing_list) ? $packing_list->stock_qty : '');
-                                echo render_input('stock_qty', _l('stock_qty'), $value, 'number', array('placeholder' => _l('stock_qty'))); ?>
+                                if(!isset($packing_list))
+                                    echo render_input('stock_qty', _l('stock_qty'), $value, 'number', array('placeholder' => _l('stock_qty')));
+                                else
+                                    echo render_input('stock_qty', _l('stock_qty'), $value, 'number', array('readonly' => true));
+
+                                ?>
 
                             </div>
                         </div>

@@ -78,8 +78,8 @@
 
 			if (typeof(id) !== 'undefined') {
 				$('input[name="workorderphaseid"]').val(id);
-				var phase = $(button).parents('tr').find('td').eq(0).find('span.name').text();
-				var orderNo = $(button).parents('tr').find('td').eq(1).text();
+				var phase = $(button).parents('tr').find('td').eq(1).find('span.name').text();
+				var orderNo = $(button).parents('tr').find('td').eq(0).text();
 				$('#worok_order_phase_modal .add-title').addClass('hide');
 				$('#worok_order_phase_modal .edit-title').removeClass('hide');
 				$('#worok_order_phase_modal input[name="phase"]').val(phase);
