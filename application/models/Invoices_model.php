@@ -370,6 +370,7 @@ class Invoices_model extends App_Model
 
             $this->db->query('UPDATE tblinvoices SET `number` = '.$insert_id.' WHERE id='.$insert_id);
 
+
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
             }
@@ -512,7 +513,7 @@ class Invoices_model extends App_Model
                 $success = send_mail_template('wo_updated', $staff['email'], $staff['staffid'], $insert_id);
             }
             hooks()->do_action('after_invoice_added', $insert_id);
-
+            
             return $insert_id;
         }
         return false;

@@ -561,6 +561,8 @@ class Estimates extends AdminController
                     'status'     => 3,
                 ]);
 
+                $this->db->query('UPDATE tblestimates SET `sale_phase_id`= 2 where invoiceid='.$invoice_id);
+                
                 $this->db->where('estimate_id', $id);
                 $this->db->update(db_prefix() . 'proposals', [
                     'invoice_id' => $invoice_id,
