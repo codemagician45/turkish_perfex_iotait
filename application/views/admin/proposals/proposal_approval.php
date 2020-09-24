@@ -448,11 +448,11 @@ function quote_phase_change()
   if(flag == 1)
   {
     $('select[name="quote_phase"]').selectpicker('val',1);
-    $('select[name="quote_phase"]').prop('disabled', true);
+    // $('select[name="quote_phase"]').prop('disabled', true);
     $('#quote_phase_id').val($('select[name="quote_phase"]').val())
   } else {
     $('select[name="quote_phase"]').selectpicker('val',2);
-    $('select[name="quote_phase"]').prop('disabled', true);
+    // $('select[name="quote_phase"]').prop('disabled', true);
     $('#quote_phase_id').val($('select[name="quote_phase"]').val())
   }
 }
@@ -461,10 +461,10 @@ function quote_phase_change_by_discount(row){
   // console.log($(row).val())
   if($(row).val() > 0){
     $('select[name="quote_phase"]').selectpicker('val',1);
-    $('select[name="quote_phase"]').prop('disabled', true);
+    // $('select[name="quote_phase"]').prop('disabled', true);
     $('#quote_phase_id').val($('select[name="quote_phase"]').val())
   } else {
-    $('select[name="quote_phase"]').prop('disabled', true);
+    // $('select[name="quote_phase"]').prop('disabled', true);
     $('#quote_phase_id').val($('select[name="quote_phase"]').val())
   }
 

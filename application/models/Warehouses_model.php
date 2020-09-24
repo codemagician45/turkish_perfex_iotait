@@ -850,6 +850,10 @@ class Warehouses_model extends App_Model
             $stock['stock_level'] = $data['stock_qty'];
             $stock['price'] = $data['pack_price'];
             $stock['pack_id'] = $insert_id;
+            $stock['unit'] = $data['unit'];
+            $stock['category'] = $data['category'];
+            $stock['currency_id'] = $data['currency_id'];
+            $stock['product_photo'] = $data['pack_photo'];
             $this->stock_list_add($stock);
             return $insert_id;
         }
@@ -892,6 +896,10 @@ class Warehouses_model extends App_Model
             $stock['stock_level'] = $data['stock_qty'];
             $stock['price'] = $data['pack_price'];
             $stock['pack_id'] = $id;
+            $stock['unit'] = $data['unit'];
+            $stock['category'] = $data['category'];
+            $stock['currency_id'] = $data['currency_id'];
+            $stock['product_photo'] = $data['pack_photo'];
             $this->stock_list_edit_by_pack($stock);
             return true;
         }

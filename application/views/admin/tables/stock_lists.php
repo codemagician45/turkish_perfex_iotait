@@ -26,6 +26,7 @@ $additionalSelect = [
     db_prefix() . 'stock_lists.id',
      'unit',
      'category',
+     'pack_id'
     ];
 $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
 
@@ -70,7 +71,9 @@ foreach ($rResult as $aRow) {
     }
     $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
 
-
-    $row[]              = $options .= icon_btn('warehouses/stock_list_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    if(empty($aRow['pack_id']))
+        $row[]              = $options .= icon_btn('warehouses/stock_list_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    else
+        $row[] = '';
     $output['aaData'][] = $row;
 }

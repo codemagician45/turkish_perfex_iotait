@@ -550,6 +550,7 @@ class Warehouses extends AdminController
             $this->app->get_table_data('packing_list');
             // $this->app->get_table_data('packing_group');
         }
+
         $data['title'] = _l('packing_list');
         $this->load->view('admin/warehouses/packing_list/manage', $data);
     }
@@ -558,6 +559,12 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($_FILES); exit();
+            $folderPath = "uploads/stock_lists/";
+            if (move_uploaded_file($_FILES["pack_photo"]["tmp_name"], $folderPath . $_FILES["pack_photo"]["name"])) {
+                $data['pack_photo'] = $folderPath . $_FILES["pack_photo"]["name"];
+            }
+            // print_r($data['pack_photo']);exit();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
                 
@@ -619,6 +626,9 @@ class Warehouses extends AdminController
         if(isset($data['packing_list']))
             $data['packing_group'] = $this->warehouses_model->get_packing_group($data['packing_list']->id);
         $data['product_code'] = $this->warehouses_model->get_product_code();
+        $data['stock_units'] = $this->warehouses_model->get_units();
+        $data['stock_categories'] = $this->warehouses_model->get_stock_categories();
+        $data['currency'] = $this->currencies_model->get();
         $data['title']         = $title;
         $this->load->view('admin/warehouses/packing_list/packing_list', $data);
     }

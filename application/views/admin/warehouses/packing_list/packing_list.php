@@ -3,7 +3,7 @@
 <div id="wrapper">
     <div class="content">
         <div class="row">
-            <?php echo form_open($this->uri->uri_string(),array('id'=>'packing_list')); ?>
+            <?php echo form_open_multipart($this->uri->uri_string(),array('id'=>'packing_list')); ?>
             <div class="col-md-12 transfers">
                 <div class="panel_s">
                     <div class="panel-body">
@@ -81,6 +81,24 @@
 
                                 ?>
 
+                            </div>
+                            <div class="col-md-6">
+                                <?php echo render_input('pack_photo',_l('pack_photo'),'','file'); ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?php 
+                                    $selected = (isset($packing_list) ? $packing_list->unit:'');
+                                    echo render_select('unit',$stock_units,array('unitid','name'),_l('unit'),$selected); ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?php
+                                    $selected = (isset($packing_list) ? $packing_list->category:''); 
+                                    echo render_select('category',$stock_categories,array('order_no','name'),_l('category'),$selected); ?>
+                            </div>
+                            <div class="col-md-6">
+                                <?php
+                                     $selected = (isset($packing_list) ? $packing_list->currency_id:'');
+                                    echo render_select('currency_id',$currency,array('id','name'),_l('currency_id'),$selected); ?>
                             </div>
                         </div>
                     </div>
