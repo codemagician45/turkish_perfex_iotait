@@ -4006,3 +4006,6 @@ $lang['filter_by_archived'] = 'Archived Filter';
 $lang['products'] = 'Products';
 $lang['finance'] = 'Finance';
 $lang['planned_recipes'] = 'Planned Recipes';
+
+$lang['stock_price_view'] = 'Stock Price View';
+$lang['approval_date'] = 'Approval Date';

@@ -52,10 +52,10 @@
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('last_updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('last_updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
-                           <!--  <div class="col-md-6">
-                                <?php //$value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php //echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
-                            </div> -->
+                            <div class="col-md-6">
+                                <?php $value = (isset($purchase_order) ? _d($purchase_order->approval_date) : _d(date('Y-m-d'))) ?>
+                                <?php echo render_date_input('approval_date','approval_date',$value); ?>
+                            </div>
 
                         </div>
                     </div>

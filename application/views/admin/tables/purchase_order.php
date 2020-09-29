@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     db_prefix() .'purchase_order.id as id',
     'updated_at',
+    'approval_date',
     db_prefix().'purchase_order_phases.phase as phase',
     'approval',
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
@@ -47,6 +48,8 @@ foreach ($rResult as $aRow) {
     $row[] = $subjectOutput;
     
     $row[] = $aRow['updated_at'];
+    
+    $row[] = $aRow['approval_date'];
 
     $row[] = format_purchase_phase($aRow['order_no'],$aRow['phase']);
 
