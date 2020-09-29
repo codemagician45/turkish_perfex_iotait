@@ -18,17 +18,31 @@
 						<div class="clearfix"></div>
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
-						<?php render_datatable(array(
-							_l('product_code'),
-							_l('product_photo'),
-							_l('product_name'),
-							_l('unit'),
-							_l('category'),
-							_l('price'),
-							_l('currency'),
-							_l('stock_level'),
-							_l('options'),
-						),'stock_lists'); ?>
+						<?php 
+							if (has_permission('warehouse', '', 'stock_price_view')) 
+								render_datatable(array(
+									_l('product_code'),
+									_l('product_photo'),
+									_l('product_name'),
+									_l('unit'),
+									_l('category'),
+									_l('price'),
+									_l('currency'),
+									_l('stock_level'),
+									_l('options'),
+								),'stock_lists'); 
+							else
+								render_datatable(array(
+									_l('product_code'),
+									_l('product_photo'),
+									_l('product_name'),
+									_l('unit'),
+									_l('category'),
+									_l('currency'),
+									_l('stock_level'),
+									_l('options'),
+								),'stock_lists'); 
+						?>
 					</div>
 				</div>
 			</div>
@@ -56,7 +70,9 @@
 						<?php echo render_input('product_name',_l('product_name'),'','text'); ?>
 						<?php echo render_select('unit',$stock_units,array('unitid','name'),_l('unit')); ?>
 						<?php echo render_select('category',$stock_categories,array('order_no','name'),_l('category')); ?>
-						<?php echo render_input('price',_l('price'),'','number'); ?>
+						<?php 
+						if (has_permission('warehouse', '', 'stock_price_view'))
+							echo render_input('price',_l('price'),'','number'); ?>
 						<?php echo render_select('currency_id',$currency,array('id','name'),_l('currency_id')); ?>
 					</div>
 				</div>
@@ -80,7 +96,11 @@
 <script>
 	$(function(){
 		
-		initDataTable('.table-stock_lists', window.location.href, [8], [8]);
+		var price_permission = '<?php echo has_permission('warehouse', '', 'stock_price_view')?>';
+		if(price_permission)
+			initDataTable('.table-stock_lists', window.location.href, [8], [8]);
+		else
+			initDataTable('.table-stock_lists', window.location.href, [7], [7]);
 
 		appValidateForm($('form'), {
 			product_code: 'required',

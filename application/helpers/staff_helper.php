@@ -40,6 +40,7 @@ function get_available_staff_permissions($data = [])
             'name' => _l('warehouse'),
             'capabilities' => [
                 'stock_list' => _l('stock_list'),
+                'stock_price_view' => _l('stock_price_view'),
                 'transfers' => _l('transfers'),
                 'allocated_items' => _l('allocated_items'),
                 'packing_list' => _l('packing_list'),

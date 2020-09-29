@@ -603,7 +603,8 @@ class Estimates_model extends App_Model
         // $rel_product_id = $data['rel_product_id'];
         // unset($data['rel_product_id']);
         // print_r($data); exit();
-        $data['req_shipping_date'] = to_sql_date($data['req_shipping_date']);
+        $data['req_shipping_date'] = date("Y-m-d", strtotime($data['req_shipping_date']));
+        
         $this->db->insert(db_prefix() . 'estimates', $data);
         $insert_id = $this->db->insert_id();
 
@@ -749,7 +750,6 @@ class Estimates_model extends App_Model
         
 
         $data = $this->map_shipping_columns($data);
-        print_r($data);exit();
         $hook = hooks()->apply_filters('before_estimate_updated', [
             'data'          => $data,
             'items'         => $items,
@@ -789,8 +789,7 @@ class Estimates_model extends App_Model
         // $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);
         // unset($data['total_price']);
-        $data['req_shipping_date'] = to_sql_date($data['req_shipping_date']);
-        print_r($data); exit();
+        $data['req_shipping_date'] = date("Y-m-d", strtotime($data['req_shipping_date']));
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'estimates', $data);
 

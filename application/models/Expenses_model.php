@@ -75,7 +75,6 @@ class Expenses_model extends App_Model
      */
     public function add($data)
     {
-        $data['date'] = to_sql_date($data['date']);
         $data['note'] = nl2br($data['note']);
         if (isset($data['billable'])) {
             $data['billable'] = 1;

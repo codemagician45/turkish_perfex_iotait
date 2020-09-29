@@ -1,18 +1,27 @@
 <?php
 
 defined('BASEPATH') or exit('No direct script access allowed');
-$aColumns = [
-    'product_code',
-    'product_photo',
-    'product_name',
-    db_prefix() . 'units.name',
-    db_prefix() . 'stock_categories.name',
-    'price',
-    // '(SELECT name FROM ' . db_prefix() . 'currencies_exchange where id = ' . db_prefix() . 'stock_lists.currency_id) as currency_id',
-    // 'currency_id',
-    db_prefix() . 'currencies.name',
-    'stock_level'
-    ];
+if (has_permission('warehouse', '', 'stock_price_view')) 
+    $aColumns = [
+        'product_code',
+        'product_photo',
+        'product_name',
+        db_prefix() . 'units.name',
+        db_prefix() . 'stock_categories.name',
+        'price',
+        db_prefix() . 'currencies.name',
+        'stock_level'
+        ];
+else
+    $aColumns = [
+        'product_code',
+        'product_photo',
+        'product_name',
+        db_prefix() . 'units.name',
+        db_prefix() . 'stock_categories.name',
+        db_prefix() . 'currencies.name',
+        'stock_level'
+        ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'stock_lists';
 
@@ -33,6 +42,7 @@ $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
+// print_r($rResult); exit();
 
 foreach ($rResult as $aRow) {
     $row = [];
