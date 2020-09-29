@@ -4009,3 +4009,4 @@ $lang['planned_recipes'] = 'Planned Recipes';
 
 $lang['stock_price_view'] = 'Stock Price View';
 $lang['approval_date'] = 'Approval Date';
+$lang['allocated_qty'] = 'Allocated Qty';

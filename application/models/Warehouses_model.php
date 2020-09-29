@@ -774,6 +774,18 @@ class Warehouses_model extends App_Model
         return false;
     }
 
+    public function get_allocated_item_amount_by_product($product_id)
+    {
+       $this->db->from(db_prefix().'allocated_items');
+       $this->db->where('allocation_product_code',$product_id);
+       $allocated_items = $this->db->get()->result_array();
+       $sum = 0;      
+       foreach ($allocated_items as $key => $value) {
+            $sum += $value['stock_quantity'];
+       }
+       return $sum;
+    }
+
     public function get_barcode($id = '')
     {
         $this->db->from(db_prefix() . 'barcode_list');

@@ -42,7 +42,6 @@ $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
 
 foreach ($rResult as $aRow) {
     $row = [];

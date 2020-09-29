@@ -4,10 +4,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     'product_code',
     'product_name',
-    db_prefix() . 'units.name',
-    db_prefix() . 'stock_categories.name',
+    db_prefix() . 'units.name as unit',
+    db_prefix() . 'stock_categories.name as category',
     'price',
-    db_prefix() . 'currencies.name',
+    db_prefix() . 'currencies.name as currency',
     'stock_level'
     ];
 $sIndexColumn = 'id';
@@ -88,34 +88,44 @@ if (count($filter) > 0) {
     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
 }
 
+
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
     $row = [];
-    for ($i = 0; $i < count($aColumns); $i++) {
-        $_data = $aRow[$aColumns[$i]];
+    // for ($i = 0; $i < count($aColumns); $i++) {
+    //     $_data = $aRow[$aColumns[$i]];
 
         $attributes = [
         'data-toggle'             => 'modal',
         'data-target'             => '#stock_lists_modal',
         'data-id'                 => $aRow['id'],
         ];
-        if ($aColumns[$i] == 'product_photo') {
-            if($aRow['product_photo'] != '')
-                $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
-            else
-                $_data = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small"></a>';
-        }
+    //     if ($aColumns[$i] == 'product_photo') {
+    //         if($aRow['product_photo'] != '')
+    //             $_data = '<a href="#"><img src="'.base_url($aRow['product_photo']).'" class="staff-profile-image-small"></a>';
+    //         else
+    //             $_data = '<a href="#"><img src="'.base_url('assets/images/user-placeholder.jpg').'" class="staff-profile-image-small"></a>';
+    //     }
         
-        if ($aColumns[$i] == 'product_name') {
-            $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
-        }
-        $row[] = $_data;
-    }
-    $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
+    //     if ($aColumns[$i] == 'product_name') {
+    //         $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
+    //     }
+    //     $row[] = $_data;
+    // }
+    // $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);
 
 
-    $row[]              = $options .= icon_btn('warehouses/stock_list_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    // $row[]              = $options .= icon_btn('warehouses/stock_list_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
+    $row[] = $aRow['product_code'];
+    $row[] = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $aRow['product_name'] . '</a></span>';
+    $row[] = $aRow['unit'];
+    $row[] = $aRow['category'];
+    $row[] = $aRow['price'];
+    $row[] = $aRow['currency'];
+    $allocated_qty  = $this->ci->warehouses_model->get_allocated_item_amount_by_product($aRow['id']);
+    $row[] = $allocated_qty;
+    $row[] = $aRow['stock_level'];
     $output['aaData'][] = $row;
 }
