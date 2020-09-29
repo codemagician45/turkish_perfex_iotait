@@ -19,9 +19,12 @@
                         <div class="row">
                             
                             <div class="col-md-6">
+                                <div class="form-group" id="transaction_from_stock">
+                                    
+                                </div>
                                 <?php 
-                                    $selected = (isset($transfer) ? $transfer->transaction_from : '');
-                                    echo render_select('transaction_from',$warehouse_list,array('id','warehouse_name'),_l('transaction_from'),$selected); 
+                                    // $selected = (isset($transfer) ? $transfer->transaction_from : '');
+                                    // echo render_select('transaction_from',$warehouse_list,array('id','warehouse_name'),_l('transaction_from'),$selected); 
                                 ?>
                             </div>
                             <div class="col-md-6">
@@ -113,15 +116,16 @@
             });
         });
 
-        var id;
+        var id = '<?php if(isset($transfer)) echo $transfer->id; else echo '';?>';;
         var warehouses = [];
         var currentWarehouseQty = 0;
+        var selectedTransaction = '<?php if(isset($transfer)) echo $transfer->transaction_from?>';
+        var option = '<option></option>';
         $('#stock_product_code').change(function(){
             id = $(this).val()
             var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
             requestGetJSON(tranferReqUrl).done(function (results) {
                 warehouses = results;
-                console.log(results)
                 var wId = $('#transaction_from').val();
                 if(warehouses.length > 0 && !wId)
                 {
@@ -131,7 +135,49 @@
                     currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
                 }
             });
+
+
+            var transactionFrom = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
+
+            requestGetJSON(transactionFrom).done(function (results) {
+                if(results){
+                    option = '<option></option>';
+                    results.forEach(e => {
+                        if(e.warehouse_id == selectedTransaction)
+                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' - '+ e.qty +'</option>';
+                        else
+                            option += '<option value="'+e.warehouse_id+'">'+e.warehouse+' : '+ e.qty +'</option>';
+                    })
+                    $('#transaction_from_stock').empty();
+                    $('#transaction_from_stock').append('<label for="transaction_from" class="control-label"><?php echo _l('transaction_from')?></label><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="transaction_from" data-fieldid="transaction_from" name="transaction_from" id="transaction_from" class="selectpicker form-control transaction_from" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+option+'</select>')
+                    init_selectpicker();
+                }
+            })
         })
+        if(id){
+            var transactionFrom = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
+            requestGetJSON(transactionFrom).done(function (results) {
+                
+                if(results){
+                    option = '<option></option>';
+                    results.forEach(e => {
+                        if(e.warehouse_id == selectedTransaction)
+                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' - '+ e.qty +'</option>';
+                        else
+                            option += '<option value="'+e.warehouse_id+'">'+e.warehouse+' : '+ e.qty +'</option>';
+                    })
+                    $('#transaction_from_stock').empty();
+                    $('#transaction_from_stock').append('<label for="transaction_from" class="control-label"><?php echo _l('transaction_from')?></label><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="transaction_from" data-fieldid="transaction_from" name="transaction_from" id="transaction_from" class="selectpicker form-control transaction_from" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+option+'</select>')
+                    init_selectpicker();
+                }
+            })
+        } else {
+            option = '<option></option>';
+            $('#transaction_from_stock').empty();
+            $('#transaction_from_stock').append('<label for="transaction_from" class="control-label"><?php echo _l('transaction_from')?></label><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="transaction_from" data-fieldid="transaction_from" name="transaction_from" id="transaction_from" class="selectpicker form-control transaction_from" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+option+'</select>')
+            init_selectpicker();
+        }
+        
         
         $('#transaction_from').change(function(){
             var wId = $(this).val();
@@ -172,11 +218,8 @@
             else{
                 var url = admin_url +'warehouses/get_current_warehouse/' + wId ;
                 requestGetJSON(url).done(function (result) {
-                    // console.log(result)
                     if(result.order_no != 1)
                     {
-                        // console.log($('#transaction_qty').val(),currentWarehouseQty)
-                        // console.log('aaa')
                         if($('#transaction_qty').val() > currentWarehouseQty)
                         {
                             alert('Overflowed Quantity from this Warehouse');
@@ -206,6 +249,8 @@
             $('#transaction_to').selectpicker('val', '');
             $('#transaction_to').prop('disabled', true);
         }
+
+        
         
     </script>
 
