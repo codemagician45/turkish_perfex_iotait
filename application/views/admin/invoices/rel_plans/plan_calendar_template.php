@@ -25,17 +25,11 @@
             <div id="busy_machine_events_div">
               <div id="busy_machine_events"></div>
             </div>
-            <!-- <?php echo render_datetime_input('start','utility_calendar_new_event_start_date'); ?>
-            <div class="clearfix mtop15"></div>
-            <?php echo render_datetime_input('end','utility_calendar_new_event_end_date'); ?> -->
             <input type="hidden" name="start">
             <input type="hidden" name="end">
             <input type="hidden" name="title">
             <?php echo render_input('production_calculate',_l('production_calculate'),'','number',array('readonly' => true )); ?>
-            
-
-            
-
+            <?php echo render_input('total_production_qty',_l('total_production_qty'),'','number'); ?>
          <hr />
          <p class="bold"><?php echo _l('event_color'); ?></p>
          <?php

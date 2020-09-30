@@ -40,6 +40,7 @@
                 <div id="edit_busy_machine_events"></div>
               </div>
               <?php echo render_input('production_calculate',_l('production_calculate'),$event->production_calculate,'number',array('readonly'=>true)); ?>
+              <?php echo render_input('total_production_qty',_l('total_production_qty'),$event->total_production_qty,'number'); ?>
               <input type="hidden" name="start" value="<?php echo $event->start;?>">
               <input type="hidden" name="end" value="<?php echo $event->end;?>">
               <input type="hidden" name="title" value="<?php echo $event->title;?>">

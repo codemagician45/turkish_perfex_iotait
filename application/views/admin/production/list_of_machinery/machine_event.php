@@ -13,7 +13,16 @@
             <span id="machine_name_on_view"></span>
             <span id="date_on_view" class="pull-right"></span>
           </div>
-
+          <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px"> 
+            <div class="col-md-6">
+              <label for="total_p_qty_on_view"><?php echo _l('total_p_qty')?> :</label>
+              <span id="total_p_qty_on_view"></span>
+            </div>
+            <div class="col-md-6">
+              <label for="needed_p_qty_on_view"><?php echo _l('needed_p_qty')?> :</label>
+              <span id="needed_p_qty_on_view"></span>
+            </div>
+          </div>
           <div class="col-md-12">
             <?php
               $id = (isset($produced_qty) ? $produced_qty->p_qty_id : '');

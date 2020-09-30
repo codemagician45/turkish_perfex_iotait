@@ -13,6 +13,16 @@
             <span id="machine_name"></span>
             <span id="date" class="pull-right"></span>
           </div>
+          <div class="col-md-12" style="margin-top: 10px; margin-bottom: 10px"> 
+            <div class="col-md-6">
+              <label for="total_p_qty"><?php echo _l('total_p_qty')?> :</label>
+              <span id="total_p_qty"></span>
+            </div>
+            <div class="col-md-6">
+              <label for="needed_p_qty"><?php echo _l('needed_p_qty')?> :</label>
+              <span id="needed_p_qty"></span>
+            </div>
+          </div>
           <div class="col-md-12">
             <?php echo form_hidden('current_time_selection'); ?>
             <?php echo form_hidden('machine_id'); ?>

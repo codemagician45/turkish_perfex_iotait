@@ -22,6 +22,8 @@ $join = [
    'LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id',
 ];
 
+$where  = ['AND '.db_prefix() . 'purchase_order.approval = 0'];
+
 $additionalSelect = [
     db_prefix() . 'purchase_order_phases.order_no as order_no',
     'acc_list',
@@ -32,7 +34,7 @@ $additionalSelect = [
 
 ];
 
-$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
+$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {

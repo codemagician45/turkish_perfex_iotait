@@ -143,5 +143,17 @@ class Production_model extends App_Model
         return $this->db->get(db_prefix().'produced_qty')->row();
     }
 
+    public function get_total_amount($eventid)
+    {
+        $this->db->from(db_prefix().'produced_qty');
+        $this->db->where('rel_event_id',$eventid);
+        $produced_qty_arr = $this->db->get()->result_array();
+
+        $total_produced = 0;
+        foreach ($produced_qty_arr as $key => $value) {
+            $total_produced += $value['produced_quantity'];
+        }
+        return floatval($total_produced);
+    }
 
 }

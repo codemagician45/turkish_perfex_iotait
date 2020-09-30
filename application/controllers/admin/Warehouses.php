@@ -759,6 +759,7 @@ class Warehouses extends AdminController
                     $transfer_on_received['purchase_id'] = $data['purchase_phase_id'];
                     $transfer_on_received['product_id'] = $data['product_id'];
                     $this->purchases_model->update_purchase_order_item($purchase_order_item,$transfer_on_received);
+                    // $this->purchases_model->add_purchase_order_item($purchase_order_item,$transfer_on_received);
 
                 }
                 

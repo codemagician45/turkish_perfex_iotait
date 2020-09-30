@@ -117,10 +117,11 @@
                 },
             }, ],
             dayClick: function(date, jsEvent, view) {
+                
                 var d = date.format();
                 view_produced_qty(d,machine_id,machine_name)
                 return false;
-            }
+            },
         };
         if ($("body").hasClass('dashboard')) {
             calendar_settings.customButtons.viewFullCalendar = {
@@ -151,7 +152,6 @@
             machine_id:machine_id,date:date
         }).done(function(res){
             var event = JSON.parse(res);
-
             for(let i = 0; i < event.length; i++)
                 if(event[i]){
                     let start_date = new Date(event[i].start).setHours(0,0,0);
@@ -163,26 +163,43 @@
                     current_date = new Date(date).setHours(0,0,0);
                     if(start_date <= current_date && current_date < end_date)
                     {
-                        $.post(admin_url + 'production/get_produced_qty/' + date).done(function(response) {
-                            if(response){
-                                $('#event').html(response);
-                                $('#machine_name_on_view').empty();
-                                $('#machine_name_on_view').append(machine_name);
-                                $('#date_on_view').empty();
-                                $('#date_on_view').append(date);
-                                $('#viewMachineEvent').modal('show');
-                                 validate_calendar_form();
-                            } else {
-                                $("input[name='current_time_selection']").val(date);
-                                $("input[name='machine_id']").val(machine_id);
-                                $("input[name='rel_event_id']").val(event[i].eventid);
-                                $('#machine_name').empty();
-                                $('#machine_name').append(machine_name);
-                                $('#date').empty();
-                                $('#date').append(date);
-                                $('#machineNewEventModal').modal('show');
+                        
+                        $.post(admin_url + 'production/get_total_amount/' + event[i].eventid).done(function(res) {
+                            var needed_qty = event[i].total_production_qty;
+                            if(res){
+                                needed_qty = (needed_qty - res).toFixed(2);
+                                console.log(needed_qty)
                             }
-                        });
+                            $.post(admin_url + 'production/get_produced_qty/' + date).done(function(response) {
+                                if(response){
+                                    $('#event').html(response);
+                                    $('#machine_name_on_view').empty();
+                                    $('#machine_name_on_view').append(machine_name);
+                                    $('#date_on_view').empty();
+                                    $('#date_on_view').append(date);
+                                    $('#total_p_qty_on_view').empty();
+                                    $('#total_p_qty_on_view').append(event[i].total_production_qty);
+                                    $('#needed_p_qty_on_view').empty();
+                                    $('#needed_p_qty_on_view').append(needed_qty);
+                                    $('#viewMachineEvent').modal('show');
+                                     validate_calendar_form();
+                                } else {
+                                    $("input[name='current_time_selection']").val(date);
+                                    $("input[name='machine_id']").val(machine_id);
+                                    $("input[name='rel_event_id']").val(event[i].eventid);
+                                    $('#machine_name').empty();
+                                    $('#machine_name').append(machine_name);
+                                    $('#date').empty();
+                                    $('#date').append(date);
+                                    $('#total_p_qty').empty();
+                                    $('#total_p_qty').append(event[i].total_production_qty);
+                                    $('#needed_p_qty').empty();
+                                    $('#needed_p_qty').append(needed_qty);
+                                    $('#machineNewEventModal').modal('show');
+                                }
+                            });
+                        })
+                        
                     }
                 }
         });

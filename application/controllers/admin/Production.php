@@ -169,6 +169,11 @@ class Production extends AdminController
        
     }
 
+    public function get_total_amount($eventid){
+        $total = $this->production_model->get_total_amount($eventid);
+        echo $total;
+    }
+
     public function work_order_email(){
         if (!is_admin()) {
             access_denied('work_order_email');
