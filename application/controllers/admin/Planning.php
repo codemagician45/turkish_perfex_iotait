@@ -247,4 +247,11 @@ class Planning extends AdminController
         $this->load->view('admin/invoices/invoice', $data);
     }
 
+    public function get_installation_time($wo_item_id){
+        if ($this->input->is_ajax_request()) {
+            $installation_time = $this->invoices_model->get_installation_time($wo_item_id);
+            echo json_encode($installation_time);
+        }
+    }
+
 }

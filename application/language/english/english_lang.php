@@ -4015,3 +4015,4 @@ $lang['total_p_qty'] = 'Total Production Qty';
 $lang['needed_p_qty'] = 'Needed Production Qty';
 
 $lang['quotation_approval_email'] = 'Quotation Approval Email';
+$lang['installation_calculate'] = 'Installation Calculate';

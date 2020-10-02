@@ -15,6 +15,9 @@
             <div id="installation_events_div">
               <div id="installation_events"></div>
             </div>
+
+            <?php echo render_input('installation_calculate',_l('installation_calculate'),'','number',array('readonly' => true )); ?>
+
             <input type="hidden" name="start">
             <input type="hidden" name="end">
             <input type="hidden" name="title">

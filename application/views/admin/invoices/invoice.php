@@ -155,7 +155,6 @@
 	$('.pack_capacity').change(function(){
 	  var pack_capacity = $(this).val();
 	  var currentV = $(this).parents('tr').children()[7].firstChild;
-	  console.log(currentV)
 	  requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
 	    currentV.value = response.volume;
 	  });
@@ -219,7 +218,6 @@
             data.option = option;
             var table_row = '';
             var item_key = i;
-            console.log(data)
             if(data.pre_produced == 1)
             	table_row += '<tr class="sortable item" style="display:none">';
             else
@@ -413,7 +411,6 @@
 					$('#busy_machine_events').fullCalendar("renderEvent", eventData, true);
 				};
 				$("#busy_machine_events").fullCalendar("unselect");
-				console.log(eventData.start.format())
 				if(eventData)
 				{
 					$('input[name="title"]').val(eventData.title);
@@ -615,7 +612,6 @@
 					$('#installation_events').fullCalendar("renderEvent", eventData, true);
 				};
 				$("#installation_events").fullCalendar("unselect");
-				console.log(eventData.start.format())
 				if(eventData)
 				{
 					$('input[name="title"]').val(eventData.title);
@@ -648,6 +644,14 @@
             }
         };
         $('#installation_events').fullCalendar(calendar_settings);
+
+        requestGetJSON('planning/get_installation_time/' + wo_item_id).done(function(response) {
+            var qty = $(row).parents('tr').find('[data-quantity]').val();
+            var ins_time = response.ins_time;
+            var installation_calculate = (qty*ins_time/60/60/24).toFixed(6);
+			$('input[name="installation_calculate"]').val(parseInt(installation_calculate)+1);
+
+        });
     }
 
     $('#busy_machine_events-form').submit(function(){

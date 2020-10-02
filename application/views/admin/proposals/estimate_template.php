@@ -32,7 +32,7 @@
               <?php echo render_input('general_notes',_l('general_notes'),'','text',array('placeholder'=>_l('general_notes'))); ?>
           </div>
           <div class="col-md-6">
-              <?php echo render_input('shipping_type',_l('shipping_type'),'','text',array('required' => true)); ?>
+              <?php echo render_input('shipping_type',_l('shipping_type'),$proposal->shipping_type,'text',array('required' => true)); ?>
           </div>
           <div class="col-md-6">
               <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : '') ?>

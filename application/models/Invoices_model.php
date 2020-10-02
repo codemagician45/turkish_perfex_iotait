@@ -2080,4 +2080,11 @@ class Invoices_model extends App_Model
 
         return false;
     }
+
+    public function get_installation_time($wo_item_id){
+        $this->db->select(db_prefix().'pricing_calculation.ins_time');
+        $this->db->join(db_prefix().'pricing_calculation', db_prefix().'pricing_calculation.rel_product_id ='.db_prefix().'itemable.rel_product_id', 'left');
+        $this->db->where(db_prefix().'itemable.id',$wo_item_id);
+        return $this->db->get(db_prefix().'itemable')->row();
+    }
 }

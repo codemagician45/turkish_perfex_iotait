@@ -128,6 +128,11 @@
                             echo render_select('currency', $currencies, array('id','name','symbol'), 'proposal_currency', $selected,$currency_attr);
                             ?>
                            </div>
+                           <div class="col-md-6">
+                              <?php 
+                                $value = (isset($proposal) ? $proposal->shipping_type : '');
+                                echo render_input('shipping_type','shipping_type',$value); ?>
+                           </div>
                        </div>
                         <?php $fc_rel_id = (isset($proposal) ? $proposal->id : false); ?>
                         <?php echo render_custom_fields('proposal',$fc_rel_id); ?>
