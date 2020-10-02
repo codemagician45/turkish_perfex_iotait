@@ -52,7 +52,7 @@ class So_merge_fields extends App_merge_fields
         $fields['{so_num}']    = '<a href="' . admin_url('sale/sale_order/' . $so_id) . '">' . format_estimate_number($so_id) . '</a>';
 
         return hooks()->apply_filters('so_merge_fields', $fields, [
-        'id'    => $staff_id,
+        'id'    => $so_id,
         'staff' => $staff,
      ]);
     }

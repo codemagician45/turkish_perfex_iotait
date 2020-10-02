@@ -182,11 +182,20 @@ class Proposals_model extends App_Model
         unset($data['volume_m3']);
         unset($data['notes']);
         $data['updated_user'] = get_staff_user_id();
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();
         // print_r($insert_id); exit();
+
         $this->load->model('warehouses_model');
         if ($insert_id) {
+
+            $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE quotation_email_permission=1')->result_array();
+            if($data['quote_phase_id'] == 1)
+                foreach ($allowed_staffs as $key => $staff) {
+                    $success = send_mail_template('quotation_approved', $staff['email'], $staff['staffid'], $insert_id);
+                }
+
             if (isset($custom_fields)) {
                 handle_custom_fields_post($insert_id, $custom_fields);
             }
@@ -476,6 +485,11 @@ class Proposals_model extends App_Model
         // }
 
         if ($affectedRows > 0) {
+            $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE quotation_email_permission=1')->result_array();
+            if($data['quote_phase_id'] == 1)
+                foreach ($allowed_staffs as $key => $staff) {
+                    $success = send_mail_template('quotation_approved', $staff['email'], $staff['staffid'], $id);
+                }
             update_sales_total_tax_column($id, 'proposal', db_prefix() . 'proposals');
             log_activity('Proposal Updated [ID:' . $id . ']');
         }

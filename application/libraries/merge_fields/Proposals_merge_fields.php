@@ -22,6 +22,13 @@ class Proposals_merge_fields extends App_merge_fields
                     ],
                 ],
                 [
+                    'name'      => 'Approved Quatation',
+                    'key'       => '{approved_quo_number}',
+                    'available' => [
+                        'proposals',
+                    ],
+                ],
+                [
                     'name'      => 'Subject',
                     'key'       => '{proposal_subject}',
                     'available' => [
@@ -127,7 +134,7 @@ class Proposals_merge_fields extends App_merge_fields
  * @param  mixed $proposal_id proposal id
  * @return array
  */
-    public function format($proposal_id)
+    public function format($proposal_id,$staff_id='')
     {
         $fields = [];
         $this->ci->db->where('id', $proposal_id);
@@ -147,6 +154,7 @@ class Proposals_merge_fields extends App_merge_fields
 
         $fields['{proposal_id}']          = $proposal_id;
         $fields['{proposal_number}']      = format_proposal_number($proposal_id);
+        $fields['{approved_quo_number}']      = '<a href="' . admin_url('sale/quotation_approval/' . $proposal_id) . '">' . format_proposal_number($proposal_id) . '</a>';
         $fields['{proposal_link}']        = site_url('proposal/' . $proposal_id . '/' . $proposal->hash);
         $fields['{proposal_subject}']     = $proposal->subject;
         $fields['{proposal_total}']       = app_format_money($proposal->total, $currency);
@@ -167,6 +175,14 @@ class Proposals_merge_fields extends App_merge_fields
         foreach ($custom_fields as $field) {
             $fields['{' . $field['slug'] . '}'] = get_custom_field_value($proposal_id, $field['id'], 'proposal');
         }
+
+        $this->ci->db->where('staffid', $staff_id);
+        $staff = $this->ci->db->get(db_prefix().'staff')->row();
+        if (!$staff) {
+            return $fields;
+        }
+        $fields['{staff_firstname}']   = $staff->firstname;
+        $fields['{staff_lastname}']    = $staff->lastname;
 
         return hooks()->apply_filters('proposal_merge_fields', $fields, [
         'id'       => $proposal_id,

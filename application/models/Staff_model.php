@@ -779,6 +779,19 @@ class Staff_model extends App_Model
         log_activity('Sale Order Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
     }
 
+    public function change_staff_quotation_email_permission($id, $status)
+    {
+        $status = hooks()->apply_filters('before_staff_status_change', $status, $id);
+
+        $this->db->where('staffid', $id);
+        $this->db->update(db_prefix() . 'staff', [
+            'quotation_email_permission' => $status,
+        ]);
+
+        log_activity('Quotation Staff Email Permission Changed [StaffID: ' . $id . ' - Status(Active/Inactive): ' . $status . ']');
+    }
+
+
     public function change_staff_purchase_email_permission($id, $status)
     {
         $status = hooks()->apply_filters('before_staff_status_change', $status, $id);

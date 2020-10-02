@@ -860,10 +860,16 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 15,
         ]);
         $CI->app_menu->add_setup_children_item('sale', [
+                'slug'     => 'quotation_approval_email',
+                'name'     => _l('quotation_approval_email'),
+                'href'     => admin_url('sale/quotation_approval_email'),
+                'position' => 20,
+        ]);
+        $CI->app_menu->add_setup_children_item('sale', [
                 'slug'     => 'sale_order_email',
                 'name'     => _l('sale_order_email'),
                 'href'     => admin_url('sale/sale_order_email'),
-                'position' => 20,
+                'position' => 25,
         ]);
         // User log
         $CI->app_menu->add_setup_menu_item('user_logs', [

@@ -561,5 +561,16 @@ class Sale extends AdminController
         $data['title'] = _l('sale_order_email');
         $this->load->view('admin/sale/settings/sale_order_email', $data);
     }
+
+     public function quotation_approval_email(){
+        if (!is_admin()) {
+            access_denied('quotation_approval_email');
+        }
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('quotation_approval_email');
+        }
+        $data['title'] = _l('quotation_approval_email');
+        $this->load->view('admin/sale/settings/quotation_approval_email', $data);
+    }
     
 }

@@ -4013,3 +4013,5 @@ $lang['allocated_qty'] = 'Allocated Qty';
 $lang['total_production_qty'] = 'Total Production Qty';
 $lang['total_p_qty'] = 'Total Production Qty';
 $lang['needed_p_qty'] = 'Needed Production Qty';
+
+$lang['quotation_approval_email'] = 'Quotation Approval Email';
