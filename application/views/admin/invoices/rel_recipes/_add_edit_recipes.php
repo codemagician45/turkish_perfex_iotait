@@ -13,6 +13,7 @@
                 <th width="10%"><?php echo _l('rel_wo_item'); ?></th>
                 <th width="10%"><?php echo _l('product_code'); ?></th>
                 <th width="10%"><?php echo _l('product_name'); ?></th>
+                <th width="10%"><?php echo _l('stock_level'); ?></th>
                 <th width="10%"><?php echo _l('used_qty'); ?></th>
                 <th width="10%"><?php echo _l('rate_of_waste'); ?></th>
                 <th width="10%"><?php echo _l('mould_id'); ?></th>
@@ -48,7 +49,9 @@
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" value="' . $item['product_code'] . '"></td>';
 
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"><input type="hidden" name="' . $items_indicator . '[' . $i . '][ingredient_item_id]" value="' . $item['ingredient_item_id'] . '" ></td>';
-                        
+
+                        $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][stock_level]" class="form-control" value="' . $item['stock_level'] . '" disabled></td>';
+
                         $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][used_qty]" class="form-control material qty" value="'.$item['used_qty'].'" onkeyup = "material_cost_calc_for_added(this)"></td>';
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][rate_of_waste]" class="form-control material" value="'.$item['rate_of_waste'].'" onkeyup = "material_cost_calc_for_added(this)"></td>';

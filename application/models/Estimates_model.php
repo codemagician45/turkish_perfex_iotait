@@ -1526,7 +1526,10 @@ class Estimates_model extends App_Model
             $rel_quote_id = $rel_quote->rel_quote_id;
             $this->db->where('rel_id',$rel_quote_id);
         }
-        return $this->db->get(db_prefix() . 'itemable')->result_array();
+        $this->db->select(db_prefix().'itemable.*, '. db_prefix().'stock_lists.stock_level');
+        $this->db->from(db_prefix().'itemable');
+        $this->db->join(db_prefix().'stock_lists', db_prefix().'stock_lists.id ='.db_prefix().'itemable.rel_product_id','left');
+        return $this->db->get()->result_array();
     }
 
     public function change_so_status($id, $status)

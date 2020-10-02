@@ -2019,7 +2019,7 @@ class Invoices_model extends App_Model
 
     public function get_plan_recipes($id)
     {
-        $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
+        $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id,tblstock_lists.stock_level');
         $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'plan_recipe.wo_product_id', 'left');
         $this->db->where('rel_wo_id',$id);
         $this->db->where('pre_produced !=1');

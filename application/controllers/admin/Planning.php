@@ -211,7 +211,6 @@ class Planning extends AdminController
         
         $this->load->model('estimates_model');
         $data['inv_items'] = $this->estimates_model->get_quote_items($sale_id);
-
         $this->load->model('currencies_model');
         $data['currencies'] = $this->currencies_model->get();
 

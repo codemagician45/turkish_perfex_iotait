@@ -94,7 +94,22 @@ class Products_model extends App_Model
         $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'product_recipe.rel_product_id', 'left');
         $this->db->from(db_prefix().'product_recipe');
         $this->db->where('rel_product_id',$productid);
-        return $this->db->get()->result_array();
+        $product_recipes = $this->db->get()->result_array();
+        
+        $this->db->select('tblstock_lists.stock_level');
+        $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'product_recipe.ingredient_item_id', 'left');
+        $this->db->from(db_prefix().'product_recipe');
+        $this->db->where('rel_product_id',$productid);
+        $stock_levels = $this->db->get()->result_array();
+        $i = 0;
+        foreach ($product_recipes as $key => &$recipe) {
+            array_push($recipe, array(
+                'stock_level' => $stock_levels[$i]['stock_level']
+            ));
+            $i++;
+        };
+        return $product_recipes;
+
     }
 
     public function get_pack_by_product_code($id)

@@ -12,6 +12,7 @@
             <tr>
               <th width="12%" align="center"><?php echo _l('product_code'); ?></th>
               <th width="12%" align="center"><?php echo _l('product_name'); ?></th>
+              <th width="12%" align="center"><?php echo _l('stock_level'); ?></th>
               <th width="12%" align="center"><?php echo _l('pack_capacity'); ?></th>
               <th width="12%" align="center"><?php echo _l('qty'); ?></th>
               <th width="12%" align="center"><?php echo _l('unit'); ?></th>
@@ -114,6 +115,7 @@
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control product_code" value="' . $item['product_code'] . '" disabled></td>';
 
                  $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '" disabled><input type="hidden" class="rel_product_id" name="' . $items_indicator . '[' . $i . '][rel_product_id]" value="' . $item['rel_product_id'] . '" ></td>';
+                 $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][stock_level]" class="form-control stock_level" value="' . $item['stock_level'] . '" disabled></td>';
 
                  $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="'.$items_indicator.'['.$i.'][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>'.$capacity_option.'</select></div></td>';
 
