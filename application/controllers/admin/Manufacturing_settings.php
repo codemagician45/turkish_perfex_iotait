@@ -27,7 +27,6 @@ class Manufacturing_settings extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if ($data['machineID'] == '') {
                 $success = $this->manufacturing_settings_model->add_machine($data);
                 $message = '';
@@ -136,7 +135,6 @@ class Manufacturing_settings extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             $check_flag = false;
             if ($data['mouldID'] == '') {
 
@@ -184,7 +182,6 @@ class Manufacturing_settings extends AdminController
                 
             } else {
                 $all_other_suits = $this->manufacturing_settings_model->get_suitability_by_mould($data['mould_id'], $data['mouldID']);
-                // print_r($all_other_suits); exit();
                 if(!empty($all_other_suits))
                 {
                     foreach ($all_other_suits as $key => $suit) {

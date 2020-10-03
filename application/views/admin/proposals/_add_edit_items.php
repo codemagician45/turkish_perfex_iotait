@@ -90,7 +90,8 @@
                foreach ($add_items as $item) {
                  $manual    = false;
 
-                 $capacity_option = '<option></option>';
+                 // $capacity_option = '<option></option>';
+                 $capacity_option = '';
                   foreach ($item[0] as $key => $pack) {
                       if($pack['pack_capacity'] == $item['pack_capacity'])
                           $capacity_option.='<option value="'.$pack['pack_capacity'].'" selected>'.$pack['pack_capacity'].'</option>';

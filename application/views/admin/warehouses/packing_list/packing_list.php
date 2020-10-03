@@ -7,24 +7,11 @@
             <div class="col-md-12 transfers">
                 <div class="panel_s">
                     <div class="panel-body">
-                        <!-- <div class="row">
-                            <div class="col-md-6">
-                                <?php 
-                                    $selected = (isset($packing_list) ? $packing_list->stock_product_code : '');
-                                    echo render_select('stock_product_code',$product_code,array('id','product_code'),_l('product_code'),$selected); 
-                                ?>
-                            </div>
-                        </div> -->
                         <div class="row">
                             <div class="col-md-6">
                                 <?php 
                                 $value = (isset($packing_list) ? $packing_list->packing_type : '');
                                 echo render_input('packing_type', _l('packing_type'), $value, 'text', array('placeholder' => _l(_l('packing_type')))); ?>
-                            </div>
-                            <div class="col-md-6">
-                                <?php
-                                $value = (isset($packing_list) ? $packing_list->pack_capacity : ''); 
-                                echo render_input('pack_capacity', _l('pack_capacity'), $value, 'number', array('placeholder' => _l('pack_capacity'))); ?>
                             </div>
                             <div class="col-md-6">
                                 <?php 
@@ -221,6 +208,8 @@
             table_row += '<td><div class="checkbox checkbox-primary" style="margin-top: 8px"><input type="checkbox"  name="newitems[' + item_key + '][default_pack]" class="default_pack" value="0" ><label for="default_pack"><?php echo _l('default_pack'); ?></label></div></td>';
         }
         
+        table_row += '<td><input type="text" name="newitems[' + item_key + '][pack_capacity]" class="form-control" value="'+data.pack_capacity+'"></td>';
+
         table_row += '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a><input type="hidden" name="newitems[' + item_key + '][product_id]" class="form-control product_id" value="' + data.product_id + '"></td>';
 
         table_row += '</tr>';
@@ -259,6 +248,7 @@
 
         response.product_id = $('input[name="product_id"]').val();
         response.default_pack = $('input[name="default_pack"]').val();
+        response.pack_capacity = $('input[name="pack_capacity"]').val();
     
         return response;
     }
@@ -268,6 +258,7 @@
         previewArea.find('input[name="product_name"]').val('');
         previewArea.find('input[name="product_code"]').val('');
         previewArea.find('input[name="product_id"]').val('');
+        previewArea.find('input[name="pack_capacity"]').val('');
         previewArea.find('input[name="default_pack"]').prop('checked',false);
     }
 
@@ -281,7 +272,6 @@
         
         $('#removed-items').append(hidden_input('removed_items[]', itemid));
     }
-
 
     $('#packing_list').submit(async function(e){
         e.preventDefault();
@@ -300,15 +290,6 @@
                     pack_id:id
                 }
 
-                // $.post(admin_url+'warehouses/get_packing_group_by_product', data).done(function(response) {
-                //     var res = JSON.parse(response);
-                //     console.log(res)
-                //     if(res.default_check)
-                //     {
-                //         alert_float('danger', res.msg);
-                //     }
-
-                // })
                 postResult = await $.post(admin_url+'warehouses/get_packing_group_by_product', $.param(data)).promise();
                     var res = JSON.parse(postResult);
                     console.log(res)
@@ -320,7 +301,6 @@
             }
             
         }
-        // console.log(check)
         if(check == 0)
             document.getElementById("packing_list").submit();
 

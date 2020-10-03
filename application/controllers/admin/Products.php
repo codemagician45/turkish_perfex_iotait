@@ -115,17 +115,6 @@ class Products extends AdminController
                     set_alert('success', _l('updated_successfully', _l('product_recipe')));
                 }
             }
-                
-            // if(isset($data['newitems'])){
-            //     $recipe_data = $data['newitems'];
-            //     $recipe_data['rel_product_id'] = $id;
-            //     $recipe_id = $this->products_model->add_product_recipe_item($recipe_data);
-
-            //     if ($recipe_id) {
-            //         set_alert('success', _l('added_successfully', _l('product_recipe')));
-            //         // redirect(admin_url('products/product_recipe'));
-            //     }
-            // }
             redirect(admin_url('products/product_recipe'));
             
             

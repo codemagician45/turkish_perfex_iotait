@@ -4,7 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
 
     'packing_type',
-    'pack_capacity',
     'box_quality',
     'box_type',
     'l_size',
@@ -20,7 +19,7 @@ $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'pack_list';
 
 $join = [
-//    'LEFT JOIN ' . db_prefix() . 'stock_lists ON ' . db_prefix() . 'stock_lists.id = ' . db_prefix() . 'transfer_lists.stock_product_code',
+   // 'LEFT JOIN ' . db_prefix() . 'package_group ON ' . db_prefix() . 'package_group.packing_id = ' . db_prefix() . 'pack_list.id',
 ];
 
 $additionalSelect = [
@@ -31,7 +30,6 @@ $additionalSelect = [
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-
 foreach ($rResult as $aRow) {
     
     $row = [];
@@ -48,7 +46,11 @@ foreach ($rResult as $aRow) {
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
-    $row[] = $aRow['pack_capacity'];
+    $default_pack_capacity = $this->ci->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$aRow['id'].' AND default_pack=1')->row();
+    if($default_pack_capacity == '')
+        $row[] = '';
+    else 
+        $row[] = $default_pack_capacity->pack_capacity;
 
     $row[] = $aRow['box_quality'];
 
@@ -67,7 +69,6 @@ foreach ($rResult as $aRow) {
     $row[] = $aRow['price_per_item'];
 
     $row[] = $aRow['stock_qty'];
-
 
     $output['aaData'][] = $row;
 }

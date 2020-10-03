@@ -335,8 +335,6 @@ class Invoices extends AdminController
                 if (!has_permission('invoices', '', 'edit')) {
                     access_denied('invoices');
                 }
-
-                // print_r($invoice_data); exit();
                 unset($invoice_data['item_select']);
                 unset($invoice_data['product_name']);
                 unset($invoice_data['rel_product_id']);
@@ -426,10 +424,7 @@ class Invoices extends AdminController
             }
 
             $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
-
             $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
-            // print_r($data['plan_recipes']); exit();
-
             $title = _l('edit', _l('work_order')) . ' - ' . format_invoice_number($invoice->id);
         }
 
@@ -446,15 +441,6 @@ class Invoices extends AdminController
         $data['taxes'] = $this->taxes_model->get();
         $this->load->model('invoice_items_model');
 
-        // $data['ajaxItems'] = false;
-
-        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-        //     $data['items'] = $this->invoice_items_model->get_grouped();
-        // } else {
-        //     $data['items']     = [];
-        //     $data['ajaxItems'] = true;
-        // }
-        // $data['items_groups'] = $this->invoice_items_model->get_groups();
         $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
@@ -492,23 +478,6 @@ class Invoices extends AdminController
         $data['title']                = _l('calendar');
         add_calendar_assets();
 
-        
-        // $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
-        // $machines_id_array = [];
-        // foreach ($machines_in_suitability as $key => $value) {
-        //     array_push($machines_id_array, $value['machine_id']);
-        // }
-        // $machines_id_array_unique = array_unique($machines_id_array);
-
-        // $machines = [];
-
-        // foreach ($machines_id_array_unique as $key => $id) {
-        //     $machine = $this->manufacturing_settings_model->get_machine($id);
-        //     array_push($machines, $machine);
-        // }
-
-        // $data['machines'] = $machines;
-
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
 
         $this->load->view('admin/invoices/invoice', $data);
@@ -518,7 +487,6 @@ class Invoices extends AdminController
     {
         if ($this->input->post() && $this->input->is_ajax_request()) {
             $data    = $this->input->post();
-            // print_r($data); exit();
             $success = $this->invoices_model->event($data);
             $message = '';
             if ($success) {
@@ -545,7 +513,6 @@ class Invoices extends AdminController
     {
         if ($this->input->post() && $this->input->is_ajax_request()) {
             $data    = $this->input->post();
-            // print_r($data); exit();
             $success = $this->invoices_model->installation_event($data);
             $message = '';
             if ($success) {
@@ -574,7 +541,6 @@ class Invoices extends AdminController
         if ($data['event']->public == 1 && !is_staff_member()
             || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
         } else {
-            // $this->load->view('admin/utilities/event', $data);
             $this->load->view('admin/invoices/rel_recipes/event', $data);
         }
     }
@@ -946,7 +912,6 @@ class Invoices extends AdminController
         if ($data['event']->public == 1 && !is_staff_member()
             || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
         } else {
-            // $this->load->view('admin/utilities/event', $data);
             $this->load->view('admin/invoices/rel_plans/plan_event', $data);
         }
     }
@@ -956,7 +921,6 @@ class Invoices extends AdminController
         if ($data['event']->public == 1 && !is_staff_member()
             || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
         } else {
-            // $this->load->view('admin/utilities/event', $data);
             $this->load->view('admin/invoices/installation_schedule/installation_event', $data);
         }
     }

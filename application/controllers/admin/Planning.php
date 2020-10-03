@@ -49,7 +49,6 @@ class Planning extends AdminController
     {
         if ($this->input->post()) {
             $invoice_data = $this->input->post();
-            // print_r($invoice_data);exit();
             if ($id == '') {
                 if (!has_permission('invoices', '', 'create')) {
                     access_denied('invoices');
@@ -57,7 +56,6 @@ class Planning extends AdminController
                 $id = $this->invoices_model->add($invoice_data);
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('work_order')));
-                    // $redUrl = admin_url('invoices/list_invoices/' . $id);
                     $redUrl = admin_url('planning/work_order/' . $id);
 
                     if (isset($invoice_data['save_and_record_payment'])) {
@@ -72,8 +70,6 @@ class Planning extends AdminController
                 if (!has_permission('invoices', '', 'edit')) {
                     access_denied('invoices');
                 }
-
-                // print_r($invoice_data); exit();
                 unset($invoice_data['item_select']);
                 unset($invoice_data['product_name']);
                 unset($invoice_data['rel_product_id']);
@@ -88,11 +84,6 @@ class Planning extends AdminController
                     unset($invoice_data['wo_items']);
                 }
 
-                // if(isset($invoice_data['wo_removed-items'])){
-                //     $wo_removed = $invoice_data['wo_removed-items'];
-                //     unset($invoice_data['wo_removed-items']);
-                // }
-
                 if(isset($invoice_data['plan_items'])){
                     $plan_items = $invoice_data['plan_items'];
                     unset($invoice_data['plan_items']);
@@ -104,13 +95,6 @@ class Planning extends AdminController
                 $success = $this->invoices_model->update($invoice_data, $id);
 
                 $wo_item_sucess = $this->invoices_model->update_rel_wo_items($wo_items,$id);
-                // if($wo_item_sucess)
-                // {
-                //     $this->db->query('UPDATE tblinvoices SET wo_item_edited = 1 WHERE id='.$id);
-                // }
-                // print_r($plan_items); exit();
-                // $item_select_recipe = $invoice_data['item_select_recipe'];
-                // $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id, $item_select_recipe);
                 $plan_recipe_success = $this->invoices_model->update_plan_recipe($plan_items,$id);
 
                 if($plan_recipe_success)
@@ -120,10 +104,6 @@ class Planning extends AdminController
 
                 if(isset($recipe_removed))
                     $this->invoices_model->delete_recipe_items($recipe_removed);
-
-                // if(isset($wo_removed))
-                //     $this->invoices_model->delete_wo_items($wo_removed);
-
 
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('work_order')));
@@ -181,16 +161,6 @@ class Planning extends AdminController
         $this->load->model('taxes_model');
         $data['taxes'] = $this->taxes_model->get();
         $this->load->model('invoice_items_model');
-
-        // $data['ajaxItems'] = false;
-
-        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-        //     $data['items'] = $this->invoice_items_model->get_grouped();
-        // } else {
-        //     $data['items']     = [];
-        //     $data['ajaxItems'] = true;
-        // }
-        // $data['items_groups'] = $this->invoice_items_model->get_groups();
         $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
@@ -224,24 +194,6 @@ class Planning extends AdminController
         $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
         $data['google_calendar_api']  = get_option('google_calendar_api_key');
         add_calendar_assets();
-
-        
-        // $machines_in_suitability = $this->manufacturing_settings_model->get_suitability();
-        // $machines_id_array = [];
-        // foreach ($machines_in_suitability as $key => $value) {
-        //     array_push($machines_id_array, $value['machine_id']);
-        // }
-        // $machines_id_array_unique = array_unique($machines_id_array);
-
-        // $machines = [];
-
-        // foreach ($machines_id_array_unique as $key => $id) {
-        //     $machine = $this->manufacturing_settings_model->get_machine($id);
-        //     array_push($machines, $machine);
-        // }
-
-        // $data['machines'] = $machines;
-
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
 
         $this->load->view('admin/invoices/invoice', $data);

@@ -32,7 +32,6 @@ class Installation extends AdminController
     {
         if ($this->input->post()) {
             $invoice_data = $this->input->post();
-            // print_r($invoice_data); exit();
             if ($id == '') {
                 if (!has_permission('invoices', '', 'create')) {
                     access_denied('invoices');
@@ -40,7 +39,6 @@ class Installation extends AdminController
                 $id = $this->invoices_model->add($invoice_data);
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('work_order')));
-                    // $redUrl = admin_url('invoices/list_invoices/' . $id);
                     $redUrl = admin_url('installation/work_order/' . $id);
 
                     if (isset($invoice_data['save_and_record_payment'])) {

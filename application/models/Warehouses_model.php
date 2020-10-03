@@ -303,21 +303,22 @@ class Warehouses_model extends App_Model
         $default_pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
 
         $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
-        $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
-        
+        // $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
 
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
+            $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->result_array();
             return $data = [
                 'stock' => $stock_data,
-                'pack_list' => $pack_list,
+                'pack_list' => $pack_capacity,
                 'default_pack' => $default_pack_data
             ];
         } else {
             return $data = [
                 'stock' => $stock_data,
-                'pack_list' => $pack_list,
+                // 'pack_list' => $pack_list,
+                'pack_list' => NULL,
                 'default_pack' => NULL
             ];
         }
@@ -631,21 +632,7 @@ class Warehouses_model extends App_Model
 
     public function get_transfer_by_code($id)
     {
-        // $this->db->from(db_prefix() . 'transfer_lists');
-
         if (is_numeric($id)) {
-            // $this->db->where(db_prefix() . 'transfer_lists.stock_product_code', $id);
-            // $this->db->where(db_prefix() . 'transfer_lists.allocation',0)
-            // $res =  $this->db->get()->result_array();
-            // $from_warehouse_arr = [];
-            // foreach ($res as $key => $value) {
-            //     array_push($from_warehouse_arr, $value['transaction_from']);
-            // }
-            // $to_warehouse_arr = [];
-            // foreach ($res as $key => $value) {
-            //     array_push($from_warehouse_arr, $value['transaction_to']);
-            // }
-            // $warehouse_arr = array_unique(array_merge($from_warehouse_arr,$to_warehouse_arr));
             $warehouses = $this->db->query('SELECT id FROM tblwarehouses')->result_array();
             $warehouse_arr = [];
             foreach ($warehouses as $key => $value) {
@@ -686,14 +673,12 @@ class Warehouses_model extends App_Model
 
     public function get_product_code()
     {
-        // $this->db->select('product_code');
         $this->db->order_by('product_code', 'asc');
         return $this->db->get(db_prefix() . 'stock_lists')->result_array();
     }
 
     public function get_warehouse_list()
     {
-        // $this->db->select('warehouse_name');
         $this->db->order_by('order_no', 'asc');
         return $this->db->get(db_prefix() . 'warehouses')->result_array();
     }
@@ -865,7 +850,8 @@ class Warehouses_model extends App_Model
             $stock['unit'] = $data['unit'];
             $stock['category'] = $data['category'];
             $stock['currency_id'] = $data['currency_id'];
-            $stock['product_photo'] = $data['pack_photo'];
+            if(isset($data['pack_photo']))
+                    $stock['product_photo'] = $data['pack_photo'];
             $this->stock_list_add($stock);
             return $insert_id;
         }
@@ -911,7 +897,8 @@ class Warehouses_model extends App_Model
             $stock['unit'] = $data['unit'];
             $stock['category'] = $data['category'];
             $stock['currency_id'] = $data['currency_id'];
-            $stock['product_photo'] = $data['pack_photo'];
+            if(isset($data['pack_photo']))
+                    $stock['product_photo'] = $data['pack_photo'];
             $this->stock_list_edit_by_pack($stock);
             return true;
         }
@@ -931,13 +918,18 @@ class Warehouses_model extends App_Model
 
     public function get_pack_by_capacity($capacity = '')
     {
-        $this->db->from(db_prefix() . 'pack_list');
-
         if (is_numeric($capacity)) {
-            $this->db->where(db_prefix() . 'pack_list.pack_capacity', $capacity);
-            return $this->db->get()->row();
+            $this->db->where('pack_capacity',$capacity);
+            $package = $this->db->get(db_prefix().'package_group')->row();
+        
+            if(!empty($package))
+            {
+                $this->db->where('id', $package->packing_id);
+                return $this->db->get(db_prefix().'pack_list')->row();
+            }
+            
         }
-        return $this->db->get()->result_array();
+        // return $this->db->get()->result_array();
     }
 
     public function delete_packing_list($id)
@@ -972,7 +964,6 @@ class Warehouses_model extends App_Model
             $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
-            // $this->db->where('created_by', get_staff_user_id());
             $this->db->where(db_prefix().'stock_categories.order_no=3');
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
@@ -997,14 +988,11 @@ class Warehouses_model extends App_Model
             'order_no' => 0,
             'name' => '',
         ]);
-        // print_r($groups); exit();
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
             $this->db->where('category', $group['order_no']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->order_by('product_name', 'asc');
-            // $this->db->where('created_by', get_staff_user_id());
-            
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
             if (count($_items) > 0) {
                 $items[$group['cate_id']] = [];
@@ -1013,7 +1001,6 @@ class Warehouses_model extends App_Model
                 }
             }
         }
-        // print_r($items); exit();
         return $items;
     }
 
@@ -1024,23 +1011,15 @@ class Warehouses_model extends App_Model
         $this->db->order_by('name', 'asc');
         $groups = $this->db->get(db_prefix() . 'stock_categories')->result_array();
 
-        // array_unshift($groups, [
-        //     'id' => 0,
-        //     'name' => '',
-        // ]);
-
         foreach ($groups as $group) {
             $this->db->select(db_prefix() . 'stock_lists.*,' . db_prefix() . 'stock_categories.name as group_name,' . db_prefix() . 'stock_lists.id as id', db_prefix() . 'package_group.default_pack as default_pack');
             $this->db->where('category', $group['id']);
             $this->db->join(db_prefix() . 'stock_categories', '' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category', 'left');
             $this->db->join(db_prefix() . 'package_group', '' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id', 'left');
             $this->db->order_by('product_name', 'asc');
-            // $this->db->where('created_by', get_staff_user_id());
             $this->db->where(array(
                            'default_pack='=> 0));
             $_items = $this->db->get(db_prefix() . 'stock_lists')->result_array();
-            // print_r($this->db->last_query()); exit();
-            // print_r($_items); exit();
             if (count($_items) > 0) {
                 $items[$group['id']] = [];
                 foreach ($_items as $i) {
@@ -1048,7 +1027,6 @@ class Warehouses_model extends App_Model
                 }
             }
         }
-        // print_r($items); exit();
         return $items;
     }
 
@@ -1072,7 +1050,6 @@ class Warehouses_model extends App_Model
     public function update_packing_group($data)
     {
         $pack_id = $data['packing_id'];
-        // print_r($data); exit();
         if(isset($data['newitems']))
         {
             $newitems = $data['newitems'];
@@ -1116,7 +1093,6 @@ class Warehouses_model extends App_Model
     public function get_packing_group($packing_id)
     {
         $this->db->from(db_prefix() . 'package_group');
-
         if (is_numeric($packing_id)) {
             $this->db->where(db_prefix() . 'package_group.packing_id', $packing_id);
             return $this->db->get()->result_array();
@@ -1125,7 +1101,6 @@ class Warehouses_model extends App_Model
 
     public function get_packing_group_by_product($data)
     {
-        // print_r($data); exit();
         $this->db->from(db_prefix().'package_group');
         $this->db->where(db_prefix() .'package_group.product_id',$data['product_id']);
         $this->db->where(db_prefix() .'package_group.packing_id !=',$data['pack_id']);
@@ -1139,11 +1114,9 @@ class Warehouses_model extends App_Model
 
     public function update_original_price($data){
         $stock_lists = $this->stock_list_get();
-
         foreach ($stock_lists as $key => $stock) {
             $original_price = $stock['price']*$data['value1']*$data['value2'];
             $this->db->query('UPDATE '.db_prefix().'stock_lists set original_price ='.$original_price.' where id='.$stock['id']);
-            // $this->db->query('UPDATE '.db_prefix().'itemable set original_price ='.$original_price.' where rel_product_id='.$stock['id']);
         }
         return $this->stock_list_get();     
     }

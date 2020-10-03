@@ -7840,7 +7840,6 @@ function init_currency_symbol() {
 function add_item_to_preview_quote(id) {
 
     requestGetJSON('warehouses/get_item_by_id_with_relation/' + id).done(function (response) {
-        console.log(response)
         clear_item_preview_values();
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
@@ -7848,10 +7847,10 @@ function add_item_to_preview_quote(id) {
         $('select[name="unit"]').selectpicker('val', response.stock.unit);
         $('select[name="unit"]').prop('disabled', true)
 
-        var pack_capacity_option = '<option></option>';
+        // var pack_capacity_option = '<option></option>';
         $.each(response.pack_list, function () {
 
-            pack_capacity_option += '<option value="' + this.pack_capacity + '">' + this.pack_capacity + '</option>';
+            var pack_capacity_option = '<option value="' + this.pack_capacity + '">' + this.pack_capacity + '</option>';
             $('select[name="pack_capacity"]').empty();
             $('select[name="pack_capacity"]').append(pack_capacity_option);
             $('select[name="pack_capacity"]').selectpicker('refresh');

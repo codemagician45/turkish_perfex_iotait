@@ -328,7 +328,6 @@
      });
    }
 
-
 /*Quote Item part*/
 
 $("body").on('change', 'select[name="item_select"]', function () {
@@ -337,25 +336,6 @@ $("body").on('change', 'select[name="item_select"]', function () {
         add_item_to_preview_quote(itemid);
     }
 });
-
-
-
-// $('#pack_capacity').change(function(){
-//   var pack_capacity = $(this).val();
-//   requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-//     // console.log(response)
-//     $('input[name="volume_m3"]').val(response.volume);
-//   });
-// })
-
-$('.pack_capacity').change(function(){
-  // var pack_capacity = $(this).val();
-  // var currentV = $(this).parents('tr').children()[7].firstChild;
-  // requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-  //   currentV.value = response.volume;
-  // });
-
-})
 
 $('input[name="discount_percent"]').change(function(){
   calculate_total_quote()
@@ -370,7 +350,6 @@ $(document).ready(function(){
   quote_phase_change();
   quote_phase_change_by_discount();
   unit_disable();
-  // setting_packing_list();
 })
 
 $('#pricing_category').change(function(){
@@ -395,22 +374,17 @@ $('#pricing_category').change(function(){
             <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",value1: value1, value2:value2
         }
         $.post(admin_url+'warehouses/update_original_price', data).done(function(response) {
-          
           $.each(rows, function() {
               var rel_product_id = $(this).find('.rel_product_id').val();
               row = $(this);
-              
               JSON.parse(response).forEach(e => {
                 if(e.id == rel_product_id)
                 {
                   $(this).find('.original_price').val(e.original_price)
                 }
               })
-              
           });
-          
         });
-          
       });
   } else {
         let data = {
@@ -437,7 +411,6 @@ $('#pricing_category').change(function(){
 
 function quote_phase_change()
 {
-  
   var rows = $('.table.has-calculations tbody tr.item');
   var flag = 0;
   $.each(rows, function() {
@@ -463,7 +436,6 @@ function quote_phase_change()
 }
 
 function quote_phase_change_by_discount(row){
-  // console.log($(row).val())
   if($(row).val() > 0){
     $('select[name="quote_phase"]').selectpicker('val',1);
     $('select[name="quote_phase"]').prop('disabled', true);
@@ -500,29 +472,6 @@ function volume_calc_added(row){
     calculate_total_quote();
   });
 }
-// function setting_packing_list()
-// {
-//   var rows = $('.table.has-calculations tbody tr.item');
-//   $.each(rows, function() {
-    
-//     let rel_product_id = $(this).find('.rel_product_id').val();
-//     let pack_capacity_selector = $(this).find('.pack_capacity')[1];
-//     // console.log(rel_product_id);
-//     requestGetJSON('warehouses/get_item_by_id_with_relation/' + rel_product_id).done(function(response) {
-//       var pack_capacity_option = '<option></option>';
-//       $.each(response.pack_list, function(){
-          
-//           pack_capacity_option += '<option value="'+this.pack_capacity+'">'+this.pack_capacity+'</option>';
-
-//       })
-//       console.log(pack_capacity_selector,pack_capacity_option)
-//       pack_capacity_selector.innerHTML = '';
-//       pack_capacity_selector.innerHTML += pack_capacity_option;
-//       // $(this).find('.pack_capacity').selectpicker('refresh');
-//     })
-//   })
-// }
-
 
 </script>
 </body>

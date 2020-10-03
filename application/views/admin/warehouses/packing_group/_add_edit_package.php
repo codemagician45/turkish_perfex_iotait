@@ -12,12 +12,13 @@
             <thead>
             <tr>
                 <th></th>
-                <th width="30%" align="left">
+                <th width="20%" align="left">
                     <i class="fa fa-exclamation-circle" aria-hidden="true" data-toggle="tooltip" data-title="<?php echo _l('product_name'); ?>"></i>
                     <?php echo _l('product_name'); ?>
                 </th>
                 <th width="40%" align="left"><?php echo _l('product_code'); ?></th>
-                <th width="30%" align="left"><?php echo _l('default'); ?></th>
+                <th width="20%" align="left"><?php echo _l('default'); ?></th>
+                <th width="20%" align="left"><?php echo _l('pack_capacity'); ?></th>
                 <th align="center"><i class="fa fa-cog"></i></th>
             </tr>
             </thead>
@@ -39,7 +40,9 @@
                     
                 </td>
 
-
+                <td>
+                    <input type="text" name="pack_capacity" class="form-control" placeholder="<?php echo _l('pack_capacity'); ?>">
+                </td>
                 <td>
                     <?php
                         $new_item = 'undefined';
@@ -58,15 +61,11 @@
                 if (isset($packing_group)) {
                     $items_indicator = 'items';
                 }
-
                 foreach ($packing_group as $item) {
                     $manual = false;
                     $table_row = '<tr class="sortable item">';
                     $table_row .= '<td class="dragger">';
-
-
                     $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][itemid]', $item['id']);
-
 
                     // order input
                     $table_row .= '<input type="hidden" class="order" name="' . $items_indicator . '[' . $i . '][order]">';
@@ -83,6 +82,7 @@
                         </td>';
 
                     }
+                    $table_row .= '<td><input type="text"  name="' . $items_indicator . '[' . $i . '][pack_capacity]" class="form-control" value="' . $item['pack_capacity'] . '"></td>';
                     $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_package_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a><input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control product_id input-transparent text-right" value="' . $item['product_id'] . '"></td>';
                     $table_row .= '</tr>';
                     echo $table_row;

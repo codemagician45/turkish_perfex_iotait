@@ -86,7 +86,6 @@ class Dashboard extends AdminController
         $data['work_phases'] = $this->production_model->get_wo_phases();
 
         $data = hooks()->apply_filters('before_dashboard_render', $data);
-        // print_r($data['quotation_phases']);exit();
         $this->load->view('admin/dashboard/dashboard', $data);
     }
 

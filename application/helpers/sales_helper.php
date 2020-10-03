@@ -578,6 +578,7 @@ function get_items_by_type_with_pack($id)
     $CI->db->from(db_prefix() . 'package_group');
     $CI->db->join(db_prefix() . 'pack_list', db_prefix() . 'pack_list.id = ' . db_prefix() . 'package_group.packing_id', 'left');
     $CI->db->where('product_id', $id);
+    $CI->db->where('default_pack', 1);
     // print_r($CI->db->get()->result_array()); exit();
     return $CI->db->get()->result_array();
 }
