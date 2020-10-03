@@ -1526,10 +1526,21 @@ class Estimates_model extends App_Model
             $rel_quote_id = $rel_quote->rel_quote_id;
             $this->db->where('rel_id',$rel_quote_id);
         }
-        $this->db->select(db_prefix().'itemable.*, '. db_prefix().'stock_lists.stock_level');
+        $this->db->select('*');
+        // $this->db->select(db_prefix().'itemable.*, '. db_prefix().'stock_lists.stock_level');
         $this->db->from(db_prefix().'itemable');
-        $this->db->join(db_prefix().'stock_lists', db_prefix().'stock_lists.id ='.db_prefix().'itemable.rel_product_id','left');
-        return $this->db->get()->result_array();
+        // $this->db->join(db_prefix().'stock_lists', db_prefix().'stock_lists.id ='.db_prefix().'itemable.rel_product_id','left');
+        $wo_items = $this->db->get()->result_array();
+        foreach ($wo_items as $key => &$wo) {
+            $transfer_data = $this->warehouses_model->get_transfer_by_code($wo['rel_product_id']);
+            foreach ($transfer_data as $key => $main) {
+                if($main->order_no == 2)
+                    array_push($wo, $main);
+            }
+        }
+
+        return $wo_items;
+
     }
 
     public function change_so_status($id, $status)

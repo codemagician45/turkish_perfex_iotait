@@ -218,6 +218,7 @@
             data.option = option;
             var table_row = '';
             var item_key = i;
+            console.log(data)
             if(data.pre_produced == 1)
             	table_row += '<tr class="sortable item" style="display:none">';
             else
@@ -229,7 +230,7 @@
 
             table_row += '<input type="hidden" name="plan_items[' + item_key + '][item_id]" value = "' + data.id + '"><td class="bold description"><input type="text" name="plan_items[' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="plan_items[' + item_key + '][ingredient_item_id]" class="form-control" value="' + data.ingredient_item_id + '"><input type="hidden" name="plan_items[' + item_key + '][pre_produced]" value = "' + data.pre_produced + '"></td>';
 
-            table_row += '<td><input type="text" name="plan_items[' + item_key + '][stock_level]" class="form-control" value="'+data[0].stock_level+'" disabled></td>';
+            table_row += '<td><input type="text" name="plan_items[' + item_key + '][stock_level]" class="form-control" value="'+data[0]+'" disabled></td>';
 
             table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + rel_wo_qty*data.used_qty + '"></td>';
 

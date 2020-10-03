@@ -643,6 +643,7 @@ class Warehouses_model extends App_Model
             
             foreach ($warehouse_arr as $key => $value) {
                 $name = $this->db->query('SELECT warehouse_name FROM tblwarehouses WHERE `id`='.$value)->row()->warehouse_name;
+                $order_no = $this->db->query('SELECT order_no FROM tblwarehouses WHERE `id`='.$value)->row()->order_no;
                 $to = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_to`='.$value.' AND `allocation`=0 AND `stock_product_code`='.$id)->row();
                 $from = $this->db->query('SELECT SUM(transaction_qty) as to_sum FROM tbltransfer_lists WHERE `transaction_from`='.$value.' AND `stock_product_code`='.$id)->row();
                 if(empty($to)) $to = 0;
@@ -655,13 +656,15 @@ class Warehouses_model extends App_Model
                     $obj = (object)[
                         'warehouse_id' => $value,
                         'warehouse' => $name,
-                        'qty' => $diff
+                        'qty' => $diff,
+                        'order_no' => $order_no
                     ];
                 else 
                     $obj = (object)[
                         'warehouse_id' => $value,
                         'warehouse' => $name,
                         'qty' => $diff,
+                        'order_no' => $order_no,
                         'limit' => $warning->limit
                     ];
                 array_push($res, $obj);

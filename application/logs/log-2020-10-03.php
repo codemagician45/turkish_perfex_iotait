@@ -252,3 +252,134 @@ ERROR - 2020-10-03 17:11:26 --> Severity: Notice --> Undefined index: pack_capac
 ERROR - 2020-10-03 17:11:26 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
 ERROR - 2020-10-03 17:11:26 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
 ERROR - 2020-10-03 17:11:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 18:33:21 --> Could not find the language line "created user"
+ERROR - 2020-10-03 18:33:21 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 18:33:21 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:21 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:21 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:21 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:21 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 18:33:21 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 18:33:29 --> Could not find the language line "created user"
+ERROR - 2020-10-03 18:33:29 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 18:33:29 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:29 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:29 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:29 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 18:33:29 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 18:33:29 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 18:58:55 --> Query error: No tables used - Invalid query: SELECT *
+WHERE `rel_id` = '76'
+ERROR - 2020-10-03 18:59:14 --> Query error: Unknown column 'tblstock_lists.stock_level' in 'field list' - Invalid query: SELECT `tblitemable`.*, `tblstock_lists`.`stock_level`
+FROM `tblitemable`
+WHERE `rel_id` = '76'
+ERROR - 2020-10-03 18:59:41 --> Query error: Unknown column 'tblitemable' in 'field list' - Invalid query: SELECT `tblitemable`
+FROM `tblitemable`
+WHERE `rel_id` = '76'
+ERROR - 2020-10-03 19:12:40 --> Severity: Notice --> Trying to get property 'rel_product_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Estimates_model.php 1534
+ERROR - 2020-10-03 19:12:40 --> Query error: No tables used - Invalid query: SELECT *
+ERROR - 2020-10-03 19:13:45 --> Severity: Notice --> Trying to get property 'rel_product_id' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Estimates_model.php 1534
+ERROR - 2020-10-03 20:37:24 --> Severity: Notice --> Undefined property: stdClass::$order_no C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 646
+ERROR - 2020-10-03 20:37:24 --> Severity: Notice --> Undefined property: stdClass::$order_no C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 646
+ERROR - 2020-10-03 20:37:24 --> Severity: Notice --> Undefined property: stdClass::$order_no C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 646
+ERROR - 2020-10-03 20:37:24 --> Severity: Notice --> Undefined property: stdClass::$order_no C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 646
+ERROR - 2020-10-03 20:39:37 --> Severity: error --> Exception: Cannot use object of type stdClass as array C:\xampp\htdocs\turkish_perfex\application\models\Estimates_model.php 1538
+ERROR - 2020-10-03 20:40:55 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:40:55 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:40:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:40:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:40:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:40:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:40:55 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:40:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 20:43:28 --> Query error: Unknown column 'tblstock_lists.product_name' in 'field list' - Invalid query: SELECT `tblplan_recipe`.*, `tblstock_lists`.`product_name` as `wo_product`, `tblstock_lists`.`id` as `wo_product_id`
+FROM `tblplan_recipe`
+WHERE `rel_wo_id` = '66'
+AND `pre_produced` != 1
+ERROR - 2020-10-03 20:46:59 --> Severity: error --> Exception: syntax error, unexpected '}' C:\xampp\htdocs\turkish_perfex\application\models\Invoices_model.php 2038
+ERROR - 2020-10-03 20:47:11 --> Severity: Notice --> Undefined property: Planning::$warehouses_model C:\xampp\htdocs\turkish_perfex\system\core\Model.php 73
+ERROR - 2020-10-03 20:47:11 --> Severity: error --> Exception: Call to a member function get_transfer_by_code() on null C:\xampp\htdocs\turkish_perfex\application\models\Invoices_model.php 2028
+ERROR - 2020-10-03 20:53:43 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:53:43 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:53:43 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:43 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:43 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:43 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:43 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:53:43 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 20:53:49 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:53:49 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:53:49 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:49 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:49 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:49 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:49 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:53:49 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 20:53:59 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:53:59 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:53:59 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:59 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:59 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:59 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:53:59 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:53:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Trying to get property 'order_no' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Estimates_model.php 1541
+ERROR - 2020-10-03 20:56:24 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:56:24 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 120
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Trying to get property 'qty' of non-object C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 120
+ERROR - 2020-10-03 20:56:24 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:56:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 20:57:04 --> Severity: Notice --> Trying to get property 'order_no' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Estimates_model.php 1541
+ERROR - 2020-10-03 20:58:40 --> Could not find the language line "created user"
+ERROR - 2020-10-03 20:58:40 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 20:58:40 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:58:40 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:58:40 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:58:40 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 20:58:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 20:58:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 21:02:56 --> Could not find the language line "created user"
+ERROR - 2020-10-03 21:02:56 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 21:02:56 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:02:56 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:02:56 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:02:56 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:02:56 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 21:02:56 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 21:03:27 --> Could not find the language line "created user"
+ERROR - 2020-10-03 21:03:27 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 21:03:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:03:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:03:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:03:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:03:27 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 21:03:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 21:04:27 --> Could not find the language line "created user"
+ERROR - 2020-10-03 21:04:27 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 21:04:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:27 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:27 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 21:04:27 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 21:04:57 --> Could not find the language line "created user"
+ERROR - 2020-10-03 21:04:57 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 21:04:57 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:57 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:57 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:57 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:04:57 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 21:04:57 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-10-03 21:05:23 --> Could not find the language line "created user"
+ERROR - 2020-10-03 21:05:23 --> Could not find the language line "updated user"
+ERROR - 2020-10-03 21:05:23 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:05:23 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:05:23 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:05:23 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\invoices\rel_items\_add_edit_items.php 39
+ERROR - 2020-10-03 21:05:23 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-10-03 21:05:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332

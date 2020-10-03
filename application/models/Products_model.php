@@ -95,19 +95,29 @@ class Products_model extends App_Model
         $this->db->from(db_prefix().'product_recipe');
         $this->db->where('rel_product_id',$productid);
         $product_recipes = $this->db->get()->result_array();
-        
-        $this->db->select('tblstock_lists.stock_level');
-        $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'product_recipe.ingredient_item_id', 'left');
-        $this->db->from(db_prefix().'product_recipe');
-        $this->db->where('rel_product_id',$productid);
-        $stock_levels = $this->db->get()->result_array();
-        $i = 0;
+        // print_r($product_recipes); exit();
+        // $this->db->select('tblstock_lists.stock_level');
+        // $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'product_recipe.ingredient_item_id', 'left');
+        // $this->db->from(db_prefix().'product_recipe');
+        // $this->db->where('rel_product_id',$productid);
+        // $stock_levels = $this->db->get()->result_array();
+        // $i = 0;
+        // foreach ($product_recipes as $key => &$recipe) {
+        //     array_push($recipe, array(
+        //         'stock_level' => $stock_levels[$i]['stock_level']
+        //     ));
+        //     $i++;
+        // };
         foreach ($product_recipes as $key => &$recipe) {
-            array_push($recipe, array(
-                'stock_level' => $stock_levels[$i]['stock_level']
-            ));
-            $i++;
-        };
+            $transfer_data = $this->warehouses_model->get_transfer_by_code($recipe['ingredient_item_id']);
+            $sum = 0;
+            foreach ($transfer_data as $key => $value) {
+                if($value->order_no != 1)
+                    $sum += $value->qty;
+            }
+            array_push($recipe, $sum);
+        }
+        // print_r($product_recipes); exit();
         return $product_recipes;
 
     }
