@@ -522,7 +522,7 @@ class Sale extends AdminController
             $data['ajaxItems'] = true;
         }
         $data['units'] = $this->warehouses_model->get_units();
-        $data['packlist'] = $this->warehouses_model->get_packing_list();
+        // $data['packlist'] = $this->warehouses_model->get_packing_list();
 
         $this->load->model('sale_model');
         $data['sale_phase'] = $this->sale_model->get_sale_phases();
