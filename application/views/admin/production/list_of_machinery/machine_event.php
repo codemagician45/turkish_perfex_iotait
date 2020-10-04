@@ -34,6 +34,10 @@
             <?php 
               $value = (isset($produced_qty) ? $produced_qty->produced_quantity : '');
               echo render_input('produced_quantity',_l('produced_quantity'),$value,'number',array('placeholder'=>_l('enter_produced_quantity'))); ?>
+
+            <?php 
+              $value = (isset($produced_qty) ? $produced_qty->waste_production_quantity : '');
+              echo render_input('waste_production_quantity',_l('waste_production_quantity'),$value,'number',array('placeholder'=>_l('enter_waste_production_quantity'))); ?>
           </div>
     </div>
   </div>

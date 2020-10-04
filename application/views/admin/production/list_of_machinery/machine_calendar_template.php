@@ -28,6 +28,7 @@
             <?php echo form_hidden('machine_id'); ?>
             <?php echo form_hidden('rel_event_id'); ?>
             <?php echo render_input('produced_quantity',_l('produced_quantity'),'','number',array('placeholder'=>_l('enter_produced_quantity'))); ?>
+            <?php echo render_input('waste_production_quantity',_l('waste_production_quantity'),'','number',array('placeholder'=>_l('enter_waste_production_quantity'))); ?>
           </div>
     </div>
   </div>

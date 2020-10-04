@@ -4016,3 +4016,6 @@ $lang['needed_p_qty'] = 'Needed Production Qty';
 
 $lang['quotation_approval_email'] = 'Quotation Approval Email';
 $lang['installation_calculate'] = 'Installation Calculate';
+
+$lang['waste_production_quantity'] = 'Waste Production Qty';
+$lang['enter_waste_production_quantity'] = 'Enter Waste Production Qty';

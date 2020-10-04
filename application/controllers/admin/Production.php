@@ -94,6 +94,7 @@ class Production extends AdminController
         if ($this->input->post() && $this->input->is_ajax_request()) {
             $data    = $this->input->post();
             $success = $this->production_model->produced_qty($data);
+            // $success = 1;
             $message = '';
             if ($success) {
                 if (isset($data['p_qty_id'])) {
