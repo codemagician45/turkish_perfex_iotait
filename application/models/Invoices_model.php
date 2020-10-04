@@ -2019,11 +2019,23 @@ class Invoices_model extends App_Model
 
     public function get_plan_recipes($id)
     {
-        $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id,tblstock_lists.stock_level');
+        $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product, tblstock_lists.id as wo_product_id');
         $this->db->join(db_prefix() . 'stock_lists', db_prefix() . 'stock_lists.id = ' . db_prefix() . 'plan_recipe.wo_product_id', 'left');
         $this->db->where('rel_wo_id',$id);
         $this->db->where('pre_produced !=1');
-        return $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+        $plan_recipes = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+        
+        $this->load->model('warehouses_model');
+        foreach ($plan_recipes as $key => &$recipe) {
+            $transfer_data = $this->warehouses_model->get_transfer_by_code($recipe['ingredient_item_id']);
+            $sum = 0;
+            foreach ($transfer_data as $key => $value) {
+                if($value->order_no != 1)
+                    $sum += $value->qty;
+            }
+            array_push($recipe, $sum);
+        }
+        return $plan_recipes;
     }
 
     public function get_installation_plan_recipes($id,$wo_product_ids = [])

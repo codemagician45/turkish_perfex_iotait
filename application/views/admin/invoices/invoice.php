@@ -218,7 +218,6 @@
             data.option = option;
             var table_row = '';
             var item_key = i;
-            console.log(data)
             if(data.pre_produced == 1)
             	table_row += '<tr class="sortable item" style="display:none">';
             else
