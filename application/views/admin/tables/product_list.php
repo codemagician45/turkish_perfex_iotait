@@ -6,7 +6,7 @@ $aColumns = [
     'product_photo',
     db_prefix() .'stock_lists.product_name as product_name',
     db_prefix() . 'barcode_list.barcode_id as barcode_no',
-    db_prefix() .'pack_list.pack_capacity as pack_capacity',
+    db_prefix() .'package_group.pack_capacity as pack_capacity',
     db_prefix() .'pack_list.packing_type as packing_type',
     db_prefix() .'pack_list.volume as volume', 
     'stock_level',
@@ -19,7 +19,7 @@ $sTable       = db_prefix() . 'stock_lists';
 
 $join = [
    'LEFT JOIN ' . db_prefix() . 'barcode_list ON ' . db_prefix() . 'barcode_list.products_code = ' . db_prefix() . 'stock_lists.id',
-   'LEFT JOIN ' . db_prefix() . 'package_group ON ' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id',
+   'LEFT JOIN ' . db_prefix() . 'package_group ON (' . db_prefix() . 'package_group.product_id = ' . db_prefix() . 'stock_lists.id AND '.db_prefix().'package_group.default_pack = 1)',
    'LEFT JOIN ' . db_prefix() . 'pack_list ON ' . db_prefix() . 'pack_list.id = ' . db_prefix() . 'package_group.packing_id',
    'LEFT JOIN ' . db_prefix() . 'stock_categories ON ' . db_prefix() . 'stock_categories.order_no = ' . db_prefix() . 'stock_lists.category',
 ];

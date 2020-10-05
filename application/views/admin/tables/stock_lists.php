@@ -37,7 +37,8 @@ $additionalSelect = [
      'category',
      'pack_id'
     ];
-$where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
+// $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
+$where =[];
 
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];

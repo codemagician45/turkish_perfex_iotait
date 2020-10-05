@@ -24,7 +24,8 @@ $additionalSelect = [
      'unit',
      'category',
     ];
-$where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
+// $where =['AND '.db_prefix().'stock_lists.created_by = '.get_staff_user_id().''];
+$where =[];
 $filter = [];
 
 $this->ci->load->model('warehouses_model');

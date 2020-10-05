@@ -93,7 +93,7 @@ class Utilities_model extends App_Model
         $this->db->select('title,start,end,eventid,userid,color,public');
         // Check if is passed start and end date
         $this->db->where('(start BETWEEN "' . $start . '" AND "' . $end . '")');
-        $this->db->where('userid', get_staff_user_id());
+        // $this->db->where('userid', get_staff_user_id());
         if ($is_staff_member) {
             $this->db->or_where('public', 1);
         }
@@ -523,6 +523,7 @@ class Utilities_model extends App_Model
         }
         if (!$client_data && !$ff || (!$client_data && $ff && array_key_exists('events', $filters))) {
             $events = $this->get_all_events($start, $end);
+            // print_r($events); exit();
             foreach ($events as $event) {
                 if ($event['userid'] != get_staff_user_id() && !$is_admin) {
                     $event['is_not_creator'] = true;
@@ -609,11 +610,11 @@ class Utilities_model extends App_Model
     }
     public function get_calendar_data_by_machine($start, $end,$machine_id)
     {
+        $is_admin                     = is_admin();
         $this->get_all_events($start, $end);
         $this->db->where('machine_id', $machine_id);
 
         $events = $this->db->get(db_prefix() . 'events')->result_array();
-        // print_r($events);exit();
         $data = [];
         if(!empty($events))
         {
@@ -637,7 +638,7 @@ class Utilities_model extends App_Model
     {
         $this->get_all_events($start, $end);
         $this->db->where('machine_id', $machine_id);
-
+        $is_admin                     = is_admin();
         $events = $this->db->get(db_prefix() . 'events')->result_array();
         // print_r($events);exit();
         $data = [];
@@ -662,6 +663,7 @@ class Utilities_model extends App_Model
 
     public function get_calendar_data_by_wo_item($start, $end,$wo_item_id)
     {
+        $is_admin                     = is_admin();
         $this->get_all_events($start, $end);
         $this->db->where('wo_item_id', $wo_item_id);
 

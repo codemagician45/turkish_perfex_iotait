@@ -6,7 +6,8 @@ $aColumns = [
     'product_code',
     'tblpack_list.l_size,tblpack_list.w_size,tblpack_list.h_size',
     'default_pack',
-    db_prefix() . 'pack_list.pack_capacity as pack_capacity'
+    'pack_capacity'
+    // db_prefix() . 'pack_list.pack_capacity as pack_capacity'
 
 ];
 $sIndexColumn = 'id';
