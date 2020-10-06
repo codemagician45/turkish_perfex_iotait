@@ -837,6 +837,7 @@ class Warehouses_model extends App_Model
         unset($data['product_code']);
         unset($data['default_pack']);
         unset($data['product_id']);
+        unset($data['pack_capacity']);
         unset($data['newitems']);
         $data['user_id'] = get_staff_user_id();
         $data['created_at']=date('Y-m-d h:i:s');
@@ -882,6 +883,7 @@ class Warehouses_model extends App_Model
         unset($data['product_name']);
         unset($data['product_code']);
         unset($data['default_pack']);
+        unset($data['pack_capacity']);
         unset($data['product_id']);
         unset($data['newitems']);
         unset($data['removed_items']);

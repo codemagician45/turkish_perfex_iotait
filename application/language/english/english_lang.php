@@ -4019,3 +4019,6 @@ $lang['installation_calculate'] = 'Installation Calculate';
 
 $lang['waste_production_quantity'] = 'Waste Production Qty';
 $lang['enter_waste_production_quantity'] = 'Enter Waste Production Qty';
+
+$lang['pack_photo'] = 'Pack Photo';
+

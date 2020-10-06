@@ -36,13 +36,14 @@
                foreach ($items as $item) {
                  $manual    = false;
 
-                 $capacity_option = '<option></option>';
-                  foreach ($packlist as $key => $pack) {
-                      if($pack['pack_capacity'] == $item['pack_capacity'])
-                          $capacity_option.='<option value="'.$pack['pack_capacity'].'" selected>'.$pack['pack_capacity'].'</option>';
-                      else
-                          $capacity_option.='<option value="'.$pack['pack_capacity'].'">'.$pack['pack_capacity'].'</option>';
-                  }
+                 // $capacity_option = '<option></option>';
+                 //  foreach ($packlist as $key => $pack) {
+                 //      if($pack['pack_capacity'] == $item['pack_capacity'])
+                 //          $capacity_option.='<option value="'.$pack['pack_capacity'].'" selected>'.$pack['pack_capacity'].'</option>';
+                 //      else
+                 //          $capacity_option.='<option value="'.$pack['pack_capacity'].'">'.$pack['pack_capacity'].'</option>';
+                 //  }
+                 $capacity_option='<option value="'.$item['pack_capacity'].'">'.$item['pack_capacity'].'</option>';
 
                 $unit_option = '<option></option>';
 

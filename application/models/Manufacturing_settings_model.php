@@ -82,7 +82,7 @@ class Manufacturing_settings_model extends App_Model
                     if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
                         $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
                 }
-                $ins_cost = $data['op_cost_per_sec']* $price_calculation['ins_time'];
+                $ins_cost = $price_calculation['op_cost_per_sec']* $price_calculation['ins_time'];
                 $total = $amount+$ins_cost+$price_calculation['other_cost'];
 
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
@@ -185,7 +185,7 @@ class Manufacturing_settings_model extends App_Model
                     if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
                         $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
                 }
-                $ins_cost = $data['op_cost_per_sec']* $price_calculation['ins_time'];
+                $ins_cost = $price_calculation['op_cost_per_sec']* $price_calculation['ins_time'];
                 $total = $amount+$ins_cost+$price_calculation['other_cost'];
 
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
@@ -380,7 +380,7 @@ class Manufacturing_settings_model extends App_Model
                     if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
                         $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
                 }
-                $ins_cost = $data['op_cost_per_sec']* $price_calculation['ins_time'];
+                $ins_cost = $price_calculation['op_cost_per_sec']* $price_calculation['ins_time'];
                 $total = $amount+$ins_cost+$price_calculation['other_cost'];
 
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
@@ -475,7 +475,7 @@ class Manufacturing_settings_model extends App_Model
                     if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
                         $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
                 }
-                $ins_cost = $data['op_cost_per_sec']* $price_calculation['ins_time'];
+                $ins_cost = $price_calculation['op_cost_per_sec']* $price_calculation['ins_time'];
                 $total = $amount+$ins_cost+$price_calculation['other_cost'];
 
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);

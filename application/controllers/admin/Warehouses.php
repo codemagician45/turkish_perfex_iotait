@@ -564,7 +564,7 @@ class Warehouses extends AdminController
             if (move_uploaded_file($_FILES["pack_photo"]["tmp_name"], $folderPath . $_FILES["pack_photo"]["name"])) {
                 $data['pack_photo'] = $folderPath . $_FILES["pack_photo"]["name"];
             }
-            // print_r($data['pack_photo']);exit();
+            // print_r($data);exit();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
                 
