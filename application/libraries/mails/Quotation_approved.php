@@ -12,7 +12,7 @@ class Quotation_approved extends App_mail_template
 
     protected $staffid;
 
-    public $slug = 'quotation-approved';
+    public $slug = 'quotation-approval-notification';
 
     public $rel_type = 'proposal';
 
