@@ -15,7 +15,7 @@
                         <?php render_datatable(array(
                             _l('purchase_no'),
                             _l('updated_at'),
-                            _l('approval_date'),
+                            _l('arrival_date'),
                             _l('purchase_phase'),
                             _l('approval'),
                             _l('bought_company_name'),

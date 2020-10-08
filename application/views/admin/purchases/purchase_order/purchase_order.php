@@ -54,7 +54,7 @@
                             </div>
                             <div class="col-md-6">
                                 <?php $value = (isset($purchase_order) ? _d($purchase_order->approval_date) : _d(date('Y-m-d'))) ?>
-                                <?php echo render_date_input('approval_date','approval_date',$value); ?>
+                                <?php echo render_date_input('approval_date','arrival_date',$value); ?>
                             </div>
 
                         </div>

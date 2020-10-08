@@ -76,3 +76,15 @@ ERROR - 2020-10-08 10:39:40 --> Severity: Notice --> Undefined index: pack_capac
 ERROR - 2020-10-08 10:40:03 --> Could not find the language line ""
 ERROR - 2020-10-08 10:40:03 --> Could not find the language line "created user"
 ERROR - 2020-10-08 10:40:03 --> Could not find the language line "updated user"
+ERROR - 2020-10-08 10:45:33 --> Could not find the language line "approval_date"
+ERROR - 2020-10-08 10:48:55 --> Could not find the language line "approval_date"
+ERROR - 2020-10-08 10:48:57 --> Query error: Unknown column 'arrival_date' in 'field list' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS tblpurchase_order.id as id, updated_at, arrival_date, tblpurchase_order_phases.phase as phase, approval, (SELECT company FROM tblclients where userid = tblpurchase_order.acc_list) as company, note, staff1.firstname as c_firstname, staff2.firstname as u_firstname ,tblpurchase_order_phases.order_no as order_no,acc_list,created_user,updated_user,staff1.lastname as c_lastname,staff2.lastname as u_lastname
+    FROM tblpurchase_order
+    LEFT JOIN tblstaff staff1 ON staff1.staffid = tblpurchase_order.created_user LEFT JOIN tblstaff staff2 ON staff2.staffid = tblpurchase_order.updated_user LEFT JOIN tblpurchase_order_phases ON tblpurchase_order_phases.id = tblpurchase_order.purchase_phase_id
+    
+    WHERE  tblpurchase_order.approval = 0
+    
+    ORDER BY tblpurchase_order.id ASC
+    LIMIT 0, 25
+    
