@@ -303,23 +303,24 @@ class Warehouses_model extends App_Model
         $default_pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
 
         $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
-        // $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
+        $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
 
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
-            $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->result_array();
+            $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->row();
             return $data = [
                 'stock' => $stock_data,
-                'pack_list' => $pack_capacity,
-                'default_pack' => $default_pack_data
+                'pack_list' => $pack_list,
+                // 'default_pack' => $default_pack_data
+                'default_pack_capacity' => $pack_capacity
             ];
         } else {
             return $data = [
                 'stock' => $stock_data,
-                // 'pack_list' => $pack_list,
-                'pack_list' => NULL,
-                'default_pack' => NULL
+                'pack_list' => $pack_list,
+                // 'pack_list' => NULL,
+                'default_pack_capacity' => NULL
             ];
         }
     }

@@ -537,16 +537,20 @@ class Proposals_model extends App_Model
             if ($proposal) {
                 $proposal->attachments                           = $this->get_attachments($id);
                 $proposal->items                                 = get_items_by_type('proposal', $id);
-                // $pack_list_arr = [];
+                $pack_list_arr = [];
                 foreach ($proposal->items  as $key => &$value) {
                     // $pack_list = get_items_by_type_with_pack($value['rel_product_id']);
-                    $default_pack = $this->db->query('SELECT * From '.db_prefix().'package_group WHERE product_id='.$value['rel_product_id'].' AND default_pack=1')->row();
-                    if(!empty($default_pack))
-                        $pack_capacity = $default_pack->pack_capacity;
-                    else
-                        $pack_capacity = '';
+                    // print_r($pack_list);exit();
+                    // array_push($value, $pack_list);
 
-                    array_push($value, $pack_capacity);
+                    // $default_pack = $this->db->query('SELECT * From '.db_prefix().'package_group WHERE product_id='.$value['rel_product_id'].' AND default_pack=1')->row();
+                    $pack_capacity_arr = $this->db->query('SELECT * From '.db_prefix().'package_group WHERE product_id='.$value['rel_product_id'])->result_array();
+                    // if(!empty($pack_capacity_arr))
+                    //     $pack_capacity = $default_pack->pack_capacity;
+                    // else
+                    //     $pack_capacity = '';
+
+                    array_push($value, $pack_capacity_arr);
                 }
 
                 $proposal->visible_attachments_to_customer_found = false;

@@ -50,7 +50,9 @@
               </div>
             </div>
           </div>
+        </div>
 
+        <div class="row">
           <div class="col-md-6">
               <?php 
                 $value = (isset($estimate) ? $estimate->general_notes : '');
@@ -61,6 +63,8 @@
                 $value = (isset($estimate) ? $estimate->shipping_type : ''); 
                 echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('readonly' => true)); ?>
           </div>
+        </div>
+        <div class="row">
           <div class="col-md-6">
               <?php $value = (isset($estimate) ? _d($estimate->req_shipping_date) : _d(date('Y-m-d h:i:s'))) ?>
               <?php echo render_date_input('req_shipping_date',_l('req_shipping_date'),$value); ?>
@@ -70,7 +74,8 @@
                 $value = (isset($estimate) ? $estimate->total_price : ''); 
                 echo render_input('total_price',_l('total_price'),$value,'text',array('placeholder'=>_l(''),'readonly'=>'readonly')); ?>
           </div>
-
+        </div>
+        <div class="row">
           <div class="col-md-6">
               <?php $createdUserNameValue = (isset($created_user_name) ? $created_user_name : "");?>
               <?php echo render_input('created_user','Created User',$createdUserNameValue,'text',array('placeholder'=>_l('created user'),'readonly'    => 'readonly')); ?>
