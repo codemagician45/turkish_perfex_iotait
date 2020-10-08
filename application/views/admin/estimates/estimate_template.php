@@ -59,7 +59,7 @@
           <div class="col-md-6">
               <?php
                 $value = (isset($estimate) ? $estimate->shipping_type : ''); 
-                echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('placeholder'=>_l('shipping_type'))); ?>
+                echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('readonly' => true)); ?>
           </div>
           <div class="col-md-6">
               <?php $value = (isset($estimate) ? _d($estimate->req_shipping_date) : _d(date('Y-m-d h:i:s'))) ?>
