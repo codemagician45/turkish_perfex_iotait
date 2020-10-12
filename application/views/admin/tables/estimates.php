@@ -134,7 +134,6 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-
 foreach ($rResult as $aRow) {
     $row = [];
 
@@ -186,7 +185,10 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['general_notes'];
 
-    $amount = app_format_money($aRow['total'], $aRow['currency_name']);
+    if($aRow['currency_name'] != '')
+        $amount = app_format_money($aRow['total'], $aRow['currency_name']);
+    else
+        $amount = $aRow['total'];
 
     // if ($aRow['invoiceid']) {
     //     $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';

@@ -1914,16 +1914,19 @@ class Invoices_model extends App_Model
     {
         $this->load->model('warehouses_model');
         $affected_rows = 0;
+
+        $this->db->where('rel_wo_id',$id);
+        $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+
         foreach ($data as $temp) {
             $recipe_id = $temp['item_id'];
             unset($temp['item_id']);
+
             $product_code = $this->warehouses_model->stock_list_get($temp['ingredient_item_id'])->product_code;
             $temp['product_code'] = $product_code;
-            $this->db->where('id',$recipe_id);
-            $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+
             if(empty($check_edit)){
                 $temp['rel_wo_id'] = $id;
-                
                 $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
             } else {
                $this->db->where('id',$recipe_id); 

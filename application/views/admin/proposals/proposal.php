@@ -73,7 +73,7 @@
 
                         <div class="form-group select-placeholder">
                            <label class="control-label"><?php echo _l('pricing_category'); ?></label>
-                           <select name="pricing_category_id" id="pricing_category" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
+                           <select name="pricing_category_id" id="pricing_category" class="selectpicker" data-width="100%" data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>" required>
                               <option></option>
                               <?php 
                               foreach($pricing_categories as $pricing_category){
