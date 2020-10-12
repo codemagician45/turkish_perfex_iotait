@@ -46,11 +46,11 @@ foreach ($rResult as $aRow) {
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
-    $default_pack_capacity = $this->ci->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$aRow['id'].' AND default_pack=1')->row();
-    if($default_pack_capacity == '')
-        $row[] = '';
-    else 
-        $row[] = $default_pack_capacity->pack_capacity;
+    // $default_pack_capacity = $this->ci->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$aRow['id'].' AND default_pack=1')->row();
+    // if($default_pack_capacity == '')
+    //     $row[] = '';
+    // else 
+    //     $row[] = $default_pack_capacity->pack_capacity;
 
     $row[] = $aRow['box_quality'];
 

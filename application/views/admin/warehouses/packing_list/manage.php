@@ -14,7 +14,7 @@
 						<div class="clearfix"></div>
 						<?php render_datatable(array(
 							_l('packing_type'),
-							_l('pack_capacity'),
+							// _l('pack_capacity'),
 							_l('box_quality'),
 							_l('box_type'),
 							_l('l_size'),

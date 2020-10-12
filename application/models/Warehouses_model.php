@@ -943,9 +943,9 @@ class Warehouses_model extends App_Model
         $this->db->where('id', $id);
         $this->db->delete(db_prefix() . 'pack_list');
         if ($this->db->affected_rows() > 0) {
-
             log_activity('Pack List Deleted [' . $id . ']');
-
+            $this->db->where('pack_id',$id);
+            $this->db->delete(db_prefix().'stock_lists');
             return true;
         }
 
