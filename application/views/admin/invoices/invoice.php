@@ -184,16 +184,14 @@
 	  	if(recipe_rows_save_check.length  < 1){
 	  		requestGetJSON('products/get_recipes_by_product/' + product_id).done(function(response) {
 		        response.forEach(e => {
-		        	// console.log(e)
 		        	if(e.pre_produced == 1)
 		        	{
 		        		requestGetJSON('products/get_recipes_by_product/' + e.ingredient_item_id).done(function(response) {
 		        			response.forEach(item => {
-		        				add_item_to_table_plan_recipe(item,i,wo_item_qty);
+		        				add_item_to_table_plan_recipe(item,i,wo_item_qty*e.used_qty);
 		        				i++;
 		        			})
 		        		});
-		        		// return;
 		        	}
 		        	add_item_to_table_plan_recipe(e,i,wo_item_qty)
 		        	i++;
@@ -216,6 +214,7 @@
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
             data.option = option;
+            // console.log(data);
             var table_row = '';
             var item_key = i;
             if(data.pre_produced == 1)
@@ -233,28 +232,15 @@
 
             table_row += '<td><input type="number" name="plan_items[' + item_key + '][used_qty]" class="form-control qty" onkeyup = "material_cost_calc_for_added(this)" value="' + rel_wo_qty*data.used_qty + '"></td>';
 
-            if(data.pre_produced == 1) {
+            table_row += '<td><input type="number" name="plan_items[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value="' + data.rate_of_waste + '"></td>';
 
-                table_row += '<td><input type="number" name="plan_items[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value=""></td>';
-                // table_row += '<td><input type="text" name="plan_items[' + item_key + '][default_machine]" readonly class="form-control" value=""></td>';
-                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="plan_items[' + item_key + '][mould]" id="plan_items[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="mould_cavity_added(this)"></select></div></td>';
-                table_row += '<td><input type="text" readonly name="plan_items[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value=""></td>';
-                table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value=""></td>';
-            }
-            else if(data.pre_produced == 0) {
+            table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="plan_items[' + item_key + '][mould]" id="plan_items[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.option+'</select></div></td>';
 
-                table_row += '<td><input type="number" name="plan_items[' + item_key + '][rate_of_waste]" class="form-control" onkeyup = "material_cost_calc_for_added(this)" value="' + data.rate_of_waste + '"></td>';
-                // table_row += '<td><input type="text" name="plan_items[' + item_key + '][default_machine]" readonly class="form-control" value="' + data.default_machine + '"></td>';
-                table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="plan_items[' + item_key + '][mould]" id="plan_items[' + item_key + '][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'+data.option+'</select></div></td>';
-                table_row += '<td><input type="text" readonly name="plan_items[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value="' + data.mould_cavity + '"></td>';
-                table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"></td>';
-            }
+            table_row += '<td><input type="text" readonly name="plan_items[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value="' + data.mould_cavity + '"></td>';
 
-
-
+            table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"></td>';
+ 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_plan_recipe_item(this,' + data.id + '); return false;"><i class="fa fa-trash"></i></a></td>';
-
-            // table_row += '<td><a href="#" class="btn btn-info" onclick="set_plan(this,'+ data.id +'); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
 
             table_row += '</tr>';
 
@@ -311,6 +297,7 @@
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
 		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value);		
 		$('input[name="production_calculate"]').val(parseInt(production_time)+1);
+		$('input[name="total_production_qty"]').val(qty);
 		$('select[name="mould_id"]').selectpicker('val',mould_id);
 		$('select[name="mould_id"]').prop('disabled', true);
 		$('#planNewEventModal').modal('show');

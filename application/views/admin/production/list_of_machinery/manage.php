@@ -170,7 +170,7 @@
                                 needed_qty = (needed_qty - res).toFixed(2);
                                 console.log(needed_qty)
                             }
-                            $.post(admin_url + 'production/get_produced_qty/' + date).done(function(response) {
+                            $.post(admin_url + 'production/get_produced_qty/',{date:date,machine_id:machine_id}).done(function(response) {
                                 if(response){
                                     $('#event').html(response);
                                     $('#machine_name_on_view').empty();

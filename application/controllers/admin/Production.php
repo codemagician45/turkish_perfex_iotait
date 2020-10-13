@@ -119,9 +119,9 @@ class Production extends AdminController
         $this->load->view('admin/production/list_of_machinery/manage', $data);
     }
 
-    public function get_produced_qty($date)
+    public function get_produced_qty()
     {
-        $data['produced_qty'] = $this->production_model->get_produced_qty($date);
+        $data['produced_qty'] = $this->production_model->get_produced_qty($_POST);
         if(empty($data['produced_qty']))
         {
             return false;

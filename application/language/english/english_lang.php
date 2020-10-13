@@ -4018,7 +4018,9 @@ $lang['quotation_approval_email'] = 'Quotation Approval Email';
 $lang['installation_calculate'] = 'Installation Calculate';
 
 $lang['waste_production_quantity'] = 'Waste Production Qty';
+$lang['waste_production'] = 'Waste Production';
 $lang['enter_waste_production_quantity'] = 'Enter Waste Production Qty';
+$lang['warehouse_overrode'] = 'Warehouse has been overrun';
 
 $lang['pack_photo'] = 'Pack Photo';
 

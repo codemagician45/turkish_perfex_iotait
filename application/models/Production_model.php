@@ -58,7 +58,6 @@ class Production_model extends App_Model
             $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
             $this->db->where('p_qty_id',$data['p_qty_id']);
             $res = $this->db->get(db_prefix().'produced_qty')->row();
-
             $this->load->model('warehouses_model');
             $plus_transfer_stock = [];
             $plus_transfer_stock['stock_product_code'] = $res->wo_product_id;
@@ -66,38 +65,83 @@ class Production_model extends App_Model
             $plus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
             $last_transaction_qty = $this->warehouses_model->get_transfer($res->plus_transfer_id)->transaction_qty;
             $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
-            $success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
+            $plus_success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
 
-            /*Waste Tranfer*/
-            if(!empty($data['waste_production_quantity'])){
-
-                $waste_transfer_stock = [];
-                $waste_transfer_stock['stock_product_code'] = $res->wo_product_id;
-                $waste_transfer_stock['transaction_qty'] = $res->waste_production_quantity;
-                $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
-                $last_waste_qty = $this->warehouses_model->get_transfer($res->waste_transfer_id)->transaction_qty;
-                $waste_transfer_stock['delta'] = $waste_transfer_stock['transaction_qty'] - $last_waste_qty;
-                $waste_success = $this->warehouses_model->update_transfer_by_production($waste_transfer_stock, $res->waste_transfer_id);
-                if(!$waste_success)
-                {
-                    set_alert('danger', _l('warehouse_overrode'));
-                    return false;
-                }
-            }
-            
-            if(!$success)
+            if(!$plus_success)
             {
                 set_alert('danger', _l('warehouse_overrode'));
                 return false;
             }
+
+            $this->db->where('id',$data['machine_id']);
+            $machine = $this->db->get(db_prefix().'machines_list')->row();
+            $take_from = $machine->take_from;
+            $export_to = $machine->export_to;
+
+            $minus_transfer_stock = [];
+            $minus_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
+            $minus_transfer_stock['transaction_from'] = $take_from;
+            $minus_transfer_stock['transaction_to'] = NULL;
+            $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
+            $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
+
+            /*checking under pre-produced*/
+            $this->db->where('ingredient_item_id',$res->wo_product_id);
+            $this->db->where('rel_wo_id',$res->rel_wo_id);
+            $this->db->where('pre_produced',1);
+            $result = $this->db->get(db_prefix().'plan_recipe')->row();
+            if(!empty($result)){
+                $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+                $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+                $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+            } else {
+                $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+            }
+            $minus_success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock,$res->minus_transfer_id);
+            if(!$minus_success)
+            {
+                set_alert('danger', _l('warehouse_overrode'));
+                return false;
+            }
+
+            /*Waste Tranfer*/
+            if(!empty(floatval($data['waste_production_quantity']))){
+                $waste_transfer_stock = [];
+                $waste_transfer_stock['stock_product_code'] = $res->wo_product_id;
+                $waste_transfer_stock['transaction_qty'] = $res->waste_production_quantity;
+                $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
+                $waste_transfer_stock['description'] = _l('waste_production');
+                
+                if(!empty($res->waste_transfer_id)){
+                    $last_waste_qty = $this->warehouses_model->get_transfer($res->waste_transfer_id);
+                    $waste_transfer_stock['delta'] = $waste_transfer_stock['transaction_qty'] - $last_waste_qty->transaction_qty;
+                    $waste_success = $this->warehouses_model->update_transfer_by_production($waste_transfer_stock, $res->waste_transfer_id);
+                    if(!$waste_success)
+                    {
+                        set_alert('danger', _l('warehouse_overrode'));
+                        return false;
+                    }
+
+                } else {
+                    $waste_transfer_id = $this->warehouses_model->add_transfer_by_production($waste_transfer_stock, -1);
+                    if(!$waste_transfer_id){
+                        set_alert('danger', _l('warehouse_overrode'));
+                        return false;
+                    } else {
+                        $data['waste_transfer_id'] = $waste_transfer_id;
+                        $this->db->where('p_qty_id',$data['p_qty_id']);
+                        $this->db->update(db_prefix().'produced_qty',$data);
+                    }
+                }
+            }
+            
+            
             if ($this->db->affected_rows() > 0) {
                log_activity('Daily Produced Qty Updated [' . $data['p_qty_id'] . ']');
                 return true;
             }
 
         } else {
-            // print_r($data); exit();
-            // print_r($data); exit();
             $this->db->insert(db_prefix() . 'produced_qty', $data);
             $insert_id = $this->db->insert_id();
 
@@ -118,7 +162,20 @@ class Production_model extends App_Model
                 $minus_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                 $minus_transfer_stock['transaction_from'] = $take_from;
                 $minus_transfer_stock['transaction_to'] = NULL;
-                $minus_transfer_stock['transaction_qty'] = $res->used_qty;
+
+                /*checking under pre-produced*/
+                $this->db->where('ingredient_item_id',$res->wo_product_id);
+                $this->db->where('rel_wo_id',$res->rel_wo_id);
+                $this->db->where('pre_produced',1);
+                $result = $this->db->get(db_prefix().'plan_recipe')->row();
+                if(!empty($result)){
+                    $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+                    $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+                    $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+                } else {
+                    $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+                }
+
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
                 $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
                 $minus_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
@@ -143,7 +200,7 @@ class Production_model extends App_Model
                     $data['plus_transfer_id'] = $plus_transfer_id;
                 }
                 /*Waste minus tranfer*/
-                if(!empty($data['waste_production_quantity'])){
+                if(!empty(floatval($data['waste_production_quantity']))){
                     $waste_transfer_stock = [];
                     $waste_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                     $waste_transfer_stock['transaction_from'] = $take_from;
@@ -151,6 +208,7 @@ class Production_model extends App_Model
                     $waste_transfer_stock['transaction_qty'] = $res->waste_production_quantity;
                     $waste_transfer_stock['wo_no'] = $res->rel_wo_id;
                     $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
+                    $waste_transfer_stock['description'] = _l('waste_production');
                     $waste_transfer_id = $this->warehouses_model->add_transfer_by_production($waste_transfer_stock, -1);
                     if(!$waste_transfer_id){
                         set_alert('danger', _l('warehouse_overrode'));
@@ -170,9 +228,10 @@ class Production_model extends App_Model
         }
     }
 
-    public function get_produced_qty($date)
+    public function get_produced_qty($data)
     {
-        $this->db->where('current_time_selection',$date);
+        $this->db->where('current_time_selection',$data['date']);
+        $this->db->where('machine_id',$data['machine_id']);
         return $this->db->get(db_prefix().'produced_qty')->row();
     }
 
