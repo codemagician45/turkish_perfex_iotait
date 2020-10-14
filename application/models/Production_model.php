@@ -86,17 +86,23 @@ class Production_model extends App_Model
             $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
 
             /*checking under pre-produced*/
-            $this->db->where('ingredient_item_id',$res->wo_product_id);
-            $this->db->where('rel_wo_id',$res->rel_wo_id);
-            $this->db->where('pre_produced',1);
-            $result = $this->db->get(db_prefix().'plan_recipe')->row();
-            if(!empty($result)){
-                $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-                $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
-                $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
-            } else {
-                $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
-            }
+            // $this->db->where('ingredient_item_id',$res->wo_product_id);
+            // $this->db->where('rel_wo_id',$res->rel_wo_id);
+            // $this->db->where('pre_produced',1);
+            // $result = $this->db->get(db_prefix().'plan_recipe')->row();
+            // if(!empty($result)){
+            //     $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+            //     $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+            //     $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+            // } else {
+            //     $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+            // }
+            $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+            $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+            $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+            // print_r($res); exit();
+            // print_r($minus_transfer_stock); exit();
+
             $minus_success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock,$res->minus_transfer_id);
             if(!$minus_success)
             {
@@ -107,11 +113,10 @@ class Production_model extends App_Model
             /*Waste Tranfer*/
             if(!empty(floatval($data['waste_production_quantity']))){
                 $waste_transfer_stock = [];
-                $waste_transfer_stock['stock_product_code'] = $res->wo_product_id;
-                $waste_transfer_stock['transaction_qty'] = $res->waste_production_quantity;
+                $waste_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
+                $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($used_qty);
                 $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
                 $waste_transfer_stock['description'] = _l('waste_production');
-                
                 if(!empty($res->waste_transfer_id)){
                     $last_waste_qty = $this->warehouses_model->get_transfer($res->waste_transfer_id);
                     $waste_transfer_stock['delta'] = $waste_transfer_stock['transaction_qty'] - $last_waste_qty->transaction_qty;
@@ -164,17 +169,20 @@ class Production_model extends App_Model
                 $minus_transfer_stock['transaction_to'] = NULL;
 
                 /*checking under pre-produced*/
-                $this->db->where('ingredient_item_id',$res->wo_product_id);
-                $this->db->where('rel_wo_id',$res->rel_wo_id);
-                $this->db->where('pre_produced',1);
-                $result = $this->db->get(db_prefix().'plan_recipe')->row();
-                if(!empty($result)){
-                    $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-                    $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
-                    $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
-                } else {
-                    $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
-                }
+                // $this->db->where('ingredient_item_id',$res->wo_product_id);
+                // $this->db->where('rel_wo_id',$res->rel_wo_id);
+                // $this->db->where('pre_produced',1);
+                // $result = $this->db->get(db_prefix().'plan_recipe')->row();
+                // if(!empty($result)){
+                //     $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+                //     $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+                //     $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+                // } else {
+                //     $minus_transfer_stock['transaction_qty'] = $res->produced_quantity;
+                // }
+                $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+                $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+                $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
 
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
                 $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
@@ -205,7 +213,7 @@ class Production_model extends App_Model
                     $waste_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                     $waste_transfer_stock['transaction_from'] = $take_from;
                     $waste_transfer_stock['transaction_to'] = NULL;
-                    $waste_transfer_stock['transaction_qty'] = $res->waste_production_quantity;
+                    $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($used_qty);
                     $waste_transfer_stock['wo_no'] = $res->rel_wo_id;
                     $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
                     $waste_transfer_stock['description'] = _l('waste_production');

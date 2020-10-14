@@ -165,4 +165,11 @@ class Products extends AdminController
             echo json_encode($recipes);
         }
     }
+
+    public function get_product_recipes_by_ingredient($ingredient_item_id){
+        if ($this->input->is_ajax_request()) {
+            $product_recipe = $this->products_model->get_product_receipe_by_ingredient($ingredient_item_id);
+            echo json_encode($product_recipe);
+        }
+    }
 }

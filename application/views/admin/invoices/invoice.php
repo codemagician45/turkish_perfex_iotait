@@ -285,7 +285,7 @@
 		}
 	});
 
-	function set_plan(row,recipe_id)
+	function set_plan(row,recipe_id, ingredient_item_id)
 	{
 		$('#busy_machine_events').empty();
 		var qty = $(row).parents('tr').find('.qty').val();
@@ -297,7 +297,13 @@
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
 		$('input[name="recipe_id"]').val($(row).parents('tr').children()[0].value);		
 		$('input[name="production_calculate"]').val(parseInt(production_time)+1);
-		$('input[name="total_production_qty"]').val(qty);
+
+		var used_qty;
+		requestGetJSON('products/get_product_recipes_by_ingredient/' + ingredient_item_id).done(function(response) {
+			used_qty = response.used_qty;
+			$('input[name="total_production_qty"]').val(parseFloat(qty/used_qty));
+		});
+		
 		$('select[name="mould_id"]').selectpicker('val',mould_id);
 		$('select[name="mould_id"]').prop('disabled', true);
 		$('#planNewEventModal').modal('show');

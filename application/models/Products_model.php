@@ -239,4 +239,10 @@ class Products_model extends App_Model
         return false;
     }
 
+    public function get_product_receipe_by_ingredient($ingredient_item_id)
+    {
+        $this->db->where('ingredient_item_id',$ingredient_item_id);
+        return $this->db->get(db_prefix().'product_recipe')->row();
+    }
+
 }
