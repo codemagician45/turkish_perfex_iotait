@@ -328,8 +328,7 @@
 
 		var machine_id = $(this).val();
 		var wo_id = '<?php echo $invoice->id;?>';
-    	var wo_item_mould = $('#mould_id').text();
-		// console.log(machine_id)
+    	var wo_item_mould = $('#mould_id option:selected').text();
 
 		$('#busy_machine_events').remove();
         $('#busy_machine_events_div').append('<div id="busy_machine_events"></div>')

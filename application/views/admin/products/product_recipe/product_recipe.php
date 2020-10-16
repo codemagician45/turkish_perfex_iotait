@@ -403,7 +403,6 @@
             pro_cost = $(this).find('[data-production-cost]').val();
             exp_profit = $(this).find('[data-expected-profit]').val();
             pre_produced = $(this).find('[data-pre-check]').prop('checked')
-            console.log('pro_cost',pro_cost)
             if(!pre_produced){
                 if(!pro_cost)
                     pro_cost = 0
@@ -509,9 +508,8 @@
         {
             var powerUsage = defaultMachineData.power_usage;
             var cycleTime = $('input[name = "cycle_time"]').val();
-            // var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
-            console.log(operationCost)
             var profitExp = defaultMachineData.profit_expectation;
+            console.log((((powerUsage * engergyPrice)/3600)*cycleTime),(operationCost*cycleTime),((profitExp/workHour)/(3600/cycleTime*mouldCavity)));
             productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (operationCost*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
             $('input[name=production_cost]').val(productionCost);
             calculate_total_recipe()

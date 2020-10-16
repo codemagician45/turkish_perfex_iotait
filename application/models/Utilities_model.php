@@ -665,7 +665,7 @@ class Utilities_model extends App_Model
     {
         $is_admin                     = is_admin();
         $this->get_all_events($start, $end);
-        $this->db->where('wo_item_id', $wo_item_id);
+        // $this->db->where('wo_item_id', $wo_item_id);
 
         $event = $this->db->get(db_prefix() . 'events_installation')->result_array();
         $data = [];
