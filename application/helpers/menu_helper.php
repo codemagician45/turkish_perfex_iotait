@@ -228,7 +228,8 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-balance-scale',
         ]);
 
-    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation/offer') || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+    // if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation/offer') || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+    if (has_permission('sales', '', 'quotation/offer')) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'proposals',
                 'name'     => _l('quotation/offer'),
@@ -237,8 +238,8 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 5,
         ]);
     }
-    if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation_approval')
-        || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+    // if ((has_permission('proposals', '', 'view') || has_permission('proposals', '', 'view_own')) || has_permission('sales', '', 'quotation_approval') || (staff_has_assigned_proposals() && get_option('allow_staff_view_proposals_assigned') == 1)) {
+    if (has_permission('sales', '', 'quotation_approval')) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'quotation_approval',
                 'name'     => _l('quotation_approval'),
@@ -247,8 +248,8 @@ function app_init_admin_sidebar_menu_items()
         ]);
     }
 
-    if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('sales', '', 'sale_order')
-        || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1)) {
+    // if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('sales', '', 'sale_order') || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1)) {
+    if (has_permission('sales', '', 'sale_order')) {
         $CI->app_menu->add_sidebar_children_item('sales', [
                 'slug'     => 'estimates',
                 'name'     => _l('sale_order'),
@@ -305,8 +306,8 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-tasks',
         ]);
 
-    if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('planning', '', 'pending_sale_order')
-        || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1))
+    // if ((has_permission('estimates', '', 'view') || has_permission('estimates', '', 'view_own')) || has_permission('planning', '', 'pending_sale_order') || (staff_has_assigned_estimates() && get_option('allow_staff_view_estimates_assigned') == 1))
+    if (has_permission('planning', '', 'pending_sale_order'))
 
         $CI->app_menu->add_sidebar_children_item('planning', [
                 'slug'     => 'pending_sale_order',
@@ -315,8 +316,8 @@ function app_init_admin_sidebar_menu_items()
                 'position' => 5,
         ]);
     
-    if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('planning', '', 'work_orders')
-         || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
+    // if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('planning', '', 'work_orders') || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
+    if (has_permission('planning', '', 'work_orders'))
     
         $CI->app_menu->add_sidebar_children_item('planning', [
                 'slug'     => 'work_orders',
@@ -333,8 +334,8 @@ function app_init_admin_sidebar_menu_items()
             'icon'     => 'fa fa-industry',
         ]);
 
-    if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('production', '', 'production_work_order')
-         || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
+    // if ((has_permission('invoices', '', 'view') || has_permission('invoices', '', 'view_own')) || has_permission('production', '', 'production_work_order') || (staff_has_assigned_invoices() && get_option('allow_staff_view_invoices_assigned') == 1))
+    if (has_permission('production', '', 'production_work_order'))
 
         $CI->app_menu->add_sidebar_children_item('production', [
                 'slug'     => 'production_work_order',

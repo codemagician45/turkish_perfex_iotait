@@ -103,6 +103,10 @@
             $('input[name="product_name"]').val(response.product_name);
             $('input[name="ingredient_item_id"]').val(response.id);
 
+            $('input[name=work_hour_capacity]').val(workHour);
+            $('input[name=energy_price_value]').val(engergyPrice);
+            $('input[name=operation_cost]').val(operationCost);
+
             init_selectpicker();
             init_color_pickers();
             init_datepicker();
@@ -140,9 +144,9 @@
                 $('input[name=machine_id_expected]').val(defaultMachineData.id);
                 $('input[name=machine_profit_expected]').val(defaultMachineData.profit_expectation);
                 $('input[name=machine_power_expected]').val(defaultMachineData.power_usage);
-                $('input[name=work_hour_capacity]').val(workHour);
-                $('input[name=energy_price_value]').val(engergyPrice);
-                $('input[name=operation_cost]').val(operationCost);
+                // $('input[name=work_hour_capacity]').val(workHour);
+                // $('input[name=energy_price_value]').val(engergyPrice);
+                // $('input[name=operation_cost]').val(operationCost);
             }
             else {
                 defaultMachineData = '';
@@ -152,9 +156,7 @@
                 $('input[name=machine_id_expected]').val('');
                 $('input[name=machine_profit_expected]').val('');
                 $('input[name=machine_power_expected]').val('');
-                $('input[name=work_hour_capacity]').val(workHour);
-                $('input[name=energy_price_value]').val(engergyPrice);
-                $('input[name=operation_cost]').val(operationCost);
+
             }
             production_cost_cal();
             expected_profit_calc();
@@ -218,7 +220,6 @@
         if (data.item_id === "" && data.product_name === "") {
             return;
         }
-        // console.log('data',data)
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -417,7 +418,6 @@
             $(this).find('td.amount').html(format_money(_amount, true));
             row = $(this);
         });
-        // console.log(subtotal, other_cost, ins_cost)
         total = (total + subtotal + other_cost + ins_cost);
         $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     }
@@ -428,14 +428,13 @@
 
     function material_cost_calc_for_added(row)
     {
-        // console.log(engergyPrice,workHour,defaultMachineData)
         var productIdAdded = $(row).parents('tr').children()[1].lastChild.value;
         var usedQtyAdded = $(row).parents('tr').children()[3].firstChild.value;
         var wasteRateAdded = $(row).parents('tr').children()[4].firstChild.value;
 
         requestGetJSON('warehouses/get_item_by_id_with_currency/' + productIdAdded).done(function(response) {
             var materialCostAdded = response.price * usedQtyAdded * response.rate * (1+ wasteRateAdded/100);
-
+            console.log('material',materialCostAdded);
             $(row).parents('tr').find('[data-material-cost]').val(materialCostAdded);
             $(row).parents('tr').find('.ingredient_price').val(response.price);
             $(row).parents('tr').find('.ingredient_currency_rate').val(response.rate);
@@ -509,7 +508,7 @@
             var powerUsage = defaultMachineData.power_usage;
             var cycleTime = $('input[name = "cycle_time"]').val();
             var profitExp = defaultMachineData.profit_expectation;
-            console.log((((powerUsage * engergyPrice)/3600)*cycleTime),(operationCost*cycleTime),((profitExp/workHour)/(3600/cycleTime*mouldCavity)));
+            // console.log((((powerUsage * engergyPrice)/3600)*cycleTime),(operationCost*cycleTime),((profitExp/workHour)/(3600/cycleTime*mouldCavity)));
             productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (operationCost*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
             $('input[name=production_cost]').val(productionCost);
             calculate_total_recipe()

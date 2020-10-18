@@ -640,7 +640,6 @@ class Utilities_model extends App_Model
         $this->db->where('machine_id', $machine_id);
         $is_admin                     = is_admin();
         $events = $this->db->get(db_prefix() . 'events')->result_array();
-        // print_r($events);exit();
         $data = [];
         if(!empty($events))
         {
@@ -667,18 +666,19 @@ class Utilities_model extends App_Model
         $this->get_all_events($start, $end);
         // $this->db->where('wo_item_id', $wo_item_id);
 
-        $event = $this->db->get(db_prefix() . 'events_installation')->result_array();
+        $events = $this->db->get(db_prefix() . 'events_installation')->result_array();
         $data = [];
-        if(!empty($event))
+        if(!empty($events))
         {
-            $event = $event[0];
-            if ($event['userid'] != get_staff_user_id() && !$is_admin) {
-                $event['is_not_creator'] = true;
-                $event['onclick']        = true;
+            foreach ($events as $key => $event) {
+                if ($event['userid'] != get_staff_user_id() && !$is_admin) {
+                    $event['is_not_creator'] = true;
+                    $event['onclick']        = true;
+                }
+                $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
+                $event['color']    = $event['color'];
+                array_push($data, $event);
             }
-            $event['_tooltip'] = _l('calendar_event') . ' - ' . $event['title'];
-            $event['color']    = $event['color'];
-            array_push($data, $event);
             return $data;
         } else 
             return false;

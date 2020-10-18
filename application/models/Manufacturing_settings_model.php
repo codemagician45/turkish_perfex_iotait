@@ -46,46 +46,44 @@ class Manufacturing_settings_model extends App_Model
 
             $this->db->where('id',$machineid);
             $machine = $this->db->get(db_prefix().'machines_list')->row();
-            $this->db->query('Update '.db_prefix().'product_recipe set machine_profit_expected ='.$machine->profit_expectation.', machine_power_expected ='.$machine->power_usage.' where default_machine ='.$machine->id);
 
-            $this->db->where('default_machine',$machineid);
-            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
             $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
-
-            foreach ($products as $key => $value) {
-               if($value['pre_produced'] == 0)
-               {
-
-                $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
-
-                $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$value['work_hour_capacity']);
-               }
-               else{
-                $production_cost = 0;
-                $expected_profit = 0;
-               }
-                $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.' where default_machine ='.$machine->id);
-
-            }
-
-            $price_calculations = $this->db->get(db_prefix().'pricing_calculation')->result_array();
-
-            $products_after_update = $this->db->get(db_prefix().'product_recipe')->result_array();
-
-            foreach ($price_calculations as $price_calculation) {
+            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
+            foreach ($stocks_in_recipe as $key => $stock) {
+                $this->db->where('rel_product_id',$stock['rel_product_id']);
+                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
                 $amount = 0;
-                foreach ($products_after_update as $product_recipe) {
-                    if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
-                        $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
+                foreach ($rel_recipes as $key => $value) {
+                    if($value['default_machine'] == $machineid)
+                    {
+                        $this->db->where('id',$value['ingredient_item_id']);
+                        $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
+                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                        if($value['pre_produced'] == 0)
+                        {
+                            $production_cost = ((($data['power_usage']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($data['profit_expectation']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+
+                            $expected_profit = $data['profit_expectation']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$value['work_hour_capacity']);
+                        }
+                        else {
+                            $production_cost = 0;
+                            $expected_profit = 0;
+                        }
+                        $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.', material_cost ='.$material_cost.' where id ='.$value['id']);
+                        $this->db->query('Update '.db_prefix().'product_recipe set machine_profit_expected ='.$machine->profit_expectation.', machine_power_expected ='.$machine->power_usage.' where id ='.$value['id']);
+
+                        $amount += $material_cost + $production_cost + $expected_profit;
+
+                    } else {
+                        $amount += $value['material_cost'] + $value['production_cost'] + $value['expected_profit'];
+                    }
                 }
-                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $price_calculation['ins_time'];
-                $total = $amount+$ins_cost+$price_calculation['other_cost'];
-
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$price_calculation['id']);
+                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
+                $total = $amount + $ins_cost + $stock['other_cost'];
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
-
 
             return true;
         }
@@ -146,47 +144,45 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Mould Updated [' . $data['mould_cavity'] . ']');
 
-           $this->db->where('mould', $mould_id);
-           $products = $this->db->get(db_prefix().'product_recipe')->result_array();
-           $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
-            foreach ($products as $key => $value) {
+            $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
+            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
-                $this->db->query('Update '.db_prefix().'product_recipe set mould_cavity ='.$data['mould_cavity'].' where id ='.$value['id']);
-
-                if($value['pre_produced'] == 0){
-
-                    $this->db->where('rel_product_id',$value['rel_product_id']);
-                    $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
-
-                    $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$data['mould_cavity']));
-                    
-                    $temp1 = (3600/$value['cycle_time'])*$data['mould_cavity']*$value['work_hour_capacity'];
-                    $expected_profit = $value['machine_profit_expected']/$temp1;
-                }
-                else {
-                    $production_cost = 0;
-                    $expected_profit = 0;
-                }
-                $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.' where id ='.$value['id']);
-
-            }
-
-            $price_calculations = $this->db->get(db_prefix().'pricing_calculation')->result_array();
-
-            $products_after_update = $this->db->get(db_prefix().'product_recipe')->result_array();
-
-            foreach ($price_calculations as $price_calculation) {
+            foreach ($stocks_in_recipe as $key => $stock) {
+                $this->db->where('rel_product_id',$stock['rel_product_id']);
+                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
                 $amount = 0;
-                foreach ($products_after_update as $product_recipe) {
-                    if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
-                        $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
-                }
-                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $price_calculation['ins_time'];
-                $total = $amount+$ins_cost+$price_calculation['other_cost'];
+                foreach ($rel_recipes as $key => $value) {
+                    if($value['mould'] == $mould_id)
+                    {
+                        $this->db->where('id',$value['ingredient_item_id']);
+                        $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
+                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                        if($value['pre_produced'] == 0){
+                            $this->db->where('rel_product_id',$value['rel_product_id']);
+                            $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
 
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$price_calculation['id']);
+                            $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$data['mould_cavity']));
+                            
+                            $temp1 = (3600/$value['cycle_time'])*$data['mould_cavity']*$value['work_hour_capacity'];
+                            $expected_profit = $value['machine_profit_expected']/$temp1;
+                        }
+                        else {
+                            $production_cost = 0;
+                            $expected_profit = 0;
+                        }
+
+                        $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.', material_cost ='.$material_cost.', mould_cavity ='.$data['mould_cavity'].' where id ='.$value['id']);
+
+                        $amount += $material_cost + $production_cost + $expected_profit;
+                    } else {
+                        $amount += $value['material_cost'] + $value['production_cost'] + $value['expected_profit'];
+                    }
+                }
+                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
+                $total = $amount + $ins_cost + $stock['other_cost'];
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -349,40 +345,32 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Energy Price Updated [' . $data['energy_price'] . ']');
 
-            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
             $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
+            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
-            foreach ($products as $key => $value) {
-
-                $this->db->query('Update '.db_prefix().'product_recipe set energy_price_value ='.$data['energy_price'].' where id ='.$value['id']);
-
-                $this->db->where('rel_product_id',$value['rel_product_id']);
-                $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
-
-                if($value['pre_produced'] == 0)
-                    $production_cost = ((($value['machine_power_expected']*$data['energy_price'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
-                else
-                    $production_cost = 0;
-                
-                $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.' where id ='.$value['id']);
-            }
-
-            $price_calculations = $this->db->get(db_prefix().'pricing_calculation')->result_array();
-
-            $products_after_update = $this->db->get(db_prefix().'product_recipe')->result_array();
-
-            foreach ($price_calculations as $price_calculation) {
+            foreach ($stocks_in_recipe as $key => $stock) {
+                $this->db->where('rel_product_id',$stock['rel_product_id']);
+                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
                 $amount = 0;
-                foreach ($products_after_update as $product_recipe) {
-                    if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
-                        $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
-                }
-                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $price_calculation['ins_time'];
-                $total = $amount+$ins_cost+$price_calculation['other_cost'];
+                foreach ($rel_recipes as $key => $value) {
+                    $this->db->where('id',$value['ingredient_item_id']);
+                    $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
+                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    if($value['pre_produced'] == 0)
+                        $production_cost = ((($value['machine_power_expected']*$data['energy_price'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                    else
+                        $production_cost = 0;
+                    
+                    $this->db->query('Update '.db_prefix().'product_recipe set  production_cost ='.$production_cost.', material_cost ='.$material_cost.' where id ='.$value['id']);
 
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$price_calculation['id']);
+                    $amount += $material_cost + $production_cost + $value['expected_profit'];
+
+                }
+                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
+                $total = $amount + $ins_cost + $stock['other_cost'];
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -440,45 +428,35 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Work Hours Updated [' . $data['capacity_hours'] . ']');
 
-           $products = $this->db->get(db_prefix().'product_recipe')->result_array();
-           $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
-            foreach ($products as $key => $value) {
+            $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
+            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
-                $this->db->query('Update '.db_prefix().'product_recipe set work_hour_capacity ='.$data['capacity_hours'].' where id ='.$value['id']);
-
-                if($value['pre_produced'] == 0){
-
-                    // $this->db->where('rel_product_id',$value['rel_product_id']);
-                    
-                    $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
-                    $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
-
-                    // print_r($production_cost); exit();
-                }
-                else{
-                    $production_cost = 0;
-                    $expected_profit = 0;
-                }
-
-                $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.' where id ='.$value['id']);
-            }
-
-            $price_calculations = $this->db->get(db_prefix().'pricing_calculation')->result_array();
-
-            $products_after_update = $this->db->get(db_prefix().'product_recipe')->result_array();
-
-            foreach ($price_calculations as $price_calculation) {
+            foreach ($stocks_in_recipe as $key => $stock) {
+                $this->db->where('rel_product_id',$stock['rel_product_id']);
+                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
                 $amount = 0;
-                foreach ($products_after_update as $product_recipe) {
-                    if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
-                        $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
-                }
-                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $price_calculation['ins_time'];
-                $total = $amount+$ins_cost+$price_calculation['other_cost'];
+                foreach ($rel_recipes as $key => $value) {
+                    $this->db->where('id',$value['ingredient_item_id']);
+                    $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
+                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    if($value['pre_produced'] == 0){
+                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                        $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
+                    }
+                    else{
+                        $production_cost = 0;
+                        $expected_profit = 0;
+                    }
+                    $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.', expected_profit ='.$expected_profit.', material_cost ='.$material_cost.' where id ='.$value['id']);
 
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$price_calculation['id']);
+                    $amount += $material_cost + $production_cost + $expected_profit;
+
+                }
+                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
+                $total = $amount + $ins_cost + $stock['other_cost'];
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -604,39 +582,31 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Operation Cost Updated [' . $data['op_cost_per_sec'] . ']');
 
-            $products = $this->db->get(db_prefix().'product_recipe')->result_array();
-            foreach ($products as $key => $value) {
+            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
-                $this->db->query('Update '.db_prefix().'product_recipe set operation_cost ='.$data['op_cost_per_sec'].' where id ='.$value['id']);
-
-                $this->db->where('rel_product_id',$value['rel_product_id']);
-                $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
-
-                if($value['pre_produced'] == 0)
-                    $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($data['op_cost_per_sec']*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
-                else
-                    $production_cost = 0;
-
-                $this->db->query('Update '.db_prefix().'product_recipe set production_cost ='.$production_cost.' where id ='.$value['id']);
-                
-            }
-
-            $price_calculations = $this->db->get(db_prefix().'pricing_calculation')->result_array();
-
-            $products_after_update = $this->db->get(db_prefix().'product_recipe')->result_array();
-
-            foreach ($price_calculations as $price_calculation) {
+            foreach ($stocks_in_recipe as $key => $stock) {
+                $this->db->where('rel_product_id',$stock['rel_product_id']);
+                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
                 $amount = 0;
-                foreach ($products_after_update as $product_recipe) {
-                    if($price_calculation['rel_product_id'] == $product_recipe['rel_product_id'])
-                        $amount += $product_recipe['material_cost']+$product_recipe['production_cost']+$product_recipe['expected_profit'];
-                }
-                $ins_cost = $data['op_cost_per_sec']* $price_calculation['ins_time'];
-                $total = $amount+$ins_cost+$price_calculation['other_cost'];
+                foreach ($rel_recipes as $key => $value) {
+                    $this->db->where('id',$value['ingredient_item_id']);
+                    $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
+                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    if($value['pre_produced'] == 0)
+                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($data['op_cost_per_sec']*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                    else
+                        $production_cost = 0;
 
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$price_calculation['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$price_calculation['id']);
+                    $this->db->query('Update '.db_prefix().'product_recipe set  production_cost ='.$production_cost.', material_cost ='.$material_cost.' where id ='.$value['id']);
+
+                    $amount += $material_cost + $production_cost + $value['expected_profit'];
+
+                }
+                $ins_cost = $data['op_cost_per_sec'] * $stock['ins_time'];
+                $total = $amount + $ins_cost + $stock['other_cost'];
+                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
