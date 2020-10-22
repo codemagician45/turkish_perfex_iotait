@@ -7556,14 +7556,16 @@ function calendar_form_handler(form) {
     $.post(form.action, $(form).serialize()).done(function (response) {
         response = JSON.parse(response);
         if (response.success === true || response.success == 'true') {
-            alert_float('success', response.message);
-            setTimeout(function () {
-                var location = window.location.href;
-                location = location.split('?');
-                // window.location.href = location[0];
-                window.location.reload(true);
-            }, 500);
+            alert_float('success', response.message);           
+        } else {
+            alert_float('danger', response.message);  
         }
+        setTimeout(function () {
+            var location = window.location.href;
+            location = location.split('?');
+            // window.location.href = location[0];
+            window.location.reload(true);
+        }, 500);
     });
 
     return false;
@@ -7859,7 +7861,7 @@ function add_item_to_preview_quote(id) {
         })
 
         if (response.default_pack_capacity) {
-            $('select[name="pack_capacity"]').selectpicker('val', response.default_pack_capacity.pack_capacity);
+            $('select[name="pack_capacity"]').selectpicker('val', response.default_pack_capacity);
             // $('input[name="volume_m3"]').val(response.default_pack.volume);
         }
 

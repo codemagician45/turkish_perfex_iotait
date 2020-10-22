@@ -94,15 +94,19 @@ class Production extends AdminController
         if ($this->input->post() && $this->input->is_ajax_request()) {
             $data    = $this->input->post();
             $success = $this->production_model->produced_qty($data);
-            // $success = 1;
             $message = '';
             if ($success) {
                 if (isset($data['p_qty_id'])) {
-                    // $message = _l('produced_qty_updated');
                     $message = _l('updated_successfully', _l('produced_qty'));
                 } else {
-                    // $message = _l('produced_qty_added_successfully');
                      $message = _l('added_successfully', _l('produced_qty'));
+                }
+                
+            } else {
+                if (isset($data['p_qty_id'])) {
+                    $message = _l('updated_failed', _l('produced_qty'));
+                } else {
+                     $message = _l('added_failed', _l('produced_qty'));
                 }
             }
             echo json_encode([
@@ -110,6 +114,7 @@ class Production extends AdminController
                 'message' => $message,
             ]);
             die();
+            
         }
         $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
         $data['google_calendar_api']  = get_option('google_calendar_api_key');

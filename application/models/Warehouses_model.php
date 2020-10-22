@@ -299,8 +299,7 @@ class Warehouses_model extends App_Model
     public function get_item_by_id_with_relation($id = '')
     {
         // return $this->db->query('SELECT tblstock_lists.*, tblcurrencies_exchange.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies_exchange ON tblcurrencies_exchange.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row(); 
-
-        $default_pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
+        $default_pack = $this->db->query('SELECT * from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
 
         $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
         $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
@@ -308,7 +307,9 @@ class Warehouses_model extends App_Model
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
-            $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->row();
+            // $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->row();
+            $pack_capacity = $default_pack->pack_capacity;
+
             return $data = [
                 'stock' => $stock_data,
                 'pack_list' => $pack_list,
@@ -342,18 +343,20 @@ class Warehouses_model extends App_Model
     public function add_transfer($data)
     {
         
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
@@ -394,18 +397,20 @@ class Warehouses_model extends App_Model
 
     public function add_transfer_by_production($data,$sign)
     {
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
@@ -434,18 +439,20 @@ class Warehouses_model extends App_Model
 
     public function add_transfer_by_pack($data,$pack_id)
     {
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
@@ -476,18 +483,20 @@ class Warehouses_model extends App_Model
 
     public function update_transfer($data,$id)
     {
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
@@ -527,18 +536,22 @@ class Warehouses_model extends App_Model
 
     public function update_transfer_by_production($data,$id)
     {
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        // $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
+        
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }
@@ -557,6 +570,7 @@ class Warehouses_model extends App_Model
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
+
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
@@ -571,18 +585,20 @@ class Warehouses_model extends App_Model
 
     public function update_transfer_by_pack($data,$id,$pack_id)
     {
-        $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-
-        foreach ($warning_data as $key => $w_data) {
-            if($w_data['warehouse_id'] == $data['transaction_to'])
-            {
-                if($data['transaction_qty'] > $w_data['limit'])
+        $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
+        foreach ($warehouse_data as $key => $w_data) {
+            if($w_data->warehouse_id == $data['transaction_from'])
+            { 
+                if(isset($w_data->limit))
                 {
-                    $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
-                    foreach ($allowed_staffs as $key => $staff) {
-                        $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_to']);
+                    if($w_data->qty - $data['transaction_from'] < $w_data->limit)
+                    {
+                        $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
+                        foreach ($allowed_staffs as $key => $staff) {
+                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                        }
+                        return false;
                     }
-                    return false;
                 }
             }
         }

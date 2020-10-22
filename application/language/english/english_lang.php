@@ -4020,7 +4020,7 @@ $lang['installation_calculate'] = 'Installation Calculate';
 $lang['waste_production_quantity'] = 'Waste Production Qty';
 $lang['waste_production'] = 'Waste Production';
 $lang['enter_waste_production_quantity'] = 'Enter Waste Production Qty';
-$lang['warehouse_overrode'] = 'Warehouse has been overrun';
+$lang['warehouse_limit_warning'] = 'Warehouse Limit Warning';
 
 $lang['pack_photo'] = 'Pack Photo';
 

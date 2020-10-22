@@ -458,7 +458,7 @@
                     var cycleTime = $(row).parents('tr').children()[8].firstChild.value;
                     // var opCostPerSec = $('input[name = "op_cost_per_sec"]').val();
                     var profitExp = defaultMachineData.profit_expectation;
-                    productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (operationCost*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
+                    productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime)/mouldCavity + (operationCost*cycleTime)/mouldCavity + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
                     $(row).parents('tr').find('[data-production-cost]').val(productionCost);
                     calculate_total_recipe()
                 }
@@ -509,7 +509,7 @@
             var cycleTime = $('input[name = "cycle_time"]').val();
             var profitExp = defaultMachineData.profit_expectation;
             // console.log((((powerUsage * engergyPrice)/3600)*cycleTime),(operationCost*cycleTime),((profitExp/workHour)/(3600/cycleTime*mouldCavity)));
-            productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime) + (operationCost*cycleTime) + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
+            productionCost = ((((powerUsage * engergyPrice)/3600)*cycleTime)/mouldCavity + (operationCost*cycleTime)/mouldCavity + ((profitExp/workHour)/(3600/cycleTime*mouldCavity))).toFixed(2);
             $('input[name=production_cost]').val(productionCost);
             calculate_total_recipe()
         }

@@ -329,7 +329,7 @@ class Warehouses extends AdminController
                 
                 if(!$id)
                 {
-                    set_alert('danger', _l('warehouse_overrode', _l('transfer')));
+                    set_alert('danger', _l('warehouse_limit_warning', _l('transfer')));
                 }
                 if($data['allocation'] == 1)
                 {
@@ -393,7 +393,7 @@ class Warehouses extends AdminController
                     set_alert('success', _l('updated_successfully', _l('transfer')));
                 }
                 else
-                    set_alert('danger', _l('warehouse_overrode', _l('transfer')));
+                    set_alert('danger', _l('warehouse_limit_warning', _l('transfer')));
                 redirect(admin_url('warehouses/transfers'));
             }
         }

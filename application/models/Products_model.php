@@ -49,7 +49,6 @@ class Products_model extends App_Model
 
     public function update_product_recipe_item($data)
     {
-        print_r($data); exit();
         $this->load->model('warehouses_model');
         $rel_product_id = $data['rel_product_id'];
         unset($data['rel_product_id']);

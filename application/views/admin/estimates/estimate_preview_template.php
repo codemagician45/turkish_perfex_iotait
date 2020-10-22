@@ -175,20 +175,16 @@
                   <?php if($estimate->invoiceid == NULL){ ?>
                   <?php if(has_permission('invoices','','create') && !empty($estimate->clientid)){ ?>
                   <?php //if(has_permission('invoices','','create') && !empty($estimate->clientid) && $estimate->status == 4){ ?>
-                  <div class="btn-group pull-right mleft5">
+                  <!-- <div class="btn-group pull-right mleft5">
                      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <?php echo _l('convert'); ?> <span class="caret"></span>
                      </button>
                      <ul class="dropdown-menu">
-                        <!-- <li><a href="<?php echo admin_url('estimates/convert_to_invoice/'.$estimate->id.'?save_as_draft=true'); ?>"><?php echo _l('convert_and_save_as_draft'); ?></a></li>
-                        <li class="divider">
-                        <li><a href="<?php echo admin_url('estimates/convert_to_invoice/'.$estimate->id); ?>"><?php echo _l('convert'); ?></a></li>
-                        </li> -->
                         <?php if(has_permission('invoices','','create')){ ?>
                            <li><a href="#"  onclick="estimate_convert_template(this); return false;"><?php echo _l('convert_to_work_order'); ?></a></li>
                            <?php } ?>
                      </ul>
-                  </div>
+                  </div> -->
                   <?php } ?>
                   <?php } 
 

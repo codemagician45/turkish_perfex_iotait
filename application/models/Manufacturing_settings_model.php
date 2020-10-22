@@ -61,7 +61,7 @@ class Manufacturing_settings_model extends App_Model
                         $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
                         if($value['pre_produced'] == 0)
                         {
-                            $production_cost = ((($data['power_usage']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($data['profit_expectation']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                            $production_cost = ((($data['power_usage']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($data['profit_expectation']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
 
                             $expected_profit = $data['profit_expectation']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$value['work_hour_capacity']);
                         }
@@ -161,7 +161,7 @@ class Manufacturing_settings_model extends App_Model
                             $this->db->where('rel_product_id',$value['rel_product_id']);
                             $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
 
-                            $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$data['mould_cavity']));
+                            $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$data['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$data['mould_cavity']+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$data['mould_cavity']));
                             
                             $temp1 = (3600/$value['cycle_time'])*$data['mould_cavity']*$value['work_hour_capacity'];
                             $expected_profit = $value['machine_profit_expected']/$temp1;
@@ -357,7 +357,7 @@ class Manufacturing_settings_model extends App_Model
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
                     $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
                     if($value['pre_produced'] == 0)
-                        $production_cost = ((($value['machine_power_expected']*$data['energy_price'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                        $production_cost = ((($value['machine_power_expected']*$data['energy_price'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
                     else
                         $production_cost = 0;
                     
@@ -440,7 +440,7 @@ class Manufacturing_settings_model extends App_Model
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
                     $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
                     if($value['pre_produced'] == 0){
-                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
                         $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
                     }
                     else{
@@ -593,7 +593,7 @@ class Manufacturing_settings_model extends App_Model
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
                     $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
                     if($value['pre_produced'] == 0)
-                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])+($data['op_cost_per_sec']*$value['cycle_time'])+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                        $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($data['op_cost_per_sec']*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
                     else
                         $production_cost = 0;
 

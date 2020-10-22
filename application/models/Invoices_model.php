@@ -1808,7 +1808,7 @@ class Invoices_model extends App_Model
                             $this->db->query('UPDATE tblitemable SET wo_install_transfer_id = '.$wo_install_transfer_id.' WHERE id='.$itemid);
                         else
                         {
-                            set_alert('danger', _l('warehouse_overrode'));
+                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
                         }
 
@@ -1818,7 +1818,7 @@ class Invoices_model extends App_Model
                         $success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $item->wo_install_transfer_id);
                         if(!$success)
                         {
-                            set_alert('danger', _l('warehouse_overrode'));
+                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
                         }
                     }
@@ -1843,7 +1843,7 @@ class Invoices_model extends App_Model
                                 $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
                             else
                             {
-                                set_alert('danger', _l('warehouse_overrode'));
+                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
                             }
                         } 
@@ -1853,7 +1853,7 @@ class Invoices_model extends App_Model
                             $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
                             if(!$success)
                             {
-                                set_alert('danger', _l('warehouse_overrode'));
+                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
                             }
                         }
@@ -1878,7 +1878,7 @@ class Invoices_model extends App_Model
                                 $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
                             else
                             {
-                                set_alert('danger', _l('warehouse_overrode'));
+                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
                             }
                         } 
@@ -1888,7 +1888,7 @@ class Invoices_model extends App_Model
                             $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
                             if(!$success)
                             {
-                                set_alert('danger', _l('warehouse_overrode'));
+                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
                             }
                         }
@@ -1987,7 +1987,7 @@ class Invoices_model extends App_Model
                             $this->db->query('UPDATE tblplan_recipe SET recipe_install_transfer_id = '.$recipe_install_transfer_id.' WHERE id='.$recipe_id);
                        else
                             {
-                                set_alert('danger', _l('warehouse_overrode'));
+                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
                             }
 
@@ -1998,7 +1998,7 @@ class Invoices_model extends App_Model
 
                         if(!$success)
                         {
-                            set_alert('danger', _l('warehouse_overrode'));
+                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
                         }
                     }
