@@ -65,7 +65,7 @@
 
                         $table_row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_plan_recipe_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
 
-                        $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_plan(this,' . $item['id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
+                        $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_plan(this,' . $item['wo_product_id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
 
                         if($item['scheduled'] == 1)
                             $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';

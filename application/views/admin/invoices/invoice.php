@@ -285,7 +285,7 @@
 		}
 	});
 
-	function set_plan(row,recipe_id, ingredient_item_id)
+	function set_plan(row,wo_product_id, ingredient_item_id)
 	{
 		$('#busy_machine_events').empty();
 		var qty = $(row).parents('tr').find('.qty').val();
@@ -299,8 +299,8 @@
 		$('input[name="production_calculate"]').val(parseInt(production_time)+1);
 
 		var used_qty;
-		requestGetJSON('products/get_product_recipes_by_ingredient/' + ingredient_item_id).done(function(response) {
-			used_qty = response.used_qty;
+		$.post(admin_url+'products/get_product_recipes_by_ingredient/', {ingredient_item_id:ingredient_item_id, wo_product_id:wo_product_id}).done(function(response) {
+			used_qty = JSON.parse(response).used_qty;
 			$('input[name="total_production_qty"]').val(parseFloat(qty/used_qty));
 		});
 		
