@@ -1,0 +1,17 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2020-10-27 03:46:57 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 03:47:24 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 03:47:34 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 04:07:17 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 04:07:41 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 04:07:45 --> Could not find the language line "Status"
+ERROR - 2020-10-27 04:20:39 --> Could not find the language line "Status"
+ERROR - 2020-10-27 04:20:49 --> Could not find the language line "moulds"
+ERROR - 2020-10-27 04:20:55 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 04:21:03 --> Could not find the language line "moulds_suitability"
+ERROR - 2020-10-27 04:22:03 --> Could not find the language line "new_work_hours"
+ERROR - 2020-10-27 04:22:03 --> Could not find the language line "add_work_hour_capacity"
+ERROR - 2020-10-27 04:22:16 --> Could not find the language line "pack price"
+ERROR - 2020-10-27 04:22:21 --> Could not find the language line "add_op_cost_per_sec"
+ERROR - 2020-10-27 04:22:33 --> Could not find the language line "pack price"
