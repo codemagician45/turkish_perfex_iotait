@@ -58,9 +58,11 @@ class Manufacturing_settings_model extends App_Model
                     {
                         $this->db->where('id',$value['ingredient_item_id']);
                         $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
-                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                        if($value['pre_produced'] == 0)
-                        {
+                        if(!empty($ingredient_item))
+                            $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                        else
+                            $material_cost = $value['material_cost'];
+                       if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0){
                             $production_cost = ((($data['power_usage']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($data['profit_expectation']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
 
                             $expected_profit = $data['profit_expectation']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$value['work_hour_capacity']);
@@ -82,7 +84,6 @@ class Manufacturing_settings_model extends App_Model
                 $total = $amount + $ins_cost + $stock['other_cost'];
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -156,8 +157,11 @@ class Manufacturing_settings_model extends App_Model
                     {
                         $this->db->where('id',$value['ingredient_item_id']);
                         $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
-                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                        if($value['pre_produced'] == 0){
+                        if(!empty($ingredient_item))
+                            $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                        else
+                            $material_cost = $value['material_cost'];
+                        if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0){
                             $this->db->where('rel_product_id',$value['rel_product_id']);
                             $price_calc_value = $this->db->get(db_prefix().'pricing_calculation')->row();
 
@@ -182,7 +186,6 @@ class Manufacturing_settings_model extends App_Model
                 $total = $amount + $ins_cost + $stock['other_cost'];
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -355,9 +358,14 @@ class Manufacturing_settings_model extends App_Model
                 foreach ($rel_recipes as $key => $value) {
                     $this->db->where('id',$value['ingredient_item_id']);
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
-                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                    if($value['pre_produced'] == 0)
+                    if(!empty($ingredient_item))
+                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    else
+                        $material_cost = $value['material_cost'];
+
+                    if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0){
                         $production_cost = ((($value['machine_power_expected']*$data['energy_price'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                    }
                     else
                         $production_cost = 0;
                     
@@ -366,13 +374,12 @@ class Manufacturing_settings_model extends App_Model
                     $amount += $material_cost + $production_cost + $value['expected_profit'];
 
                 }
+
                 $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
                 $total = $amount + $ins_cost + $stock['other_cost'];
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
-
             return true;
         }
 
@@ -438,8 +445,13 @@ class Manufacturing_settings_model extends App_Model
                 foreach ($rel_recipes as $key => $value) {
                     $this->db->where('id',$value['ingredient_item_id']);
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
-                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                    if($value['pre_produced'] == 0){
+                    
+                    if(!empty($ingredient_item))
+                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    else
+                        $material_cost = $value['material_cost'];
+
+                    if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0){
                         $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
                         $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
                     }
@@ -456,7 +468,6 @@ class Manufacturing_settings_model extends App_Model
                 $total = $amount + $ins_cost + $stock['other_cost'];
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;
@@ -591,8 +602,13 @@ class Manufacturing_settings_model extends App_Model
                 foreach ($rel_recipes as $key => $value) {
                     $this->db->where('id',$value['ingredient_item_id']);
                     $ingredient_item = $this->db->get(db_prefix().'stock_lists')->row();
-                    $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                    if($value['pre_produced'] == 0)
+                    
+                    if(!empty($ingredient_item))
+                        $material_cost = $ingredient_item->price*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                    else
+                        $material_cost = $value['material_cost'];
+
+                    if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0)
                         $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($data['op_cost_per_sec']*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$value['work_hour_capacity'])/(3600/$value['cycle_time']*$value['mould_cavity']));
                     else
                         $production_cost = 0;
@@ -606,7 +622,6 @@ class Manufacturing_settings_model extends App_Model
                 $total = $amount + $ins_cost + $stock['other_cost'];
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
-                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where id ='.$value['id']);
             }
 
             return true;

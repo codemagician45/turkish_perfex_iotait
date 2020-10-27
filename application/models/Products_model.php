@@ -166,7 +166,6 @@ class Products_model extends App_Model
                     $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$rel_parent_id);
                     $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_price = '.$total.' where ingredient_item_id ='.$rel_parent_id);
                 }
-                /*rel_product part*/
             }
             return $insert_id;
         }
