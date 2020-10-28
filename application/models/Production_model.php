@@ -77,9 +77,11 @@ class Production_model extends App_Model
             $minus_transfer_stock['transaction_to'] = NULL;
             $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
             $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
-            $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-            $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
-            $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+
+            // $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+            // $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+            
+            $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
             $minus_success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock,$res->minus_transfer_id);
             if(!$minus_success)
                 return false;
@@ -88,7 +90,7 @@ class Production_model extends App_Model
             if(!empty(floatval($data['waste_production_quantity']))){
                 $waste_transfer_stock = [];
                 $waste_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
-                $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($used_qty);
+                $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
                 $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
                 $waste_transfer_stock['transaction_from'] = $take_from;
                 $waste_transfer_stock['transaction_to'] = NULL;
@@ -137,7 +139,7 @@ class Production_model extends App_Model
                 $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
                 $this->db->where('p_qty_id',$insert_id);
                 $res = $this->db->get(db_prefix().'produced_qty')->row();
-
+                // print_r($res); exit();
                 $this->load->model('warehouses_model');
 
                 $minus_transfer_stock = [];
@@ -145,9 +147,9 @@ class Production_model extends App_Model
                 $minus_transfer_stock['transaction_from'] = $take_from;
                 $minus_transfer_stock['transaction_to'] = NULL;
 
-                $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-                $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
-                $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($used_qty);
+                // $this->db->where('ingredient_item_id',$res->ingredient_item_id);
+                // $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
+                $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
 
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
                 $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
@@ -164,7 +166,7 @@ class Production_model extends App_Model
                     $waste_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                     $waste_transfer_stock['transaction_from'] = $take_from;
                     $waste_transfer_stock['transaction_to'] = NULL;
-                    $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($used_qty);
+                    $waste_transfer_stock['transaction_qty'] = floatval($res->waste_production_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
                     $waste_transfer_stock['wo_no'] = $res->rel_wo_id;
                     $waste_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
                     $waste_transfer_stock['description'] = _l('waste_production');

@@ -201,7 +201,6 @@
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_profit_expected]" class="machine_profit_expected" value="'.$item['machine_profit_expected'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][machine_power_expected]" class="machine_power_expected" value="'.$item['machine_power_expected'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][work_hour_capacity]" class="work_hour_capacity" value="'.$item['work_hour_capacity'].'">
-                            <input type="hidden" name="'.$items_indicator.'['.$i.'][operation_cost]" class="operation_cost" value="'.$item['operation_cost'].'">
                             <input type="hidden" name="'.$items_indicator.'['.$i.'][energy_price_value]" class="energy_price_value" value="'.$item['energy_price_value'].'">
                         </td>';
 

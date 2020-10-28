@@ -17,15 +17,9 @@
                             </div>
                         </div>
                         <div class="row">
-                            
                             <div class="col-md-6">
                                 <div class="form-group" id="transaction_from_stock">
-                                    
                                 </div>
-                                <?php 
-                                    // $selected = (isset($transfer) ? $transfer->transaction_from : '');
-                                    // echo render_select('transaction_from',$warehouse_list,array('id','warehouse_name'),_l('transaction_from'),$selected); 
-                                ?>
                             </div>
                             <div class="col-md-6">
                                 <?php 
@@ -33,7 +27,8 @@
                                     echo render_select('transaction_to',$warehouse_list,array('id','warehouse_name'),_l('transaction_to'),$selected); 
                                     ?>
                             </div>
-
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <?php 
                                     $value = (isset($transfer) ? $transfer->transaction_notes : '');
@@ -43,7 +38,6 @@
                                 <?php
                                     $value = (isset($transfer) ? $transfer->transaction_qty : ''); 
                                     echo render_input('transaction_qty',_l('transaction_qty'),$value,'number',array('placeholder'=>_l('transaction_qty'))); ?>
-                                <!-- <input type="hidden" name="hidden_qty" id="hidden_qty"> -->
                             </div>
                         </div>
                         <div class="row">
@@ -53,8 +47,6 @@
                                    <label for="allocation"><?php echo _l('allocation_enable'); ?></label>
                                 </div>
                             </div>
-                        <!-- </div>
-                        <div class="row"> -->
                             <div class="col-md-6">
                                 <?php 
                                     $value = (isset($transfer) ? $transfer->allocation_reason : '');
@@ -79,19 +71,12 @@
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
-                            <!-- <div class="col-md-6">
-                                <?php $value = (isset($transfer) ? _d($transfer->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
-                            </div> -->
                             <div class="col-md-6">
                                 <?php
                                     $value = (isset($transfer) ? $transfer->description : ''); 
                                     echo render_textarea('description',_l('description'),$value); ?>
                             </div>
                         </div>
-                        <!-- <button class="btn btn-info mleft5 transferId-submit transaction-submit" type="button">
-                            <?php echo _l('submit'); ?>
-                        </button> -->
                         <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
                     </div>
                 </div>
@@ -110,37 +95,19 @@
                 transaction_from: 'required',
                 transaction_to:'required',
                 transaction_qty:'required',
-                // allocation:'required',
-                // wo_no:'required',
-                // purchase_id:'required',
             });
         });
 
-        var id = '<?php if(isset($transfer)) echo $transfer->id; else echo '';?>';;
+        var id = '<?php if(isset($transfer)) echo $transfer->id; else echo '';?>';
         var warehouses = [];
-        var currentWarehouseQty = 0;
         var selectedTransaction = '<?php if(isset($transfer)) echo $transfer->transaction_from?>';
         var option = '<option></option>';
         $('#stock_product_code').change(function(){
             id = $(this).val()
-            var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
-            requestGetJSON(tranferReqUrl).done(function (results) {
-                warehouses = results;
-                var wId = $('#transaction_from').val();
-                if(warehouses.length > 0 && !wId)
-                {
-                    var currentWarehouse = warehouses.filter(e => {
-                        return e.warehouse_id == wId;
-                    })
-                    currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
-                }
-            });
-
-
             var transactionFrom = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
-
             requestGetJSON(transactionFrom).done(function (results) {
                 if(results){
+                    warehouses = results;
                     option = '<option></option>';
                     results.forEach(e => {
                         if(e.warehouse_id == selectedTransaction)
@@ -157,8 +124,8 @@
         if(id){
             var transactionFrom = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
             requestGetJSON(transactionFrom).done(function (results) {
-                
                 if(results){
+                    warehouses = results;
                     option = '<option></option>';
                     results.forEach(e => {
                         if(e.warehouse_id == selectedTransaction)
@@ -179,69 +146,66 @@
         }
         
         
-        $('#transaction_from').change(function(){
-            var wId = $(this).val();
-            if(warehouses.length > 0)
-            {
-                var currentWarehouse = warehouses.filter(e => {
-                    return e.warehouse_id == wId;
-                })
-                currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
-            }
+        // $('#transaction_from').change(function(){
+        //     var wId = $(this).val();
+        //     if(warehouses.length > 0)
+        //     {
+        //         var currentWarehouse = warehouses.filter(e => {
+        //             return e.warehouse_id == wId;
+        //         })
+        //         currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
+        //     }
             
-        })
+        // })
 
-        $('#transaction_qty').keyup(function(){
-            var wId = $('#transaction_from').val();
-            if($('#stock_product_code').val()){
-               var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + $('#stock_product_code').val() ;
-                requestGetJSON(tranferReqUrl).done(function (results) {
-                    warehouses = results;
-                    if(warehouses.length > 0)
-                    {
-                        var currentWarehouse = warehouses.filter(e => {
-                            return e.warehouse_id == wId;
-                        })
-                        currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
-                    }
-                }); 
-            }
-            else {
-                alert('Please Select Product code');
-                $(this).val('');
-            }
+        // $('#transaction_qty').keyup(function(){
+        //     var wId = $('#transaction_from').val();
+        //     if($('#stock_product_code').val()){
+        //        var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + $('#stock_product_code').val() ;
+        //         requestGetJSON(tranferReqUrl).done(function (results) {
+        //             warehouses = results;
+        //             if(warehouses.length > 0)
+        //             {
+        //                 var currentWarehouse = warehouses.filter(e => {
+        //                     return e.warehouse_id == wId;
+        //                 })
+        //                 currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
+        //             }
+        //         }); 
+        //     }
+        //     else {
+        //         alert('Please Select Product code');
+        //         $(this).val('');
+        //     }
 
-            if(!wId){
-                alert('Please Select Warehouse');
-                $(this).val('');
-            }
-            else{
-                var url = admin_url +'warehouses/get_current_warehouse/' + wId ;
-                requestGetJSON(url).done(function (result) {
-                    if(result.order_no != 1)
-                    {
-                        if($('#transaction_qty').val() > currentWarehouseQty)
-                        {
-                            alert('Overflowed Quantity from this Warehouse');
-                            $('#transaction_qty').val('');
-                        } 
-                    }
-                });
-            }
+        //     if(!wId){
+        //         alert('Please Select Warehouse');
+        //         $(this).val('');
+        //     }
+        //     else{
+        //         var url = admin_url +'warehouses/get_current_warehouse/' + wId ;
+        //         requestGetJSON(url).done(function (result) {
+        //             if(result.order_no != 1)
+        //             {
+        //                 if($('#transaction_qty').val() > currentWarehouseQty)
+        //                 {
+        //                     alert('Overflowed Quantity from this Warehouse');
+        //                     $('#transaction_qty').val('');
+        //                 } 
+        //             }
+        //         });
+        //     }
             
-        })
+        // })
 
         $('#allocation').change(function(){
-            
             if($(this).prop('checked') == true)
             {
                 $('#transaction_to').selectpicker('val', '');
                 $('#transaction_to').prop('disabled', true);
             }
             else
-            {
                 $('#transaction_to').prop('disabled', false);
-            }
         })
 
         if($('#allocation').prop('checked') == true)
@@ -250,7 +214,22 @@
             $('#transaction_to').prop('disabled', true);
         }
 
-        
+        $('#transfer').submit(function(e){
+            e.preventDefault();
+            var wId = $('#transaction_from').val();
+            console.log(warehouses)
+            var currentWarehouse = warehouses.filter(e => {
+                return e.warehouse_id == wId;
+            })
+            if(currentWarehouse[0]){
+                if($('#transaction_qty').val() > currentWarehouse[0].qty && currentWarehouse[0].order_no != 1)
+                {
+                    alert('Overflowed Quantity from this Warehouse');
+                } else {
+                    $(this)[0].submit();
+                }
+            }
+        })
         
     </script>
 

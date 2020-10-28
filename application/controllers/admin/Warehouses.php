@@ -315,6 +315,7 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
+            // print_r($data); exit();
             if(isset($data['allocation']) && $data['allocation'] == 'on')
             {
                 $data['allocation'] = 1;
@@ -326,12 +327,7 @@ class Warehouses extends AdminController
             if ($id == '') {
                 // Allocated Items saving if allocation is enabled
                 $id = $this->warehouses_model->add_transfer($data);
-                
-                if(!$id)
-                {
-                    set_alert('danger', _l('warehouse_limit_warning', _l('transfer')));
-                }
-                if($data['allocation'] == 1)
+                if($id && $data['allocation'] == 1)
                 {
                     $allocation_data['transfer_id'] = $id;
                     $allocation_data['allocation_product_code'] = $data['stock_product_code'];
@@ -351,6 +347,10 @@ class Warehouses extends AdminController
                 
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('transfer')));
+                    redirect(admin_url('warehouses/transfers'));
+                    
+                } else {
+                    set_alert('danger', _l('warehouse_limit_warning', _l('transfer')));
                     redirect(admin_url('warehouses/transfers'));
                 }
             } else {
@@ -412,8 +412,6 @@ class Warehouses extends AdminController
         $data['title']         = $title;
         $data['product_code'] = $this->warehouses_model->get_product_code();
         $data['warehouse_list'] = $this->warehouses_model->get_warehouse_list();
-        // if(isset($allocation_id))
-        //     $data['allocation_id'] = $allocation_id;
         $this->load->view('admin/warehouses/transfers/transfer', $data);
     }
 

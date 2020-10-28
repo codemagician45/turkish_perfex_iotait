@@ -354,6 +354,7 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Energy Price Updated [' . $data['energy_price'] . ']');
 
+            $this->db->query('Update '.db_prefix().'product_recipe set energy_price_value ='.$data['energy_price']);
             $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
             $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
@@ -441,6 +442,8 @@ class Manufacturing_settings_model extends App_Model
         if ($this->db->affected_rows() > 0) {
            log_activity('Work Hours Updated [' . $data['capacity_hours'] . ']');
 
+           $this->db->query('Update '.db_prefix().'product_recipe set work_hour_capacity ='.$data['capacity_hours']);
+
             $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
             $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
@@ -459,6 +462,31 @@ class Manufacturing_settings_model extends App_Model
 
                     if($value['pre_produced'] == 0 && floatval($value['cycle_time']) != 0 && floatval($value['mould_cavity']) != 0){
                         $production_cost = ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity']+($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity']+(($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+
+                        // if($value['id'] == 192){
+                        //     echo $value['machine_power_expected'];
+                        //     echo '<br>';
+                        //     echo $value['energy_price_value'];
+                        //     echo '<br>';
+                        //     echo $value['cycle_time'];
+                        //     echo '<br>';
+                        //     echo $value['mould_cavity'];
+                        //     echo '<br>';
+                        //     echo $value['machine_profit_expected'];
+                        //     echo '<br>';
+                        //     echo $data['capacity_hours'];
+                        //     echo '<br>';
+                        //     echo ((($value['machine_power_expected']*$value['energy_price_value'])/3600)*$value['cycle_time'])/$value['mould_cavity'];
+                        //     echo '<br>';
+                        //     echo ($op_cost_per_sec->op_cost_per_sec*$value['cycle_time'])/$value['mould_cavity'];
+                        //     echo '<br>';
+                        //     echo (($value['machine_profit_expected']/$data['capacity_hours'])/(3600/$value['cycle_time']*$value['mould_cavity']));
+                        //     echo '<br>';
+                        //     echo $production_cost;
+                        //     echo '<br/>';
+                        //     exit();
+                        // }
+                        
                         $expected_profit = $value['machine_profit_expected']/(((3600/$value['cycle_time'])*$value['mould_cavity'])*$data['capacity_hours']);
                     }
                     else{
@@ -475,7 +503,7 @@ class Manufacturing_settings_model extends App_Model
                 $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 $this->db->query('UPDATE '.db_prefix().'stock_lists SET price = '.$total.' where id ='.$value['rel_product_id']);
             }
-
+            // exit();
             return true;
         }
 
