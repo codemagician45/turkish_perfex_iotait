@@ -155,3 +155,7 @@ ERROR - 2020-10-28 12:12:21 --> Could not find the language line "pack price"
 ERROR - 2020-10-28 12:12:33 --> Could not find the language line "pack price"
 ERROR - 2020-10-28 12:12:42 --> Could not find the language line "pack price"
 ERROR - 2020-10-28 12:12:52 --> Could not find the language line "pack price"
+ERROR - 2020-10-28 19:49:12 --> Severity: error --> Exception: Call to undefined method CI_Output::disable_cache() C:\xampp\htdocs\turkish_perfex\application\models\Manufacturing_settings_model.php 10
+ERROR - 2020-10-28 19:49:33 --> Severity: Notice --> Undefined property: Manufacturing_settings::$ci C:\xampp\htdocs\turkish_perfex\system\core\Model.php 73
+ERROR - 2020-10-28 19:49:33 --> Severity: Notice --> Trying to get property 'output' of non-object C:\xampp\htdocs\turkish_perfex\application\models\Manufacturing_settings_model.php 10
+ERROR - 2020-10-28 19:49:33 --> Severity: error --> Exception: Call to a member function disable_cache() on null C:\xampp\htdocs\turkish_perfex\application\models\Manufacturing_settings_model.php 10

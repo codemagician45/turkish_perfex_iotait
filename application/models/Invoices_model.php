@@ -1789,7 +1789,6 @@ class Invoices_model extends App_Model
                 $this->load->model('warehouses_model');
                 if($transfer_out == '')
                 {
-
                     $plus_transfer_stock = [];
                     $plus_transfer_stock['stock_product_code'] = $val['rel_product_id'];
                     $plus_transfer_stock['transaction_from'] = NULL;
@@ -1807,20 +1806,14 @@ class Invoices_model extends App_Model
                         if($wo_install_transfer_id)
                             $this->db->query('UPDATE tblitemable SET wo_install_transfer_id = '.$wo_install_transfer_id.' WHERE id='.$itemid);
                         else
-                        {
-                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
-                        }
 
                     } else {
                         $last_transaction_qty = $this->warehouses_model->get_transfer($item->wo_install_transfer_id)->transaction_qty;
                         $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
                         $success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $item->wo_install_transfer_id);
                         if(!$success)
-                        {
-                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
-                        }
                     }
                                         
                     if ($this->db->affected_rows() > 0) {
@@ -1829,9 +1822,11 @@ class Invoices_model extends App_Model
 
                     $pack_transfer = [];
                     $pack_capacity = $val['pack_capacity'];
-                    $pack = $this->db->query('SELECT id from tblpack_list where pack_capacity='.$pack_capacity)->row();
+                    $stock_id = $val['rel_product_id'];
+                    $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
+                    // print_r($pack); exit();
                     if(!empty($pack)){
-                        $pack_id = $pack->id;
+                        $pack_id = $pack->packing_id;
                         $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
                         $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
                         $pack_transfer['transaction_notes'] = 'WO-'.$id;
@@ -1842,20 +1837,14 @@ class Invoices_model extends App_Model
                             if($pack_transfer_id)
                                 $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
                             else
-                            {
-                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
-                            }
                         } 
                         else {
                             $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
                             $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
                             $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
                             if(!$success)
-                            {
-                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
-                            }
                         }
                     }   
 
@@ -1864,7 +1853,8 @@ class Invoices_model extends App_Model
                     // print_r($pack_transfer); exit();
                     $pack_transfer = [];
                     $pack_capacity = $val['pack_capacity'];
-                    $pack = $this->db->query('SELECT id from tblpack_list where pack_capacity='.$pack_capacity)->row();
+                    $stock_id = $val['rel_product_id'];
+                    $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
                     if(!empty($pack)){
                         $pack_id = $pack->id;
                         $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
@@ -1877,20 +1867,14 @@ class Invoices_model extends App_Model
                             if($pack_transfer_id)
                                 $this->db->query('UPDATE tblitemable SET pack_transfer_id = '.$pack_transfer_id.' WHERE id='.$itemid);
                             else
-                            {
-                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
-                            }
                         } 
                         else {
                             $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_transfer_id)->transaction_qty;
                             $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
                             $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_transfer_id,$pack_id);
                             if(!$success)
-                            {
-                                set_alert('danger', _l('warehouse_limit_warning'));
                                 return false;
-                            }
                         }
                     } 
                 }
@@ -1986,10 +1970,7 @@ class Invoices_model extends App_Model
                         if($recipe_install_transfer_id)
                             $this->db->query('UPDATE tblplan_recipe SET recipe_install_transfer_id = '.$recipe_install_transfer_id.' WHERE id='.$recipe_id);
                        else
-                            {
-                                set_alert('danger', _l('warehouse_limit_warning'));
-                                return false;
-                            }
+                            return false;
 
                     } else {
                         $last_transaction_qty = $this->warehouses_model->get_transfer($recipe->recipe_install_transfer_id)->transaction_qty;
@@ -1997,10 +1978,7 @@ class Invoices_model extends App_Model
                         $success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock, $recipe->recipe_install_transfer_id);
 
                         if(!$success)
-                        {
-                            set_alert('danger', _l('warehouse_limit_warning'));
                             return false;
-                        }
                     }
                }
                 

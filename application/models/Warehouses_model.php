@@ -371,9 +371,9 @@ class Warehouses_model extends App_Model
                     {
                         $allowed_staffs = $this->db->query('SELECT * From tblstaff WHERE stock_warning_email_permission=1')->result_array();
                         foreach ($allowed_staffs as $key => $staff) {
-                            $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
+                            send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }
@@ -427,7 +427,7 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }
@@ -469,7 +469,7 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }
@@ -513,7 +513,7 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }
@@ -568,7 +568,7 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }
@@ -615,7 +615,7 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        return false;
+                        // return false;
                     }
                 }
             }

@@ -106,7 +106,7 @@ class Production_model extends App_Model
                     $waste_transfer_id = $this->warehouses_model->add_transfer_by_production($waste_transfer_stock, -1);
                     if(!$waste_transfer_id)
                         return false;
-                     else {
+                    else {
                         $data['waste_transfer_id'] = $waste_transfer_id;
                         $this->db->where('p_qty_id',$data['p_qty_id']);
                         $this->db->update(db_prefix().'produced_qty',$data);

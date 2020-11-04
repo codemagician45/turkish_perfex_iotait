@@ -98,7 +98,7 @@
             });
         });
 
-        var id = '<?php if(isset($transfer)) echo $transfer->id; else echo '';?>';
+        var transfer_id = '<?php if(isset($transfer)) echo $transfer->id; else echo '';?>';
         var warehouses = [];
         var selectedTransaction = '<?php if(isset($transfer)) echo $transfer->transaction_from?>';
         var option = '<option></option>';
@@ -121,7 +121,8 @@
                 }
             })
         })
-        if(id){
+        if(transfer_id){
+            id = $('#stock_product_code').val()
             var transactionFrom = admin_url +'warehouses/get_transfers_by_product_code/' + id ;
             requestGetJSON(transactionFrom).done(function (results) {
                 if(results){

@@ -32,6 +32,7 @@ class Installation extends AdminController
     {
         if ($this->input->post()) {
             $invoice_data = $this->input->post();
+            // print_r($invoice_data); exit();
             if ($id == '') {
                 if (!has_permission('invoices', '', 'create')) {
                     access_denied('invoices');
@@ -80,7 +81,6 @@ class Installation extends AdminController
                 $success = $this->invoices_model->update($invoice_data, $id);
 
                 $wo_item_sucess = $this->invoices_model->update_rel_wo_items_install($wo_items,$id,$invoice_data['transfer_out']);
-                
                 $plan_recipe_success = $this->invoices_model->update_plan_recipe_install($plan_items,$id,$invoice_data['transfer_out']);
 
                 if($plan_recipe_success)
