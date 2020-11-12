@@ -75,6 +75,13 @@ function app_init_admin_sidebar_menu_items()
             'name'     => _l('barcode_list'),
             'href'     => admin_url('warehouses/barcode_list'),
             'position' => 40,
+        ]);
+    if (has_permission('warehouse', '', 'dispatching_bay'))
+        $CI->app_menu->add_sidebar_children_item('warehouse', [
+            'slug'     => 'dispatching_bay',
+            'name'     => _l('dispatching_bay'),
+            'href'     => admin_url('warehouses/dispatching_bay_list'),
+            'position' => 45,
         ]); 
 
     /*Purchase*/

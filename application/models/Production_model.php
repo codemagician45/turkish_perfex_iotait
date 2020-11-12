@@ -77,11 +77,8 @@ class Production_model extends App_Model
             $minus_transfer_stock['transaction_to'] = NULL;
             $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
             $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
-
-            // $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-            // $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
-            
             $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
+            $minus_transfer_stock['description'] = _l('used_for_production');
             $minus_success = $this->warehouses_model->update_transfer_by_production($minus_transfer_stock,$res->minus_transfer_id);
             if(!$minus_success)
                 return false;
@@ -122,8 +119,8 @@ class Production_model extends App_Model
             $plus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
             $last_transaction_qty = $this->warehouses_model->get_transfer($res->plus_transfer_id)->transaction_qty;
             $plus_transfer_stock['delta'] = $plus_transfer_stock['transaction_qty'] - $last_transaction_qty;
+            $plus_transfer_stock['description'] = _l('produced_item');
             $plus_success = $this->warehouses_model->update_transfer_by_production($plus_transfer_stock, $res->plus_transfer_id);
-            
             
             if ($this->db->affected_rows() > 0) {
                log_activity('Daily Produced Qty Updated [' . $data['p_qty_id'] . ']');
@@ -139,20 +136,17 @@ class Production_model extends App_Model
                 $this->db->join(db_prefix().'plan_recipe',db_prefix().'plan_recipe.id='.db_prefix().'events.recipe_id','left');
                 $this->db->where('p_qty_id',$insert_id);
                 $res = $this->db->get(db_prefix().'produced_qty')->row();
-                // print_r($res); exit();
                 $this->load->model('warehouses_model');
 
                 $minus_transfer_stock = [];
                 $minus_transfer_stock['stock_product_code'] = $res->ingredient_item_id;
                 $minus_transfer_stock['transaction_from'] = $take_from;
                 $minus_transfer_stock['transaction_to'] = NULL;
-
-                // $this->db->where('ingredient_item_id',$res->ingredient_item_id);
-                // $used_qty = $this->db->get(db_prefix().'product_recipe')->row()->used_qty;
                 $minus_transfer_stock['transaction_qty'] = floatval($res->produced_quantity)*floatval($res->used_qty)/floatval($res->total_production_qty);
 
                 $minus_transfer_stock['wo_no'] = $res->rel_wo_id;
                 $minus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
+                $minus_transfer_stock['description'] = _l('used_for_production');
                 $minus_transfer_id = $this->warehouses_model->add_transfer_by_production($minus_transfer_stock, -1);
                 if(!$minus_transfer_id){
                     return false;
@@ -185,6 +179,7 @@ class Production_model extends App_Model
                 $plus_transfer_stock['transaction_to'] = $export_to;
                 $plus_transfer_stock['transaction_qty'] = $res->produced_quantity;
                 $plus_transfer_stock['transaction_notes'] = 'WO-'.$res->rel_wo_id;
+                $plus_transfer_stock['description'] = _l('produced_item');
                 $plus_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
                 if(!$plus_transfer_id){
                     set_alert('danger', _l('warehouse_overrode'));

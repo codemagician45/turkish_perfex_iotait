@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     db_prefix() .'purchase_order.id as id',
     'updated_at',
+    db_prefix().'purchase_order_item.product_name as requested_product',
     db_prefix().'purchase_order_phases.phase as phase',
     'approval',
     '(SELECT company FROM ' . db_prefix() . 'clients where userid = ' . db_prefix() . 'purchase_order.acc_list) as company',
@@ -19,6 +20,7 @@ $join = [
    'LEFT JOIN ' . db_prefix() . 'staff staff1 ON staff1.staffid = ' . db_prefix() . 'purchase_order.created_user',
    'LEFT JOIN ' . db_prefix() . 'staff staff2 ON staff2.staffid = ' . db_prefix() . 'purchase_order.updated_user',
    'LEFT JOIN ' . db_prefix() . 'purchase_order_phases ON ' . db_prefix() . 'purchase_order_phases.id = ' . db_prefix() . 'purchase_order.purchase_phase_id',
+   'LEFT JOIN ' . db_prefix() . 'purchase_order_item ON ' . db_prefix() . 'purchase_order_item.id = (SELECT id from '.db_prefix().'purchase_order_item where rel_purchase_id = '.db_prefix().'purchase_order.id limit 1)',
 ];
 
 $where  = ['AND '.db_prefix() . 'purchase_order.approval = 1'];
@@ -49,6 +51,8 @@ foreach ($rResult as $aRow) {
     $row[] = $subjectOutput;
     
     $row[] = $aRow['updated_at'];
+
+    $row[] = $aRow['requested_product'];
 
     $row[] = format_purchase_phase($aRow['order_no'],$aRow['phase']);
 

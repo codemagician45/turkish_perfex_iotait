@@ -1518,18 +1518,14 @@ class Estimates_model extends App_Model
 
     public function get_quote_items($id = '')
     {
-        // print_r($id);exit();
         $this->db->where('id',$id);
-
         $rel_quote = $this->db->get(db_prefix() . 'estimates')->row();
         if(!empty($rel_quote)){
             $rel_quote_id = $rel_quote->rel_quote_id;
             $this->db->where('rel_id',$rel_quote_id);
         }
         $this->db->select('*');
-        // $this->db->select(db_prefix().'itemable.*, '. db_prefix().'stock_lists.stock_level');
         $this->db->from(db_prefix().'itemable');
-        // $this->db->join(db_prefix().'stock_lists', db_prefix().'stock_lists.id ='.db_prefix().'itemable.rel_product_id','left');
         $wo_items = $this->db->get()->result_array();
         foreach ($wo_items as $key => &$wo) {
             $transfer_data = $this->warehouses_model->get_transfer_by_code($wo['rel_product_id']);
@@ -1537,10 +1533,9 @@ class Estimates_model extends App_Model
                 if($main->order_no == 2)
                     array_push($wo, $main);
             }
+            array_push($wo,$transfer_data);
         }
-
         return $wo_items;
-
     }
 
     public function change_so_status($id, $status)

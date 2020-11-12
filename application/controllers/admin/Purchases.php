@@ -63,11 +63,8 @@ class Purchases extends AdminController
     {
     	if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             if ($id == '') {
-
                 $id = $this->purchases_model->add_purchase_order($data);
-
                 if(isset($data['newitems']))
                 {
                     $purchase_order_item = $data['newitems'];
@@ -75,15 +72,12 @@ class Purchases extends AdminController
 
                     $this->purchases_model->add_purchase_order_item($purchase_order_item);
                 }
-
                 if ($id) {
                     set_alert('success', _l('added_successfully', _l('purchase_order')));
                     redirect(admin_url('purchases/purchase_orders'));
                 }
             } else {
-                
                 $success = $this->purchases_model->update_purchase_order($data, $id);
-
                 $current_purchase_item = $this->purchases_model->get_purchase_order_item($id);
                 if(empty($current_purchase_item) && isset($data['newitems']))
                 {
@@ -104,7 +98,6 @@ class Purchases extends AdminController
                     $this->purchases_model->update_purchase_order_item($purchase_order_item);
 
                 }
-                
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('purchase_order')));
                 }
@@ -135,7 +128,6 @@ class Purchases extends AdminController
 
         if(isset($data['purchase_order']))
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
-        // print_r($data['purchase_order_item']); exit();
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();

@@ -17,7 +17,6 @@
                 <th width="10%" align="center"><?php echo _l('ordered_qty'); ?></th>
                 <th width="10%"  align="center"><?php echo _l('received_qty')?></th>
                 <th width="10%"  align="center"><?php echo _l('unit') ?></th>
-                <th width="10%"  align="center"><?php echo _l('price'); ?></th>
                 <th width="10%"  align="center"><?php echo _l('volume_m3') ?></th>
                 <th width="10%"  align="center"><?php echo _l('notes') ?></th>
                 <th align="center"><i class="fa fa-cog"></i></th>
@@ -56,10 +55,6 @@
                 </td>
 
                 <td>
-                    <input type="number" name="price" class="form-control" placeholder="<?php echo _l('price'); ?>">
-                </td>
-
-                 <td>
                     <input type="number" name="volume" class="form-control" placeholder="<?php echo _l('volume_m3'); ?>">
                 </td>
 
@@ -106,8 +101,6 @@
                     $table_row .= '<td>
                     <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98"><option value="'.$item['unit'].'">'.$item['name'].'</option></select></div>
                     <input type="hidden"  name="'.$items_indicator.'['.$i.'][product_id]" class="form-control input-transparent text-right" value="'.$item['product_id'].'"></td>';
-
-                    $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][price]" class="form-control" value="'.$item['price'].'"></td>';
 
                     $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][volume]" class="form-control" value="'.$item['volume'].'"></td>';
 

@@ -13,6 +13,8 @@
                 <th width="10%"><?php echo _l('rel_wo_item'); ?></th>
                 <th width="10%"><?php echo _l('product_code'); ?></th>
                 <th width="10%"><?php echo _l('product_name'); ?></th>
+                <th width="10%" align="right"><?php echo _l('order'); ?></th>
+                <th width="20%"><?php echo _l('arrival_date'); ?></th>
                 <th width="10%"><?php echo _l('stock_level'); ?></th>
                 <th width="10%"><?php echo _l('used_qty'); ?></th>
                 <th width="10%"><?php echo _l('rate_of_waste'); ?></th>
@@ -20,7 +22,7 @@
                 <th width="10%"><?php echo _l('mould_cavity'); ?></th>
                 <th width="10%"><?php echo _l('cycle_time'); ?></th>
                 <th width="10%" align="right"><i class="fa fa-cog"></i></th>
-                <th width="10%" align="right"><?php echo _l('set_plan'); ?></th>
+                <!-- <th width="10%" align="right"><?php echo _l('set_plan'); ?></th> -->
                 <th width="10%" align="right"><?php echo _l('scheduled'); ?></th>
             </tr>
             </thead>
@@ -49,6 +51,16 @@
 
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"><input type="hidden" name="' . $items_indicator . '[' . $i . '][ingredient_item_id]" value="' . $item['ingredient_item_id'] . '" ></td>';
 
+                        if($item[0] > $item['used_qty'])
+                            $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
+                        else {
+                            if($item['quick_purchased'] == 1)
+                                $table_row .= '<td><a href="#" class="btn btn-info pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
+                            else
+                                $table_row .= '<td><a href="#" class="btn btn-warning pull-right" onclick="quick_purchase()"><i class="fa fa-check-circle-o"></i></a></td>';
+                        }
+                        $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][arrival_date]" class="form-control" value="" readonly></td>';
+
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][stock_level]" class="form-control" value="' . $item[0] . '" disabled></td>';
 
                         $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][used_qty]" class="form-control material qty" value="'.$item['used_qty'].'" onkeyup = "material_cost_calc_for_added(this)"></td>';
@@ -65,12 +77,12 @@
 
                         $table_row .= '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_plan_recipe_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
 
-                        $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_plan(this,' . $item['wo_product_id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
+                        // $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_plan(this,' . $item['wo_product_id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
 
                         if($item['scheduled'] == 1)
-                            $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
+                            $table_row .= '<td><a href="#" class="btn btn-success pull-right schedule" onclick="set_plan(this,' . $item['wo_product_id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-check-circle-o"></i></a></td>';
                         else
-                            $table_row .= '<td><a href="#" class="btn btn-warning pull-right"><i class="fa fa-times-circle"></i></a></td>';
+                            $table_row .= '<td><a href="#" class="btn btn-warning pull-right schedule" onclick="set_plan(this,' . $item['wo_product_id'] . ','. $item['ingredient_item_id'].'); return false;"><i class="fa fa-times-circle"></i></a></td>';
 
                         $table_row .= '</tr>';
                         echo $table_row;

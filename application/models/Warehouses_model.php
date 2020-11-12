@@ -715,6 +715,7 @@ class Warehouses_model extends App_Model
         return $this->db->get(db_prefix() . 'stock_lists')->result_array();
     }
 
+
     public function get_warehouse_list()
     {
         $this->db->order_by('order_no', 'asc');

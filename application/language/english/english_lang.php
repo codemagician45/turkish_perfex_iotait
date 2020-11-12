@@ -4023,4 +4023,11 @@ $lang['enter_waste_production_quantity'] = 'Enter Waste Production Qty';
 $lang['warehouse_limit_warning'] = 'Warehouse Limit Warning';
 
 $lang['pack_photo'] = 'Pack Photo';
+$lang['requested_product'] = 'Requested Product';
+$lang['used_for_production'] = 'Used for Production';
+$lang['produced_item'] = 'Produced Item';
+$lang['dispatching_bay'] = 'Dispatching Bay';
+$lang['dispatch'] = 'Dispatch';
+$lang['sending_qty'] = 'Sending Qty';
+$lang['select_all'] = 'Select All';
 

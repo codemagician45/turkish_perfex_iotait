@@ -48,6 +48,7 @@ function get_available_staff_permissions($data = [])
                 'purchase_receiving_bay' => _l('purchase_receiving_bay'),
                 'purchase_request' => _l('purchase_request'),
                 'barcode_list' => _l('barcode_list'),
+                'dispatching_bay' => _l('dispatching_bay'),
             ]
         ],
 

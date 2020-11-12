@@ -18,7 +18,6 @@
                 <th width="10%"  align="center"><?php echo _l('price'); ?></th>
                 <th width="10%"  align="center"><?php echo _l('volume_m3') ?></th>
                 <th width="10%"  align="center"><?php echo _l('notes') ?></th>
-                <!-- <th width="10%"  align="center"><?php echo _l('item_order') ?></th> -->
                 <th align="center"><i class="fa fa-cog"></i></th>
             </tr>
             </thead>
@@ -26,15 +25,10 @@
             <tr class="main">
                 <td></td>
                 <td>
-                    <!-- <input type="hidden" name="item_id"> -->
                     <input type="text" name="product_name" class="form-control" placeholder="<?php echo _l('product_name'); ?>">
                 </td>
 
                 <td>
-                    <!-- <div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%">
-                        <input type="checkbox" id="description" name="description" >
-                        <label for="description"></label>
-                    </div> -->
                     <textarea name="description" class="form-control" style="height: 36px" rows="2" placeholder="<?php echo _l('description'); ?>"></textarea>
                 </td>
 
@@ -47,8 +41,6 @@
                 </td>
 
                 <td>
-                    <!-- <input type="text" name="unit" class="form-control" placeholder="<?php echo _l('unit'); ?>"> -->
-                   
                     <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
                         <select data-fieldto="unit" data-fieldid="unit" name="unit" id="unit" class="selectpicker form-control" data-width="100%" data-none-selected-text="Nothing selected" data-live-search="true" tabindex="-98">
                             <option value=""></option>
@@ -72,10 +64,6 @@
                 <td>
                     <input type="text" name="notes"  class="form-control"  placeholder="<?php echo _l('notes'); ?>">
                 </td>
-                
-                <!-- <td>
-                    <input type="number" name="item_order" class="form-control" placeholder="<?php echo _l('item_order'); ?>">
-                </td> -->
                 
                 <td>
                     <?php
@@ -106,17 +94,6 @@
                     $table_row .= '<input type="hidden" class="order" name="' . $items_indicator . '[' . $i . '][order]">';
 
                     $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control" value="' . $item['product_name'] . '"></td>';
-
-                    // if ($item['description'] == 1) {
-
-                    //     $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
-
-                    //     <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
-                    // } else {
-                    //     $table_row .= '<td><div class="checkbox checkbox-primary" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" name="' . $items_indicator . '[' . $i . '][description]"  value="'.$item['description'].'"><label ></label></div>
-                    //     <input type="hidden"  name="' . $items_indicator . '[' . $i . '][product_id]" class="form-control input-transparent text-right" value="' . $item['product_id'] . '"></td>';
-
-                    // }
 
                     $table_row .= '<td><textarea name="' . $items_indicator . '[' . $i . '][description]" class="form-control" style="height: 36px" rows="2">' . clear_textarea_breaks($item['description']) . '</textarea></td>';
                     

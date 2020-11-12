@@ -7,7 +7,9 @@
          <div class="panel_s">
             <div class="panel-body">
                <!-- if invoiceid found in url -->
-               <?php $this->load->view('admin/installation/table_html'); ?>
+               <?php //echo form_hidden('invoiceid',$invoiceid); ?>
+               <?php $this->load->view('admin/warehouses/dispatching_bay/table_html'); ?>
+               
             </div>
          </div>
       </div>

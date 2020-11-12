@@ -1766,7 +1766,6 @@ class Invoices_model extends App_Model
 
     public function update_rel_wo_items_install($data, $id,$transfer_out)
     {
-        // $transfer_check = $this->get($id)->transfered_plus;
         $this->load->model('manufacturing_settings_model');
         $installation = $this->manufacturing_settings_model->get_installation_by_id();
         if(!empty($installation))
@@ -1878,6 +1877,130 @@ class Invoices_model extends App_Model
                         }
                     } 
                 }
+            }
+
+        if ($affected_rows > 0) {
+                return true;
+        } 
+         
+    }
+
+    public function update_rel_wo_items_dispatch($data, $id,$transfer_out)
+    {
+        if(isset($data['items']))
+            $items = $data['items'];
+        $affected_rows = 0;
+        if(isset($items))
+            foreach ($items as $val) {
+                if(isset($val['dispatch']) && $val['dispatch'] == 'on'){
+                    $val['dispatch'] = 1;
+
+                    $itemid = $val['itemid'];
+                    unset($val['itemid']);
+
+                    if(isset($val['approval_need']))
+                        $val['approval_need'] = 1;
+
+                    $this->db->where('id',$itemid);
+                    $this->db->update(db_prefix() . 'itemable', $val);
+
+                    $this->load->model('warehouses_model');
+                    if($transfer_out == '')
+                    {
+                        $sending_transfer_stock = [];
+                        $sending_transfer_stock['stock_product_code'] = $val['rel_product_id'];
+                        $sending_transfer_stock['transaction_from'] = $val['dispatch_warehouse'];
+                        $sending_transfer_stock['transaction_to'] = NULL;
+                        $sending_transfer_stock['transaction_qty'] = $val['sending_qty'];
+                        $sending_transfer_stock['wo_no'] = $id;
+                        $sending_transfer_stock['transaction_notes'] = 'WO-'.$id;
+                        $sending_transfer_stock['description'] = _l('dispatch');
+
+                        $this->db->where('id',$itemid);
+                        $item = $this->db->get(db_prefix().'itemable')->row();
+                        
+                        if(empty($item->wo_dispatch_transfer_id))
+                        {
+                            $wo_dispatch_transfer_id = $this->warehouses_model->add_transfer_by_production($sending_transfer_stock, 1);
+                            if($wo_dispatch_transfer_id)
+                                $this->db->query('UPDATE tblitemable SET wo_dispatch_transfer_id = '.$wo_dispatch_transfer_id.' WHERE id='.$itemid);
+                            else
+                                return false;
+
+                        } else {
+                            $last_transaction_qty = $this->warehouses_model->get_transfer($item->wo_dispatch_transfer_id)->transaction_qty;
+                            $sending_transfer_stock['delta'] = $sending_transfer_stock['transaction_qty'] - $last_transaction_qty;
+                            $success = $this->warehouses_model->update_transfer_by_production($sending_transfer_stock, $item->wo_dispatch_transfer_id);
+                            if(!$success)
+                                return false;
+                        }
+                                            
+                        if ($this->db->affected_rows() > 0) {
+                            $affected_rows++;
+                        }
+
+                        $pack_transfer = [];
+                        $pack_capacity = $val['pack_capacity'];
+                        $stock_id = $val['rel_product_id'];
+                        $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
+
+                        if(!empty($pack)){
+                            $pack_id = $pack->packing_id;
+                            $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
+                            $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
+                            $pack_transfer['transaction_notes'] = 'WO-'.$id;
+                            $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
+                            if(empty($item->pack_dispatch_transfer_id))
+                            {
+                                $pack_dispatch_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
+                                if($pack_dispatch_transfer_id)
+                                    $this->db->query('UPDATE tblitemable SET pack_dispatch_transfer_id = '.$pack_dispatch_transfer_id.' WHERE id='.$itemid);
+                                else
+                                    return false;
+                            } 
+                            else {
+                                $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_dispatch_transfer_id)->transaction_qty;
+                                $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
+                                $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_dispatch_transfer_id,$pack_id);
+                                if(!$success)
+                                    return false;
+                            }
+                        }   
+
+                    }
+                    else if($transfer_out == 1){
+                        $pack_transfer = [];
+                        $pack_capacity = $val['pack_capacity'];
+                        $stock_id = $val['rel_product_id'];
+                        $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
+                        if(!empty($pack)){
+                            $pack_id = $pack->id;
+                            $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
+                            $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
+                            $pack_transfer['transaction_notes'] = 'WO-'.$id;
+                            $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
+                            if(empty($item->pack_dispatch_transfer_id))
+                            {
+                                $pack_dispatch_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
+                                if($pack_dispatch_transfer_id)
+                                    $this->db->query('UPDATE tblitemable SET pack_dispatch_transfer_id = '.$pack_dispatch_transfer_id.' WHERE id='.$itemid);
+                                else
+                                    return false;
+                            } 
+                            else {
+                                $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_dispatch_transfer_id)->transaction_qty;
+                                $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
+                                $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_dispatch_transfer_id,$pack_id);
+                                if(!$success)
+                                    return false;
+                            }
+                        } 
+                    }
+
+                }
+                
+
+                
             }
 
         if ($affected_rows > 0) {

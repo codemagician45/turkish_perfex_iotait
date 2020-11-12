@@ -176,7 +176,7 @@
 	$(document).ready(function(){
 
 	  var wo_rows = $('.table.wo-items tbody tr.item');
-	  var recipe_rows_save_check = $('.table.recipe-items tbody tr.item').find('.btn-info');
+	  var recipe_rows_save_check = $('.table.recipe-items tbody tr.item').find('.schedule');
 	  var i = 0;
 	  $.each(wo_rows, function(){
 	  	let product_id = $(this).find('.rel_product_id').val();
@@ -660,6 +660,10 @@
     $('#installation-event-form').submit(function(){
     	$('#installation_event_submit').prop('disabled',true);
     })
+
+    function quick_purchase(){
+    	alert('Are you sure quick purchase?');
+    }
 
 </script>
 </body>

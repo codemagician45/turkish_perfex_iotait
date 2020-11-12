@@ -3,7 +3,6 @@
 <div id="wrapper">
     <div class="content">
         <div class="row">
-            <!-- <?php echo form_open('admin/warehouses/transfers_manage',array('id'=>'transfer','class'=>'_transaction_form transferId')); ?> -->
             <?php echo form_open($this->uri->uri_string(),array('id'=>'transfer')); ?>
             <div class="col-md-12 transfers">
                 <div class="panel_s">
@@ -12,7 +11,7 @@
                             <div class="col-md-6">
                                 <?php 
                                     $selected = (isset($transfer) ? $transfer->stock_product_code : '');
-                                    echo render_select('stock_product_code',$product_code,array('id','product_code'),_l('product_code'),$selected); 
+                                    echo render_select('stock_product_code',$product_code,array('id','0'),_l('product_code'),$selected); 
                                 ?>
                             </div>
                         </div>
@@ -111,7 +110,7 @@
                     option = '<option></option>';
                     results.forEach(e => {
                         if(e.warehouse_id == selectedTransaction)
-                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' - '+ e.qty +'</option>';
+                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' : '+ e.qty +'</option>';
                         else
                             option += '<option value="'+e.warehouse_id+'">'+e.warehouse+' : '+ e.qty +'</option>';
                     })
@@ -130,7 +129,7 @@
                     option = '<option></option>';
                     results.forEach(e => {
                         if(e.warehouse_id == selectedTransaction)
-                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' - '+ e.qty +'</option>';
+                            option += '<option value="'+e.warehouse_id+'" selected>'+e.warehouse+' : '+ e.qty +'</option>';
                         else
                             option += '<option value="'+e.warehouse_id+'">'+e.warehouse+' : '+ e.qty +'</option>';
                     })
@@ -146,58 +145,6 @@
             init_selectpicker();
         }
         
-        
-        // $('#transaction_from').change(function(){
-        //     var wId = $(this).val();
-        //     if(warehouses.length > 0)
-        //     {
-        //         var currentWarehouse = warehouses.filter(e => {
-        //             return e.warehouse_id == wId;
-        //         })
-        //         currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
-        //     }
-            
-        // })
-
-        // $('#transaction_qty').keyup(function(){
-        //     var wId = $('#transaction_from').val();
-        //     if($('#stock_product_code').val()){
-        //        var tranferReqUrl = admin_url +'warehouses/get_transfers_by_product_code/' + $('#stock_product_code').val() ;
-        //         requestGetJSON(tranferReqUrl).done(function (results) {
-        //             warehouses = results;
-        //             if(warehouses.length > 0)
-        //             {
-        //                 var currentWarehouse = warehouses.filter(e => {
-        //                     return e.warehouse_id == wId;
-        //                 })
-        //                 currentWarehouseQty = currentWarehouse[0] && currentWarehouse[0].qty;
-        //             }
-        //         }); 
-        //     }
-        //     else {
-        //         alert('Please Select Product code');
-        //         $(this).val('');
-        //     }
-
-        //     if(!wId){
-        //         alert('Please Select Warehouse');
-        //         $(this).val('');
-        //     }
-        //     else{
-        //         var url = admin_url +'warehouses/get_current_warehouse/' + wId ;
-        //         requestGetJSON(url).done(function (result) {
-        //             if(result.order_no != 1)
-        //             {
-        //                 if($('#transaction_qty').val() > currentWarehouseQty)
-        //                 {
-        //                     alert('Overflowed Quantity from this Warehouse');
-        //                     $('#transaction_qty').val('');
-        //                 } 
-        //             }
-        //         });
-        //     }
-            
-        // })
 
         $('#allocation').change(function(){
             if($(this).prop('checked') == true)
@@ -218,7 +165,6 @@
         $('#transfer').submit(function(e){
             e.preventDefault();
             var wId = $('#transaction_from').val();
-            console.log(warehouses)
             var currentWarehouse = warehouses.filter(e => {
                 return e.warehouse_id == wId;
             })

@@ -157,8 +157,8 @@ foreach ($rResult as $aRow) {
 
     // $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . ' | </a>';
     if (has_permission('invoices', '', 'edit')) {
-        $numberOutput .= '<a href="' . admin_url('installation/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-        // $numberOutput .= '<a href="' . admin_url('warehouses/dispatching_bay/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        // $numberOutput .= '<a href="' . admin_url('installation/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= '<a href="' . admin_url('warehouses/dispatching_bay/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
 
     $numberOutput .= '</div>';
