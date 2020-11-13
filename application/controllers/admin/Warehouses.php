@@ -1084,6 +1084,7 @@ class Warehouses extends AdminController
             echo json_encode([
                 'success' => $success,
                 'message' => $message,
+                'approval_date' => date("Y-m-d", strtotime($approval_date))
             ]);
         }
     }
