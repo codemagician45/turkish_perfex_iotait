@@ -9,19 +9,19 @@
         <table class="table estimate-items-table items recipe-items table-main-estimate-edit has-calculations no-mtop">
             <thead>
             <tr>
-                <th width="10%"><?php echo _l('rel_wo_item'); ?></th>
-                <th width="10%"><?php echo _l('product_code'); ?></th>
-                <th width="10%"><?php echo _l('product_name'); ?></th>
-                <th width="10%" align="right"><?php echo _l('order'); ?></th>
-                <th width="20%"><?php echo _l('arrival_date'); ?></th>
-                <th width="10%"><?php echo _l('stock_level'); ?></th>
-                <th width="10%"><?php echo _l('used_qty'); ?></th>
-                <th width="10%"><?php echo _l('rate_of_waste'); ?></th>
-                <th width="10%"><?php echo _l('mould_id'); ?></th>
-                <th width="10%"><?php echo _l('mould_cavity'); ?></th>
-                <th width="10%"><?php echo _l('cycle_time'); ?></th>
-                <th width="10%" align="right"><i class="fa fa-cog"></i></th>
-                <th width="10%" align="right"><?php echo _l('scheduled'); ?></th>
+                <th width="7%"><?php echo _l('rel_wo_item'); ?></th>
+                <th width="7%"><?php echo _l('product_code'); ?></th>
+                <th width="7%"><?php echo _l('product_name'); ?></th>
+                <th width="7%" align="right"><?php echo _l('order'); ?></th>
+                <th width="15%"><?php echo _l('arrival_date'); ?></th>
+                <th width="7%"><?php echo _l('stock_level'); ?></th>
+                <th width="7%"><?php echo _l('used_qty'); ?></th>
+                <th width="7%"><?php echo _l('rate_of_waste'); ?></th>
+                <th width="7%"><?php echo _l('mould_id'); ?></th>
+                <th width="7%"><?php echo _l('mould_cavity'); ?></th>
+                <th width="7%"><?php echo _l('cycle_time'); ?></th>
+                <th width="7%" align="right"><i class="fa fa-cog"></i></th>
+                <th width="7%" align="right"><?php echo _l('scheduled'); ?></th>
             </tr>
             </thead>
             <tbody>

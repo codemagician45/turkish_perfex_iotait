@@ -368,3 +368,193 @@ ERROR - 2020-11-13 16:18:55 --> Could not find the language line "created user"
 ERROR - 2020-11-13 16:18:55 --> Could not find the language line "updated user"
 ERROR - 2020-11-13 16:18:55 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
 ERROR - 2020-11-13 16:18:55 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 16:37:42 --> Could not find the language line "created user"
+ERROR - 2020-11-13 16:37:42 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 16:37:42 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 16:37:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 16:43:01 --> Could not find the language line "created user"
+ERROR - 2020-11-13 16:43:01 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 16:43:01 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 16:43:01 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 16:43:26 --> 404 Page Not Found: admin/Production/work_order
+ERROR - 2020-11-13 16:57:26 --> Severity: Notice --> Undefined property: Production::$manufacturing_settings_model C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Production.php 221
+ERROR - 2020-11-13 16:57:26 --> Severity: error --> Exception: Call to a member function get_mould_list() on null C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Production.php 221
+ERROR - 2020-11-13 16:58:06 --> Could not find the language line "created user"
+ERROR - 2020-11-13 16:58:06 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 16:58:06 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 16:58:06 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 16:59:08 --> Could not find the language line "created user"
+ERROR - 2020-11-13 16:59:08 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 16:59:08 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 16:59:08 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:00:23 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:00:23 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:00:23 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:00:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:01:35 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:01:35 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:01:50 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:01:50 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:02:16 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:02:16 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:02:29 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:02:29 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:02:40 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:02:40 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:02:46 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:02:46 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:04:02 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:04:02 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:04:20 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:04:20 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:07:22 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:07:22 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:07:46 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:07:46 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:13:32 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:13:32 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:14:48 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:14:48 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:15:25 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:15:25 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:29:23 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:29:23 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:29:40 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:29:40 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:29:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:29:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:30:51 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:30:51 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:30:51 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:30:51 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:31:25 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:31:25 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:31:25 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:31:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:31:37 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:31:37 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:31:37 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:31:37 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:32:27 --> Severity: error --> Exception: Too few arguments to function Invoices::get_machine_by_mould(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoices.php 548
+ERROR - 2020-11-13 17:34:43 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:34:43 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:35:14 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:35:14 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:35:33 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:35:33 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:36:02 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:36:02 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:36:11 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:36:11 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:36:11 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:36:11 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:37:47 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:37:47 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:37:58 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:37:58 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:37:58 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:37:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:38:24 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:38:24 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:38:24 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:38:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:38:36 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:38:36 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:38:36 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:38:36 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:38:49 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:38:49 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:39:40 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:39:40 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:39:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:39:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:49:41 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:49:41 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:49:41 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2020-11-13 17:49:41 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2020-11-13 17:50:33 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:50:33 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:52:20 --> Severity: error --> Exception: Too few arguments to function Invoices::get_machine_by_mould(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoices.php 548
+ERROR - 2020-11-13 17:54:50 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:54:50 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:55:45 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:55:45 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:55:51 --> Severity: error --> Exception: Too few arguments to function Invoices::get_machine_by_mould(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoices.php 548
+ERROR - 2020-11-13 17:56:28 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:56:28 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:56:55 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:56:55 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:57:45 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:57:45 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:58:12 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:58:12 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:58:39 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:58:39 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:58:59 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:58:59 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 17:59:59 --> Could not find the language line "created user"
+ERROR - 2020-11-13 17:59:59 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:00:19 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:00:19 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:00:38 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:00:38 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:04:26 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:04:26 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:04:33 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:04:33 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:06:54 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:06:54 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:07:44 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:07:44 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:08:05 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:08:05 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:08:57 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:08:57 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:09:24 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:09:24 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:09:46 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:09:46 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:12:29 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:12:29 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:14:41 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:14:41 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:15:01 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:15:01 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:15:26 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:15:26 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:18:05 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:18:05 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:18:49 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:18:49 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:19:19 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:19:19 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:19:43 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:19:43 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:20:10 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:20:10 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:20:42 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:20:42 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:21:39 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:21:39 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:22:04 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:22:04 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:22:41 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:22:41 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:24:40 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:24:41 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:56:03 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:56:04 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:56:44 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:56:44 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 18:57:55 --> Could not find the language line "created user"
+ERROR - 2020-11-13 18:57:55 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 19:07:21 --> Could not find the language line "created user"
+ERROR - 2020-11-13 19:07:21 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 19:08:00 --> Could not find the language line "created user"
+ERROR - 2020-11-13 19:08:00 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 19:08:45 --> Could not find the language line "created user"
+ERROR - 2020-11-13 19:08:45 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 19:09:11 --> Could not find the language line "created user"
+ERROR - 2020-11-13 19:09:11 --> Could not find the language line "updated user"
+ERROR - 2020-11-13 19:09:18 --> Could not find the language line "created user"
+ERROR - 2020-11-13 19:09:18 --> Could not find the language line "updated user"

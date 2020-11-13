@@ -6,7 +6,6 @@ $project_id = $this->ci->input->post('project_id');
 
 $aColumns = [
     'number',
-    
     db_prefix() . 'work_order_phases.phase',
     get_sql_select_client_company(),
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'invoices.id and rel_type="invoice" ORDER by tag_order ASC) as tags',
@@ -15,13 +14,6 @@ $aColumns = [
     'staff1.firstname as c_firstname',
     db_prefix() . 'invoices.datecreated',
     'staff2.firstname as u_firstname',
-    // db_prefix() . 'projects.name as project_name',
-    // 'total',
-    // 'total_tax',
-    // 'duedate',
-    // db_prefix() . 'invoices.status',
-    // 'YEAR(date) as year',
-    
     ];
 
 $sIndexColumn = 'id';
@@ -81,16 +73,6 @@ foreach ($agents as $agent) {
 if (count($agentsIds) > 0) {
     array_push($filter, 'AND sale_agent IN (' . implode(', ', $agentsIds) . ')');
 }
-
-// $modesIds = [];
-// foreach ($data['payment_modes'] as $mode) {
-//     if ($this->ci->input->post('invoice_payments_by_' . $mode['id'])) {
-//         array_push($modesIds, $mode['id']);
-//     }
-// }
-// if (count($modesIds) > 0) {
-//     array_push($where, 'AND ' . db_prefix() . 'invoices.id IN (SELECT invoiceid FROM ' . db_prefix() . 'invoicepaymentrecords WHERE paymentmode IN ("' . implode('", "', $modesIds) . '"))');
-// }
 
 $years     = $this->ci->invoices_model->get_invoices_years();
 $yearArray = [];
@@ -160,21 +142,14 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    // $numberOutput .= '<a href="' . site_url('invoice/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
-    // if (has_permission('invoices', '', 'edit')) {
-    //     $numberOutput .= ' | <a href="' . admin_url('invoices/invoice/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-    // }
-
-    // $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a> | ';
-    if (has_permission('invoices', '', 'edit')) {
-        $numberOutput .= '<a href="' . admin_url('planning/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+    if (has_permission('invoices', '', 'view') || has_permission('invoices','','view_own')) {
+        $numberOutput .= '<a href="' . admin_url('production/work_order/' . $aRow['id']) . '">' . _l('view') . '</a>';
     }
 
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;
 
-    // $row[] = app_format_money($aRow['total'], $aRow['currency_name']);
     $row[] = $aRow[db_prefix() . 'work_order_phases.phase'];
 
     if (empty($aRow['deleted_customer_name'])) {
@@ -185,7 +160,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = render_tags($aRow['tags']);
 
-    // $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
     $row[] = $aRow['sum_volume_wo'];
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
@@ -197,15 +171,6 @@ foreach ($rResult as $aRow) {
     }
     else
         $row[] = '';
-
-    // $row[] = _d($aRow['duedate']);
-
-    // $row[] = format_invoice_status($aRow[db_prefix() . 'invoices.status']);
-
-    // // Custom fields add values
-    // foreach ($customFieldsColumns as $customFieldColumn) {
-    //     $row[] = (strpos($customFieldColumn, 'date_picker_') !== false ? _d($aRow[$customFieldColumn]) : $aRow[$customFieldColumn]);
-    // }
 
     $row['DT_RowClass'] = 'has-row-options';
 

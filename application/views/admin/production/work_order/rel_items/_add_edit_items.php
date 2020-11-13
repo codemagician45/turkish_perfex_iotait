@@ -65,14 +65,12 @@
 
                   }
 
-                 $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
+                 $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'" disabled></td>';
                  
-                 // $table_row .= '<td><a href="#" class="btn btn-info pull-right" onclick="set_installation_plan(this,' . $item['id'] . '); return false;"><i class="fa fa-calendar-plus-o"></i></a></td>';
-
                 if($item['scheduled'] == 1)
-                    $table_row .= '<td><a href="#" class="btn btn-success pull-right" onclick="set_installation_plan(this,' . $item['id'] . '); return false;"><i class="fa fa-check-circle-o"></i></a></td>';
+                    $table_row .= '<td><a href="#" class="btn btn-success pull-right" disabled onclick="return false;"><i class="fa fa-check-circle-o"></i></a></td>';
                 else
-                    $table_row .= '<td><a href="#" class="btn btn-warning pull-right" onclick="set_installation_plan(this,' . $item['id'] . '); return false;"><i class="fa fa-times-circle"></i></a></td>';
+                    $table_row .= '<td><a href="#" class="btn btn-warning pull-right" disabled onclick="return false;"><i class="fa fa-times-circle"></i></a></td>';
 
                  $table_row .= '</tr>';
                  echo $table_row;

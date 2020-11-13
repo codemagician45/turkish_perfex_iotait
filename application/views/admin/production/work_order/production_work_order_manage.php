@@ -6,9 +6,6 @@
 			<div class="col-md-12">
 				<div class="panel_s">
 					<div class="panel-body">
-						<div class="_buttons">
-							<a href="<?php echo admin_url('warehouses/transfers_manage'); ?>" class="btn btn-info pull-left display-block"><?php echo _l('new_transfer'); ?></a>
-						</div>
 						<div class="clearfix"></div>
 						<hr class="hr-panel-heading" />
 						<div class="clearfix"></div>
