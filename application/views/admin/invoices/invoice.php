@@ -33,7 +33,32 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="modal fade" id="quick_purchase_confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">
+					<span class="edit-title"><?php echo _l('quick_purchase_confirm_title'); ?></span>
+				</h4>
+			</div>
 
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-12">
+						<?php echo _l('quick_purchase_confirm_que'); ?>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" id="quick_purchase_yes" class="btn btn-info"><?php echo _l('quick_purchase_yes'); ?></button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _l('quick_purchase_no'); ?></button>
+				
+			</div>
+		</div>
+	</div>
 </div>
 <?php init_tail(); ?>
 <script>
@@ -90,14 +115,11 @@
 	        var item_key = $("body").find('tbody .item').length + 1;
 
 	        table_row += '<tr class="sortable item">';
-	        // table_row += '<td class="dragger">';
 
 	        $("body").append('<div class="dt-loader"></div>');
 	        var regex = /<br[^>]*>/gi;
 	        
 	        table_row += '<input type="hidden" class="order" name="wo_items[newitems][' + item_key + '][item_order]">';
-
-	        // table_row += '</td>';
 
 	        table_row += '<td class="bold description"><input type="text" name="wo_items[newitems][' + item_key + '][product_name]" class="form-control" value="'+data.product_name+'"><input type="hidden" name="wo_items[newitems][' + item_key + '][rel_product_id]" value="'+data.rel_product_id+'"></td>';
 	        
@@ -197,9 +219,7 @@
 		        	i++;
 		        })
 		    });
-		    
 	  	}
-		  	 
 	  })
 	  
 	})
@@ -214,7 +234,6 @@
                     option += '<option value="'+e.id+'">'+e.mould_name+'</option>';
             })
             data.option = option;
-            // console.log(data);
             var table_row = '';
             var item_key = i;
             if(data.pre_produced == 1)
@@ -291,7 +310,6 @@
 		var qty = $(row).parents('tr').find('.qty').val();
 		var mould_sel = $(row).parents('tr').find('.mouldid')[1];
 		var mould_id = mould_sel.options[mould_sel.selectedIndex].value;
-		// var mould_id = $(row).parents('tr').find('.mouldid').val();
 		var mould_cavity = $(row).parents('tr').find('.mould_cavity').val();
 		var cycle_time = $(row).parents('tr').find('.cycle_time').val();
 		var production_time = ((qty/mould_cavity)*cycle_time/60/24).toFixed(6);
@@ -314,7 +332,6 @@
 			res.forEach(e => {
 				requestGetJSON('manufacturing_settings/get_list_machine_by_id/'+ e.machine_id).done(function(data){
 					option += '<option value="'+ data.id +'">'+data.name+'</option>';
-					// console.log(option)
 					$('#machine_id').empty();
 					$('#machine_id').append(option);
 					$('#machine_id').selectpicker('refresh');
@@ -378,20 +395,8 @@
                     // console.error('There was error fetching calendar data');
                 },
             }, ],
-            // dayClick: function(date, jsEvent, view) {
-            //     var d = date.format();
-            //     if (!$.fullCalendar.moment(d).hasTime()) {
-            //         d += ' 00:00';
-            //     }
-            //     var vformat = (app.options.time_format == 24 ? app.options.date_format + ' H:i' : app.options.date_format + ' g:i A');
-            //     var fmt = new DateFormatter();
-            //     var d1 = fmt.formatDate(new Date(d), vformat);
-            //     $("input[name='start'].datetimepicker").val(d1);
-            //     return false;
-            // },
             selectable: true,
 			select: function (start, end) {
-				// var title = prompt("Event Content: ");
 				var title = 'wo'+'-'+wo_id+'-'+wo_item_mould;
 				var eventData;
 				if(title){
@@ -435,11 +440,6 @@
             }
         };
         $('#busy_machine_events').fullCalendar(calendar_settings);
-        // var new_event = get_url_param('new_event');
-        // if (new_event) {
-        //     $("input[name='start'].datetimepicker").val(get_url_param('date'));
-        // }
-
 	})
 
 	function one_machine_schedule(machine_id = '', machine_name = '')
@@ -592,7 +592,6 @@
 
             selectable: true,
 			select: function (start, end) {
-				// var title = prompt("Event Content: ");
 				var title = 'wo'+'-'+wo_id+'-'+wo_item_product_code;
 				var eventData;
 				if(title){
@@ -627,7 +626,6 @@
 					
 				}
 			},
-			// editable:true,
         };
         calendar_settings.customButtons.calendarFilter = {
             text: app.lang.filter_by.toLowerCase(),
@@ -661,8 +659,36 @@
     	$('#installation_event_submit').prop('disabled',true);
     })
 
-    function quick_purchase(){
-    	alert('Are you sure quick purchase?');
+    function quick_purchase(row){
+    	$('#quick_purchase_confirm').modal('show');
+    	$('#quick_purchase_yes').click(function(){
+    		var date = new Date();
+    		approval_date = date.getDate() + '-' + (date.getMonth()+1) + '-' + date.getFullYear();
+    		var data = {
+    			purchase_phase_id: 11,
+    			approval:1,
+    			approval_date: approval_date,
+    			newitems:[{
+    				product_name:$(row).parents('tr').find('.product_name').val(),
+    				ordered_qty:$(row).parents('tr').find('.qty').val(),
+    				
+    			}],
+    			plan_item: $(row).parents('tr').find('input[type="hidden"]')[0].value
+    		};
+    		$.post(admin_url+'warehouses/quick_purchase_request',data).done(function(response){
+    			response = JSON.parse(response);
+				if (response.success == true) {
+					alert_float('success', response.message);
+					$(row).removeClass('btn-warning');
+		    		$(row).addClass('btn-info');
+		    		$(row).children().removeClass('fa-times-circle');
+		    		$(row).children().addClass('fa-check-circle-o');
+				}
+				$('#quick_purchase_confirm').modal('hide');
+				
+    		})
+    		
+    	})
     }
 
 </script>

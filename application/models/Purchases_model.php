@@ -192,17 +192,16 @@ class Purchases_model extends App_Model
                     $temp['transfer_id'] = $transfer_id;
             $temp['rel_purchase_id'] = $rel_purchase_id;
             unset($temp['item_id']);
-            // print_r($temp); exit();
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
             $insert_id = $this->db->insert_id();
+            return true;
         }
+        return false;
     }
 
     public function update_purchase_order_item($data,$transfer_data = [])
     {
-        // print_r($data); exit();
         $rel_purchase_id = $data['rel_purchase_id'];
-        
         if(isset($data['newitems']))
         {
             $newitems = $data['newitems'];

@@ -554,12 +554,10 @@ class Warehouses extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($_FILES); exit();
             $folderPath = "uploads/stock_lists/";
             if (move_uploaded_file($_FILES["pack_photo"]["tmp_name"], $folderPath . $_FILES["pack_photo"]["name"])) {
                 $data['pack_photo'] = $folderPath . $_FILES["pack_photo"]["name"];
             }
-            // print_r($data);exit();
             if ($id == '') {
                 $id = $this->warehouses_model->add_packing_list($data);
                 
@@ -613,7 +611,6 @@ class Warehouses extends AdminController
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
             $data['items'] = $this->warehouses_model->get_grouped_packing();
-            // print_r($data['items']); exit();
         } else {
             $data['items']     = [];
             $data['ajaxItems'] = true;
@@ -662,7 +659,6 @@ class Warehouses extends AdminController
     public function get_packing_group_by_product()
     {
         $data = $this->input->post();
-        // print_r($data);exit();
         if ($this->input->is_ajax_request()) {
             $res = $this->warehouses_model->get_packing_group_by_product($data);
             $product = $this->warehouses_model->stock_list_get($data['product_id'])->product_name;
@@ -881,12 +877,10 @@ class Warehouses extends AdminController
             $data['purchase_order_item'] = $this->purchases_model->get_purchase_order_item($data['purchase_order']->id);
         $data['acc_list'] = $this->purchases_model->get_acc_list();
         $data['purchase_id'] = $this->purchases_model->get_purchase_id_by_order_no(3);
-        // $data['purchase_id'] = $this->purchases_model->get_purchase_id();
         $data['product_code'] = $this->purchases_model->get_product_code();
         $data['units'] = $this->warehouses_model->get_units();
         $data['title']         = $title;
         $this->load->view('admin/warehouses/purchase_request/purchase_request', $data);
-        // $this->load->view('admin/purchases/purchase_order/purchase_order', $data);
     }
 
     public function delete_purchase_request($id)
@@ -1066,5 +1060,31 @@ class Warehouses extends AdminController
 
         $data['moulds'] = $this->manufacturing_settings_model->get_mould_list();
         $this->load->view('admin/warehouses/dispatching_bay/invoice', $data);
+    }
+
+    public function quick_purchase_request()
+    {
+        if ($this->input->is_ajax_request()) {
+            $data = $_POST;
+            $plan_item = $data['plan_item'];
+            unset($data['plan_item']);
+            $id = $this->purchases_model->add_purchase_order($data);
+            $purchase_order_item = $data['newitems'];
+            $purchase_order_item['rel_purchase_id'] = $id;
+            $success = $this->purchases_model->add_purchase_order_item($purchase_order_item);
+            if ($success == true) {
+                
+                $approval_date = $this->db->query('SELECT approval_date FROM tblpurchase_order WHERE `id` ='.$id)->row()->approval_date;
+                $plan_recipe['arrival_date'] = date("Y-m-d", strtotime($approval_date));
+                $plan_recipe['quick_purchased'] = 1;
+                $this->db->where('id',$plan_item);
+                $this->db->update(db_prefix() . 'plan_recipe', $plan_recipe);
+                $message = _l('added_successfully', _l('purchase_request'));
+            }
+            echo json_encode([
+                'success' => $success,
+                'message' => $message,
+            ]);
+        }
     }
 }
