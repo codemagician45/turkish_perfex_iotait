@@ -19,10 +19,6 @@
                                     echo render_select('purchase_phase_id',$purchase_id,array('id','phase'),_l('purchase_phase_id'),$selected); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php
-                                    // $selected = (isset($purchase_order) ? $purchase_order->approval : '1');
-                                    // echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''))); 
-                                    ?>
                                 <div class="form-group">
                                     <label for="approval" class="control-label" style="margin-bottom:9px;"><?php echo _l('approval');?></label>
                                   <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
@@ -34,6 +30,8 @@
                                   </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <?php 
                                     $selected = (isset($purchase_order) ? $purchase_order->acc_list : ''); 
@@ -44,6 +42,8 @@
                                     $value = (isset($purchase_order) ? $purchase_order->note : ''); 
                                     echo render_input('note',_l('note'),$value,'text',array('placeholder'=>_l('note'))); ?>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <?php $createdUserNameValue = (isset($created_user_name) ? $created_user_name : "");?>
                                 <?php echo render_input('created_user',_l('created_user'),$createdUserNameValue,'text',array('placeholder'=>_l('created_user'),'readonly' => 'readonly')); ?>
@@ -52,11 +52,12 @@
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('last_updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('last_updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
-                                <?php $value = (isset($purchase_order) ? _d($purchase_order->approval_date) : _d(date('Y-m-d'))) ?>
+                                <?php $value = (isset($purchase_order) ? _d($purchase_order->approval_date) : '') ?>
                                 <?php echo render_date_input('approval_date','arrival_date',$value,array('required' => true)); ?>
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -19,10 +19,6 @@
                                     echo render_select('purchase_phase_id',$purchase_id,array('id','phase'),_l('purchase_phase_id'),$selected); ?>
                             </div>
                             <div class="col-md-6">
-                                <?php
-                                    // $selected = (isset($purchase_order) ? $purchase_order->approval : '1');
-                                    // echo render_input('approval',_l('approval'),$value,'text',array('placeholder'=>_l(''))); 
-                                    ?>
                                 <div class="form-group">
                                     <label for="approval" class="control-label" style="margin-bottom:9px;"><?php echo _l('approval');?></label>
                                   <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
@@ -52,10 +48,12 @@
                                 <?php $updatedUserNameValue = (isset($updated_user_name) ? $updated_user_name : "");?>
                                 <?php echo render_input('updated_user',_l('last_updated_user'),$updatedUserNameValue,'text',array('placeholder'=>_l('last_updated_user'),'readonly'    => 'readonly')); ?>
                             </div>
-                           <!--  <div class="col-md-6">
-                                <?php //$value = (isset($purchase_order) ? _d($purchase_order->date_and_time) : _d(date('Y-m-d h:i:s'))) ?>
-                                <?php //echo render_date_input('date_and_time','proposal_date',$value,array('readonly' => 'readonly')); ?>
-                            </div> -->
+                            <div class="col-md-6">
+                                <?php if(isset($purchase_order)){
+                                    ?>
+                                 <input type="hidden" name="approval_date" value="<?php echo _d($purchase_order->approval_date) ?>">   
+                                <?php }?>
+                            </div>
 
                         </div>
                     </div>

@@ -13,11 +13,6 @@
         </div>
     </div>
     <div class="row">
-        <!-- <div class="col-md-4">
-            <?php 
-                $value = (isset($pricing_calc_data) ? $pricing_calc_data->op_cost_per_sec : '');
-                echo render_input('op_cost_per_sec', _l('op_cost_per_sec'), $value, 'number', array('placeholder' => _l('op_cost_per_sec'),'step'=>"any"),[],'','base_cal'); ?>
-        </div> -->
         <div class="col-md-6">
             <?php 
                 $value = (isset($install_time) ? $install_time->consumed_time : '');
@@ -75,7 +70,6 @@
                         <input type="number" name="rate_of_waste"  class="form-control material" onkeyup="material_cost_calc()" onchange="material_cost_calc()">
                     </td>
                     <td>
-                        <!-- <input type="text" name="default_machine" readonly class="form-control"> -->
                         <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
                             <select data-fieldto="default_machine" data-fieldid="default_machine" name="default_machine" id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">
                             </select>
@@ -113,7 +107,6 @@
                         <input type="hidden" name="machine_id_expected" class="machine_id_expected">
                         <input type="hidden" name="machine_profit_expected" class="machine_profit_expected">
                         <input type="hidden" name="machine_power_expected" class="machine_power_expected">
-                        <!-- <input type="hidden" name="work_hour_id" class="work_hour_id"> -->
                         <input type="hidden" name="work_hour_capacity" class="work_hour_capacity">
                         <input type="hidden" name="operation_cost" class="operation_cost">
                         <input type="hidden" name="energy_price_value" class="energy_price_value">
@@ -170,8 +163,6 @@
                         $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][used_qty]" class="form-control material" step="any" value="'.$item['used_qty'].'" data-qty onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][rate_of_waste]" class="form-control material" value="'.$item['rate_of_waste'].'" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
-
-                        // $table_row .= '<td><input type="text" readonly  name="'.$items_indicator.'['.$i.'][default_machine]" class="form-control" value="'.$item['default_machine'].'"></td>';
 
                         $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
                             <select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$default_machine.'</select></div></td>';

@@ -52,7 +52,7 @@
                         if($item[0] > $item['used_qty'])
                             $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
                         else {
-                            if($item['quick_purchased'] == 1)
+                            if($item['quick_purchased'] != 0)
                                 $table_row .= '<td><a href="#" class="btn btn-info pull-right"><i class="fa fa-times-circle"></i></a></td>';
                             else
                                 $table_row .= '<td><a href="#" class="btn btn-warning pull-right" onclick="quick_purchase(this)"><i class="fa fa-times-circle"></i></a></td>';

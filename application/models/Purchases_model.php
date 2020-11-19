@@ -58,11 +58,11 @@ class Purchases_model extends App_Model
     	$data['created_user'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $data['updated_at'] = date('Y-m-d h:i:s');
-        
         if(!empty($data['approval_date']))
             $data['approval_date'] = date("Y-m-d", strtotime($data['approval_date']));
         else
             $data['approval_date'] = NULL;
+        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'purchase_order', $data);
         $insert_id = $this->db->insert_id();
 
@@ -112,6 +112,14 @@ class Purchases_model extends App_Model
 
         if ($this->db->affected_rows() > 0) {
             log_activity('Purchase Order Updated [' . $id . ']');
+            
+            $this->db->where('quick_purchased',$id);
+            $quick_purchased_plan_recipe = $this->db->get(db_prefix().'plan_recipe')->row();
+            if(!empty($quick_purchased_plan_recipe)){
+                $plan_recipe['arrival_date'] = $data['approval_date'];
+                $this->db->where('quick_purchased',$id);
+                $this->db->update(db_prefix() . 'plan_recipe', $plan_recipe);
+            }
             return true;
         }
         return false;

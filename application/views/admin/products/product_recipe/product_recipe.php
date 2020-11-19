@@ -105,7 +105,7 @@
 
             $('input[name=work_hour_capacity]').val(workHour);
             $('input[name=energy_price_value]').val(engergyPrice);
-            $('input[name=operation_cost]').val(operationCost);
+            // $('input[name=operation_cost]').val(operationCost);
 
             init_selectpicker();
             init_color_pickers();
@@ -186,7 +186,7 @@
                 $(mould).parents('tr').find('.machine_power_expected').val(defaultMachineData.power_usage);
                 $(mould).parents('tr').find('.work_hour_capacity').val(workHour);
                 $(mould).parents('tr').find('.energy_price_value').val(engergyPrice);
-                $(mould).parents('tr').find('.operation_cost').val(operationCost);
+                // $(mould).parents('tr').find('.operation_cost').val(operationCost);
             }
             else {
                 defaultMachineData = '';
@@ -198,7 +198,7 @@
                 $(mould).parents('tr').find('.machine_power_expected').val('');
                 $(mould).parents('tr').find('.work_hour_capacity').val(workHour);
                 $(mould).parents('tr').find('.energy_price_value').val(engergyPrice);
-                $(mould).parents('tr').find('.operation_cost').val(operationCost);
+                // $(mould).parents('tr').find('.operation_cost').val(operationCost);
             }
             production_cost_calc_for_added(mould);
             expected_profit_calc_for_added(mould);
@@ -297,7 +297,8 @@
 
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_product_recipe_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
 
-            table_row +='<input type="hidden" name="newitems[' + item_key + '][ingredient_price]" class="ingredient_price" value="'+data.ingredient_price+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_id]"  class="ingredient_currency_id" value="'+data.ingredient_currency_id+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_rate]"  class="ingredient_currency_rate" value="'+data.ingredient_currency_rate+'"><input type="hidden" name="newitems[' + item_key + '][machine_id_expected]"  class="machine_id_expected" value="'+data.machine_id_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_profit_expected]"  class="machine_profit_expected" value="'+data.machine_profit_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_power_expected]"  class="machine_power_expected" value="'+data.machine_power_expected+'"><input type="hidden" name="newitems[' + item_key + '][work_hour_capacity]"  class="work_hour_capacity" value="'+data.work_hour_capacity+'"><input type="hidden" name="newitems[' + item_key + '][energy_price_value]"  class="energy_price_value" value="'+data.energy_price_value+'"><input type="hidden" name="newitems[' + item_key + '][operation_cost]"  class="operation_cost" value="'+data.operation_cost+'">';
+            table_row +='<input type="hidden" name="newitems[' + item_key + '][ingredient_price]" class="ingredient_price" value="'+data.ingredient_price+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_id]"  class="ingredient_currency_id" value="'+data.ingredient_currency_id+'"><input type="hidden" name="newitems[' + item_key + '][ingredient_currency_rate]"  class="ingredient_currency_rate" value="'+data.ingredient_currency_rate+'"><input type="hidden" name="newitems[' + item_key + '][machine_id_expected]"  class="machine_id_expected" value="'+data.machine_id_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_profit_expected]"  class="machine_profit_expected" value="'+data.machine_profit_expected+'"><input type="hidden" name="newitems[' + item_key + '][machine_power_expected]"  class="machine_power_expected" value="'+data.machine_power_expected+'"><input type="hidden" name="newitems[' + item_key + '][work_hour_capacity]"  class="work_hour_capacity" value="'+data.work_hour_capacity+'"><input type="hidden" name="newitems[' + item_key + '][energy_price_value]"  class="energy_price_value" value="'+data.energy_price_value+'">';
+            // <input type="hidden" name="newitems[' + item_key + '][operation_cost]"  class="operation_cost" value="'+data.operation_cost+'">
 
             table_row += '</tr>';
 
@@ -358,7 +359,7 @@
         response.machine_power_expected = $('.main input[name="machine_power_expected"]').val();
         response.work_hour_capacity = $('.main input[name="work_hour_capacity"]').val();
         response.energy_price_value = $('.main input[name="energy_price_value"]').val();
-        response.operation_cost = $('.main input[name="operation_cost"]').val();
+        // response.operation_cost = $('.main input[name="operation_cost"]').val();
         return response;
     }
 

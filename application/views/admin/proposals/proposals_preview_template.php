@@ -147,7 +147,7 @@
                </ul>
             </div>
             <?php if($proposal->estimate_id == NULL && $proposal->invoice_id == NULL){ ?>
-            <?php if((has_permission('estimates','','create') || has_permission('invoices','','create')) && $proposal->status == 3){ ?>
+            <?php if((has_permission('estimates','','create') || has_permission('invoices','','create')) && $proposal->status == 3 && $proposal->quote_phase_id != 1){ ?>
             <div class="btn-group">
                <button type="button" class="btn btn-success dropdown-toggle<?php if($proposal->rel_type == 'customer' && total_rows(db_prefix().'clients',array('active'=>0,'userid'=>$proposal->rel_id)) > 0){echo ' disabled';} ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                <?php echo _l('proposal_convert'); ?> <span class="caret"></span>
@@ -166,6 +166,7 @@
                      $disable_convert = true;
                      $help_text = 'proposal_convert_not_related_help';
                      }
+
                      ?>
                   <?php if(has_permission('estimates','','create')){ ?>
                   <li <?php if($disable_convert){ echo 'data-toggle="tooltip" title="'._l($help_text,_l('proposal_convert_estimate')).'"';} ?>><a href="#" <?php if($disable_convert){ echo 'style="cursor:not-allowed;" onclick="return false;"';} else {echo 'data-template="estimate" onclick="proposal_convert_template(this); return false;"';} ?>><?php echo _l('sale_order'); ?></a></li>

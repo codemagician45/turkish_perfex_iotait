@@ -76,7 +76,7 @@
                                     echo render_textarea('description',_l('description'),$value); ?>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
+                        <button id="transfer_submit_btn" type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
                     </div>
                 </div>
             </div>
@@ -164,6 +164,7 @@
 
         $('#transfer').submit(function(e){
             e.preventDefault();
+            $('#transfer_submit_btn').prop('disabled', true);
             var wId = $('#transaction_from').val();
             var currentWarehouse = warehouses.filter(e => {
                 return e.warehouse_id == wId;
@@ -172,10 +173,12 @@
                 if($('#transaction_qty').val() > currentWarehouse[0].qty && currentWarehouse[0].order_no != 1)
                 {
                     alert('Overflowed Quantity from this Warehouse');
+                    $('#transfer_submit_btn').prop('disabled', false);
                 } else {
                     $(this)[0].submit();
                 }
             }
+
         })
         
     </script>

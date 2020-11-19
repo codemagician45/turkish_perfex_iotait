@@ -4037,3 +4037,6 @@ $lang['quick_purchase_yes'] = 'Yes';
 $lang['quick_purchase_no'] = 'No';
 $lang['order'] = 'Order';
 
+$lang['used_for_installation'] = 'Used for Installation';
+$lang['installed_item'] = 'Installed Item';
+
