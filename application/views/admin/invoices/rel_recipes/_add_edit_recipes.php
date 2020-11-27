@@ -57,7 +57,13 @@
                             else
                                 $table_row .= '<td><a href="#" class="btn btn-warning pull-right" onclick="quick_purchase(this)"><i class="fa fa-times-circle"></i></a></td>';
                         }
-                        $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][arrival_date]" class="form-control arrival_date" value="' . $item['arrival_date'] . '" readonly></td>';
+
+                        if(!empty($item['arrival_date'])) 
+                            $arrival_date = date("d-m-Y", strtotime($item['arrival_date']));
+                        else 
+                            $arrival_date = NULL;
+
+                        $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][arrival_date]" class="form-control arrival_date" value="' .$arrival_date. '" readonly></td>';
 
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][stock_level]" class="form-control" value="' . $item[0] . '" disabled></td>';
 
