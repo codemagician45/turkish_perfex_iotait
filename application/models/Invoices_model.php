@@ -1917,6 +1917,7 @@ class Invoices_model extends App_Model
                         $sending_transfer_stock['wo_no'] = $id;
                         $sending_transfer_stock['transaction_notes'] = 'WO-'.$id;
                         $sending_transfer_stock['description'] = _l('dispatch');
+                        $sending_transfer_stock['dispatch'] = 1;
 
                         $this->db->where('id',$itemid);
                         $item = $this->db->get(db_prefix().'itemable')->row();

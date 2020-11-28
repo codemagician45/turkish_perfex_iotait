@@ -77,6 +77,29 @@ foreach ($rResult as $aRow) {
         if ($aColumns[$i] == 'product_name') {
             $_data = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $_data . '</a></span>';
         }
+        if($aColumns[$i] == 'stock_level') {
+            $transfers = $this->ci->db->query('SELECT tbltransfer_lists.*, tblwarehouses.`order_no`FROM tbltransfer_lists LEFT JOIN tblwarehouses ON tblwarehouses.`id`=tbltransfer_lists.`transaction_from` WHERE stock_product_code ='.$aRow['id'])->result_array();
+            $stock_level = 0;
+            foreach ($transfers as $key => $value) {
+                if($value['order_no'] == 1){
+                    if($value['dispatch'] == 1 || $value['allocation'] == 1)
+                    {
+                        $stock_level = $stock_level - $value['transaction_qty'];
+                    } else {
+                        $stock_level = $stock_level + $value['transaction_qty'];
+                    }
+                } else {
+                    if(empty($value['transaction_from']) && !empty($value['transaction_to'])){
+                        $stock_level = $stock_level + $value['transaction_qty'];
+                    } elseif(!empty($value['transaction_from']) && empty($value['transaction_to'])){
+                        $stock_level = $stock_level - $value['transaction_qty'];
+                    }
+                        
+                }
+            }
+            
+            $_data = number_format($stock_level,2);
+        }
         $row[] = $_data;
     }
     $options = icon_btn('#' . $aRow['id'], 'pencil-square-o', 'btn-default', $attributes);

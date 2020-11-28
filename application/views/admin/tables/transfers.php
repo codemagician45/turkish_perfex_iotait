@@ -14,7 +14,7 @@ $aColumns = [
 ];
 $sIndexColumn = 'id';
 $sTable       = db_prefix() . 'transfer_lists';
-
+$where  = ['AND '.db_prefix() . 'transfer_lists.allocation != 1'];
 $join = [
     'LEFT JOIN ' . db_prefix() . 'stock_lists ON ' . db_prefix() . 'stock_lists.id = ' . db_prefix() . 'transfer_lists.stock_product_code',
     'LEFT JOIN ' . db_prefix() . 'warehouses w1 ON w1.id = ' . db_prefix() . 'transfer_lists.transaction_from',
@@ -33,7 +33,7 @@ $additionalSelect = [
     'updated_user'
 ];
 
-$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
+$result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
