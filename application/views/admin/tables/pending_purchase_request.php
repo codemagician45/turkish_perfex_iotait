@@ -50,7 +50,8 @@ foreach ($rResult as $aRow) {
     
     $row[] = $subjectOutput;
     
-    $row[] = $aRow['updated_at'];
+    // $row[] = $aRow['updated_at'];
+    $row[] = date("m-d-Y H:i:s", strtotime($aRow['updated_at']));
 
     $row[] = $aRow['requested_product'];
 

@@ -63,22 +63,24 @@
               <div id="date-range" class="mbot15">
                 <div class="row">
                    <div class="col-md-4">
-                      <label for="report-from" class="control-label"><?php echo _l('report_sales_from_date'); ?></label>
+                     <!--  <label for="report-from" class="control-label"><?php echo _l('report_sales_from_date'); ?></label>
                       <div class="input-group date">
                          <input type="text" class="form-control datepicker" id="report-from" name="report-from">
                          <div class="input-group-addon">
                             <i class="fa fa-calendar calendar-icon"></i>
                          </div>
-                      </div>
+                      </div> -->
+                      <?php echo render_date_input('report-from','report_sales_from_date'); ?>
                    </div>
                    <div class="col-md-4">
-                      <label for="report-to" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
+                      <!-- <label for="report-to" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
                       <div class="input-group date">
                          <input type="text" class="form-control datepicker" disabled="disabled" id="report-to" name="report-to">
                          <div class="input-group-addon">
                             <i class="fa fa-calendar calendar-icon"></i>
                          </div>
-                      </div>
+                      </div> -->
+                      <?php echo render_date_input('report-to','report_sales_to_date','',array('disabled'=> true)); ?>
                    </div>
 
                    <div class="col-md-4">

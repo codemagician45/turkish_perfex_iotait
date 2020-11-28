@@ -181,7 +181,7 @@ foreach ($rResult as $aRow) {
     // $row[] = app_format_money($aRow['total_tax'], $aRow['currency_name']);
     $row[] = $aRow['shipping_type'];
 
-    $row[] = $aRow['req_shipping_date'];
+    $row[] = _d($aRow['req_shipping_date']);
 
     $row[] = $aRow['general_notes'];
 

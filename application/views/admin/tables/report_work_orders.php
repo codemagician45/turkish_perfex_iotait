@@ -123,9 +123,10 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<a href="' . admin_url('clients/client/' . $aRow['clientid']) . '">' . $aRow['company'] . '</a>';
 
-    $row[] = $aRow['datecreated'];
+    $row[] = _d($aRow['datecreated']);
+    // $row[] = date("d-m-y", strtotime($aRow['datecreated']));
     $row[] = $aRow['work_order_phase'];
-    $row[] = $aRow['shipping_date'];
+    $row[] = _d($aRow['shipping_date']);
     $row[] = $aRow['shipping_type'];
    
     $output['aaData'][] = $row;

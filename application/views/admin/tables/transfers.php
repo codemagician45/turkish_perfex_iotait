@@ -36,7 +36,6 @@ $additionalSelect = [
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, [], $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
     
@@ -53,18 +52,12 @@ foreach ($rResult as $aRow) {
     $subjectOutput .= '</div>';
     $row[] = $subjectOutput;
 
-    $row[] = $aRow['tbltransfer_lists.updated_at'];
+    // $row[] = $aRow['tbltransfer_lists.updated_at'];
+    $row[] = date("m-d-Y H:i:s", strtotime($aRow['tbltransfer_lists.updated_at']));
 
     $row[] = $aRow['t_from'];
 
     $row[] = $aRow['t_to'];
-
-    //  if(!empty($aRow['transaction_to'])){
-    //     $t_to = @$this->ci->db->query('select * from tblwarehouses where `id`='.$aRow['transaction_to'])->row()->warehouse_name;
-    //     $row[] = $t_to;
-    // } else {
-    //     $row[] = '';
-    // }
 
     $row[] = $aRow['transaction_notes'];
 

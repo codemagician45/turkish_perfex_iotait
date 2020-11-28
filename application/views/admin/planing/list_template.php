@@ -16,7 +16,7 @@
                  ),
                  _l('quote'),
                  _l('shipping_type'),
-                 _l('req_shiping_date'),
+                 _l('req_shipping_date'),
                  _l('general_notes'),
                  // _l('total_price'),
                  _l('created_user'),
