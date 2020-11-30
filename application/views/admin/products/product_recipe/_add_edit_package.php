@@ -36,17 +36,18 @@
         <table class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
             <thead>
             <tr>
-                <th width="9%"><?php echo _l('product_name'); ?></th>
+                <th width="8%"><?php echo _l('product_name'); ?></th>
                 <th width="4%"><?php echo _l('pre_produced'); ?></th>
-                <th width="9%"><?php echo _l('used_qty'); ?></th>
-                <th width="9%"><?php echo _l('rate_of_waste'); ?></th>
-                <th width="9%"><?php echo _l('default_machine'); ?></th>
-                <th width="9%"><?php echo _l('mould_id'); ?></th>
-                <th width="9%"><?php echo _l('mould_cavity'); ?></th>
-                <th width="9%"><?php echo _l('cycle_time'); ?></th>
-                <th width="9%"><?php echo _l('material_cost'); ?></th>
-                <th width="9%"><?php echo _l('production_cost'); ?></th>
-                <th width="9%"><?php echo _l('expected_profit'); ?></th>
+                <th width="8%"><?php echo _l('used_qty'); ?></th>
+                <th width="8%"><?php echo _l('rate_of_waste'); ?></th>
+                <th width="8%"><?php echo _l('default_machine'); ?></th>
+                <th width="8%"><?php echo _l('mould_id'); ?></th>
+                <th width="8%"><?php echo _l('mould_cavity'); ?></th>
+                <th width="8%"><?php echo _l('cycle_time'); ?></th>
+                <th width="8%"><?php echo _l('material_cost'); ?></th>
+                <th width="8%"><?php echo _l('production_cost'); ?></th>
+                <th width="8%"><?php echo _l('expected_profit'); ?></th>
+                <th width="8%"><?php echo _l('connected_pair'); ?></th>
                 <th width="6%" align="right"><?php echo _l('estimate_table_amount_heading'); ?></th>
                 <th align="center"><i class="fa fa-cog"></i></th>
             </tr>
@@ -101,6 +102,16 @@
                         <input type="number" readonly name="expected_profit" class="form-control">
                     </td>
                     <td>
+                        <div class="dropdown bootstrap-select form-control bs3">
+                            <select data-fieldto="connected_pair" data-fieldid="connected_pair" name="connected_pair" id="connected_pair" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">
+                                <option value=""></option>
+                              <?php foreach ($all_products as $key => $product) {?>
+                                <option value="<?php echo $product['id'];?>"><?php echo $product['product_name'];?></option>
+                              <?php } ?>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
                         <input type="hidden" name="ingredient_price" class="ingredient_price">
                         <input type="hidden" name="ingredient_currency_id" class="ingredient_currency_id">
                         <input type="hidden" name="ingredient_currency_rate" class="ingredient_currency_rate">
@@ -144,6 +155,14 @@
                             if($machine['id'] == $item['default_machine'])
                                  $default_machine.='<option value="'.$machine['id'].'" selected>'.$machine['name'].'</option>';
                         }
+
+                        $connected_pair = '<option></option>';
+                        foreach ($all_products as $key => $product) {
+                            if($product['id'] == $item['connected_pair'])
+                                $connected_pair.='<option value="'.$product['id'].'" selected>'.$product['product_name'].'</option>';
+                            else
+                                $connected_pair.='<option value="'.$product['id'].'">'.$product['product_name'].'</option>';
+                        }
                         $amount = $item['material_cost'] + $item['production_cost'] + $item['expected_profit'];
                         $amount = app_format_number($amount);
                         $table_row = '<tr class="sortable item">';
@@ -180,6 +199,9 @@
                         $table_row .= '<td><input type="number" readonly name="'.$items_indicator.'['.$i.'][production_cost]" class="form-control" data-production-cost value="'.$item['production_cost'].'"></td>';
 
                         $table_row .= '<td><input type="number" readonly name="'.$items_indicator.'['.$i.'][expected_profit]" class="form-control" data-expected-profit value="'.$item['expected_profit'].'"></td>';
+
+                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
+                            <select data-fieldto="connected_pair" data-fieldid="connected_pair" name="'.$items_indicator.'['.$i.'][connected_pair] id="connected_pair" class="selectpicker form-control connected_pair" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$connected_pair.'</select></div></td>';
 
                         $table_row .= '<td class="amount" align="right">' . $amount . '</td>';
 

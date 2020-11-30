@@ -47,7 +47,6 @@ class Products extends AdminController
     {
         if ($this->input->post()) {
             $data = $this->input->post();
-            // print_r($data); exit();
             $current_recipe_data = $this->products_model->get_product_receipe_item($id);
             if(empty($current_recipe_data) && isset($data['newitems']))
             {
@@ -122,6 +121,7 @@ class Products extends AdminController
         
         $data['title']         = _l('product_recipe');
         $data['product'] = $this->warehouses_model->stock_list_get($id);
+        $data['all_products'] = $this->warehouses_model->stock_list_get();
         $data['pack'] = $this->products_model->get_pack_by_product_code($id);
 
         $data['ajaxItems'] = false;

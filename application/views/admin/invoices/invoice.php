@@ -225,6 +225,7 @@
 	})
 
 	function add_item_to_table_plan_recipe(data,i,rel_wo_qty) {
+		console.log(data);
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -260,7 +261,7 @@
 
             table_row += '<td><input type="text" readonly name="plan_items[' + item_key + '][mould_cavity]" class="form-control mould_cavity" value="' + data.mould_cavity + '"></td>';
 
-            table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"></td>';
+            table_row += '<td><input type="number" name="plan_items[' + item_key + '][cycle_time]" class="form-control cycle_time" value="' + data.cycle_time + '"><input type="hidden" name="plan_items[' + item_key + '][connected_pair]" class="form-control" value="' + data.connected_pair + '"></td>';
  
             table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_plan_recipe_item(this,' + data.id + '); return false;"><i class="fa fa-trash"></i></a></td>';
 

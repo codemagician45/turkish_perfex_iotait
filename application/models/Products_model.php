@@ -39,7 +39,9 @@ class Products_model extends App_Model
         foreach ($data as $val) {
             unset($val['item_id']);
             $val['rel_product_id'] = $rel_product_id;
-            $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
+            // $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
+            $ingredient_item_id = $val['ingredient_item_id'];
+            $product_code = $this->warehouses_model->stock_list_get($ingredient_item_id)->product_code;
             $val['product_code'] = $product_code;
             $this->db->insert(db_prefix() . 'product_recipe', $val);
             $insert_id = $this->db->insert_id();
@@ -59,7 +61,10 @@ class Products_model extends App_Model
             foreach ($newitems as $key => $item) {
                 unset($item['item_id']);
                 $item['rel_product_id'] = $rel_product_id;
-                
+                // $product_code = $this->warehouses_model->stock_list_get($rel_product_id)->product_code;
+                // $item['product_code'] = $product_code;
+                $ingredient_item_id = $item['ingredient_item_id'];
+                $product_code = $this->warehouses_model->stock_list_get($ingredient_item_id)->product_code;
                 $item['product_code'] = $product_code;
                 $this->db->insert(db_prefix() . 'product_recipe', $item);
                 $insert_id = $this->db->insert_id();

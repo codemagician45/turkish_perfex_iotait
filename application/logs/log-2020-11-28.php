@@ -82,3 +82,6 @@ ERROR - 2020-11-28 18:19:08 --> Severity: Warning --> Cannot modify header infor
 ERROR - 2020-11-28 18:19:08 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\turkish_perfex\system\database\drivers\mysqli\mysqli_driver.php 307
 ERROR - 2020-11-28 18:20:08 --> Severity: Warning --> Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\stock_lists.php:84) C:\xampp\htdocs\turkish_perfex\system\core\Common.php 570
 ERROR - 2020-11-28 18:20:08 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\turkish_perfex\system\database\drivers\mysqli\mysqli_driver.php 307
+ERROR - 2020-11-28 19:20:24 --> Could not find the language line "pack price"
+ERROR - 2020-11-28 19:20:41 --> Could not find the language line "pack price"
+ERROR - 2020-11-28 19:24:11 --> Could not find the language line "pack price"

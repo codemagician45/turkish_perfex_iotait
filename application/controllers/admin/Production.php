@@ -101,6 +101,8 @@ class Production extends AdminController
                 } else {
                      $message = _l('added_successfully', _l('produced_qty'));
                 }
+
+
                 
             } else {
                 if (isset($data['p_qty_id'])) {

@@ -220,6 +220,7 @@
         if (data.item_id === "" && data.product_name === "") {
             return;
         }
+        console.log(data);
         requestGetJSON('products/get_moulds_by_ajax').done(function(res) {
             var option = '<option></option>';
             res.forEach(e => {
@@ -292,6 +293,7 @@
                 table_row += '<td><input type="number" readonly name="newitems[' + item_key + '][expected_profit]" class="form-control" data-expected-profit value="' + data.expected_profit + '"></td>';
             }
 
+            table_row += '<td><div class="dropdown bootstrap-select form-control bs3"><select data-fieldto="connected_pair" data-fieldid="connected_pair" name="newitems[' + item_key + '][connected_pair]" id="newitems[' + item_key + '][connected_pair]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98"><option value="'+data.connected_pair+'">'+data.connected_pair_text+'</option></select></div></td>';
 
             table_row += '<td class="amount" align="right">' + format_money(amount, true) + '</td>';
 
@@ -359,7 +361,8 @@
         response.machine_power_expected = $('.main input[name="machine_power_expected"]').val();
         response.work_hour_capacity = $('.main input[name="work_hour_capacity"]').val();
         response.energy_price_value = $('.main input[name="energy_price_value"]').val();
-        // response.operation_cost = $('.main input[name="operation_cost"]').val();
+        response.connected_pair = $('.main select[name="connected_pair"]').val();
+        response.connected_pair_text = $('#connected_pair option:selected').text();
         return response;
     }
 
@@ -378,6 +381,7 @@
         previewArea.find('input[name="material_cost"]').val('');
         previewArea.find('input[name="production_cost"]').val('');
         previewArea.find('input[name="expected_profit"]').val('');
+        previewArea.find('select[name="connected_pair"]').selectpicker('val','');
     }
 
     function delete_product_recipe_item(row, itemid) {
