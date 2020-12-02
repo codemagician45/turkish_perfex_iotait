@@ -176,7 +176,7 @@ foreach ($rResult as $aRow) {
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
-    $row[] = date("m-d-Y H:i:s", strtotime($aRow[db_prefix() . 'invoices.datecreated']));
+    $row[] = date("d-m-Y H:i:s", strtotime($aRow[db_prefix() . 'invoices.datecreated']));
 
     if(!empty($aRow['updated_user']))
     {
