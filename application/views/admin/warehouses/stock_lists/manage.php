@@ -216,6 +216,9 @@
 	});
 
 	function manage_stock_lists(form) {
+
+		$('#submit').prop('disabled',true);
+		
 		var formData = new FormData($(form)[0]);
 		$.ajax({
 		    url: form.action,

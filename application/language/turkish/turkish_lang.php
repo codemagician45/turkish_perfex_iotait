@@ -3621,3 +3621,406 @@ $lang['gantt_view_day'] = 'Days View';
 $lang['gantt_view_week'] = 'Weeks View';
 $lang['gantt_view_month'] = 'Months View';
 $lang['gantt_view_year'] = 'Years View';
+
+//  By Raff
+
+/*Warehouses*/
+
+$lang['stock_list'] = 'Envanter';
+$lang['product_code'] = 'Ürün Kodu';
+$lang['product_photo'] = 'Resim';
+$lang['product_name'] = 'Ürün Adı';
+$lang['category'] = 'Kategori';
+$lang['price'] = 'Fiyat';
+$lang['currency_id'] = 'Para Birimi';
+$lang['stock_level'] = 'Stok Seviyesi';
+$lang['new_stock_list'] = 'Yeni Kart';
+$lang['edit_stock_list'] = 'Kart Düzenleme';
+$lang['add_stock_list'] = 'Yeni Stok Kartı';
+$lang['product_exists_info'] = 'Görünüşe göre %s adında stok kartı hali hazırda envanter listende zaten var.!';
+$lang['barcode_exists_info'] = 'Görünüşe göre %s barkod listende zaten var.!';
+
+$lang['transfers'] = 'Transferler';
+$lang['transfer'] = 'Transfer';
+$lang['new_transfer'] = 'Yeni Transfer';
+$lang['transaction_from'] = 'Transfer Kaynağı';
+$lang['transaction_to'] = 'Transfer Hedefi';
+$lang['transaction_notes'] = 'Transfer Notu';
+$lang['transaction_qty'] = 'Transfer Adeti';
+$lang['allocation_enable'] = 'Ayırma/Tahsis işlemi';
+$lang['allocation_reason'] = 'Ayırma Sebebi';
+$lang['wo_no'] = 'WO No';
+$lang['description'] = 'Detaylar';
+$lang['purchase_id'] = 'Satınalma Emir No';
+$lang['date_time'] = 'Tarih ve Zaman';
+$lang['created_user'] = 'Oluşturan';
+$lang['updated_user'] = 'Güncelleyen';
+$lang['stock_by_warehouse'] = 'Depolara Göre Stok';
+$lang['warehouse_name'] = 'Depo Adı';
+$lang['qty'] = 'Miktar';
+
+
+$lang['allocated_items'] = 'Ayrılan Ürünler';
+$lang['current_location'] = 'Mevcut konum';
+$lang['stock_quantity'] = 'Stok Miktarı';
+$lang['release'] = 'Serbest Bırak';
+
+$lang['barcode_list'] = 'Barkod Listesi';
+$lang['new_barcode'] = 'Yeni Barkod';
+$lang['barcode_id'] = 'Barkod No';
+$lang['products_code'] = 'Ürün Kodu';
+$lang['product_name'] = 'Ürün Adı';
+$lang['barcode_price'] = 'Barkod Fiyatı';
+$lang['edit_barcode'] = 'Barkodu Düzenle';
+$lang['add_barcode'] = 'Barkod Ekle';
+
+$lang['packing_list'] = 'Koli Listesi';
+$lang['packing_type'] = 'Koli Adı';
+$lang['pack_capacity'] = 'Koli Kapasitesi';
+$lang['pack_price'] = 'Koli Fiyatı ';
+$lang['box_quality'] = 'Koli Kalitesi';
+$lang['box_type'] = 'Paket Tipi';
+$lang['l_size'] = 'Boy';
+$lang['w_size'] = 'En';
+$lang['h_size'] = 'Yükseklik';
+$lang['volume_m3'] = 'Hacim m3';
+$lang['price_per_item'] = 'Parça başı maliyet';
+$lang['new_packing_list'] = 'Yeni Koli';
+$lang['stock_qty'] = 'Stok Miktarı';
+
+$lang['packing_group'] = 'Koliler Özeti';
+$lang['default'] = 'Varsayılan';
+$lang['default_pack'] = 'Varsayılan Koli';
+$lang['pack_size'] = 'Koli Ölçüsü';
+$lang['new_packing_group'] = 'New Packing Group';
+
+$lang['purchase_receiving_bay'] = 'Mal Kabülü';
+$lang['item_received'] = 'Malı Kabül Et';
+
+$lang['purchase_request'] = 'Satınalma Talebi';
+
+/*purchase*/
+$lang['purchase'] = 'Satınalma';
+$lang['purchase_orders'] = 'Satınalma Emirleri';
+$lang['purchase_order'] = 'Satınalma Emri';
+$lang['purchase_no'] = 'Satınalma No';
+$lang['new_purchase_order'] = 'Yeni Satınalma Emri';
+$lang['purchase_phase_id'] = 'Satınalma Durumu';
+$lang['approval'] = 'Onay Durumu';
+$lang['bought_company_name'] = 'Satınalınan Firma';
+$lang['notes'] = 'Notlar';
+$lang['note'] = 'Not';
+$lang['created_user'] = 'Oluşturan';
+$lang['created_date_time'] = 'Oluşturma Tarihi';
+$lang['updated_at'] = 'Güncelleme';
+$lang['created_at'] = 'Oluşturma';
+$lang['last_updated_user'] = 'Son Güncelleyen';
+
+$lang['ordered_qty'] = 'Sipariş Edilen';
+$lang['received_qty'] = 'Teslim Alınan';
+$lang['item_order'] = 'Item Order';
+$lang['approval_need'] = 'Onay Gerekli';
+$lang['approval_not_need'] = 'Onay Gerekli Değil';
+
+$lang['pending_purchase_request'] = 'Bekleyen Satınalma Emirleri';
+$lang['new_purchase_request'] = 'Yeni Satınalma Talebi';
+
+$lang['purchase_tunning'] = 'Purchase Tunning';
+$lang['purchase_order_phases'] = 'Satınalma Durumları';
+$lang['new_purchase_phase'] = 'Yeni Satınalma Durumu';
+$lang['purchase_phase'] = 'Satınalma Durumu';
+$lang['edit_purchase_phase'] = 'Satınalma Durumunu Düzenle';
+$lang['add_purchase_phase'] = 'Satınalma Durumu Ekle';
+
+/*finance*/
+$lang['currency_exchange_rate'] = 'Para Birimleri';
+$lang['currency_name'] = 'Birim adı';
+$lang['symbol'] = 'Sembolü';
+$lang['currency_rate'] = 'Kur bilgisi';
+$lang['ready_to_invoice'] = 'Faturalanmaya Hazır';
+
+
+/*product*/
+$lang['product_list'] = 'Ürün Listesi';
+$lang['product_recipe'] = 'Ürün Reçeteleri';
+$lang['product_category'] = 'Ürün Kategorisi';
+$lang['other_cost_details'] = 'Diğer Maliyet Detayları';
+$lang['other_cost'] = 'Diğer Maliyet Bedeli';
+$lang['installation_consumed_time'] = 'Montaj Süresi (sn)';
+$lang['pre_produced'] = 'Ön-Üretimli';
+$lang['used_qty'] = 'Kullanılan';
+$lang['rate_of_waste'] = 'Fire Oranı%';
+$lang['cycle_time'] = 'Çevrim Süresi';
+$lang['material_cost'] = 'Malzeme Maliyeti';
+$lang['production_cost'] = 'Üretim Maliyeti';
+$lang['expected_profit'] = 'Beklenen Kar';
+$lang['installation_cost'] = 'Montaj Maliyeti';
+
+
+
+/*manufacturing settings*/
+$lang['manufacturing_settings'] = 'Üretim Ayarları';
+$lang['list_of_machinery'] = 'Makine Listesi';
+$lang['machine'] = 'Makine';
+$lang['new_marchine'] = 'Yeni Makine';
+$lang['edit_marchine'] = 'Makine Detay Düzenle';
+$lang['add_marchine'] = 'Makine Ekle';
+$lang['machine_name'] = 'Makine Adı';
+$lang['power_usage'] = 'Elektrik Sarfiyatı (KW)';
+$lang['profit_expectation'] = 'Beklenen Kar';
+$lang['take_from'] = 'Alınacak Kaynak';
+$lang['export_to'] = 'Verilecek Hedef';
+$lang['active'] = 'Aktiflik';
+
+$lang['list_of_moulds'] = 'Kalıp Listesi';
+$lang['new_mould'] = 'Yeni Kalıp';
+$lang['add_mould'] = 'Kalıp Ekle';
+$lang['edit_mould'] = 'Kalıp Detay Düzenle';
+$lang['mould_name'] = 'Kalıp Adı';
+$lang['mould_cavity'] = 'Kalıp Gözü';
+
+$lang['moulds_of_suitability'] = 'Kalıp Uygunlukları';
+$lang['new_mould_suitability'] = 'Yeni Kalıp Uygunluğu';
+$lang['add_mould_suitability'] = 'Kalıp Uygunluğu Ekle';
+$lang['edit_mould_suitability'] = 'Kalıp Uygunluğunu Düzenle';
+$lang['machine_id'] = 'Makine';
+$lang['mould_id'] = 'Kalıp No';
+$lang['default_machine'] = 'Varsayılan Makine';
+$lang['default_machine is already exist'] = 'Bu Kalıp için Varsayılan Makine Zaten Mevcut';
+
+$lang['energy_prices'] = 'Enerji Fiyatları';
+$lang['energy_price'] = 'Enerji Fiyatı';
+$lang['new_enery_price'] = 'Yeni Enerji Fiyatı';
+$lang['edit_enery_price'] = 'Enerji Fiyatını Düzenle';
+$lang['add_enery_price'] = 'Enerji Fiyatı Ekle';
+
+$lang['work_hours_capacity'] = 'Aylık Çalışma Kapasitesi';
+$lang['work_hour'] = 'Çalışma Saati';
+$lang['work_hours'] = 'Çalışma Saati';
+$lang['edit_work_hour_capacity'] = 'Çalışma Saatini Düzenle';
+$lang['edit_work_hour_capacity'] = 'Add Work Hour Capacity';
+$lang['capacity_hours'] = 'Aylık Çalışma Kapasitesi (Saat)';
+
+$lang['installation'] = 'Montaj';
+$lang['installation_name'] = 'Birim Adı';
+$lang['new_installation'] = 'New Installation';
+$lang['edit_installation'] = 'Montaj Detayını Düzenle';
+$lang['add_installation'] = 'Add Installation';
+$lang['take_from'] = 'Alınacak Kaynak';
+$lang['export_to'] = 'Verilecek Hedef';
+
+$lang['edit_op_cost_per_sec'] = 'Operatörün Saniyelik Maliyetini Düzenle';
+$lang['op_cost_per_sec'] = 'Operatör Maliyeti';
+
+/* Sales */
+$lang['quotation/offer'] = 'Teklifler';
+$lang['quotation'] = 'Teklif';
+$lang['new_quote'] = 'Yeni Teklif';
+$lang['nothing_selected'] = 'Hiç Birşey Seçilmedi';
+$lang['original_price'] = 'Ürün Fiyatı';
+$lang['sale_price'] = 'Satış Fiyatı';
+$lang['work_order_created'] = 'İş Emri Oluşturulmuş';
+
+$lang['sale_order'] = 'Satış Siparişi';
+$lang['sale_order_dt_table_heading_number'] = 'Satış Siparişi';
+$lang['quote'] = 'Teklif';
+$lang['sum_volume_m3'] = 'Toplam Hacim m3';
+$lang['discount'] = 'İndirim';
+$lang['updated_by'] = 'Değiştiren';
+$lang['general_notes'] = 'Genel Notlar';
+$lang['shipping_type'] = 'Sevkiyat Şekli';
+$lang['req_shipping_date'] = 'Sevkiyat Tarihi';
+$lang['total_price'] = 'Toplam Fiyat';
+
+$lang['convert_to_sale_order'] = 'Satış Siparişine Dönüştür';
+
+$lang['quotation_approval'] = 'Teklif Onayları';
+
+/*Planing*/
+$lang['convert_to_work_order'] = 'İş Emrine Dönüştür';
+$lang['als_planning'] = 'Planlama';
+$lang['pending_sale_order'] = 'Bekleyen Satış Siparişi';
+$lang['work_orders'] = 'İş Emirleri';
+$lang['work_order'] = 'İş Emiri';
+$lang['rel_wo_items'] = 'İş Emri Kalemleri';
+$lang['rel_plan_recipes'] = 'Öngörülmüş Reçete';
+$lang['rel_plans'] = 'Planlar';
+$lang['set_plan'] = 'Set Plan';
+$lang['production_calculate'] = 'Üretim İçin Hesaplanmış Gerekli Zaman (gün)';
+$lang['machine_in_mould_suitablity'] = 'Makine Uygunluğu';
+$lang['wo_heading_number'] = 'İş Emri';
+$lang['wo_phase_id'] = 'Durum';
+$lang['scheduled'] = 'Planlama';
+$lang['rel_wo_item'] = 'İlişkili Ürün';
+
+/*Production*/
+$lang['als_production'] = 'Üretim';
+$lang['production_work_order'] = 'İş Emirleri';
+$lang['production_machine_list'] = 'Üretim Makine Parkuru';
+$lang['produced_quantity'] = 'Üretilen Miktar';
+$lang['enter_produced_quantity'] = 'Üretilen Miktarı Girin';
+$lang['add_produced_qty'] = 'Üretilen Miktarı Ekle';
+$lang['edit_day_produced_qty'] = 'Günlük Üretilen Miktarı Düzenle';
+
+/*Installation*/
+$lang['installation_work_order'] = 'İş Emri';
+$lang['produced_qty'] = 'Üretilen Adet';
+$lang['save_and_transfer'] = 'Kaydet ve Aktar';
+
+/*Settings*/
+$lang['accounts'] = 'Cari Kartlar';
+$lang['account_type'] = 'Cari Tipi';
+
+$lang['production'] = 'Üretim';
+$lang['work_order_phases'] = 'İş Emri Durumları';
+$lang['work_order_phase'] = 'İş Emri Durumu';
+$lang['new_work_order_phase'] = 'Yeni İş Emri Durumu Ekle';
+$lang['edit_work_order_phase'] = 'İş Emri Durumunu Düzenle';
+$lang['add_work_order_phase'] = 'İş Emri Durumu Ekle';
+
+/*$lang['purchase'] = 'Purchase';*/
+$lang['purchase_orders_phases'] = 'Satınalma Emri Durumları';
+
+$lang['warehouse'] = 'Depo';
+$lang['warehouses'] = 'Depolar';
+$lang['stock_categories'] = 'Stok Kategorileri';
+$lang['units'] = 'Stok Birimleri';
+
+$lang['warehouse_name'] = 'Depo Adı';
+$lang['order_no'] = 'Sıra Numarası';
+$lang['new_warehouse'] = 'Yeni Depo';
+$lang['edit_warehouse'] = 'Depo Detayını Düzenle';
+$lang['add_new_warehouse'] = 'Depo Ekle';
+
+$lang['stock_category'] = 'Stok Kategorisi';
+$lang['order_no'] = 'Sıra No';
+$lang['new_stock_category'] = 'Yeni Stok Kategorisi';
+$lang['edit_stock_category'] = 'Stok Kategorisini Düzenle';
+$lang['add_new_stock_category'] = 'Stok Kategorisi Ekle';
+
+$lang['stock_units'] = 'Ölçü Birimleri';
+$lang['stock_unit'] = 'Ölçü Birimi';
+$lang['stock_unit_name'] = 'Birim Adı';
+$lang['edit_stock_unit'] = 'Ölçü Birimini Düzenle';
+$lang['new_stock_unit'] = 'Yeni Ölçü Birimi';
+$lang['add_new_stock_unit'] = 'Ölçü Birimi Ekle';
+$lang['unit_active'] = 'Aktif';
+
+$lang['sale'] = 'Satış';
+$lang['pricing_categories'] = 'Fiyatlandırma Kategorileri';
+$lang['pricing_category'] = 'Fiyatlandırma Kategorisi';
+$lang['sale_phases'] = 'Satış Durumları';
+$lang['quote_phases'] = 'Teklif Durumları';
+$lang['new_pricing_category'] = 'Yeni Fiyatlandırma Kategorisi';
+$lang['cal_value1'] = 'Hesaplama Değeri 1';
+$lang['cal_value2'] = 'Hesaplama Değeri 2';
+$lang['default_currency'] = 'Varsayılan Para Birimi';
+$lang['edit_pricing_category'] = 'Fiyatlandırma Kategorisini Düzenle';
+$lang['add_pricing_category'] = 'Fiyatlandırma Kategorisi Ekle';
+
+$lang['new_sale_phase'] = 'Yeni Satış Durumu';
+$lang['edit_sale_phase'] = 'Satış Durumunu Düzenle';
+$lang['add_sale_phase'] = 'Satış Durumu Ekle';
+$lang['sale_phase'] = 'Satış Durumu';
+
+$lang['quote_phase'] = 'Teklif Durumu';
+$lang['new_quote_phase'] = 'Yeni Teklif Durumu';
+$lang['edit_quote_phase'] = 'Teklif Durumunu Düzenle';
+$lang['add_quote_phase'] = 'Teklif Durumu Ekle';
+
+$lang['user_logs'] = 'Kullanıcı Günlükleri';
+
+$lang['extra_permission'] = 'Ekstra İzinler';
+$lang['content'] = 'İçerik';
+
+/*Dashboard*/
+
+$lang['pending_invoices'] = 'Bekleyen Faturalar';
+$lang['active_work_orders'] = 'Aktif İş Emirleri';
+$lang['due_purchase_orders'] = 'Satınalma Siparişleri';
+$lang['home_quotation_overview'] = 'Tekliflere Genel Bakış';
+$lang['home_sale_order_overview'] = 'Satış Siparişlerine Genel Bakış';
+$lang['home_work_order_overview'] = 'İş Emirlerine Genel Bakış';
+$lang['home_stats_by_wo_phase'] = 'İş Emri Aşamasına Göre İstatistikler';
+
+/*Reports*/
+$lang['als_reports_profit_submenu'] = 'Kar Raporu';
+$lang['als_reports_sale_submenu'] = 'Satış Raporu';
+$lang['als_reports_work_orders_submenu'] = 'İş Emri Raporu';
+$lang['als_reports_warehouse_submenu'] = 'Depo Raporu';
+$lang['salesperson'] = 'Satış Sorumlusu';
+$lang['cost_price'] = 'Maliyet fiyatı';
+$lang['sold_price'] = 'Satılan Fiyat';
+$lang['gross_profit'] = 'Brüt kar';
+
+$lang['current_phase'] = 'Mevcut Durum';
+
+/* archieved*/
+$lang['active_wo_orders'] = 'Aktif İş Emirleri';
+$lang['archive_wo_orders'] = 'Arşivlenmiş İş Emirleri';
+$lang['active_quotation'] = 'Aktif Teklifler';
+$lang['archived_quotation'] = 'Arşivlenmiş Teklifler';
+$lang['active_sale_orders'] = 'Aktif Satış Siparişleri';
+$lang['archived_sale_orders'] = 'Arşivlenmiş Satış Siparişleri';
+
+// ending
+
+$lang['set_installation_plan'] = 'Set Installation Plan';
+$lang['stock_level_warning'] = 'Stok Seviyesi Uyarısı';
+$lang['warning_email_permission'] = 'Uyarı E-postası İzni';
+$lang['warning_enable'] = 'Uyarı Etkin';
+$lang['minimum_stock_level'] = 'Minimum Stok Seviyesi';
+
+$lang['sale_order_email'] = 'Satış Siparişi Uyarısı';
+$lang['purchase_email'] = 'Satınalma Talebi Uyarısı';
+$lang['work_order_email'] = 'İş Emri Uyarısı';
+
+$lang['purchases'] = 'Purchases';
+$lang['sale_orders'] = 'Sale Orders';
+$lang['stock_warnings'] = 'Stock Warnings';
+
+$lang['transfer_out_confirm_title'] = 'Dış Transferi Onayla';
+$lang['transfer_out_confirm_content'] = 'Bütün ürünler stoğunuzdan düşülecektir, Emin misiniz?';
+
+$lang['with_archive'] = 'Arşivlenmişleri Dahil Et';
+$lang['without_archive'] = 'Arşivlenmişleri Dahil Etmeden';
+$lang['filter_by_archived'] = 'Arşiv Durumuna Göre';
+
+$lang['products'] = 'Ürünler';
+$lang['finance'] = 'Finans';
+$lang['planned_recipes'] = 'Ürün Reçeteleri';
+
+$lang['stock_price_view'] = 'Ürün Fiyatı Görme';
+$lang['arrival_date'] = 'Varış Tarihi';
+$lang['allocated_qty'] = 'Ayrılmış Adet';
+$lang['total_production_qty'] = 'Toplam Üretilecek Adet';
+$lang['total_p_qty'] = 'Toplam Üretilecek Adet';
+$lang['needed_p_qty'] = 'Üretilmesi Gereken Miktar';
+
+$lang['quotation_approval_email'] = 'Teklif Onayı Uyarısı';
+$lang['installation_calculate'] = 'Montaj İçin Hesaplanmış Gerekli Zaman (gün)';
+
+$lang['waste_production_quantity'] = 'Atık Üretim Miktarı';
+$lang['waste_production'] = 'Atık Üretim';
+$lang['enter_waste_production_quantity'] = 'Atık Üretim Miktarını Girin';
+$lang['warehouse_limit_warning'] = 'Depo Stok Sınırı Uyarısı';
+
+$lang['pack_photo'] = 'Pack Photo';
+$lang['requested_product'] = 'Talep Edilen Ürün';
+$lang['used_for_production'] = 'Üretimde için Kullanıldı';
+$lang['produced_item'] = 'Üretilen Ürün';
+$lang['dispatching_bay'] = 'Sevkiyat';
+$lang['dispatch'] = 'Sevk Edildi';
+$lang['sending_qty'] = 'Gönderilen Adet';
+$lang['select_all'] = 'Hepsini Seç';
+
+$lang['quick_purchase_confirm_title'] = 'Hızlı Satınalma Talebi Oluştur';
+$lang['quick_purchase_confirm_que'] = 'Satınalma Talebi Göndermek İstiyor Musunuz?';
+$lang['quick_purchase_yes'] = 'Evet';
+$lang['quick_purchase_no'] = 'Hayır';
+$lang['order'] = 'Satınalma';
+
+$lang['used_for_installation'] = 'Montajda Kullanıldı';
+$lang['installed_item'] = 'Montaj Yapılan Ürün';
+$lang['connected_pair'] = 'İlişkili Ürün';
+

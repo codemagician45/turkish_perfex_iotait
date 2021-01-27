@@ -58,7 +58,7 @@
                                 $value = (isset($packing_list) ? $packing_list->price_per_item : '');
                                 echo render_input('price_per_item', _l('price_per_item'), $value, 'number', array('placeholder' => _l('price_per_item'),'readonly'=>true)); ?>
                             </div>
-                            <div class="col-md-6">
+                            <div class="hide">
                                 <?php 
                                 $value = (isset($packing_list) ? $packing_list->stock_qty : '');
                                 if(!isset($packing_list))
@@ -99,7 +99,7 @@
                             <?php $this->load->view('admin/warehouses/packing_group/_add_edit_package'); ?>
                         </div>
                         <div class="btn-bottom-toolbar text-right">
-                            <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
+                            <input  type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></input >
                         </div>
                     </div>
                 </div>
@@ -275,6 +275,9 @@
 
     $('#packing_list').submit(async function(e){
         e.preventDefault();
+
+        $(':input[type="submit"]').prop('disabled', true);
+
         var rows = $('body').find('.sortable');
         // console.log(rows)
         var check = 0;

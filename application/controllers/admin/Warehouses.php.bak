@@ -494,16 +494,6 @@ class Warehouses extends AdminController
         }
     }
 
-    public function check_duplicate_barcode()
-    {
-        $barcode_id = trim($this->input->post('barcode_id'));
-        $response    = [
-            'exists'  => (bool) total_rows(db_prefix() . 'barcode_list', ['barcode_id' => $barcode_id]) > 0,
-            'message' => _l('barcode_exists_info', '<b>' . $barcode_id . '</b>'),
-        ];
-        echo json_encode($response);
-    }
-
     public function barcode_list_delete($id)
     {
         if (!$id) {

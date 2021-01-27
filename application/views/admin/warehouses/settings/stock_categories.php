@@ -59,8 +59,7 @@
 
         appValidateForm($('form'), {
             name: 'required',
-            take_from: 'required',
-            export_to: 'required',
+            order_no: 'required',
         }, manage_installation_process);
 
         $('#stock_category_modal').on('show.bs.modal', function(event) {
@@ -71,6 +70,7 @@
             $('#stock_category_modal input[name="name"]').val('');
             $('#stock_category_modal input[name="order_no"]').val('');
 
+
             $('#stock_category_modal .add-title').removeClass('hide');
             $('#stock_category_modal .edit-title').addClass('hide');
 
@@ -78,18 +78,10 @@
                 $('input[name="stockId"]').val(id);
                 var order_no = $(button).parents('tr').find('td').eq(0).text();
                 var name = $(button).parents('tr').find('td').eq(1).text();
-                // var name = $(button).parents('tr').find('td');
                 $('#stock_category_modal .add-title').addClass('hide');
                 $('#stock_category_modal .edit-title').removeClass('hide');
                 $('#stock_category_modal input[name="name"]').val(name);
                 $('#stock_category_modal input[name="order_no"]').val(order_no);
-
-                // var $installationModal = $('#stock_category_modal');
-                // requestGetJSON('installation_process/get_installation_by_id/' + id).done(function (response) {
-                //     // $installationModal.find('#take_from').selectpicker('val', response.take_from);
-                //     // $installationModal.find('#export_to').selectpicker('val', response.export_to);
-                //     init_selectpicker();
-                // });
 
             }
         });
