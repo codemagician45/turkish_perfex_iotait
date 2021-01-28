@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/admin/Finances.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Finances.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/logs/log-2021-01-28.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-01-28.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Invoices_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Invoices_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/list_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/list_template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/manage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,37 +18,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Finances.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3829">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state relative-caret-position="-1330">
+              <caret line="971" column="58" lean-forward="true" selection-start-line="971" selection-start-column="58" selection-end-line="971" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
+            <state relative-caret-position="602">
+              <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-681">
-              <caret line="2042" column="55" selection-start-line="2042" selection-start-column="20" selection-end-line="2042" selection-end-column="55" />
-              <folding>
-                <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
-                <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
-                <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
-                <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
-                <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice_template.php">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -59,7 +45,16 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>update_rel_wo_items_install</find>
+      <find>n update</find>
+      <find>rel_quote</find>
+      <find>n dispat</find>
+      <find>transfer_out_confirm</find>
+      <find>transfer_out_ignore</find>
+      <find>invoice-form</find>
     </findStrings>
+    <dirStrings>
+      <dir>C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\dispatching_bay</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -67,9 +62,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Finances.php" />
         <option value="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" />
+        <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" />
       </list>
     </option>
   </component>
@@ -162,6 +158,25 @@
               <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
               <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -177,7 +192,16 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="tables" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouses" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="warehouses" type="462c0819:PsiDirectoryNode" />
+              <item name="dispatching_bay" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -219,12 +243,12 @@
       <workItem from="1596163061815" duration="125000" />
       <workItem from="1596894741367" duration="56000" />
       <workItem from="1611827734569" duration="152000" />
-      <workItem from="1611828509765" duration="880000" />
+      <workItem from="1611828509765" duration="5329000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1213000" />
+    <option name="totallyTimeSpent" value="5662000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -277,17 +301,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-681">
-          <caret line="2042" column="55" selection-start-line="2042" selection-start-column="20" selection-end-line="2042" selection-end-column="55" />
-          <folding>
-            <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="1848">
+          <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
         </state>
       </provider>
     </entry>
@@ -298,10 +315,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Sale.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
+        <state relative-caret-position="-3759">
+          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="881" column="13" lean-forward="true" selection-start-line="881" selection-start-column="13" selection-end-line="881" selection-end-column="13" />
+          <folding>
+            <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1330">
+          <caret line="971" column="58" lean-forward="true" selection-start-line="971" selection-start-column="58" selection-end-line="971" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice_template.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
         </state>
       </provider>
     </entry>

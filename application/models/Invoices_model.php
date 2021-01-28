@@ -860,7 +860,6 @@ class Invoices_model extends App_Model
         unset($data['created_user']);
         unset($data['item_select_recipe']);
         $data['updated_user'] = get_staff_user_id();
-        // print_r($data); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'invoices', $data);
 
@@ -871,6 +870,15 @@ class Invoices_model extends App_Model
                     $original_number_formatted,
                     format_invoice_number($original_invoice->id),
                 ]));
+            }
+
+            if($data['wo_phase_id'] == 5){
+                $this->db->where('id', $id);
+                $dispatch_data = $this->db->get(db_prefix().'invoices')->row();
+                $sale_data = [];
+                $sale_data['sale_phase_id'] = 4;
+                $this->db->where('rel_quote_id', $dispatch_data->rel_quote_id);
+                $this->db->update(db_prefix().'estimates', $sale_data);
             }
         }
 
