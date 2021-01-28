@@ -44,70 +44,6 @@ foreach ($custom_fields as $key => $field) {
 $where = ['AND ('.db_prefix().'work_order_phases.order_no = 3 or '.db_prefix().'work_order_phases.order_no = 4)'];
 $filter = [];
 
-// if ($this->ci->input->post('not_sent')) {
-//     array_push($filter, 'AND sent = 0 AND ' . db_prefix() . 'invoices.status NOT IN('.Invoices_model::STATUS_PAID.','.Invoices_model::STATUS_CANCELLED.')');
-// }
-// if ($this->ci->input->post('not_have_payment')) {
-//     array_push($filter, 'AND ' . db_prefix() . 'invoices.id NOT IN(SELECT invoiceid FROM ' . db_prefix() . 'invoicepaymentrecords) AND ' . db_prefix() . 'invoices.status != '.Invoices_model::STATUS_CANCELLED);
-// }
-// if ($this->ci->input->post('recurring')) {
-//     array_push($filter, 'AND recurring > 0');
-// }
-
-// $statuses  = $this->ci->invoices_model->get_statuses();
-// $statusIds = [];
-// foreach ($statuses as $status) {
-//     if ($this->ci->input->post('invoices_' . $status)) {
-//         array_push($statusIds, $status);
-//     }
-// }
-// if (count($statusIds) > 0) {
-//     array_push($filter, 'AND ' . db_prefix() . 'invoices.status IN (' . implode(', ', $statusIds) . ')');
-// }
-
-// $agents    = $this->ci->invoices_model->get_sale_agents();
-// $agentsIds = [];
-// foreach ($agents as $agent) {
-//     if ($this->ci->input->post('sale_agent_' . $agent['sale_agent'])) {
-//         array_push($agentsIds, $agent['sale_agent']);
-//     }
-// }
-// if (count($agentsIds) > 0) {
-//     array_push($filter, 'AND sale_agent IN (' . implode(', ', $agentsIds) . ')');
-// }
-
-// $modesIds = [];
-// foreach ($data['payment_modes'] as $mode) {
-//     if ($this->ci->input->post('invoice_payments_by_' . $mode['id'])) {
-//         array_push($modesIds, $mode['id']);
-//     }
-// }
-// if (count($modesIds) > 0) {
-//     array_push($where, 'AND ' . db_prefix() . 'invoices.id IN (SELECT invoiceid FROM ' . db_prefix() . 'invoicepaymentrecords WHERE paymentmode IN ("' . implode('", "', $modesIds) . '"))');
-// }
-
-// $years     = $this->ci->invoices_model->get_invoices_years();
-// $yearArray = [];
-// foreach ($years as $year) {
-//     if ($this->ci->input->post('year_' . $year['year'])) {
-//         array_push($yearArray, $year['year']);
-//     }
-// }
-// if (count($yearArray) > 0) {
-//     array_push($where, 'AND YEAR(date) IN (' . implode(', ', $yearArray) . ')');
-// }
-
-// if (count($filter) > 0) {
-//     array_push($where, 'AND (' . prepare_dt_filter($filter) . ')');
-// }
-// if ($clientid != '') {
-//     array_push($where, 'AND ' . db_prefix() . 'invoices.clientid=' . $this->ci->db->escape_str($clientid));
-// }
-
-// if ($project_id) {
-//     array_push($where, 'AND project_id=' . $this->ci->db->escape_str($project_id));
-// }
-
 if (!has_permission('invoices', '', 'view')) {
     $userWhere = 'AND ' . get_invoices_where_sql_for_staff(get_staff_user_id());
     array_push($where, $userWhere);
@@ -149,9 +85,8 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    // $numberOutput .= '<a href="' . site_url('work_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('invoices', '', 'edit')) {
-        $numberOutput .= '<a href="' . admin_url('installation/work_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= '<a href="' . admin_url('finances/ready_to_invoice_edit/' . $aRow['id']) . '">' . _l('edit') . '</a>';
     }
 
     $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['rel_sale_id']) . '" target="_blank">' . _l('sale_order') . '</a>';
@@ -171,7 +106,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = render_tags($aRow['tags']);
 
-    // $row[] = '<a href="' . admin_url('projects/view/' . $aRow['project_id']) . '">' . $aRow['project_name'] . '</a>';
     $row[] = $aRow['sum_volume_wo'];
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
@@ -184,15 +118,6 @@ foreach ($rResult as $aRow) {
     }
     else
         $row[] = '';
-
-    // $row[] = _d($aRow['duedate']);
-
-    // $row[] = format_invoice_status($aRow[db_prefix() . 'invoices.status']);
-
-    // // Custom fields add values
-    // foreach ($customFieldsColumns as $customFieldColumn) {
-    //     $row[] = (strpos($customFieldColumn, 'date_picker_') !== false ? _d($aRow[$customFieldColumn]) : $aRow[$customFieldColumn]);
-    // }
 
     $row['DT_RowClass'] = 'has-row-options';
 

@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="" />
+    <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/Finances.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Finances.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Invoices_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Invoices_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/list_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/list_template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/finances/ready_to_invoice/manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,27 +21,57 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Production.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Finances.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
+            <state relative-caret-position="-3829">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Settings.php">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state relative-caret-position="336">
+              <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-681">
+              <caret line="2042" column="55" selection-start-line="2042" selection-start-column="20" selection-end-line="2042" selection-end-column="55" />
+              <folding>
+                <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>update_rel_wo_items_install</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Finances.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" />
+      </list>
+    </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -109,8 +146,44 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="tables" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -145,16 +218,19 @@
       <updated>1596163057282</updated>
       <workItem from="1596163061815" duration="125000" />
       <workItem from="1596894741367" duration="56000" />
+      <workItem from="1611827734569" duration="152000" />
+      <workItem from="1611828509765" duration="880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181000" />
+    <option name="totallyTimeSpent" value="1213000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18603411" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Grunt " order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -187,17 +263,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Production.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Settings.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
           <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Production.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-681">
+          <caret line="2042" column="55" selection-start-line="2042" selection-start-column="20" selection-end-line="2042" selection-end-column="55" />
+          <folding>
+            <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Finances.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3829">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
         </state>
       </provider>
     </entry>

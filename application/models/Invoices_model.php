@@ -1721,43 +1721,6 @@ class Invoices_model extends App_Model
                     $affected_rows++;
                 }
             }
-        // if(isset($newitems))
-        //     foreach ($newitems as $val) {
-        //         unset($val['itemid']);
-        //         $val['rel_wo_id'] = $id;
-        //         // $val['rel_type'] = 'proposal';
-        //         if(isset($val['approval_need']))
-        //             $val['approval_need'] = 1;
-        //         $this->db->insert(db_prefix() . 'rel_wo_items', $val);
-        //         $insert_id = $this->db->insert_id();
-        //     }
-        // if(isset($items))
-        //     foreach ($items as $val) {
-        //         $itemid = $val['itemid'];
-        //         unset($val['itemid']);
-        //         $val['rel_wo_id'] = $id;
-        //         if(isset($val['approval_need']))
-        //             $val['approval_need'] = 1;
-        //         $this->db->where('id',$itemid);
-        //         $check_edit = $this->db->get(db_prefix() . 'rel_wo_items')->result_array();
-        //         if(!empty($check_edit))
-        //         {   
-        //             $this->db->where('id',$itemid);
-        //             $this->db->update(db_prefix() . 'rel_wo_items', $val);
-        //         } else {
-        //             $this->db->insert(db_prefix() . 'rel_wo_items', $val);
-        //             $insert_id = $this->db->insert_id();
-        //         }
-                
-        //     }
-
-        // if(isset($data['removed_items'])){
-        //     $removed_items = $data['removed_items'];
-        //     foreach ($removed_items as $val) {
-        //         $this->db->where('id',$val);
-        //         $this->db->delete(db_prefix() . 'rel_wo_items');
-        //     }
-        // }
         if ($affected_rows > 0) {
                 return true;
             } 
@@ -1786,6 +1749,10 @@ class Invoices_model extends App_Model
                 $this->db->update(db_prefix() . 'itemable', $val);
 
                 $this->load->model('warehouses_model');
+
+                $this->db->where('id',$itemid);
+                $item = $this->db->get(db_prefix().'itemable')->row();
+
                 if($transfer_out == '')
                 {
                     $plus_transfer_stock = [];
@@ -1797,9 +1764,6 @@ class Invoices_model extends App_Model
                     $plus_transfer_stock['transaction_notes'] = 'WO-'.$id;
                     $plus_transfer_stock['description'] = _l('installed_item');
 
-                    $this->db->where('id',$itemid);
-                    $item = $this->db->get(db_prefix().'itemable')->row();
-                    
                     if(empty($item->wo_install_transfer_id))
                     {
                         $wo_install_transfer_id = $this->warehouses_model->add_transfer_by_production($plus_transfer_stock, 1);
@@ -1824,7 +1788,6 @@ class Invoices_model extends App_Model
                     $pack_capacity = $val['pack_capacity'];
                     $stock_id = $val['rel_product_id'];
                     $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
-                    // print_r($pack); exit();
                     if(!empty($pack)){
                         $pack_id = $pack->packing_id;
                         $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
@@ -1887,6 +1850,26 @@ class Invoices_model extends App_Model
          
     }
 
+    public function update_rel_wo_items_ready_to_invoice($data, $id)
+    {
+        if(isset($data['items']))
+            $items = $data['items'];
+        $affected_rows = 0;
+        if(isset($items))
+            foreach ($items as $val) {
+                $itemid = $val['itemid'];
+                unset($val['itemid']);
+                if(isset($val['approval_need']))
+                    $val['approval_need'] = 1;
+                $this->db->where('id',$itemid);
+                $this->db->update(db_prefix() . 'itemable', $val);
+            }
+
+        if ($affected_rows > 0) {
+            return true;
+        }
+    }
+
     public function update_rel_wo_items_dispatch($data, $id,$transfer_out)
     {
         if(isset($data['items']))
@@ -1942,64 +1925,7 @@ class Invoices_model extends App_Model
                             $affected_rows++;
                         }
 
-                        // $pack_transfer = [];
-                        // $pack_capacity = $val['pack_capacity'];
-                        // $stock_id = $val['rel_product_id'];
-                        // $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
-
-                        // if(!empty($pack)){
-                        //     $pack_id = $pack->packing_id;
-                        //     $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                        //     $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
-                        //     $pack_transfer['transaction_notes'] = 'WO-'.$id;
-                        //     $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
-                        //     if(empty($item->pack_dispatch_transfer_id))
-                        //     {
-                        //         $pack_dispatch_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
-                        //         if($pack_dispatch_transfer_id)
-                        //             $this->db->query('UPDATE tblitemable SET pack_dispatch_transfer_id = '.$pack_dispatch_transfer_id.' WHERE id='.$itemid);
-                        //         else
-                        //             return false;
-                        //     } 
-                        //     else {
-                        //         $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_dispatch_transfer_id)->transaction_qty;
-                        //         $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
-                        //         $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_dispatch_transfer_id,$pack_id);
-                        //         if(!$success)
-                        //             return false;
-                        //     }
-                        // }   
-
                     }
-                    // else if($transfer_out == 1){
-                    //     $pack_transfer = [];
-                    //     $pack_capacity = $val['pack_capacity'];
-                    //     $stock_id = $val['rel_product_id'];
-                    //     $pack = $this->db->query('SELECT packing_id from tblpackage_group where product_id='.$stock_id.' and default_pack=1')->row();
-                    //     if(!empty($pack)){
-                    //         $pack_id = $pack->id;
-                    //         $pack_transfer['transaction_from'] = $this->db->query('SELECT id FROM tblwarehouses WHERE `order_no`= 2')->row()->id;
-                    //         $pack_transfer['transaction_qty'] = ceil($val['produced_qty']/$pack_capacity);
-                    //         $pack_transfer['transaction_notes'] = 'WO-'.$id;
-                    //         $pack_transfer['stock_product_code'] = $this->db->query('SELECT id from tblstock_lists where pack_id='.$pack_id)->row()->id;
-                    //         if(empty($item->pack_dispatch_transfer_id))
-                    //         {
-                    //             $pack_dispatch_transfer_id = $this->warehouses_model->add_transfer_by_pack($pack_transfer,$pack_id);
-                    //             if($pack_dispatch_transfer_id)
-                    //                 $this->db->query('UPDATE tblitemable SET pack_dispatch_transfer_id = '.$pack_dispatch_transfer_id.' WHERE id='.$itemid);
-                    //             else
-                    //                 return false;
-                    //         } 
-                    //         else {
-                    //             $last_transaction_qty = $this->warehouses_model->get_transfer($item->pack_dispatch_transfer_id)->transaction_qty;
-                    //             $pack_transfer['delta'] = $pack_transfer['transaction_qty'] - $last_transaction_qty;
-                    //             $success = $this->warehouses_model->update_transfer_by_pack($pack_transfer, $item->pack_dispatch_transfer_id,$pack_id);
-                    //             if(!$success)
-                    //                 return false;
-                    //         }
-                    //     } 
-                    // }
-
                 }
             }
 
@@ -2114,6 +2040,31 @@ class Invoices_model extends App_Model
         }  
     }
 
+    public function update_plan_recipe_ready_to_invoice($data, $id= '')
+    {
+        $affected_rows = 0;
+        foreach ($data as $temp) {
+            $recipe_id = $temp['item_id'];
+            unset($temp['item_id']);
+
+            $this->db->where('id',$recipe_id);
+            $check_edit = $this->db->get(db_prefix() . 'plan_recipe')->result_array();
+            if(empty($check_edit)){
+                $temp['rel_wo_id'] = $id;
+                $insert_id = $this->db->insert(db_prefix() . 'plan_recipe',$temp);
+            } else {
+               $this->db->where('id',$recipe_id);
+               $this->db->update(db_prefix() . 'plan_recipe', $temp);
+            }
+            if ($this->db->affected_rows() > 0) {
+                $affected_rows++;
+            }
+        }
+        if ($affected_rows > 0) {
+            return true;
+        }
+    }
+
     public function get_plan_recipes($id)
     {
         $this->db->select('plan_recipe.*, tblstock_lists.product_name as wo_product');
@@ -2149,7 +2100,6 @@ class Invoices_model extends App_Model
             }
             
         }
-        // print_r($data);exit();
         return $data;
     }
 

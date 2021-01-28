@@ -6,9 +6,7 @@
       <div class="col-md-12" id="small-table">
          <div class="panel_s">
             <div class="panel-body">
-               <!-- if invoiceid found in url -->
-               <?php //echo form_hidden('invoiceid',$invoiceid); ?>
-               <?php $this->load->view('admin/installation/table_html'); ?>
+               <?php $this->load->view('admin/finances/ready_to_invoice/table_html'); ?>
             </div>
          </div>
       </div>
