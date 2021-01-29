@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/models/Warehouses_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Warehouses_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Purchases_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Purchases_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,19 +17,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Purchases.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="100" column="50" selection-start-line="100" selection-start-column="34" selection-end-line="100" selection-end-column="50" />
+            <state relative-caret-position="315">
+              <caret line="72" column="67" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="67" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
+        <entry file="file://$PROJECT_DIR$/application/models/Purchases_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1638">
-              <caret line="201" column="42" selection-start-line="201" selection-start-column="42" selection-end-line="201" selection-end-column="42" />
+            <state relative-caret-position="533">
+              <caret line="201" column="74" selection-start-line="201" selection-start-column="74" selection-end-line="201" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -48,6 +49,7 @@
       <find>n quotation</find>
       <find>sale_phases</find>
       <find>estimates_model</find>
+      <find>add_purchase_order_item</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\dispatching_bay</dir>
@@ -73,6 +75,8 @@
         <option value="$PROJECT_DIR$/application/controllers/admin/Planning.php" />
         <option value="$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php" />
         <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" />
+        <option value="$PROJECT_DIR$/application/models/Purchases_model.php" />
       </list>
     </option>
   </component>
@@ -138,7 +142,7 @@
       <path value="$PROJECT_DIR$/application/vendor/authorizenet/authorizenet" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="242" />
     <option name="y" value="138" />
     <option name="width" value="1440" />
@@ -207,7 +211,16 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+              <item name="purchases" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="purchases" type="462c0819:PsiDirectoryNode" />
+              <item name="purchase_order" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -249,15 +262,15 @@
       <workItem from="1596163061815" duration="125000" />
       <workItem from="1596894741367" duration="56000" />
       <workItem from="1611827734569" duration="152000" />
-      <workItem from="1611828509765" duration="16748000" />
+      <workItem from="1611828509765" duration="18288000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17081000" />
+    <option name="totallyTimeSpent" value="18621000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
@@ -452,6 +465,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2205">
+          <caret line="201" column="42" selection-start-line="201" selection-start-column="42" selection-end-line="201" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
@@ -459,10 +479,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1638">
-          <caret line="201" column="42" selection-start-line="201" selection-start-column="42" selection-end-line="201" selection-end-column="42" />
+        <state relative-caret-position="588">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Purchases.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="72" column="67" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Purchases_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="201" column="74" selection-start-line="201" selection-start-column="74" selection-end-line="201" selection-end-column="74" />
         </state>
       </provider>
     </entry>

@@ -332,15 +332,23 @@
 
 		var option = '<option></option>';
 		requestGetJSON('invoices/get_machine_by_mould/' + mould_id).done(function(res) {
-			
-			res.forEach(e => {
-				requestGetJSON('manufacturing_settings/get_list_machine_by_id/'+ e.machine_id).done(function(data){
-					option += '<option value="'+ data.id +'">'+data.name+'</option>';
-					$('#machine_id').empty();
-					$('#machine_id').append(option);
-					$('#machine_id').selectpicker('refresh');
+			if(res){
+				res.forEach(e => {
+					requestGetJSON('manufacturing_settings/get_list_machine_by_id/'+ e.machine_id).done(function(data){
+						console.log('machine', data);
+						if(e.default_machine == 1)
+							option += '<option value="'+ data.id +'" selected>'+data.name+'</option>';
+						else
+							option += '<option value="'+ data.id +'" selected>'+data.name+'</option>';
+						$('#machine_id').empty();
+						$('#machine_id').append(option);
+						$('#machine_id').selectpicker('refresh');
+					})
 				})
-			})
+			} else {
+				$('#machine_id').empty();
+			}
+			
 		})
 
 	}

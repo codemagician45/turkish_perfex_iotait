@@ -53,7 +53,7 @@
     // If not order is passed order by the first column
     if (typeof(defaultorder) == 'undefined') {
         defaultorder = [
-            [0, 'asc']
+            [0, 'desc']
         ];
     } else {
         if (defaultorder.length === 1) {

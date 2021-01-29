@@ -175,13 +175,12 @@ class Purchases_model extends App_Model
         return false;
     }
 
-    public function add_purchase_order_item($data, $transfer_data = [])
+    public function add_purchase_order_item($data)
     {
         $rel_purchase_id = $data['rel_purchase_id'];
         unset($data['rel_purchase_id']);
         unset($data['product_id']);
         foreach ($data as $val) {
-            $temp = [];
             $temp = $val;
             if(!empty($val['received_qty']))
             {
@@ -201,8 +200,6 @@ class Purchases_model extends App_Model
             $temp['rel_purchase_id'] = $rel_purchase_id;
             unset($temp['item_id']);
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
-            $insert_id = $this->db->insert_id();
-            return true;
         }
         return false;
     }
