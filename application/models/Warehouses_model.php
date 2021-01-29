@@ -78,11 +78,10 @@ class Warehouses_model extends App_Model
     public function stock_category_add($data)
     {
         unset($data['stockId']);
-        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'stock_categories', $data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
-            log_activity('Installation Added [ID: ' . $data['name'] . ']');
+            log_activity('Stock Category Added [ID: ' . $data['name'] . ']');
 
             return true;
         }
@@ -92,26 +91,25 @@ class Warehouses_model extends App_Model
 
     public function stock_category_edit($data)
     {
-        $installation_id = $data['stockId'];
+        $category_id = $data['stockId'];
         unset($data['stockId']);
-        $this->db->where('id', $installation_id);
+        $this->db->where('cate_id', $category_id);
         $this->db->update(db_prefix() . 'stock_categories', $data);
         if ($this->db->affected_rows() > 0) {
-            log_activity('Installation Updated [' . $data['name'] . ']');
+            log_activity('Stock Category Updated [' . $data['name'] . ']');
 
             return true;
         }
-
         return false;
     }
 
     public function stock_category_delete($id)
     {
-        $this->db->where('id', $id);
+        $this->db->where('cate_id', $id);
         $this->db->delete(db_prefix() . 'stock_categories');
         if ($this->db->affected_rows() > 0) {
 
-            log_activity('Installation Deleted [' . $id . ']');
+            log_activity('Stock Category Deleted [' . $id . ']');
 
             return true;
         }
@@ -127,7 +125,7 @@ class Warehouses_model extends App_Model
         $this->db->insert(db_prefix() . 'units', $data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
-            log_activity('Installation Added [ID: ' . $data['name'] . ']');
+            log_activity('Stock Unit Added [ID: ' . $data['name'] . ']');
 
             return true;
         }
@@ -137,12 +135,12 @@ class Warehouses_model extends App_Model
 
     public function stock_unit_edit($data)
     {
-        $installation_id = $data['stock_unit_id'];
+        $unit_id = $data['stock_unit_id'];
         unset($data['stock_unit_id']);
-        $this->db->where('unitid', $installation_id);
+        $this->db->where('unitid', $unit_id);
         $this->db->update(db_prefix() . 'units', $data);
         if ($this->db->affected_rows() > 0) {
-            log_activity('Installation Updated [' . $data['name'] . ']');
+            log_activity('Stock Unit Updated [' . $data['name'] . ']');
 
             return true;
         }
@@ -202,29 +200,15 @@ class Warehouses_model extends App_Model
     }
 
     public function stock_list_add($data){
-
-        // if(isset($data['warning']))
-        //     $warning_data = $data['warning'];
         unset($data['stocklistId']);
-        // unset($data['warning']);
         $data['created_by'] = get_staff_user_id();
         $data['created_at'] = date('Y-m-d h:i:s');
         $this->db->insert(db_prefix() . 'stock_lists', $data);
         $insert_id = $this->db->insert_id();
         if ($insert_id) {
             log_activity('Item Added [ID: ' . $data['product_name'] . ']');
-
             $this->db->where('stock_id', $insert_id);
             $this->db->delete(db_prefix() . 'stock_level_warning');
-            // foreach ($warning_data as $key => $warning) {
-            //     if(isset($warning['warning_enable']))
-            //     {
-            //         unset($warning['warning_enable']);
-            //         $warning['stock_id'] = $insert_id;
-            //         $this->db->insert(db_prefix().'stock_level_warning',$warning);
-            //     }
-            // }
-
             return true;
         }
         return false;
