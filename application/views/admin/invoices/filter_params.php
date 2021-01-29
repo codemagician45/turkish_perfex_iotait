@@ -21,5 +21,13 @@
     echo form_hidden('not_have_payment');
     echo form_hidden('recurring');
     echo form_hidden('project_id');
+
+    foreach ($wo_phases as $phase){
+        $val = '';
+        if($phase['order_no'] == $this->input->get('phase')){
+             $val = $phase['order_no'];
+        }
+        echo form_hidden('phase_'.$phase['order_no'],$val);
+    }
     ?>
 </div>

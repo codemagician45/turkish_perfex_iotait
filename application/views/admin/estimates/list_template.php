@@ -4,7 +4,7 @@
   <div class="col-md-12" id="small-table">
     <div class="panel_s">
       <div class="panel-body">
-
+        <?php $this->load->view('admin/estimates/estimates_top_stats');?>
         <div class="horizontal-tabs">
           <ul class="nav nav-tabs nav-tabs-horizontal" role="tablist">
              <li role="presentation" class="active">

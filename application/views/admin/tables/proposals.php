@@ -50,6 +50,17 @@ if (count($statusIds) > 0) {
     array_push($filter, 'AND status IN (' . implode(', ', $statusIds) . ')');
 }
 
+$phases  = $this->ci->proposals_model->get_phases();
+$phaseIds = [];
+foreach ($phases as $phase) {
+    if ($this->ci->input->post('phase_' . $phase['order_no'])) {
+        array_push($phaseIds, $phase['order_no']);
+    }
+}
+if (count($phaseIds) > 0) {
+    array_push($filter, 'AND quote_phase_id IN (' . implode(', ', $phaseIds) . ')');
+}
+
 $agents    = $this->ci->proposals_model->get_sale_agents();
 $agentsIds = [];
 foreach ($agents as $agent) {
@@ -121,18 +132,12 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
 
     $numberOutput = '<a href="' . admin_url('proposals/list_proposals/' . $aRow[db_prefix() . 'proposals.id']) . '" onclick="init_proposal(' . $aRow[db_prefix() . 'proposals.id'] . '); return false;">' . format_proposal_number($aRow[db_prefix() . 'proposals.id']) . '</a>';
 
     $numberOutput .= '<div class="row-options">';
-
-    // $numberOutput .= '<a href="' . site_url('proposal/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
-    // if (has_permission('proposals', '', 'edit')) {
-    //     $numberOutput .= ' | <a href="' . admin_url('proposals/proposal/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
-    // }
 
     $numberOutput .= '<a href="' . site_url('quotation/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('proposals', '', 'edit')) {
@@ -142,8 +147,6 @@ foreach ($rResult as $aRow) {
     $numberOutput .= '</div>';
 
     $row[] = $numberOutput;
-
-    // $row[] = '<a href="' . admin_url('proposals/list_proposals/' . $aRow[db_prefix() . 'proposals.id']) . '" onclick="init_proposal(' . $aRow[db_prefix() . 'proposals.id'] . '); return false;">' . $aRow['subject'] . '</a>';
 
     $row[] = $aRow[db_prefix() . 'quote_phase.phase'];
 
@@ -163,7 +166,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = $aRow['discount_total'];
 
-    // $row[] = _d($aRow['open_till']);
     $amount = app_format_money($aRow['total'], ($aRow['currency'] != 0 ? get_currency($aRow['currency']) : $baseCurrency));
 
     if ($aRow['invoice_id']) {

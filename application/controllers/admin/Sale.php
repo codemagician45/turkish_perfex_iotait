@@ -216,6 +216,7 @@ class Sale extends AdminController
             $data['statuses']              = $this->proposals_model->get_statuses();
             $data['proposals_sale_agents'] = $this->proposals_model->get_sale_agents();
             $data['years']                 = $this->proposals_model->get_proposals_years();
+            $data['quote_phases'] = $this->proposals_model->get_phases();
             $this->load->view('admin/proposals/manage', $data);
         }
     }
@@ -274,13 +275,7 @@ class Sale extends AdminController
         $data['taxes'] = $this->taxes_model->get();
 
         $this->load->model('invoice_items_model');
-        // $data['ajaxItems'] = false;
-        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-        //     $data['items'] = $this->invoice_items_model->get_grouped();
-        // } else {
-        //     $data['items']     = [];
-        //     $data['ajaxItems'] = true;
-        // }
+
         $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
@@ -298,9 +293,7 @@ class Sale extends AdminController
         $data['staff']         = $this->staff_model->get('', ['active' => 1]);
         $data['currencies']    = $this->currencies_model->get();
         $this->load->model('finances_model');
-        // $data['currencies']    = $this->finances_model->get_currency_exchange();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
-        // print_r($data['estimate']); exit();
         $data['title'] = $title;
         $this->load->view('admin/proposals/proposal', $data);
     }
@@ -369,17 +362,10 @@ class Sale extends AdminController
         $data['taxes'] = $this->taxes_model->get();
 
         $this->load->model('invoice_items_model');
-        // $data['ajaxItems'] = false;
-        // if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
-        //     $data['items'] = $this->invoice_items_model->get_grouped();
-        // } else {
-        //     $data['items']     = [];
-        //     $data['ajaxItems'] = true;
-        // }
+
         $this->load->model('warehouses_model');
         $data['ajaxItems'] = false;
         if (total_rows(db_prefix() . 'stock_lists') > 0) {
-            // $data['items'] = $this->warehouses_model->get_grouped();
             $data['items'] = $this->warehouses_model->get_grouped_packing();
         } else {
             $data['items']     = [];
@@ -393,9 +379,7 @@ class Sale extends AdminController
         $data['staff']         = $this->staff_model->get('', ['active' => 1]);
         $data['currencies']    = $this->currencies_model->get();
         $this->load->model('finances_model');
-        // $data['currencies']    = $this->finances_model->get_currency_exchange();
         $data['base_currency'] = $this->currencies_model->get_base_currency();
-        // print_r($data['estimate']); exit();
         $data['title'] = $title;
         $this->load->view('admin/proposals/proposal_approval', $data);
     }
@@ -434,6 +418,7 @@ class Sale extends AdminController
             $data['bodyclass']             = 'estimates-total-manual';
             $data['estimates_years']       = $this->estimates_model->get_estimates_years();
             $data['estimates_sale_agents'] = $this->estimates_model->get_sale_agents();
+            $data['sale_phases'] = $this->estimates_model->get_phases();
             $this->load->view('admin/estimates/manage', $data);
         }
     }
@@ -449,19 +434,13 @@ class Sale extends AdminController
                 }
                 $id = $this->estimates_model->add($estimate_data);
                 if ($id) {
-                    // set_alert('success', _l('added_successfully', _l('sale_order')));
-                    // if ($this->set_estimate_pipeline_autoload($id)) {
-                    //     redirect(admin_url('estimates/list_estimates/'));
-                    // } else {
-                    //     redirect(admin_url('estimates/list_estimates/' . $id));
-                    // }
                     redirect(admin_url('sale/sale_order_list'));
                 }
             } else {
                 if (!has_permission('estimates', '', 'edit')) {
                     access_denied('estimates');
                 }
-                // print_r($estimate_data); exit();
+
                 $success = $this->estimates_model->update($estimate_data, $id);
                 if ($success) {
                     set_alert('success', _l('updated_successfully', _l('sale_order')));

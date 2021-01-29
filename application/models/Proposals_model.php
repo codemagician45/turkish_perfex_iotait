@@ -36,6 +36,11 @@ class Proposals_model extends App_Model
         return $this->db->query('SELECT DISTINCT(YEAR(date)) as year FROM ' . db_prefix() . 'proposals')->result_array();
     }
 
+    public function get_phases()
+    {
+        return $this->db->get(db_prefix().'quote_phase')->result_array();
+    }
+
     public function do_kanban_query($status, $search = '', $page = 1, $sort = [], $count = false)
     {
         $default_pipeline_order      = get_option('default_proposals_pipeline_sort');
@@ -182,11 +187,8 @@ class Proposals_model extends App_Model
         unset($data['volume_m3']);
         unset($data['notes']);
         $data['updated_user'] = get_staff_user_id();
-        // print_r($data); exit();
         $this->db->insert(db_prefix() . 'proposals', $data);
         $insert_id = $this->db->insert_id();
-        // print_r($insert_id); exit();
-
         $this->load->model('warehouses_model');
         if ($insert_id) {
 

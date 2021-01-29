@@ -28,6 +28,14 @@
             echo form_hidden('project_id');
             echo form_hidden('invoiced');
             echo form_hidden('not_invoiced');
+
+            foreach ($sale_phases as $phase){
+               $val = '';
+               if($phase['order_no'] == $this->input->get('phase')){
+                   $val = $phase['order_no'];
+               }
+               echo form_hidden('phase_'.$phase['order_no'],$val);
+            }
             ?>
         </div>
         <div class="row text-left quick-top-stats">

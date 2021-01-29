@@ -49,6 +49,10 @@ class Invoices_model extends App_Model
         return $this->db->query('SELECT DISTINCT(sale_agent) as sale_agent, CONCAT(firstname, \' \', lastname) as full_name FROM ' . db_prefix() . 'invoices JOIN ' . db_prefix() . 'staff ON ' . db_prefix() . 'staff.staffid=' . db_prefix() . 'invoices.sale_agent WHERE sale_agent != 0')->result_array();
     }
 
+    public function get_phases()
+    {
+        return $this->db->get(db_prefix().'work_order_phases')->result_array();
+    }
     /**
      * Get invoice by id
      * @param  mixed $id

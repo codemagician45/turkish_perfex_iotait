@@ -165,3 +165,7 @@ ERROR - 2021-01-28 16:49:54 --> Could not find the language line "created user"
 ERROR - 2021-01-28 16:49:54 --> Could not find the language line "updated user"
 ERROR - 2021-01-28 16:49:54 --> Could not find the language line "yes"
 ERROR - 2021-01-28 16:49:54 --> Could not find the language line "no"
+ERROR - 2021-01-28 19:55:31 --> Severity: error --> Exception: syntax error, unexpected end of file C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 198
+ERROR - 2021-01-28 20:59:16 --> Severity: Notice --> Array to string conversion C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 30
+ERROR - 2021-01-28 20:59:16 --> Severity: Notice --> Array to string conversion C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 30
+ERROR - 2021-01-28 20:59:16 --> Severity: Notice --> Array to string conversion C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\manage.php 30

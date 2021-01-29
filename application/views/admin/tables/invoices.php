@@ -72,6 +72,17 @@ if (count($statusIds) > 0) {
     array_push($filter, 'AND ' . db_prefix() . 'invoices.status IN (' . implode(', ', $statusIds) . ')');
 }
 
+$phases  = $this->ci->invoices_model->get_phases();
+$phaseIds = [];
+foreach ($phases as $phase) {
+    if ($this->ci->input->post('phase_' . $phase['order_no'])) {
+        array_push($phaseIds, $phase['order_no']);
+    }
+}
+if (count($phaseIds) > 0) {
+    array_push($filter, 'AND wo_phase_id IN (' . implode(', ', $phaseIds) . ')');
+}
+
 $agents    = $this->ci->invoices_model->get_sale_agents();
 $agentsIds = [];
 foreach ($agents as $agent) {

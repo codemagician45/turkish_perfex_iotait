@@ -15,13 +15,13 @@
                            <p class="text-dark text-uppercase"><?php echo _l('home_work_order_overview'); ?></p>
                            <hr class="mtop15" />
                         </div>
-                        <?php 
-                        // print_r($work_phases); exit();
+                        <?php
                         foreach($work_phases as $w_phase){
                            $w_phase_percent_data = get_work_orders_percent_by_phase($w_phase['order_no']);
+                            $url = admin_url('planning/work_orders_list?phase='.$w_phase['order_no']);
                         ?>
                            <div class="col-md-12 text-stats-wrapper">
-                              <a href="#" class="text-<?php echo proposal_status_color_class($w_phase['order_no'],true); ?> mbot15 inline-block">
+                              <a href="<?php echo $url; ?>" target="_blank" class="text-<?php echo proposal_status_color_class($w_phase['order_no'],true); ?> mbot15 inline-block">
                                  <span class="_total bold"><?php echo $w_phase_percent_data['total_by_phase']; ?></span> <?php echo format_proposal_phase($w_phase,'',false); ?>
                               </a>
                            </div>
@@ -46,9 +46,10 @@
 
                         <?php foreach($sale_phases as $s_phase){
                            $s_phase_percent_data = get_sale_orders_percent_by_phase($s_phase['order_no']);
+                           $url = admin_url('sale/sale_order_list?phase='.$s_phase['order_no']);
                         ?>
                            <div class="col-md-12 text-stats-wrapper">
-                              <a href="#" class="text-<?php echo proposal_status_color_class($s_phase['order_no'],true); ?> mbot15 inline-block">
+                              <a href="<?php echo $url; ?>" target="_blank" class="text-<?php echo proposal_status_color_class($s_phase['order_no'],true); ?> mbot15 inline-block">
                                  <span class="_total bold"><?php echo $s_phase_percent_data['total_by_phase']; ?></span> <?php echo format_proposal_phase($s_phase,'',false); ?>
                               </a>
                            </div>
@@ -73,9 +74,10 @@
 
                         <?php foreach($quotation_phases as $q_phase){
                            $q_phase_percent_data = get_proposals_percent_by_phase($q_phase['order_no']);
+                           $url = admin_url('sale/quotation_list?phase='.$q_phase['order_no']);
                         ?>
                            <div class="col-md-12 text-stats-wrapper">
-                              <a href="#" class="text-<?php echo proposal_status_color_class($q_phase['order_no'],true); ?> mbot15 inline-block">
+                              <a href="<?php echo $url; ?>" target="_blank" class="text-<?php echo proposal_status_color_class($q_phase['order_no'],true); ?> mbot15 inline-block">
                                  <span class="_total bold"><?php echo $q_phase_percent_data['total_by_phase']; ?></span> <?php echo format_proposal_phase($q_phase,'',false); ?>
                               </a>
                            </div>
@@ -93,7 +95,7 @@
                            $percent_data = get_proposals_percent_by_status($status);
                            ?>
                            <div class="col-md-12 text-stats-wrapper">
-                              <a href="<?php echo $url; ?>" class="text-<?php echo proposal_status_color_class($status,true); ?> mbot15 inline-block">
+                              <a href="<?php echo $url; ?>" target="_blank" class="text-<?php echo proposal_status_color_class($status,true); ?> mbot15 inline-block">
                                  <span class="_total bold"><?php echo $percent_data['total_by_status']; ?></span> <?php echo format_proposal_status($status,'',false); ?>
                               </a>
                            </div>

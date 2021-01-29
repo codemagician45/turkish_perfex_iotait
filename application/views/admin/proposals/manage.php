@@ -21,18 +21,26 @@
                echo form_hidden('leads_related');
                echo form_hidden('customers_related');
                echo form_hidden('expired');
+
+               foreach ($quote_phases as $phase){
+                   $val = '';
+                   if($phase['order_no'] == $this->input->get('phase')){
+                       $val = $phase['order_no'];
+                   }
+                   echo form_hidden('phase_'.$phase['order_no'],$val);
+               }
                ?>
          </div>
          <div class="col-md-12">
             <div class="panel_s mbot10">
                <div class="panel-body _buttons">
                   <?php if(has_permission('proposals','','create')){ ?>
-                  <!-- <a href="<?php echo admin_url('proposals/proposal'); ?>" class="btn btn-info pull-left display-block"> -->
+                
                   <a href="<?php echo admin_url('sale/quotation'); ?>" class="btn btn-info pull-left display-block">
                   <?php echo _l('new_quote'); ?>
                   </a>
                   <?php } ?>
-                  <!-- <a href="<?php echo admin_url('proposals/pipeline/'.$switch_pipeline); ?>" class="btn btn-default mleft5 pull-left hidden-xs"><?php echo _l('switch_to_pipeline'); ?></a> -->
+                
                   <div class="display-block text-right">
                      <div class="btn-group pull-right mleft4 btn-with-tooltip-group _filter_data" data-toggle="tooltip" data-title="<?php echo _l('filter_by'); ?>">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,15 +60,7 @@
                               </a>
                            </li>
                            <?php } ?>
-                           <!-- <?php if(count($years) > 0){ ?>
-                           <li class="divider"></li>
-                           <?php foreach($years as $year){ ?>
-                           <li class="active">
-                              <a href="#" data-cview="year_<?php echo $year['year']; ?>" onclick="dt_custom_view(<?php echo $year['year']; ?>,'.table-proposals','year_<?php echo $year['year']; ?>'); return false;"><?php echo $year['year']; ?>
-                              </a>
-                           </li>
-                           <?php } ?>
-                           <?php } ?> -->
+                           
                            <?php if(count($proposals_sale_agents) > 0){ ?>
                            <div class="clearfix"></div>
                            <li class="divider"></li>

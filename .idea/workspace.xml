@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/Planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Planning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/admin/Sale.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/admin/Sale.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/logs/log-2021-01-28.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-01-28.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Estimates_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Estimates_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Invoices_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Invoices_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Proposals_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Proposals_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/dashboard/widgets/user_data.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/dashboard/widgets/user_data.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/estimates/estimates_top_stats.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/estimates/estimates_top_stats.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/estimates/list_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/estimates/list_template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/invoices/filter_params.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/invoices/filter_params.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/invoices/list_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/invoices/list_template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/proposals/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/proposals/manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/estimates.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/estimates.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/invoices.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/invoices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/proposals.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/proposals.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,26 +31,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Sale.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1330">
-              <caret line="971" column="58" lean-forward="true" selection-start-line="971" selection-start-column="58" selection-end-line="971" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
+            <state relative-caret-position="575">
+              <caret line="420" column="12" lean-forward="true" selection-start-line="420" selection-start-column="12" selection-end-line="420" selection-end-column="72" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice_template.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/application/views/admin/estimates/list_template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/manage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="441">
+              <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/tables/proposals.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Proposals_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+              <folding>
+                <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
+                <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Planning.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="651">
+              <caret line="43" column="24" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Estimates_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="34" column="70" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="70" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -47,10 +125,14 @@
       <find>update_rel_wo_items_install</find>
       <find>n update</find>
       <find>rel_quote</find>
-      <find>n dispat</find>
       <find>transfer_out_confirm</find>
       <find>transfer_out_ignore</find>
       <find>invoice-form</find>
+      <find>n dispat</find>
+      <find>phase</find>
+      <find>n quotation</find>
+      <find>sale_phases</find>
+      <find>estimates_model</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\dispatching_bay</dir>
@@ -64,8 +146,17 @@
       <list>
         <option value="$PROJECT_DIR$/application/controllers/admin/Finances.php" />
         <option value="$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php" />
-        <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/dashboard/widgets/user_data.php" />
+        <option value="$PROJECT_DIR$/application/models/Proposals_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/proposals/manage.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/tables/proposals.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Sale.php" />
+        <option value="$PROJECT_DIR$/application/models/Estimates_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/estimates/list_template.php" />
+        <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin/Planning.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php" />
       </list>
     </option>
   </component>
@@ -192,7 +283,7 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouses" type="462c0819:PsiDirectoryNode" />
+              <item name="estimates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="turkish_perfex" type="b2602c69:ProjectViewProjectNode" />
@@ -200,8 +291,7 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="warehouses" type="462c0819:PsiDirectoryNode" />
-              <item name="dispatching_bay" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -243,12 +333,12 @@
       <workItem from="1596163061815" duration="125000" />
       <workItem from="1596894741367" duration="56000" />
       <workItem from="1611827734569" duration="152000" />
-      <workItem from="1611828509765" duration="5329000" />
+      <workItem from="1611828509765" duration="16078000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5662000" />
+    <option name="totallyTimeSpent" value="16411000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -315,24 +405,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Sale.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3759">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice_template.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="881" column="13" lean-forward="true" selection-start-line="881" selection-start-column="13" selection-end-line="881" selection-end-column="13" />
-          <folding>
-            <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
-            <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="602">
+          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
         </state>
       </provider>
     </entry>
@@ -343,13 +422,124 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice_template.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/upcoming_events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Leads.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/user_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/dashboard.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
+        <state relative-caret-position="-1113">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Sale_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1995">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Estimates_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="34" column="70" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/proposals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/estimates/table_html.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/estimates/manage.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/estimates/list_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/manage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Proposals_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="41" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Sale.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="420" column="12" lean-forward="true" selection-start-line="420" selection-start-column="12" selection-end-line="420" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Work_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Invoices_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="53" column="60" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+          <folding>
+            <element signature="n#update_rel_wo_items_install#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_ready_to_invoice#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_rel_wo_items_dispatch#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe#0;n#Invoices_model#0;n#!!top" />
+            <element signature="n#update_plan_recipe_install#0;n#Invoices_model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Planning.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="43" column="24" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
         </state>
       </provider>
     </entry>

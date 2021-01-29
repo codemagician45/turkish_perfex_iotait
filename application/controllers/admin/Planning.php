@@ -41,6 +41,7 @@ class Planning extends AdminController
         $data['invoices_years']       = $this->invoices_model->get_invoices_years();
         $data['invoices_sale_agents'] = $this->invoices_model->get_sale_agents();
         $data['invoices_statuses']    = $this->invoices_model->get_statuses();
+        $data['wo_phases'] = $this->invoices_model->get_phases();
         $data['bodyclass']            = 'invoices-total-manual';
         $this->load->view('admin/invoices/manage', $data);
     }
