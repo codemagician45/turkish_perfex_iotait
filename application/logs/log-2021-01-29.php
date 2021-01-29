@@ -4338,3 +4338,8 @@ ERROR - 2021-01-29 16:31:17 --> Severity: Notice --> Undefined variable: where C
 ERROR - 2021-01-29 16:31:17 --> Severity: Warning --> implode(): Invalid arguments passed C:\xampp\htdocs\turkish_perfex\application\helpers\datatables_helper.php 201
 ERROR - 2021-01-29 16:31:26 --> Could not find the language line "barcode_no"
 ERROR - 2021-01-29 16:37:29 --> Could not find the language line "barcode_no"
+ERROR - 2021-01-29 16:47:35 --> Could not find the language line "created user"
+ERROR - 2021-01-29 16:47:35 --> Could not find the language line "updated user"
+ERROR - 2021-01-29 16:47:35 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-01-29 16:47:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-01-29 17:04:59 --> Could not find the language line "so_heading_number"

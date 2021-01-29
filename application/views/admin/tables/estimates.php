@@ -17,14 +17,6 @@ $aColumns = [
     db_prefix() . 'estimates.datecreated',
     'staff2.firstname as u_firstname',
     db_prefix() . 'estimates.active'
-    // 'total_tax',
-    // 'YEAR(date) as year',
-    // db_prefix() . 'projects.name as project_name',
-    // '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'estimates.id and rel_type="estimate" ORDER by tag_order ASC) as tags',
-    // 'date',
-    // 'expirydate',
-    // 'reference_no',
-    // db_prefix() . 'estimates.status',
     ];
 
 $join = [
@@ -158,11 +150,6 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<div class="row-options">';
 
-    // $numberOutput .= '<a href="' . site_url('estimate/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
-    // if (has_permission('estimates', '', 'edit')) {
-    //     $numberOutput .= ' | <a href="' . admin_url('estimates/estimate/' . $aRow['id']) . '">' . _l('edit') . '</a>';
-    // }
-
     $numberOutput .= '<a href="' . site_url('sale_order/' . $aRow['id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('estimates', '', 'edit')) {
         $numberOutput .= ' | <a href="' . admin_url('sale/sale_order/' . $aRow['id']) . '">' . _l('edit') . '</a>';
@@ -171,9 +158,6 @@ foreach ($rResult as $aRow) {
 
     $row[] = $numberOutput;
 
-    
-
-    // $row[] = $amount;
     $row[] = $aRow[db_prefix() . 'sale_phases.phase'];
 
     if (empty($aRow['deleted_customer_name'])) {
@@ -182,14 +166,10 @@ foreach ($rResult as $aRow) {
         $row[] = $aRow['deleted_customer_name'];
     }
 
-
     $numberOutput = '<a>' . format_proposal_number($aRow['rel_quote_id']) . '</a>';
-
 
     $row[] = $numberOutput;
 
-
-    // $row[] = app_format_money($aRow['total_tax'], $aRow['currency_name']);
     $row[] = $aRow['shipping_type'];
 
     $row[] = _d($aRow['req_shipping_date']);
@@ -200,10 +180,6 @@ foreach ($rResult as $aRow) {
         $amount = app_format_money($aRow['total'], $aRow['currency_name']);
     else
         $amount = $aRow['total'];
-
-    // if ($aRow['invoiceid']) {
-    //     $amount .= '<br /><span class="hide"> - </span><span class="text-success">' . _l('estimate_invoiced') . '</span>';
-    // }
 
     $row[] = $amount;
 
@@ -218,8 +194,6 @@ foreach ($rResult as $aRow) {
     }
     else
         $row[] = '';
-
-    // $row[] = format_estimate_status($aRow[db_prefix() . 'estimates.status']);
 
     // Custom fields add values
     foreach ($customFieldsColumns as $customFieldColumn) {

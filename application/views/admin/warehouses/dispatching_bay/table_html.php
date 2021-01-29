@@ -2,6 +2,7 @@
 
 $table_data = array(
   _l('wo_heading_number'),
+  _l('sale_order_dt_table_heading_number'),
   _l('wo_phase_id'),
   _l('client'),
   _l('tags'),

@@ -553,7 +553,6 @@ class Warehouses extends AdminController
     {
         if ($this->input->is_ajax_request()) {
             $this->app->get_table_data('packing_list');
-            // $this->app->get_table_data('packing_group');
         }
 
         $data['title'] = _l('packing_list');
