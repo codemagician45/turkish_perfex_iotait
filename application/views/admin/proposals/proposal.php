@@ -454,11 +454,16 @@ $('select[name="quote_phase"]').change(function(){
 function volume_calc(){
   var pack_capacity = $('#pack_capacity').val();
   requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-    var volume = response.volume;
-    var qty = $('input[name="qty"]').val();
-    var cal_volume = Number(volume)*(Number(qty)/Number(pack_capacity));
-    $('input[name="volume_m3"]').val(cal_volume);
-    calculate_total_quote();
+    if(response) {
+      var volume = response.volume;
+      var qty = $('input[name="qty"]').val();
+      var cal_volume = Number(volume)*(Number(qty)/Number(pack_capacity));
+      $('input[name="volume_m3"]').val(cal_volume);
+      calculate_total_quote();
+    } else {
+      $('input[name="volume_m3"]').val('');
+    }
+    
   });
 
 }
@@ -472,6 +477,19 @@ function volume_calc_added(row){
     calculate_total_quote();
   });
 }
+
+$('#pack_capacity').change(function(){
+  var itemid = $('#item_select').selectpicker('val');
+  var pack_id = $(this).selectpicker('val');
+  requestGetJSON('warehouses/get_item_by_id_with_relation/' + itemid).done(function (response) {
+        console.log(response);
+        var pack_data = response.pack_list.filter(e=>{
+            return e.packing_id == pack_id
+        })
+        var pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(pack_price));
+    });
+})
 
 </script>
 </body>

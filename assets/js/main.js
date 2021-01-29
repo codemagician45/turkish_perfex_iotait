@@ -8123,16 +8123,16 @@ function add_item_to_preview_quote(id) {
     requestGetJSON('warehouses/get_item_by_id_with_relation/' + id).done(function (response) {
         console.log(response);
         clear_item_preview_values();
+         
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
-        $('input[name="original_price"]').val(response.stock.original_price);
+        
         $('select[name="unit"]').selectpicker('val', response.stock.unit);
         $('select[name="unit"]').prop('disabled', true)
 
         var pack_capacity_option = '<option></option>';
         $.each(response.pack_list, function () {
-
-            pack_capacity_option += '<option value="' + this.pack_capacity + '">' + this.pack_capacity + '</option>';
+            pack_capacity_option += '<option value="' + this.packing_id + '">' + this.pack_capacity + '</option>';
             $('select[name="pack_capacity"]').empty();
             $('select[name="pack_capacity"]').append(pack_capacity_option);
             $('select[name="pack_capacity"]').selectpicker('refresh');
@@ -8140,8 +8140,14 @@ function add_item_to_preview_quote(id) {
         })
 
         if (response.default_pack_capacity) {
-            $('select[name="pack_capacity"]').selectpicker('val', response.default_pack_capacity);
-            // $('input[name="volume_m3"]').val(response.default_pack.volume);
+            $('select[name="pack_capacity"]').selectpicker('val', response.default_pack_id);
+            var default_pack_data = response.pack_list.filter(e=>{
+                return e.default_pack == 1
+            })
+            var default_pack_price = parseFloat(default_pack_data[0].pack_price/default_pack_data[0].pack_capacity)
+            $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(default_pack_price));
+        } else {
+            $('input[name="original_price"]').val(response.stock.original_price);
         }
 
         init_selectpicker();
@@ -8161,14 +8167,13 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense) {
     data = typeof (data) == 'undefined' || data == 'undefined' ? get_item_preview_values_quote() : data;
     if (data.item_id === "" && data.product_name === "") { return; }
 
-    // requestGetJSON('warehouses/get_pack_by_capacity').done(function(res) {
     requestGetJSON('warehouses/get_item_by_id_with_relation/' + data.rel_product_id).done(function (res) {
         var pack_capacity = '<option></option>';
         res.pack_list.forEach(e => {
-            if (e.pack_capacity == data.pack_capacity)
-                pack_capacity += '<option value="' + e.pack_capacity + '" selected>' + e.pack_capacity + '</option>';
+            if (e.packing_id == data.pack_capacity)
+                pack_capacity += '<option value="' + e.packing_id + '" selected>' + e.pack_capacity + '</option>';
             else
-                pack_capacity += '<option value="' + e.pack_capacity + '">' + e.pack_capacity + '</option>';
+                pack_capacity += '<option value="' + e.packing_id + '">' + e.pack_capacity + '</option>';
         })
         data.pack_capacity = pack_capacity;
 
@@ -8195,10 +8200,8 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense) {
 
             table_row += '<input type="hidden" class="order" name="newitems[' + item_key + '][item_order]">';
 
-            // table_row += '</td>';
-
             table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="' + data.product_name + '"><input type="hidden" name="newitems[' + item_key + '][rel_product_id]" value="' + data.rel_product_id + '"></td>';
-            // console.log('data',data.pack_capacity)
+
             table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="volume_calc_added(this);">' + data.pack_capacity + '</select></div></td>';
 
             table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="' + data.qty + '" onkeyup="calculate_total_quote();volume_calc_added(this);" onchange="calculate_total_quote();volume_calc_added(this);"></td>';
@@ -8265,7 +8268,6 @@ function get_item_preview_values_quote() {
     response.rel_product_id = $('input[name="rel_product_id"]').val();
     response.product_name = $('input[name="product_name"]').val();
     response.pack_capacity = $('select[name="pack_capacity"]').val();
-    // response.pack_capacity_option = $('input[name="pack_capacity_option"]').val();
     response.qty = $('input[name="qty"]').val();
     response.unitid = $('select[name="unit"]').val();
     response.original_price = $('input[name="original_price"]').val();
@@ -8273,8 +8275,6 @@ function get_item_preview_values_quote() {
     response.volume_m3 = $('input[name="volume_m3"]').val();
     response.approval_need = $('input[name="approval_need"]').prop('checked');
     response.notes = $('input[name="notes"]').val();
-    // response.item_order = $('input[name="item_order"]').val();
-    // console.log(response);
     return response;
 }
 
@@ -8335,7 +8335,6 @@ function calculate_total_quote() {
 
     $.each(rows, function () {
         volume_m3 = Number($(this).find('.volume_m3').val());
-        // console.log(volume_m3)
         sum_volume_m3 += volume_m3;
         row = $(this);
     });
@@ -8348,7 +8347,6 @@ function calculate_total_quote() {
         total_discount_calculated = (total * discount_percent) / 100;
     }
 
-    // console.log(total_discount_calculated);
     if (total_discount_calculated > 0) {
         total = total - total_discount_calculated;
     }
@@ -8367,13 +8365,11 @@ function calculate_total_quote() {
     $('.adjustment').html(format_money(adjustment));
     $('.subtotal').html(format_money(subtotal) + hidden_input('subtotal', accounting.toFixed(subtotal, app.options.decimal_places)));
     $('.sum_volume_m3').html(sum_volume_m3.toFixed(10) + hidden_input('sum_volume_m3', sum_volume_m3.toFixed(10)));
-    // console.log('sum', sum_volume_m3)
     $('#sum_volume_m3').val(sum_volume_m3.toFixed(10));
     $('#sum_volume').val(sum_volume_m3.toFixed(10));
     $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     $('#total_price').val(total);
     $(document).trigger('sales-total-calculated');
-    // console.log('test')
 }
 
 function delete_quote_item(row, itemid) {

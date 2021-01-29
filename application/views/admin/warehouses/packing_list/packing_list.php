@@ -99,7 +99,7 @@
                             <?php $this->load->view('admin/warehouses/packing_group/_add_edit_package'); ?>
                         </div>
                         <div class="btn-bottom-toolbar text-right">
-                            <input  type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></input >
+                            <button type="submit" class="btn btn-info pull-right"><?php echo _l('submit'); ?></button>
                         </div>
                     </div>
                 </div>

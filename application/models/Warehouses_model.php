@@ -264,7 +264,13 @@ class Warehouses_model extends App_Model
     public function update_product_price($data)
     {
         $id = $data['id'];
-        $product_list_price = $data['product_list_price'];
+        $default_pack = $this->db->query('SELECT * from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id.' AND default_pack=1')->result_array();
+        if($data['init'] == 1){
+            $product_list_price = floatval($data['product_list_price']);
+        } else {
+            $product_list_price = floatval($data['product_list_price']) + floatval($default_pack[0]['pack_price']/$default_pack[0]['pack_capacity']);
+        }
+        
         $this->db->query('UPDATE '.db_prefix().'stock_lists SET product_list_price ='.$product_list_price.' WHERE id='.$id );
         return $this->stock_list_get($id);
     }
@@ -299,29 +305,23 @@ class Warehouses_model extends App_Model
 
     public function get_item_by_id_with_relation($id = '')
     {
-        // return $this->db->query('SELECT tblstock_lists.*, tblcurrencies_exchange.`rate` FROM tblstock_lists LEFT JOIN tblcurrencies_exchange ON tblcurrencies_exchange.id = tblstock_lists.`currency_id` WHERE tblstock_lists.id ='.$id)->row(); 
         $default_pack = $this->db->query('SELECT * from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
-
         $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
-        $pack_list = $this->db->query('SELECT pack_capacity from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
+        $pack_list = $this->db->query('SELECT * from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
 
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
-            // $pack_capacity = $this->db->query('SELECT pack_capacity From '.db_prefix().'package_group WHERE packing_id='.$default_pack->packing_id.' AND default_pack = 1')->row();
-            $pack_capacity = $default_pack->pack_capacity;
-
             return $data = [
                 'stock' => $stock_data,
                 'pack_list' => $pack_list,
-                // 'default_pack' => $default_pack_data
-                'default_pack_capacity' => $pack_capacity
+                'default_pack_capacity' => $default_pack->pack_capacity,
+                'default_pack_id' => $default_pack->packing_id
             ];
         } else {
             return $data = [
                 'stock' => $stock_data,
                 'pack_list' => $pack_list,
-                // 'pack_list' => NULL,
                 'default_pack_capacity' => NULL
             ];
         }
@@ -357,7 +357,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -411,7 +410,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -453,7 +451,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -497,7 +494,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -538,8 +534,6 @@ class Warehouses_model extends App_Model
 
     public function update_transfer_by_production($data,$id)
     {
-        // $warning_data = $this->db->query('SELECT * from '.db_prefix().'stock_level_warning where stock_id='.$data['stock_product_code'])->result_array();
-        
         $warehouse_data = $this->get_transfer_by_code($data['stock_product_code']);
         foreach ($warehouse_data as $key => $w_data) {
             if($w_data->warehouse_id == $data['transaction_from'])
@@ -552,7 +546,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -599,7 +592,6 @@ class Warehouses_model extends App_Model
                         foreach ($allowed_staffs as $key => $staff) {
                             $success = send_mail_template('stock_warning', $staff['email'], $staff['staffid'], $data['stock_product_code'],$data['transaction_from']);
                         }
-                        // return false;
                     }
                 }
             }
@@ -625,7 +617,6 @@ class Warehouses_model extends App_Model
         unset($data['updated_user']);
         $data['updated_user'] = get_staff_user_id();
         $data['updated_at'] = date('Y-m-d h:i:s');
-        // print_r($id); exit();
         $this->db->where('id', $id);
         $this->db->update(db_prefix() . 'transfer_lists', $data);
 
@@ -657,9 +648,7 @@ class Warehouses_model extends App_Model
             foreach ($warehouses as $key => $value) {
                 array_push($warehouse_arr, $value['id']);
             }
-
             $res = [];
-            
             foreach ($warehouse_arr as $key => $value) {
                 $name = $this->db->query('SELECT warehouse_name FROM tblwarehouses WHERE `id`='.$value)->row()->warehouse_name;
                 $order_no = $this->db->query('SELECT order_no FROM tblwarehouses WHERE `id`='.$value)->row()->order_no;
@@ -954,7 +943,6 @@ class Warehouses_model extends App_Model
             }
             
         }
-        // return $this->db->get()->result_array();
     }
 
     public function delete_packing_list($id)

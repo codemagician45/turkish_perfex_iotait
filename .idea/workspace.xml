@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/models/Purchases_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Purchases_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" afterDir="false" />
-    </list>
+    <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +139,7 @@
       <path value="$PROJECT_DIR$/application/vendor/authorizenet/authorizenet" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="242" />
     <option name="y" value="138" />
     <option name="width" value="1440" />
@@ -262,16 +259,15 @@
       <workItem from="1596163061815" duration="125000" />
       <workItem from="1596894741367" duration="56000" />
       <workItem from="1611827734569" duration="152000" />
-      <workItem from="1611828509765" duration="18288000" />
+      <workItem from="1611828509765" duration="18523000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18621000" />
+    <option name="totallyTimeSpent" value="18856000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19029851" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
