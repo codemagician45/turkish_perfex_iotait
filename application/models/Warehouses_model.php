@@ -63,7 +63,7 @@ class Warehouses_model extends App_Model
         return false;
     }
 
-    public function get_warehouse($id)
+    public function get_warehouse($id = '')
     {
         $this->db->from(db_prefix() . 'warehouses');
 
@@ -629,7 +629,7 @@ class Warehouses_model extends App_Model
         return false;
     }
 
-    public function get_transfer($id)
+    public function get_transfer($id = '')
     {
         $this->db->from(db_prefix() . 'transfer_lists');
 
@@ -640,7 +640,7 @@ class Warehouses_model extends App_Model
         return $this->db->get()->result_array();
     }
 
-    public function get_transfer_by_code($id)
+    public function get_transfer_by_code($id = '')
     {
         if (is_numeric($id)) {
             $warehouses = $this->db->query('SELECT id FROM tblwarehouses')->result_array();
@@ -695,7 +695,7 @@ class Warehouses_model extends App_Model
         return $this->db->get(db_prefix() . 'warehouses')->result_array();
     }
 
-    public function delete_transfer($id)
+    public function delete_transfer($id = '')
     {
         
         $transfer = $this->get_transfer($id);
@@ -1103,7 +1103,7 @@ class Warehouses_model extends App_Model
         
     }
 
-    public function get_packing_group($packing_id)
+    public function get_packing_group($packing_id = '')
     {
         $this->db->from(db_prefix() . 'package_group');
         if (is_numeric($packing_id)) {

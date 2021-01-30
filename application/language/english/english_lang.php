@@ -3967,6 +3967,7 @@ $lang['als_reports_profit_submenu'] = 'Profit Report';
 $lang['als_reports_sale_submenu'] = 'Sale Report';
 $lang['als_reports_work_orders_submenu'] = 'Work Orders Report';
 $lang['als_reports_warehouse_submenu'] = 'Warehouse Report';
+$lang['als_reports_transfer_submenu'] = 'Transfer Report';
 $lang['salesperson'] = 'SalesPerson';
 $lang['cost_price'] = 'Cost Price';
 $lang['sold_price'] = 'Sold Price';

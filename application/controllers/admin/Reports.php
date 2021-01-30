@@ -19,6 +19,11 @@ class Reports extends AdminController
         }
         $this->ci = &get_instance();
         $this->load->model('reports_model');
+        $this->load->model('sale_model');
+        $this->load->model('staff_model');
+        $this->load->model('production_model');
+        $this->load->model('warehouses_model');
+        $this->load->model('currencies_model');
     }
 
     /* No access on this url */
@@ -1365,8 +1370,6 @@ class Reports extends AdminController
         if ($this->input->is_ajax_request()) {
             $this->app->get_table_data('report_profit');
         }
-        $this->load->model('staff_model');
-        $this->load->model('sale_model');
         $data['staffs'] = $this->staff_model->get();
         $data['customers'] = $this->clients_model->get();                        
         $data['pricing_categories'] = $this->sale_model->get_pricing_category_list(); 
@@ -1380,8 +1383,6 @@ class Reports extends AdminController
             $this->app->get_table_data('report_sale');
         }
         $data['title'] = _l('als_reports_sale_submenu');
-        $this->load->model('staff_model');
-        $this->load->model('sale_model');
         $data['staffs'] = $this->staff_model->get();
         $data['customers'] = $this->clients_model->get();                        
         $data['pricing_categories'] = $this->sale_model->get_pricing_category_list();                        
@@ -1395,8 +1396,6 @@ class Reports extends AdminController
             $this->app->get_table_data('report_work_orders');
         }
         $data['title'] = _l('als_reports_work_orders_submenu');
-        $this->load->model('staff_model');
-        $this->load->model('production_model');
         $data['staffs'] = $this->staff_model->get();
         $data['customers'] = $this->clients_model->get();                        
         $data['work_order_phases'] = $this->production_model->get_wo_phases();                        
@@ -1409,12 +1408,36 @@ class Reports extends AdminController
             $this->app->get_table_data('report_warehouse');
         }
         $data['title'] = _l('als_reports_warehouse_submenu');
-        $this->load->model('warehouses_model');
-        $this->load->model('currencies_model');
         $data['stock_units'] = $this->warehouses_model->get_units();
         $data['stock_categories'] = $this->warehouses_model->get_stock_categories();
         $data['currency'] = $this->currencies_model->get();
         $this->load->view('admin/reports/new/warehouse/manage', $data);
+    }
+
+    public function transfer(){
+        if ($this->input->is_ajax_request()) {
+            $this->app->get_table_data('report_transfer');
+        }
+        $data['title'] = _l('als_reports_transfer_submenu');
+        $data['product_codes'] = $this->warehouses_model->get_product_code();
+        $data['warehouses'] = $this->warehouses_model->get_warehouse_list();
+        $transfer_list = $this->warehouses_model->get_transfer();
+        $note_list = [];
+        $qty_list = [];
+        $des_list = [];
+        foreach ($transfer_list as $key => $value) {
+            $note_list[] = $value['transaction_notes'];
+            $qty_list[] = $value['transaction_qty'];
+            $des_list[] = $value['description'];
+        }
+        $data['note_list'] = array_unique($note_list);
+        asort($data['note_list']);
+        $data['qty_list'] = array_unique($qty_list);
+        asort($data['qty_list']);
+        $data['des_list'] = array_unique($des_list);
+        asort($data['des_list']);
+        $data['staffs'] = $this->staff_model->get();
+        $this->load->view('admin/reports/new/transfer/manage', $data);
     }
 
 }

@@ -112,7 +112,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
+
 foreach ($rResult as $aRow) {
     $row = [];
     
@@ -132,7 +132,6 @@ foreach ($rResult as $aRow) {
         $cost_val = $cost['qty']*$cost['price'];
         $amount += $cost_val;
     }
-
     $row[] = number_format($amount,2);
     
     $row[] = number_format($aRow['sold']-$amount,2);

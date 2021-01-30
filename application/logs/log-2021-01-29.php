@@ -4343,3 +4343,921 @@ ERROR - 2021-01-29 16:47:35 --> Could not find the language line "updated user"
 ERROR - 2021-01-29 16:47:35 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
 ERROR - 2021-01-29 16:47:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
 ERROR - 2021-01-29 17:04:59 --> Could not find the language line "so_heading_number"
+ERROR - 2021-01-29 15:44:46 --> 404 Page Not Found: admin/Reports/transfer
+ERROR - 2021-01-29 16:59:49 --> 404 Page Not Found: admin/Reports/transfer
+ERROR - 2021-01-29 17:00:01 --> 404 Page Not Found: admin/Reports/transfer
+ERROR - 2021-01-29 17:02:16 --> Severity: error --> Exception: syntax error, unexpected end of file, expecting function (T_FUNCTION) or const (T_CONST) C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1433
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: staffs C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 14
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 14
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: staffs C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 20
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 20
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:13:14 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:13:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: staffs C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 14
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 14
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: staffs C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 20
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 20
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:27:18 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:27:18 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: firstname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: lastname C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 15
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:51 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined index: staffid C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 21
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:36:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:36:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:36:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:36:52 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:36:52 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:38:26 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:38:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:38:26 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:38:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:38:26 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:38:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:38:26 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:38:26 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:45:17 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:45:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 30
+ERROR - 2021-01-29 19:45:17 --> Severity: Notice --> Undefined variable: customers C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:45:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 36
+ERROR - 2021-01-29 19:45:17 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:45:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:45:17 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:45:17 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:49:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 46
+ERROR - 2021-01-29 19:49:40 --> Severity: Notice --> Undefined variable: pricing_categories C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:49:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 52
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 31
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 47
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 47
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 47
+ERROR - 2021-01-29 19:50:07 --> Severity: Notice --> Undefined index: name C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 47
+ERROR - 2021-01-29 19:58:14 --> Could not find the language line "Packing Type"
+ERROR - 2021-01-29 19:58:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 58
+ERROR - 2021-01-29 19:58:14 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 68
+ERROR - 2021-01-29 19:58:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 70
+ERROR - 2021-01-29 20:01:10 --> Severity: error --> Exception: Too few arguments to function Warehouses_model::get_transfer(), 0 passed in C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php on line 1424 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\models\Warehouses_model.php 632
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:03:34 --> Severity: Notice --> Undefined index: transaction_note C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1427
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:30 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 337
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> Undefined offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:27:31 --> Severity: Notice --> String offset cast occurred C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:28:54 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:19 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:29:42 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:01 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 0 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 336
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 339
+ERROR - 2021-01-29 20:30:02 --> Severity: Notice --> Uninitialized string offset: 1 C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:30:02 --> Severity: Warning --> Illegal string offset '' C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 340
+ERROR - 2021-01-29 20:37:30 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1433
+ERROR - 2021-01-29 20:37:30 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1434
+ERROR - 2021-01-29 20:37:30 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1435
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 63
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 69
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 80
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 86
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 97
+ERROR - 2021-01-29 20:37:30 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 103
+ERROR - 2021-01-29 20:38:26 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1433
+ERROR - 2021-01-29 20:38:26 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1434
+ERROR - 2021-01-29 20:38:26 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1435
+ERROR - 2021-01-29 20:38:52 --> Severity: Warning --> array_unique() expects parameter 1 to be array, bool given C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1433
+ERROR - 2021-01-29 20:38:52 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1434
+ERROR - 2021-01-29 20:38:52 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1435
+ERROR - 2021-01-29 20:40:14 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1436
+ERROR - 2021-01-29 20:40:14 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1437
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 63
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 69
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 80
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 86
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 97
+ERROR - 2021-01-29 20:40:14 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 103
+ERROR - 2021-01-29 20:40:25 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1436
+ERROR - 2021-01-29 20:40:25 --> Severity: Notice --> Only variables should be passed by reference C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Reports.php 1437
+ERROR - 2021-01-29 20:40:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 80
+ERROR - 2021-01-29 20:40:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 86
+ERROR - 2021-01-29 20:40:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 97
+ERROR - 2021-01-29 20:40:25 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\views\admin\reports\new\transfer\manage.php 103
+ERROR - 2021-01-29 21:37:02 --> Severity: Notice --> Undefined property: App::$warehouses_model C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\report_transfer.php 43
+ERROR - 2021-01-29 21:37:02 --> Severity: error --> Exception: Call to a member function get_transfer() on null C:\xampp\htdocs\turkish_perfex\application\views\admin\tables\report_transfer.php 43
+ERROR - 2021-01-29 21:40:27 --> Query error: Unknown column 'transfer_lists.created_user' in 'where clause' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS tblstock_lists.product_code as p_code, `tbltransfer_lists`.`updated_at` AS `tbltransfer_lists.updated_at`, w1.warehouse_name as t_from, w2.warehouse_name as t_to, transaction_notes, transaction_qty, description, staff1.firstname as c_firstname, staff2.firstname as u_firstname ,tbltransfer_lists.id,staff1.lastname as c_lastname,staff2.lastname as u_lastname,stock_product_code,transaction_from,created_user,updated_user
+    FROM tbltransfer_lists
+    LEFT JOIN tblstock_lists ON tblstock_lists.id = tbltransfer_lists.stock_product_code LEFT JOIN tblwarehouses w1 ON w1.id = tbltransfer_lists.transaction_from LEFT JOIN tblwarehouses w2 ON w2.id = tbltransfer_lists.transaction_to LEFT JOIN tblstaff staff1 ON staff1.staffid = tbltransfer_lists.created_user LEFT JOIN tblstaff staff2 ON staff2.staffid = tbltransfer_lists.updated_user
+    
+    WHERE  tbltransfer_lists.allocation != 1 AND ( transfer_lists.created_user IN (16))
+    
+    ORDER BY tblstock_lists.product_code ASC
+    LIMIT 0, 25
+    
+ERROR - 2021-01-29 21:53:26 --> Query error: Unknown column 'WO' in 'where clause' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS tblstock_lists.product_code as p_code, `tbltransfer_lists`.`updated_at` AS `tbltransfer_lists.updated_at`, w1.warehouse_name as t_from, w2.warehouse_name as t_to, transaction_notes, transaction_qty, description, staff1.firstname as c_firstname, staff2.firstname as u_firstname ,tbltransfer_lists.id,staff1.lastname as c_lastname,staff2.lastname as u_lastname,stock_product_code,transaction_from,created_user,updated_user
+    FROM tbltransfer_lists
+    LEFT JOIN tblstock_lists ON tblstock_lists.id = tbltransfer_lists.stock_product_code LEFT JOIN tblwarehouses w1 ON w1.id = tbltransfer_lists.transaction_from LEFT JOIN tblwarehouses w2 ON w2.id = tbltransfer_lists.transaction_to LEFT JOIN tblstaff staff1 ON staff1.staffid = tbltransfer_lists.created_user LEFT JOIN tblstaff staff2 ON staff2.staffid = tbltransfer_lists.updated_user
+    
+    WHERE  tbltransfer_lists.allocation != 1 AND ( tbltransfer_lists.transaction_notes IN (WO-100, WO-100))
+    
+    ORDER BY tblstock_lists.product_code ASC
+    LIMIT 0, 25
+    
+ERROR - 2021-01-29 21:54:48 --> Query error: Unknown column 'WO' in 'where clause' - Invalid query: 
+    SELECT SQL_CALC_FOUND_ROWS tblstock_lists.product_code as p_code, `tbltransfer_lists`.`updated_at` AS `tbltransfer_lists.updated_at`, w1.warehouse_name as t_from, w2.warehouse_name as t_to, transaction_notes, transaction_qty, description, staff1.firstname as c_firstname, staff2.firstname as u_firstname ,tbltransfer_lists.id,staff1.lastname as c_lastname,staff2.lastname as u_lastname,stock_product_code,transaction_from,created_user,updated_user
+    FROM tbltransfer_lists
+    LEFT JOIN tblstock_lists ON tblstock_lists.id = tbltransfer_lists.stock_product_code LEFT JOIN tblwarehouses w1 ON w1.id = tbltransfer_lists.transaction_from LEFT JOIN tblwarehouses w2 ON w2.id = tbltransfer_lists.transaction_to LEFT JOIN tblstaff staff1 ON staff1.staffid = tbltransfer_lists.created_user LEFT JOIN tblstaff staff2 ON staff2.staffid = tbltransfer_lists.updated_user
+    
+    WHERE  tbltransfer_lists.allocation != 1 AND ( tbltransfer_lists.transaction_notes IN (WO-92, WO-92))
+    
+    ORDER BY tblstock_lists.product_code ASC
+    LIMIT 0, 25
+    

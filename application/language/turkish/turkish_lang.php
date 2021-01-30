@@ -4024,3 +4024,5 @@ $lang['used_for_installation'] = 'Montajda Kullanıldı';
 $lang['installed_item'] = 'Montaj Yapılan Ürün';
 $lang['connected_pair'] = 'İlişkili Ürün';
 
+$lang['als_reports_transfer_submenu'] = 'Transfer Report';
+

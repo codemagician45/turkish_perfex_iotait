@@ -61,23 +61,9 @@
 						<div id="date-range" class="mbot15">
 	                        <div class="row">
 	                           <div class="col-md-4">
-	                              <!-- <label for="report-from" class="control-label"><?php echo _l('report_sales_from_date'); ?></label>
-	                              <div class="input-group date">
-	                                 <input type="text" class="form-control datepicker" id="report-from" name="report-from">
-	                                 <div class="input-group-addon">
-	                                    <i class="fa fa-calendar calendar-icon"></i>
-	                                 </div>
-	                              </div> -->
                                   <?php echo render_date_input('report-from','report_sales_from_date'); ?>
 	                           </div>
 	                           <div class="col-md-4">
-	                              <!-- <label for="archive" class="control-label"><?php echo _l('report_sales_to_date'); ?></label>
-	                              <div class="input-group date">
-	                                 <input type="text" class="form-control datepicker" disabled="disabled" id="report-to" name="report-to">
-	                                 <div class="input-group-addon">
-	                                    <i class="fa fa-calendar calendar-icon"></i>
-	                                 </div>
-	                              </div> -->
 	                              <?php echo render_date_input('report-to','report_sales_to_date','',array('disabled'=> true)); ?>
 	                           </div>
 
@@ -221,7 +207,4 @@
 	     initDataTable('.table-profit-report', window.location.href,[5,6],[5,6],fnServerParams,[0, 'asc']);
 	   }
 	});
-
-
-
 </script>
