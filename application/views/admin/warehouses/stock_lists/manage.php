@@ -126,6 +126,8 @@
 			$('#stock_lists_modal .add-title').removeClass('hide');
 			$('#stock_lists_modal .edit-title').addClass('hide');
 
+			$('.warehouse_qty').empty();
+			
 			if (typeof(id) !== 'undefined') {
 				$('input[name="stocklistId"]').val(id);
 				$('#stock_lists_modal .add-title').addClass('hide');

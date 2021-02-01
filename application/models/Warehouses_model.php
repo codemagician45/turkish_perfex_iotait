@@ -238,24 +238,29 @@ class Warehouses_model extends App_Model
                     $this->db->insert(db_prefix().'stock_level_warning',$warning);
                 }
             }
-            $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_currency_id='.$data['currency_id'].' WHERE ingredient_item_id='.$stock_list_Id);
+            /*Real time calculation*/
+            if(isset($data['price'])){
+                $this->db->query('UPDATE '.db_prefix().'product_recipe SET ingredient_currency_id='.$data['currency_id'].' WHERE ingredient_item_id='.$stock_list_Id);
 
-            $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
-            $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
+                $op_cost_per_sec = $this->db->get(db_prefix().'operation_cost')->row();
+                $stocks_in_recipe = $this->db->get(db_prefix().'pricing_calculation')->result_array();
 
-            foreach ($stocks_in_recipe as $key => $stock) {
-                $this->db->where('rel_product_id',$stock['rel_product_id']);
-                $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
-                $amount = 0;
-                foreach ($rel_recipes as $key => $value) {
-                    $material_cost = $data['price']*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
-                    $this->db->query('Update '.db_prefix().'product_recipe set material_cost ='.$material_cost.' where id='.$value['id']);
-                    $amount += $material_cost + $value['production_cost'] + $value['expected_profit'];
+
+                foreach ($stocks_in_recipe as $key => $stock) {
+                    $this->db->where('rel_product_id',$stock['rel_product_id']);
+                    $rel_recipes = $this->db->get(db_prefix().'product_recipe')->result_array();
+                    $amount = 0;
+                    foreach ($rel_recipes as $key => $value) {
+                        $material_cost = $data['price']*$value['used_qty']*$value['ingredient_currency_rate']*(1+$value['rate_of_waste']/100);
+                        $this->db->query('Update '.db_prefix().'product_recipe set material_cost ='.$material_cost.' where id='.$value['id']);
+                        $amount += $material_cost + $value['production_cost'] + $value['expected_profit'];
+                    }
+                    $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
+                    $total = $amount + $ins_cost + $stock['other_cost'];
+                    $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
                 }
-                $ins_cost = $op_cost_per_sec->op_cost_per_sec* $stock['ins_time'];
-                $total = $amount + $ins_cost + $stock['other_cost'];
-                $this->db->query('Update '.db_prefix().'pricing_calculation set price ='.$total.', ins_cost = '.$ins_cost.' where rel_product_id ='.$value['rel_product_id']);
             }
+            
             return true;
         }
         return false;

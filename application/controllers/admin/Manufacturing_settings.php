@@ -487,4 +487,13 @@ class Manufacturing_settings extends AdminController
             }
         }
     }
+
+    public function check_duplicate_mould(){
+        $mould_name = trim($this->input->post('mould_name'));
+        $response    = [
+            'exists'  => (bool) total_rows(db_prefix() . 'moulds', ['mould_name' => $mould_name]) > 0,
+            'message' => _l('mould_exists_info', '<b>' . $mould_name . '</b>'),
+        ];
+        echo json_encode($response);
+    }
 }

@@ -39,21 +39,15 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-
                         <?php echo render_input('mould_name',_l('mould_name'),'','text',array('placeholder'=>_l('mould_name'))); ?>
+                        <div id="barcode_exists_info" class="hide"></div>
                         <?php echo render_input('mould_cavity',_l('mould_cavity'),'','number',array('placeholder'=>_l('mould_cavity'))); ?>
-
-                        <!-- <div class="checkbox checkbox-primary no-mtop checkbox-inline">
-                            <input type="checkbox" name="status" id="status">
-                            <label for="status"><i class="fa fa-question-circle" data-toggle="tooltip" data-placement="left" title="" ></i> <?php echo _l('Status'); ?></label>
-                         </div>     -->
-
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo _l('close'); ?></button>
-                <button type="submit" class="btn btn-info"><?php echo _l('submit'); ?></button>
+                <button type="submit" id="submit" class="btn btn-info"><?php echo _l('submit'); ?></button>
                 <?php echo form_close(); ?>
             </div>
         </div>
@@ -90,18 +84,6 @@
                 $('#mould_cavity_modal .edit-title').removeClass('hide');
                 $('#mould_cavity_modal input[name="mould_name"]').val(mould_name);
                 $('#mould_cavity_modal input[name="mould_cavity"]').val(mould_cavity);
-
-                // var $mouldActivityModal = $('#mould_cavity_modal');
-                // requestGetJSON('manufacturing_settings/get_mould_activity_by_id/' + id).done(function (response) {
-                //     // var status = response.status;
-                //     // // console.log(status);
-                //     // if(status == 1){
-                //     //     $('input[name="status"]').prop('checked',true);
-                //     // } else {
-                //     //     $('input[name="status"]').prop('checked',false);
-                //     // }
-                // });
-
             }
         });
     });
@@ -120,6 +102,29 @@
         return false;
     }
 
+    $('input[name="mould_name"]').keyup(function () {
+        var mould_name = $(this).val();
+        var $barcodeExistsDiv = $('#barcode_exists_info');
+        if(mould_name == '') {
+            $barcodeExistsDiv.addClass('hide');
+            return;
+        }
+        $.post(admin_url+'manufacturing_settings/check_duplicate_mould', {mould_name:mould_name})
+        .done(function(response) {
+            if(response) {
+                response = JSON.parse(response);
+                if(response.exists == true) {
+                    $barcodeExistsDiv.removeClass('hide');
+                    $barcodeExistsDiv.html('<div class="info-block mbot15">'+response.message+'</div>');
+                    $('#submit').prop('disabled',true);
+
+                } else {
+                    $barcodeExistsDiv.addClass('hide');
+                    $('#submit').prop('disabled',false);
+                }
+            }
+        });
+    })
 </script>
 </body>
 </html>
