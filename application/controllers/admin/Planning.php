@@ -7,11 +7,13 @@ class Planning extends AdminController
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('proposals_model');
         $this->load->model('invoices_model');
         $this->load->model('estimates_model');
         $this->load->model('credit_notes_model');
         $this->load->model('utilities_model');
         $this->load->model('manufacturing_settings_model');
+        $this->load->model('currencies_model');
     }
 
     public function pending_sale_order($id = '')
@@ -143,9 +145,7 @@ class Planning extends AdminController
             }
 
             $data['rel_wo_items'] = $this->invoices_model->get_rel_wo_items($id);
-            // print_r($data['rel_wo_items']); exit();
             $data['plan_recipes'] = $this->invoices_model->get_plan_recipes($id);
-            // print_r($data['plan_recipes']); exit();
 
             $title = _l('edit', _l('work_order')) . ' - ' . format_invoice_number($invoice->id);
         }
@@ -190,7 +190,6 @@ class Planning extends AdminController
         $data['staff']     = $this->staff_model->get('', ['active' => 1]);
         $data['title']     = $title;
         $data['bodyclass'] = 'invoice';
-
         
         $data['google_ids_calendars'] = $this->misc_model->get_google_calendar_ids();
         $data['google_calendar_api']  = get_option('google_calendar_api_key');
@@ -207,4 +206,140 @@ class Planning extends AdminController
         }
     }
 
+    public function new_work_orders_list($proposal_id = '')
+    {
+        close_setup_menu();
+
+        if (!has_permission('proposals', '', 'view') && !has_permission('proposals', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == 0) {
+            access_denied('proposals');
+        }
+
+        $isPipeline = $this->session->userdata('proposals_pipeline') == 'true';
+
+        if ($isPipeline && !$this->input->get('status')) {
+            $data['title']           = _l('proposals_pipeline');
+            $data['bodyclass']       = 'proposals-pipeline';
+            $data['switch_pipeline'] = false;
+            // Direct access
+            if (is_numeric($proposal_id)) {
+                $data['proposalid'] = $proposal_id;
+            } else {
+                $data['proposalid'] = $this->session->flashdata('proposalid');
+            }
+
+            $this->load->view('admin/proposals/pipeline/manage', $data);
+        } else {
+
+            // Pipeline was initiated but user click from home page and need to show table only to filter
+            if ($this->input->get('status') && $isPipeline) {
+                $this->pipeline(0, true);
+            }
+
+            $data['proposal_id']           = $proposal_id;
+            $data['switch_pipeline']       = true;
+            $data['title']                 = _l('quotation');
+            $data['statuses']              = $this->proposals_model->get_statuses();
+            $data['proposals_sale_agents'] = $this->proposals_model->get_sale_agents();
+            $data['years']                 = $this->proposals_model->get_proposals_years();
+            $data['quote_phases'] = $this->proposals_model->get_phases();
+            $this->load->view('admin/planing/new_work_order/manage', $data);
+        }
+    }
+
+    public function table()
+    {
+        if (!has_permission('proposals', '', 'view')
+            && !has_permission('proposals', '', 'view_own')
+            && get_option('allow_staff_view_proposals_assigned') == 0) {
+            ajax_access_denied();
+        }
+
+        $this->app->get_table_data('new_proposals');
+    }
+
+    public function table1()
+    {
+        if (!has_permission('proposals', '', 'view')
+            && !has_permission('proposals', '', 'view_own')
+            && get_option('allow_staff_view_proposals_assigned') == 0) {
+            ajax_access_denied();
+        }
+
+        $this->app->get_table_data('new_proposals1');
+    }
+
+    public function new_type_quotation($id = '')
+    {
+        if ($this->input->post()) {
+            $proposal_data = $this->input->post();
+            if(isset($proposal_data['quote_phase'])) 
+                unset($proposal_data['quote_phase']);
+            $proposal_data['currency'] = 1; //default currency for sending email
+            if ($id == '') {
+                if (!has_permission('proposals', '', 'create')) {
+                    access_denied('proposals');
+                }
+                $id = $this->proposals_model->add($proposal_data);
+                if ($id) {
+                    set_alert('success', _l('added_successfully', _l('quotation')));
+                    redirect(admin_url('planning/new_work_orders_list'));
+                    
+                }
+            } else {
+                if (!has_permission('proposals', '', 'edit')) {
+                    access_denied('proposals');
+                }
+                
+                $success = $this->proposals_model->update($proposal_data, $id);
+                if ($success) {
+                    set_alert('success', _l('updated_successfully', _l('quotation')));
+                }
+                
+                redirect(admin_url('planning/new_work_orders_list'));
+            }
+        }
+        if ($id == '') {
+            $title = _l('add_new', _l('quotation'));
+        } else {
+            $data['proposal'] = $this->proposals_model->get($id);
+
+            if (!$data['proposal'] || !user_can_view_proposal($id)) {
+                blank_page(_l('proposal_not_found'));
+            }
+
+            $data['estimate']    = $data['proposal'];
+            $data['is_proposal'] = true;
+            $title               = _l('edit', _l('quotation'));
+        }
+
+        $this->load->model('sale_model');
+        $data['quote_phases'] = $this->sale_model->get_quote_phases();
+        $this->load->model('products_model');
+        $data['pricing_categories'] = $this->products_model->get_pricing_category_by_permission(get_staff_user_id());;
+
+        $this->load->model('taxes_model');
+        $data['taxes'] = $this->taxes_model->get();
+
+        $this->load->model('invoice_items_model');
+
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped_packing();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['statuses']      = $this->proposals_model->get_statuses();
+        $data['staff']         = $this->staff_model->get('', ['active' => 1]);
+        $data['currencies']    = $this->currencies_model->get();
+        $this->load->model('finances_model');
+        $data['base_currency'] = $this->currencies_model->get_base_currency();
+        $data['title'] = $title;
+        $this->load->view('admin/planing/new_work_order/proposal', $data);
+    }
 }

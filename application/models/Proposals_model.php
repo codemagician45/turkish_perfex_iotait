@@ -120,7 +120,6 @@ class Proposals_model extends App_Model
      */
     public function add($data)
     {
-        // print_r($data); exit();
         $data['allow_comments'] = isset($data['allow_comments']) ? 1 : 0;
 
         $save_and_send = isset($data['save_and_send']);
@@ -212,28 +211,7 @@ class Proposals_model extends App_Model
                     $val['product_code'] = $product_code;
                     $this->db->insert(db_prefix() . 'itemable', $val);
                     $insert_item_id = $this->db->insert_id();
-                    // return $insert_item_id;
                 }
-            // foreach ($items as $val) {
-            //     unset($val['itemid']);
-            //     $val['rel_product_id'] = $rel_product_id;
-            //     $val['rel_id'] = $insert_id;
-            //     $val['rel_type'] = 'proposal';
-            //     if(isset($val['approval_need']))
-            //         $val['approval_need'] = 1;
-            //     $this->db->insert(db_prefix() . 'itemable', $val);
-            //     $insert_item_id = $this->db->insert_id();
-            // }
-            // return $insert_id;
-
-            // handle_tags_save($tags, $insert_id, 'proposal');
-
-            // foreach ($items as $key => $item) {
-            //     if ($itemid = add_new_sales_item_post($item, $insert_id, 'proposal')) {
-            //         _maybe_insert_post_item_tax($itemid, $item, $insert_id, 'proposal');
-            //     }
-            // }
-
             $proposal = $this->get($insert_id);
             if ($proposal->assigned != 0) {
                 if ($proposal->assigned != get_staff_user_id()) {

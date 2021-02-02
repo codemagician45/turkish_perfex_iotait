@@ -283,11 +283,18 @@ function app_init_admin_sidebar_menu_items()
         $CI->app_menu->add_sidebar_children_item('planning', [
                 'slug'     => 'work_orders',
                 'name'     => _l('work_orders'),
-                // 'href'     => admin_url('invoices'),
                 'href'     => admin_url('planning/work_orders_list'),
                 'position' => 10,
         ]);
 
+    if (has_permission('planning', '', 'new_work_orders'))
+    
+        $CI->app_menu->add_sidebar_children_item('planning', [
+                'slug'     => 'new_work_orders',
+                'name'     => _l('new_work_orders'),
+                'href'     => admin_url('planning/new_work_orders_list'),
+                'position' => 15,
+        ]);
     $CI->app_menu->add_sidebar_menu_item('production', [
             'collapse' => true,
             'name'     => _l('als_production'),

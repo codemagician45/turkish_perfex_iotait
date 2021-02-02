@@ -4044,5 +4044,8 @@ $lang['used_for_installation'] = 'Used for Installation';
 $lang['installed_item'] = 'Installed Item';
 $lang['connected_pair'] = 'Connected Pair';
 
-$lang['mould_exists_info']                                         = 'It looks that a mould with name %s already exists.';
+/*New features*/
+$lang['mould_exists_info'] = 'It looks that a mould with name %s already exists.';
+$lang['new_work_orders'] = 'New Work Orders';	
+$lang['new_type_of_quotation'] = 'New Type of Quotation';
 

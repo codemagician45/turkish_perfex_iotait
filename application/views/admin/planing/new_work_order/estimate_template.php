@@ -31,9 +31,6 @@
           <div class="col-md-6">
               <?php echo render_input('general_notes',_l('general_notes'),'','text',array('placeholder'=>_l('general_notes'))); ?>
           </div>
-          <div class="col-md-6">
-              <?php echo render_input('shipping_type',_l('shipping_type'),$proposal->shipping_type,'text',array('required' => true,'readonly' => true)); ?>
-          </div>
         </div>
 
         <div class="row">
@@ -60,5 +57,5 @@
 
 
    </div>
-   <?php $this->load->view('admin/proposals/_add_edit_items_modal'); ?>
+   <?php $this->load->view('admin/planing/new_work_order/_add_edit_items_modal'); ?>
 </div>

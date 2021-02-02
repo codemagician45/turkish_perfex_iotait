@@ -55,6 +55,45 @@ class Proposals extends AdminController
         }
     }
 
+    public function list_proposals_new($proposal_id = '')
+    {
+        close_setup_menu();
+
+        if (!has_permission('proposals', '', 'view') && !has_permission('proposals', '', 'view_own') && get_option('allow_staff_view_estimates_assigned') == 0) {
+            access_denied('proposals');
+        }
+
+        $isPipeline = $this->session->userdata('proposals_pipeline') == 'true';
+
+        if ($isPipeline && !$this->input->get('status')) {
+            $data['title']           = _l('proposals_pipeline');
+            $data['bodyclass']       = 'proposals-pipeline';
+            $data['switch_pipeline'] = false;
+            // Direct access
+            if (is_numeric($proposal_id)) {
+                $data['proposalid'] = $proposal_id;
+            } else {
+                $data['proposalid'] = $this->session->flashdata('proposalid');
+            }
+
+            $this->load->view('admin/planing/new_work_order/pipeline/manage', $data);
+        } else {
+
+            // Pipeline was initiated but user click from home page and need to show table only to filter
+            if ($this->input->get('status') && $isPipeline) {
+                $this->pipeline(0, true);
+            }
+
+            $data['proposal_id']           = $proposal_id;
+            $data['switch_pipeline']       = true;
+            $data['title']                 = _l('proposals');
+            $data['statuses']              = $this->proposals_model->get_statuses();
+            $data['proposals_sale_agents'] = $this->proposals_model->get_sale_agents();
+            $data['years']                 = $this->proposals_model->get_proposals_years();
+            $this->load->view('admin/planing/new_work_order/manage', $data);
+        }
+    }
+
     public function table()
     {
         if (!has_permission('proposals', '', 'view')
@@ -349,6 +388,46 @@ class Proposals extends AdminController
         }
     }
 
+    public function get_new_proposal_data_ajax($id, $to_return = false)
+    {
+        if (!has_permission('proposals', '', 'view') && !has_permission('proposals', '', 'view_own') && get_option('allow_staff_view_proposals_assigned') == 0) {
+            echo _l('access_denied');
+            die;
+        }
+
+        $proposal = $this->proposals_model->get($id, [], true);
+
+        if (!$proposal || !user_can_view_proposal($id)) {
+            echo _l('proposal_not_found');
+            die;
+        }
+
+        $this->app_mail_template->set_rel_id($proposal->id);
+        $data = prepare_mail_preview_data('proposal_send_to_customer', $proposal->email);
+
+        $merge_fields = [];
+
+        $merge_fields[] = [
+            [
+                'name' => 'Items Table',
+                'key'  => '{proposal_items}',
+            ],
+        ];
+
+        $merge_fields = array_merge($merge_fields, $this->app_merge_fields->get_flat('proposals', 'other', '{email_signature}'));
+
+        $data['proposal_statuses']     = $this->proposals_model->get_statuses();
+        $data['members']               = $this->staff_model->get('', ['active' => 1]);
+        $data['proposal_merge_fields'] = $merge_fields;
+        $data['proposal']              = $proposal;
+        $data['totalNotes']            = total_rows(db_prefix() . 'notes', ['rel_id' => $id, 'rel_type' => 'proposal']);
+        if ($to_return == false) {
+            $this->load->view('admin/planing/new_work_order/proposals_preview_template', $data);
+        } else {
+            return $this->load->view('admin/planing/new_work_order/proposals_preview_template', $data, true);
+        }
+    }
+
     public function add_note($rel_id)
     {
         if ($this->input->post() && user_can_view_proposal($rel_id)) {
@@ -551,6 +630,60 @@ class Proposals extends AdminController
         $this->load->view('admin/proposals/estimate_convert_template', $data);
     }
 
+    public function get_estimate_new_convert_data($id)
+    {
+        $this->load->model('taxes_model');
+        $data['taxes']         = $this->taxes_model->get();
+        $data['currencies']    = $this->currencies_model->get();
+        $data['base_currency'] = $this->currencies_model->get_base_currency();
+        $this->load->model('invoice_items_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'items') <= ajax_on_total_items()) {
+            $data['items'] = $this->invoice_items_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['items_groups'] = $this->invoice_items_model->get_groups();
+
+        $data['staff']     = $this->staff_model->get('', ['active' => 1]);
+        $data['proposal']  = $this->proposals_model->get($id);
+        $data['estimate']    = $data['proposal'];
+        $data['add_items'] = $this->_parse_items($data['proposal']);
+
+        $this->load->model('estimates_model');
+        $data['estimate_statuses'] = $this->estimates_model->get_statuses();
+        if ($data['proposal']->rel_type == 'lead') {
+            $this->db->where('leadid', $data['proposal']->rel_id);
+            $data['customer_id'] = $this->db->get(db_prefix() . 'clients')->row()->userid;
+        } else {
+            $data['customer_id'] = $data['proposal']->rel_id;
+        }
+
+        $data['custom_fields_rel_transfer'] = [
+            'belongs_to' => 'proposal',
+            'rel_id'     => $id,
+        ];
+
+        $this->load->model('warehouses_model');
+        $data['ajaxItems'] = false;
+        if (total_rows(db_prefix() . 'stock_lists') > 0) {
+            $data['items'] = $this->warehouses_model->get_grouped();
+        } else {
+            $data['items']     = [];
+            $data['ajaxItems'] = true;
+        }
+        $data['units'] = $this->warehouses_model->get_units();
+        $data['packlist'] = $this->warehouses_model->get_packing_list();
+
+        $this->load->model('sale_model');
+        $data['sale_phase'] = $this->sale_model->get_sale_phases();
+
+        // $data['quote_items'] = $this->estimates_model->get_quote_items($id);
+        $this->load->view('admin/planing/new_work_order/estimate_convert_template', $data);
+    }
+
+
     private function _parse_items($proposal)
     {
         $items = [];
@@ -646,6 +779,24 @@ class Proposals extends AdminController
             redirect(admin_url('proposals'));
         } else {
             redirect(admin_url('proposals/list_proposals/' . $id));
+        }
+    }
+
+    public function mark_action_status_new($status, $id)
+    {
+        if (!has_permission('proposals', '', 'edit')) {
+            access_denied('proposals');
+        }
+        $success = $this->proposals_model->mark_action_status($status, $id);
+        if ($success) {
+            set_alert('success', _l('proposal_status_changed_success'));
+        } else {
+            set_alert('danger', _l('proposal_status_changed_fail'));
+        }
+        if ($this->set_proposal_pipeline_autoload($id)) {
+            redirect(admin_url('proposals'));
+        } else {
+            redirect(admin_url('proposals/list_proposals_new/' . $id));
         }
     }
 

@@ -103,6 +103,7 @@ function get_available_staff_permissions($data = [])
             'capabilities' => [
                 'pending_sale_order' => _l('pending_sale_order'),
                 'work_orders' => _l('work_orders'),
+                'new_work_orders' => _l('new_work_orders'),
             ]
         ],
 

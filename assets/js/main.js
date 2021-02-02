@@ -5568,15 +5568,40 @@ function proposal_convert_template(invoker) {
     } else {
         return false;
     }
-    // console.log(proposal_id,html_helper_selector);
+    
     requestGet('proposals/get_' + html_helper_selector + '_convert_data/' + proposal_id).done(function (data) {
         if ($('.proposal-pipeline-modal').is(':visible')) {
             $('.proposal-pipeline-modal').modal('hide');
         }
         $('#convert_helper').html(data);
         estimate_init_currency();
-        // calculate_total_quote();
         $('#convert_to_' + html_helper_selector).modal({ show: true, backdrop: 'static' });
+        reorder_items();
+    });
+
+}
+
+function proposal_convert_template_new(invoker) {
+
+    var template = $(invoker).data('template');
+    var html_helper_selector;
+    if (template == 'estimate') {
+        html_helper_selector = 'estimate_new';
+    } else if (template == 'invoice') {
+        html_helper_selector = 'invoice';
+    } else {
+        return false;
+    }
+    
+    requestGet('proposals/get_' + html_helper_selector + '_convert_data/' + proposal_id).done(function (data) {
+        if ($('.proposal-pipeline-modal').is(':visible')) {
+            $('.proposal-pipeline-modal').modal('hide');
+        }
+        $('#convert_helper').html(data);
+        estimate_init_currency();
+        console.log($('#convert_to_estimate_new'))
+        console.log($('#convert_to_estimate'))
+        $('#convert_to_'+ html_helper_selector).modal({ show: true, backdrop: 'static' });
         reorder_items();
     });
 
@@ -6541,6 +6566,10 @@ function init_pending_estimate(id) {
 // Init single proposal
 function init_proposal(id) {
     load_small_table_item(id, '#proposal', 'proposal_id', 'proposals/get_proposal_data_ajax', '.table-proposals');
+}
+
+function init_proposal_new(id) {
+    load_small_table_item(id, '#proposal', 'proposal_id', 'proposals/get_new_proposal_data_ajax', '.table-new-proposals');
 }
 
 function init_expense(id) {
@@ -8241,6 +8270,97 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense) {
 
             setTimeout(function () {
                 calculate_total_quote();
+                quote_phase_change();
+                // unit_disable();
+            }, 15);
+
+            if ($('#item_select').hasClass('ajax-search') && $('#item_select').selectpicker('val') !== '') {
+                $('#item_select').prepend('<option></option>');
+            }
+
+            init_selectpicker();
+            init_datepicker();
+            init_color_pickers();
+            clear_item_preview_values_quote();
+            reorder_items();
+            $('body').find('#items-warning').remove();
+            $("body").find('.dt-loader').remove();
+            $('#item_select').selectpicker('val', '');
+
+        })
+    })
+}
+
+function add_item_to_table_new_type_quote(data, itemid, merge_invoice, bill_expense) {
+    // If not custom data passed get from the preview
+    data = typeof (data) == 'undefined' || data == 'undefined' ? get_item_preview_values_quote() : data;
+    if (data.item_id === "" && data.product_name === "") { return; }
+
+    requestGetJSON('warehouses/get_item_by_id_with_relation/' + data.rel_product_id).done(function (res) {
+        var pack_capacity = '<option></option>';
+        res.pack_list.forEach(e => {
+            if (e.packing_id == data.pack_capacity)
+                pack_capacity += '<option value="' + e.packing_id + '" selected>' + e.pack_capacity + '</option>';
+            else
+                pack_capacity += '<option value="' + e.packing_id + '">' + e.pack_capacity + '</option>';
+        })
+        data.pack_capacity = pack_capacity;
+
+        requestGetJSON('warehouses/get_units').done(function (res) {
+            var unit = '<option></option>';
+            res.forEach(e => {
+                if (e.unitid == data.unitid)
+                    unit += '<option value="' + e.unitid + '" selected>' + e.name + '</option>';
+                else
+                    unit += '<option value="' + e.unitid + '">' + e.name + '</option>';
+            })
+            data.unit = unit;
+
+            var amount = data.qty * data.sale_price;
+
+            var table_row = '';
+            var item_key = $("body").find('tbody .item').length + 1;
+
+            table_row += '<tr class="sortable item" data-merge-invoice="' + merge_invoice + '" data-bill-expense="' + bill_expense + '">';
+            // table_row += '<td class="dragger">';
+
+            $("body").append('<div class="dt-loader"></div>');
+            var regex = /<br[^>]*>/gi;
+
+            table_row += '<input type="hidden" class="order" name="newitems[' + item_key + '][item_order]">';
+
+            table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="' + data.product_name + '"><input type="hidden" name="newitems[' + item_key + '][rel_product_id]" value="' + data.rel_product_id + '"></td>';
+
+            table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="volume_calc_added(this);">' + data.pack_capacity + '</select></div></td>';
+
+            table_row += '<td><input type="number" data-quantity name="newitems[' + item_key + '][qty]" class="form-control" value="' + data.qty + '" onkeyup="calculate_total_quote();volume_calc_added(this);" onchange="calculate_total_quote();volume_calc_added(this);"></td>';
+
+            table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" name="newitems[' + item_key + '][unit]" id="newitems[' + item_key + '][unit]" class="selectpicker form-control unit" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" disabled>' + data.unit + '</select></div></td>';
+
+            if (data.approval_need) {
+
+                table_row += '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="newitems[' + item_key + '][approval_need]" disabled><label></label></div>';
+            }
+            else {
+
+                table_row += '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox"  name="newitems[' + item_key + '][approval_need]" disabled><label></label></div></td>';
+            }
+
+            table_row += '<td><input type="text" name="newitems[' + item_key + '][notes]" readonly class="form-control" value="' + data.notes + '"></td>';
+
+            table_row += '<td><a href="#" class="btn btn-danger pull-right" onclick="delete_quote_item(this,' + itemid + '); return false;"><i class="fa fa-trash"></i></a></td>';
+
+            table_row += '</tr>';
+
+            $('table.items tbody').append(table_row);
+
+            $(document).trigger({
+                type: "item-added-to-table",
+                data: data,
+                row: table_row
+            });
+
+            setTimeout(function () {
                 quote_phase_change();
                 // unit_disable();
             }, 15);

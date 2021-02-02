@@ -35,9 +35,8 @@
             <div class="panel_s mbot10">
                <div class="panel-body _buttons">
                   <?php if(has_permission('proposals','','create')){ ?>
-                
-                  <a href="<?php echo admin_url('sale/quotation'); ?>" class="btn btn-info pull-left display-block">
-                  <?php echo _l('new_quote'); ?>
+                  <a href="<?php echo admin_url('planning/new_type_quotation'); ?>" class="btn btn-info pull-left display-block">
+                  <?php echo _l('new_type_of_quotation'); ?>
                   </a>
                   <?php } ?>
                 
@@ -48,14 +47,14 @@
                         </button>
                         <ul class="dropdown-menu width300">
                            <li>
-                              <a href="#" data-cview="all" onclick="dt_custom_view('','.table-proposals',''); return false;">
+                              <a href="#" data-cview="all" onclick="dt_custom_view('','.table-new-proposals',''); return false;">
                               <?php echo _l('proposals_list_all'); ?>
                               </a>
                            </li>
                            <li class="divider"></li>
                            <?php foreach($statuses as $status){ ?>
                            <li class="<?php if($this->input->get('status') == $status){echo 'active';} ?>">
-                              <a href="#" data-cview="proposals_<?php echo $status; ?>" onclick="dt_custom_view('proposals_<?php echo $status; ?>','.table-proposals','proposals_<?php echo $status; ?>'); return false;">
+                              <a href="#" data-cview="proposals_<?php echo $status; ?>" onclick="dt_custom_view('proposals_<?php echo $status; ?>','.table-new-proposals','proposals_<?php echo $status; ?>'); return false;">
                               <?php echo format_proposal_status($status,'',false); ?>
                               </a>
                            </li>
@@ -69,7 +68,7 @@
                               <ul class="dropdown-menu dropdown-menu-left">
                                  <?php foreach($proposals_sale_agents as $agent){ ?>
                                  <li>
-                                    <a href="#" data-cview="sale_agent_<?php echo $agent['sale_agent']; ?>" onclick="dt_custom_view('sale_agent_<?php echo $agent['sale_agent']; ?>','.table-proposals','sale_agent_<?php echo $agent['sale_agent']; ?>'); return false;"><?php echo get_staff_full_name($agent['sale_agent']); ?>
+                                    <a href="#" data-cview="sale_agent_<?php echo $agent['sale_agent']; ?>" onclick="dt_custom_view('sale_agent_<?php echo $agent['sale_agent']; ?>','.table-new-proposals','sale_agent_<?php echo $agent['sale_agent']; ?>'); return false;"><?php echo get_staff_full_name($agent['sale_agent']); ?>
                                     </a>
                                  </li>
                                  <?php } ?>
@@ -79,23 +78,23 @@
                            <div class="clearfix"></div>
                            <li class="divider"></li>
                            <li>
-                              <a href="#" data-cview="expired" onclick="dt_custom_view('expired','.table-proposals','expired'); return false;">
+                              <a href="#" data-cview="expired" onclick="dt_custom_view('expired','.table-new-proposals','expired'); return false;">
                               <?php echo _l('proposal_expired'); ?>
                               </a>
                            </li>
                            <li>
-                              <a href="#" data-cview="leads_related" onclick="dt_custom_view('leads_related','.table-proposals','leads_related'); return false;">
+                              <a href="#" data-cview="leads_related" onclick="dt_custom_view('leads_related','.table-new-proposals','leads_related'); return false;">
                               <?php echo _l('proposals_leads_related'); ?>
                               </a>
                            </li>
                            <li>
-                              <a href="#" data-cview="customers_related" onclick="dt_custom_view('customers_related','.table-proposals','customers_related'); return false;">
+                              <a href="#" data-cview="customers_related" onclick="dt_custom_view('customers_related','.table-new-proposals','customers_related'); return false;">
                               <?php echo _l('proposals_customers_related'); ?>
                               </a>
                            </li>
                         </ul>
                      </div>
-                     <a href="#" class="btn btn-default btn-with-tooltip toggle-small-view hidden-xs" onclick="toggle_small_view('.table-proposals','#proposal'); return false;" data-toggle="tooltip" title="<?php echo _l('invoices_toggle_table_tooltip'); ?>"><i class="fa fa-angle-double-left"></i></a>
+                     <a href="#" class="btn btn-default btn-with-tooltip toggle-small-view hidden-xs" onclick="toggle_small_view('.table-new-proposals','#proposal'); return false;" data-toggle="tooltip" title="<?php echo _l('invoices_toggle_table_tooltip'); ?>"><i class="fa fa-angle-double-left"></i></a>
                   </div>
                </div>
             </div>
@@ -111,14 +110,13 @@
                               </a>
                            </li>
                            <li role="presentation">
-                              <a href="#archived_quotation" onclick="init_table_staff_projects(true);" aria-controls="archived_quotation" role="tab" data-toggle="tab">
+                              <a href="#archived_quotation" aria-controls="archived_quotation" role="tab" data-toggle="tab">
                               <i class="fa fa-bars menu-icon"></i> <?php echo _l('archived_quotation'); ?>
                               </a>
                            </li>
                         </ul>
                         <div class="tab-content">
                            <div role="tabpanel" class="tab-pane active" id="active_quotation">
-                              <!-- if invoiceid found in url -->
                               <?php echo form_hidden('proposal_id',$proposal_id); ?>
                               <?php
 
@@ -126,11 +124,7 @@
                                     _l('quote') . ' #',
                                     _l('quote_phase'),
                                     _l('client'),
-                                    _l('pricing_category'),
                                     _l('tags'),
-                                    _l('sum_volume_m3'),
-                                    _l('discount'),
-                                    _l('proposal_total'),
                                     _l('created_user'),
                                     _l('proposal_date_created'),
                                     _l('updated_by'),
@@ -144,9 +138,9 @@
                                    }
 
                                    $table_data = hooks()->apply_filters('proposals_table_columns', $table_data);
-                                   render_datatable($table_data,'proposals',[],[
-                                       'data-last-order-identifier' => 'proposals',
-                                       'data-default-order'         => get_table_last_order('proposals'),
+                                   render_datatable($table_data,'new-proposals',[],[
+                                       'data-last-order-identifier' => 'new-proposals',
+                                       'data-default-order'         => get_table_last_order('new-proposals'),
                                    ]);
                                  ?>
                            </div>
@@ -158,11 +152,7 @@
                                     _l('quote') . ' #',
                                     _l('quote_phase'),
                                     _l('client'),
-                                    _l('pricing_category'),
                                     _l('tags'),
-                                    _l('sum_volume_m3'),
-                                    _l('discount'),
-                                    _l('proposal_total'),
                                     _l('created_user'),
                                     _l('proposal_date_created'),
                                     _l('updated_by'),
@@ -170,11 +160,10 @@
                                     _l('active'),
                                   );
 
-
                                    $table_data = hooks()->apply_filters('proposals_table_columns', $table_data);
-                                   render_datatable($table_data,'proposals1',[],[
-                                       'data-last-order-identifier' => 'proposals',
-                                       'data-default-order'         => get_table_last_order('proposals'),
+                                   render_datatable($table_data,'new-proposals1',[],[
+                                       'data-last-order-identifier' => 'new-proposals',
+                                       'data-default-order'         => get_table_last_order('new-proposals'),
                                    ]);
                                  ?>
                            </div>
@@ -203,9 +192,9 @@
      $.each($('._hidden_inputs._filters input'),function(){
        Proposals_ServerParams[$(this).attr('name')] = '[name="'+$(this).attr('name')+'"]';
      });
-     initDataTable('.table-proposals', admin_url+'proposals/table', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
-     initDataTable('.table-proposals1', admin_url+'proposals/table1', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
-     init_proposal();
+     initDataTable('.table-new-proposals', admin_url+'planning/table', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
+     initDataTable('.table-new-proposals1', admin_url+'planning/table1', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
+     init_proposal_new();
    });
 </script>
 </body>

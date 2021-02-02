@@ -62,3 +62,36 @@ ERROR - 2021-02-01 22:16:45 --> Could not find the language line "pack price"
 ERROR - 2021-02-01 22:16:59 --> Could not find the language line "pack price"
 ERROR - 2021-02-01 22:17:54 --> Could not find the language line "pack price"
 ERROR - 2021-02-01 22:18:11 --> Could not find the language line "pack price"
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:41:55 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Could not find the language line "new_work_orders"
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:44:34 --> Could not find the language line "new_work_orders"
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:45:50 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 20:48:46 --> 404 Page Not Found: admin/Planning/new_work_orders_list
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:16 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-01 22:53:25 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36

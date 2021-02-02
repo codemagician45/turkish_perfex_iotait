@@ -127,7 +127,7 @@
                      if(has_permission('proposals','','edit')){
                       if($proposal->status != $status){ ?>
                   <li>
-                     <a href="<?php echo admin_url() . 'proposals/mark_action_status/'.$status.'/'.$proposal->id; ?>"><?php echo _l('proposal_mark_as',format_proposal_status($status,'',false)); ?></a>
+                     <a href="<?php echo admin_url() . 'proposals/mark_action_status_new/'.$status.'/'.$proposal->id; ?>"><?php echo _l('proposal_mark_as',format_proposal_status($status,'',false)); ?></a>
                   </li>
                   <?php
                      } } } ?>
@@ -169,7 +169,7 @@
 
                      ?>
                   <?php if(has_permission('estimates','','create')){ ?>
-                  <li <?php if($disable_convert){ echo 'data-toggle="tooltip" title="'._l($help_text,_l('proposal_convert_estimate')).'"';} ?>><a href="#" <?php if($disable_convert){ echo 'style="cursor:not-allowed;" onclick="return false;"';} else {echo 'data-template="estimate" onclick="proposal_convert_template(this); return false;"';} ?>><?php echo _l('sale_order'); ?></a></li>
+                     <li <?php if($disable_convert){ echo 'data-toggle="tooltip" title="'._l($help_text,_l('proposal_convert_estimate')).'"';} ?>><a href="#" <?php if($disable_convert){ echo 'style="cursor:not-allowed;" onclick="return false;"';} else {echo 'data-template="estimate" onclick="proposal_convert_template_new(this); return false;"';} ?>><?php echo _l('sale_order'); ?></a></li>
                   <?php } ?>
                </ul>
             </div>
@@ -178,6 +178,9 @@
                if($proposal->estimate_id != NULL){
                 echo '<a href="'.admin_url('sale/sale_order_list/'.$proposal->estimate_id).'" class="btn btn-info">'.format_estimate_number($proposal->estimate_id).'</a>';
                } 
+               // else {
+               //  echo '<a href="'.admin_url('invoices/list_invoices/'.$proposal->invoice_id).'" class="btn btn-info">'.format_invoice_number($proposal->invoice_id).'</a>';
+               // }
                } ?>
          </div>
       </div>
