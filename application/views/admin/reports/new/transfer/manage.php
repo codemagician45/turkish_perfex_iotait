@@ -8,20 +8,15 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-2">
-								<div class="form-group">
-			                        <label for="product_code"><?php echo _l('product_code'); ?></label>
-			                        <select name="product_code" id="product_code" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
-			                           <?php foreach($product_codes as $product_code){ ?>
-			                               <option value="<?php echo $product_code['id']; ?>"><?php echo $product_code['product_code']?></option>
-			                            <?php } ?>
-			                        </select>
-			                        <div class="_filters _hidden_inputs product_codes">
-			                            <?php
-			                               foreach($product_codes as $product_code){?>
-			                                <input type="hidden" class="filter product_code" name="product_code_<?php echo $product_code['id']?>">
-			                               <?php }?>
-			                         </div>
-			                    </div>
+								<?php 
+                                    echo render_select('product_code',$product_codes,array('id','product_code'),_l('product_code'),''); 
+                                ?>
+								<div class="_filters _hidden_inputs product_codes">
+		                            <?php
+		                               foreach($product_codes as $product_code){?>
+		                                <input type="hidden" class="filter product_code" name="product_code_<?php echo $product_code['id']?>">
+		                             <?php }?>
+		                         </div>
 							</div>
 							<div class="col-md-2">
 								<div class="form-group">
@@ -56,10 +51,11 @@
 			                    </div>
 							</div>
 
+							
 							<div class="col-md-2">
 								<div class="form-group">
 			                        <label for="transaction_notes"><?php echo _l('transaction_notes'); ?></label>
-			                        <select name="transaction_notes" id="transaction_notes" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+			                        <select name="transaction_notes" id="transaction_notes" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>" data-live-search="true">
 			                           <?php foreach($note_list as $note){ ?>
 			                               <option value="<?php echo $note; ?>"><?php echo $note ?></option>
 			                            <?php } ?>
@@ -93,7 +89,7 @@
 							<div class="col-md-2">
 								<div class="form-group">
 			                        <label for="description"><?php echo _l('description'); ?></label>
-			                        <select name="description" id="description" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>">
+			                        <select name="description" id="description" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>" data-live-search="true">
 			                           <?php foreach($des_list as $des){ ?>
 			                               <option value="<?php echo $des; ?>"><?php echo $des ?></option>
 			                            <?php } ?>

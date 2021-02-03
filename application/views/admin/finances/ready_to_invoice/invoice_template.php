@@ -84,7 +84,7 @@
       </button>
       <?php } ?>
     <div class="btn-group dropup">
-      <button type="button" class="btn-tr btn btn-info invoice-form-submit transaction-submit"><?php echo _l('save_and_transfer'); ?></button>
+      <button type="button" class="btn-tr btn btn-info invoice-form-submit transaction-submit"><?php echo _l('save'); ?></button>
     </div>
   </div>
    </div>

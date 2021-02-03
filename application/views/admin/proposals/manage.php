@@ -22,14 +22,15 @@
                echo form_hidden('customers_related');
                echo form_hidden('expired');
 
-               // foreach ($quote_phases as $phase){
-               //     $val = '';
-               //     if($phase['order_no'] == $this->input->get('phase')){
-               //         $val = $phase['order_no'];
-               //     }
-               //     echo form_hidden('phase_'.$phase['order_no'],$val);
-               // }
-               ?>
+               if(isset($quote_phases))
+                 foreach ($quote_phases as $phase){
+                     $val = '';
+                     if($phase['order_no'] == $this->input->get('phase')){
+                         $val = $phase['order_no'];
+                     }
+                     echo form_hidden('phase_'.$phase['order_no'],$val);
+                 }
+                 ?>
          </div>
          <div class="col-md-12">
             <div class="panel_s mbot10">

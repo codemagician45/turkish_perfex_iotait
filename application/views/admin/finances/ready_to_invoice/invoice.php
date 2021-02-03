@@ -10,7 +10,7 @@
 			}
 			?>
 			<div class="col-md-12">
-				<?php $this->load->view('admin/installation/invoice_template'); ?>
+				<?php $this->load->view('admin/finances/ready_to_invoice/invoice_template'); ?>
 			</div>
 			<?php echo form_close(); ?>
 		</div>
