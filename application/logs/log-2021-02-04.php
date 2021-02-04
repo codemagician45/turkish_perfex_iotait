@@ -212,3 +212,50 @@ ERROR - 2021-02-04 18:51:12 --> Could not find the language line "updated user"
 ERROR - 2021-02-04 18:53:41 --> Could not find the language line ""
 ERROR - 2021-02-04 18:53:41 --> Could not find the language line "created user"
 ERROR - 2021-02-04 18:53:41 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 19:01:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_perfex\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-02-04 22:32:23 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:32:23 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:32:23 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:32:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:32:26 --> Severity: error --> Exception: Too few arguments to function Invoices::get_machine_by_mould(), 0 passed in C:\xampp\htdocs\turkish_perfex\system\core\CodeIgniter.php on line 532 and exactly 1 expected C:\xampp\htdocs\turkish_perfex\application\controllers\admin\Invoices.php 548
+ERROR - 2021-02-04 22:39:24 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:39:24 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:39:24 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:39:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:42:13 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:42:13 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:42:13 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:42:13 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:43:58 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:43:58 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:43:58 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:43:58 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:44:35 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:44:35 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:44:35 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:44:35 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:45:59 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:45:59 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:45:59 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:45:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:47:01 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:47:01 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:47:01 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:47:01 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:47:24 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:47:24 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:47:24 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:47:24 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:47:59 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:47:59 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:47:59 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:47:59 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332
+ERROR - 2021-02-04 22:48:46 --> Could not find the language line "created user"
+ERROR - 2021-02-04 22:48:46 --> Could not find the language line "updated user"
+ERROR - 2021-02-04 22:48:46 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_perfex\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-02-04 22:48:46 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_perfex\application\helpers\fields_helper.php 332

@@ -335,7 +335,6 @@
 			if(res){
 				res.forEach(e => {
 					requestGetJSON('manufacturing_settings/get_list_machine_by_id/'+ e.machine_id).done(function(data){
-						console.log('machine', data);
 						if(e.default_machine == 1)
 							option += '<option value="'+ data.id +'" selected>'+data.name+'</option>';
 						else
@@ -343,8 +342,10 @@
 						$('#machine_id').empty();
 						$('#machine_id').append(option);
 						$('#machine_id').selectpicker('refresh');
+						calendar_display(data.id);
 					})
 				})
+
 			} else {
 				$('#machine_id').empty();
 			}
@@ -352,10 +353,7 @@
 		})
 
 	}
-
-	$('#machine_id').change(function(){
-
-		var machine_id = $(this).val();
+	function calendar_display(machine_id){
 		var wo_id = '<?php echo $invoice->id;?>';
     	var wo_item_mould = $('#mould_id option:selected').text();
 
@@ -452,6 +450,12 @@
             }
         };
         $('#busy_machine_events').fullCalendar(calendar_settings);
+	}
+	$('#machine_id').change(function(){
+
+		var machine_id = $(this).val();
+		calendar_display(machine_id);
+		
 	})
 
 	function one_machine_schedule(machine_id = '', machine_name = '')

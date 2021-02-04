@@ -8,7 +8,13 @@ $aColumns = [
     db_prefix() . 'proposals.id',
     db_prefix() . 'quote_phase.phase',
     'proposal_to',
+    db_prefix() . 'pricing_categories.name',
+    // 'date',
+    // 'open_till',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'proposals.id and rel_type="proposal" ORDER by tag_order ASC) as tags',
+    'sum_volume_m3',
+    'discount_total',
+    'total',
     'staff1.firstname as c_firstname',
     db_prefix(). 'proposals.datecreated as datecreated',
     'staff2.firstname as u_firstname',
@@ -123,6 +129,7 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'addedfrom',
     'updated_user'
 ]);
+
 $output  = $result['output'];
 $rResult = $result['rResult'];
 foreach ($rResult as $aRow) {
@@ -134,7 +141,7 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<a href="' . site_url('quotation/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('proposals', '', 'edit')) {
-        $numberOutput .= ' | <a href="' . admin_url('planning/new_type_quotation/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
+        $numberOutput .= ' | <a href="' . admin_url('sale/quotation/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
     }
 
     $numberOutput .= '</div>';
@@ -151,7 +158,21 @@ foreach ($rResult as $aRow) {
 
     $row[] = $toOutput;
 
+    $row[] = $aRow[db_prefix() . 'pricing_categories.name'];
+
     $row[] = render_tags($aRow['tags']);
+
+    $row[] = $aRow['sum_volume_m3'];
+
+    $row[] = $aRow['discount_total'];
+
+    $amount = app_format_money($aRow['total'], ($aRow['currency'] != 0 ? get_currency($aRow['currency']) : $baseCurrency));
+
+    if ($aRow['invoice_id']) {
+        $amount .= '<br /> <span class="hide"> - </span><span class="text-success">' . _l('work_order_created') . '</span>';
+    }
+
+    $row[] = $amount;
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 

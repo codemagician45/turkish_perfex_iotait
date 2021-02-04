@@ -8,7 +8,13 @@ $aColumns = [
     db_prefix() . 'proposals.id',
     db_prefix() . 'quote_phase.phase',
     'proposal_to',
+    db_prefix() . 'pricing_categories.name',
+    // 'date',
+    // 'open_till',
     '(SELECT GROUP_CONCAT(name SEPARATOR ",") FROM ' . db_prefix() . 'taggables JOIN ' . db_prefix() . 'tags ON ' . db_prefix() . 'taggables.tag_id = ' . db_prefix() . 'tags.id WHERE rel_id = ' . db_prefix() . 'proposals.id and rel_type="proposal" ORDER by tag_order ASC) as tags',
+    'sum_volume_m3',
+    'discount_total',
+    'total',
     'staff1.firstname as c_firstname',
     db_prefix(). 'proposals.datecreated as datecreated',
     'staff2.firstname as u_firstname',
@@ -42,6 +48,17 @@ foreach ($statuses as $status) {
 }
 if (count($statusIds) > 0) {
     array_push($filter, 'AND status IN (' . implode(', ', $statusIds) . ')');
+}
+
+$phases  = $this->ci->proposals_model->get_phases();
+$phaseIds = [];
+foreach ($phases as $phase) {
+    if ($this->ci->input->post('phase_' . $phase['order_no'])) {
+        array_push($phaseIds, $phase['order_no']);
+    }
+}
+if (count($phaseIds) > 0) {
+    array_push($filter, 'AND quote_phase_id IN (' . implode(', ', $phaseIds) . ')');
 }
 
 $agents    = $this->ci->proposals_model->get_sale_agents();
@@ -115,7 +132,6 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
-// print_r($rResult); exit();
 foreach ($rResult as $aRow) {
     $row = [];
 
@@ -142,7 +158,21 @@ foreach ($rResult as $aRow) {
 
     $row[] = $toOutput;
 
+    $row[] = $aRow[db_prefix() . 'pricing_categories.name'];
+
     $row[] = render_tags($aRow['tags']);
+
+    $row[] = $aRow['sum_volume_m3'];
+
+    $row[] = $aRow['discount_total'];
+
+    $amount = app_format_money($aRow['total'], ($aRow['currency'] != 0 ? get_currency($aRow['currency']) : $baseCurrency));
+
+    if ($aRow['invoice_id']) {
+        $amount .= '<br /> <span class="hide"> - </span><span class="text-success">' . _l('work_order_created') . '</span>';
+    }
+
+    $row[] = $amount;
 
     $row[] = '<a href="' . admin_url('staff/member/' . $aRow['addedfrom']) . '">' . $aRow['c_firstname']. ' '. $aRow['c_lastname'] . '</a>';
 
