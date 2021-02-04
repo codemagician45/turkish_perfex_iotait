@@ -195,7 +195,7 @@
      });
      initDataTable('.table-new-proposals', admin_url+'planning/table', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
      initDataTable('.table-new-proposals1', admin_url+'planning/table1', ['undefined'], ['undefined'], Proposals_ServerParams, [0,'desc']);
-     init_proposal_new();
+     init_proposal();
    });
 </script>
 </body>

@@ -473,7 +473,9 @@ function volume_calc_added(row){
   var currentV = $(row).parents('tr').children()[7].firstChild;
   var qty = $(row).parents('tr').find('[data-quantity]').val();
   requestGetJSON('warehouses/get_pack_by_capacity/' + pack_capacity).done(function(response) {
-    currentV.value = Number(response.volume)*Number(qty)/Number(pack_capacity);
+    if(response){
+      currentV.value = Number(response.volume)*Number(qty)/Number(pack_capacity);
+    }
     calculate_total_quote();
   });
 }
@@ -490,6 +492,19 @@ $('#pack_capacity').change(function(){
         $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(pack_price));
     });
 })
+
+function add_pack_original_price(row){
+  var itemid = $(row).parents('tr').find('.rel_product_id').val();
+  var pack_id = $(row).selectpicker('val');
+  requestGetJSON('warehouses/get_item_by_id_with_relation/' + itemid).done(function (response) {
+        console.log(response);
+        var pack_data = response.pack_list.filter(e=>{
+            return e.packing_id == pack_id
+        })
+        var pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        $(row).parents('tr').find('.original_price').val(parseFloat(response.stock.original_price) + parseFloat(pack_price));
+    });
+}
 
 </script>
 </body>

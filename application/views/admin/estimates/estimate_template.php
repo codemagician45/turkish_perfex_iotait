@@ -61,7 +61,8 @@
           <div class="col-md-6">
               <?php
                 $value = (isset($estimate) ? $estimate->shipping_type : ''); 
-                echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('readonly' => true)); ?>
+                if(!empty($estimate->shipping_type))
+                  echo render_input('shipping_type',_l('shipping_type'),$value,'text',array('readonly' => true)); ?>
           </div>
         </div>
         <div class="row">
@@ -91,9 +92,6 @@
    <div class="row">
       <div class="col-md-12 mtop15">
           <div class="btn-bottom-toolbar text-right">
-            <!-- <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit save-and-send transaction-submit">
-            <?php echo _l('save_and_send'); ?>
-            </button> -->
             <button type="button" class="btn-tr btn btn-info mleft10 estimate-form-submit transaction-submit">
             <?php echo _l('submit'); ?>
             </button>

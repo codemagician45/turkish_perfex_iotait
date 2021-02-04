@@ -422,9 +422,9 @@ class Proposals extends AdminController
         $data['proposal']              = $proposal;
         $data['totalNotes']            = total_rows(db_prefix() . 'notes', ['rel_id' => $id, 'rel_type' => 'proposal']);
         if ($to_return == false) {
-            $this->load->view('admin/planing/new_work_order/proposals_preview_template', $data);
+            $this->load->view('admin/planing/new_work_order/proposals_preview_template_new', $data);
         } else {
-            return $this->load->view('admin/planing/new_work_order/proposals_preview_template', $data, true);
+            return $this->load->view('admin/planing/new_work_order/proposals_preview_template_new', $data, true);
         }
     }
 

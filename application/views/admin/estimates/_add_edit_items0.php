@@ -4,17 +4,27 @@
       <table class="table estimate-items-table items table-main-estimate-edit has-calculations no-mtop">
          <thead>
             <tr>
-              <th width="11%" align="center"><?php echo _l('product_name'); ?></th>
-              <th width="11%" align="center"><?php echo _l('pack_capacity'); ?></th>
-              <th width="11%" align="center"><?php echo _l('qty'); ?></th>
-              <th width="11%" align="center"><?php echo _l('unit'); ?></th>
-              <th width="11%" align="center"><?php echo _l('original_price'); ?></th>
-              <th width="11%" align="center"><?php echo _l('sale_price'); ?></th>
-              <th width="11%" align="center"><?php echo _l('volume_m3'); ?></th>
-              <th width="4%" align="center"><?php echo _l('approval_need'); ?></th>
-              <th width="11%" align="center"><?php echo _l('notes'); ?></th>
-              <th width="8%" align="right"><?php echo _l('estimate_table_amount_heading'); ?></th>
-              <th align="center"><i class="fa fa-cog"></i></th>
+              <?php if(!empty($estimate->shipping_type)) {?>
+                <th width="11%" align="center"><?php echo _l('product_name'); ?></th>
+                <th width="11%" align="center"><?php echo _l('pack_capacity'); ?></th>
+                <th width="11%" align="center"><?php echo _l('qty'); ?></th>
+                <th width="11%" align="center"><?php echo _l('unit'); ?></th>
+                <th width="11%" align="center"><?php echo _l('original_price'); ?></th>
+                <th width="11%" align="center"><?php echo _l('sale_price'); ?></th>
+                <th width="11%" align="center"><?php echo _l('volume_m3'); ?></th>
+                <th width="4%" align="center"><?php echo _l('approval_need'); ?></th>
+                <th width="11%" align="center"><?php echo _l('notes'); ?></th>
+                <th width="8%" align="right"><?php echo _l('estimate_table_amount_heading'); ?></th>
+                <th align="center"><i class="fa fa-cog"></i></th>
+              <?php } else { ?>
+                <th width="25%" align="center"><?php echo _l('product_name'); ?></th>
+                <th width="15%" align="center"><?php echo _l('pack_capacity'); ?></th>
+                <th width="15%" align="center"><?php echo _l('qty'); ?></th>
+                <th width="15%" align="center"><?php echo _l('unit'); ?></th>
+                <th width="5%" align="center"><?php echo _l('approval_need'); ?></th>
+                <th width="25%" align="center"><?php echo _l('notes'); ?></th>
+                <th align="center"><i class="fa fa-cog"></i></th>
+              <?php }?>
             </tr>
          </thead>
          <tbody>
@@ -60,13 +70,13 @@
                  $table_row .= '<td><input type="number" data-quantity name="' . $items_indicator . '[' . $i . '][qty]" class="form-control" disabled value="'.$item['qty'].'" onkeyup="calculate_total_quote();" onchange="calculate_total_quote();"></td>';
 
                  $table_row .= '<td> <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="unit" data-fieldid="unit" disabled name="'.$items_indicator.'['.$i.'][unit]" class="selectpicker form-control" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$unit_option.'</select></div></td>';
+                if(!empty($estimate->shipping_type)) {
+                   $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control original_price" value="'.$item['original_price'].'"></td>';
 
-                 $table_row .= '<td><input type="number" name="' . $items_indicator . '[' . $i . '][original_price]" readonly class="form-control original_price" value="'.$item['original_price'].'"></td>';
+                   $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" disabled value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();quote_phase_change(this);" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
 
-                 $table_row .= '<td class="sale-price"><input type="number" name="' . $items_indicator . '[' . $i . '][sale_price]" class="form-control" disabled value="'.$item['sale_price'].'" onkeyup="calculate_total_quote();quote_phase_change(this);" onchange="calculate_total_quote();quote_phase_change(this);"></td>';
-
-                 $table_row .= '<td><input type="number"  name="' . $items_indicator . '[' . $i . '][volume_m3]" readonly class="form-control volume_m3" value="'.$item['volume_m3'].'"></td>';
-
+                   $table_row .= '<td><input type="number"  name="' . $items_indicator . '[' . $i . '][volume_m3]" readonly class="form-control volume_m3" value="'.$item['volume_m3'].'"></td>';
+                  }
                  if ($item['approval_need'] == 1) {
 
                       $table_row .= '<td><div class="checkbox" style="margin-top: 8px;padding-left: 50%"><input type="checkbox" checked  name="' . $items_indicator . '[' . $i . '][approval_need]" disabled><label ></label></div>';
@@ -76,8 +86,8 @@
                   }
 
                  $table_row .= '<td><input type="text" name="' . $items_indicator . '[' . $i . '][notes]" class="form-control" value="'.$item['notes'].'"></td>';
-                 
-                 $table_row .= '<td class="amount" align="right">' . $amount . '</td>';
+                 if(!empty($estimate->shipping_type))
+                    $table_row .= '<td class="amount" align="right">' . $amount . '</td>';
                  
                  // $table_row .= '<td><a href="#" class="btn btn-danger pull-left" onclick="delete_quote_item(this,' . $item['id'] . '); return false;"><i class="fa fa-times"></i></a></td>';
                  $table_row .= '</tr>';
@@ -89,6 +99,7 @@
          </tbody>
       </table>
    </div>
+   <?php if(!empty($estimate->shipping_type)) {?>
    <div class="col-md-8 col-md-offset-4">
       <table class="table text-right">
          <tbody>
@@ -129,4 +140,5 @@
       </table>
    </div>
    <div id="removed-items"></div>
+   <?php }?>
 </div>

@@ -75,10 +75,10 @@
 
                  $capacity_option = '<option></option>';
                   foreach ($item[0] as $key => $pack) {
-                      if($pack['pack_capacity'] == $item['pack_capacity'])
-                          $capacity_option.='<option value="'.$pack['pack_capacity'].'" selected>'.$pack['pack_capacity'].'</option>';
+                      if($pack['packing_id'] == $item['pack_capacity'])
+                          $capacity_option.='<option value="'.$pack['packing_id'].'" selected>'.$pack['pack_capacity'].'</option>';
                       else
-                          $capacity_option.='<option value="'.$pack['pack_capacity'].'">'.$pack['pack_capacity'].'</option>';
+                          $capacity_option.='<option value="'.$pack['packing_id'].'">'.$pack['pack_capacity'].'</option>';
                   }
                 $unit_option = '<option></option>';
 

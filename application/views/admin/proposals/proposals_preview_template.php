@@ -127,7 +127,11 @@
                      if(has_permission('proposals','','edit')){
                       if($proposal->status != $status){ ?>
                   <li>
+                     <?php if(!empty($proposal->pricing_category_id)){?>
                      <a href="<?php echo admin_url() . 'proposals/mark_action_status/'.$status.'/'.$proposal->id; ?>"><?php echo _l('proposal_mark_as',format_proposal_status($status,'',false)); ?></a>
+                     <?php } else {?>
+                        <a href="<?php echo admin_url() . 'proposals/mark_action_status_new/'.$status.'/'.$proposal->id; ?>"><?php echo _l('proposal_mark_as',format_proposal_status($status,'',false)); ?></a>
+                     <?php }?>
                   </li>
                   <?php
                      } } } ?>
