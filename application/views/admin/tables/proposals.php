@@ -3,7 +3,6 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $baseCurrency = get_base_currency();
-
 $aColumns = [
     db_prefix() . 'proposals.id',
     db_prefix() . 'quote_phase.phase',
@@ -127,11 +126,13 @@ $result = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, [
     'staff1.lastname as c_lastname',
     'staff2.lastname as u_lastname',
     'addedfrom',
-    'updated_user'
+    'updated_user',
+    'pricing_category_id'
 ]);
 
 $output  = $result['output'];
 $rResult = $result['rResult'];
+
 foreach ($rResult as $aRow) {
     $row = [];
 
@@ -141,6 +142,7 @@ foreach ($rResult as $aRow) {
 
     $numberOutput .= '<a href="' . site_url('quotation/' . $aRow[db_prefix() . 'proposals.id'] . '/' . $aRow['hash']) . '" target="_blank">' . _l('view') . '</a>';
     if (has_permission('proposals', '', 'edit')) {
+
         $numberOutput .= ' | <a href="' . admin_url('sale/quotation/' . $aRow[db_prefix() . 'proposals.id']) . '">' . _l('edit') . '</a>';
     }
 
