@@ -90,9 +90,10 @@
                                     }
                                     ?>
                                  <select name="status" class="selectpicker" data-width="100%" <?php echo $disabled; ?> data-none-selected-text="<?php echo _l('dropdown_non_selected_tex'); ?>">
-                                    <?php foreach($statuses as $status){ ?>
-                                    <option value="<?php echo $status; ?>" <?php if((isset($proposal) && $proposal->status == $status) || (!isset($proposal) && $status == 0)){echo 'selected';} ?>><?php echo format_proposal_status($status,'',false); ?></option>
-                                    <?php } ?>
+                                    <?php foreach($statuses as $status){ if($status == 3){?>
+                                    <option value="<?php echo $status; ?>" <?php if((isset($proposal) && $proposal->status == $status) || (!isset($proposal) && $status == 3)){echo 'selected';} ?>><?php echo format_proposal_status($status,'',false); ?></option>
+                                    <?php } 
+                                  } ?>
                                  </select>
                               </div>
                            </div>

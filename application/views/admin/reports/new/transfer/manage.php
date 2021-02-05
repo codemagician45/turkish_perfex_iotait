@@ -8,15 +8,20 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-md-2">
-								<?php 
-                                    echo render_select('product_code',$product_codes,array('id','product_code'),_l('product_code'),''); 
-                                ?>
-								<div class="_filters _hidden_inputs product_codes">
-		                            <?php
-		                               foreach($product_codes as $product_code){?>
-		                                <input type="hidden" class="filter product_code" name="product_code_<?php echo $product_code['id']?>">
-		                             <?php }?>
-		                         </div>
+								<div class="form-group">
+                                    <label for="product_code"><?php echo _l('product_code'); ?></label>
+                                    <select name="product_code" id="product_code" class="selectpicker" multiple data-width="100%" data-none-selected-text="<?php echo _l('invoice_status_report_all'); ?>" data-live-search="true">
+                                       <?php foreach($product_codes as $product_code){ ?>
+                                           <option value="<?php echo $product_code['id']; ?>"><?php echo $product_code['product_code']?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <div class="_filters _hidden_inputs product_codes">
+                                        <?php
+                                           foreach($product_codes as $product_code){?>
+                                            <input type="hidden" class="filter product_code" name="product_code_<?php echo $product_code['id']?>">
+                                           <?php }?>
+                                     </div>
+                                </div>
 							</div>
 							<div class="col-md-2">
 								<div class="form-group">

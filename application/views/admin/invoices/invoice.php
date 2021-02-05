@@ -338,11 +338,12 @@
 						if(e.default_machine == 1)
 							option += '<option value="'+ data.id +'" selected>'+data.name+'</option>';
 						else
-							option += '<option value="'+ data.id +'" selected>'+data.name+'</option>';
+							option += '<option value="'+ data.id +'">'+data.name+'</option>';
 						$('#machine_id').empty();
 						$('#machine_id').append(option);
 						$('#machine_id').selectpicker('refresh');
-						calendar_display(data.id);
+						if(e.default_machine == 1)
+							calendar_display(data.id);
 					})
 				})
 
