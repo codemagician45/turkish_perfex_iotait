@@ -166,7 +166,10 @@ foreach ($rResult as $aRow) {
         $row[] = '';
 
 
-    $row[] = format_proposal_status($aRow['status']);
+    if ($aRow['invoice_id']) {
+        $row[] = format_proposal_status($aRow['status']). '<br /> <span class="hide"> - </span><span class="text-info">' . _l('work_order_created') . '</span>';
+    } else 
+        $row[] = format_proposal_status($aRow['status']);
 
     // Custom fields add values
     foreach ($customFieldsColumns as $customFieldColumn) {
