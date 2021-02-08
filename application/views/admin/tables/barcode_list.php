@@ -5,7 +5,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     'barcode_id',
     db_prefix() . 'stock_lists.product_code',
-    db_prefix() .'barcode_list.product_name',
+    db_prefix() .'stock_lists.product_name',
     'barcode_price',
     ];
 $sIndexColumn = 'id';

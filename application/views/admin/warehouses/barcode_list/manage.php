@@ -169,6 +169,12 @@
 		return false;
 	}
 
+	$('#submit').click(function(e){
+		e.preventDefault();
+		$('#barcode_list_form').submit();
+		$(this).prop('disabled',true);
+	})
+
 </script>
 </body>
 </html>
