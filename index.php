@@ -59,6 +59,9 @@ if( ! ini_get('date.timezone') )
  */
 	define('ENVIRONMENT', 'development');
 
+
+	
+
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING
