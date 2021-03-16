@@ -685,7 +685,6 @@
     		var data = {
     			purchase_phase_id: 11,
     			approval:1,
-    			// approval_date: approval_date,
     			newitems:[{
     				product_name:$(row).parents('tr').find('.product_name').val(),
     				ordered_qty:$(row).parents('tr').find('.qty').val(),
@@ -701,7 +700,7 @@
 		    		$(row).addClass('btn-info');
 		    		$(row).children().removeClass('fa-times-circle');
 		    		$(row).children().addClass('fa-check-circle-o');
-		    		// $(row).parents('tr').find('.arrival_date').val(response.approval_date)
+		    		$(row).parents('tr').find('.arrival_date').val(approval_date)
 				}
 				$('#quick_purchase_confirm').modal('hide');
 				

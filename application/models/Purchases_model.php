@@ -201,6 +201,9 @@ class Purchases_model extends App_Model
             unset($temp['item_id']);
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
         }
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        }
         return false;
     }
 

@@ -1082,19 +1082,22 @@ class Warehouses extends AdminController
             $purchase_order_item['rel_purchase_id'] = $id;
             $success = $this->purchases_model->add_purchase_order_item($purchase_order_item);
             if ($success == true) {
-                
-                // $approval_date = $this->db->query('SELECT approval_date FROM tblpurchase_order WHERE `id` ='.$id)->row()->approval_date;
-                // $plan_recipe['arrival_date'] = date("Y-m-d", strtotime($approval_date));
                 $plan_recipe['quick_purchased'] = $id;
                 $this->db->where('id',$plan_item);
                 $this->db->update(db_prefix() . 'plan_recipe', $plan_recipe);
                 $message = _l('added_successfully', _l('purchase_request'));
+                echo json_encode([
+                    'success' => $success,
+                    'message' => $message,
+                ]);
+            } else {
+                echo json_encode([
+                    'success' => false,
+                    'message' => _l('added_failed', _l('purchase_request')),
+                    'approval_date' => date("Y-m-d", strtotime($approval_date))
+                ]);
             }
-            echo json_encode([
-                'success' => $success,
-                'message' => $message,
-                // 'approval_date' => date("Y-m-d", strtotime($approval_date))
-            ]);
+            
         }
     }
 }
