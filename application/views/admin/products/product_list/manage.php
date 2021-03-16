@@ -40,6 +40,7 @@
                         ), 'product_list'); ?>
                     </div>
                 </div>
+                <img src="<?php echo base_url('/assets/images/loading-icon.gif')?>" id="loading" style="position: absolute;left: 42%;top: 0%;display: none">
             </div>
         </div>
     </div>
@@ -68,7 +69,9 @@
                 let data = {
                     <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",id:product_id, product_list_price:product_list_price, init:1
                 }
+                $('#loading').show();
                 $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
+                    $('#loading').hide();
                     var av_tables = ['.table-product_list'];
                     $.each(av_tables, function(i, selector) {
                         if ($.fn.DataTable.isDataTable(selector)) {
@@ -99,7 +102,9 @@
                     let data = {
                         <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",id:base_price[i-1].id, product_list_price:product_list_price
                     }
+                    $('#loading').show();
                     $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
+                        $('#loading').hide();
                         var av_tables = ['.table-product_list'];
                         $.each(av_tables, function(i, selector) {
                             if ($.fn.DataTable.isDataTable(selector)) {
@@ -116,7 +121,9 @@
                 let data = {
                     <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",id:base_price[i-1].id, product_list_price:product_list_price
                 }
+                $('#loading').show();
                 $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
+                    $('#loading').hide();
                     var av_tables = ['.table-product_list'];
                     $.each(av_tables, function(i, selector) {
                         if ($.fn.DataTable.isDataTable(selector)) {
