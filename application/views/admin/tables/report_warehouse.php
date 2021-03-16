@@ -4,8 +4,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
     'product_code',
     'product_name',
-    db_prefix() . 'units.name as unit',
-    db_prefix() . 'stock_categories.name as category',
+    db_prefix() . 'units.name as unit_name',
+    db_prefix() . 'stock_categories.name as category_name',
     'price',
     db_prefix() . 'currencies.name as currency',
     'stock_level'
@@ -93,6 +93,7 @@ if (count($filter) > 0) {
 $result       = data_tables_init($aColumns, $sIndexColumn, $sTable, $join, $where, $additionalSelect);
 $output  = $result['output'];
 $rResult = $result['rResult'];
+
 foreach ($rResult as $aRow) {
     $row = [];
     // for ($i = 0; $i < count($aColumns); $i++) {
@@ -121,8 +122,8 @@ foreach ($rResult as $aRow) {
     // $row[]              = $options .= icon_btn('warehouses/stock_list_delete/' . $aRow['id'], 'remove', 'btn-danger _delete');
     $row[] = $aRow['product_code'];
     $row[] = '<span class="name"><a href="#" ' . _attributes_to_string($attributes) . '>' . $aRow['product_name'] . '</a></span>';
-    $row[] = $aRow['unit'];
-    $row[] = $aRow['category'];
+    $row[] = $aRow['unit_name'];
+    $row[] = $aRow['category_name'];
     $row[] = $aRow['price'];
     $row[] = $aRow['currency'];
     $allocated_qty  = $this->ci->warehouses_model->get_allocated_item_amount_by_product($aRow['id']);

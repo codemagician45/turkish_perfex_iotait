@@ -59,3 +59,213 @@ ERROR - 2021-03-16 07:07:42 --> Could not find the language line "created user"
 ERROR - 2021-03-16 07:07:42 --> Could not find the language line "updated user"
 ERROR - 2021-03-16 07:07:42 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_iotait\application\views\admin\invoice_items\item.php 67
 ERROR - 2021-03-16 07:07:42 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 332
+ERROR - 2021-03-16 07:15:08 --> Severity: Notice --> Trying to get property 'stock_level' of non-object C:\xampp\htdocs\turkish_iotait\application\models\Warehouses_model.php 423
+ERROR - 2021-03-16 07:15:09 --> Severity: Notice --> Trying to get property 'stock_level' of non-object C:\xampp\htdocs\turkish_iotait\application\models\Warehouses_model.php 423
+ERROR - 2021-03-16 07:23:27 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:23:28 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:23:29 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:23:37 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:24:25 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:24:26 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:24:32 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:32:58 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:32:59 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:32:59 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:33:37 --> Could not find the language line "new_work_orders"
+ERROR - 2021-03-16 07:33:53 --> Could not find the language line "created user"
+ERROR - 2021-03-16 07:33:53 --> Could not find the language line "updated user"
+ERROR - 2021-03-16 07:33:53 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_iotait\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-03-16 07:33:53 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 332
+ERROR - 2021-03-16 07:34:46 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE `p_qty_id` = 1
+AND `rel_wo_id` IS NULL' at line 5 - Invalid query: SELECT *
+FROM `tblproduced_qty`
+LEFT JOIN `tblevents` ON `tblevents`.`eventid`=`tblproduced_qty`.`rel_event_id`
+LEFT JOIN `tblplan_recipe` ON `tblplan_recipe`.`connected_pair`=
+WHERE `p_qty_id` = 1
+AND `rel_wo_id` IS NULL
+ERROR - 2021-03-16 07:35:40 --> Could not find the language line "created user"
+ERROR - 2021-03-16 07:35:40 --> Could not find the language line "updated user"
+ERROR - 2021-03-16 07:35:40 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_iotait\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-03-16 07:35:40 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 332
+ERROR - 2021-03-16 07:36:06 --> Could not find the language line "created user"
+ERROR - 2021-03-16 07:36:06 --> Could not find the language line "updated user"
+ERROR - 2021-03-16 07:36:06 --> Severity: Notice --> Undefined variable: items_groups C:\xampp\htdocs\turkish_iotait\application\views\admin\invoice_items\item.php 67
+ERROR - 2021-03-16 07:36:06 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 332
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36
+ERROR - 2021-03-16 07:40:09 --> Severity: Notice --> Undefined index: pack_capacity C:\xampp\htdocs\turkish_iotait\application\views\admin\proposals\_add_edit_items.php 36

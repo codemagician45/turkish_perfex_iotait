@@ -50,7 +50,7 @@ define('APP_DB_PASSWORD', '');
 /**
  * The name of the database you want to connect to
  */
-define('APP_DB_NAME', 'turkish_perfex');
+define('APP_DB_NAME', 'birkan_erp_prod');
 
 /**
  * @since  2.3.0
