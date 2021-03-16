@@ -222,6 +222,7 @@
                </div>
             </div>
          </div>
+          <img src="<?php echo base_url('/assets/images/loading-icon.gif')?>" id="loading" style="position: absolute;left: 43%;top: 30%;display: none">
          <div class="col-md-12">
             <div class="panel_s">
                <?php $this->load->view('admin/proposals/_add_edit_items'); ?>
@@ -352,62 +353,65 @@ $(document).ready(function(){
   unit_disable();
 })
 
-$('#pricing_category').change(function(){
-  var pricing_category_no = $('#pricing_category').val();
-  rows = $('.table.has-calculations tbody tr.item')
-  if(pricing_category_no)
-  {
-      requestGetJSON('products/get_price_category_calc/' + pricing_category_no).done(function (response) {
-        $('select[name="currency"]').selectpicker('val', response.default_currency)
-        init_currency();
-        if(response.calc_value1)
-            var value1 = response.calc_value1;
-        else
-            var value1 = 1;
-
-        if(response.calc_value2)
-            var value2 = response.calc_value2;
-        else
-            var value2 = 1;
-
-        let data = {
-            <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",value1: value1, value2:value2
-        }
-        $.post(admin_url+'warehouses/update_original_price', data).done(function(response) {
-          $.each(rows, function() {
-              var rel_product_id = $(this).find('.rel_product_id').val();
-              row = $(this);
-              JSON.parse(response).forEach(e => {
-                if(e.id == rel_product_id)
-                {
-                  $(this).find('.original_price').val(e.original_price)
-                }
-              })
-          });
-        });
-      });
-  } else {
-        let data = {
-            <?php echo $this->security->get_csrf_token_name(); ?> : "<?php echo $this->security->get_csrf_hash(); ?>",value1: 1, value2:1
-        }
-
-        $.post(admin_url+'warehouses/update_original_price', data).done(function(response) {
-             $.each(rows, function() {
-              var rel_product_id = $(this).find('.rel_product_id').val();
-              row = $(this);
-              
-              JSON.parse(response).forEach(e => {
-                if(e.id == rel_product_id)
-                {
-                  $(this).find('.original_price').val(e.original_price)
-                }
-              })
-              
-          });
-        });
-      init_currency();
-  }
-})
+//$('#pricing_category').change(function(){
+//  var pricing_category_no = $('#pricing_category').val();
+//  rows = $('.table.has-calculations tbody tr.item')
+//  if(pricing_category_no)
+//  {
+//      requestGetJSON('products/get_price_category_calc/' + pricing_category_no).done(function (response) {
+//        $('select[name="currency"]').selectpicker('val', response.default_currency)
+//        init_currency();
+//        if(response.calc_value1)
+//            var value1 = response.calc_value1;
+//        else
+//            var value1 = 1;
+//
+//        if(response.calc_value2)
+//            var value2 = response.calc_value2;
+//        else
+//            var value2 = 1;
+//
+//        let data = {
+//            <?php //echo $this->security->get_csrf_token_name(); ?>// : "<?php //echo $this->security->get_csrf_hash(); ?>//",value1: value1, value2:value2
+//        }
+//        $('#loading').show();
+//        $.post(admin_url+'warehouses/update_original_price', data).done(function(response) {
+//            $('#loading').hide();
+//          $.each(rows, function() {
+//              var rel_product_id = $(this).find('.rel_product_id').val();
+//              row = $(this);
+//              JSON.parse(response).forEach(e => {
+//                if(e.id == rel_product_id)
+//                {
+//                  $(this).find('.original_price').val(e.original_price)
+//                }
+//              })
+//          });
+//        });
+//      });
+//  } else {
+//        let data = {
+//            <?php //echo $this->security->get_csrf_token_name(); ?>// : "<?php //echo $this->security->get_csrf_hash(); ?>//",value1: 1, value2:1
+//        }
+//        $('#loading').show();
+//        $.post(admin_url+'warehouses/update_original_price', data).done(function(response) {
+//             $('#loading').hide();
+//             $.each(rows, function() {
+//              var rel_product_id = $(this).find('.rel_product_id').val();
+//              row = $(this);
+//
+//              JSON.parse(response).forEach(e => {
+//                if(e.id == rel_product_id)
+//                {
+//                  $(this).find('.original_price').val(e.original_price)
+//                }
+//              })
+//
+//          });
+//        });
+//      init_currency();
+//  }
+//})
 
 function quote_phase_change()
 {
@@ -488,8 +492,14 @@ $('#pack_capacity').change(function(){
         var pack_data = response.pack_list.filter(e=>{
             return e.packing_id == pack_id
         })
-        var pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        console.log(pack_data);
+        var pack_price;
+        if(pack_data[0].pack_price)
+            pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        else
+            pack_price = 0;
         $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(pack_price));
+        $('input[name="volume_m3"]').val(pack_data[0].volume);
     });
 })
 
@@ -501,11 +511,54 @@ function add_pack_original_price(row){
         var pack_data = response.pack_list.filter(e=>{
             return e.packing_id == pack_id
         })
-        var pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        var pack_price;
+        if(pack_data[0].pack_price)
+            pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
+        else
+            pack_price = 0;
         $(row).parents('tr').find('.original_price').val(parseFloat(response.stock.original_price) + parseFloat(pack_price));
+        $(row).parents('tr').find('.volume_m3').val(pack_data[0].volume);
     });
 }
 
+$('#pricing_category').change(function () {
+    var price_category_id = $('#pricing_category').val();
+    if(price_category_id)
+    {
+        requestGetJSON('products/get_price_category_calc/' + price_category_id).done(function (response) {
+            $('select[name="currency"]').selectpicker('val', response.default_currency)
+            if(response.calc_value1)
+                var value1 = response.calc_value1;
+            else
+                var value1 = 1;
+            if(response.calc_value2)
+                var value2 = response.calc_value2;
+            else
+                var value2 = 1;
+
+            var trArr = $('.estimate-items-table').find('tr.sortable.item');
+            for(let i=0; i<trArr.length; i++){
+                let original_price = trArr[i].getElementsByClassName('original_price');
+                let id = trArr[i].getElementsByClassName('rel_product_id')[0].value;
+                requestGetJSON('warehouses/get_stock_list_by_id/' + id).done(function (response) {
+                    console.log(response)
+                    original_price[0].value = (Number(response.price)*value1*value2).toFixed(2);
+                });
+            }
+        });
+    } else {
+        var trArr = $('.estimate-items-table').find('tr.sortable.item');
+        for(let i=0; i<trArr.length; i++){
+            let original_price = trArr[i].getElementsByClassName('original_price');
+            let id = trArr[i].getElementsByClassName('rel_product_id')[0].value;
+            requestGetJSON('warehouses/get_stock_list_by_id/' + id).done(function (response) {
+                console.log(response)
+                original_price[0].value = (Number(response.price)).toFixed(2);
+            });
+        }
+    }
+    init_currency();
+})
 </script>
 </body>
 </html>

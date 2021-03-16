@@ -123,7 +123,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function update_number_settings($id)
+    public function update_number_settings($id = '')
     {
         $response = [
             'success' => false,
@@ -175,7 +175,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function add_note($rel_id)
+    public function add_note($rel_id = '')
     {
         if ($this->input->post() && user_can_view_invoice($rel_id)) {
             $this->misc_model->add_note($this->input->post(), 'invoice', $rel_id);
@@ -183,7 +183,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function get_notes($id)
+    public function get_notes($id = '')
     {
         if (user_can_view_invoice($id)) {
             $data['notes'] = $this->misc_model->get_notes($id, 'invoice');
@@ -191,7 +191,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function pause_overdue_reminders($id)
+    public function pause_overdue_reminders($id = '')
     {
         if (has_permission('invoices', '', 'edit')) {
             $this->db->where('id', $id);
@@ -200,7 +200,7 @@ class Invoices extends AdminController
         redirect(admin_url('invoices/list_invoices/' . $id));
     }
 
-    public function resume_overdue_reminders($id)
+    public function resume_overdue_reminders($id = '')
     {
         if (has_permission('invoices', '', 'edit')) {
             $this->db->where('id', $id);
@@ -209,7 +209,7 @@ class Invoices extends AdminController
         redirect(admin_url('invoices/list_invoices/' . $id));
     }
 
-    public function mark_as_cancelled($id)
+    public function mark_as_cancelled($id = '')
     {
         if (!has_permission('invoices', '', 'edit') && !has_permission('invoices', '', 'create')) {
             access_denied('invoices');
@@ -224,7 +224,7 @@ class Invoices extends AdminController
         redirect(admin_url('invoices/list_invoices/' . $id));
     }
 
-    public function unmark_as_cancelled($id)
+    public function unmark_as_cancelled($id = '')
     {
         if (!has_permission('invoices', '', 'edit') && !has_permission('invoices', '', 'create')) {
             access_denied('invoices');
@@ -535,7 +535,7 @@ class Invoices extends AdminController
         $this->load->view('admin/invoices/invoice', $data);
     }
 
-    public function view_event_plan($id)
+    public function view_event_plan($id = '')
     {
         $data['event'] = $this->utilities_model->get_event($id);
         if ($data['event']->public == 1 && !is_staff_member()
@@ -545,7 +545,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function get_machine_by_mould($id)
+    public function get_machine_by_mould($id = '')
     {
         if($this->input->is_ajax_request()){
             $res = $this->manufacturing_settings_model->get_machine_by_mould($id);
@@ -554,7 +554,7 @@ class Invoices extends AdminController
     }
 
     /* Get all invoice data used when user click on invoiec number in a datatable left side*/
-    public function get_invoice_data_ajax($id)
+    public function get_invoice_data_ajax($id = '')
     {
         if (!has_permission('invoices', '', 'view')
             && !has_permission('invoices', '', 'view_own')
@@ -885,7 +885,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function view_plan_event($id)
+    public function view_plan_event($id = '')
     {
         
         $data['event'] = $this->utilities_model->get_event($id);
@@ -916,7 +916,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function view_installation_event($id){
+    public function view_installation_event($id = ''){
         $data['event'] = $this->utilities_model->get_installation_event($id);
         if ($data['event']->public == 1 && !is_staff_member()
             || $data['event']->public == 0 && $data['event']->userid != get_staff_user_id()) {
@@ -925,7 +925,7 @@ class Invoices extends AdminController
         }
     }
 
-    public function change_wo_status($id, $status)
+    public function change_wo_status($id = '', $status)
     {
         if ($this->input->is_ajax_request()) {
             $this->invoices_model->change_wo_status($id, $status);

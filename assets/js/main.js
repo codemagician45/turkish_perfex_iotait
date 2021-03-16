@@ -8155,7 +8155,7 @@ function add_item_to_preview_quote(id) {
          
         $('input[name="product_name"]').val(response.stock.product_name);
         $('input[name="rel_product_id"]').val(response.stock.id);
-        
+
         $('select[name="unit"]').selectpicker('val', response.stock.unit);
         $('select[name="unit"]').prop('disabled', true)
 
@@ -8173,8 +8173,9 @@ function add_item_to_preview_quote(id) {
             var default_pack_data = response.pack_list.filter(e=>{
                 return e.default_pack == 1
             })
-            var default_pack_price = parseFloat(default_pack_data[0].pack_price/default_pack_data[0].pack_capacity)
+            var default_pack_price = parseFloat(default_pack_data[0].pack_price/default_pack_data[0].pack_capacity);
             $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(default_pack_price));
+            $('input[name="volume_m3"]').val(default_pack_data[0].volume);
         } else {
             $('input[name="original_price"]').val(response.stock.original_price);
         }
