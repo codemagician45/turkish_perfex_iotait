@@ -8,7 +8,13 @@ class Quotation extends ClientsController
     {
         check_proposal_restrictions($id, $hash);
         $proposal = $this->proposals_model->get($id);
-
+        foreach ($proposal->items as &$item) {
+           foreach ($item[0] as $key => $pack) {
+               if($pack['packing_id'] == $item['pack_capacity']){
+                   $item['pack_capacity'] = $pack['pack_capacity'];
+               }
+          }
+        }
         if ($proposal->rel_type == 'customer' && !is_client_logged_in()) {
             load_client_language($proposal->rel_id);
         } else if($proposal->rel_type == 'lead') {
@@ -80,7 +86,6 @@ class Quotation extends ClientsController
 
         $this->disableNavigation();
         $this->disableSubMenu();
-
         $data['title']     = $proposal->subject;
         $data['proposal']  = hooks()->apply_filters('proposal_html_pdf_data', $proposal);
         $data['bodyclass'] = 'proposal proposal-view';
