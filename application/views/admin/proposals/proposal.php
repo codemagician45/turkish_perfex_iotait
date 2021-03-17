@@ -525,6 +525,7 @@ $('#pricing_category').change(function () {
     var price_category_id = $('#pricing_category').val();
     if(price_category_id)
     {
+        $('#loading').show();
         requestGetJSON('products/get_price_category_calc/' + price_category_id).done(function (response) {
             $('select[name="currency"]').selectpicker('val', response.default_currency)
             if(response.calc_value1)
@@ -535,16 +536,19 @@ $('#pricing_category').change(function () {
                 var value2 = response.calc_value2;
             else
                 var value2 = 1;
-
             var trArr = $('.estimate-items-table').find('tr.sortable.item');
             for(let i=0; i<trArr.length; i++){
                 let original_price = trArr[i].getElementsByClassName('original_price');
                 let id = trArr[i].getElementsByClassName('rel_product_id')[0].value;
                 requestGetJSON('warehouses/get_stock_list_by_id/' + id).done(function (response) {
-                    console.log(response)
-                    original_price[0].value = (Number(response.price)*value1*value2).toFixed(2);
+                    selectedCurrencyId = $('select[name="currency"]').val();
+                    requestGetJSON('misc/get_currency/' + selectedCurrencyId).done(function (currency) {
+                        $('#loading').hide();
+                        original_price[0].value = (Number(response.price)*value1*value2/currency.rate).toFixed(2);
+                    })
                 });
             }
+
         });
     } else {
         var trArr = $('.estimate-items-table').find('tr.sortable.item');
@@ -556,8 +560,9 @@ $('#pricing_category').change(function () {
                 original_price[0].value = (Number(response.price)).toFixed(2);
             });
         }
+        init_currency();
     }
-    init_currency();
+
 })
 </script>
 </body>

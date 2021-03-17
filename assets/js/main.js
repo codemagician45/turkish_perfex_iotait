@@ -7208,7 +7208,7 @@ function delete_item(row, itemid) {
 // Format money function
 function format_money(total, excludeSymbol) {
     if (typeof (excludeSymbol) != 'undefined' && excludeSymbol) {
-        return accounting.formatMoney(total, { symbol: excludeSymbol });
+        return accounting.formatMoney(total, { symbol: '' });
     }
 
     return accounting.formatMoney(total);

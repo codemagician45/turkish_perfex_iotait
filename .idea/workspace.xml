@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/application/logs/log-2021-03-17.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-03-17.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,55 +18,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="426" column="43" selection-start-line="426" selection-start-column="43" selection-end-line="426" selection-end-column="43" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="581">
-              <caret line="230" column="32" selection-start-line="230" selection-start-column="27" selection-end-line="230" selection-end-column="32" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="7210" column="68" selection-start-line="7210" selection-start-column="68" selection-end-line="7210" selection-end-column="68" />
+            <state relative-caret-position="480">
+              <caret line="7221" column="90" lean-forward="true" selection-start-line="7221" selection-start-column="90" selection-end-line="7221" selection-end-column="96" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/plugins/accounting.js/accounting.js">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="276" column="63" selection-start-line="276" selection-start-column="57" selection-end-line="276" selection-end-column="63" />
+            <state relative-caret-position="-1305">
+              <caret line="409" column="70" lean-forward="true" selection-start-line="409" selection-start-column="70" selection-end-line="409" selection-end-column="70" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="546" column="50" selection-start-line="546" selection-start-column="50" selection-end-line="546" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -129,15 +125,15 @@
         <option value="$PROJECT_DIR$/application/controllers/admin/Sale.php" />
         <option value="$PROJECT_DIR$/application/views/admin/proposals/_add_edit_items.php" />
         <option value="$PROJECT_DIR$/application/controllers/Quotation.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" />
         <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
         <option value="$PROJECT_DIR$/phpstorm.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Warehouses.php" />
         <option value="$PROJECT_DIR$/application/language/english/english_lang.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php" />
-        <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" />
+        <option value="$PROJECT_DIR$/assets/js/main.js" />
+        <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
       </list>
     </option>
   </component>
@@ -245,16 +241,7 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
-              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-              <item name="product_recipe" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
@@ -311,12 +298,12 @@
       <workItem from="1611828509765" duration="18523000" />
       <workItem from="1611943430852" duration="16000" />
       <workItem from="1614096826942" duration="326000" />
-      <workItem from="1615891079752" duration="13110000" />
+      <workItem from="1615891079752" duration="15604000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32308000" />
+    <option name="totallyTimeSpent" value="34802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -572,16 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="224" column="151" selection-start-line="224" selection-start-column="10" selection-end-line="224" selection-end-column="151" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phpstorm.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -617,6 +594,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/accounting.js/accounting.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="276" column="63" selection-start-line="276" selection-start-column="57" selection-end-line="276" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
@@ -630,27 +614,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="7210" column="68" selection-start-line="7210" selection-start-column="68" selection-end-line="7210" selection-end-column="68" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/plugins/accounting.js/accounting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="276" column="63" selection-start-line="276" selection-start-column="57" selection-end-line="276" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="426" column="43" selection-start-line="426" selection-start-column="43" selection-end-line="426" selection-end-column="43" />
+        <state relative-caret-position="-1305">
+          <caret line="409" column="70" lean-forward="true" selection-start-line="409" selection-start-column="70" selection-end-line="409" selection-end-column="70" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
@@ -659,6 +626,34 @@
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="7221" column="90" lean-forward="true" selection-start-line="7221" selection-start-column="90" selection-end-line="7221" selection-end-column="96" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="546" column="50" selection-start-line="546" selection-start-column="50" selection-end-line="546" selection-end-column="50" />
         </state>
       </provider>
     </entry>
