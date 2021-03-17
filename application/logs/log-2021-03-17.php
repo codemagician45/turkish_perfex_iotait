@@ -1266,3 +1266,16 @@ ERROR - 2021-03-17 06:08:23 --> Severity: Notice --> Trying to get property 'lon
 ERROR - 2021-03-17 06:08:23 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_iotait\application\controllers\admin\Invoice_items.php 205
 ERROR - 2021-03-17 06:08:25 --> Severity: Notice --> Trying to get property 'long_description' of non-object C:\xampp\htdocs\turkish_iotait\application\controllers\admin\Invoice_items.php 205
 ERROR - 2021-03-17 06:08:25 --> Severity: Warning --> Creating default object from empty value C:\xampp\htdocs\turkish_iotait\application\controllers\admin\Invoice_items.php 205
+ERROR - 2021-03-17 06:10:23 --> Could not find the language line "Packing Type"
+ERROR - 2021-03-17 06:10:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 58
+ERROR - 2021-03-17 06:10:23 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 68
+ERROR - 2021-03-17 06:10:23 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 70
+ERROR - 2021-03-17 06:25:59 --> Could not find the language line "delete_default_pack_first"
+ERROR - 2021-03-17 06:26:11 --> Could not find the language line "Packing Type"
+ERROR - 2021-03-17 06:26:11 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 58
+ERROR - 2021-03-17 06:26:11 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 68
+ERROR - 2021-03-17 06:26:11 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 70
+ERROR - 2021-03-17 06:26:16 --> Could not find the language line "Packing Type"
+ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 58
+ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 68
+ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 70

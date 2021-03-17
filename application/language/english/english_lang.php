@@ -4049,3 +4049,5 @@ $lang['mould_exists_info'] = 'It looks that a mould with name %s already exists.
 $lang['new_work_orders'] = 'New Work Orders';	
 $lang['new_type_of_quotation'] = 'New Type of Quotation';
 
+$lang['delete_default_pack_first'] = 'Delete Default Pack First';
+

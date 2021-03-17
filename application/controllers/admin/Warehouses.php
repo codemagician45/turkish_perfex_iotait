@@ -639,11 +639,17 @@ class Warehouses extends AdminController
         if (!$id) {
             redirect(admin_url('warehouses/packing_list'));
         }
-        $response = $this->warehouses_model->delete_packing_list($id);
-        if ($response == true) {
-            set_alert('success', _l('deleted', _l('packing_list')));
+
+        $default_pack = $this->db->query('SELECT * FROM tblpackage_group where packing_id ='.$id.' AND default_pack = 1')->result_array();
+        if(count($default_pack) > 0){
+            set_alert('warning', _l('delete_default_pack_first'));
         } else {
-            set_alert('warning', _l('problem_deleting', _l('packing_list')));
+            $response = $this->warehouses_model->delete_packing_list($id);
+            if ($response == true) {
+                set_alert('success', _l('deleted', _l('packing_list')));
+            } else {
+                set_alert('warning', _l('problem_deleting', _l('packing_list')));
+            }
         }
         redirect(admin_url('warehouses/packing_list'));
     }
