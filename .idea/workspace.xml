@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/logs/log-2021-03-16.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-03-16.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Warehouses_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Warehouses_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="315">
               <caret line="224" column="151" selection-start-line="224" selection-start-column="10" selection-end-line="224" selection-end-column="151" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -31,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="294" column="29" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="29" />
+            <state relative-caret-position="701">
+              <caret line="330" column="24" selection-start-line="330" selection-start-column="24" selection-end-line="330" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -46,7 +46,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_list/manage.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="630">
@@ -58,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="7217" column="22" selection-start-line="7217" selection-start-column="7" selection-end-line="7217" selection-end-column="22" />
+            <state relative-caret-position="785">
+              <caret line="8185" column="9" lean-forward="true" selection-start-line="8182" selection-start-column="8" selection-end-line="8185" selection-end-column="9" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
@@ -104,6 +104,8 @@
       <find>n get_stock</find>
       <find>n init_currency</find>
       <find>pricing_category</find>
+      <find>n add</find>
+      <find>get_item_by_id_with_relation</find>
     </findStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\dispatching_bay</dir>
@@ -129,15 +131,15 @@
         <option value="$PROJECT_DIR$/application/models/Invoices_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Planning.php" />
         <option value="$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php" />
-        <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/manage.php" />
         <option value="$PROJECT_DIR$/application/models/Purchases_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Sale.php" />
         <option value="$PROJECT_DIR$/application/views/admin/proposals/_add_edit_items.php" />
         <option value="$PROJECT_DIR$/application/controllers/Quotation.php" />
-        <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" />
+        <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
+        <option value="$PROJECT_DIR$/assets/js/main.js" />
       </list>
     </option>
   </component>
@@ -329,12 +331,12 @@
       <workItem from="1611828509765" duration="18523000" />
       <workItem from="1611943430852" duration="16000" />
       <workItem from="1614096826942" duration="326000" />
-      <workItem from="1615891079752" duration="10037000" />
+      <workItem from="1615891079752" duration="11344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29235000" />
+    <option name="totallyTimeSpent" value="30542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -585,13 +587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="294" column="29" selection-start-line="294" selection-start-column="18" selection-end-line="294" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -599,10 +594,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_list/manage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="123" column="37" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="224" column="151" selection-start-line="224" selection-start-column="10" selection-end-line="224" selection-end-column="151" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Warehouses_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="701">
+          <caret line="330" column="24" selection-start-line="330" selection-start-column="24" selection-end-line="330" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="7217" column="22" selection-start-line="7217" selection-start-column="7" selection-end-line="7217" selection-end-column="22" />
+        <state relative-caret-position="785">
+          <caret line="8185" column="9" lean-forward="true" selection-start-line="8182" selection-start-column="8" selection-end-line="8185" selection-end-column="9" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
@@ -616,26 +638,6 @@
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="224" column="151" selection-start-line="224" selection-start-column="10" selection-end-line="224" selection-end-column="151" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_list/manage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="123" column="37" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -313,13 +313,14 @@ class Warehouses_model extends App_Model
         $default_pack = $this->db->query('SELECT * from tblpackage_group where product_id='.$id.' AND default_pack = 1')->row();
         $stock_data = $this->db->query('SELECT * FROM tblstock_lists  WHERE id ='.$id)->row();
         $pack_list = $this->db->query('SELECT * from tblpackage_group left join tblpack_list on tblpack_list.`id` =tblpackage_group.`packing_id` where product_id='.$id)->result_array();
-
+        $barcode = $this->db->query('SELECT * FROM tblbarcode_list  WHERE products_code ='.$id)->row();
         if (!empty($default_pack)){
             $default_pack_id = $default_pack->packing_id;
             $default_pack_data = $this->db->query('SELECT * FROM tblpack_list  WHERE id ='.$default_pack_id)->row();
             return $data = [
                 'stock' => $stock_data,
                 'pack_list' => $pack_list,
+                'barcode' => $barcode,
                 'default_pack_capacity' => $default_pack->pack_capacity,
                 'default_pack_id' => $default_pack->packing_id
             ];
@@ -327,6 +328,7 @@ class Warehouses_model extends App_Model
             return $data = [
                 'stock' => $stock_data,
                 'pack_list' => $pack_list,
+                'barcode' => $barcode,
                 'default_pack_capacity' => NULL
             ];
         }

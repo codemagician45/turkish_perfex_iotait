@@ -8180,6 +8180,10 @@ function add_item_to_preview_quote(id) {
             $('input[name="original_price"]').val(response.stock.original_price);
         }
 
+        if(response.barcode){
+            original_price = $('input[name="original_price"]').val();
+            $('input[name="original_price"]').val(parseFloat(original_price) + parseFloat(response.barcode.barcode_price))
+        }
         init_selectpicker();
         init_color_pickers();
         init_datepicker();
