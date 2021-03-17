@@ -183,12 +183,9 @@
 
                         $table_row .= '<td><input type="number"  name="'.$items_indicator.'['.$i.'][rate_of_waste]" class="form-control material" value="'.$item['rate_of_waste'].'" onkeyup = "material_cost_calc_for_added(this)" onchange = "material_cost_calc_for_added(this)"></td>';
 
-                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                            <select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$default_machine.'</select></div></td>';
+                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="default_machine" data-fieldid="default_machine" name="'.$items_indicator.'['.$i.'][default_machine] id="default_machine" class="selectpicker form-control default_machine" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$default_machine.'</select></div></td>';
 
-                        $table_row .= '<td>
-                            <div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity_added(this);">'.$option.'</select></div>
-                        </td>';
+                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="mould" data-fieldid="mould" name="'.$items_indicator.'['.$i.'][mould]" class="selectpicker form-control mouldid" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="default_machine_and_mould_cavity_added(this);">'.$option.'</select></div></td>';
 
                         $table_row .= '<td><input type="text" readonly name="'.$items_indicator.'['.$i.'][mould_cavity]" class="form-control mould_cavity" value="'.$item['mould_cavity'].'"></td>';
 
@@ -200,8 +197,7 @@
 
                         $table_row .= '<td><input type="number" readonly name="'.$items_indicator.'['.$i.'][expected_profit]" class="form-control" data-expected-profit value="'.$item['expected_profit'].'"></td>';
 
-                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;">
-                            <select data-fieldto="connected_pair" data-fieldid="connected_pair" name="'.$items_indicator.'['.$i.'][connected_pair] id="connected_pair" class="selectpicker form-control connected_pair" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$connected_pair.'</select></div></td>';
+                        $table_row .= '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="connected_pair" data-fieldid="connected_pair" name="'.$items_indicator.'['.$i.'][connected_pair] id="connected_pair" class="selectpicker form-control connected_pair" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98">'.$connected_pair.'</select></div></td>';
 
                         $table_row .= '<td class="amount" align="right">' . $amount . '</td>';
 

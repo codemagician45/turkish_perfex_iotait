@@ -424,7 +424,7 @@
             row = $(this);
         });
         total = (total + subtotal + other_cost + ins_cost);
-        $('.total').html(format_money(total) + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
+        $('.total').html(format_money(total, 'TL') + hidden_input('total', accounting.toFixed(total, app.options.decimal_places)));
     }
 
     $(document).ready(function(){

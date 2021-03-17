@@ -1279,3 +1279,9 @@ ERROR - 2021-03-17 06:26:16 --> Could not find the language line "Packing Type"
 ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 58
 ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Illegal string offset 'app-field-wrapper' C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 68
 ERROR - 2021-03-17 06:26:16 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\turkish_iotait\application\helpers\fields_helper.php 70
+ERROR - 2021-03-17 06:31:03 --> Could not find the language line "pack price"
+ERROR - 2021-03-17 06:33:22 --> Could not find the language line "pack price"
+ERROR - 2021-03-17 06:34:47 --> Could not find the language line "pack price"
+ERROR - 2021-03-17 06:36:36 --> Could not find the language line "pack price"
+ERROR - 2021-03-17 06:37:25 --> Could not find the language line "pack price"
+ERROR - 2021-03-17 06:37:42 --> Could not find the language line "pack price"

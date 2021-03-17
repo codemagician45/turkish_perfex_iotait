@@ -7208,7 +7208,7 @@ function delete_item(row, itemid) {
 // Format money function
 function format_money(total, excludeSymbol) {
     if (typeof (excludeSymbol) != 'undefined' && excludeSymbol) {
-        return accounting.formatMoney(total, { symbol: '' });
+        return accounting.formatMoney(total, { symbol: excludeSymbol });
     }
 
     return accounting.formatMoney(total);
@@ -8173,7 +8173,7 @@ function add_item_to_preview_quote(id) {
             var default_pack_data = response.pack_list.filter(e=>{
                 return e.default_pack == 1
             })
-            var default_pack_price = parseFloat(default_pack_data[0].pack_price/default_pack_data[0].pack_capacity);
+            var default_pack_price = parseFloat(default_pactotalk_data[0].pack_price/default_pack_data[0].pack_capacity);
             $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(default_pack_price));
             $('input[name="volume_m3"]').val(default_pack_data[0].volume);
         } else {
