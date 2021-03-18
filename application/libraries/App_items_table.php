@@ -40,7 +40,6 @@ class App_items_table extends App_items_table_template
 
         $i = 1;
         foreach ($this->items as $item) {
-            // print_r($item); exit();
             $itemHTML = '';
 
             // Open table row
@@ -138,7 +137,6 @@ class App_items_table extends App_items_table_template
 
             $i++;
         }
-        // print_r($html); exit();
         return $html;
     }
 
@@ -224,7 +222,9 @@ class App_items_table extends App_items_table_template
             $itemHTML .= '<td align="right" width="10%">' . $item['notes'];
 
             $itemHTML .= '</td>';
-            
+
+            // Close table row
+            $itemHTML .= '</tr>';
             $html .= $itemHTML;
 
             $i++;
@@ -232,7 +232,96 @@ class App_items_table extends App_items_table_template
         return $html;
     }
 
+    public function items2()
+    {
+        $html = '';
+        $descriptionItemWidth = $this->get_description_item_width();
 
+        $regularItemWidth  = $this->get_regular_items_width(6);
+        $customFieldsItems = $this->get_custom_fields_for_table();
+
+        if ($this->for == 'html') {
+            $descriptionItemWidth = $descriptionItemWidth - 5;
+            $regularItemWidth     = $regularItemWidth - 5;
+        }
+
+        $i = 1;
+        foreach ($this->items as $item) {
+            $itemHTML = '';
+
+            // Open table row
+            $itemHTML .= '<tr' . $this->tr_attributes($item) . '>';
+
+            // Table data number
+            $itemHTML .= '<td' . $this->td_attributes() . ' align="center" width="8%">' . $i . '</td>';
+
+            $itemHTML .= '<td class="description" width="8%" align="left;" >';
+
+            /**
+             * Item product code
+             */
+
+            $itemHTML .= '<span style="font-size:' . $this->get_pdf_font_size() . 'px;"><strong>'
+                . $this->period_merge_field($item['product_code'])
+                . '</strong></span>';
+
+
+            $itemHTML .= '</td>';
+
+            $itemHTML .= '<td class="description" width="12%" align="left;" >';
+
+            /**
+             * Item product name
+             */
+
+            $itemHTML .= '<span style="font-size:' . $this->get_pdf_font_size() . 'px;"><strong>'
+                . $this->period_merge_field($item['product_name'])
+                . '</strong></span>';
+
+
+            $itemHTML .= '</td>';
+
+            /* Item Pack Capacity*/
+            $itemHTML .= '<td align="right" width="10%">' . $item['pack_capacity'].'</td>';
+
+            $pack_type = $this->ci->db->query('SELECT packing_type FROM '.db_prefix().'pack_list WHERE id='.$item[0][0]['packing_id'])->row()->packing_type;
+            $itemHTML .= '<td align="right" width="14%">' . $pack_type.'</td>';
+            /**
+             * Item quantity
+             */
+            $itemHTML .= '<td align="right" width="12%">' . $item['qty'];
+
+            $itemHTML .= '</td>';
+
+            /**
+             * Maybe item has added unit?
+             */
+            $unit = $this->ci->db->query('SELECT name FROM '.db_prefix().'units WHERE unitid='.$item['unit'])->row()->name;
+
+            $itemHTML .= '<td align="right" width="12%">' . $unit;
+
+            $itemHTML .= '</td>';
+
+            /* volume_m3 */
+
+            $itemHTML .= '<td align="right" width="12%">' . floatVal($item['volume_m3']);
+
+            $itemHTML .= '</td>';
+
+            /* Notes */
+
+            $itemHTML .= '<td align="right" width="12%">' . $item['notes'];
+
+            $itemHTML .= '</td>';
+
+            // Close table row
+            $itemHTML .= '</tr>';
+            $html .= $itemHTML;
+
+            $i++;
+        }
+        return $html;
+    }
     /**
      * Html headings preview
      * @return string
@@ -302,6 +391,28 @@ class App_items_table extends App_items_table_template
         $html .= '</tr>';
 
         return $html;
+    }
+
+    public function pdf_headings2()
+    {
+        $descriptionItemWidth = $this->get_description_item_width();
+        $regularItemWidth     = $this->get_regular_items_width(6);
+
+        $tblhtml = '<tr height="30" bgcolor="' . get_option('pdf_table_heading_color') . '" style="color:' . get_option('pdf_table_heading_text_color') . ';">';
+
+        $tblhtml .= '<th width="8%;" align="center">' . '#' . '</th>';
+        $tblhtml .= '<th width="8%" align="left">' . _l('product_code'). '</th>';
+        $tblhtml .= '<th width="12%" align="left">' . _l('product_name'). '</th>';
+        $tblhtml .= '<th width="10%" align="right">' . _l('pack_capacity'). '</th>';
+        $tblhtml .= '<th width="14%" align="right">' . _l('packing_type'). '</th>';
+        $tblhtml .= '<th width="12%" align="right">' . _l('qty'). '</th>';
+        $tblhtml .= '<th width="12%" align="right">' . _l('unit'). '</th>';
+        $tblhtml .= '<th width="12%" align="right">' . _l('volume_m3'). '</th>';
+        $tblhtml .= '<th width="12%" align="right">' . _l('notes'). '</th>';
+        $tblhtml .= '</tr>';
+
+        return $tblhtml;
+
     }
 
     /**

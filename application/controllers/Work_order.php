@@ -8,26 +8,27 @@ class Work_order extends ClientsController
     {
         check_invoice_restrictions($id, $hash);
         $invoice = $this->invoices_model->get($id);
-
+        $sum_volume = round($invoice->sum_volume_wo,2);
         $proposal = $this->proposals_model->get($invoice->rel_quote_id);
-        // print_r($proposal); exit();
-
+        $estimate = $this->estimates_model->get($invoice->rel_sale_id);
+        $customer = $this->clients_model->get($estimate->clientid);
+        $proposal->shipping_type = $estimate->shipping_type;
+        $proposal->shipping_date = date('d-m-Y',strtotime($estimate->req_shipping_date));
+        $proposal->customer = $customer->company;
+        $proposal->total_m3 = $sum_volume;
         $invoice = hooks()->apply_filters('before_client_view_invoice', $invoice);
-
         if (!is_client_logged_in()) {
             load_client_language($invoice->clientid);
         }
 
         // Handle Invoice PDF generator
-        if ($this->input->post('invoicepdf')) {
+//        if ($this->input->post('invoicepdf')) {
             try {
-                // $pdf = invoice_pdf($invoice);
-                $pdf = propsal_pdf($proposal);
+                $pdf = work_order_pdf($proposal);
             } catch (Exception $e) {
                 echo $e->getMessage();
                 die;
             }
-
             $invoice_number = format_invoice_number($invoice->id);
             $companyname    = get_option('invoice_company_name');
             if ($companyname != '') {
@@ -35,7 +36,7 @@ class Work_order extends ClientsController
             }
             $pdf->Output(mb_strtoupper(slug_it($invoice_number), 'UTF-8') . '.pdf', 'D');
             die();
-        }
+//        }
 
         // Handle $_POST payment
         if ($this->input->post('make_payment')) {

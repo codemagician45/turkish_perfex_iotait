@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/application/controllers/Work_order.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Work_order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/pdf_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/pdf_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/language/english/english_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english/english_lang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/App_items_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/App_items_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/App_items_table_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/App_items_table_template.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/logs/log-2021-03-17.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-03-17.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/vendor/tecnickcom/tcpdf/tcpdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/vendor/tecnickcom/tcpdf/tcpdf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/tables/invoices.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/invoices.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,50 +23,97 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Work_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="7221" column="90" lean-forward="true" selection-start-line="7221" selection-start-column="90" selection-end-line="7221" selection-end-column="96" />
+            <state relative-caret-position="294">
+              <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/tables/staff_timesheets.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-79">
+              <caret line="225" column="19" selection-start-line="225" selection-start-column="19" selection-end-line="225" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/helpers/pdf_helper.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/libraries/pdf/Work_order_pdf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="14">
+              <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/tables/invoices.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="170" column="62" selection-start-line="170" selection-start-column="41" selection-end-line="170" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/libraries/App_items_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2671">
+              <caret line="406" column="34" selection-start-line="406" selection-start-column="34" selection-end-line="406" selection-end-column="34" />
               <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#items1#0;n#App_items_table#0;n#!!top" />
+                <element signature="n#html_headings#0;n#App_items_table#0;n#!!top" />
+                <element signature="n#html_headings1#0;n#App_items_table#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php">
+        <entry file="file://$PROJECT_DIR$/application/language/english/english_lang.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1305">
-              <caret line="409" column="70" lean-forward="true" selection-start-line="409" selection-start-column="70" selection-end-line="409" selection-end-column="70" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="662">
+              <caret line="4051" column="8" lean-forward="true" selection-start-line="4051" selection-start-column="8" selection-end-line="4051" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/libraries/App_items_table_template.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1793">
+              <caret line="371" column="30" selection-start-line="371" selection-start-column="30" selection-end-line="371" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+        <entry file="file://$PROJECT_DIR$/application/views/themes/perfex/views/work_orderpdf.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="546" column="50" selection-start-line="546" selection-start-column="50" selection-end-line="546" selection-end-column="50" />
+            <state relative-caret-position="714">
+              <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#4;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,20 +122,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update_rel_wo_items_install</find>
-      <find>n update</find>
-      <find>rel_quote</find>
-      <find>transfer_out_confirm</find>
-      <find>transfer_out_ignore</find>
-      <find>invoice-form</find>
-      <find>n dispat</find>
-      <find>phase</find>
-      <find>sale_phases</find>
-      <find>estimates_model</find>
-      <find>add_purchase_order_item</find>
       <find>proposal-html-number</find>
       <find>n quotation</find>
-      <find>var pack_price = parseFloat</find>
       <find>add_item_to_preview_quote</find>
       <find>update_original_price</find>
       <find>n init_currency</find>
@@ -95,11 +134,35 @@
       <find>n delete</find>
       <find>default_pack</find>
       <find>total</find>
+      <find>propsal_pdf</find>
+      <find>html_headings</find>
+      <find>items</find>
+      <find>App_items_table</find>
+      <find>var pack_price = parseFloat</find>
+      <find>print_r</find>
+      <find>pdf</find>
+      <find>n table1</find>
+      <find>set_headings</find>
+      <find>packing_</find>
+      <find>pdf_table</find>
+      <find>_table_open</find>
+      <find>customer</find>
+      <find>html_headings1</find>
+      <find>datetime</find>
+      <find>shipping_date</find>
+      <find>strtotime</find>
+      <find>format</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
     <dirStrings>
       <dir>C:\xampp\htdocs\turkish_perfex\application\views\admin\warehouses\dispatching_bay</dir>
       <dir>C:\xampp\htdocs\turkish_iotait\application\views\themes</dir>
       <dir>C:\xampp\htdocs\turkish_iotait\application\views</dir>
+      <dir>C:\xampp\htdocs\turkish_iotait\application</dir>
+      <dir>C:\xampp\htdocs\turkish_iotait</dir>
+      <dir>C:\xampp\htdocs\turkish_iotait\application\views\admin\tables</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -129,11 +192,19 @@
         <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
         <option value="$PROJECT_DIR$/phpstorm.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Warehouses.php" />
-        <option value="$PROJECT_DIR$/application/language/english/english_lang.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/tables/invoices.php" />
+        <option value="$PROJECT_DIR$/application/views/themes/perfex/views/proposalpdf.php" />
+        <option value="$PROJECT_DIR$/application/views/themes/perfex/views/invoicepdf.php" />
+        <option value="$PROJECT_DIR$/application/libraries/App_items_table_template.php" />
+        <option value="$PROJECT_DIR$/application/libraries/App_items_table.php" />
+        <option value="$PROJECT_DIR$/application/language/english/english_lang.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Work_order.php" />
+        <option value="$PROJECT_DIR$/application/libraries/pdf/Work_order_pdf.php" />
+        <option value="$PROJECT_DIR$/application/views/themes/perfex/views/work_orderpdf.php" />
       </list>
     </option>
   </component>
@@ -226,6 +297,44 @@
               <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
               <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="language" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="language" type="462c0819:PsiDirectoryNode" />
+              <item name="english" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+              <item name="pdf" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -241,7 +350,31 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="proposals" type="462c0819:PsiDirectoryNode" />
+              <item name="tables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="perfex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="themes" type="462c0819:PsiDirectoryNode" />
+              <item name="perfex" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
@@ -298,12 +431,12 @@
       <workItem from="1611828509765" duration="18523000" />
       <workItem from="1611943430852" duration="16000" />
       <workItem from="1614096826942" duration="326000" />
-      <workItem from="1615891079752" duration="15604000" />
+      <workItem from="1615891079752" duration="39824000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34802000" />
+    <option name="totallyTimeSpent" value="59022000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -335,34 +468,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/system/core/Loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="233" column="20" selection-start-line="233" selection-start-column="20" selection-end-line="233" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Settings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Production.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="66" column="73" selection-start-line="66" selection-start-column="73" selection-end-line="66" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/ready_to_invoices.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1848">
-          <caret line="88" column="121" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Finances.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3829">
@@ -438,24 +543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Work_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-168">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/finance_overview.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/proposals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -566,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/language/english/english_lang.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="4051" column="63" selection-start-line="4051" selection-start-column="63" selection-end-line="4051" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin/Warehouses.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="449">
@@ -614,6 +698,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="561" column="9" lean-forward="true" selection-start-line="561" selection-start-column="9" selection-end-line="561" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1305">
@@ -650,10 +741,139 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="546" column="50" selection-start-line="546" selection-start-column="50" selection-end-line="546" selection-end-column="50" />
+        <state relative-caret-position="-231">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/proposals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/themes/perfex/views/invoicehtml.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/themes/perfex/views/invoicepdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="812">
+          <caret line="219" column="55" selection-start-line="219" selection-start-column="55" selection-end-line="219" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/sales_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="838" lean-forward="true" selection-start-line="838" selection-end-line="838" />
+          <folding>
+            <element signature="n#style#0;n#b#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/themes/perfex/views/proposalpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#strong#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/App_items_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2671">
+          <caret line="406" column="34" selection-start-line="406" selection-start-column="34" selection-end-line="406" selection-end-column="34" />
+          <folding>
+            <element signature="n#items1#0;n#App_items_table#0;n#!!top" />
+            <element signature="n#html_headings#0;n#App_items_table#0;n#!!top" />
+            <element signature="n#html_headings1#0;n#App_items_table#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/App_items_table_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1793">
+          <caret line="371" column="30" selection-start-line="371" selection-start-column="30" selection-end-line="371" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/english_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="662">
+          <caret line="4051" column="8" lean-forward="true" selection-start-line="4051" selection-start-column="8" selection-end-line="4051" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/staff_timesheets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-79">
+          <caret line="225" column="19" selection-start-line="225" selection-start-column="19" selection-end-line="225" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/pdf_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="186" column="9" selection-start-line="186" selection-start-column="9" selection-end-line="186" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Work_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/helpers/proposals_helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="123" column="19" lean-forward="true" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/tables/invoices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="170" column="62" selection-start-line="170" selection-start-column="41" selection-end-line="170" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/libraries/pdf/Work_order_pdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="22" column="80" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/themes/perfex/views/work_orderpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="76" column="17" lean-forward="true" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

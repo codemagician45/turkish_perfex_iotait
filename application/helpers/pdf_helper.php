@@ -184,6 +184,10 @@ function proposal_pdf($proposal, $tag = '')
     return app_pdf('proposal', LIBSPATH . 'pdf/Proposal_pdf', $proposal, $tag);
 }
 
+function work_order_pdf($proposal, $tag = '')
+{
+    return app_pdf('proposal', LIBSPATH . 'pdf/Work_order_pdf', $proposal, $tag);
+}
 /**
  * Generate contract pdf
  * @param  object $contract object db

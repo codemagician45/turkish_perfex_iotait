@@ -16972,8 +16972,9 @@ class TCPDF {
 						$dom[$key]['trids'] = array(); // IDs of TR elements
 						$dom[$key]['thead'] = ''; // table header rows
 					}
-					// print_r($dom[$key]['value']);
+					
 					if (($dom[$key]['value'] == 'tr')) {
+
 						$dom[$key]['cols'] = 0;
 						if ($thead) {
 							$dom[$key]['thead'] = true;
