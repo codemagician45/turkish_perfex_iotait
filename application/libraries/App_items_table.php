@@ -82,10 +82,10 @@ class App_items_table extends App_items_table_template
 
             $itemHTML .= '</td>';
 
-            /*Original Price*/
-            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['original_price']);
-
-            $itemHTML .= '</td>';
+//            /*Original Price*/
+//            $itemHTML .= '<td align="right" width="9%">' . floatVal($item['original_price']);
+//
+//            $itemHTML .= '</td>';
 
             /* Sale Price */
 
@@ -114,7 +114,7 @@ class App_items_table extends App_items_table_template
 
             /* Notes */
 
-            $itemHTML .= '<td align="right" width="10%">' . $item['notes'];
+            $itemHTML .= '<td align="right" width="19%">' . $item['notes'];
 
             $itemHTML .= '</td>';
 
@@ -343,7 +343,7 @@ class App_items_table extends App_items_table_template
         $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('pack_capacity') . '</th>';
         $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('qty') . '</th>';
         $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('unit') . '</th>';
-        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('original_price') . '</th>';
+//        $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('original_price') . '</th>';
         $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('sale_price') . '</th>';
         $html .= '<th width="' . $regularItemWidth . '%" align="right">' . _l('volume_m3') . '</th>';
         $html .= '<th width="' . $descriptionItemWidth . '%" align="right">' . _l('approval_need') . '</th>';
@@ -429,13 +429,13 @@ class App_items_table extends App_items_table_template
         $tblhtml .= '<th width="5%;" align="center">' . '#' . '</th>';
         $tblhtml .= '<th width="10%" align="left">' . _l('product_name'). '</th>';
         $tblhtml .= '<th width="8%" align="left">' . _l('pack_capacity'). '</th>';
-        $tblhtml .= '<th width="9%" align="left">' . _l('qty'). '</th>';
-        $tblhtml .= '<th width="10%" align="left">' . _l('unit'). '</th>';
-        $tblhtml .= '<th width="9%" align="left">' . _l('original_price'). '</th>';
-        $tblhtml .= '<th width="9%" align="left">' . _l('sale_price'). '</th>';
-        $tblhtml .= '<th width="10%" align="left">' . _l('volume_m3'). '</th>';
-        $tblhtml .= '<th width="10%" align="left">' . _l('approval_need'). '</th>';
-        $tblhtml .= '<th width="10%" align="left">' . _l('notes'). '</th>';
+        $tblhtml .= '<th width="9%" align="right">' . _l('qty'). '</th>';
+        $tblhtml .= '<th width="10%" align="right">' . _l('unit'). '</th>';
+//        $tblhtml .= '<th width="9%" align="left">' . _l('original_price'). '</th>';
+        $tblhtml .= '<th width="9%" align="right">' . _l('sale_price'). '</th>';
+        $tblhtml .= '<th width="10%" align="right">' . _l('volume_m3'). '</th>';
+        $tblhtml .= '<th width="10%" align="right">' . _l('approval_need'). '</th>';
+        $tblhtml .= '<th width="19%" align="right">' . _l('notes'). '</th>';
         $tblhtml .= '<th width="10%" align="right">' . $this->amount_heading() . '</th>';
         $tblhtml .= '</tr>';
 
