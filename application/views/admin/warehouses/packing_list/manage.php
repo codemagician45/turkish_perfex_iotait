@@ -15,14 +15,13 @@
 						<?php render_datatable(array(
 							_l('packing_type'),
 							// _l('pack_capacity'),
-							_l('box_quality'),
+							_l('box_quantity'),
 							_l('box_type'),
 							_l('l_size'),
 							_l('w_size'),
 							_l('h_size'),
 							_l('volume_m3'),
 							_l('pack_price'),
-							_l('price_per_item'),
 							_l('stock_quantity'),
 						),'packing_list'); ?>
 					</div>

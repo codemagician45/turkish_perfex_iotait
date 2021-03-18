@@ -4,14 +4,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $aColumns = [
 
     'packing_type',
-    'box_quality',
+    'box_quantity',
     'box_type',
     'l_size',
     'w_size',
     'h_size',
     'volume',
     'pack_price',
-    'price_per_item',
     'stock_qty'
 
 ];
@@ -52,7 +51,7 @@ foreach ($rResult as $aRow) {
     // else 
     //     $row[] = $default_pack_capacity->pack_capacity;
 
-    $row[] = $aRow['box_quality'];
+    $row[] = $aRow['box_quantity'];
 
     $row[] = $aRow['box_type'];
 
@@ -65,9 +64,7 @@ foreach ($rResult as $aRow) {
     $row[] = $aRow['volume'];
 
     $row[] = $aRow['pack_price'];
-
-    $row[] = $aRow['price_per_item'];
-
+    
     $row[] = $aRow['stock_qty'];
 
     $output['aaData'][] = $row;

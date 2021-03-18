@@ -15,8 +15,8 @@
                             </div>
                             <div class="col-md-6">
                                 <?php 
-                                $value = (isset($packing_list) ? $packing_list->box_quality : '');
-                                echo render_input('box_quality', _l('box_quality'), $value, 'text', array('placeholder' => _l('box_quality'))); ?>
+                                $value = (isset($packing_list) ? $packing_list->box_quantity : '');
+                                echo render_input('box_quantity', _l('box_quantity'), $value, 'text', array('placeholder' => _l('box_quantity'))); ?>
                             </div>
                             <div class="col-md-6">
                                 <?php 
@@ -53,11 +53,6 @@
                                 echo render_input('pack_price', _l('pack_price'), $value, 'number', array('placeholder' => _l('pack_price'))); ?>
                             </div>
 
-                            <div class="col-md-6">
-                                <?php 
-                                $value = (isset($packing_list) ? $packing_list->price_per_item : '');
-                                echo render_input('price_per_item', _l('price_per_item'), $value, 'number', array('placeholder' => _l('price_per_item'),'readonly'=>true)); ?>
-                            </div>
                             <div class="hide">
                                 <?php 
                                 $value = (isset($packing_list) ? $packing_list->stock_qty : '');
@@ -142,7 +137,7 @@
 
         var value = (pack_price / pack_capacity);
         var f_val = value.toFixed(2);
-        $('input[name="price_per_item"]').val(f_val);
+        // $('input[name="price_per_item"]').val(f_val);
 
 
     }

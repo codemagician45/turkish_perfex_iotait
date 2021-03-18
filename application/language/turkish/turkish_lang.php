@@ -3678,13 +3678,12 @@ $lang['packing_list'] = 'Koli Listesi';
 $lang['packing_type'] = 'Koli Adı';
 $lang['pack_capacity'] = 'Koli Kapasitesi';
 $lang['pack_price'] = 'Koli Fiyatı ';
-$lang['box_quality'] = 'Koli Kalitesi';
+$lang['box_quantity'] = 'Koli Kalitesi';
 $lang['box_type'] = 'Paket Tipi';
 $lang['l_size'] = 'Boy';
 $lang['w_size'] = 'En';
 $lang['h_size'] = 'Yükseklik';
 $lang['volume_m3'] = 'Hacim m3';
-$lang['price_per_item'] = 'Parça başı maliyet';
 $lang['new_packing_list'] = 'Yeni Koli';
 $lang['stock_qty'] = 'Stok Miktarı';
 

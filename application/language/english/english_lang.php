@@ -3695,13 +3695,12 @@ $lang['packing_list'] = 'Packing List';
 $lang['packing_type'] = 'Packing Type';
 $lang['pack_capacity'] = 'Pack Capacity';
 $lang['pack_price'] = 'Pack Price';
-$lang['box_quality'] = 'Box Quantity';
+$lang['box_quantity'] = 'Box Quantity';
 $lang['box_type'] = 'Box Type';
 $lang['l_size'] = 'L Size';
 $lang['w_size'] = 'W Size';
 $lang['h_size'] = 'H Size';
 $lang['volume_m3'] = 'Volume_m3';
-$lang['price_per_item'] = 'Price Per Item';
 $lang['new_packing_list'] = 'New Packing list';
 $lang['stock_qty'] = 'Stock Qty';
 
