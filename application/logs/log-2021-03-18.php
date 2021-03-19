@@ -85,3 +85,14 @@ ERROR - 2021-03-18 07:44:16 --> Severity: Notice --> Undefined index: price_per_
 ERROR - 2021-03-18 07:44:16 --> Severity: Notice --> Undefined index: price_per_item C:\xampp\htdocs\turkish_iotait\application\views\admin\tables\packing_list.php 68
 ERROR - 2021-03-18 07:44:16 --> Severity: Notice --> Undefined index: price_per_item C:\xampp\htdocs\turkish_iotait\application\views\admin\tables\packing_list.php 68
 ERROR - 2021-03-18 07:44:16 --> Severity: Notice --> Undefined index: price_per_item C:\xampp\htdocs\turkish_iotait\application\views\admin\tables\packing_list.php 68
+ERROR - 2021-03-18 22:42:50 --> Could not find the language line "moulds_suitability"
+ERROR - 2021-03-18 22:43:39 --> Could not find the language line "pack price"
+ERROR - 2021-03-18 22:51:27 --> Could not find the language line "pack price"
+ERROR - 2021-03-18 22:53:56 --> Severity: Warning --> Division by zero C:\xampp\htdocs\turkish_iotait\application\models\Manufacturing_settings_model.php 177
+ERROR - 2021-03-18 22:53:56 --> Severity: Warning --> Division by zero C:\xampp\htdocs\turkish_iotait\application\models\Manufacturing_settings_model.php 180
+ERROR - 2021-03-18 22:53:56 --> Query error: Unknown column 'INF' in 'field list' - Invalid query: Update tblproduct_recipe set production_cost =INF, expected_profit =INF, material_cost =0.00, mould_cavity =10.00 where id =260
+ERROR - 2021-03-18 22:54:08 --> Could not find the language line "pack price"
+ERROR - 2021-03-18 22:54:39 --> Severity: Warning --> Division by zero C:\xampp\htdocs\turkish_iotait\application\models\Manufacturing_settings_model.php 177
+ERROR - 2021-03-18 22:54:39 --> Severity: Warning --> Division by zero C:\xampp\htdocs\turkish_iotait\application\models\Manufacturing_settings_model.php 180
+ERROR - 2021-03-18 22:54:39 --> Query error: Unknown column 'INF' in 'field list' - Invalid query: Update tblproduct_recipe set production_cost =INF, expected_profit =INF, material_cost =0.00, mould_cavity =1.00 where id =260
+ERROR - 2021-03-18 22:55:10 --> Could not find the language line "pack price"

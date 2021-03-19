@@ -63,6 +63,7 @@ die('This file is used for development purposes only.');
  * @property CI_Zip              $zip                                 Zip Compression Class
  * @property CI_Utf8             $utf8                                Provides support for UTF-8 environments
  * @property warehouses_model    $warehouses_model
+ * @property manufacturing_settings_model    $manufacturing_settings_model
  */
 class CI_Controller
 {

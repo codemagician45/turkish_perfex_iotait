@@ -64,7 +64,7 @@ foreach ($rResult as $aRow) {
     $row[] = $aRow['volume'];
 
     $row[] = $aRow['pack_price'];
-    
+
     $row[] = $aRow['stock_qty'];
 
     $output['aaData'][] = $row;

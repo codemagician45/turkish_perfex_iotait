@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/language/english/english_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/english/english_lang.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/language/turkish/turkish_lang.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/language/turkish/turkish_lang.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/app-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/app-config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/logs/log-2021-03-18.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-03-18.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Manufacturing_settings_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Manufacturing_settings_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin/tables/packing_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/tables/packing_list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/warehouses/packing_list/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/warehouses/packing_list/manage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/warehouses/packing_list/packing_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/warehouses/packing_list/packing_list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpstorm.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpstorm.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,13 +18,59 @@
     <pharConfigPath>$PROJECT_DIR$/application/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin/Manufacturing_settings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="196" column="65" selection-start-line="196" selection-start-column="63" selection-end-line="196" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/Manufacturing_settings_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="286" column="39" selection-start-line="286" selection-start-column="39" selection-end-line="286" selection-end-column="39" />
+              <folding>
+                <element signature="n#delete_moulds_suitability#0;n#Manufacturing_settings_model#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="504">
+              <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/app-config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpstorm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="609">
+              <caret line="65" column="74" selection-start-line="65" selection-start-column="74" selection-end-line="65" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>add_item_to_preview_quote</find>
-      <find>update_original_price</find>
-      <find>n init_currency</find>
       <find>n add</find>
       <find>n get_stock</find>
       <find>get_item_by_id_with_relation</find>
@@ -53,6 +98,9 @@
       <find>format</find>
       <find>box_quality</find>
       <find>price_per_item</find>
+      <find>s</find>
+      <find>update</find>
+      <find>data</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -91,7 +139,6 @@
         <option value="$PROJECT_DIR$/application/controllers/Quotation.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" />
         <option value="$PROJECT_DIR$/application/models/Warehouses_model.php" />
-        <option value="$PROJECT_DIR$/phpstorm.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Warehouses.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/_add_edit_package.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_recipe/product_recipe.php" />
@@ -111,6 +158,10 @@
         <option value="$PROJECT_DIR$/application/language/english/english_lang.php" />
         <option value="$PROJECT_DIR$/application/language/turkish/turkish_lang.php" />
         <option value="$PROJECT_DIR$/application/views/admin/tables/packing_list.php" />
+        <option value="$PROJECT_DIR$/phpstorm.php" />
+        <option value="$PROJECT_DIR$/application/config/app-config.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/application/models/Manufacturing_settings_model.php" />
       </list>
     </option>
   </component>
@@ -197,6 +248,23 @@
             <path>
               <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
               <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
+              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -249,15 +317,16 @@
       <workItem from="1611828509765" duration="18523000" />
       <workItem from="1611943430852" duration="16000" />
       <workItem from="1614096826942" duration="326000" />
-      <workItem from="1615891079752" duration="41714000" />
+      <workItem from="1615891079752" duration="46085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60912000" />
+    <option name="totallyTimeSpent" value="65283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19669509" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -285,34 +354,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/admin/warehouses/dispatching_bay/invoice.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/upcoming_events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="49" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Leads.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/widgets/user_data.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="26" column="45" lean-forward="true" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/dashboard/dashboard.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -440,13 +481,6 @@
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/phpstorm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -693,6 +727,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="636" selection-start-line="636" selection-end-line="636" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpstorm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="609">
+          <caret line="65" column="74" selection-start-line="65" selection-start-column="74" selection-end-line="65" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/app-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="52" column="37" selection-start-line="52" selection-start-column="37" selection-end-line="52" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="60" column="38" selection-start-line="60" selection-start-column="38" selection-end-line="60" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Manufacturing_settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="196" column="65" selection-start-line="196" selection-start-column="63" selection-end-line="196" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Manufacturing_settings_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="286" column="39" selection-start-line="286" selection-start-column="39" selection-end-line="286" selection-end-column="39" />
+          <folding>
+            <element signature="n#delete_moulds_suitability#0;n#Manufacturing_settings_model#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
