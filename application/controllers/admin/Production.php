@@ -98,7 +98,6 @@ class Production extends AdminController
                 return;
 
             $_SESSION['production_qty']=$data;
-
             $success = $this->production_model->produced_qty($data);
             $message = '';
             if ($success) {

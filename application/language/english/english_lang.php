@@ -4052,3 +4052,8 @@ $lang['new_type_of_quotation'] = 'New Type of Quotation';
 $lang['delete_default_pack_first'] = 'Delete Default Pack First';
 $lang['total_m3'] = 'Total m3';
 
+$lang['day_shift'] = 'Day Shift';
+$lang['night_shift'] = 'Night Shift';
+$lang['enter_your_name'] = 'Enter Your Name';
+$lang['working_time'] = 'Working Time';
+

@@ -7218,7 +7218,6 @@ function format_money(total, excludeSymbol) {
 function init_currency(id) {
     var $accountingTemplate = $("body").find('.accounting-template');
     if ($accountingTemplate.length || id) {
-
         var selectedCurrencyId = !id ? $accountingTemplate.find('select[name="currency"]').val() : id;
         if (selectedCurrencyId)
             requestGetJSON('misc/get_currency/' + selectedCurrencyId)
@@ -8173,7 +8172,7 @@ function add_item_to_preview_quote(id) {
             var default_pack_data = response.pack_list.filter(e=>{
                 return e.default_pack == 1
             })
-            var default_pack_price = parseFloat(default_pactotalk_data[0].pack_price/default_pack_data[0].pack_capacity);
+            var default_pack_price = parseFloat(default_pack_data[0].pack_price/default_pack_data[0].pack_capacity);
             $('input[name="original_price"]').val(parseFloat(response.stock.original_price) + parseFloat(default_pack_price));
             $('input[name="volume_m3"]').val(default_pack_data[0].volume);
         } else {
@@ -8234,7 +8233,7 @@ function add_item_to_table_quote(data, itemid, merge_invoice, bill_expense) {
 
             table_row += '<input type="hidden" class="order" name="newitems[' + item_key + '][item_order]">';
 
-            table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="' + data.product_name + '"><input type="hidden" name="newitems[' + item_key + '][rel_product_id]" value="' + data.rel_product_id + '"></td>';
+            table_row += '<td class="bold description"><input type="text" name="newitems[' + item_key + '][product_name]" class="form-control" value="' + data.product_name + '"><input type="hidden" class="rel_product_id" name="newitems[' + item_key + '][rel_product_id]" value="' + data.rel_product_id + '"></td>';
 
             table_row += '<td><div class="dropdown bootstrap-select form-control bs3" style="width: 100%;"><select data-fieldto="pack_capacity" data-fieldid="pack_capacity" name="newitems[' + item_key + '][pack_capacity]" id="newitems[' + item_key + '][pack_capacity]" class="selectpicker form-control pack_capacity" data-width="100%" data-none-selected-text="None" data-live-search="true" tabindex="-98" onchange="volume_calc_added(this);">' + data.pack_capacity + '</select></div></td>';
 
