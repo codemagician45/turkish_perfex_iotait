@@ -180,6 +180,11 @@ class Purchases_model extends App_Model
         $rel_purchase_id = $data['rel_purchase_id'];
         unset($data['rel_purchase_id']);
         unset($data['product_id']);
+        $wo_product_id = $data[0]['wo_product_id'];
+        unset($data[0]['wo_product_id']);
+
+        $this->db->where('id', $wo_product_id);
+        $unit = $this->db->get('tblitemable')->row()->unit;
         foreach ($data as $val) {
             $temp = $val;
             if(!empty($val['received_qty']))
@@ -198,6 +203,7 @@ class Purchases_model extends App_Model
             if(isset($transfer_id) && !is_null($transfer_id))
                     $temp['transfer_id'] = $transfer_id;
             $temp['rel_purchase_id'] = $rel_purchase_id;
+            $temp['unit'] = $unit;
             unset($temp['item_id']);
             $this->db->insert(db_prefix() . 'purchase_order_item', $temp);
         }

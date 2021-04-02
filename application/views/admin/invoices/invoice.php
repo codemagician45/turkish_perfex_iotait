@@ -688,7 +688,8 @@
     			newitems:[{
     				product_name:$(row).parents('tr').find('.product_name').val(),
     				ordered_qty:$(row).parents('tr').find('.qty').val(),
-    				product_id:$(row).parents('tr').find('input[type="hidden"]')[1].value
+    				product_id:$(row).parents('tr').find('input[type="hidden"]')[1].value,
+    				wo_product_id:$(row).parents('tr').find('input[type="hidden"]')[2].value
     			}],
     			plan_item: $(row).parents('tr').find('input[type="hidden"]')[0].value
     		};

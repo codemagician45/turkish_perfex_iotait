@@ -48,7 +48,7 @@
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_code]" class="form-control" value="' . $item['product_code'] . '"></td>';
 
                         $table_row .= '<td class="bold description"><input type="text"  name="' . $items_indicator . '[' . $i . '][product_name]" class="form-control product_name" value="' . $item['product_name'] . '"><input type="hidden" name="' . $items_indicator . '[' . $i . '][ingredient_item_id]" value="' . $item['ingredient_item_id'] . '" ></td>';
-
+                        $table_row .= form_hidden('' . $items_indicator . '[' . $i . '][wo_product_id]', $item['wo_product_id']);
                         if($item[0] > $item['used_qty'])
                             $table_row .= '<td><a href="#" class="btn btn-success pull-right"><i class="fa fa-check-circle-o"></i></a></td>';
                         else {
