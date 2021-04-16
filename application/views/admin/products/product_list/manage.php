@@ -71,16 +71,19 @@
                 }
                 $('#loading').show();
                 $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
-                    $('#loading').hide();
                     var av_tables = ['.table-product_list'];
                     $.each(av_tables, function(i, selector) {
                         if ($.fn.DataTable.isDataTable(selector)) {
+                            console.log('reloaded table')
                             $(selector).DataTable().ajax.reload(null, false);
                         }
                     });
                 });
             });
         }
+        $(this).on( 'draw.dt', function () {
+            $('#loading').hide();
+        } );
     });
 
     $('#price_category').change(function(){
@@ -104,7 +107,6 @@
                     }
                     $('#loading').show();
                     $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
-                        $('#loading').hide();
                         var av_tables = ['.table-product_list'];
                         $.each(av_tables, function(i, selector) {
                             if ($.fn.DataTable.isDataTable(selector)) {
@@ -123,7 +125,6 @@
                 }
                 $('#loading').show();
                 $.post(admin_url+'warehouses/update_product_price', data).done(function(response) {
-                    $('#loading').hide();
                     var av_tables = ['.table-product_list'];
                     $.each(av_tables, function(i, selector) {
                         if ($.fn.DataTable.isDataTable(selector)) {
@@ -133,6 +134,10 @@
                 });
             }
         }
+
+        $('.table-product_list').on( 'draw.dt', function () {
+            $('#loading').hide();
+        } );
         
     })
 

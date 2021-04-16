@@ -65,6 +65,7 @@ die('This file is used for development purposes only.');
  * @property warehouses_model    $warehouses_model
  * @property manufacturing_settings_model    $manufacturing_settings_model
  * @property production_model    $production_model
+ * @property products_model    $products_model
  */
 class CI_Controller
 {
