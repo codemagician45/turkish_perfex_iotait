@@ -8178,10 +8178,11 @@ function add_item_to_preview_quote(id) {
         } else {
             $('input[name="original_price"]').val(response.stock.original_price);
         }
-
         if(response.barcode){
             original_price = $('input[name="original_price"]').val();
+            console.log(original_price);
             $('input[name="original_price"]').val(parseFloat(original_price) + parseFloat(response.barcode.barcode_price))
+            console.log($('input[name="original_price"]').val())
         }
         init_selectpicker();
         init_color_pickers();

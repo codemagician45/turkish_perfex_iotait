@@ -488,11 +488,11 @@ $('#pack_capacity').change(function(){
   var itemid = $('#item_select').selectpicker('val');
   var pack_id = $(this).selectpicker('val');
   requestGetJSON('warehouses/get_item_by_id_with_relation/' + itemid).done(function (response) {
-        console.log(response);
+        console.log('res', response);
         var pack_data = response.pack_list.filter(e=>{
             return e.packing_id == pack_id
         })
-        console.log(pack_data);
+        console.log('pack_data',pack_data);
         var pack_price;
         if(pack_data[0].pack_price)
             pack_price = parseFloat(pack_data[0].pack_price/pack_data[0].pack_capacity).toFixed(2);
