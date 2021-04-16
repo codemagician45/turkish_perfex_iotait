@@ -545,8 +545,10 @@ $('#pricing_category').change(function () {
                     requestGetJSON('warehouses/get_stock_list_by_id/' + id).done(function (response) {
                         selectedCurrencyId = $('select[name="currency"]').val();
                         console.log('ts',selectedCurrencyId)
+                        init_currency(selectedCurrencyId);
                         requestGetJSON('misc/get_currency/' + selectedCurrencyId).done(function (currency) {
                             $('#loading').hide();
+                            console.log(response)
                             original_price[0].value = (Number(response.price)*value1*value2/currency.rate).toFixed(2);
                         })
                     });
@@ -560,7 +562,6 @@ $('#pricing_category').change(function () {
                 original_price[0].value = 0;
             }
     }
-    init_currency();
 
 })
 </script>

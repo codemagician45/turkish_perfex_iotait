@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="967b1a9e-a87f-4e6e-ba88-6d40f663c837" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/config/app-config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/app-config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/logs/log-2021-04-16.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/logs/log-2021-04-16.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpstorm.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpstorm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,17 +17,31 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/invoices/invoice.php">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_list/manage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="315" column="20" selection-start-line="315" selection-start-column="12" selection-end-line="315" selection-end-column="20" />
+            <state relative-caret-position="462">
+              <caret line="126" column="99" selection-start-line="126" selection-start-column="99" selection-end-line="126" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="7217" column="9" selection-start-line="7217" selection-start-column="9" selection-end-line="7217" selection-end-column="9" />
               <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -37,10 +49,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/products/product_list/manage.php">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="126" column="99" selection-start-line="126" selection-start-column="99" selection-end-line="126" selection-end-column="99" />
+            <state relative-caret-position="546">
+              <caret line="550" column="48" selection-start-line="550" selection-start-column="48" selection-end-line="550" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -109,20 +121,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/invoices/rel_plans/plan_calendar_template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>var pack_price = parseFloat</find>
       <find>print_r</find>
       <find>pdf</find>
       <find>n table1</find>
@@ -152,6 +154,7 @@
       <find>$capacity_option</find>
       <find>day</find>
       <find>mould_id</find>
+      <find>pricing_category</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -213,7 +216,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/purchases/purchase_order/purchase_order.php" />
         <option value="$PROJECT_DIR$/application/views/admin/estimates/_add_edit_items0.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin/Production.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/application/views/admin/production/list_of_machinery/machine_calendar_template.php" />
         <option value="$PROJECT_DIR$/application/models/Production_model.php" />
@@ -221,6 +223,7 @@
         <option value="$PROJECT_DIR$/application/controllers/admin/Products.php" />
         <option value="$PROJECT_DIR$/application/config/app-config.php" />
         <option value="$PROJECT_DIR$/application/views/admin/products/product_list/manage.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/proposals/proposal.php" />
       </list>
     </option>
   </component>
@@ -341,24 +344,7 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
-              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="products" type="462c0819:PsiDirectoryNode" />
-              <item name="product_list" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
-              <item name="turkish_iotait" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="tables" type="462c0819:PsiDirectoryNode" />
+              <item name="proposals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="turkish_iotait" type="b2602c69:ProjectViewProjectNode" />
@@ -416,12 +402,12 @@
       <workItem from="1614096826942" duration="326000" />
       <workItem from="1615891079752" duration="60081000" />
       <workItem from="1616255643201" duration="2587000" />
-      <workItem from="1618572036115" duration="6993000" />
+      <workItem from="1618572036115" duration="8432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88859000" />
+    <option name="totallyTimeSpent" value="90298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -730,34 +716,6 @@
     <entry file="file://$PROJECT_DIR$/assets/js/map.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-616">
-          <caret line="490" column="35" selection-start-line="490" selection-start-column="35" selection-end-line="490" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="8179" column="9" selection-start-line="8179" selection-start-column="9" selection-end-line="8179" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Production_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3101">
@@ -812,13 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Products.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/tables/product_list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-126">
@@ -852,6 +803,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="126" column="99" selection-start-line="126" selection-start-column="99" selection-end-line="126" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin/Products.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="7217" column="9" selection-start-line="7217" selection-start-column="9" selection-end-line="7217" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proposals/proposal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="550" column="48" selection-start-line="550" selection-start-column="48" selection-end-line="550" selection-end-column="48" />
         </state>
       </provider>
     </entry>
